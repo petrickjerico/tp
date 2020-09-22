@@ -257,6 +257,7 @@ returns `CS2103T topics quiz week 7` and `CS2103T topics quiz week 8` <br />
 `or search CS2103t CS2101`  <br />
 returns `CS2103t topics quiz week 7` and `CS2101 OP1`
 
+
 ### Saving the data
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.

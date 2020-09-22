@@ -31,9 +31,10 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Johnny Doe
 
-<img src="images/johnydoe.png" width="200px">
+<img src="images/eddy.png" width="200px">
 
-[[github](http://github.com/ducbinh2611)] [[portfolio]()]
+[[github](http://github.com/chuyiting)] [[portfolio](team/eddychu.md)]
+
 
 * Role: Developer
 * Responsibilities: Data

@@ -19,31 +19,37 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: Dev Ops
 
-### Jane Doe
+### Yu Bowei
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/yubowei.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/bowei-yu)]
+[[portfolio](team/yubowei.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
 
 ### Johnny Doe
 
+<<<<<<< HEAD
 <img src="images/eddy.png" width="200px">
 
 [[github](http://github.com/chuyiting)] [[portfolio](team/eddychu.md)]
+=======
+<img src="images/johnydoe.png" width="200px">
+
+[[github](http://github.com/ducbinh2611)] [[portfolio]()]
+>>>>>>> 780cfde543c6749cff578638c218f7950d78520c
 
 * Role: Developer
 * Responsibilities: Data
 
-### Jean Doe
+### Ngo Duc Binh
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/ducbinh.jpg" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/ducbinh2611)]
+[[portfolio](team/ducbinh.md)]
 
 * Role: Developer
 * Responsibilities: Dev Ops + Threading

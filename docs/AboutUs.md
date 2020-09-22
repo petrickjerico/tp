@@ -31,7 +31,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Eddy Chu
 
-<img src="images/eddy.png" width="200px">
+<img src="images/chuyiting.png" width="200px">
 
 [[github](http://github.com/chuyiting)] 
 [[portfolio](team/eddychu.md)]

@@ -40,7 +40,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Ngo Duc Binh
 
-<img src="images/ducbinh.png" width="200px">
+<img src="images/ducbinh.jpg" width="200px">
 
 [[github](http://github.com/ducbinh2611)]
 [[portfolio](team/ducbinh.md)]

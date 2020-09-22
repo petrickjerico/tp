@@ -11,7 +11,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Joe Teddy Yosua Sanjaya
 
-<img src="images/joeteddy.png" width="200px">
+<img src="images/cupofjoee.png" width="200px">
 
 [[github](https://github.com/cupofjoee)]
 [[portfolio](team/joeteddy.md)]
@@ -21,7 +21,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Yu Bowei
 
-<img src="images/yubowei.png" width="200px">
+<img src="images/bowei-yu.png" width="200px">
 
 [[github](http://github.com/bowei-yu)]
 [[portfolio](team/yubowei.md)]
@@ -42,7 +42,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Ngo Duc Binh
 
-<img src="images/ducbinh.jpg" width="200px">
+<img src="images/ducbinh2611.png" width="200px">
 
 [[github](http://github.com/ducbinh2611)]
 [[portfolio](team/ducbinh.md)]

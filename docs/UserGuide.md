@@ -94,10 +94,62 @@ Examples:
 
 ### Add a flashcard into a flashcard set: `add fl`
 
+<br />
+
 ### Quiz
 
-### Task List
+### Add a task
 
+Adds a study task to the task list.
+Format: `add task <description> t:<time>`
+- <`description`> field is compulsory.
+- <`description`> can accept strings that are capitalized or separated with spaces.
+- [`time`] field is optional if the user wants to set a deadline or time limit for the task.
+
+Examples:
+- `add task Do CS2100 tutorial questions`
+- `add task CS2103T iP submission t:17/09/2020 23:59`
+
+<br />
+
+### Task
+
+### List tasks
+
+Shows a list of all the added study tasks.
+Format: `list task`
+
+
+### Delete a task
+
+Deletes the specified task from the study bananas.
+Format: `delete task:<index>`
+
+Examples:
+- Deletes the task at the specified index.
+- The index refers to the index number shown in the displayed task list.
+- The index must be a positive integer 1, 2, 3, …​
+
+### Search for a task
+
+Finds the tasks whose information contains any of the given keywords.
+Format: `search task:<keyword>`
+
+Basic Usage: 
+- The search is case-insensitive. e.g. homework will match Homework
+- The order of the keywords does not matter. e.g. CS2103T topics will match topics CS2103T
+- Start_time, period and name of the tasks are all searched
+- Partial word would match e.g. CS2013 matches CS2103T
+
+Advanced Usage:
+- or search: Tasks matching at least one keyword will be returned e.g. CS2103T CS2101 ST2334 will return CS2103T homework, CS2101 homework, and ST2334 homework 
+- and search (search is and search by default): Tasks matching all the keywords will be returned e.g. CS2103t week 7, will return CS2103T homework week 7
+
+Examples: <br />
+`search CS2103t` <br />
+returns `CS2103T topics quiz week 7` and `CS2103T topics quiz week 8` <br />
+`or search CS2103t CS2101`  <br />
+returns `CS2103t topics quiz week 7` and `CS2101 OP1`
 
 ### Saving the data
 

@@ -29,11 +29,12 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Team Lead
 * Responsibilities: UI
 
-### Johnny Doe
+### Eddy Chu
 
 <img src="images/eddy.png" width="200px">
 
-[[github](http://github.com/chuyiting)] [[portfolio](team/eddychu.md)]
+[[github](http://github.com/chuyiting)] 
+[[portfolio](team/eddychu.md)]
 
 
 * Role: Developer

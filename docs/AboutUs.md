@@ -31,19 +31,19 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Johnny Doe
 
-<img src="images/ducbinh.png" width="200px">
+<img src="images/johnydoe.png" width="200px">
 
-[[github](http://github.com/ducbinh2611)] [[portfolio](team/ducbinh.md)]
+[[github](http://github.com/ducbinh2611)] [[portfolio]()]
 
 * Role: Developer
 * Responsibilities: Data
 
 ### Ngo Duc Binh
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/ducbinh.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/ducbinh2611)]
+[[portfolio](team/ducbinh.md)]
 
 * Role: Developer
 * Responsibilities: Dev Ops + Threading

@@ -135,10 +135,74 @@ Format: `delete flset:<setindex> fl:<index>`
 
 Examples:
 - `delete flset:1 fl:3`
-=======
-<br />
 
-### Quiz
+### Quiz of flashcard set: `quiz flset`
+Shows the questions of the specific flashcard set. Depending on the user command, it may prompt for answers to store them for reference in the last attempt. Follow-up commands are required to continue with the quiz.
+
+#### CASE 1: No storage of answers required
+Starting command: `quiz flset:<setindex>`
+
+Examples: 
+`quiz flset:2`, `quiz flset:3`
+
+As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for the user to type in the next command, `flip` or `cancel`.
+
+- `flip`: Displays the answer to the flashcard question.
+- `cancel`: Stops the quiz 
+
+<img src="images/question.png" width="200px">
+
+If the command entered is `flip`, the correct answer will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`. 
+Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
+
+- `c`: Indicate that the question on the flashcard is answered correctly.
+- `w`: Indicates that the question is answered wrongly.
+- `cancel`: Stops the quiz
+
+<img src="images/answer.png" width="200px">
+
+The next question of the next flashcard will be displayed. Steps 1-2 are repeated until all flashcards in the set are displayed and answered.
+
+Once the quiz stops, the score will be displayed. This score can be viewed when viewing the last attempt of the flashcard set.
+
+#### CASE 2: Stores the user answers to the quiz
+Starting command: `quiz flset store:<setindex>`
+Examples: 
+`quiz flset store:1`, `quiz flset store:5`
+
+As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for the user to type in the answer to the question, or cancel, <answer> or cancel.
+
+- `<answer>`: Displays the answer to the flashcard question.
+- `cancel`: Stops the quiz 
+
+<img src="images/question.png" width="200px">
+
+If the user enters the `<answer>`, the correct answer to the question will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`. 
+Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
+
+- `c`: Indicate that the question on the flashcard is answered correctly.
+- `w`: Indicates that the question is answered wrongly.
+- `cancel`: Stops the quiz
+
+<img src="images/saved answer.png" width="200px">
+
+The next question of the next flashcard will be displayed. Steps 1-2 are repeated until all flashcards in the set are displayed and answered.
+
+Once the quiz stops, the score and answers will be displayed. Both information can be viewed when viewing the last attempt of the flashcard set.
+
+### View last quiz attempt: view flset quiz
+Shows the last attempt of a specific flashcard set.
+
+It comprises of the following information:
+- Score (percentage out of 100%), and
+- List of questions each followed by answers from the last attempt
+- Indicators of whether the question is answered correctly (shown as tick and cross) beside each question
+
+<img src="images/view score.png" width="200px">
+
+Format: `view flset quiz:<setname>`
+Examples: 
+`view flset quiz:9`, `view flset quiz:16`
 
 ### Add a task
 

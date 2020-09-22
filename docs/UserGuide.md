@@ -47,6 +47,9 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 * Words wrapped with angled brackets `<>` are the parameters to be supplied by the user.<br>
   e.g. in `add flset:<setname>`, `<setname>` is a parameter which can be used as `add flset:Chemistry`.
 
+* Words wrapped with square brackets `[]` are optional parameters to be supplied by the user.<br>
+  e.g. in `add task:<description> t:[time]`, `[time]` is an optional parameter.
+
 * Parameters can be in any order.<br>
   e.g. if the command specifies `flset:<setindex> q:<question> a:<answer>`, `a:<answer> q:<question> flset:<setindex>` is also acceptable.
 
@@ -83,8 +86,8 @@ Format: `list flset`
 ### Delete a flashcard set: `delete flset`
 
 Deletes an existing flashcard set and all flashcards that it contains.
-Format: `delete flset:<setindex>`
 
+Format: `delete flset:<setindex>`
 - `<setindex>` should be a positive integer.
 - `<setindex>` will throw an error if setindex does not exist.
 
@@ -94,10 +97,165 @@ Examples:
 
 ### Add a flashcard into a flashcard set: `add fl`
 
-### Quiz
+Adds a single flashcard with a question and an answer in a specified flashcard set
 
-### Task List
+Format:` add flset:<setindex> q:<question> a:<answer>`
 
+- `<question>`, `<answer>` and `<setindex>` fields are compulsory.
+- `<question>` and `<answer>` can accept strings that are capitalized or separated with spaces.
+- `<setindex>` should be a positive integer.
+- `<setindex>` will throw an error if setindex does not exist.
+
+Examples:
+- `add flset:1 q:konnichiwa a:hello `
+- `add flset:2 q:When demand goes up, what happens to price? a:Price increases`
+
+### List flashcards in a flashcard set: `list fl`
+
+Flashcards shown with details: question, answer and index.
+
+Format: `list fl:<setindex>`
+
+- `<setindex>` should be a positive integer.
+- `<setindex>` will throw an error if setindex does not exist.
+
+Examples:
+- `list flset:1`
+- `list flset:2`
+
+### Delete a flashcard in a flashcard set: `delete fl`
+
+Deletes a single flashcard in a specified flashcard set
+
+Format: `delete flset:<setindex> fl:<index>`
+
+- `<setindex>` and `<index>` fields are compulsory.
+- `<setindex>` and `<index>` should be a positive integer.
+- `<setindex>` and `<index>` will throw an error if either does not exist.
+
+Examples:
+- `delete flset:1 fl:3`
+
+### Quiz of flashcard set: `quiz flset`
+Shows the questions of the specific flashcard set. Depending on the user command, it may prompt for answers to store them for reference in the last attempt. Follow-up commands are required to continue with the quiz.
+
+#### CASE 1: No storage of answers required
+Starting command: `quiz flset:<setindex>`
+
+Examples: 
+`quiz flset:2`, `quiz flset:3`
+
+As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for the user to type in the next command, `flip` or `cancel`.
+
+- `flip`: Displays the answer to the flashcard question.
+- `cancel`: Stops the quiz 
+
+<img src="images/question.png" width="200px">
+
+If the command entered is `flip`, the correct answer will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`. 
+Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
+
+- `c`: Indicate that the question on the flashcard is answered correctly.
+- `w`: Indicates that the question is answered wrongly.
+- `cancel`: Stops the quiz
+
+<img src="images/answer.png" width="200px">
+
+The next question of the next flashcard will be displayed. Steps 1-2 are repeated until all flashcards in the set are displayed and answered.
+
+Once the quiz stops, the score will be displayed. This score can be viewed when viewing the last attempt of the flashcard set.
+
+#### CASE 2: Stores the user answers to the quiz
+Starting command: `quiz flset store:<setindex>`
+Examples: 
+`quiz flset store:1`, `quiz flset store:5`
+
+As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for the user to type in the answer to the question, or cancel, <answer> or cancel.
+
+- `<answer>`: Displays the answer to the flashcard question.
+- `cancel`: Stops the quiz 
+
+<img src="images/question.png" width="200px">
+
+If the user enters the `<answer>`, the correct answer to the question will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`. 
+Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
+
+- `c`: Indicate that the question on the flashcard is answered correctly.
+- `w`: Indicates that the question is answered wrongly.
+- `cancel`: Stops the quiz
+
+<img src="images/saved answer.png" width="200px">
+
+The next question of the next flashcard will be displayed. Steps 1-2 are repeated until all flashcards in the set are displayed and answered.
+
+Once the quiz stops, the score and answers will be displayed. Both information can be viewed when viewing the last attempt of the flashcard set.
+
+### View last quiz attempt: view flset quiz
+Shows the last attempt of a specific flashcard set.
+
+It comprises of the following information:
+- Score (percentage out of 100%), and
+- List of questions each followed by answers from the last attempt
+- Indicators of whether the question is answered correctly (shown as tick and cross) beside each question
+
+<img src="images/view score.png" width="200px">
+
+Format: `view flset quiz:<setname>`
+Examples: 
+`view flset quiz:9`, `view flset quiz:16`
+
+### Add a task
+
+Adds a study task to the task list.
+Format: `add task <description> t:<time>`
+- <`description`> field is compulsory.
+- <`description`> can accept strings that are capitalized or separated with spaces.
+- [`time`] field is optional if the user wants to set a deadline or time limit for the task.
+
+Examples:
+- `add task Do CS2100 tutorial questions`
+- `add task CS2103T iP submission t:17/09/2020 23:59`
+
+<br />
+
+### Task
+
+### List tasks
+
+Shows a list of all the added study tasks.
+Format: `list task`
+
+
+### Delete a task
+
+Deletes the specified task from the study bananas.
+Format: `delete task:<index>`
+
+Examples:
+- Deletes the task at the specified index.
+- The index refers to the index number shown in the displayed task list.
+- The index must be a positive integer 1, 2, 3, …​
+
+### Search for a task
+
+Finds the tasks whose information contains any of the given keywords.
+Format: `search task:<keyword>`
+
+Basic Usage: 
+- The search is case-insensitive. e.g. homework will match Homework
+- The order of the keywords does not matter. e.g. CS2103T topics will match topics CS2103T
+- Start_time, period and name of the tasks are all searched
+- Partial word would match e.g. CS2013 matches CS2103T
+
+Advanced Usage:
+- or search: Tasks matching at least one keyword will be returned e.g. CS2103T CS2101 ST2334 will return CS2103T homework, CS2101 homework, and ST2334 homework 
+- and search (search is and search by default): Tasks matching all the keywords will be returned e.g. CS2103t week 7, will return CS2103T homework week 7
+
+Examples: <br />
+`search CS2103t` <br />
+returns `CS2103T topics quiz week 7` and `CS2103T topics quiz week 8` <br />
+`or search CS2103t CS2101`  <br />
+returns `CS2103t topics quiz week 7` and `CS2101 OP1`
 
 
 ### Saving the data
@@ -119,12 +277,39 @@ _{explain the feature here}_
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
+
+### General commands
+
+| Action               | Format, Examples |
+|----------------------|------------------|
+| **Viewing Help**     | `help`           |
+| **Exit application** | `exit`           |
+
+### Flashcard commands
+
+| Action                                 | Format, Examples                                                                                                                         |
+|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add flashcard set**                  | `add flset:<setname>` <br> e.g., `add flset:Japanese`                                                                                    |
+| **List all flashcard sets**            | `list flset` <br>                                                                                                                        |
+| **Delete flashcard set**               | `delete flset:<setindex>` <br>  e.g., `delete flset:1`                                                                                   |
+| **Add flashcard in a specified set**   | `add flset:<setindex> q:<question> a:<answer>` <br> e.g., `add flset:2 q:When demand goes up, what happens to price? a:Price increases.` |
+| **List flashcards in a specified set** | `list flset:<setindex>` <br> e.g., `list fl:1`                                                                                           |
+| **Delete flashcard in specified set**  | `delete flset:<setindex> fl:<index>` <br> e.g., `delete flset:1 fl:1`                                                                    |
+
+### Quiz commands
+
+| Action                           | Format, Examples                                                                        |
+|----------------------------------|-----------------------------------------------------------------------------------------|
+| **Quiz flset (without storage)** | `quiz flset:<setindex>` <br> e.g., `quiz flset:7`, `flip`, `c/w`, `cancel`              |
+| **Quiz flset (with storage)**    | `quiz flset store:<setindex>` <br> e.g., `quiz flset store:10`, `flip`, `c/w`, `cancel` |
+| **View flset**                   | `view flset quiz:<setindex>` <br>  e.g., `view flset quiz:6`                            |
+
+
+### Task list commands
+
+| Action              | Format, Examples                                                                                                                           |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add task**        | `add task:<description> t:<time>` <br> e.g., `add task:Do CS2100 tutorial questions`, `add task:CS2103T iP submission t: 17/09/2020 23:59` |
+| **List tasks**      | `list task` <br>                                                                                                                           |
+| **Delete task**     | `delete task:<index>` <br>  e.g., `delete task:6`                                                                                          |
+| **Search for task** | `search task:<keywords>` or `search <keywords>` <br> e.g., `search task:CS2103T` or `search CS2103T`                                       |

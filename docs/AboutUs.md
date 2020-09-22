@@ -31,7 +31,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Eddy Chu
 
-<img src="images/eddy.png" width="200px">
+<img src="images/chuyiting.png" width="200px">
 
 [[github](http://github.com/chuyiting)] 
 [[portfolio](team/eddychu.md)]
@@ -50,12 +50,12 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
 
-### James Doe
+### Petrick Jerico Gustendi
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/petrickjerico.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/petrickjerico)]
+[[portfolio](team/petrickjerico.md)]
 
 * Role: Developer
 * Responsibilities: UI

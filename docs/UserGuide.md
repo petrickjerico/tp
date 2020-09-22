@@ -47,6 +47,9 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 * Words wrapped with angled brackets `<>` are the parameters to be supplied by the user.<br>
   e.g. in `add flset:<setname>`, `<setname>` is a parameter which can be used as `add flset:Chemistry`.
 
+* Words wrapped with square brackets `[]` are optional parameters to be supplied by the user.<br>
+  e.g. in `add task:<description> t:[time]`, `[time]` is an optional parameter.
+
 * Parameters can be in any order.<br>
   e.g. if the command specifies `flset:<setindex> q:<question> a:<answer>`, `a:<answer> q:<question> flset:<setindex>` is also acceptable.
 
@@ -83,8 +86,8 @@ Format: `list flset`
 ### Delete a flashcard set: `delete flset`
 
 Deletes an existing flashcard set and all flashcards that it contains.
-Format: `delete flset:<setindex>`
 
+Format: `delete flset:<setindex>`
 - `<setindex>` should be a positive integer.
 - `<setindex>` will throw an error if setindex does not exist.
 
@@ -93,6 +96,45 @@ Examples:
 - `delete flset:2`
 
 ### Add a flashcard into a flashcard set: `add fl`
+
+Adds a single flashcard with a question and an answer in a specified flashcard set
+
+Format:` add flset:<setindex> q:<question> a:<answer>`
+
+- `<question>`, `<answer>` and `<setindex>` fields are compulsory.
+- `<question>` and `<answer>` can accept strings that are capitalized or separated with spaces.
+- `<setindex>` should be a positive integer.
+- `<setindex>` will throw an error if setindex does not exist.
+
+Examples:
+- `add flset:1 q:konnichiwa a:hello `
+- `add flset:2 q:When demand goes up, what happens to price? a:Price increases`
+
+### List flashcards in a flashcard set: `list fl`
+
+Flashcards shown with details: question, answer and index.
+
+Format: `list fl:<setindex>`
+
+- `<setindex>` should be a positive integer.
+- `<setindex>` will throw an error if setindex does not exist.
+
+Examples:
+- `list flset:1`
+- `list flset:2`
+
+### Delete a flashcard in set: `delete fl`
+
+Deletes a single flashcard in a specified flashcard set
+
+Format: `delete flset:<setindex> fl:<index>`
+
+- `<setindex>` and `<index>` fields are compulsory.
+- `<setindex>` and `<index>` should be a positive integer.
+- `<setindex>` and `<index>` will throw an error if either does not exist.
+
+Examples:
+- `delete flset:1 fl:3`
 
 ### Quiz
 
@@ -118,12 +160,39 @@ _{explain the feature here}_
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
+
+### General commands
+
+| Action               | Format, Examples |
+|----------------------|------------------|
+| **Viewing Help**     | `help`           |
+| **Exit application** | `exit`           |
+
+### Flashcard commands
+
+| Action                                 | Format, Examples                                                                                                                         |
+|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add flashcard set**                  | `add flset:<setname>` <br> e.g., `add flset:Japanese`                                                                                    |
+| **List all flashcard sets**            | `list flset` <br>                                                                                                                        |
+| **Delete flashcard set**               | `delete flset:<setindex>` <br>  e.g., `delete flset:1`                                                                                   |
+| **Add flashcard in a specified set**   | `add flset:<setindex> q:<question> a:<answer>` <br> e.g., `add flset:2 q:When demand goes up, what happens to price? a:Price increases.` |
+| **List flashcards in a specified set** | `list flset:<setindex>` <br> e.g., `list fl:1`                                                                                           |
+| **Delete flashcard in specified set**  | `delete flset:<setindex> fl:<index>` <br> e.g., `delete flset:1 fl:1`                                                                    |
+
+### Quiz commands
+
+| Action                           | Format, Examples                                                                        |
+|----------------------------------|-----------------------------------------------------------------------------------------|
+| **Quiz flset (without storage)** | `quiz flset:<setindex>` <br> e.g., `quiz flset:7`, `flip`, `c/w`, `cancel`              |
+| **Quiz flset (with storage)**    | `quiz flset store:<setindex>` <br> e.g., `quiz flset store:10`, `flip`, `c/w`, `cancel` |
+| **View flset**                   | `view flset quiz:<setindex>` <br>  e.g., `view flset quiz:6`                            |
+
+
+### Task list commands
+
+| Action              | Format, Examples                                                                                                                           |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add task**        | `add task:<description> t:<time>` <br> e.g., `add task:Do CS2100 tutorial questions`, `add task:CS2103T iP submission t: 17/09/2020 23:59` |
+| **List tasks**      | `list task` <br>                                                                                                                           |
+| **Delete task**     | `delete task:<index>` <br>  e.g., `delete task:6`                                                                                          |
+| **Search for task** | `search task:<keywords>` or `search <keywords>` <br> e.g., `search task:CS2103T` or `search CS2103T`                                       |

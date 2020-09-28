@@ -3,10 +3,14 @@ layout: page
 title: User Guide
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+StudyBananas is a **desktop study companion app that helps students centralize all their study tasks and set up focused study sessions into one place, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
 * Table of Contents
-{:toc}
+1. [Quick Start](#quick-start)
+2. [Features](#features)
+   1. [Viewing Help](#viewing-help-:-`help`)
+3. [FAQ](#faq)
+4. [Command Summary](#command-summary)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -54,18 +58,21 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
   e.g. if the command specifies `flset:<setindex> q:<question> a:<answer>`, `a:<answer> q:<question> flset:<setindex>` is also acceptable.
 
 </div>
+<p>&nbsp;</p>
 
-### Viewing help : `help`
+### **Viewing help**: `help`
 
 Lists all available commands.
 
 Format: `help`
+<p>&nbsp;</p>
 
-### Exit program : `exit`
+### **Exit program**: `exit`
 
 Exits the program
+<p>&nbsp;</p>
 
-### Add a flashcard set: `add flset`
+### **Add a flashcard set**: `add flset`
 
 Adds a new flashcard set.
 
@@ -76,14 +83,16 @@ Format: `add flset:<setname>​`
 Examples:
 - `add flset:Japanese`
 - `add flset:Economics – Micro`
+<p>&nbsp;</p>
 
-### List all existing flashcard sets: `list flset`
+### **List all existing flashcard sets**: `list flset`
 
 Shows all existing flashcard sets - index and name.
 
 Format: `list flset`
+<p>&nbsp;</p>
 
-### Delete a flashcard set: `delete flset`
+### **Delete a flashcard set**: `delete flset`
 
 Deletes an existing flashcard set and all flashcards that it contains.
 
@@ -94,8 +103,9 @@ Format: `delete flset:<setindex>`
 Examples:
 - `delete flset:1`
 - `delete flset:2`
+<p>&nbsp;</p>
 
-### Add a flashcard into a flashcard set: `add fl`
+### **Add a flashcard into a flashcard set**: `add fl`
 
 Adds a single flashcard with a question and an answer in a specified flashcard set
 
@@ -109,8 +119,9 @@ Format:` add flset:<setindex> q:<question> a:<answer>`
 Examples:
 - `add flset:1 q:konnichiwa a:hello `
 - `add flset:2 q:When demand goes up, what happens to price? a:Price increases`
+<p>&nbsp;</p>
 
-### List flashcards in a flashcard set: `list fl`
+### **List flashcards in a flashcard set**: `list fl`
 
 Flashcards shown with details: question, answer and index.
 
@@ -122,8 +133,9 @@ Format: `list fl:<setindex>`
 Examples:
 - `list flset:1`
 - `list flset:2`
+<p>&nbsp;</p>
 
-### Delete a flashcard in a flashcard set: `delete fl`
+### **Delete a flashcard in a flashcard set**: `delete fl`
 
 Deletes a single flashcard in a specified flashcard set
 
@@ -135,11 +147,13 @@ Format: `delete flset:<setindex> fl:<index>`
 
 Examples:
 - `delete flset:1 fl:3`
+<p>&nbsp;</p>
 
-### Quiz of flashcard set: `quiz flset`
+### **Quiz of flashcard set**: `quiz flset`
 Shows the questions of the specific flashcard set. Depending on the user command, it may prompt for answers to store them for reference in the last attempt. Follow-up commands are required to continue with the quiz.
+<p>&nbsp;</p>
 
-#### CASE 1: No storage of answers required
+#### **CASE 1**: No storage of answers required
 Starting command: `quiz flset:<setindex>`
 
 Examples: 
@@ -164,8 +178,9 @@ Based on the correct answer displayed, evaluate the answer provided. If the ques
 The next question of the next flashcard will be displayed. Steps 1-2 are repeated until all flashcards in the set are displayed and answered.
 
 Once the quiz stops, the score will be displayed. This score can be viewed when viewing the last attempt of the flashcard set.
+<p>&nbsp;</p>
 
-#### CASE 2: Stores the user answers to the quiz
+#### **CASE 2**: Stores the user answers to the quiz
 Starting command: `quiz flset store:<setindex>`
 Examples: 
 `quiz flset store:1`, `quiz flset store:5`
@@ -189,8 +204,9 @@ Based on the correct answer displayed, evaluate the answer provided. If the ques
 The next question of the next flashcard will be displayed. Steps 1-2 are repeated until all flashcards in the set are displayed and answered.
 
 Once the quiz stops, the score and answers will be displayed. Both information can be viewed when viewing the last attempt of the flashcard set.
+<p>&nbsp;</p>
 
-### View last quiz attempt: view flset quiz
+### **View last quiz attempt**: view flset quiz
 Shows the last attempt of a specific flashcard set.
 
 It comprises of the following information:
@@ -203,8 +219,9 @@ It comprises of the following information:
 Format: `view flset quiz:<setname>`
 Examples: 
 `view flset quiz:9`, `view flset quiz:16`
+<p>&nbsp;</p>
 
-### Add a task
+### **Add a task**
 
 Adds a study task to the task list.
 Format: `add task <description> t:<time>`
@@ -215,14 +232,16 @@ Format: `add task <description> t:<time>`
 Examples:
 - `add task Do CS2100 tutorial questions`
 - `add task CS2103T iP submission t:17/09/2020 23:59`
+<p>&nbsp;</p>
 
-### List tasks
+### **List tasks**
 
 Shows a list of all the added study tasks.
 Format: `list task`
+<p>&nbsp;</p>
 
 
-### Delete a task
+### **Delete a task**
 
 Deletes the specified task from the study bananas.
 Format: `delete task:<index>`
@@ -231,8 +250,9 @@ Examples:
 - Deletes the task at the specified index.
 - The index refers to the index number shown in the displayed task list.
 - The index must be a positive integer 1, 2, 3, …​
+<p>&nbsp;</p>
 
-### Search for a task
+### **Search for a task**
 
 Finds the tasks whose information contains any of the given keywords.
 Format: `search task:<keyword>`
@@ -252,11 +272,12 @@ Examples: <br />
 returns `CS2103T topics quiz week 7` and `CS2103T topics quiz week 8` <br />
 `or search CS2103t CS2101`  <br />
 returns `CS2103t topics quiz week 7` and `CS2101 OP1`
+<p>&nbsp;</p>
 
-
-### Saving the data
+### **Saving the data**
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+<p>&nbsp;</p>
 
 ### Archiving data files `[coming in v2.0]`
 

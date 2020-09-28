@@ -301,6 +301,7 @@ _{explain the feature here}_
 |----------------------|------------------|
 | **Viewing Help**     | `help`           |
 | **Exit application** | `exit`           |
+<p>&nbsp;</p>
 
 ### Flashcard commands
 
@@ -312,6 +313,7 @@ _{explain the feature here}_
 | **Add flashcard in a specified set**   | `add flset:<setindex> q:<question> a:<answer>` <br> e.g., `add flset:2 q:When demand goes up, what happens to price? a:Price increases.` |
 | **List flashcards in a specified set** | `list flset:<setindex>` <br> e.g., `list fl:1`                                                                                           |
 | **Delete flashcard in specified set**  | `delete flset:<setindex> fl:<index>` <br> e.g., `delete flset:1 fl:1`                                                                    |
+<p>&nbsp;</p>
 
 ### Quiz commands
 
@@ -320,7 +322,7 @@ _{explain the feature here}_
 | **Quiz flset (without storage)** | `quiz flset:<setindex>` <br> e.g., `quiz flset:7`, `flip`, `c/w`, `cancel`              |
 | **Quiz flset (with storage)**    | `quiz flset store:<setindex>` <br> e.g., `quiz flset store:10`, `flip`, `c/w`, `cancel` |
 | **View flset**                   | `view flset quiz:<setindex>` <br>  e.g., `view flset quiz:6`                            |
-
+<p>&nbsp;</p>
 
 ### Task list commands
 

@@ -216,10 +216,6 @@ Examples:
 - `add task Do CS2100 tutorial questions`
 - `add task CS2103T iP submission t:17/09/2020 23:59`
 
-<br />
-
-### Task
-
 ### List tasks
 
 Shows a list of all the added study tasks.

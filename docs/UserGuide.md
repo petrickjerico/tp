@@ -3,16 +3,35 @@ layout: page
 title: User Guide
 ---
 
-StudyBananas is a **desktop study companion app that helps students centralize all their study tasks and set up focused study sessions into one place, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
+StudyBananas is a **desktop study companion app that helps students centralize all their study tasks and sets up focused study sessions into one place, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
-* Table of Contents
-1. [Quick Start](#quick-start)
-2. [Features](#features)
-   1. [Viewing help](#viewing-help:-`help`)
-   2. [Exit program](#exit-program:-`exit`)
-3. [FAQ](#faq)
-4. [Command Summary](#command-summary)
-
+## Table of Contents
+- [Quick start](#quick-start)
+- [Features](#features)
+  * [**Viewing help**: `help`](#--viewing-help-----help-)
+  * [**Exit program**: `exit`](#--exit-program-----exit-)
+  * [**Add a flashcard set**: `add flset`](#--add-a-flashcard-set-----add-flset-)
+  * [**List all existing flashcard sets**: `list flset`](#--list-all-existing-flashcard-sets-----list-flset-)
+  * [**Delete a flashcard set**: `delete flset`](#--delete-a-flashcard-set-----delete-flset-)
+  * [**Add a flashcard into a flashcard set**: `add fl`](#--add-a-flashcard-into-a-flashcard-set-----add-fl-)
+  * [**List flashcards in a flashcard set**: `list fl`](#--list-flashcards-in-a-flashcard-set-----list-fl-)
+  * [**Delete a flashcard in a flashcard set**: `delete fl`](#--delete-a-flashcard-in-a-flashcard-set-----delete-fl-)
+  * [**Quiz of flashcard set**: `quiz flset`](#--quiz-of-flashcard-set-----quiz-flset-)
+    + [**Case 1**: No storage of answers required](#--case-1----no-storage-of-answers-required)
+    + [**Case 2**: Stores the user answers to the quiz](#--case-2----stores-the-user-answers-to-the-quiz)
+  * [**View last quiz attempt**: `view flset quiz`](#--view-last-quiz-attempt----view-flset-quiz)
+  * [**Add a task**: `ask task`](#--add-a-task--)
+  * [**List tasks**: `list task`](#--list-tasks--)
+  * [**Delete a task**: `delete task`](#--delete-a-task--)
+  * [**Search for a task**: `search task`](#--search-for-a-task--)
+  * [**Saving the data**](#--saving-the-data--)
+  * [Archiving data files `[coming in v2.0]`](#archiving-data-files---coming-in-v20--)
+- [FAQ](#faq)
+- [Command summary](#command-summary)
+  * [General commands](#general-commands)
+  * [Flashcard commands](#flashcard-commands)
+  * [Quiz commands](#quiz-commands)
+  * [Task list commands](#task-list-commands)
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
@@ -34,6 +53,8 @@ StudyBananas is a **desktop study companion app that helps students centralize a
    * **`add`**`flset Chemistry` : Add a new empty set with name `Chemistry`.
 
    * **`delete`**`flset:3` : Deletes the 3rd flashcard set in the current list of flashcard sets.
+   
+   * **`add`**`task:Do CS2100 tutorial question` : Adds Doing CS2100 task to the task list.
 
    * **`exit`** : Exits the app.
 
@@ -205,7 +226,7 @@ The next question of the next flashcard will be displayed. Steps 1-2 are repeate
 Once the quiz stops, the score and answers will be displayed. Both information can be viewed when viewing the last attempt of the flashcard set.
 <p>&nbsp;</p>
 
-### **View last quiz attempt**: view flset quiz
+### **View last quiz attempt**: `view flset quiz`
 Shows the last attempt of a specific flashcard set.
 
 It comprises of the following information:
@@ -220,30 +241,34 @@ Examples:
 `view flset quiz:9`, `view flset quiz:16`
 <p>&nbsp;</p>
 
-### **Add a task**
+### **Add a task**: `add task`
 
-Adds a study task to the task list.
-Format: `add task <description> t:<time>`
-- <`description`> field is compulsory.
-- <`description`> can accept strings that are capitalized or separated with spaces.
-- [`time`] field is optional if the user wants to set a deadline or time limit for the task.
+Adds a study task to the task list.  
+Format: `add task:<description> t:[time]`
+- `<description>` field is compulsory.
+- `<description>` can accept strings that are capitalized or separated with spaces.
+- `[time]` field is optional if the user wants to set a deadline or time limit for the task.
 
 Examples:
 - `add task Do CS2100 tutorial questions`
 - `add task CS2103T iP submission t:17/09/2020 23:59`
 <p>&nbsp;</p>
 
-### **List tasks**
+### **List tasks**: `list task`
 
-Shows a list of all the added study tasks.
+Shows a list of all the added study tasks.  
+
 Format: `list task`
+
+Examples:
+- `list task`
 <p>&nbsp;</p>
 
+### **Delete a task**: `delete task`
 
-### **Delete a task**
+Deletes the specified task from the study bananas.  
 
-Deletes the specified task from the study bananas.
-Format: `delete task:<index>`
+Format: `delete task:<index>`  
 
 Examples:
 - Deletes the task at the specified index.
@@ -251,9 +276,10 @@ Examples:
 - The index must be a positive integer 1, 2, 3, …​
 <p>&nbsp;</p>
 
-### **Search for a task**
+### **Search for a task**: `search task`
 
-Finds the tasks whose information contains any of the given keywords.
+Finds the tasks whose information contains any of the given keywords.  
+
 Format: `search task:<keyword>`
 
 Basic Usage: 

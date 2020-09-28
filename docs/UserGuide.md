@@ -118,7 +118,7 @@ Deletes an existing flashcard set and all flashcards that it contains.
 
 Format: `delete flset:<setindex>`
 - `<setindex>` should be a positive integer.
-- `<setindex>` will throw an error if setindex does not exist.
+- `<setindex>` will throw an error if `setindex` does not exist.
 
 Examples:
 - `delete flset:1`
@@ -127,14 +127,14 @@ Examples:
 
 ### **Add a flashcard into a flashcard set**: `add fl`
 
-Adds a single flashcard with a question and an answer in a specified flashcard set
+Adds a single flashcard with a question and an answer in a specified flashcard set.
 
 Format:` add flset:<setindex> q:<question> a:<answer>`
 
 - `<question>`, `<answer>` and `<setindex>` fields are compulsory.
 - `<question>` and `<answer>` can accept strings that are capitalized or separated with spaces.
 - `<setindex>` should be a positive integer.
-- `<setindex>` will throw an error if setindex does not exist.
+- `<setindex>` will throw an error if `setindex` does not exist.
 
 Examples:
 - `add flset:1 q:konnichiwa a:hello `
@@ -143,12 +143,12 @@ Examples:
 
 ### **List flashcards in a flashcard set**: `list fl`
 
-Flashcards shown with details: question, answer and index.
+Shows the list of flashcards with details: question, answer and index.
 
 Format: `list fl:<setindex>`
 
 - `<setindex>` should be a positive integer.
-- `<setindex>` will throw an error if setindex does not exist.
+- `<setindex>` will throw an error if `setindex` does not exist.
 
 Examples:
 - `list flset:1`
@@ -157,7 +157,7 @@ Examples:
 
 ### **Delete a flashcard in a flashcard set**: `delete fl`
 
-Deletes a single flashcard in a specified flashcard set
+Deletes a single flashcard in a specified flashcard set.
 
 Format: `delete flset:<setindex> fl:<index>`
 
@@ -174,7 +174,7 @@ Shows the questions of the specific flashcard set. Depending on the user command
 <p>&nbsp;</p>
 
 #### **CASE 1**: No storage of answers required
-Starting command: `quiz flset:<setindex>`
+Format: `quiz flset:<setindex>`
 
 Examples: 
 `quiz flset:2`, `quiz flset:3`
@@ -186,7 +186,8 @@ As seen below, the first question of the first flashcard within the flashcard se
 
 <img src="images/question.png" width="200px">
 
-If the command entered is `flip`, the correct answer will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`. 
+If the command entered is `flip`, the correct answer will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`.  
+
 Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
 
 - `c`: Indicate that the question on the flashcard is answered correctly.
@@ -201,7 +202,8 @@ Once the quiz stops, the score will be displayed. This score can be viewed when 
 <p>&nbsp;</p>
 
 #### **CASE 2**: Stores the user answers to the quiz
-Starting command: `quiz flset store:<setindex>`
+Format: `quiz flset store:<setindex>`  
+
 Examples: 
 `quiz flset store:1`, `quiz flset store:5`
 
@@ -212,7 +214,8 @@ As seen below, the first question of the first flashcard within the flashcard se
 
 <img src="images/question.png" width="200px">
 
-If the user enters the `<answer>`, the correct answer to the question will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`. 
+If the user enters the `<answer>`, the correct answer to the question will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`.  
+
 Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
 
 - `c`: Indicate that the question on the flashcard is answered correctly.
@@ -236,7 +239,8 @@ It comprises of the following information:
 
 <img src="images/view score.png" width="200px">
 
-Format: `view flset quiz:<setname>`
+Format: `view flset quiz:<setname>`  
+
 Examples: 
 `view flset quiz:9`, `view flset quiz:16`
 <p>&nbsp;</p>
@@ -244,6 +248,7 @@ Examples:
 ### **Add a task**: `add task`
 
 Adds a study task to the task list.  
+  
 Format: `add task:<description> t:[time]`
 - `<description>` field is compulsory.
 - `<description>` can accept strings that are capitalized or separated with spaces.
@@ -278,19 +283,19 @@ Examples:
 
 ### **Search for a task**: `search task`
 
-Finds the tasks whose information contains any of the given keywords.  
+Finds the tasks of which information contains any of the given keywords.  
 
 Format: `search task:<keyword>`
 
 Basic Usage: 
-- The search is case-insensitive. e.g. homework will match Homework
-- The order of the keywords does not matter. e.g. CS2103T topics will match topics CS2103T
-- Start_time, period and name of the tasks are all searched
-- Partial word would match e.g. CS2013 matches CS2103T
+- The search is case-insensitive. e.g. `homework` will match `Homework`.
+- The order of the keywords does not matter. e.g. `CS2103T topics` will match `topics CS2103T`.
+- Start_time, period and name of the tasks are all searched.
+- Partial word would match e.g. `CS2013` matches `CS2103T`.
 
 Advanced Usage:
-- or search: Tasks matching at least one keyword will be returned e.g. CS2103T CS2101 ST2334 will return CS2103T homework, CS2101 homework, and ST2334 homework 
-- and search (search is and search by default): Tasks matching all the keywords will be returned e.g. CS2103t week 7, will return CS2103T homework week 7
+- `or` search: Tasks matching at least one keyword will be returned e.g. `CS2103T`, `CS2101`, `ST2334` will return `CS2103T homework`, `CS2101 homework`, and `ST2334 homework`. 
+- `and` search (search is and search by default): Tasks matching all the keywords will be returned e.g. `CS2103t week 7` will return `CS2103T homework week 7`
 
 Examples: <br />
 `search CS2103t` <br />
@@ -301,7 +306,7 @@ returns `CS2103t topics quiz week 7` and `CS2101 OP1`
 
 ### **Saving the data**
 
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+StudyBananas data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 <p>&nbsp;</p>
 
 ### Archiving data files `[coming in v2.0]`
@@ -313,7 +318,7 @@ _{explain the feature here}_
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous StudyBananas home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -353,7 +358,7 @@ _{explain the feature here}_
 
 | Action              | Format, Examples                                                                                                                           |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add task**        | `add task:<description> t:<time>` <br> e.g., `add task:Do CS2100 tutorial questions`, `add task:CS2103T iP submission t: 17/09/2020 23:59` |
+| **Add task**        | `add task:<description> t:[time]` <br> e.g., `add task:Do CS2100 tutorial questions`, `add task:CS2103T iP submission t: 17/09/2020 23:59` |
 | **List tasks**      | `list task` <br>                                                                                                                           |
 | **Delete task**     | `delete task:<index>` <br>  e.g., `delete task:6`                                                                                          |
 | **Search for task** | `search task:<keywords>` or `search <keywords>` <br> e.g., `search task:CS2103T` or `search CS2103T`                                       |

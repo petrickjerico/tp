@@ -8,10 +8,10 @@ StudyBananas is a **desktop study companion app that helps students centralize a
 For details on our project team members, do check out the [AboutUs](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/AboutUs.md) page.
 
 ## User Guide
-Curious to know how to use StudyBananas? We've got you! You may refer to the [User Guide](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md) for more details.
+Curious to know how to use StudyBananas? We've got you! You may refer to the [User Guide](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html) for more details.
 
 ## Developer Guide
-If you would like to contribute to this project, do head over to [Developer Guide](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md).
+If you would like to contribute to this project, do head over to [Developer Guide](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html) to get started!
 
 ## Acknowledgments
 This project is morphed from the AddressBook-Level3 project, created by the [SE-EDU initiative](https://se-education.org).

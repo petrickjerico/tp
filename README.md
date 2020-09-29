@@ -11,7 +11,7 @@ For details on our project team members, do check out the [AboutUs](https://gith
 Curious to know how to use StudyBananas? We've got you! You may refer to the [User Guide](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md) for more details.
 
 ## Developer Guide
-If you would like to contribute to this project, do take  [Developer Guide](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md).
+If you would like to contribute to this project, do head over to [Developer Guide](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md).
 
 ## Acknowledgments
 This project is morphed from the AddressBook-Level3 project, created by the [SE-EDU initiative](https://se-education.org).

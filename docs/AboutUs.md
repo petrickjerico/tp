@@ -5,7 +5,13 @@ title: About Us
 
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
+You may reach us through the following email addresses:
+
+Joe Teddy Yosua Sanjaya:
+Yu Bowei: e0425419@u.nus.edu
+Eddy Chu:
+Ngo Duc Binh:
+Petrick Jerico Gustendi:
 
 ## Project team
 

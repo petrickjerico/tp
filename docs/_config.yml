@@ -1,5 +1,5 @@
 title: "StudyBananas"
-theme: jekyll
+theme: minima
 
 header_pages:
   - UserGuide.md

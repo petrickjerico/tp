@@ -252,15 +252,25 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
-
+| Priority | As a …                                                         | I want to …                                                                                 | So that I can…                                                                     |
+|----------|----------------------------------------------------------------|-------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `* * *`  | Student                                                        | take advantage of the flashcard learning technique                                          | memorize important facts/parts of the notes more efficiently and organizedly.      |
+| `* * *`  | Learner who takes advantage of flashcard learning              | be able to create custom flashcards                                                         | store my notes in the form of flashcards which optimises my flashcard learning.    |
+| `* * *`  | User                                                           | delete my flashcards which are no longer in use                                             | manage my own flashcards.                                                          |
+| `* * *`  | Student who learns by tests                                    | test myself                                                                                 | learn more effectively.                                                            |
+| `* * *`  | Hard-working flashcard-learning user                           | create tests with the flashcard notes created by myself                                     | see how good my learning outcome is.                                               |
+| `* * *`  | User who learns by quizzing his/herself a lot                  | look back on my quiz attempts                                                               | evaluate how much more efforts I need to put in the section.                       |
+| `* * *`  | Student who regularly revises my concepts using flashcards     | see the detailed answering history for my past quiz attempts                                | evaluate which concepts are still unclear to me and spend more time on those.      |
+| `* * *`  | Student who regularly revises my concepts using flashcards     | see my quiz statistics                                                                      | know which part I do well and where I need improvement on in an objective manner.  |
+| `* * *`  | Student who has tons of homework and exams                     | have a to-do list that organizes my study plan                                              | plan my schedule more effectively.                                                 |
+| `* * *`  | Student who has a lot of homework and assignments              | create a homework to-do list                                                                | keep track of what tasks I need to complete.                                       |
+| `* * *`  | Student who frequently forgets my own homework and assignments | list out all the homework                                                                   | view what to do.                                                                   |
+| `* * *`  | Student who wants to look up certain homeworks and assignments | search or filter the list of homeworks and assignments                                      | see the information for a specific homework.                                       |                                 |
+| `* *`    | Savvy learner who wishes to track my study sessions            | schedule my study plan                                                                      | play myself more effectively.                                                      |
+| `* *`    | Savvy learner who wishes to track my study sessions            | put my todo task in my schedule                                                             | plan my todo tasks more organizedly without missing any deadlines.                 |
+| `* *`    | Extremely organised learner                                    | have a timer which runs during the scheduled period of time                                 | make the best use of my time                                                       |
+| `* *`    | Student who organises the schedule carefully                   | leave feedback for each of my study session                                                 | know my learning efficiency during each session and make my new plans based on it. |
+| `*`      | Super busy student                                             | have AI to schedule my todo lists based on my past studying statistics automatically for me | rely on the AI to make the best use of my time.                                    |
 *{More to be added}*
 
 ### Use cases
@@ -270,7 +280,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 #### Use case: UC01 create a set of flashcards
 **MSS:**
 1. User adds a new empty set of flashcards with a given name.
-2. User <ins> UC02 create and add an individual flashcard into a set <ins>
+2. User <ins> UC02 create and add an individual flashcard into a set </ins>
 3. Repeat 2 until all flashcards for the set are added.
 Use case ends.
 
@@ -282,7 +292,7 @@ Use case ends.
 #### Use case: UC02 Create and add an individual flashcard into a set
 **MSS:**
 1. User defines the question and answer of the flashcard.
-2. User <ins> UC03 see all existing flashcard sets <ins>
+2. User <ins> UC03 see all existing flashcard sets </ins>
 3. User adds the flashcard to the set using the flashcard set index
 Use case ends
 
@@ -299,7 +309,7 @@ Use case ends
 
 #### Use case: UC04 delete a flashcard set
 **MSS:**
-1. User <ins> UC03 see all existing flashcard sets <ins>
+1. User <ins> UC03 see all existing flashcard sets </ins>
 2. User enters the index to delete the set.
 Use case ends
  
@@ -312,7 +322,7 @@ Use case ends
     
 #### Use case: UC05 see all flashcards in a flashcard set
 **MSS**:
-1. User <ins> UC03 see all existing flashcard sets <ins>
+1. User <ins> UC03 see all existing flashcard sets </ins>
 2. User requests for the list of flashcards using a given flashcard set index
 3. StudyBananas shows the list of flashcards for the requested flashcard set
 Use case ends
@@ -323,7 +333,7 @@ Use case ends
 
 #### Use case: UC06 delete an individual flashcard from a set    
 **MSS**:
-1. User <ins> UC05 see all flashcards in a set. <ins>
+1. User <ins> UC05 see all flashcards in a set. </ins>
 2. User enter the index of the set and the individual flashcard to delete it.
 Use case ends
 
@@ -438,7 +448,7 @@ Use case ends
 
 #### Use case: UC13 view quiz score and past attempt
 **MSS**:
-1. User requests to <ins> UC03 see all available flashcard sets <ins>
+1. User requests to <ins> UC03 see all available flashcard sets </ins>
 2. User requests for the score and past attempt of a quiz regarding a flashcard set using a given flashcard set index
 3. StudyBananas shows the score and most recent past attempt for the requested flashcard set
    Use case ends

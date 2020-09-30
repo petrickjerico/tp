@@ -1,19 +1,20 @@
 ---
 layout: page
-title: AddressBook Level-3
+title: StudyBananas
 ---
 
-[![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/se-edu/addressbook-level3/actions)
-[![codecov](https://codecov.io/gh/se-edu/addressbook-level3/branch/master/graph/badge.svg)](https://codecov.io/gh/se-edu/addressbook-level3)
+[![CI Status](https://github.com/AY2021S1-CS2103T-F12-2/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S1-CS2103T-F12-2/tp/actions)
+[![codecov](https://codecov.io/gh/AY2021S1-CS2103T-F12-2/tp/branch/master/graph/badge.svg)](https://codecov.io/gh/AY2021S1-CS2103T-F12-2/tp)
 
 ![Ui](images/Ui.png)
 
-**AddressBook is a desktop application for managing your contact details.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
+**StudyBananas is a desktop study companion app** that helps students centralize all their study tasks and set up focused study sessions into one place, optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
-* If you are interested in using AddressBook, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
-* If you are interested about developing AddressBook, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
+* Curious to know how to use StudyBananas? We've got you! You may refer to the [User Guide](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html) for more details.
+* If you would like to contribute to this project, do head over to [Developer Guide](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html) to get started!
 
 
-**Acknowledgements**
+**Acknowledgments**
 
+* This project is morphed from the AddressBook-Level3 project, created by the [SE-EDU initiative](https://se-education.org).
 * Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)

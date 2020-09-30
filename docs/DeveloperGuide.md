@@ -344,7 +344,7 @@ Use case ends.
     * a1. StudyBanana shows an error message.
    Use case resumes at step 2.
 
-####Use case: UC07 quiz of flashcard set (no storage of answer)
+#### Use case: UC07 quiz of flashcard set (no storage of answer)
 **MSS**
 1. User requests a quiz of a given flashcard set
 2. StudyBananas shows the first question in the flashcard set

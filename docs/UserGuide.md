@@ -215,7 +215,7 @@ It comprises of the following information:
 
 <img src="images/view score.png" width="200px">
 
-Format: `view flset quiz:<setname>`
+Format: `view flset quiz:<setindex>`
 Examples: 
 `view flset quiz:9`, `view flset quiz:16`
 <p>&nbsp;</p>

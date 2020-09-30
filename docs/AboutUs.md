@@ -42,7 +42,6 @@ You may reach us through the following email addresses:
 [[github](http://github.com/chuyiting)] 
 [[portfolio](team/eddychu.md)]
 
-
 * Role: Developer
 * Responsibilities: Data
 

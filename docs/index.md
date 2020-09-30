@@ -15,6 +15,7 @@ While it has a GUI, most of the user interactions happen using a CLI (Command Li
 * If you are interested about developing StudyBananas, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
 
 
-**Acknowledgements**
+**Acknowledgments**
 
+* This project is morphed from the AddressBook-Level3 project, created by the [SE-EDU initiative](https://se-education.org).
 * Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)

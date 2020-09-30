@@ -328,7 +328,7 @@ _{explain the feature here}_
 ### General commands
 
 | Action               | Format, Examples |
-|----------------------|------------------|
+| -------------------- | ---------------- |
 | **Viewing Help**     | `help`           |
 | **Exit application** | `exit`           |
 <p>&nbsp;</p>
@@ -336,7 +336,7 @@ _{explain the feature here}_
 ### Flashcard commands
 
 | Action                                 | Format, Examples                                                                                                                         |
-|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | **Add flashcard set**                  | `add flset:<setname>` <br> e.g., `add flset:Japanese`                                                                                    |
 | **List all flashcard sets**            | `list flset` <br>                                                                                                                        |
 | **Delete flashcard set**               | `delete flset:<setindex>` <br>  e.g., `delete flset:1`                                                                                   |
@@ -348,7 +348,7 @@ _{explain the feature here}_
 ### Quiz commands
 
 | Action                           | Format, Examples                                                                        |
-|----------------------------------|-----------------------------------------------------------------------------------------|
+| -------------------------------- | --------------------------------------------------------------------------------------- |
 | **Quiz flset (without storage)** | `quiz flset:<setindex>` <br> e.g., `quiz flset:7`, `flip`, `c/w`, `cancel`              |
 | **Quiz flset (with storage)**    | `quiz flset store:<setindex>` <br> e.g., `quiz flset store:10`, `flip`, `c/w`, `cancel` |
 | **View flset**                   | `view flset quiz:<setindex>` <br>  e.g., `view flset quiz:6`                            |
@@ -357,8 +357,8 @@ _{explain the feature here}_
 ### Task list commands
 
 | Action              | Format, Examples                                                                                                                           |
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add task**        | `add task:<description> t:[time]` <br> e.g., `add task:Do CS2100 tutorial questions`, `add task:CS2103T iP submission t: 17/09/2020 23:59` |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Add task**        | `add task:<description> t:<time>` <br> e.g., `add task:Do CS2100 tutorial questions`, `add task:CS2103T iP submission t: 17/09/2020 23:59` |
 | **List tasks**      | `list task` <br>                                                                                                                           |
 | **Delete task**     | `delete task:<index>` <br>  e.g., `delete task:6`                                                                                          |
 | **Search for task** | `search task:<keywords>` or `search <keywords>` <br> e.g., `search task:CS2103T` or `search CS2103T`                                       |

@@ -8,10 +8,11 @@ title: StudyBananas
 
 ![Ui](images/Ui.png)
 
-**StudyBananas is a desktop study companion app** that helps students centralize all their study tasks and set up focused study sessions into one place, optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
+**StudyBananas is a desktop study companion app that helps students centralize all their study tasks and set up focused study sessions in one place**. 
+While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
 
-* Curious to know how to use StudyBananas? We've got you! You may refer to the [User Guide](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html) for more details.
-* If you would like to contribute to this project, do head over to [Developer Guide](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html) to get started!
+* If you are interested in using StudyBananas, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
+* If you are interested about developing StudyBananas, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
 
 
 **Acknowledgments**

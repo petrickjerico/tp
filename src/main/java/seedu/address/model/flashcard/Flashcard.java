@@ -1,5 +1,7 @@
 package seedu.address.model.flashcard;
 
+import java.util.Objects;
+
 /**
  * Represents a Flashcard in a FlashcardSet.
  */
@@ -32,5 +34,26 @@ public class Flashcard {
                 .append(" Answer: ")
                 .append(getAnswer());
         return builder.toString();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof Flashcard)) {
+            return false;
+        }
+
+        Flashcard otherFlashcard = (Flashcard) other;
+        return otherFlashcard.getQuestion().equals(getQuestion())
+                && otherFlashcard.getAnswer().equals(getAnswer());
+    }
+
+    @Override
+    public int hashCode() {
+        // use this method for custom fields hashing instead of implementing your own
+        return Objects.hash(question, answer);
     }
 }

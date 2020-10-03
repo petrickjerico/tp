@@ -1,7 +1,10 @@
 package seedu.address.model.flashcard;
 
+import seedu.address.model.person.Person;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Represents a FlashcardSet that contains flashcards for quiz.
@@ -27,4 +30,32 @@ public class FlashcardSet {
         return flashcards;
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof Person)) {
+            return false;
+        }
+
+        FlashcardSet otherFlashcardSet = (FlashcardSet) other;
+        return otherFlashcardSet.getName().equals(getName())
+                && otherFlashcardSet.getFlashcards().equals(getFlashcards());
+    }
+
+    @Override
+    public int hashCode() {
+        // use this method for custom fields hashing instead of implementing your own
+        return Objects.hash(name, flashcards);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+        builder.append(getName());
+        getFlashcards().forEach(builder::append);
+        return builder.toString();
+    }
 }

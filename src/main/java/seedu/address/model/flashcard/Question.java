@@ -37,7 +37,7 @@ public class Question {
     public String toString() {
         return question;
     }
-    
+
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object

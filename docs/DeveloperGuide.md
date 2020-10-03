@@ -236,89 +236,229 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* is a student, at upper secondary or tertiary education level
+* has a need to keep track of study tasks and test their understanding of what is learnt
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: 
+* manage study tasks and test learnt knowledge faster than a typical mouse/GUI driven app
+* centralize all study tasks and set up focused study sessions in one place
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …                                                         | I want to …                                                                                 | So that I can…                                                                     |
+| -------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `* * *`  | Student                                                        | take advantage of the flashcard learning technique                                          | memorize important facts/parts of the notes more efficiently and organizedly.      |
+| `* * *`  | Learner who takes advantage of flashcard learning              | be able to create custom flashcards                                                         | store my notes in the form of flashcards which optimises my flashcard learning.    |
+| `* * *`  | User                                                           | delete my flashcards which are no longer in use                                             | manage my own flashcards.                                                          |
+| `* * *`  | Student who learns by tests                                    | test myself                                                                                 | learn more effectively.                                                            |
+| `* * *`  | Hard-working flashcard-learning user                           | create tests with the flashcard notes created by myself                                     | see how good my learning outcome is.                                               |
+| `* * *`  | User who learns by quizzing his/herself a lot                  | look back on my quiz attempts                                                               | evaluate how much more efforts I need to put in the section.                       |
+| `* * *`  | Student who regularly revises my concepts using flashcards     | see the detailed answering history for my past quiz attempts                                | evaluate which concepts are still unclear to me and spend more time on those.      |
+| `* * *`  | Student who regularly revises my concepts using flashcards     | see my quiz statistics                                                                      | know which part I do well and where I need improvement on in an objective manner.  |
+| `* * *`  | Student who has tons of homework and exams                     | have a to-do list that organizes my study plan                                              | plan my schedule more effectively.                                                 |
+| `* * *`  | Student who has a lot of homework and assignments              | create a homework to-do list                                                                | keep track of what tasks I need to complete.                                       |
+| `* * *`  | Student who frequently forgets my own homework and assignments | list out all the homework                                                                   | view what to do.                                                                   |
+| `* * *`  | Student who wants to look up certain homework and assignments  | search or filter the list of homeworks and assignments                                      | see the information for a specific homework.                                       |
+| `* *`    | Savvy learner who wishes to track my study sessions            | schedule my study plan                                                                      | play myself more effectively.                                                      |
+| `* *`    | Savvy learner who wishes to track my study sessions            | put my todo task in my schedule                                                             | plan my todo tasks more organizedly without missing any deadlines.                 |
+| `* *`    | Extremely organised learner                                    | have a timer which runs during the scheduled period of time                                 | make the best use of my time                                                       |
+| `* *`    | Student who organises the schedule carefully                   | leave feedback for each of my study session                                                 | know my learning efficiency during each session and make my new plans based on it. |
+| `*`      | Super busy student                                             | have AI to schedule my todo lists based on my past studying statistics automatically for me | rely on the AI to make the best use of my time.                                    |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `StudyBanana` and the **Actor** is the `user`, unless specified otherwise)  
+(For all use cases below, the **System** is the `StudyBananas` and the **Actor** is the `user`, unless specified otherwise)  
 
-**Use case: Quiz of flashcard set (no storage of answer)**
+#### Use case: UC01 create a set of flashcards
+**MSS:**
+1. User adds a new empty set of flashcards with a given name.
+2. User <ins> UC02 create and add an individual flashcard into a set </ins>
+3. Repeat 2 until all flashcards for the set are added.
+Use case ends.
 
+**Extensions:**
+- 1a. Missing parameter - empty set name. 
+   * a1. StudyBananas shows a missing parameter error message
+      Use case ends
+
+#### Use case: UC02 Create and add an individual flashcard into a set
+**MSS:**
+1. User defines the question and answer of the flashcard.
+2. User <ins> UC03 see all existing flashcard sets </ins>
+3. User adds the flashcard to the set using the flashcard set index
+Use case ends
+
+**Extensions:**
+* 1a. Missing parameter - question, answer or index of the flashcard set.
+   * a1. Shows missing parameter error message.
+      Use case ends
+
+#### Use case: UC03 see all existing flashcard sets
 **MSS**
+1. User requests for the list of flashcards
+2. StudyBananas shows the list of flashcards
+Use case ends
 
-1.  User requests a quiz of a given flashcard set
-2.  StudyBanana shows a set of flashcard
+#### Use case: UC04 delete a flashcard set
+**MSS:**
+1. User <ins> UC03 see all existing flashcard sets </ins>
+2. User enters the index to delete the set.
+Use case ends
+ 
+**Extensions**:
+* 1a. There are no existing flashcard sets
+Use case ends
+* 2a. Invalid index
+  * a1. StudyBananas shows an error message
+    Use case ends
+    
+#### Use case: UC05 see all flashcards in a flashcard set
+**MSS**:
+1. User <ins> UC03 see all existing flashcard sets </ins>
+2. User requests for the list of flashcards using a given flashcard set index
+3. StudyBananas shows the list of flashcards for the requested flashcard set
+Use case ends
+
+**Extensions**:
+* 1a. Flashcard set is not present at entered index
+* a1. StudyBananas shows an error to indicate the invalid index
+
+#### Use case: UC06 delete an individual flashcard from a set    
+**MSS**:
+1. User <ins> UC05 see all flashcards in a set. </ins>
+2. User enter the index of the set and the individual flashcard to delete it.
+Use case ends
+
+**Extensions**:
+* 1a. The list is empty.
+Use case ends.
+* 2a. The given index is invalid.
+    * a1. StudyBanana shows an error message.
+   Use case resumes at step 2.
+
+#### Use case: UC07 quiz of flashcard set (no storage of answer)
+**MSS**
+1. User requests a quiz of a given flashcard set
+2. StudyBananas shows the first question in the flashcard set
+3. User manually answers the question
+4. User flips the flashcard to check the answer
+5. User indicates whether the input answer is correct or incorrect
+6. StudyBananas loads the next flashcard
+   Step 2 - 6 are repeated until reaching the end of the flashcard set, or the User wants to stop the quiz halfway.
+   Use case ends.  
+    
+**Extensions**
+* 2a. The flashcard set is empty.
+  Use case ends.
+* 2b. The flashcard set does not exist.
+  StudyBanana shows an error message.  
+* 5a. The answer indicator is invalid
+  StudyBanana shows an error message. User case resumes at step 5.
+* *a. At any time, User chooses to cancel the quiz.
+   * *a1. StudyBananas requests to confirm the cancellation.
+   * *a2. User confirms the cancellation.
+   Use case ends.
+
+#### Use case: UC08 quiz of flashcard set (with storage of answer)
+**MSS**
+1. User requests a quiz of a given flashcard set
+2. StudyBananas shows the first question in the flashcard set
 3.  User keys in their answer to the question
 4.  User flips the flashcard to check the answer
 5.  User indicates whether the input answer is correct or incorrect
-6.  StudyBanana loads the next flashcard
-7.  User can stops the quiz at point in time
-    
+6. StudyBananas stores the answer to each question and whether the answer was correct
+7.  StudyBananas loads the next flashcard
+    Step 2 - 6 are repeated until reaching the end of the flashcard set, or the User wants to stop the quiz halfway.
     Use case ends.  
-    
+
 **Extensions**
-
 * 2a. The flashcard set is empty.
-
   Use case ends.
-  
 * 2b. The flashcard set does not exist.
-  
   StudyBanana shows an error message.  
-  
 * 5a. The answer indicator is invalid
-  
-  StudyBanana shows an error message. User case resumes at step 5
-
-**Use case: Delete a given task from the list**
-
-**MSS**
-
-1.  User requests to list tasks
-2.  StudyBanana shows a list of tasks
-3.  User requests to delete a specific task in the list
-4.  StudyBanana deletes the task
-
+  StudyBanana shows an error message. User case resumes at step 5.
+* *a. At any time, User chooses to cancel the quiz.
+    * *a1. StudyBananas requests to confirm the cancellation.
+    * *a2. User confirms the cancellation.
     Use case ends.
 
+#### Use case: UC09 add a task to the task list
+**MSS**
+1.  User requests to add a new task to the list.
+2.  Study Bananas asks for confirmation.
+3.  User confirms it.
+4.  Study Bananas adds the task to the task list.
+     Use case ends
+
 **Extensions**
+* 2a. User disconfirms the request.
+   * a1. Study Bananas stops the process. 
+    Use case ends
+* *a. Cancellation
+   * a1. User asks for cancellation of current command.
+    Use case ends
+    
+#### Use case: UC10 delete a task
+**MSS**
+1. The user requests to delete a certain task.
+2. The system asks for confirmation.
+3. The user confirms it.
+4. The system deletes the task.
+  Use case ends
 
-* 2a. The list is empty.
+**Extensions**
+* 2a. Disconfirmation
+* 2a1. User disconfirms it.
+* 2a2. System stops implementation.
+   Use case ends
+* 3a. Invalid task specified
+    * 3a1. System signals to the user that the task is invalid
+    Use case ends
+* *a. Cancellation
+   * a1. User asks for cancellation of current command.
+    Use case ends
 
-  Use case ends.
+#### Use case: UC11 search for tasks
+**MSS**
+1. The user requests to search for tasks.
+2. The system asks for query key.
+3. The user types in the query key.
+4. The system replies with all the tasks that matched the query key.
+   Use case ends
 
-* 3a. The given index is invalid.
+**Extensions**
+* *a. Cancellation
+   * *a1. User asks for cancellation of current command.
+    Use case ends.
 
-    * 3a1. StudyBanana shows an error message.
+#### Use case: UC12 view all tasks
+**MSS**:
+1. User requests to view all the tasks
+2. StudyBananas shows all the tasks.
+Use case ends
 
-      Use case resumes at step 2.
+#### Use case: UC13 view quiz score and past attempt
+**MSS**:
+1. User requests to <ins> UC03 see all available flashcard sets </ins>
+2. User requests for the score and past attempt of a quiz regarding a flashcard set using a given flashcard set index
+3. StudyBananas shows the score and most recent past attempt for the requested flashcard set
+   Use case ends
 
-
-
-1.  
-*{More to be added}*
+**Extensions**:
+* 2a. Flashcard set is not present at entered index
+   * a1. StudyBananas shows an error to indicate the invalid index
+* 3a. Flashcard set has not been quizzed yet
+   * a1. StudyBananas shows an error to indicate that flashcard set has not been quizzed
 
 ### Non-Functional Requirements
 

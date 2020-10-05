@@ -1,13 +1,9 @@
 package seedu.address.model.task;
 
-
-import seedu.address.model.person.*;
-import seedu.address.model.tag.Tag;
+import static java.util.Objects.requireNonNull;
 
 import java.util.Objects;
 import java.util.Optional;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * Represents a Task in the StudyBananas.
@@ -17,6 +13,12 @@ public class Task {
     private final Optional<Date> date;
     private final Optional<DateTime> dateTime;
 
+    /**
+     * Initializes a Task.
+     * @param description Description of the task.
+     * @param date        Date of the task (Optional)
+     * @param dateTime    Date and Time of the task (Optional)
+     */
     public Task(Description description, Date date, DateTime dateTime) {
         requireNonNull(description);
         this.description = description;
@@ -43,6 +45,7 @@ public class Task {
     private boolean hasTime() {
         return !date.isEmpty() && dateTime.isEmpty();
     }
+
     /**
      * Returns true if both tasks have the same description and
      * This defines a stronger notion of equality between two persons.

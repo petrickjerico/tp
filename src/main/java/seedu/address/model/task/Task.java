@@ -5,33 +5,30 @@ import static java.util.Objects.requireNonNull;
 import java.util.Objects;
 import java.util.Optional;
 
-import seedu.address.model.person.Person;
-
 /**
  * Represents a Task in the StudyBananas.
  */
 public class Task {
 
     private final Title title;
-    private final Description description;
+    private final Optional<Description> description;
     private final Optional<Date> date;
     private final Optional<DateTime> dateTime;
 
     /**
      * Initializes a Task.
      * @param description Description of the task.
-     * @param date        Date of the task (Optional)
      * @param dateTime    Date and Time of the task (Optional)
      */
-    public Task(Title title, Description description, Date date, DateTime dateTime) {
+    public Task(Title title, Description description, DateTime dateTime) {
         requireNonNull(title);
         this.title = title;
-        this.description = description;
-        this.date = Optional.ofNullable(date);
+        this.description = Optional.ofNullable(description);
+        this.date = Optional.empty();
         this.dateTime = Optional.ofNullable(dateTime);
     }
 
-    public Description getDescription() {
+    public Optional<Description> getDescription() {
         return description;
     }
 
@@ -39,8 +36,8 @@ public class Task {
         return date.orElse(null);
     }
 
-    public DateTime getDateTime() {
-        return dateTime.orElse(null);
+    public Optional<DateTime> getDateTime() {
+        return dateTime;
     }
 
     public Title getTitle() {
@@ -70,8 +67,18 @@ public class Task {
 
         Task otherTask = (Task) other;
         return otherTask.getTitle().rigorousEquals(this.getTitle())
-                && otherTask.getDescription().rigorousEquals(this.getDescription());
+                && (other.getDescription().equals(this.getDescription())
+                || haveSameDescription(otherTask, this));
     }
+
+    private boolean bothHaveDescription(Task t1, Task t2) {
+        return t1.getDescription().isPresent() && t2.getDescription().isPresent();
+    }
+
+    private boolean haveSameDescription(Task t1, Task t2) {
+        return bothHaveDescription(t1, t2) && t1.getDescription().get().rigorousEquals(t2.getDescription().get());
+    }
+
 
     /**
      * Returns true if both tasks have the same identity and data fields.

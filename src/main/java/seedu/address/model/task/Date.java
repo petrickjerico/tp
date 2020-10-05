@@ -5,6 +5,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 
 /**
  * Represents a Task's date in StudyBananas.
@@ -19,6 +21,15 @@ public class Date {
             + "|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9"
             + "]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
     public final LocalDate date;
+
+    /**
+     * Default time is 12:00.
+     */
+    public static final DateTimeFormatter DATE_TO_STANDARD_DATETIME_FORMATTER =
+            new DateTimeFormatterBuilder().appendPattern("yyyy-MM-dd")
+                    .optionalStart().appendPattern(" HH:mm")
+                    .optionalEnd().parseDefaulting(ChronoField.HOUR_OF_DAY, 12)
+                    .parseDefaulting(ChronoField.MINUTE_OF_DAY, 0).toFormatter();
 
     /**
      * Constructs a {@code Date}.

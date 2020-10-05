@@ -37,6 +37,9 @@ public class Description {
         return test.matches(VALIDATION_REGEX);
     }
 
+    public boolean rigorousEquals(Description other) {
+        return this.description.toLowerCase().equals(other.description.toLowerCase());
+    }
 
     @Override
     public String toString() {

@@ -5,6 +5,8 @@ import static java.util.Objects.requireNonNull;
 import java.util.Objects;
 import java.util.Optional;
 
+import seedu.address.model.person.Person;
+
 /**
  * Represents a Task in the StudyBananas.
  */
@@ -54,8 +56,26 @@ public class Task {
     }
 
     /**
-     * Returns true if both tasks have the same description and
-     * This defines a stronger notion of equality between two persons.
+     * Returns true if both tasks have the same title and description.
+     * This defines a weaker notion of equality between two tasks.
+     */
+    public boolean isSameTask(Task other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof Task)) {
+            return false;
+        }
+
+        Task otherTask = (Task) other;
+        return otherTask.getTitle().rigorousEquals(this.getTitle())
+                && otherTask.getDescription().rigorousEquals(this.getDescription());
+    }
+
+    /**
+     * Returns true if both tasks have the same identity and data fields.
+     * This defines a stronger notion of equality between two tasks.
      */
     @Override
     public boolean equals(Object other) {
@@ -69,7 +89,9 @@ public class Task {
 
         Task otherTask = (Task) other;
         return otherTask.getTitle().equals(this.getTitle())
-                && otherTask.getDescription().equals(this.getDescription());
+                && otherTask.getDescription().equals(this.getDescription())
+                && otherTask.date.equals(this.date)
+                && otherTask.dateTime.equals(this.dateTime);
     }
 
     @Override

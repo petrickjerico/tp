@@ -35,6 +35,9 @@ public class Title {
         return test.matches(VALIDATION_REGEX);
     }
 
+    public boolean rigorousEquals(Title other) {
+        return this.title.toLowerCase().equals(other.title.toLowerCase());
+    }
 
     @Override
     public String toString() {

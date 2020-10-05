@@ -11,6 +11,8 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.core.index.Index;
+import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.person.Person;
 
 /**
@@ -148,4 +150,9 @@ public class ModelManager implements Model {
                 && filteredPersons.equals(other.filteredPersons);
     }
 
+    //=========== Flashcard =============================================================
+    @Override
+    public void addFlashcard(Flashcard flashcard, Index flashcardSetIndex) {
+        // TODO: Add flashcard to the FlashcardBank
+    }
 }

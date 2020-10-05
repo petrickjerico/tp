@@ -9,6 +9,8 @@ import java.util.Optional;
  * Represents a Task in the StudyBananas.
  */
 public class Task {
+
+    private final Title title;
     private final Description description;
     private final Optional<Date> date;
     private final Optional<DateTime> dateTime;
@@ -19,8 +21,9 @@ public class Task {
      * @param date        Date of the task (Optional)
      * @param dateTime    Date and Time of the task (Optional)
      */
-    public Task(Description description, Date date, DateTime dateTime) {
-        requireNonNull(description);
+    public Task(Title title, Description description, Date date, DateTime dateTime) {
+        requireNonNull(title);
+        this.title = title;
         this.description = description;
         this.date = Optional.ofNullable(date);
         this.dateTime = Optional.ofNullable(dateTime);
@@ -36,6 +39,10 @@ public class Task {
 
     public DateTime getDateTime() {
         return dateTime.orElse(null);
+    }
+
+    public Title getTitle() {
+        return title;
     }
 
     private boolean hasDate() {
@@ -61,9 +68,8 @@ public class Task {
         }
 
         Task otherTask = (Task) other;
-        return otherTask.getDescription().equals(this.getDescription())
-                && otherTask.date.equals(this.date)
-                && otherTask.dateTime.equals(this.dateTime);
+        return otherTask.getTitle().equals(this.getTitle())
+                && otherTask.getDescription().equals(this.getDescription());
     }
 
     @Override
@@ -75,7 +81,10 @@ public class Task {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getDescription())
+        builder.append("Title: ")
+                .append(getTitle() + "\n")
+                .append("Description: ")
+                .append(getDescription() + "\n")
                 .append(hasDate() ? " Time: " : "")
                 .append(hasTime() ? getDateTime() : getDate());
         return builder.toString();

@@ -10,7 +10,10 @@ import java.util.regex.Pattern;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.addressbookcommands.HelpCommand;
 import seedu.address.logic.commands.addressbookcommands.ListCommand;
+import seedu.address.logic.commands.schedulecommands.ScheduleAddCommand;
+import seedu.address.logic.commands.schedulecommands.ScheduleDeleteCommand;
 import seedu.address.logic.commands.schedulecommands.ScheduleListCommand;
+import seedu.address.logic.commands.schedulecommands.ScheduleSearchCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -18,7 +21,8 @@ public class ScheduleParser implements Parser<Command> {
     /**
      * Used for initial separation of command word and args.
      */
-    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
+    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.
+            compile("((\\w+) (\\w+))(\\s.*)?");
 
     @Override
     public Command parse(String userInput) throws ParseException {
@@ -27,12 +31,20 @@ public class ScheduleParser implements Parser<Command> {
         if (!matcher.matches()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
-        final String commandWord = matcher.group("commandWord");
-        final String arguments = matcher.group("arguments");
+        final String commandWord = matcher.group(1);
+        //temporary to solve the bug...
+        final String arguments = matcher.group(4);
+
 
         switch (commandWord) {
         case ScheduleListCommand.COMMAND_WORD:
-            return new ListCommand();
+            return new ScheduleListCommand();
+        case ScheduleAddCommand.COMMAND_WORD:
+            return new ScheduleAddCommandParser().parse(arguments);
+        case ScheduleDeleteCommand.COMMAND_WORD:
+            return new ScheduleDeleteCommandParser().parse(arguments);
+        case ScheduleSearchCommand.COMMAND_WORD:
+            return new ScheduleSearchCommandParser().parse(arguments);
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }

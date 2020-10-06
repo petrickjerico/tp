@@ -5,6 +5,8 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.commons.core.index.Index;
+import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.person.Person;
 
 /**
@@ -34,6 +36,7 @@ public interface Model {
      */
     void setGuiSettings(GuiSettings guiSettings);
 
+    // ADDRESSBOOK
     /**
      * Returns the user prefs' address book file path.
      */
@@ -84,4 +87,7 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    // FLASHCARD
+    void addFlashcard(Flashcard flashcard, Index flashcardSetIndex);
 }

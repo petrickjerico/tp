@@ -201,6 +201,7 @@ public class AddCommandTest {
         @Override
         public void updateFilteredTaskList(Predicate<Task> predicate) {
             throw new AssertionError("This method should not be called.");
+        }
 
         public void addFlashcard(Flashcard flashcard, Index flashcardSetIndex) {
             // TODO: AddFlashcard implementation.

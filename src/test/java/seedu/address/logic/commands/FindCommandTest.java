@@ -29,6 +29,7 @@ public class FindCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new Schedule());
     private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new Schedule());
 
+
     @Test
     public void equals() {
         NameContainsKeywordsPredicate firstPredicate =

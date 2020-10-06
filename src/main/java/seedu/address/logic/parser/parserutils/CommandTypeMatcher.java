@@ -7,7 +7,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 
 public class CommandTypeMatcher {
     public enum CommandType {
-        ADDRESSBOOK, FLASHCARD, QUIZ, TASK;
+        ADDRESSBOOK, FLASHCARD, QUIZ, TASK
     }
 
     /**

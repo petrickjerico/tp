@@ -25,7 +25,7 @@ public class DateTime {
     public final LocalDateTime dateTime;
 
     public static final DateTimeFormatter STANDARD_DATETIME_FORMATTER =
-            new DateTimeFormatterBuilder().appendPattern("yyyy-MM-dd")
+            new DateTimeFormatterBuilder().appendPattern("dd/MM/yyyy")
                     .optionalStart().appendPattern(" HH:mm")
                     .toFormatter();
 

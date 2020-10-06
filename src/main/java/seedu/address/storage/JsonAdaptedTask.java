@@ -23,11 +23,12 @@ public class JsonAdaptedTask {
      * Constructs a {@code JsonAdaptedTask} with the given task details.
      */
     @JsonCreator
-    public JsonAdaptedTask(@JsonProperty("title") String title, @JsonProperty("description") String description,
-                             @JsonProperty("dateTime") JsonAdaptedDateTime dateTime) {
+    public JsonAdaptedTask(@JsonProperty("title") String title,
+                           @JsonProperty("description") Optional<String> description,
+                             @JsonProperty("dateTime") Optional<String> dateTime) {
         this.title = title;
-        this.description = Optional.ofNullable(description);
-        this.dateTime = Optional.ofNullable(dateTime);
+        this.description = description;
+        this.dateTime = dateTime.map(JsonAdaptedDateTime::new);
     }
 
     /**

@@ -16,7 +16,7 @@ import seedu.address.model.task.timeformat.TimeFormatChecker;
 public class DateTime {
     public static final String MESSAGE_CONSTRAINTS =
             "DateTime should be in the dd-mm-yyyy hh:mm format";
-    public static final String STANDARD_FORMAT = "dd-MM-yyyy hh:mm";
+    public static final String STANDARD_FORMAT = "yyyy-MM-dd hh:mm";
 
     public final LocalDateTime dateTime;
 

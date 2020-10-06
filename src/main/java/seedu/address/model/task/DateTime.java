@@ -15,7 +15,7 @@ import java.time.temporal.ChronoField;
 public class DateTime {
     public static final String MESSAGE_CONSTRAINTS =
             "DateTime should be in the dd/mm/yyyy hh:mm format";
-    public static final String STANDARD_FORMAT = "dd/mm/yyyy hh:mm";
+    public static final String STANDARD_FORMAT = "dd-mm-yyyy hh:mm";
     public static final String VALIDATION_REGEX = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]"
             + "|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]"
             + "|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]"

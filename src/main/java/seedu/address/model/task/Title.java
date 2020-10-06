@@ -3,8 +3,6 @@ package seedu.address.model.task;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
-import seedu.address.model.person.Name;
-
 public class Title {
     public static final String MESSAGE_CONSTRAINTS =
             "Task title should only contain alphanumeric characters and spaces, and it should not be blank";

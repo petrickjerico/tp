@@ -1,9 +1,6 @@
 package seedu.address.model.task;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
-
-import java.util.Optional;
 
 /**
  * Represents a Task's description in StudyBananas.

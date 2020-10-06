@@ -48,18 +48,18 @@ public class SampleDataUtil {
 
     public static Task[] getSampleTasks() {
         return new Task[] {
-                new Task(new Title("CS2103T"), new Description("Week 8 topics quiz."),
-                        new DateTime("09/10/2020 23:59")),
-                new Task(new Title("CS2103T"), new Description("Week 9 topics quiz."),
-                        new DateTime("16/10/2020 23:59")),
-                new Task(new Title("CS2103T"), new Description("Popping dance lecture."),
-                        new DateTime("23/10/2020 23:59")),
-                new Task(new Title("CCA"), new Description("Week 10 topics quiz."),
-                        new DateTime("08/10/2020 13:00")),
-                new Task(new Title("Household"), new Description("Family reunion at Star Vista."),
-                        new DateTime("11/11/2020 12:30")),
-                new Task(new Title("Job"), new Description("My presidential debate."),
-                        new DateTime("29/09/2020 22:00")),
+            new Task(new Title("CS2103T"), new Description("Week 8 topics quiz."),
+                    new DateTime("09/10/2020 23:59")),
+            new Task(new Title("CS2103T"), new Description("Week 9 topics quiz."),
+                    new DateTime("16/10/2020 23:59")),
+            new Task(new Title("CS2103T"), new Description("Popping dance lecture."),
+                    new DateTime("23/10/2020 23:59")),
+            new Task(new Title("CCA"), new Description("Week 10 topics quiz."),
+                    new DateTime("08/10/2020 13:00")),
+            new Task(new Title("Household"), new Description("Family reunion at Star Vista."),
+                    new DateTime("11/11/2020 12:30")),
+            new Task(new Title("Job"), new Description("My presidential debate."),
+                    new DateTime("29/09/2020 22:00")),
         };
     }
 

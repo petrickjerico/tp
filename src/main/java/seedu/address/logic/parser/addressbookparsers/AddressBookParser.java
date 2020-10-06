@@ -6,15 +6,15 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.address.logic.commands.addressBookCommands.AddCommand;
-import seedu.address.logic.commands.addressBookCommands.ClearCommand;
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.addressBookCommands.DeleteCommand;
-import seedu.address.logic.commands.addressBookCommands.EditCommand;
-import seedu.address.logic.commands.addressBookCommands.ExitCommand;
-import seedu.address.logic.commands.addressBookCommands.FindCommand;
-import seedu.address.logic.commands.addressBookCommands.HelpCommand;
-import seedu.address.logic.commands.addressBookCommands.ListCommand;
+import seedu.address.logic.commands.addressbookcommands.AddCommand;
+import seedu.address.logic.commands.addressbookcommands.ClearCommand;
+import seedu.address.logic.commands.addressbookcommands.DeleteCommand;
+import seedu.address.logic.commands.addressbookcommands.EditCommand;
+import seedu.address.logic.commands.addressbookcommands.ExitCommand;
+import seedu.address.logic.commands.addressbookcommands.FindCommand;
+import seedu.address.logic.commands.addressbookcommands.HelpCommand;
+import seedu.address.logic.commands.addressbookcommands.ListCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
 

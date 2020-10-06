@@ -4,7 +4,7 @@ import java.nio.file.Path;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.logic.commands.addressBookCommands.CommandResult;
+import seedu.address.logic.commands.addressbookcommands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ReadOnlyAddressBook;
@@ -57,9 +57,6 @@ public interface Logic {
      */
     Path getScheduleFilePath();
 
-    /**
-     * Returns the user prefs' GUI settings.
-     */
 
     /**
      * Returns the user prefs' GUI settings.

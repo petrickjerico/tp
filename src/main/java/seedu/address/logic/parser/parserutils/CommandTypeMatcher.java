@@ -2,7 +2,7 @@ package seedu.address.logic.parser.parserutils;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
-import seedu.address.logic.commands.addressBookCommands.HelpCommand;
+import seedu.address.logic.commands.addressbookcommands.HelpCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 public class CommandTypeMatcher {

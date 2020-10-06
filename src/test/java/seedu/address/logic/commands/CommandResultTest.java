@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.addressBookCommands.CommandResult;
+import seedu.address.logic.commands.addressbookcommands.CommandResult;
 
 public class CommandResultTest {
     @Test

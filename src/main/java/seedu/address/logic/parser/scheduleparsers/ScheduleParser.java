@@ -8,9 +8,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.addressBookCommands.HelpCommand;
-import seedu.address.logic.commands.addressBookCommands.ListCommand;
-import seedu.address.logic.commands.scheduleCommands.ScheduleListCommand;
+import seedu.address.logic.commands.addressbookcommands.HelpCommand;
+import seedu.address.logic.commands.addressbookcommands.ListCommand;
+import seedu.address.logic.commands.schedulecommands.ScheduleListCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
 

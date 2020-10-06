@@ -6,7 +6,6 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
-import java.time.temporal.ChronoField;
 
 /**
  * Represents a Task's dateTime in StudyBananas.
@@ -22,12 +21,15 @@ public class DateTime {
             + "|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9"
             + "]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2}) "
             + "[012]{0,1}[0-9]:[0-6][0-9]$";
-    public final LocalDateTime dateTime;
 
     public static final DateTimeFormatter STANDARD_DATETIME_FORMATTER =
             new DateTimeFormatterBuilder().appendPattern("dd/MM/yyyy")
                     .optionalStart().appendPattern(" HH:mm")
                     .toFormatter();
+
+
+    public final LocalDateTime dateTime;
+
 
     /**
      * Constructs a {@code DateTime}.

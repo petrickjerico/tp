@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.addressbookcommands.HelpCommand;
-import seedu.address.logic.commands.addressbookcommands.ListCommand;
 import seedu.address.logic.commands.schedulecommands.ScheduleAddCommand;
 import seedu.address.logic.commands.schedulecommands.ScheduleDeleteCommand;
 import seedu.address.logic.commands.schedulecommands.ScheduleListCommand;
@@ -21,8 +20,8 @@ public class ScheduleParser implements Parser<Command> {
     /**
      * Used for initial separation of command word and args.
      */
-    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.
-            compile("((\\w+) (\\w+))(\\s.*)?");
+    private static final Pattern BASIC_COMMAND_FORMAT = Pattern
+            .compile("((\\w+) (\\w+))(\\s.*)?");
 
     @Override
     public Command parse(String userInput) throws ParseException {

@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TASKS;
 
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.addressbookcommands.CommandResult;
+import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
 
 /**

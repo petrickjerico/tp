@@ -5,7 +5,6 @@ import static seedu.address.logic.commands.addressbookcommands.ExitCommand.MESSA
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.addressbookcommands.CommandResult;
 import seedu.address.logic.commands.addressbookcommands.ExitCommand;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;

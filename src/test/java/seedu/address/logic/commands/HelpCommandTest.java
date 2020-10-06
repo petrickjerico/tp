@@ -5,7 +5,6 @@ import static seedu.address.logic.commands.addressbookcommands.HelpCommand.SHOWI
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.addressbookcommands.CommandResult;
 import seedu.address.logic.commands.addressbookcommands.HelpCommand;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;

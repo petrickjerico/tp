@@ -2,7 +2,7 @@ package seedu.address.logic.parser.parserutils;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
-import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.addressbookcommands.HelpCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 public class CommandTypeMatcher {
@@ -16,9 +16,6 @@ public class CommandTypeMatcher {
      * @return commandType of the command
      */
     public CommandType match(String command) throws ParseException {
-        if (isAddressBookCommand(command)) {
-            return CommandType.ADDRESSBOOK;
-        }
 
         if (isFlashcardCommand(command)) {
             return CommandType.FLASHCARD;
@@ -30,6 +27,10 @@ public class CommandTypeMatcher {
 
         if (isTaskCommand(command)) {
             return CommandType.TASK;
+        }
+
+        if (isAddressBookCommand(command)) {
+            return CommandType.ADDRESSBOOK;
         }
 
         throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));

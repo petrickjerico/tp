@@ -14,6 +14,9 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.task.DateTime;
+import seedu.address.model.task.Description;
+import seedu.address.model.task.Title;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -120,5 +123,53 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses {@code String title} into a {@code Title}.
+     *
+     * @throws ParseException if the given {@code title} is invalid.
+     */
+    public static Title parseTitle(String title) throws ParseException {
+        requireNonNull(title);
+        String trimmedTitle = title.trim();
+        if (!Title.isValidTitle(trimmedTitle)) {
+            throw new ParseException(Title.MESSAGE_CONSTRAINTS);
+        }
+        return new Title(title);
+    }
+
+    /**
+     * Parses {@code String description} into a {@code Description}.
+     *
+     * @throws ParseException if the given {@code description} is invalid.
+     */
+    public static Description parseDescription(String description) throws ParseException {
+        if (description == null) {
+            return null;
+        }
+
+        String trimmedDescription = description.trim();
+        if (!Title.isValidTitle(trimmedDescription)) {
+            throw new ParseException(Description.MESSAGE_CONSTRAINTS);
+        }
+        return new Description(description);
+    }
+
+    /**
+     * Parses {@code String time} into a {@code Time}.
+     *
+     * @throws ParseException if the given {@code time} is invalid.
+     */
+    public static DateTime parseTime(String time) throws ParseException {
+        if (time == null) {
+            return null;
+        }
+
+        String trimmedTime = time.trim();
+        if (!Title.isValidTitle(trimmedTime)) {
+            throw new ParseException(DateTime.MESSAGE_CONSTRAINTS);
+        }
+        return new DateTime(time);
     }
 }

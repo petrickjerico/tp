@@ -8,7 +8,9 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlySchedule;
 import seedu.address.model.person.Person;
+import seedu.address.model.task.Task;
 
 /**
  * API of the Logic component
@@ -37,6 +39,24 @@ public interface Logic {
      * Returns the user prefs' address book file path.
      */
     Path getAddressBookFilePath();
+
+
+
+    /**
+     * Returns the Schedule.
+     *
+     * @see seedu.address.model.Model#getSchedule()
+     */
+    ReadOnlySchedule getSchedule();
+
+    /** Returns an unmodifiable view of the filtered list of tasks */
+    ObservableList<Task> getFilteredTaskList();
+
+    /**
+     * Returns the user prefs' schedule file path.
+     */
+    Path getScheduleFilePath();
+
 
     /**
      * Returns the user prefs' GUI settings.

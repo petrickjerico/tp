@@ -10,7 +10,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.logic.parser.flashcardparsers.FlashcardParser;
 import seedu.address.logic.parser.parserutils.CommandTypeMatcher;
 import seedu.address.logic.parser.quizparsers.QuizParser;
-import seedu.address.logic.parser.taskparsers.TaskParser;
+import seedu.address.logic.parser.scheduleparsers.ScheduleParser;
 
 /**
  * Parses user input.
@@ -43,7 +43,7 @@ public class StudyBananasParser {
             return new QuizParser().parse(userInput);
 
         case TASK:
-            return new TaskParser().parse(userInput);
+            return new ScheduleParser().parse(userInput);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

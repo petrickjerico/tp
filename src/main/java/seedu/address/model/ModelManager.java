@@ -4,6 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -12,8 +14,12 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
+import seedu.address.model.flashcard.Answer;
 import seedu.address.model.flashcard.Flashcard;
+import seedu.address.model.flashcard.FlashcardSet;
+import seedu.address.model.flashcard.Question;
 import seedu.address.model.person.Person;
+import seedu.address.model.quiz.Quiz;
 import seedu.address.model.task.Task;
 
 /**
@@ -27,6 +33,8 @@ public class ModelManager implements Model {
     private final FilteredList<Person> filteredPersons;
     private final Schedule schedule;
     private final FilteredList<Task> filteredTasks;
+    private final List<FlashcardSet> flashcardSetList = new ArrayList<>(); // to be implemented
+    private Quiz quiz;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -219,5 +227,43 @@ public class ModelManager implements Model {
     @Override
     public void addFlashcard(Flashcard flashcard, Index flashcardSetIndex) {
         // TODO: Add flashcard to the FlashcardBank
+    }
+
+    @Override
+    public FlashcardSet getFlashcardSet(int index) {
+        return this.flashcardSetList.get(index);
+    }
+
+    //=========== Quiz =============================================================
+    @Override
+    public Question start(Quiz quiz) {
+        this.quiz = quiz;
+        return getQuestion();
+    }
+
+    public boolean hasStarted() {
+        return this.quiz != null;
+    }
+
+    @Override
+    public void tallyScore() {
+        this.quiz.setPointsScored();
+    }
+
+    @Override
+    public Question getQuestion() {
+        return this.quiz.getQuestion();
+    }
+
+    @Override
+    public Answer getAnswer() {
+        return this.quiz.getAnswer();
+    }
+
+    @Override
+    public double stopQuiz() {
+        double score = this.quiz.getPercentageScore();
+        this.quiz = null;
+        return score;
     }
 }

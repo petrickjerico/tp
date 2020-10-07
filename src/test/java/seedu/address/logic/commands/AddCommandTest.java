@@ -23,8 +23,12 @@ import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlySchedule;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.flashcard.Answer;
 import seedu.address.model.flashcard.Flashcard;
+import seedu.address.model.flashcard.FlashcardSet;
+import seedu.address.model.flashcard.Question;
 import seedu.address.model.person.Person;
+import seedu.address.model.quiz.Quiz;
 import seedu.address.model.task.Task;
 import seedu.address.testutil.PersonBuilder;
 
@@ -205,6 +209,41 @@ public class AddCommandTest {
 
         public void addFlashcard(Flashcard flashcard, Index flashcardSetIndex) {
             // TODO: AddFlashcard implementation.
+        }
+
+        @Override
+        public FlashcardSet getFlashcardSet(int index) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Question start(Quiz quiz) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasStarted() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void tallyScore() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Question getQuestion() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Answer getAnswer() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public double stopQuiz() {
+            throw new AssertionError("This method should not be called.");
         }
     }
 

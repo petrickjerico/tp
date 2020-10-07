@@ -6,8 +6,12 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.index.Index;
+import seedu.address.model.flashcard.Answer;
 import seedu.address.model.flashcard.Flashcard;
+import seedu.address.model.flashcard.FlashcardSet;
+import seedu.address.model.flashcard.Question;
 import seedu.address.model.person.Person;
+import seedu.address.model.quiz.Quiz;
 import seedu.address.model.task.Task;
 
 /**
@@ -145,4 +149,19 @@ public interface Model {
 
     // FLASHCARD
     void addFlashcard(Flashcard flashcard, Index flashcardSetIndex);
+
+    FlashcardSet getFlashcardSet(int index); // added because quiz needs, feel free to change implementation
+
+    // QUIZ
+    Question start(Quiz quiz);
+
+    boolean hasStarted();
+
+    void tallyScore();
+
+    Question getQuestion();
+
+    Answer getAnswer();
+
+    double stopQuiz();
 }

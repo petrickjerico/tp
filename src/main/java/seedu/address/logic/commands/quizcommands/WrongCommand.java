@@ -25,6 +25,7 @@ public class WrongCommand extends Command {
         }
 
         try {
+            model.tallyScore(false);
             Question nextQuestion = model.getQuestion();
             QuizCommand.setStatus(Status.ON_QUESTION);
             return new CommandResult(nextQuestion.toString());

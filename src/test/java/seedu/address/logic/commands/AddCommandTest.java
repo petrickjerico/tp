@@ -227,7 +227,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void tallyScore() {
+        public void tallyScore(boolean isCorrect) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -243,6 +243,11 @@ public class AddCommandTest {
 
         @Override
         public double stopQuiz() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public String getQuizRecords(int index) {
             throw new AssertionError("This method should not be called.");
         }
     }

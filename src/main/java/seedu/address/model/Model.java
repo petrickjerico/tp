@@ -157,11 +157,13 @@ public interface Model {
 
     boolean hasStarted();
 
-    void tallyScore();
+    void tallyScore(boolean isCorrect);
 
     Question getQuestion();
 
     Answer getAnswer();
 
     double stopQuiz();
+
+    String getQuizRecords(int index);
 }

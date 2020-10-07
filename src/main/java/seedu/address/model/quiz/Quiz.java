@@ -7,17 +7,22 @@ import seedu.address.model.flashcard.Question;
 public class Quiz {
 
     private final FlashcardSet flashcardSet;
+    private final int flashcardSetIndex;
     private final int totalScore;
-    private int currentIndex = 0;
     private int pointsScored = 0;
+    private int currentIndex = 0;
+    private boolean[] scoreboard;
 
     /**
      * Creates a quiz from a given flashcard set.
+     * @param index
      * @param flashcardSet
      */
-    public Quiz(FlashcardSet flashcardSet) {
+    public Quiz(int index, FlashcardSet flashcardSet) {
+        this.flashcardSetIndex = index;
         this.flashcardSet = flashcardSet;
         this.totalScore = this.flashcardSet.getFlashcards().size();
+        this.scoreboard = new boolean[totalScore];
     }
 
     public Question getQuestion() {
@@ -33,15 +38,55 @@ public class Quiz {
         return answer;
     }
 
-    public void setPointsScored() {
-        this.pointsScored++;
+    public int getFlashcardSetIndex() {
+        return this.flashcardSetIndex;
     }
 
+    public void setPointsScored(boolean isCorrect) {
+        scoreboard[currentIndex] = isCorrect;
+        if (isCorrect) {
+            pointsScored++;
+        }
+    }
+
+    public boolean[] getResults() {
+        return scoreboard;
+    }
+
+    /**
+     * Gives the string representation of the quiz,
+     * using it's score records.
+     * @return string representation
+     */
     public String toString() {
-        return "Quiz of " + this.flashcardSet.getName();
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < totalScore; i++) {
+            String isCorrect = scoreboard[i] ? "\u2713" : "\u2718";
+            builder.append(i).append(". Question: ")
+                    .append(flashcardSet.getFlashcards().get(i).getQuestion())
+                    .append("\n");
+            builder.append(isCorrect).append(". Answer: ")
+                    .append(flashcardSet.getFlashcards().get(i).getAnswer())
+                    .append("\n");
+        }
+        return builder.toString();
     }
 
     public double getPercentageScore() {
         return ((double) pointsScored) / ((double) totalScore) * 100;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof Quiz)) {
+            return false;
+        }
+
+        Quiz otherQuiz = (Quiz) other;
+        return otherQuiz.getFlashcardSetIndex() == (this.flashcardSetIndex);
     }
 }

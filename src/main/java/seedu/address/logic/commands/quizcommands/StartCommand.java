@@ -31,7 +31,7 @@ public class StartCommand extends Command {
 
         try {
             FlashcardSet flashcardSet = model.getFlashcardSet(this.index);
-            Quiz quiz = new Quiz(flashcardSet);
+            Quiz quiz = new Quiz(this.index, flashcardSet);
             Question firstQuestion = model.start(quiz);
             QuizCommand.setStatus(Status.ON_QUESTION);
             return new CommandResult(firstQuestion.toString());

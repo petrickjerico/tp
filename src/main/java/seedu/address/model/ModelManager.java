@@ -5,7 +5,9 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -34,6 +36,7 @@ public class ModelManager implements Model {
     private final Schedule schedule;
     private final FilteredList<Task> filteredTasks;
     private final List<FlashcardSet> flashcardSetList = new ArrayList<>(); // to be implemented
+    private final Map<Integer, Quiz> quizRecords = new HashMap<>();
     private Quiz quiz;
 
     /**
@@ -246,8 +249,8 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void tallyScore() {
-        this.quiz.setPointsScored();
+    public void tallyScore(boolean isCorrect) {
+        this.quiz.setPointsScored(isCorrect);
     }
 
     @Override
@@ -263,7 +266,13 @@ public class ModelManager implements Model {
     @Override
     public double stopQuiz() {
         double score = this.quiz.getPercentageScore();
+        quizRecords.put(quiz.getFlashcardSetIndex(), quiz);
         this.quiz = null;
         return score;
+    }
+
+    @Override
+    public String getQuizRecords(int index) {
+        return this.quizRecords.get(index).toString();
     }
 }

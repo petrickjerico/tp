@@ -17,12 +17,13 @@ public class CommandTypeMatcher {
      */
     public CommandType match(String command) throws ParseException {
 
-        if (isFlashcardCommand(command)) {
-            return CommandType.FLASHCARD;
-        }
-
         if (isQuizCommand(command)) {
             return CommandType.QUIZ;
+        }
+
+        // switched these 2 bc quiz is more specific
+        if (isFlashcardCommand(command)) {
+            return CommandType.FLASHCARD;
         }
 
         if (isTaskCommand(command)) {
@@ -46,10 +47,17 @@ public class CommandTypeMatcher {
         return lowercaseCommand.contains("flset") || lowercaseCommand.contains("fl");
     }
 
-    //buggy, temporary, still need to evaluate the pattern
     private boolean isQuizCommand(String command) {
-        //example
-        return command.toLowerCase().contains("quiz");
+        String lowercaseCommand = command.toLowerCase();
+        switch (lowercaseCommand) {
+        case "cancel":
+        case "c":
+        case "flip":
+        case "w":
+            return true;
+        default:
+            return lowercaseCommand.contains("quiz");
+        }
     }
 
     //buggy, temporary, still need to evaluate the pattern

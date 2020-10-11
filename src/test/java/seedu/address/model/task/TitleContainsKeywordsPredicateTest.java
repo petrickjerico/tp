@@ -55,7 +55,7 @@ public class TitleContainsKeywordsPredicateTest {
 
         // Mixed-case keywords
         predicate = new TitleContainsKeywordsPredicate(Arrays.asList("cS2103t", "qUiz"));
-        assertTrue(predicate.test(new TaskBuilder().withTitle"CS2103T Quiz").build()));
+        assertTrue(predicate.test(new TaskBuilder().withTitle("CS2103T Quiz").build()));
     }
 
     @Test

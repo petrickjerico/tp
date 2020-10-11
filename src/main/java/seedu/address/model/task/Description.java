@@ -1,7 +1,6 @@
 package seedu.address.model.task;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a Task's description in StudyBananas.
@@ -15,7 +14,7 @@ public class Description {
      * The first character of the description must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
+    public static final String VALIDATION_REGEX = "[\\p{Alnum}]*";
 
     public final String description;
 
@@ -26,7 +25,7 @@ public class Description {
      */
     public Description(String description) {
         requireNonNull(description);
-        checkArgument(isValidDescription(description), MESSAGE_CONSTRAINTS);
+        //checkArgument(isValidDescription(description), MESSAGE_CONSTRAINTS);
         this.description = description;
     }
 
@@ -37,6 +36,9 @@ public class Description {
         return test.matches(VALIDATION_REGEX);
     }
 
+    public boolean rigorousEquals(Description other) {
+        return this.description.toLowerCase().equals(other.description.toLowerCase());
+    }
 
     @Override
     public String toString() {

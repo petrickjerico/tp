@@ -6,15 +6,21 @@ import java.util.stream.Collectors;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlySchedule;
+import seedu.address.model.Schedule;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.task.DateTime;
+import seedu.address.model.task.Description;
+import seedu.address.model.task.Task;
+import seedu.address.model.task.Title;
 
 /**
- * Contains utility methods for populating {@code AddressBook} with sample data.
+ * Contains utility methods for populating {@code StudyBananas} with sample data.
  */
 public class SampleDataUtil {
     public static Person[] getSamplePersons() {
@@ -40,12 +46,38 @@ public class SampleDataUtil {
         };
     }
 
+    public static Task[] getSampleTasks() {
+        return new Task[] {
+            new Task(new Title("CS2103T"), new Description("Week 8 topics quiz."),
+                    new DateTime("2020-10-09 23:59")),
+            new Task(new Title("CS2103T"), new Description("Week 9 topics quiz."),
+                    new DateTime("2020-10-16 23:59")),
+            new Task(new Title("CS2103T"), new Description("Popping dance lecture."),
+                    new DateTime("2020-10-23 23:59")),
+            new Task(new Title("CCA"), new Description("Week 10 topics quiz."),
+                    new DateTime("2020-10-08 13:00")),
+            new Task(new Title("Household"), new Description("Family reunion at Star Vista."),
+                    new DateTime("2020-11-11 12:30")),
+            new Task(new Title("Job"), new Description("My presidential debate."),
+                    new DateTime("2020-09-29 22:00")),
+        };
+    }
+
+
     public static ReadOnlyAddressBook getSampleAddressBook() {
         AddressBook sampleAb = new AddressBook();
         for (Person samplePerson : getSamplePersons()) {
             sampleAb.addPerson(samplePerson);
         }
         return sampleAb;
+    }
+
+    public static ReadOnlySchedule getSampleSchedule() {
+        Schedule sampleSchedule = new Schedule();
+        for (Task sampleTask : getSampleTasks()) {
+            sampleSchedule.addTask(sampleTask);
+        }
+        return sampleSchedule;
     }
 
     /**

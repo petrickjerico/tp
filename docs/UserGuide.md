@@ -20,7 +20,7 @@ StudyBananas is a **desktop study companion app that helps students centralize a
     + [Case 1: No storage of answers required](#case-1-no-storage-of-answers-required)
     + [Case 2: Stores the user answers to the quiz](#case-2-stores-the-user-answers-to-the-quiz)
   * [View last quiz attempt: `view flset quiz`](#view-last-quiz-attempt-view-flset-quiz)
-  * [Add a task: `ask task`](#add-a-task)
+  * [Add a task: `add task`](#add-a-task)
   * [List tasks: `list task`](#list-tasks)
   * [Delete a task: `delete task`](#delete-a-task)
   * [Search for a task: `search task`](#search-for-a-task)
@@ -249,9 +249,10 @@ Examples:
 
 Adds a study task to the task list.  
   
-Format: `add task:<description> t:[time]`
-- `<description>` field is compulsory.
-- `<description>` can accept strings that are capitalized or separated with spaces.
+Format: `add task:<title> d:[description] t:[time]`
+- `<title>` field is compulsory.
+- `<title>` can accept strings that are capitalized or separated with spaces.
+- `[description]` field is optional.
 - `[time]` field is optional if the user wants to set a deadline or time limit for the task.
 
 Examples:

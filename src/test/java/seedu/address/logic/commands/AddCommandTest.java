@@ -16,13 +16,20 @@ import org.junit.jupiter.api.Test;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.addressbookcommands.AddCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlySchedule;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.flashcard.Answer;
 import seedu.address.model.flashcard.Flashcard;
+import seedu.address.model.flashcard.FlashcardSet;
+import seedu.address.model.flashcard.Question;
 import seedu.address.model.person.Person;
+import seedu.address.model.quiz.Quiz;
+import seedu.address.model.task.Task;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddCommandTest {
@@ -151,8 +158,97 @@ public class AddCommandTest {
         }
 
         @Override
+        public Path getScheduleFilePath() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setScheduleFilePath(Path scheduleFilePath) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setSchedule(ReadOnlySchedule schedule) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ReadOnlySchedule getSchedule() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasTask(Task task) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deleteTask(Task target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void addTask(Task task) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setTask(Task target, Task editedTask) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Task> getFilteredTaskList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateFilteredTaskList(Predicate<Task> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
         public void addFlashcard(Flashcard flashcard, Index flashcardSetIndex) {
             // TODO: AddFlashcard implementation.
+        }
+
+        @Override
+        public FlashcardSet getFlashcardSet(int index) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Question start(Quiz quiz) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasStarted() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void tallyScore(boolean isCorrect) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Question getQuestion() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Answer getAnswer() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public double stopQuiz() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public String getQuizRecords(int index) {
+            throw new AssertionError("This method should not be called.");
         }
     }
 

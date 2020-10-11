@@ -69,7 +69,7 @@ public class JsonScheduleStorageTest {
 
         // Save in new file and read back
         jsonScheduleStorage.saveSchedule(original, filePath);
-        ReadOnlySchedule readBack = jsonScheduleStorageStorage.readSchedule(filePath).get();
+        ReadOnlySchedule readBack = jsonScheduleStorage.readSchedule(filePath).get();
         assertEquals(original, new Schedule(readBack));
 
         // Modify data, overwrite exiting file, and read back

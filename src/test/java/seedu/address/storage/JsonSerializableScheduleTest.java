@@ -13,7 +13,7 @@ import seedu.address.commons.util.JsonUtil;
 import seedu.address.model.Schedule;
 import seedu.address.testutil.TypicalTasks;
 
-public class JsonSerializableAddressBookTest {
+public class JsonSerializableScheduleTest {
 
     private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonSerializableScheduleTest");
     private static final Path TYPICAL_TASKS_FILE = TEST_DATA_FOLDER.resolve("typicalTasksSchedule.json");

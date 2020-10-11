@@ -2,8 +2,8 @@ package seedu.address.model.task;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.testutil.TypicalTasks.CS2103T_WEEK8_QUIZ;
 import static seedu.address.testutil.TypicalTasks.CS2100_TUTORIAL_HOMEWORK;
+import static seedu.address.testutil.TypicalTasks.CS2103T_WEEK8_QUIZ;
 
 import org.junit.jupiter.api.Test;
 

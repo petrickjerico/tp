@@ -1,6 +1,5 @@
 package seedu.address.testutil;
 
-import seedu.address.model.task.Date;
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.Description;
 import seedu.address.model.task.Task;

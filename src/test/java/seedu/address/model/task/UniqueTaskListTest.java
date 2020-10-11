@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalTasks.CS2103T_WEEK8_QUIZ;
 import static seedu.address.testutil.TypicalTasks.CS2100_TUTORIAL_HOMEWORK;
+import static seedu.address.testutil.TypicalTasks.CS2103T_WEEK8_QUIZ;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -94,8 +94,8 @@ public class UniqueTaskListTest {
     public void setTask_editedTaskHasNonUniqueIdentity_throwsDuplicateTaskException() {
         uniqueTaskList.add(CS2103T_WEEK8_QUIZ);
         uniqueTaskList.add(CS2100_TUTORIAL_HOMEWORK);
-        assertThrows(DuplicateTaskException.class,
-                () -> uniqueTaskList.setTask(CS2103T_WEEK8_QUIZ, CS2100_TUTORIAL_HOMEWORK));
+        assertThrows(DuplicateTaskException.class, () -> uniqueTaskList.setTask(
+                CS2103T_WEEK8_QUIZ, CS2100_TUTORIAL_HOMEWORK));
     }
 
     @Test
@@ -153,7 +153,7 @@ public class UniqueTaskListTest {
 
     @Test
     public void asUnmodifiableObservableList_modifyList_throwsUnsupportedOperationException() {
-        assertThrows(UnsupportedOperationException.class, ()
-                -> uniqueTaskList.asUnmodifiableObservableList().remove(0));
+        assertThrows(UnsupportedOperationException.class, () -> uniqueTaskList
+                .asUnmodifiableObservableList().remove(0));
     }
 }

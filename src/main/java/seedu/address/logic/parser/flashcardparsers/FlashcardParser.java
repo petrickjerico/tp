@@ -1,17 +1,17 @@
 package seedu.address.logic.parser.flashcardparsers;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.ExampleCommand;
 import seedu.address.logic.commands.addressbookcommands.HelpCommand;
 import seedu.address.logic.commands.flashcardcommands.AddFlashcardCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 public class FlashcardParser implements Parser<Command> {
     /**

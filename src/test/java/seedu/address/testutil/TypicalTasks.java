@@ -23,6 +23,10 @@ public class TypicalTasks {
             .withDescription("Chapter 2 Quiz")
             .withDateTime("2020-10-01 23:00")
             .build();
+    public static final Task CS2101_OP2 = new TaskBuilder().withTitle("CS2101")
+                .withDescription("Oral Presentation 2")
+                .withDateTime("2020-10-25 10:00")
+                .build();
 
     // Manually added with no Description
     public static final Task CS2100_FINAL = new TaskBuilder().withTitle("CS2100 Final")

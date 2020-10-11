@@ -5,7 +5,6 @@ import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.exceptions.TimeFormatException;
 

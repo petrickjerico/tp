@@ -36,7 +36,7 @@ public class FlashcardSet {
             return true;
         }
 
-        if (!(other instanceof Person)) {
+        if (!(other instanceof FlashcardSet)) {
             return false;
         }
 

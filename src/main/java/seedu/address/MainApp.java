@@ -16,9 +16,11 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
 import seedu.address.model.AddressBook;
+import seedu.address.model.FlashcardBank;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyFlashcardBank;
 import seedu.address.model.ReadOnlySchedule;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.Schedule;
@@ -83,6 +85,7 @@ public class MainApp extends Application {
         Optional<ReadOnlySchedule> scheduleOptional;
         ReadOnlyAddressBook initialAddressBookData;
         ReadOnlySchedule initialScheduleData;
+        ReadOnlyFlashcardBank initialFlashcardBankData;
         try {
             addressBookOptional = storage.readAddressBook();
 
@@ -115,8 +118,10 @@ public class MainApp extends Application {
             initialScheduleData = new Schedule();
         }
 
+        // TODO: FlashcardBank storage implementation
+        initialFlashcardBankData = new FlashcardBank();
 
-        return new ModelManager(initialAddressBookData, userPrefs, initialScheduleData);
+        return new ModelManager(initialAddressBookData, userPrefs, initialScheduleData, initialFlashcardBankData);
     }
 
     private void initLogging(Config config) {

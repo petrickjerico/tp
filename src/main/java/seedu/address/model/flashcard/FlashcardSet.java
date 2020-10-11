@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import seedu.address.model.person.Person;
-
 /**
  * Represents a FlashcardSet that contains flashcards for quiz.
  */
@@ -36,13 +34,12 @@ public class FlashcardSet {
             return true;
         }
 
-        if (!(other instanceof Person)) {
+        if (!(other instanceof FlashcardSet)) {
             return false;
         }
 
         FlashcardSet otherFlashcardSet = (FlashcardSet) other;
-        return otherFlashcardSet.getName().equals(getName())
-                && otherFlashcardSet.getFlashcards().equals(getFlashcards());
+        return otherFlashcardSet.getName().equals(getName());
     }
 
     @Override

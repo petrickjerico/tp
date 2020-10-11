@@ -5,10 +5,15 @@ import static java.util.Objects.requireNonNull;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.parser.ArgumentMultimap;
+import seedu.address.logic.parser.Prefix;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.flashcard.Answer;
+import seedu.address.model.flashcard.Question;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -125,6 +130,7 @@ public class ParserUtil {
         return tagSet;
     }
 
+    //=========== Schedule/Task =============================================================
     /**
      * Parses {@code String title} into a {@code Title}.
      *
@@ -171,5 +177,42 @@ public class ParserUtil {
             throw new ParseException(DateTime.MESSAGE_CONSTRAINTS);
         }
         return new DateTime(time);
+    }
+
+    //=========== Flashcard =============================================================
+    /**
+     * Parses {@code String question} into a {@code Question}.
+     *
+     * @throws ParseException if the given {@code question} is invalid.
+     */
+    public static Question parseQuestion(String question) throws ParseException {
+        requireNonNull(question);
+        String trimmedQuestion = question.trim();
+        if (!Question.isValidQuestion(trimmedQuestion)) {
+            throw new ParseException(Question.MESSAGE_CONSTRAINTS);
+        }
+        return new Question(question);
+    }
+
+    /**
+     * Parses {@code String answer} into a {@code Answer}.
+     *
+     * @throws ParseException if the given {@code answer} is invalid.
+     */
+    public static Answer parseAnswer(String answer) throws ParseException {
+        requireNonNull(answer);
+        String trimmedAnswer = answer.trim();
+        if (!Answer.isValidAnswer(trimmedAnswer)) {
+            throw new ParseException(Answer.MESSAGE_CONSTRAINTS);
+        }
+        return new Answer(answer);
+    }
+
+    /**
+     * Returns true if none of the prefixes contains empty {@code Optional} values in the given
+     * {@code ArgumentMultimap}.
+     */
+    public static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
+        return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
     }
 }

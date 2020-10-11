@@ -50,7 +50,7 @@ public class JsonSerializableSchedule {
         for (JsonAdaptedTask jsonAdaptedTask : tasks) {
             Task task = jsonAdaptedTask.toModelType();
             if (schedule.hasTask(task)) {
-                throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
+                throw new IllegalValueException(MESSAGE_DUPLICATE_TASK);
             }
             schedule.addTask(task);
         }

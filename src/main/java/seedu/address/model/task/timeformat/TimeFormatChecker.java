@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
-import seedu.address.model.person.exceptions.TimeFormatException;
+import seedu.address.model.task.exceptions.TimeFormatException;
 
 public class TimeFormatChecker {
     private static final List<TimeFormat> VALID_FORMATS = Arrays.asList(new IsoDate(), new IsoDateTime());

@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoField;
 
-import seedu.address.model.person.exceptions.TimeFormatException;
+import seedu.address.model.task.exceptions.TimeFormatException;
 
 public class IsoDate implements TimeFormat {
     private static final String PATTERN = "yyyy-MM-dd";

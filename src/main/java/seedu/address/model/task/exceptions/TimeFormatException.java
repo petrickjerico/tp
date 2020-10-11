@@ -1,4 +1,4 @@
-package seedu.address.model.person.exceptions;
+package seedu.address.model.task.exceptions;
 
 public class TimeFormatException extends RuntimeException {
     public TimeFormatException() {

@@ -31,6 +31,5 @@ public class TitleTest {
         // valid addresses
         assertTrue(Title.isValidTitle("CS2103T"));
         assertTrue(Title.isValidTitle("H")); // one character
-        assertTrue(Title.isValidTitle("CS2100 Final Examination AY20/21")); // long address
     }
 }

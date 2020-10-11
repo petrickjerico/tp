@@ -14,7 +14,7 @@ public class DescriptionTest {
     }
 
     @Test
-    public void isValidEmail() {
+    public void isValidDescription() {
         // null description
         assertThrows(NullPointerException.class, () -> Description.isValidDescription(null));
 

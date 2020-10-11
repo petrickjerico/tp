@@ -30,12 +30,6 @@ public class TaskTest {
         // different dateTime -> returns false
         editedCs2103T = new TaskBuilder(CS2103T_WEEK8_QUIZ).withDateTime("2020-09-30 12:00").build();
         assertFalse(CS2103T_WEEK8_QUIZ.equals(editedCs2103T));
-
-        // same title, same description, same dateTime -> returns true
-        editedCs2103T = new TaskBuilder().withTitle("CS2103T")
-                .withDescription("Week 8 Quiz").withDateTime("2020-09-27 12:00")
-                .build();
-        assertTrue(CS2103T_WEEK8_QUIZ.equals(editedCs2103T));
     }
 
     @Test

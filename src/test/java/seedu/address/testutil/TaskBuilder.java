@@ -23,7 +23,7 @@ public class TaskBuilder {
      * Creates a {@code TaskBuilder} with the default details.
      */
     public TaskBuilder() {
-        tile = new Title(DEFAULT_TITLE);
+        title = new Title(DEFAULT_TITLE);
         description = new Description(DEFAULT_DESCRIPTION);
         dateTime = new DateTime(DEFAULT_DATE_TIME);
     }

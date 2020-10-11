@@ -41,7 +41,7 @@ public class TitleContainsKeywordsPredicateTest {
     @Test
     public void test_titleContainsKeywords_returnsTrue() {
         // One keyword
-        titleContainsKeywordsPredicate predicate = new titleContainsKeywordsPredicate(
+        TitleContainsKeywordsPredicate predicate = new TitleContainsKeywordsPredicate(
                 Collections.singletonList("CS2100"));
         assertTrue(predicate.test(new TaskBuilder().withTitle("CS2100").build()));
 

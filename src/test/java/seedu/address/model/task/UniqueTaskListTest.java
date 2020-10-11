@@ -28,7 +28,7 @@ public class UniqueTaskListTest {
 
     @Test
     public void contains_taskNotInList_returnsFalse() {
-        assertFalse(uniquePersonList.contains(CS2103T_WEEK8_QUIZ));
+        assertFalse(uniqueTaskList.contains(CS2103T_WEEK8_QUIZ));
     }
 
     @Test
@@ -76,7 +76,7 @@ public class UniqueTaskListTest {
     public void setTask_editedTaskIsSameTask_success() {
         uniqueTaskList.add(CS2103T_WEEK8_QUIZ);
         uniqueTaskList.setTask(CS2103T_WEEK8_QUIZ, CS2103T_WEEK8_QUIZ);
-        uniqueTaskList expectedUniqueTaskList = new UniqueTaskList();
+        UniqueTaskList expectedUniqueTaskList = new UniqueTaskList();
         expectedUniqueTaskList.add(CS2103T_WEEK8_QUIZ);
         assertEquals(expectedUniqueTaskList, uniqueTaskList);
     }
@@ -85,7 +85,7 @@ public class UniqueTaskListTest {
     public void setPerson_editedTaskHasDifferentIdentity_success() {
         uniqueTaskList.add(CS2103T_WEEK8_QUIZ);
         uniqueTaskList.setTask(CS2103T_WEEK8_QUIZ, CS2100_TUTORIAL_HOMEWORK);
-        uniqueTaskList expectedUniqueTaskList = new UniqueTaskList();
+        UniqueTaskList expectedUniqueTaskList = new UniqueTaskList();
         expectedUniqueTaskList.add(CS2100_TUTORIAL_HOMEWORK);
         assertEquals(expectedUniqueTaskList, uniqueTaskList);
     }
@@ -112,7 +112,7 @@ public class UniqueTaskListTest {
     public void remove_existingTask_removesTask() {
         uniqueTaskList.add(CS2103T_WEEK8_QUIZ);
         uniqueTaskList.remove(CS2103T_WEEK8_QUIZ);
-        uniqueTaskList expectedUniqueTaskList = new UniqueTaskList();
+        UniqueTaskList expectedUniqueTaskList = new UniqueTaskList();
         assertEquals(expectedUniqueTaskList, uniqueTaskList);
     }
 
@@ -124,7 +124,7 @@ public class UniqueTaskListTest {
     @Test
     public void setTasks_uniqueTaskList_replacesOwnListWithProvidedUniqueTaskList() {
         uniqueTaskList.add(CS2103T_WEEK8_QUIZ);
-        uniqueTaskList expectedUniqueTaskList = new UniqueTaskList();
+        UniqueTaskList expectedUniqueTaskList = new UniqueTaskList();
         expectedUniqueTaskList.add(CS2100_TUTORIAL_HOMEWORK);
         uniqueTaskList.setTasks(expectedUniqueTaskList);
         assertEquals(expectedUniqueTaskList, uniqueTaskList);
@@ -139,7 +139,7 @@ public class UniqueTaskListTest {
     public void setTasks_list_replacesOwnListWithProvidedList() {
         uniqueTaskList.add(CS2103T_WEEK8_QUIZ);
         List<Task> taskList = Collections.singletonList(CS2100_TUTORIAL_HOMEWORK);
-        uniqueTaskListList.setTasks(taskList);
+        uniqueTaskList.setTasks(taskList);
         UniqueTaskList expectedUniqueTaskList = new UniqueTaskList();
         expectedUniqueTaskList.add(CS2100_TUTORIAL_HOMEWORK);
         assertEquals(expectedUniqueTaskList, uniqueTaskList);

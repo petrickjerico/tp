@@ -22,7 +22,7 @@ public class TitleTest {
     @Test
     public void isValidTitle() {
         // null address
-        assertThrows(NullPointerException.class, () -> Title.isValidAddress(null));
+        assertThrows(NullPointerException.class, () -> Title.isValidTitle(null));
 
         // invalid title
         assertFalse(Title.isValidTitle("")); // empty string

@@ -26,8 +26,8 @@ public class DescriptionTest {
         assertTrue(Description.isValidDescription("PE")); // minimal
         assertTrue(Description.isValidDescription("Practical Examination")); // alphabets only
         assertTrue(Description.isValidDescription("!#$%&'*+/=?`{|}~^.-")); // special characters
-        assertTrue(Descroption.isValidDescription("123145")); // numbers only
-        assertTrue(Descroption.isValidDescription(
+        assertTrue(Description.isValidDescription("123145")); // numbers only
+        assertTrue(Description.isValidDescription(
                 "Final Examination which covers all the materials so far")); // long description
     }
 }

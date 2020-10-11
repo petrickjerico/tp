@@ -16,10 +16,10 @@ public class DateTimeTest {
     @Test
     public void isValidDateTime() {
         // null phone number
-        assertThrows(NullPointerException.class, () -> Phone.isValidPhone(null));
+        assertThrows(NullPointerException.class, () -> DateTime.isValidDateTime(null));
 
         // invalid date time
-        assertFalse(DateTime.isValidPhone(" ")); // spaces only
+        assertFalse(DateTime.isValidDateTime(" ")); // spaces only
         assertFalse(DateTime.isValidDateTime("10/12/2020 12:00")); // wrong format in dd/MM/yyyy hh:mm
         assertFalse(DateTime.isValidDateTime("date")); // non-numeric
         assertFalse(DateTime.isValidDateTime("2020/03/20")); // no time

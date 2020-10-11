@@ -29,7 +29,7 @@ public class TypicalTasks {
                 .build();
 
     // Manually added with no Description
-    public static final Task CS2100_FINAL = new TaskBuilder().withTitle("CS2100 Final")
+    public static final Task CS2100_FINAL = new TaskBuilder().withTitle("CS2100")
             .withDescription("")
             .withDateTime("2020-11-30 13:00")
             .build();

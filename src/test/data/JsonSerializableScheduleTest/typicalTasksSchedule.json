@@ -1,0 +1,24 @@
+{
+  "_comment": "StudyBananas save file which contains the same Task values as in TypicalTasks#getTypicalSchedule()",
+  "tasks" : [ {
+    "title" : "CS2103T",
+    "description" : "Week 8 Quiz",
+    "dateTime" : "2020-09-27 12:00"
+  }, {
+    "title" : "CS2100",
+    "description" : "Pipeline homework",
+    "dateTime" : "2020-10-04 10:00"
+  }, {
+    "title" : "ST2334",
+    "description" : "Chapter 2 Quiz",
+    "dateTime" : "2020-10-01 23:00"
+  }, {
+    "title" : "CS2100",
+    "description" : "",
+    "dateTime" : "2020-11-30 13:00"
+  }, {
+    "title" : "CS2101",
+    "description" : "Luminus Feedback",
+    "dateTime" : ""
+  } ]
+}

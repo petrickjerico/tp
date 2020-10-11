@@ -32,10 +32,10 @@ public class DateTime {
     }
 
     /**
-     * Returns true if a given string is a valid date.
+     * Returns true if a given string is a valid date or an empty string.
      */
     public static boolean isValidDateTime(String test) {
-        return TimeFormatChecker.check(test);
+        return test.equals("") || TimeFormatChecker.check(test);
     }
 
 

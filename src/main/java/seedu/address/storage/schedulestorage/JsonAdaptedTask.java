@@ -1,4 +1,4 @@
-package seedu.address.storage.task;
+package seedu.address.storage.schedulestorage;
 
 import java.util.Optional;
 

@@ -30,7 +30,7 @@ import seedu.address.model.Schedule;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.storage.JsonAddressBookStorage;
-import seedu.address.storage.JsonScheduleStorage;
+import seedu.address.storage.schedulestorage.JsonScheduleStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.StorageManager;
 import seedu.address.testutil.PersonBuilder;

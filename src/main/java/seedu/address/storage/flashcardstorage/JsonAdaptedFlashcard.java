@@ -1,4 +1,4 @@
-package seedu.address.storage.flashcard;
+package seedu.address.storage.flashcardstorage;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

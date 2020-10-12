@@ -1,4 +1,4 @@
-package seedu.address.storage.flashcard;
+package seedu.address.storage.flashcardstorage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,12 +8,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
-import seedu.address.model.person.Name;
-import seedu.address.model.task.DateTime;
-import seedu.address.model.task.Description;
-import seedu.address.model.task.Title;
-
+import seedu.address.model.flashcard.Name;
 
 public class JsonAdaptedFlashcardSet {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "FlashcardSet's %s field is missing!";
@@ -54,15 +51,11 @@ public class JsonAdaptedFlashcardSet {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
         final Name modelName = new Name(name);
-        final Description modelDescription = description.map(Description::new).orElse(null);
-        final DateTime modelDateTime = dateTime.map(jsonDateTime -> {
-            try {
-                return jsonDateTime.toModelType();
-            } catch (IllegalValueException e) {
-                return null;
-            }
-        }).orElse(null);
+        final List<Flashcard> modelFlashcards = new ArrayList<>();
+        for (JsonAdaptedFlashcard flashcard : flashcards) {
+            modelFlashcards.add(flashcard.toModelType());
+        }
 
-        return new FlashcardSet(modelTitle, modelDescription, modelDateTime);
+        return new FlashcardSet(modelName, modelFlashcards);
     }
 }

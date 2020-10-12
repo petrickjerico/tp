@@ -1,4 +1,4 @@
-package seedu.address.storage.flashcard;
+package seedu.address.storage.flashcardstorage;
 
 import java.util.ArrayList;
 import java.util.List;

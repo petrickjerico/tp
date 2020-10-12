@@ -1,4 +1,4 @@
-package seedu.address.storage.flashcard;
+package seedu.address.storage.flashcardstorage;
 
 import java.io.IOException;
 import java.nio.file.Path;

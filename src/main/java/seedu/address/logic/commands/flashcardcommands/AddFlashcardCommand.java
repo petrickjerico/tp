@@ -9,13 +9,14 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.FlashcardModel;
 import seedu.address.model.Model;
 import seedu.address.model.flashcard.Flashcard;
 
 /**
  * Adds a flashcard to a flashcard set.
  */
-public class AddFlashcardCommand extends Command {
+public class AddFlashcardCommand extends Command<FlashcardModel> {
 
     public static final String COMMAND_WORD = "add fl";
 
@@ -44,7 +45,7 @@ public class AddFlashcardCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(FlashcardModel model) throws CommandException {
         requireNonNull(model);
 
         model.addFlashcard(toAdd, flashcardSetIndex);

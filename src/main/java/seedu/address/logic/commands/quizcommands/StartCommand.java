@@ -6,11 +6,13 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.QuizModel;
 import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.flashcard.Question;
 import seedu.address.model.quiz.Quiz;
 
-public class StartCommand extends Command {
+//The abstraction has to be clarified.
+public class StartCommand extends Command<Model> {
 
     public static final String MESSAGE_QUIZ_IN_PROGRESS = "Quiz already in progress!";
     public static final String MESSAGE_FLASHCARD_SET_NONEXISTENT = "Flashcard set does not exist";

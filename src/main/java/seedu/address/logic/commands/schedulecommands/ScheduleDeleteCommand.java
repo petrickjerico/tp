@@ -10,10 +10,10 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.addressbookcommands.DeleteCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
+import seedu.address.model.ScheduleModel;
 import seedu.address.model.task.Task;
 
-public class ScheduleDeleteCommand extends Command {
+public class ScheduleDeleteCommand extends Command<ScheduleModel> {
     public static final String COMMAND_WORD = "delete task";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
@@ -30,7 +30,7 @@ public class ScheduleDeleteCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(ScheduleModel model) throws CommandException {
         requireNonNull(model);
         List<Task> lastShownList = model.getFilteredTaskList();
 

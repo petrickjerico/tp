@@ -1,13 +1,12 @@
 package seedu.address.logic.commands.addressbookcommands;
 
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.addressbookcommands.AddCommand;
 import seedu.address.model.FlashcardBank;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;

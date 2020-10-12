@@ -1,11 +1,10 @@
 package seedu.address.logic.commands.addressbookcommands;
 
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.addressbookcommands.ClearCommand;
 import seedu.address.model.AddressBook;
 import seedu.address.model.FlashcardBank;
 import seedu.address.model.Model;

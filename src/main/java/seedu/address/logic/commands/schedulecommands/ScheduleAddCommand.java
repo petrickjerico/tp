@@ -9,10 +9,10 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.addressbookcommands.AddCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
+import seedu.address.model.ScheduleModel;
 import seedu.address.model.task.Task;
 
-public class ScheduleAddCommand extends Command {
+public class ScheduleAddCommand extends Command<ScheduleModel> {
     public static final String COMMAND_WORD = "add task";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a task to the schedule. \n"
@@ -35,7 +35,7 @@ public class ScheduleAddCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(ScheduleModel model) throws CommandException {
         requireNonNull(model);
 
         if (model.hasTask(toAdd)) {

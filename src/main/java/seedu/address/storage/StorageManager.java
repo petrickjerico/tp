@@ -125,7 +125,8 @@ public class StorageManager implements Storage {
     }
 
     @Override
-    public Optional<ReadOnlyFlashcardBank> readFlashcardBank(Path filePath) throws DataConversionException, IOException {
+    public Optional<ReadOnlyFlashcardBank> readFlashcardBank(Path filePath) throws
+            DataConversionException, IOException {
         return Optional.empty();
     }
 

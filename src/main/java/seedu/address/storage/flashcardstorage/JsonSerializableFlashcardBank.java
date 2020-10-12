@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.ReadOnlyFlashcardBank;
 import seedu.address.model.FlashcardBank;
+import seedu.address.model.ReadOnlyFlashcardBank;
 import seedu.address.model.flashcard.FlashcardSet;
 
 
@@ -32,7 +32,8 @@ public class JsonSerializableFlashcardBank {
      * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
      */
     public JsonSerializableFlashcardBank(ReadOnlyFlashcardBank source) {
-        flashcardSets.addAll(source.getFlashcardSetList().stream().map(JsonAdaptedFlashcardSet::new).collect(Collectors.toList()));
+        flashcardSets.addAll(source.getFlashcardSetList().stream()
+                .map(JsonAdaptedFlashcardSet::new).collect(Collectors.toList()));
     }
 
     /**

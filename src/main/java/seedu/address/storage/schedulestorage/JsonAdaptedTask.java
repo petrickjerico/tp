@@ -16,8 +16,8 @@ public class JsonAdaptedTask {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Task's %s field is missing!";
 
     private final String title;
-    private Optional<String> description;
-    private Optional<JsonAdaptedDateTime> dateTime;
+    private final Optional<String> description;
+    private final Optional<JsonAdaptedDateTime> dateTime;
 
     /**
      * Constructs a {@code JsonAdaptedTask} with the given task details.

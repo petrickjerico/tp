@@ -11,7 +11,7 @@ public class Quiz {
     private final int totalScore;
     private int pointsScored = 0;
     private int currentIndex = 0;
-    private boolean[] scoreboard;
+    private final boolean[] scoreboard;
 
     /**
      * Creates a quiz from a given flashcard set.

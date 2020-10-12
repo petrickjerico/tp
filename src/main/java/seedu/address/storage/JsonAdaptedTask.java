@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Name;
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.Description;
 import seedu.address.model.task.Task;
@@ -16,7 +15,7 @@ public class JsonAdaptedTask {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Task's %s field is missing!";
 
     private final String title;
-    private Optional<String> description;
+    private final Optional<String> description;
     private Optional<JsonAdaptedDateTime> dateTime;
 
     /**
@@ -24,11 +23,11 @@ public class JsonAdaptedTask {
      */
     @JsonCreator
     public JsonAdaptedTask(@JsonProperty("title") String title,
-                           @JsonProperty("description") Optional<String> description,
-                             @JsonProperty("dateTime") Optional<String> dateTime) {
+                           @JsonProperty("description") String description,
+                             @JsonProperty("dateTime") String dateTime) {
         this.title = title;
-        this.description = description;
-        this.dateTime = dateTime.map(JsonAdaptedDateTime::new);
+        this.description = Optional.ofNullable(description);
+        this.dateTime = Optional.ofNullable(new JsonAdaptedDateTime(dateTime));
     }
 
     /**
@@ -48,7 +47,7 @@ public class JsonAdaptedTask {
     public Task toModelType() throws IllegalValueException {
 
         if (title == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Title.class.getSimpleName()));
         }
         final Title modelTitle = new Title(title);
         final Description modelDescription = description.map(Description::new).orElse(null);

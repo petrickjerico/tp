@@ -19,7 +19,7 @@ import seedu.address.model.ReadOnlySchedule;
 import seedu.address.model.Schedule;
 
 public class JsonScheduleStorageTest {
-    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonSheduleStorageTest");
+    private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonScheduleStorageTest");
 
     @TempDir
     public Path testFolder;

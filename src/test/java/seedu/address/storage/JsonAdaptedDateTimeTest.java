@@ -5,6 +5,7 @@ import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.exceptions.TimeFormatException;
 
@@ -21,10 +22,10 @@ public class JsonAdaptedDateTimeTest {
     }
 
     @Test
-    public void toModelType_invalidDateTime_throwsTimeFormatException() {
+    public void toModelType_invalidDateTime_throwsIllegalValueException() {
         JsonAdaptedDateTime dateTime =
                 new JsonAdaptedDateTime(INVALID_DATE_TIME);
         String expectedMessage = DateTime.MESSAGE_CONSTRAINTS;
-        assertThrows(TimeFormatException.class, expectedMessage, dateTime::toModelType);
+        assertThrows(IllegalValueException.class, expectedMessage, dateTime::toModelType);
     }
 }

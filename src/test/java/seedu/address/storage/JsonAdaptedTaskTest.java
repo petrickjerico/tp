@@ -5,7 +5,7 @@ import static seedu.address.storage.JsonAdaptedTask.MISSING_FIELD_MESSAGE_FORMAT
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalTasks.CS2103T_WEEK8_QUIZ;
 
-import java.util.Optional;
+import java.lang.IllegalArgumentException;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,14 +16,12 @@ import seedu.address.model.task.Title;
 
 public class JsonAdaptedTaskTest {
     private static final String INVALID_TITLE = "Play Game";
-    private static final Optional<String> INVALID_DATE_TIME = Optional.of("12/10/2020 12:00");
-    private static final Optional<String> INVALID_DESCRIPTION = Optional.of(" ");
+    private static final String INVALID_DATE_TIME = "12/10/2020 12:00";
+    private static final String INVALID_DESCRIPTION = " ";
 
     private static final String VALID_TITLE = CS2103T_WEEK8_QUIZ.getTitle().toString();
-    private static final Optional<String> VALID_DATE_TIME =
-            Optional.ofNullable(CS2103T_WEEK8_QUIZ.getDateTime().get().toString());
-    private static final Optional<String> VALID_DESCRIPTION =
-            Optional.ofNullable(CS2103T_WEEK8_QUIZ.getDescription().get().toString());
+    private static final String VALID_DATE_TIME = CS2103T_WEEK8_QUIZ.getDateTime().get().toString();
+    private static final String VALID_DESCRIPTION = CS2103T_WEEK8_QUIZ.getDescription().get().toString();
 
     @Test
     public void toModelType_validTaskDetails_returnsTask() throws Exception {
@@ -47,11 +45,11 @@ public class JsonAdaptedTaskTest {
     }
 
     @Test
-    public void toModelType_invalidDescription_throwsIllegalValueException() {
+    public void toModelType_invalidDescription_throwsIllegalArgumentException() {
         JsonAdaptedTask task =
                 new JsonAdaptedTask(VALID_TITLE, INVALID_DESCRIPTION, VALID_DATE_TIME);
         String expectedMessage = Description.MESSAGE_CONSTRAINTS;
-        assertThrows(IllegalValueException.class, expectedMessage, task::toModelType);
+        assertThrows(IllegalArgumentException.class, expectedMessage, task::toModelType);
     }
 
     @Test

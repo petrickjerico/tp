@@ -22,4 +22,9 @@ public class ClearCommand extends Command<AddressBookModel> {
         model.setAddressBook(new AddressBook());
         return new CommandResult(MESSAGE_SUCCESS);
     }
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ClearCommand);
+    }
 }

@@ -22,7 +22,7 @@ public class ScheduleAddCommand extends Command<ScheduleModel> {
             + "[" + PREFIX_TIME + "TIME] ";
 
     public static final String MESSAGE_SUCCESS = "New task added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This task already exists in the schedule";
+    public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in the schedule";
 
     private final Task toAdd;
 
@@ -39,7 +39,7 @@ public class ScheduleAddCommand extends Command<ScheduleModel> {
         requireNonNull(model);
 
         if (model.hasTask(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            throw new CommandException(MESSAGE_DUPLICATE_TASK);
         }
 
         model.addTask(toAdd);

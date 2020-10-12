@@ -44,7 +44,7 @@ public class LogicManager implements Logic {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
         CommandResult commandResult;
-        Command command = studyBananasParser.parseCommand(commandText);
+        Command<Model> command = studyBananasParser.parseCommand(commandText);
         commandResult = command.execute(model);
 
         try {

@@ -35,7 +35,7 @@ import seedu.address.testutil.PersonBuilder;
  * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for EditCommand.
  */
 public class EditCommandTest {
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(),
+    private final Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(),
             new Schedule(), new FlashcardBank());
 
     @Test

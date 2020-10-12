@@ -66,7 +66,7 @@ public class Task {
             return false;
         }
 
-        Task otherTask = (Task) other;
+        Task otherTask = other;
         return otherTask.getTitle().rigorousEquals(this.getTitle())
                 && (other.getDescription().equals(this.getDescription())
                 || haveSameDescription(otherTask, this));

@@ -15,6 +15,10 @@ public class AddressBookModelManager implements AddressBookModel {
     private final AddressBook addressBook;
     private final FilteredList<Person> filteredPersons;
 
+    /**
+     * Create AddressBookModelManager from {@Code addressBook}
+     * @param addressBook
+     */
     public AddressBookModelManager(ReadOnlyAddressBook addressBook) {
         this.addressBook = new AddressBook(addressBook);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());

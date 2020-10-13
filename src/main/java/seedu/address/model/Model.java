@@ -1,11 +1,9 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
-import java.util.function.Predicate;
 
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
-import seedu.address.model.task.Task;
 
 /**
  * The API of the Model component.

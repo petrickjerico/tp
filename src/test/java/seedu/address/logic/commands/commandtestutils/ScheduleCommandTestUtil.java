@@ -38,7 +38,8 @@ public class ScheduleCommandTestUtil {
      * Convenience wrapper to {@link #assertCommandSuccess(Command, ScheduleModel, CommandResult, ScheduleModel)}
      * that takes a string {@code expectedMessage}.
      */
-    public static void assertCommandSuccess(Command<ScheduleModel> command, ScheduleModel actualModel, String expectedMessage,
+    public static void assertCommandSuccess(Command<ScheduleModel> command, ScheduleModel actualModel,
+                                            String expectedMessage,
                                             ScheduleModel expectedModel) {
         CommandResult expectedCommandResult = new CommandResult(expectedMessage);
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
@@ -50,10 +51,11 @@ public class ScheduleCommandTestUtil {
      * - the CommandException message matches {@code expectedMessage} <br>
      * - the schedule, filtered task list and selected task in {@code actualModel} remain unchanged
      */
-    public static void assertCommandFailure(Command<ScheduleModel> command, ScheduleModel actualModel, String expectedMessage) {
+    public static void assertCommandFailure(Command<ScheduleModel> command, ScheduleModel actualModel,
+                                            String expectedMessage) {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
-        Schedule expectedSchedule= new Schedule(actualModel.getSchedule());
+        Schedule expectedSchedule = new Schedule(actualModel.getSchedule());
         List<Task> expectedFilteredList = new ArrayList<>(actualModel.getFilteredTaskList());
 
         assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel));

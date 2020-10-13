@@ -4,9 +4,9 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.index.Index;
-import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
+import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 
 public interface FlashcardModel {
     // FLASHCARD

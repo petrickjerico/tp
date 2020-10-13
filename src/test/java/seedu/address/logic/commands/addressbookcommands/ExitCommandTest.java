@@ -1,7 +1,7 @@
 package seedu.address.logic.commands.addressbookcommands;
 
-import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.addressbookcommands.ExitCommand.MESSAGE_EXIT_ACKNOWLEDGEMENT;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.assertCommandSuccess;
 
 import org.junit.jupiter.api.Test;
 

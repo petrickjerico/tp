@@ -43,5 +43,4 @@ public class JsonUserPrefsStorage implements UserPrefsStorage {
     public void saveUserPrefs(ReadOnlyUserPrefs userPrefs) throws IOException {
         JsonUtil.saveJsonFile(userPrefs, filePath);
     }
-
 }

@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,8 +16,8 @@ import org.junit.jupiter.api.Test;
 import javafx.collections.ObservableList;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.ScheduleModel;
+import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.task.Task;
 import seedu.address.testutil.TaskBuilder;
 
@@ -45,12 +44,13 @@ public class ScheduleAddCommandTest {
         ScheduleAddCommand addCommand = new ScheduleAddCommand(validTask);
         ModelStubWithTask modelStub = new ModelStubWithTask(validTask);
 
-        assertThrows(CommandException.class, ScheduleAddCommand.MESSAGE_DUPLICATE_TASK, () -> addCommand.execute(modelStub));
+        assertThrows(CommandException.class, ScheduleAddCommand.MESSAGE_DUPLICATE_TASK, (
+        ) -> addCommand.execute(modelStub));
     }
 
     @Test
     public void equals() {
-        Task cs2103 = new  TaskBuilder().withTitle("cs2103").build();
+        Task cs2103 = new TaskBuilder().withTitle("cs2103").build();
         Task cs2101 = new TaskBuilder().withTitle("cs2101").build();
         ScheduleAddCommand addCs2103 = new ScheduleAddCommand(cs2103);
         ScheduleAddCommand addCs2101 = new ScheduleAddCommand(cs2101);
@@ -97,7 +97,7 @@ public class ScheduleAddCommandTest {
      * A Model stub that always accepts the Task being added.
      */
     private class ModelStubAcceptingTaskAdded extends ScheduleModelStub {
-        List<Task> tasksAdded = new ArrayList<>();
+        private List<Task> tasksAdded = new ArrayList<>();
         @Override
         public boolean hasTask(Task task) {
             requireNonNull(task);

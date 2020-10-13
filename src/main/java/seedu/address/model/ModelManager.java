@@ -10,7 +10,6 @@ import java.util.function.Predicate;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
@@ -18,6 +17,8 @@ import seedu.address.model.flashcard.Answer;
 import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.flashcard.Question;
+import seedu.address.model.person.Person;
+import seedu.address.model.quiz.Quiz;
 import seedu.address.model.systemlevelmodel.AddressBook;
 import seedu.address.model.systemlevelmodel.FlashcardBank;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
@@ -25,8 +26,6 @@ import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
 import seedu.address.model.systemlevelmodel.Schedule;
-import seedu.address.model.person.Person;
-import seedu.address.model.quiz.Quiz;
 import seedu.address.model.systemlevelmodel.UserPrefs;
 import seedu.address.model.task.Task;
 

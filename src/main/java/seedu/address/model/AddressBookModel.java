@@ -1,11 +1,10 @@
 package seedu.address.model;
 
-import java.nio.file.Path;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.person.Person;
+import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 
 public interface AddressBookModel {
     /** {@code Predicate} that always evaluate to true */

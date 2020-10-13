@@ -14,6 +14,10 @@ public class ScheduleModelManager implements ScheduleModel {
     private final Schedule schedule;
     private final FilteredList<Task> filteredTasks;
 
+    /**
+     * Create ScheduleModelManager from {@schedule}
+     * @param schedule
+     */
     public ScheduleModelManager(ReadOnlySchedule schedule) {
         this.schedule = new Schedule(schedule);
         filteredTasks = new FilteredList<>(this.schedule.getTaskList());

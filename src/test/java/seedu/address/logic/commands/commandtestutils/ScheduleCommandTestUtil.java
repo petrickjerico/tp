@@ -22,7 +22,7 @@ import seedu.address.model.task.TitleContainsKeywordsPredicate;
 
 public class ScheduleCommandTestUtil {
     public static final String VALID_TITLE_CS2103T = "CS2103T";
-    public static final String VALID_TITLE_CS2101= "CS2101";
+    public static final String VALID_TITLE_CS2101 = "CS2101";
     public static final String VALID_DESCRIPTION_CS2103T = "Tutorial homework.";
     public static final String VALID_DESCRIPTION_CS2101 = "Oral presentation1.";
     public static final String VALID_DATETIME_CS2103T = "2020-09-25 11:00";

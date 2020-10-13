@@ -85,17 +85,17 @@ public class ScheduleAddCommandParserTest {
     @Test
     public void parse_invalidValue_failure() {
         // invalid title
-        assertParseFailure(parser, INVALID_TITLE_DESC + DESCRIPTION_DESC_CS2103T + DATETIME_DESC_CS2103T
-                , Title.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, INVALID_TITLE_DESC + DESCRIPTION_DESC_CS2103T + DATETIME_DESC_CS2103T,
+                Title.MESSAGE_CONSTRAINTS);
 
         // invalid email
-        assertParseFailure(parser, TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2103T + INVALID_DATETIME_DESC
-                , DateTime.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2103T + INVALID_DATETIME_DESC,
+                DateTime.MESSAGE_CONSTRAINTS);
 
 
         // two invalid values, only first invalid value reported
-        assertParseFailure(parser, INVALID_TITLE_DESC + DATETIME_DESC_CS2103T
-                , Title.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, INVALID_TITLE_DESC + DATETIME_DESC_CS2103T,
+                Title.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2103T

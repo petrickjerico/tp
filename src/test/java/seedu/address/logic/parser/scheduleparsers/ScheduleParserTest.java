@@ -18,12 +18,12 @@ public class ScheduleParserTest {
     @Test
     public void parse_invalidCommand_throwsParseException() {
         // empty string
-        assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE),
-                () -> parser.parse(""));
+        assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE), (
+            ) -> parser.parse(""));
 
         // contain only one word
-        assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE),
-                () -> parser.parse("one"));
+        assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE), (
+            ) -> parser.parse("one"));
 
         // invalid input
         assertThrows(ParseException.class, MESSAGE_UNKNOWN_COMMAND, () -> parser.parse("one two"));

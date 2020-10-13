@@ -10,7 +10,6 @@ import seedu.address.logic.commands.quizcommands.WrongCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
-import seedu.address.model.QuizModel;
 
 public class QuizParser implements Parser<Command> {
 

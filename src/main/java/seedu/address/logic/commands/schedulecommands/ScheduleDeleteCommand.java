@@ -8,7 +8,6 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.addressbookcommands.DeleteCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.ScheduleModel;
 import seedu.address.model.task.Task;
@@ -21,7 +20,7 @@ public class ScheduleDeleteCommand extends Command<ScheduleModel> {
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Task: %1$s";
+    public static final String MESSAGE_DELETE_TASK_SUCCESS = "Deleted Task: %1$s";
 
     private final Index targetIndex;
 
@@ -40,13 +39,13 @@ public class ScheduleDeleteCommand extends Command<ScheduleModel> {
 
         Task taskToDelete = lastShownList.get(targetIndex.getZeroBased());
         model.deleteTask(taskToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, taskToDelete));
+        return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS, taskToDelete));
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof DeleteCommand // instanceof handles nulls
+                || (other instanceof ScheduleDeleteCommand // instanceof handles nulls
                 && targetIndex.equals(((ScheduleDeleteCommand) other).targetIndex)); // state check
     }
 }

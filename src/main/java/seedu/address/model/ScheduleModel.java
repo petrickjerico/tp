@@ -4,18 +4,12 @@ import java.nio.file.Path;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
+import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.task.Task;
 
 public interface ScheduleModel {
-    /**
-     * Returns the user prefs' schedule file path.
-     */
-    Path getScheduleFilePath();
-
-    /**
-     * Sets the user prefs' schedule file path.
-     */
-    void setScheduleFilePath(Path scheduleFilePath);
+    /** {@code Predicate} that always evaluate to true */
+    Predicate<Task> PREDICATE_SHOW_ALL_TASKS = unused -> true;
 
     /**
      * Replaces schedule data with the data in {@code schedule}.

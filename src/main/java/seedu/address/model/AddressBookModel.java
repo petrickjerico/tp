@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
+import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.person.Person;
 
 public interface AddressBookModel {
@@ -11,15 +12,6 @@ public interface AddressBookModel {
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
     // ADDRESSBOOK
-    /**
-     * Returns the user prefs' address book file path.
-     */
-    Path getAddressBookFilePath();
-
-    /**
-     * Sets the user prefs' address book file path.
-     */
-    void setAddressBookFilePath(Path addressBookFilePath);
 
     /**
      * Replaces address book data with the data in {@code addressBook}.

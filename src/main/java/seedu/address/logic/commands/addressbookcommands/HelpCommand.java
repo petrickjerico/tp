@@ -3,7 +3,6 @@ package seedu.address.logic.commands.addressbookcommands;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.AddressBookModel;
-import seedu.address.model.Model;
 
 /**
  * Format full help instructions for every command for display.

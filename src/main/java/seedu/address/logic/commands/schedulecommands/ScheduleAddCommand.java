@@ -7,7 +7,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TITLE;
 
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.addressbookcommands.AddCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.ScheduleModel;
 import seedu.address.model.task.Task;
@@ -49,7 +48,7 @@ public class ScheduleAddCommand extends Command<ScheduleModel> {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof AddCommand // instanceof handles nulls
+                || (other instanceof ScheduleAddCommand // instanceof handles nulls
                 && toAdd.equals(((ScheduleAddCommand) other).toAdd));
     }
 }

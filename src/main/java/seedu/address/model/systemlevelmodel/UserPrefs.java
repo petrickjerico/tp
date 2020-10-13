@@ -1,4 +1,4 @@
-package seedu.address.model;
+package seedu.address.model.systemlevelmodel;
 
 import static java.util.Objects.requireNonNull;
 
@@ -14,8 +14,8 @@ import seedu.address.commons.core.GuiSettings;
 public class UserPrefs implements ReadOnlyUserPrefs {
 
     private GuiSettings guiSettings = new GuiSettings();
-    private Path addressBookFilePath = Paths.get("data" , "addressbook.json");
-    private Path scheduleFilePath = Paths.get("data", "schedule.json");
+    private Path addressBookFilePath = Paths.get("data" , "addressbook.json").toAbsolutePath();
+    private Path scheduleFilePath = Paths.get("data", "schedule.json").toAbsolutePath();
 
     /**
      * Creates a {@code UserPrefs} with default values.

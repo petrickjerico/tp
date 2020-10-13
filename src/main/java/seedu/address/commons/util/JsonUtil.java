@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.deser.std.FromStringDeserializer;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.DataConversionException;
@@ -30,7 +31,8 @@ public class JsonUtil {
 
     private static final Logger logger = LogsCenter.getLogger(JsonUtil.class);
 
-    private static final ObjectMapper objectMapper = new ObjectMapper().findAndRegisterModules()
+    private static final ObjectMapper objectMapper = new ObjectMapper().registerModule(new Jdk8Module())
+            .findAndRegisterModules()
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
             .setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE)
@@ -41,6 +43,7 @@ public class JsonUtil {
 
     static <T> void serializeObjectToJsonFile(Path jsonFile, T objectToSerialize) throws IOException {
         FileUtil.writeToFile(jsonFile, toJsonString(objectToSerialize));
+        String myCheck =  toJsonString(objectToSerialize);
     }
 
     static <T> T deserializeObjectFromJsonFile(Path jsonFile, Class<T> classOfObjectToDeserialize)

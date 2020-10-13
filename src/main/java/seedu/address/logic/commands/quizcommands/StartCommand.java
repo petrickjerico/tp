@@ -6,7 +6,6 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.QuizModel;
 import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.flashcard.Question;
 import seedu.address.model.quiz.Quiz;

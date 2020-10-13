@@ -5,10 +5,10 @@ import java.nio.file.Path;
 import java.util.Optional;
 
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.ReadOnlySchedule;
-import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.UserPrefs;
+import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
+import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
+import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
+import seedu.address.model.systemlevelmodel.UserPrefs;
 
 /**
  * API of the Storage component

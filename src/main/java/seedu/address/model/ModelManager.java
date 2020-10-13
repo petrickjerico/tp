@@ -18,8 +18,16 @@ import seedu.address.model.flashcard.Answer;
 import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.flashcard.Question;
+import seedu.address.model.systemlevelmodel.AddressBook;
+import seedu.address.model.systemlevelmodel.FlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
+import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
+import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
+import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.person.Person;
 import seedu.address.model.quiz.Quiz;
+import seedu.address.model.systemlevelmodel.UserPrefs;
 import seedu.address.model.task.Task;
 
 /**
@@ -28,13 +36,10 @@ import seedu.address.model.task.Task;
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final AddressBook addressBook;
+    private final AddressBookModelManager addressBookModelManager;
+    private final ScheduleModelManager scheduleModelManager;
+    private final FlashcardModelManager flashcardModelManager;
     private final UserPrefs userPrefs;
-    private final FilteredList<Person> filteredPersons;
-    private final Schedule schedule;
-    private final FilteredList<Task> filteredTasks;
-    private final FlashcardBank flashcardBank;
-    private final FilteredList<FlashcardSet> filteredFlashcardSets;
     private final Map<Integer, Quiz> quizRecords = new HashMap<>();
     private Quiz quiz;
 
@@ -49,13 +54,10 @@ public class ModelManager implements Model {
         logger.fine("Initializing with address book: " + addressBook + " , user prefs "
                 + userPrefs + " , and schedule: " + schedule);
 
-        this.addressBook = new AddressBook(addressBook);
-        this.schedule = new Schedule(schedule);
-        this.flashcardBank = new FlashcardBank(flashcardBank);
+        addressBookModelManager = new AddressBookModelManager(addressBook);
+        scheduleModelManager = new ScheduleModelManager(schedule);
+        flashcardModelManager = new FlashcardModelManager(flashcardBank);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
-        filteredTasks = new FilteredList<>(this.schedule.getTaskList());
-        filteredFlashcardSets = new FilteredList<>(this.flashcardBank.getFlashcardSetList());
     }
 
     public ModelManager() {
@@ -112,100 +114,88 @@ public class ModelManager implements Model {
 
     @Override
     public void setAddressBook(ReadOnlyAddressBook addressBook) {
-        this.addressBook.resetData(addressBook);
+        this.addressBookModelManager.setAddressBook(addressBook);
     }
 
     @Override
     public ReadOnlyAddressBook getAddressBook() {
-        return addressBook;
+        return this.addressBookModelManager.getAddressBook();
     }
 
     @Override
     public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return addressBook.hasPerson(person);
+        return this.addressBookModelManager.hasPerson(person);
     }
 
     @Override
     public void deletePerson(Person target) {
-        addressBook.removePerson(target);
+        this.addressBookModelManager.deletePerson(target);
     }
 
     @Override
     public void addPerson(Person person) {
-        addressBook.addPerson(person);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        this.addressBookModelManager.addPerson(person);
     }
 
     @Override
     public void setPerson(Person target, Person editedPerson) {
-        requireAllNonNull(target, editedPerson);
-
-        addressBook.setPerson(target, editedPerson);
+        this.addressBookModelManager.setPerson(target, editedPerson);
     }
 
     //=========== Filtered Person List Accessors =============================================================
 
-    /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
-     * {@code versionedAddressBook}
-     */
     @Override
     public ObservableList<Person> getFilteredPersonList() {
-        return filteredPersons;
+        return this.addressBookModelManager.getFilteredPersonList();
     }
 
     @Override
     public void updateFilteredPersonList(Predicate<Person> predicate) {
-        requireNonNull(predicate);
-        filteredPersons.setPredicate(predicate);
+        this.addressBookModelManager.updateFilteredPersonList(predicate);
     }
 
     //=========== Schedule =================================================================================
 
     @Override
     public void setSchedule(ReadOnlySchedule schedule) {
-        this.schedule.resetData(schedule);
+        this.scheduleModelManager.setSchedule(schedule);
     }
 
     @Override
     public ReadOnlySchedule getSchedule() {
-        return schedule;
+        return this.scheduleModelManager.getSchedule();
     }
 
     @Override
     public boolean hasTask(Task task) {
-        requireNonNull(task);
-        return schedule.hasTask(task);
+        return this.scheduleModelManager.hasTask(task);
     }
 
     @Override
     public void deleteTask(Task target) {
-        schedule.removeTask(target);
+        this.scheduleModelManager.deleteTask(target);
     }
 
     @Override
     public void addTask(Task task) {
-        schedule.addTask(task);
-        updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
+        this.scheduleModelManager.addTask(task);
     }
 
     @Override
     public void setTask(Task target, Task editedTask) {
-        schedule.setTask(target, editedTask);
+        scheduleModelManager.setTask(target, editedTask);
     }
 
     //=========== Filtered Task List Accessors =============================================================
 
     @Override
     public ObservableList<Task> getFilteredTaskList() {
-        return filteredTasks;
+        return scheduleModelManager.getFilteredTaskList();
     }
 
     @Override
     public void updateFilteredTaskList(Predicate<Task> predicate) {
-        requireNonNull(predicate);
-        filteredTasks.setPredicate(predicate);
+        this.scheduleModelManager.updateFilteredTaskList(predicate);
     }
 
     @Override
@@ -222,67 +212,10 @@ public class ModelManager implements Model {
 
         // state check
         ModelManager other = (ModelManager) obj;
-        return addressBook.equals(other.addressBook)
-                && userPrefs.equals(other.userPrefs)
-                && filteredPersons.equals(other.filteredPersons)
-                && filteredTasks.equals(other.filteredTasks)
-                && filteredFlashcardSets.equals(other.filteredFlashcardSets);
-    }
-
-    //=========== FlashcardBank =============================================================
-
-    @Override
-    public void setFlashcardBank(ReadOnlyFlashcardBank flashcardBank) {
-        this.flashcardBank.resetData(flashcardBank);
-    }
-
-    @Override
-    public ReadOnlyFlashcardBank getFlashcardBank() {
-        return flashcardBank;
-    }
-
-    @Override
-    public boolean hasFlashcardSet(FlashcardSet flashcardSet) {
-        requireNonNull(flashcardSet);
-        return flashcardBank.hasFlashcardSet(flashcardSet);
-    }
-
-    @Override
-    public void deleteFlashcardSet(FlashcardSet target) {
-        flashcardBank.removeFlashcardSet(target);
-    }
-
-    @Override
-    public void addFlashcardSet(FlashcardSet flashcardSet) {
-        flashcardBank.addFlashcardSet(flashcardSet);
-    }
-
-    @Override
-    public void setFlashcardSet(FlashcardSet target, FlashcardSet editedFlashcardSet) {
-        flashcardBank.setFlashcardSet(target, editedFlashcardSet);
-    }
-
-    @Override
-    public void addFlashcard(Flashcard flashcard, Index flashcardSetIndex) {
-        // TODO: Add flashcard to the FlashcardBank
-    }
-
-    @Override
-    public FlashcardSet getFlashcardSet(int index) {
-        return this.filteredFlashcardSets.get(index);
-    }
-
-    //=========== Filtered Task List Accessors =============================================================
-
-    @Override
-    public ObservableList<FlashcardSet> getFlashcardSetList() {
-        return filteredFlashcardSets;
-    }
-
-    @Override
-    public void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate) {
-        requireNonNull(predicate);
-        filteredFlashcardSets.setPredicate(predicate);
+        return userPrefs.equals(other.userPrefs)
+                && addressBookModelManager.equals(other.addressBookModelManager)
+                && scheduleModelManager.equals(other.scheduleModelManager)
+                && flashcardModelManager.equals(other.flashcardModelManager);
     }
 
     //=========== Quiz =============================================================
@@ -322,5 +255,55 @@ public class ModelManager implements Model {
     @Override
     public String getQuizRecords(int index) {
         return this.quizRecords.get(index).toString();
+    }
+
+    @Override
+    public void setFlashcardBank(ReadOnlyFlashcardBank flashcardBank) {
+        flashcardModelManager.setFlashcardBank(flashcardBank);
+    }
+
+    @Override
+    public ReadOnlyFlashcardBank getFlashcardBank() {
+        return flashcardModelManager.getFlashcardBank();
+    }
+
+    @Override
+    public boolean hasFlashcardSet(FlashcardSet flashcardSet) {
+        return flashcardModelManager.hasFlashcardSet(flashcardSet);
+    }
+
+    @Override
+    public void deleteFlashcardSet(FlashcardSet target) {
+        flashcardModelManager.deleteFlashcardSet(target);
+    }
+
+    @Override
+    public void addFlashcardSet(FlashcardSet flashcardSet) {
+        flashcardModelManager.addFlashcardSet(flashcardSet);
+    }
+
+    @Override
+    public void setFlashcardSet(FlashcardSet target, FlashcardSet editedFlashcardSet) {
+        flashcardModelManager.setFlashcardSet(target, editedFlashcardSet);
+    }
+
+    @Override
+    public ObservableList<FlashcardSet> getFlashcardSetList() {
+        return flashcardModelManager.getFlashcardSetList();
+    }
+
+    @Override
+    public void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate) {
+        flashcardModelManager.updateFilteredFlashcardSetList(predicate);
+    }
+
+    @Override
+    public void addFlashcard(Flashcard flashcard, Index flashcardSetIndex) {
+        flashcardModelManager.addFlashcard(flashcard, flashcardSetIndex);
+    }
+
+    @Override
+    public FlashcardSet getFlashcardSet(int index) {
+        return flashcardModelManager.getFlashcardSet(index);
     }
 }

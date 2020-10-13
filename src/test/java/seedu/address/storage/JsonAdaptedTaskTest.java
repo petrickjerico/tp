@@ -17,7 +17,7 @@ public class JsonAdaptedTaskTest {
     private static final Optional<String> VALID_DESCRIPTION =
             Optional.ofNullable((CS2103T_WEEK8_QUIZ.getDescription().get().toString()));
     private static final Optional<String> VALID_DATE_TIME =
-            (CS2103T_WEEK8_QUIZ.getDateTime().map(dateTime -> dateTime.toString()));
+            CS2103T_WEEK8_QUIZ.getDateTime().map(dateTime -> dateTime.toString());
 
     @Test
     public void toModelType_validTaskDetails_returnsTask() throws Exception {

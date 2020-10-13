@@ -17,6 +17,9 @@ public class IsoDateTime implements TimeFormat {
     @Override
     public LocalDateTime check(String date) {
         try {
+            if (date.equals("")) {
+                return null;
+            }
             LocalDateTime ld = LocalDateTime.parse(date, TIME_FORMATTER);
             return ld;
         } catch (DateTimeParseException e) {

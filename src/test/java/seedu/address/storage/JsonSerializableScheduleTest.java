@@ -26,6 +26,7 @@ public class JsonSerializableScheduleTest {
                 JsonSerializableSchedule.class).get();
         Schedule scheduleFromFile = dataFromFile.toModelType();
         Schedule typicalTasksSchedule = SampleTasks.getSampleSchedule();
+        boolean test = scheduleFromFile.equals(typicalTasksSchedule);
         assertEquals(scheduleFromFile, typicalTasksSchedule);
     }
 

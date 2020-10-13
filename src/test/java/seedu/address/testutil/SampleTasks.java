@@ -21,7 +21,7 @@ public class SampleTasks {
             .build();
     public static final Task ST2334_ASSIGNMENT = new TaskBuilder().withTitle("ST2334")
             .withDescription("Chapter 2 Quiz")
-            .withDateTime("2020-10-01 11:00")
+            .withDateTime("2020-10-01 23:00")
             .build();
     public static final Task CS2101_OP2 = new TaskBuilder().withTitle("CS2101")
             .withDescription("Oral Presentation 2")

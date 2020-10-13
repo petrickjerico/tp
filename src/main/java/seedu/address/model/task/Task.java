@@ -86,6 +86,9 @@ public class Task {
         }
 
         Task otherTask = (Task) other;
+        boolean checkTitle = otherTask.getTitle().equals(this.getTitle());
+        boolean checkDes = otherTask.getDescription().equals(this.getDescription());
+        boolean checkDate = otherTask.dateTime.equals(this.dateTime);
         return otherTask.getTitle().equals(this.getTitle())
                 && otherTask.getDescription().equals(this.getDescription())
                 && otherTask.dateTime.equals(this.dateTime);

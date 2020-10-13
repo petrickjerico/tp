@@ -170,6 +170,6 @@ public class ParserUtil {
         if (!Title.isValidTitle(trimmedTime)) {
             throw new ParseException(DateTime.MESSAGE_CONSTRAINTS);
         }
-        return new DateTime(time);
+        return DateTime.createDateTime(time);
     }
 }

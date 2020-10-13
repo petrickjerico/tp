@@ -50,7 +50,9 @@ public class JsonAdaptedTask {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Title.class.getSimpleName()));
         }
         final Title modelTitle = new Title(title);
-        final Description modelDescription = description.map(Description::new).orElse(null);
+        final Description modelDescription = description.map(desc ->
+            desc.equals("") ? null : new Description(desc)
+        ).orElse(null);
 
         final DateTime modelDateTime = dateTime.map(jsonDateTime -> {
             try {

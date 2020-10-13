@@ -16,6 +16,7 @@ import java.util.Collections;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.addressbookcommands.FindCommand;
+import seedu.address.model.FlashcardBank;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.Schedule;
@@ -26,8 +27,10 @@ import seedu.address.model.person.NameContainsKeywordsPredicate;
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.
  */
 public class FindCommandTest {
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new Schedule());
-    private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new Schedule());
+    private final Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(),
+            new Schedule(), new FlashcardBank());
+    private final Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs(),
+            new Schedule(), new FlashcardBank());
 
 
     @Test

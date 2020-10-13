@@ -17,6 +17,7 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlySchedule;
 import seedu.address.model.Schedule;
 import seedu.address.model.UserPrefs;
+import seedu.address.storage.schedulestorage.JsonScheduleStorage;
 
 public class StorageManagerTest {
 

@@ -16,9 +16,11 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
 import seedu.address.model.AddressBook;
+import seedu.address.model.FlashcardBank;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyFlashcardBank;
 import seedu.address.model.ReadOnlySchedule;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.Schedule;
@@ -26,12 +28,12 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.util.SampleDataUtil;
 import seedu.address.storage.AddressBookStorage;
 import seedu.address.storage.JsonAddressBookStorage;
-import seedu.address.storage.JsonScheduleStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
-import seedu.address.storage.ScheduleStorage;
 import seedu.address.storage.Storage;
 import seedu.address.storage.StorageManager;
 import seedu.address.storage.UserPrefsStorage;
+import seedu.address.storage.schedulestorage.JsonScheduleStorage;
+import seedu.address.storage.schedulestorage.ScheduleStorage;
 import seedu.address.ui.Ui;
 import seedu.address.ui.UiManager;
 
@@ -83,6 +85,7 @@ public class MainApp extends Application {
         Optional<ReadOnlySchedule> scheduleOptional;
         ReadOnlyAddressBook initialAddressBookData;
         ReadOnlySchedule initialScheduleData;
+        ReadOnlyFlashcardBank initialFlashcardBankData;
         try {
             addressBookOptional = storage.readAddressBook();
 
@@ -115,8 +118,10 @@ public class MainApp extends Application {
             initialScheduleData = new Schedule();
         }
 
+        // TODO: FlashcardBank storage implementation
+        initialFlashcardBankData = new FlashcardBank();
 
-        return new ModelManager(initialAddressBookData, userPrefs, initialScheduleData);
+        return new ModelManager(initialAddressBookData, userPrefs, initialScheduleData, initialFlashcardBankData);
     }
 
     private void initLogging(Config config) {

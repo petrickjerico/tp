@@ -21,6 +21,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyFlashcardBank;
 import seedu.address.model.ReadOnlySchedule;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.flashcard.Answer;
@@ -204,6 +205,46 @@ public class AddCommandTest {
 
         @Override
         public void updateFilteredTaskList(Predicate<Task> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setFlashcardBank(ReadOnlyFlashcardBank flashcardBank) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ReadOnlyFlashcardBank getFlashcardBank() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasFlashcardSet(FlashcardSet flashcardSet) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deleteFlashcardSet(FlashcardSet target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void addFlashcardSet(FlashcardSet flashcardSet) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setFlashcardSet(FlashcardSet target, FlashcardSet editedFlashcardSet) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<FlashcardSet> getFlashcardSetList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate) {
             throw new AssertionError("This method should not be called.");
         }
 

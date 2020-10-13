@@ -6,14 +6,17 @@ import java.util.Optional;
 
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyFlashcardBank;
 import seedu.address.model.ReadOnlySchedule;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
+import seedu.address.storage.flashcardstorage.FlashcardBankStorage;
+import seedu.address.storage.schedulestorage.ScheduleStorage;
 
 /**
  * API of the Storage component
  */
-public interface Storage extends AddressBookStorage, UserPrefsStorage, ScheduleStorage {
+public interface Storage extends AddressBookStorage, UserPrefsStorage, ScheduleStorage, FlashcardBankStorage {
 
     @Override
     Optional<UserPrefs> readUserPrefs() throws DataConversionException, IOException;
@@ -39,5 +42,13 @@ public interface Storage extends AddressBookStorage, UserPrefsStorage, ScheduleS
     @Override
     void saveSchedule(ReadOnlySchedule schedule) throws IOException;
 
+    @Override
+    Path getFlashcardBankFilePath();
+
+    @Override
+    Optional<ReadOnlyFlashcardBank> readFlashcardBank() throws DataConversionException, IOException;
+
+    @Override
+    void saveFlashcardBank(ReadOnlyFlashcardBank flashcardBank) throws IOException;
 
 }

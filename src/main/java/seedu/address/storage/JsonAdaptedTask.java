@@ -36,7 +36,7 @@ public class JsonAdaptedTask {
     public JsonAdaptedTask(Task source) {
         title = source.getTitle().title;
         description = source.getDescription().map(description -> description.toString()).orElse("");
-        dateTime = source.getDateTime().map(dateTime -> dateTime.toString()).map(JsonAdaptedDateTime::new).get();
+        dateTime = source.getDateTime().map(dateTime -> dateTime.toString()).map(JsonAdaptedDateTime::new).orElse(null);
     }
 
     /**

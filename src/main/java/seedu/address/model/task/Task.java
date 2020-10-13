@@ -116,7 +116,7 @@ public class Task {
                 .append("Description: ")
                 .append(getDescription() + "\n")
                 .append(hasDate() ? " Time: " : "")
-                .append(hasTime() ? getDateTime() : getDate());
+                .append(getDateTime());
         return builder.toString();
     }
 }

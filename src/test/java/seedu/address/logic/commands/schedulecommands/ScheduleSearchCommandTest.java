@@ -3,13 +3,10 @@ package seedu.address.logic.commands.schedulecommands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.commons.core.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
 import static seedu.address.commons.core.Messages.MESSAGE_TASKS_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.TypicalPersons.CARL;
-import static seedu.address.testutil.TypicalPersons.ELLE;
-import static seedu.address.testutil.TypicalPersons.FIONA;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalTasks.CS2100_FINAL;
+import static seedu.address.testutil.TypicalTasks.CS2100_TUTORIAL_HOMEWORK;
 import static seedu.address.testutil.TypicalTasks.getTypicalSchedule;
 
 import java.util.Arrays;
@@ -17,16 +14,8 @@ import java.util.Collections;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.addressbookcommands.FindCommand;
-import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
 import seedu.address.model.ScheduleModel;
 import seedu.address.model.ScheduleModelManager;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
-import seedu.address.model.systemlevelmodel.FlashcardBank;
-import seedu.address.model.systemlevelmodel.Schedule;
-import seedu.address.model.systemlevelmodel.UserPrefs;
 import seedu.address.model.task.TitleContainsKeywordsPredicate;
 
 public class ScheduleSearchCommandTest {
@@ -71,15 +60,15 @@ public class ScheduleSearchCommandTest {
         assertEquals(Collections.emptyList(), model.getFilteredTaskList());
     }
 
-    /*@Test
-    public void execute_multipleKeywords_multiplePersonsFound() {
-        String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 3);
-        TitleContainsKeywordsPredicate predicate = preparePredicate("Kurz Elle Kunz");
-        FindCommand command = new FindCommand(predicate);
-        expectedModel.updateFilteredPersonList(predicate);
+    @Test
+    public void execute_multipleKeywords_multipleTasksFound() {
+        String expectedMessage = String.format(MESSAGE_TASKS_LISTED_OVERVIEW, 2);
+        TitleContainsKeywordsPredicate predicate = preparePredicate("CS2100");
+        ScheduleSearchCommand command = new ScheduleSearchCommand(predicate);
+        expectedModel.updateFilteredTaskList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(CARL, ELLE, FIONA), model.getFilteredPersonList());
-    }*/
+        assertEquals(Arrays.asList(CS2100_TUTORIAL_HOMEWORK, CS2100_FINAL), model.getFilteredTaskList());
+    }
 
     /**
      * Parses {@code userInput} into a {@code TitleContainsKeywordsPredicate}.

@@ -2,6 +2,7 @@ package seedu.address.model.task;
 
 import static java.util.Objects.requireNonNull;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -45,12 +46,8 @@ public class Task {
         return title;
     }
 
-    private boolean hasDate() {
-        return !date.isEmpty() || !dateTime.isEmpty();
-    }
-
     private boolean hasTime() {
-        return !date.isEmpty() && dateTime.isEmpty();
+        return getDateTime().isPresent();
     }
 
     /**
@@ -98,7 +95,6 @@ public class Task {
         Task otherTask = (Task) other;
         return otherTask.getTitle().equals(this.getTitle())
                 && otherTask.getDescription().equals(this.getDescription())
-                && otherTask.date.equals(this.date)
                 && otherTask.dateTime.equals(this.dateTime);
     }
 
@@ -115,8 +111,7 @@ public class Task {
                 .append(getTitle() + "\n")
                 .append("Description: ")
                 .append(getDescription() + "\n")
-                .append(hasDate() ? " Time: " : "")
-                .append(hasTime() ? getDateTime() : getDate());
+                .append(hasTime() ? getDateTime() : "");
         return builder.toString();
     }
 }

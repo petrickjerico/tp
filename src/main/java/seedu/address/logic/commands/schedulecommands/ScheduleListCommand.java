@@ -22,4 +22,17 @@ public class ScheduleListCommand extends Command<ScheduleModel> {
         model.updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
         return new CommandResult(MESSAGE_SUCCESS);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        if (!(obj instanceof ScheduleListCommand)) {
+            return false;
+        }
+
+        return true;
+    }
 }

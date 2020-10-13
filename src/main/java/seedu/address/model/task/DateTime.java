@@ -49,7 +49,7 @@ public class DateTime {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Date // instanceof handles nulls
+                || (other instanceof DateTime // instanceof handles nulls
                 && dateTime.toString().equals(((DateTime) other).dateTime.toString())); // state check
     }
 

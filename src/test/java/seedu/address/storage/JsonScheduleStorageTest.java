@@ -3,9 +3,9 @@ package seedu.address.storage;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalTasks.CS2100_TUTORIAL_HOMEWORK;
-import static seedu.address.testutil.TypicalTasks.CS2101_OP2;
-import static seedu.address.testutil.TypicalTasks.getTypicalSchedule;
+import static seedu.address.testutil.SampleTasks.CS2100_TUTORIAL_HOMEWORK;
+import static seedu.address.testutil.SampleTasks.CS2101_OP2;
+import static seedu.address.testutil.SampleTasks.getSampleSchedule;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -62,7 +62,8 @@ public class JsonScheduleStorageTest {
     @Test
     public void readAndSaveSchedule_allInOrder_success() throws Exception {
         Path filePath = testFolder.resolve("TempSchedule.json");
-        Schedule original = getTypicalSchedule();
+        Schedule original = getSampleSchedule();
+        System.out.println(original.toString());
         JsonScheduleStorage jsonScheduleStorage = new JsonScheduleStorage(filePath);
 
         // Save in new file and read back

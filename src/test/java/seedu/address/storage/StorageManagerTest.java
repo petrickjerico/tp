@@ -3,7 +3,7 @@ package seedu.address.storage;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
-import static seedu.address.testutil.TypicalTasks.getTypicalSchedule;
+import static seedu.address.testutil.SampleTasks.getSampleSchedule;
 
 import java.nio.file.Path;
 
@@ -76,7 +76,7 @@ public class StorageManagerTest {
          * {@link JsonAddressSchedule} class.
          * More extensive testing of UserPref saving/reading is done in {@link JsonScheduleTest} class.
          */
-        Schedule original = getTypicalSchedule();
+        Schedule original = getSampleSchedule();
         storageManager.saveSchedule(original);
         ReadOnlySchedule retrieved = storageManager.readSchedule().get();
         assertEquals(original, new Schedule(retrieved));

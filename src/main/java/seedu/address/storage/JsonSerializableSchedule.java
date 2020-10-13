@@ -34,7 +34,7 @@ public class JsonSerializableSchedule {
     /**
      * Converts a given {@code ReadOnlySchedule} into this class for Jackson use.
      *
-     * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
+     * @param source future changes to this will not affect the created {@code JsonSerializableSchedule}.
      */
     public JsonSerializableSchedule(ReadOnlySchedule source) {
         tasks.addAll(source.getTaskList().stream().map(JsonAdaptedTask::new).collect(Collectors.toList()));

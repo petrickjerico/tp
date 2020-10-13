@@ -3,7 +3,7 @@ package seedu.address.storage;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.storage.JsonAdaptedTask.MISSING_FIELD_MESSAGE_FORMAT;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalTasks.CS2103T_WEEK8_QUIZ;
+import static seedu.address.testutil.SampleTasks.CS2103T_WEEK8_QUIZ;
 
 import java.lang.IllegalArgumentException;
 
@@ -15,7 +15,6 @@ import seedu.address.model.task.Description;
 import seedu.address.model.task.Title;
 
 public class JsonAdaptedTaskTest {
-    private static final String INVALID_TITLE = "Play Game";
     private static final String INVALID_DATE_TIME = "12/10/2020 12:00";
     private static final String INVALID_DESCRIPTION = " ";
 
@@ -30,14 +29,6 @@ public class JsonAdaptedTaskTest {
     }
 
     @Test
-    public void toModelType_invalidTitle_throwsIllegalValueException() {
-        JsonAdaptedTask task =
-                new JsonAdaptedTask(INVALID_TITLE, VALID_DESCRIPTION, VALID_DATE_TIME);
-        String expectedMessage = Title.MESSAGE_CONSTRAINTS;
-        assertThrows(IllegalValueException.class, expectedMessage, task::toModelType);
-    }
-
-    @Test
     public void toModelType_nullTitle_throwsIllegalValueException() {
         JsonAdaptedTask task = new JsonAdaptedTask(null, VALID_DESCRIPTION, VALID_DATE_TIME);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Title.class.getSimpleName());
@@ -45,11 +36,11 @@ public class JsonAdaptedTaskTest {
     }
 
     @Test
-    public void toModelType_invalidDescription_throwsIllegalArgumentException() {
+    public void toModelType_invalidDescription_throwsIllegalValueException() {
         JsonAdaptedTask task =
                 new JsonAdaptedTask(VALID_TITLE, INVALID_DESCRIPTION, VALID_DATE_TIME);
         String expectedMessage = Description.MESSAGE_CONSTRAINTS;
-        assertThrows(IllegalArgumentException.class, expectedMessage, task::toModelType);
+        assertThrows(IllegalValueException.class, expectedMessage, task::toModelType);
     }
 
     @Test

@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.JsonUtil;
 import seedu.address.model.Schedule;
-import seedu.address.testutil.TypicalTasks;
+import seedu.address.testutil.SampleTasks;
 
 public class JsonSerializableScheduleTest {
 
@@ -25,7 +25,7 @@ public class JsonSerializableScheduleTest {
         JsonSerializableSchedule dataFromFile = JsonUtil.readJsonFile(TYPICAL_TASKS_FILE,
                 JsonSerializableSchedule.class).get();
         Schedule scheduleFromFile = dataFromFile.toModelType();
-        Schedule typicalTasksSchedule = TypicalTasks.getTypicalSchedule();
+        Schedule typicalTasksSchedule = SampleTasks.getSampleSchedule();
         assertEquals(scheduleFromFile, typicalTasksSchedule);
     }
 

@@ -15,19 +15,19 @@ public class JsonAdaptedTask {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Task's %s field is missing!";
 
     private final String title;
-    private final String description;
-    private final JsonAdaptedDateTime dateTime;
+    private final Optional<String> description;
+    private final Optional<JsonAdaptedDateTime> dateTime;
 
     /**
      * Constructs a {@code JsonAdaptedTask} with the given task details.
      */
     @JsonCreator
     public JsonAdaptedTask(@JsonProperty("title") String title,
-                           @JsonProperty("description") String description,
-                             @JsonProperty("dateTime") String dateTime) {
+                           @JsonProperty("description") Optional<String> description,
+                             @JsonProperty("dateTime") Optional<String> dateTime) {
         this.title = title;
         this.description = description;
-        this.dateTime = new JsonAdaptedDateTime(dateTime);
+        this.dateTime = dateTime.map(JsonAdaptedDateTime::new);
     }
 
     /**
@@ -35,8 +35,8 @@ public class JsonAdaptedTask {
      */
     public JsonAdaptedTask(Task source) {
         title = source.getTitle().title;
-        description = source.getDescription().map(description -> description.toString()).orElse("");
-        dateTime = source.getDateTime().map(dateTime -> dateTime.toString()).map(JsonAdaptedDateTime::new).orElse(null);
+        description = source.getDescription().map(description -> description.toString());
+        dateTime = source.getDateTime().map(JsonAdaptedDateTime::new);
     }
 
     /**
@@ -50,19 +50,15 @@ public class JsonAdaptedTask {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Title.class.getSimpleName()));
         }
         final Title modelTitle = new Title(title);
-        if (!Description.isValidDescription(description)) {
-            throw new IllegalValueException(Description.MESSAGE_CONSTRAINTS);
-        }
-        final Description modelDescription = new Description(description);
-        DateTime modelDateTime;
-        try {
-            modelDateTime = dateTime.toModelType();
-            if (modelDateTime.toString().equals("")) {
-                modelDateTime = null;
+        final Description modelDescription = description.map(Description::new).orElse(null);
+
+        final DateTime modelDateTime = dateTime.map(jsonDateTime -> {
+            try {
+                return jsonDateTime.toModelType();
+            } catch (IllegalValueException e) {
+                return null;
             }
-        } catch (IllegalValueException e) {
-            throw new IllegalValueException(DateTime.MESSAGE_CONSTRAINTS);
-        }
+        }).orElse(null);
         return new Task(modelTitle, modelDescription, modelDateTime);
     }
 

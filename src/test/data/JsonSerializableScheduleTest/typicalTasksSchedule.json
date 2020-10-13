@@ -3,7 +3,7 @@
   "tasks" : [ {
     "title" : "CS2103T",
     "description" : "Week 8 Quiz",
-    "dateTime" : "2020-09-27 12:00"
+    "dateTime" : "2020-09-27"
   }, {
     "title" : "CS2100",
     "description" : "Pipeline homework",

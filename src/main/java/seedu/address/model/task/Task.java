@@ -12,7 +12,6 @@ public class Task {
 
     private final Title title;
     private final Optional<Description> description;
-    private final Optional<Date> date;
     private final Optional<DateTime> dateTime;
 
     /**
@@ -25,16 +24,11 @@ public class Task {
         requireNonNull(title);
         this.title = title;
         this.description = Optional.ofNullable(description);
-        this.date = Optional.empty();
         this.dateTime = Optional.ofNullable(dateTime);
     }
 
     public Optional<Description> getDescription() {
         return description;
-    }
-
-    public Date getDate() {
-        return date.orElse(null);
     }
 
     public Optional<DateTime> getDateTime() {
@@ -46,11 +40,7 @@ public class Task {
     }
 
     private boolean hasDate() {
-        return !date.isEmpty() || !dateTime.isEmpty();
-    }
-
-    private boolean hasTime() {
-        return !date.isEmpty() && dateTime.isEmpty();
+        return !dateTime.isEmpty();
     }
 
     /**
@@ -98,14 +88,13 @@ public class Task {
         Task otherTask = (Task) other;
         return otherTask.getTitle().equals(this.getTitle())
                 && otherTask.getDescription().equals(this.getDescription())
-                && otherTask.date.equals(this.date)
                 && otherTask.dateTime.equals(this.dateTime);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(description, date, dateTime);
+        return Objects.hash(title, description, dateTime);
     }
 
     @Override

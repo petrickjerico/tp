@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.task.DateTime;
-import seedu.address.model.task.exceptions.TimeFormatException;
+import seedu.address.storage.schedulestorage.JsonAdaptedDateTime;
 
 public class JsonAdaptedDateTimeTest {
     private static final String INVALID_DATE_TIME = "12/10/2020 12:00";

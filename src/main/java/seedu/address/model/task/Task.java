@@ -12,7 +12,6 @@ public class Task {
 
     private final Title title;
     private final Optional<Description> description;
-    private final Optional<Date> date;
     private final Optional<DateTime> dateTime;
 
     /**
@@ -25,16 +24,11 @@ public class Task {
         requireNonNull(title);
         this.title = title;
         this.description = Optional.ofNullable(description);
-        this.date = Optional.empty();
         this.dateTime = Optional.ofNullable(dateTime);
     }
 
     public Optional<Description> getDescription() {
         return description;
-    }
-
-    public Date getDate() {
-        return date.orElse(null);
     }
 
     public Optional<DateTime> getDateTime() {
@@ -46,11 +40,7 @@ public class Task {
     }
 
     private boolean hasDate() {
-        return !date.isEmpty() || !dateTime.isEmpty();
-    }
-
-    private boolean hasTime() {
-        return !date.isEmpty() && dateTime.isEmpty();
+        return !dateTime.isEmpty();
     }
 
     /**
@@ -80,7 +70,19 @@ public class Task {
         return bothHaveDescription(t1, t2) && t1.getDescription().get().rigorousEquals(t2.getDescription().get());
     }
 
+    private StringBuilder getDescriptionString() {
+        StringBuilder emptyString = new StringBuilder("");
+        return description.map(desc ->
+                new StringBuilder("Description: ")
+                        .append(desc.toString() + "\n")).orElse(emptyString);
+    }
 
+    private StringBuilder getDateTimeString() {
+        StringBuilder emptyString = new StringBuilder("");
+        return dateTime.map(time ->
+                new StringBuilder("Time: ")
+                        .append(time.toString() + "\n")).orElse(emptyString);
+    }
     /**
      * Returns true if both tasks have the same identity and data fields.
      * This defines a stronger notion of equality between two tasks.
@@ -98,14 +100,13 @@ public class Task {
         Task otherTask = (Task) other;
         return otherTask.getTitle().equals(this.getTitle())
                 && otherTask.getDescription().equals(this.getDescription())
-                && otherTask.date.equals(this.date)
                 && otherTask.dateTime.equals(this.dateTime);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(description, date, dateTime);
+        return Objects.hash(title, description, dateTime);
     }
 
     @Override
@@ -113,10 +114,8 @@ public class Task {
         final StringBuilder builder = new StringBuilder();
         builder.append("Title: ")
                 .append(getTitle() + "\n")
-                .append("Description: ")
-                .append(getDescription() + "\n")
-                .append(hasDate() ? " Time: " : "")
-                .append(hasTime() ? getDateTime() : getDate());
+                .append(getDescriptionString())
+                .append(getDateTimeString());
         return builder.toString();
     }
 }

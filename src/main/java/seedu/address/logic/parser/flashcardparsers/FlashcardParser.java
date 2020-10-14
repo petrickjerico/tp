@@ -16,6 +16,7 @@ import seedu.address.logic.commands.flashcardcommands.ListFlashcardCommand;
 import seedu.address.logic.commands.flashcardcommands.ListFlashcardSetCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.FlashcardModel;
 
 
 public class FlashcardParser implements Parser<Command> {
@@ -26,7 +27,7 @@ public class FlashcardParser implements Parser<Command> {
             .compile("((\\w+) (\\w+))(\\s.*)?");
 
     @Override
-    public Command parse(String userInput) throws ParseException {
+    public Command<FlashcardModel> parse(String userInput) throws ParseException {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
 
         if (!matcher.matches()) {

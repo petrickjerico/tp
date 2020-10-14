@@ -9,12 +9,12 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
+import seedu.address.model.FlashcardModel;
 import seedu.address.model.flashcard.FlashcardSet;
 
 
 
-public class DeleteFlashcardSetCommand extends Command {
+public class DeleteFlashcardSetCommand extends Command<FlashcardModel> {
     public static final String COMMAND_WORD = "delete flset";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Deletes a flashcard set."
@@ -34,7 +34,7 @@ public class DeleteFlashcardSetCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(FlashcardModel model) throws CommandException {
         requireNonNull(model);
         List<FlashcardSet> flashcardSets = model.getFlashcardSetList();
 

@@ -5,15 +5,15 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
+import seedu.address.model.QuizModel;
 import seedu.address.model.flashcard.Question;
 
-public class WrongCommand extends Command {
+public class WrongCommand extends Command<QuizModel> {
 
     public static final Status STATUS = Status.ON_ANSWER;
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(QuizModel model) throws CommandException {
         requireNonNull(model);
 
         if (!model.hasStarted()) {

@@ -6,7 +6,7 @@ import seedu.address.model.Model;
 /**
  * Example command for parser structure.
  */
-public class ExampleCommand extends Command {
+public class ExampleCommand extends Command<Model> {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         return null;

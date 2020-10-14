@@ -9,7 +9,10 @@ import java.util.regex.Pattern;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.addressbookcommands.HelpCommand;
 import seedu.address.logic.commands.flashcardcommands.AddFlashcardCommand;
+import seedu.address.logic.commands.flashcardcommands.AddFlashcardSetCommand;
+import seedu.address.logic.commands.flashcardcommands.DeleteFlashcardCommand;
 import seedu.address.logic.commands.flashcardcommands.DeleteFlashcardSetCommand;
+import seedu.address.logic.commands.flashcardcommands.ListFlashcardCommand;
 import seedu.address.logic.commands.flashcardcommands.ListFlashcardSetCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -38,8 +41,14 @@ public class FlashcardParser implements Parser<Command> {
         switch (commandWord) {
         case AddFlashcardCommand.COMMAND_WORD:
             return new AddFlashcardCommandParser().parse(argument);
+        case AddFlashcardSetCommand.COMMAND_WORD:
+            return new AddFlashcardSetCommandParser().parse(argument);
+        case DeleteFlashcardCommand.COMMAND_WORD:
+            return new DeleteFlashcardCommandParser().parse(argument);
         case DeleteFlashcardSetCommand.COMMAND_WORD:
             return new DeleteFlashcardSetCommandParser().parse(argument);
+        case ListFlashcardCommand.COMMAND_WORD:
+            return new ListFlashcardCommandParser().parse(argument);
         case ListFlashcardSetCommand.COMMAND_WORD:
             return new ListFlashcardSetCommand();
         default:

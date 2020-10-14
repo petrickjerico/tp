@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
-import seedu.address.model.flashcard.Name;
+import seedu.address.model.flashcard.FlashcardSetName;
 
 public class JsonAdaptedFlashcardSet {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "FlashcardSet's %s field is missing!";
@@ -34,7 +34,7 @@ public class JsonAdaptedFlashcardSet {
      * Converts a given {@code FlashcardSet} into this class for Jackson use.
      */
     public JsonAdaptedFlashcardSet(FlashcardSet source) {
-        name = source.getName().toString();
+        name = source.getFlashcardSetName().toString();
         flashcards.addAll(source.getFlashcards().stream()
             .map(JsonAdaptedFlashcard::new)
             .collect(Collectors.toList()));
@@ -48,9 +48,10 @@ public class JsonAdaptedFlashcardSet {
     public FlashcardSet toModelType() throws IllegalValueException {
 
         if (name == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
+            throw new IllegalValueException(
+                    String.format(MISSING_FIELD_MESSAGE_FORMAT, FlashcardSetName.class.getSimpleName()));
         }
-        final Name modelName = new Name(name);
+        final FlashcardSetName modelName = new FlashcardSetName(name);
         final List<Flashcard> modelFlashcards = new ArrayList<>();
         for (JsonAdaptedFlashcard flashcard : flashcards) {
             modelFlashcards.add(flashcard.toModelType());

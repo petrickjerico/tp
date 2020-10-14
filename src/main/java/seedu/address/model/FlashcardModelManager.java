@@ -25,16 +25,43 @@ public class FlashcardModelManager implements FlashcardModel {
         filteredFlashcardSets = new FilteredList<>(this.flashcardBank.getFlashcardSetList());
     }
 
-    //=========== FlashcardBank =============================================================
+    //=========== Flashcard =============================================================
 
     @Override
-    public void setFlashcardBank(ReadOnlyFlashcardBank flashcardBank) {
-        this.flashcardBank.resetData(flashcardBank);
+    public Flashcard getFlashcard(FlashcardSet flashcardSet, Index flashcardIndex) {
+        return flashcardSet.getFlashcard(flashcardIndex.getZeroBased());
     }
 
     @Override
-    public ReadOnlyFlashcardBank getFlashcardBank() {
-        return flashcardBank;
+    public void setFlashcard(FlashcardSet flashcardSet, Flashcard target, Flashcard editedFlashcard) {
+        flashcardSet.setFlashcard(target, editedFlashcard);
+    }
+
+    @Override
+    public boolean hasFlashcard(FlashcardSet flashcardSet, Flashcard flashcard) {
+        return flashcardSet.hasFlashcard(flashcard);
+    }
+
+    @Override
+    public void addFlashcard(FlashcardSet flashcardSet, Flashcard flashcard) {
+        flashcardSet.addFlashcard(flashcard);
+    }
+
+    @Override
+    public void deleteFlashcard(FlashcardSet flashcardSet, Index flashcardIndex) {
+        flashcardSet.deleteFlashcard(flashcardIndex);
+    }
+
+    //=========== Flashcard Set =============================================================
+
+    @Override
+    public FlashcardSet getFlashcardSet(Index index) {
+        return filteredFlashcardSets.get(index.getZeroBased());
+    }
+
+    @Override
+    public void setFlashcardSet(FlashcardSet target, FlashcardSet editedFlashcardSet) {
+        flashcardBank.setFlashcardSet(target, editedFlashcardSet);
     }
 
     @Override
@@ -44,31 +71,16 @@ public class FlashcardModelManager implements FlashcardModel {
     }
 
     @Override
-    public void deleteFlashcardSet(FlashcardSet target) {
-        flashcardBank.removeFlashcardSet(target);
-    }
-
-    @Override
     public void addFlashcardSet(FlashcardSet flashcardSet) {
         flashcardBank.addFlashcardSet(flashcardSet);
     }
 
     @Override
-    public void setFlashcardSet(FlashcardSet target, FlashcardSet editedFlashcardSet) {
-        flashcardBank.setFlashcardSet(target, editedFlashcardSet);
+    public void deleteFlashcardSet(FlashcardSet target) {
+        flashcardBank.removeFlashcardSet(target);
     }
 
-    @Override
-    public void addFlashcard(Flashcard flashcard, Index flashcardSetIndex) {
-        // TODO: Add flashcard to the FlashcardBank
-    }
-
-    @Override
-    public FlashcardSet getFlashcardSet(int index) {
-        return this.filteredFlashcardSets.get(index);
-    }
-
-    //=========== Filtered Task List Accessors =============================================================
+    //=========== Filtered Flashcard Set Accessors =============================================================
 
     @Override
     public ObservableList<FlashcardSet> getFlashcardSetList() {
@@ -79,6 +91,18 @@ public class FlashcardModelManager implements FlashcardModel {
     public void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate) {
         requireNonNull(predicate);
         filteredFlashcardSets.setPredicate(predicate);
+    }
+
+    //=========== Flashcard Bank =============================================================
+
+    @Override
+    public void setFlashcardBank(ReadOnlyFlashcardBank flashcardBank) {
+        this.flashcardBank.resetData(flashcardBank);
+    }
+
+    @Override
+    public ReadOnlyFlashcardBank getFlashcardBank() {
+        return flashcardBank;
     }
 
     @Override

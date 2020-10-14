@@ -2,6 +2,7 @@ package seedu.address.logic.commands.quizcommands;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -31,7 +32,8 @@ public class StartCommand extends Command<Model> {
         }
 
         try {
-            FlashcardSet flashcardSet = model.getFlashcardSet(this.index);
+            Index indexWrapper = Index.fromOneBased(index);
+            FlashcardSet flashcardSet = model.getFlashcardSet(indexWrapper);
             Quiz quiz = new Quiz(this.index, flashcardSet);
             Question firstQuestion = model.start(quiz);
             QuizCommand.setStatus(Status.ON_QUESTION);

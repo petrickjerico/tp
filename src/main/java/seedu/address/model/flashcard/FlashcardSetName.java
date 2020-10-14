@@ -7,7 +7,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Represents a FlashcardSet's name.
  * Guarantees: immutable; is valid as declared in {@link #isValidName(String)}
  */
-public class Name {
+public class FlashcardSetName {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Names should only contain alphanumeric characters and spaces, and it should not be blank";
@@ -25,7 +25,7 @@ public class Name {
      *
      * @param name A valid name.
      */
-    public Name(String name) {
+    public FlashcardSetName(String name) {
         requireNonNull(name);
         checkArgument(isValidName(name), MESSAGE_CONSTRAINTS);
         this.name = name;
@@ -47,8 +47,8 @@ public class Name {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || other instanceof seedu.address.model.flashcard.Name // instanceof handles nulls
-                && name.equals(((seedu.address.model.flashcard.Name) other).name); // state check
+                || other instanceof FlashcardSetName // instanceof handles nulls
+                && name.equals(((FlashcardSetName) other).name); // state check
     }
 
     @Override

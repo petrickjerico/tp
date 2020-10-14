@@ -38,7 +38,7 @@ public class DeleteFlashcardSetCommand extends Command {
         requireNonNull(model);
         List<FlashcardSet> flashcardSets = model.getFlashcardSetList();
 
-        if (flashcardSetIndex.getOneBased() > flashcardSets.size()) {
+        if (flashcardSetIndex.getZeroBased() >= flashcardSets.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);
         }
 

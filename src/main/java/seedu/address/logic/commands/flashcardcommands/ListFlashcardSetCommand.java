@@ -8,10 +8,10 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
 
 public class ListFlashcardSetCommand extends Command {
+
     public static final String COMMAND_WORD = "list flset";
 
     public static final String MESSAGE_SUCCESS = "Listed all flashcard sets";
-
 
     @Override
     public CommandResult execute(Model model) {

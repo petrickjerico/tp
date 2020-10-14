@@ -13,6 +13,7 @@ import seedu.address.logic.parser.ArgumentMultimap;
 import seedu.address.logic.parser.Prefix;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.flashcard.Answer;
+import seedu.address.model.flashcard.FlashcardSetName;
 import seedu.address.model.flashcard.Question;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
@@ -206,6 +207,22 @@ public class ParserUtil {
             throw new ParseException(Answer.MESSAGE_CONSTRAINTS);
         }
         return new Answer(answer);
+    }
+
+    //=========== Flashcard Set =============================================================
+    /**
+     * Parses {@code String flashcarsSetName} into a {@code Name} for flashcard set.
+     *
+     * @throws ParseException if the given {@code flashcardSetName} is invalid.
+     */
+    public static FlashcardSetName parseFlashcardSetName(String flashcardSetName)
+            throws ParseException {
+        requireNonNull(flashcardSetName);
+        String trimmedName = flashcardSetName.trim();
+        if (!Question.isValidQuestion(trimmedName)) {
+            throw new ParseException(Question.MESSAGE_CONSTRAINTS);
+        }
+        return new FlashcardSetName(flashcardSetName);
     }
 
     /**

@@ -229,31 +229,6 @@ public class AddCommandTest {
         }
 
         @Override
-        public Flashcard getFlashcard(FlashcardSet flashcardSet, Index flashcardIndex) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void setFlashcard(FlashcardSet flashcardSet, Flashcard target, Flashcard editedFlashcard) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public boolean hasFlashcard(FlashcardSet flashcardSet, Flashcard flashcard) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void addFlashcard(FlashcardSet flashcardSet, Flashcard flashcard) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void deleteFlashcard(FlashcardSet flashcardSet, Index flashcardIndex) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
         public void addFlashcardSet(FlashcardSet flashcardSet) {
             throw new AssertionError("This method should not be called.");
         }
@@ -273,8 +248,12 @@ public class AddCommandTest {
             throw new AssertionError("This method should not be called.");
         }
 
+        public void addFlashcard(Flashcard flashcard, Index flashcardSetIndex) {
+            // TODO: AddFlashcard implementation.
+        }
+
         @Override
-        public FlashcardSet getFlashcardSet(Index index) {
+        public FlashcardSet getFlashcardSet(int index) {
             throw new AssertionError("This method should not be called.");
         }
 

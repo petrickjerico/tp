@@ -59,7 +59,7 @@ public class SampleDataUtil {
             new Task(new Title("Household"), null,
                     new DateTime("2020-11-11 12:30")),
             new Task(new Title("Job"), new Description(""),
-                    null),
+                    new DateTime("2020-09-29 22:00"))
         };
     }
 

@@ -25,7 +25,7 @@ import seedu.address.model.systemlevelmodel.UserPrefs;
  * {@code DeleteCommand}.
  */
 public class DeleteCommandTest {
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(),
+    private final Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(),
             new Schedule(), new FlashcardBank());
 
     @Test

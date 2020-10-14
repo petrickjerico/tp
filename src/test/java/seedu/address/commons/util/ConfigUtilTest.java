@@ -98,7 +98,7 @@ public class ConfigUtilTest {
 
         //Try writing when the file doesn't exist
         ConfigUtil.saveConfig(original, configFilePath);
-        Config readBack = ConfigUtil.readConfig(configFilePath).get();
+        Config readBack = (ConfigUtil.readConfig(configFilePath).get());
         assertEquals(original, readBack);
 
         //Try saving when the file exists

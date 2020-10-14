@@ -8,9 +8,11 @@ import java.util.logging.Logger;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
+import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
 import seedu.address.model.systemlevelmodel.UserPrefs;
+import seedu.address.storage.schedulestorage.ScheduleStorage;
 
 /**
  * Manages storage of AddressBook data in local storage.
@@ -109,5 +111,31 @@ public class StorageManager implements Storage {
         scheduleStorage.saveSchedule(schedule, filePath);
     }
 
+    // ================ FlashcardBank methods ==============================
 
+    @Override
+    public Path getFlashcardBankFilePath() {
+        return null;
+    }
+
+    @Override
+    public Optional<ReadOnlyFlashcardBank> readFlashcardBank() throws DataConversionException, IOException {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<ReadOnlyFlashcardBank> readFlashcardBank(Path filePath) throws
+            DataConversionException, IOException {
+        return Optional.empty();
+    }
+
+    @Override
+    public void saveFlashcardBank(ReadOnlyFlashcardBank flashcardBank) throws IOException {
+
+    }
+
+    @Override
+    public void saveFlashcardBank(ReadOnlyFlashcardBank schedule, Path filePath) throws IOException {
+
+    }
 }

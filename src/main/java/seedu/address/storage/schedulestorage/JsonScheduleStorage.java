@@ -1,4 +1,4 @@
-package seedu.address.storage;
+package seedu.address.storage.schedulestorage;
 
 import static java.util.Objects.requireNonNull;
 
@@ -52,6 +52,9 @@ public class JsonScheduleStorage implements ScheduleStorage {
         } catch (IllegalValueException ive) {
             logger.info("Illegal values found in " + filePath + ": " + ive.getMessage());
             throw new DataConversionException(ive);
+        } catch (IllegalArgumentException iae) {
+            logger.info("Illegal values found in " + filePath + ": " + iae.getMessage());
+            throw new DataConversionException(iae);
         }
     }
 

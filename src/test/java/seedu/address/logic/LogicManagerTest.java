@@ -30,9 +30,9 @@ import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.systemlevelmodel.UserPrefs;
 import seedu.address.storage.JsonAddressBookStorage;
-import seedu.address.storage.JsonScheduleStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.StorageManager;
+import seedu.address.storage.schedulestorage.JsonScheduleStorage;
 import seedu.address.testutil.PersonBuilder;
 
 public class LogicManagerTest {

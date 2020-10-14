@@ -1,4 +1,4 @@
-package seedu.address.storage;
+package seedu.address.storage.schedulestorage;
 
 import java.util.Optional;
 
@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Name;
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.Description;
 import seedu.address.model.task.Task;
@@ -16,8 +15,8 @@ public class JsonAdaptedTask {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Task's %s field is missing!";
 
     private final String title;
-    private Optional<String> description;
-    private Optional<JsonAdaptedDateTime> dateTime;
+    private final Optional<String> description;
+    private final Optional<JsonAdaptedDateTime> dateTime;
 
     /**
      * Constructs a {@code JsonAdaptedTask} with the given task details.
@@ -47,11 +46,14 @@ public class JsonAdaptedTask {
      */
     public Task toModelType() throws IllegalValueException {
 
-        if (title == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
+        if (title == null || title.equals("")) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Title.class.getSimpleName()));
         }
         final Title modelTitle = new Title(title);
-        final Description modelDescription = description.map(Description::new).orElse(null);
+        final Description modelDescription = description.map(desc ->
+            desc.equals("") ? null : new Description(desc)
+        ).orElse(null);
+
         final DateTime modelDateTime = dateTime.map(jsonDateTime -> {
             try {
                 return jsonDateTime.toModelType();
@@ -59,7 +61,6 @@ public class JsonAdaptedTask {
                 return null;
             }
         }).orElse(null);
-
         return new Task(modelTitle, modelDescription, modelDateTime);
     }
 

@@ -7,7 +7,7 @@ import java.util.List;
 import seedu.address.model.task.exceptions.TimeFormatException;
 
 public class TimeFormatChecker {
-    private static final List<TimeFormat> VALID_FORMATS = Arrays.asList(new IsoDate(), new IsoDateTime());
+    private static final List<TimeFormat> VALID_FORMATS = Arrays.asList(new IsoDateTime(), new IsoDate());
 
     /**
      * Check if the time format is supported by Study bananas)

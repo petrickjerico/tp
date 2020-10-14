@@ -28,12 +28,12 @@ import seedu.address.model.systemlevelmodel.UserPrefs;
 import seedu.address.model.util.SampleDataUtil;
 import seedu.address.storage.AddressBookStorage;
 import seedu.address.storage.JsonAddressBookStorage;
-import seedu.address.storage.JsonScheduleStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
-import seedu.address.storage.ScheduleStorage;
 import seedu.address.storage.Storage;
 import seedu.address.storage.StorageManager;
 import seedu.address.storage.UserPrefsStorage;
+import seedu.address.storage.schedulestorage.JsonScheduleStorage;
+import seedu.address.storage.schedulestorage.ScheduleStorage;
 import seedu.address.ui.Ui;
 import seedu.address.ui.UiManager;
 

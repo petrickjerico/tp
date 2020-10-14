@@ -1,14 +1,19 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.function.Predicate;
 
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
 
 /**
  * The API of the Model component.
  */
 public interface Model extends AddressBookModel, ScheduleModel, FlashcardModel, QuizModel {
+
+    /** {@code Predicate} that always evaluate to true */
+    Predicate<FlashcardSet> PREDICATE_SHOW_ALL_FLASHCARDSETS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.

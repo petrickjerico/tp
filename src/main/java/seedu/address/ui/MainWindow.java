@@ -1,21 +1,25 @@
 package seedu.address.ui;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
-import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.ui.sidebar.SideBarTab;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -24,6 +28,12 @@ import seedu.address.logic.parser.exceptions.ParseException;
 public class MainWindow extends UiPart<Stage> {
 
     private static final String FXML = "MainWindow.fxml";
+    private final Image SCHEDULE_IMAGE = new Image(this.getClass()
+            .getResourceAsStream("/images/icon_schedule.png"));
+    private final Image FLASHCARDS_IMAGE = new Image(this.getClass()
+            .getResourceAsStream("/images/icon_flashcards.png"));
+    private final List<SideBarTab> studyBananasTabs = Arrays.asList(new SideBarTab(SCHEDULE_IMAGE, "SCHEDULE"),
+            new SideBarTab(FLASHCARDS_IMAGE, "FLASHCARDS"));
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
@@ -31,24 +41,18 @@ public class MainWindow extends UiPart<Stage> {
     private final Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private TaskListPanel taskListPanel;
-    private ResultDisplay resultDisplay;
     private final HelpWindow helpWindow;
-
-    @FXML
-    private StackPane commandBoxPlaceholder;
 
     @FXML
     private MenuItem helpMenuItem;
 
     @FXML
-    private StackPane taskListPanelPlaceholder;
+    private VBox sideBar;
 
     @FXML
-    private StackPane resultDisplayPlaceholder;
+    private AnchorPane ap;
 
-    @FXML
-    private StackPane statusbarPlaceholder;
+
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -110,17 +114,11 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        taskListPanel = new TaskListPanel(logic.getFilteredTaskList());
-        taskListPanelPlaceholder.getChildren().add(taskListPanel.getRoot());
+        List<Node> tabs = studyBananasTabs.stream().map(tab -> tab.getRoot()).collect(Collectors.toList());
+        sideBar.getChildren().addAll(tabs);
 
-        resultDisplay = new ResultDisplay();
-        resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
+        ap.getChildren().addAll(new ScheduleUi(logic).getRoot());
 
-        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getScheduleFilePath());
-        statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
-
-        CommandBox commandBox = new CommandBox(this::executeCommand);
-        commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
     }
 
     /**
@@ -163,34 +161,4 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
-    public TaskListPanel getTaskListPanel() {
-        return taskListPanel;
-    }
-
-    /**
-     * Executes the command and returns the result.
-     *
-     * @see seedu.address.logic.Logic#execute(String)
-     */
-    private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
-        try {
-            CommandResult commandResult = logic.execute(commandText);
-            logger.info("Result: " + commandResult.getFeedbackToUser());
-            resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
-
-            if (commandResult.isShowHelp()) {
-                handleHelp();
-            }
-
-            if (commandResult.isExit()) {
-                handleExit();
-            }
-
-            return commandResult;
-        } catch (CommandException | ParseException e) {
-            logger.info("Invalid command: " + commandText);
-            resultDisplay.setFeedbackToUser(e.getMessage());
-            throw e;
-        }
-    }
 }

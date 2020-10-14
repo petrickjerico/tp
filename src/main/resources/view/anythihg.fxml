@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.geometry.Insets?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <StackPane VBox.vgrow="NEVER" fx:id="commandBoxPlaceholder" styleClass="pane-with-border">
+        <padding>
+            <Insets top="5" right="10" bottom="5" left="10" />
+        </padding>
+    </StackPane>
+
+    <StackPane VBox.vgrow="NEVER" fx:id="resultDisplayPlaceholder" styleClass="pane-with-border"
+               minHeight="100" prefHeight="100" maxHeight="100">
+        <padding>
+            <Insets top="5" right="10" bottom="5" left="10" />
+        </padding>
+    </StackPane>
+
+    <VBox fx:id="taskList" styleClass="pane-with-border" minWidth="340" prefWidth="340" VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10" />
+        </padding>
+        <StackPane fx:id="taskListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+    </VBox>
+
+    <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
+</VBox>

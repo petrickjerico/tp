@@ -6,10 +6,10 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_FLASHCARDSET_NAME;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
+import seedu.address.model.FlashcardModel;
 import seedu.address.model.flashcard.FlashcardSet;
 
-public class AddFlashcardSetCommand extends Command {
+public class AddFlashcardSetCommand extends Command<FlashcardModel> {
 
     public static final String COMMAND_WORD = "add flset";
 
@@ -30,7 +30,14 @@ public class AddFlashcardSetCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof AddFlashcardSetCommand // instanceof handles nulls
+                && toAdd.equals(((AddFlashcardSetCommand) other).toAdd));
+    }
+
+    @Override
+    public CommandResult execute(FlashcardModel model) throws CommandException {
         requireNonNull(model);
 
         if (model.hasFlashcardSet(toAdd)) {
@@ -39,12 +46,5 @@ public class AddFlashcardSetCommand extends Command {
 
         model.addFlashcardSet(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof AddFlashcardSetCommand // instanceof handles nulls
-                && toAdd.equals(((AddFlashcardSetCommand) other).toAdd));
     }
 }

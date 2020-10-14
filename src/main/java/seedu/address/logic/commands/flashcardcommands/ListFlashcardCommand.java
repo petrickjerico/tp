@@ -6,9 +6,10 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_FLASHCARDS;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
-import seedu.address.model.Model;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.FlashcardModel;
 
-public class ListFlashcardCommand extends Command {
+public class ListFlashcardCommand extends Command<FlashcardModel> {
 
     public static final String COMMAND_WORD = "list fl";
 
@@ -26,7 +27,7 @@ public class ListFlashcardCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(FlashcardModel model) throws CommandException {
         requireNonNull(model);
         model.updateFilteredFlashcardSetList(PREDICATE_SHOW_ALL_FLASHCARDS);
         return new CommandResult(MESSAGE_SUCCESS);

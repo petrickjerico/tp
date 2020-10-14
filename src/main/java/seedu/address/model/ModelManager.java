@@ -267,6 +267,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public FlashcardSet getFlashcardSet(Index index) {
+        return null;
+    }
+
+    @Override
     public boolean hasFlashcardSet(FlashcardSet flashcardSet) {
         return flashcardModelManager.hasFlashcardSet(flashcardSet);
     }
@@ -274,6 +279,31 @@ public class ModelManager implements Model {
     @Override
     public void deleteFlashcardSet(FlashcardSet target) {
         flashcardModelManager.deleteFlashcardSet(target);
+    }
+
+    @Override
+    public Flashcard getFlashcard(FlashcardSet flashcardSet, Index flashcardIndex) {
+        return flashcardModelManager.getFlashcard(flashcardSet, flashcardIndex);
+    }
+
+    @Override
+    public void setFlashcard(FlashcardSet flashcardSet, Flashcard target, Flashcard editedFlashcard) {
+        flashcardModelManager.setFlashcard(flashcardSet, target, editedFlashcard);
+    }
+
+    @Override
+    public boolean hasFlashcard(FlashcardSet flashcardSet, Flashcard flashcard) {
+        return flashcardModelManager.hasFlashcard(flashcardSet, flashcard);
+    }
+
+    @Override
+    public void addFlashcard(FlashcardSet flashcardSet, Flashcard flashcard) {
+        flashcardModelManager.addFlashcard(flashcardSet, flashcard);
+    }
+
+    @Override
+    public void deleteFlashcard(FlashcardSet flashcardSet, Index flashcardIndex) {
+        flashcardModelManager.deleteFlashcard(flashcardSet, flashcardIndex);
     }
 
     @Override
@@ -294,15 +324,5 @@ public class ModelManager implements Model {
     @Override
     public void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate) {
         flashcardModelManager.updateFilteredFlashcardSetList(predicate);
-    }
-
-    @Override
-    public void addFlashcard(Flashcard flashcard, Index flashcardSetIndex) {
-        flashcardModelManager.addFlashcard(flashcard, flashcardSetIndex);
-    }
-
-    @Override
-    public FlashcardSet getFlashcardSet(int index) {
-        return flashcardModelManager.getFlashcardSet(index);
     }
 }

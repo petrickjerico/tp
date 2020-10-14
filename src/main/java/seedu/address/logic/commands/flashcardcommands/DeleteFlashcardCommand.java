@@ -68,6 +68,7 @@ public class DeleteFlashcardCommand extends Command {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof DeleteFlashcardCommand // instanceof handles nulls
-                && targetFlashcardIndex.equals(((DeleteFlashcardCommand) other).targetFlashcardIndex)); // state check
+                && targetFlashcardIndex.equals(((DeleteFlashcardCommand) other).targetFlashcardIndex)
+                && targetFlashcardSetIndex.equals(((DeleteFlashcardCommand) other).targetFlashcardSetIndex)); // state check
     }
 }

@@ -10,7 +10,7 @@ import seedu.address.model.task.Task;
 /**
  * A utility class containing a list of {@code Task} objects to be used in tests.
  */
-public class TypicalTasks {
+public class SampleTasks {
 
     public static final Task CS2103T_WEEK8_QUIZ = new TaskBuilder().withTitle("CS2103T")
             .withDescription("Week 8 Quiz").withDateTime("2020-09-27 12:00")
@@ -23,9 +23,13 @@ public class TypicalTasks {
             .withDescription("Chapter 2 Quiz")
             .withDateTime("2020-10-01 23:00")
             .build();
+    public static final Task CS2101_OP2 = new TaskBuilder().withTitle("CS2101")
+            .withDescription("Oral Presentation 2")
+            .withDateTime("2020-10-25 10:00")
+            .build();
 
     // Manually added with no Description
-    public static final Task CS2100_FINAL = new TaskBuilder().withTitle("CS2100 Final")
+    public static final Task CS2100_FINAL = new TaskBuilder().withTitle("CS2100")
             .withDescription("")
             .withDateTime("2020-11-30 13:00")
             .build();
@@ -38,20 +42,20 @@ public class TypicalTasks {
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
-    private TypicalTasks() {} // prevents instantiation
+    private SampleTasks() {} // prevents instantiation
 
     /**
      * Returns an {@code Schedule} with all the typical tasks.
      */
-    public static Schedule getTypicalSchedule() {
+    public static Schedule getSampleSchedule() {
         Schedule sc = new Schedule();
-        for (Task task : getTypicalTasks()) {
+        for (Task task : getSampleTasks()) {
             sc.addTask(task);
         }
         return sc;
     }
 
-    public static List<Task> getTypicalTasks() {
+    public static List<Task> getSampleTasks() {
         return new ArrayList<>(Arrays.asList(CS2103T_WEEK8_QUIZ,
                 CS2100_TUTORIAL_HOMEWORK,
                 ST2334_ASSIGNMENT,

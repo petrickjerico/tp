@@ -56,9 +56,9 @@ public class SampleDataUtil {
                     new DateTime("2020-10-23 23:59")),
             new Task(new Title("CCA"), new Description("Week 10 topics quiz."),
                     new DateTime("2020-10-08 13:00")),
-            new Task(new Title("Household"), new Description("Family reunion at Star Vista."),
+            new Task(new Title("Household"), null,
                     new DateTime("2020-11-11 12:30")),
-            new Task(new Title("Job"), new Description("My presidential debate."),
+            new Task(new Title("Job"), new Description(""),
                     new DateTime("2020-09-29 22:00")),
         };
     }

@@ -41,7 +41,7 @@ public class ConfigUtilTest {
     @Test
     public void read_fileInOrder_successfullyRead() throws DataConversionException {
 
-        Config expected = getTypicalConfig();
+        Config expected = getTypicalConfigWithRelativePath();
 
         Config actual = read("TypicalConfig.json").get();
         assertEquals(expected, actual);
@@ -55,13 +55,20 @@ public class ConfigUtilTest {
 
     @Test
     public void read_extraValuesInFile_extraValuesIgnored() throws DataConversionException {
-        Config expected = getTypicalConfig();
+        Config expected = getTypicalConfigWithRelativePath();
         Config actual = read("ExtraValuesConfig.json").get();
 
         assertEquals(expected, actual);
     }
 
-    private Config getTypicalConfig() {
+    private Config getTypicalConfigWithAbsolutePath() {
+        Config config = new Config();
+        config.setLogLevel(Level.INFO);
+        config.setUserPrefsFilePath(Paths.get("preferences.json").toAbsolutePath());
+        return config;
+    }
+
+    private Config getTypicalConfigWithRelativePath() {
         Config config = new Config();
         config.setLogLevel(Level.INFO);
         config.setUserPrefsFilePath(Paths.get("preferences.json"));
@@ -85,13 +92,13 @@ public class ConfigUtilTest {
 
     @Test
     public void saveConfig_allInOrder_success() throws DataConversionException, IOException {
-        Config original = getTypicalConfig();
+        Config original = getTypicalConfigWithAbsolutePath();
 
         Path configFilePath = tempDir.resolve("TempConfig.json");
 
         //Try writing when the file doesn't exist
         ConfigUtil.saveConfig(original, configFilePath);
-        Config readBack = ConfigUtil.readConfig(configFilePath).get();
+        Config readBack = (ConfigUtil.readConfig(configFilePath).get());
         assertEquals(original, readBack);
 
         //Try saving when the file exists

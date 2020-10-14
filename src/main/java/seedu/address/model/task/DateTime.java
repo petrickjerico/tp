@@ -15,7 +15,7 @@ import seedu.address.model.task.timeformat.TimeFormatChecker;
 public class DateTime {
     public static final String MESSAGE_CONSTRAINTS =
             "DateTime should be in the dd-mm-yyyy hh:mm format";
-    public static final String STANDARD_FORMAT = "yyyy-MM-dd hh:mm";
+    public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm";
 
     public final LocalDateTime dateTime;
 
@@ -49,7 +49,7 @@ public class DateTime {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Date // instanceof handles nulls
+                || (other instanceof DateTime // instanceof handles nulls
                 && dateTime.toString().equals(((DateTime) other).dateTime.toString())); // state check
     }
 

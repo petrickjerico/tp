@@ -20,12 +20,20 @@ public class FlashcardSet {
         this.flashcards.addAll(flashcards);
     }
 
+    public FlashcardSet(Name name) {
+        this.name = name;
+    }
+
     public Name getName() {
         return name;
     }
 
     public List<Flashcard> getFlashcards() {
         return flashcards;
+    }
+
+    public void add(Flashcard flashcard) {
+        this.flashcards.add(flashcard);
     }
 
     @Override

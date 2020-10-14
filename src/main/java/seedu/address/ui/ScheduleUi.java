@@ -34,6 +34,9 @@ public class ScheduleUi extends UiPart<Region> {
     @FXML
     private StackPane statusbarPlaceholder;
 
+    /**
+     * Constructor for ScheduleUi.
+     */
     public ScheduleUi(Logic logic) {
         super(FXML);
 

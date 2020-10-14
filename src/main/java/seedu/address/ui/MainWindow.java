@@ -32,13 +32,13 @@ import seedu.address.ui.util.UiStateType;
 public class MainWindow extends UiPart<Stage> implements Observer {
 
     private static final String FXML = "MainWindow.fxml";
-    private final Image SCHEDULE_IMAGE = new Image(this.getClass()
+    private final Image scheduleImage = new Image(this.getClass()
             .getResourceAsStream("/images/icon_schedule.png"));
-    private final Image FLASHCARDS_IMAGE = new Image(this.getClass()
+    private final Image flashcardsImage = new Image(this.getClass()
             .getResourceAsStream("/images/icon_flashcards.png"));
 
-    private final List<SideBarTab> studyBananasTabs = Arrays.asList(new SideBarTab(SCHEDULE_IMAGE, "SCHEDULE"),
-            new SideBarTab(FLASHCARDS_IMAGE, "FLASHCARDS"));
+    private final List<SideBarTab> studyBananasTabs = Arrays.asList(new SideBarTab(scheduleImage, "SCHEDULE"),
+            new SideBarTab(flashcardsImage, "FLASHCARDS"));
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 

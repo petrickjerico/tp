@@ -25,6 +25,9 @@ public class SideBarTab extends UiPart<Region> implements Observer {
     private SingletonUiState uiState;
     private UiStateType tabType;
 
+    /**
+     * Constructor for sidebar tab.
+     */
     public SideBarTab(Image image, String description) {
         super(FXML);
 

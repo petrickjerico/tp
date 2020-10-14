@@ -17,7 +17,7 @@ public class ListFlashcardCommand extends Command {
             + "<flashcardsetindex> "
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_SUCCESS = "Listed all flashcard in selected flashcard set";
+    public static final String MESSAGE_SUCCESS = "Listed all flashcard in the selected flashcard set";
 
     private final Index flashcardSetIndex;
 

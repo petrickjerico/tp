@@ -23,11 +23,12 @@ public class DeleteFlashcardSetCommandParser implements Parser<DeleteFlashcardSe
     @Override
     public DeleteFlashcardSetCommand parse(String userInput) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(userInput, PREFIX_FLASHCARDSET);
+                ArgumentTokenizer.tokenize(userInput);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_FLASHCARDSET)
                 || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteFlashcardSetCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    DeleteFlashcardSetCommand.MESSAGE_USAGE));
         }
 
         Index flashcardSetIndex = ParserUtil.parseIndex(argMultimap.getValue(PREFIX_FLASHCARDSET).get());

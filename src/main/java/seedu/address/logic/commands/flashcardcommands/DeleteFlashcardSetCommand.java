@@ -20,8 +20,8 @@ public class DeleteFlashcardSetCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Deletes a flashcard set."
             + "Parameters: "
-            + PREFIX_FLASHCARDSET + "<flashcardsetindex> "
-            + "Example: " + COMMAND_WORD + ":1";
+            + "<flashcardsetindex> "
+            + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_SUCCESS = "Flashcard set deleted: %1$s";
 

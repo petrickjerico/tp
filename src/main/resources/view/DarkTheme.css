@@ -347,6 +347,14 @@
     -fx-background-radius: 0;
 }
 
+#tab {
+    -fx-background-color: transparent;
+    -fx-border-width: 0px 0px 0px 0px;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
 #tags {
     -fx-hgap: 7;
     -fx-vgap: 3;

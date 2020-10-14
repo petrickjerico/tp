@@ -15,7 +15,7 @@ public class AddFlashcardSetCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a flashcard set to the flashcard bank. "
             + "Parameters: "
-            + PREFIX_FLASHCARDSET_NAME + "NAME\n"
+            + PREFIX_FLASHCARDSET_NAME + "<name>\n"
             + "Example: "
             + COMMAND_WORD + " " + PREFIX_FLASHCARDSET_NAME + "Japanese";
 

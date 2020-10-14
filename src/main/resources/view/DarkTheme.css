@@ -41,9 +41,9 @@
 }
 
 .table-view {
-    -fx-base: #1d1d1d;
+    -fx-base: #EFE0C5;
     -fx-control-inner-background: #1d1d1d;
-    -fx-background-color: #1d1d1d;
+    -fx-background-color: #EFE0C5;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
     -fx-padding: 5;
@@ -119,10 +119,6 @@
 
 .list-cell .label {
     -fx-text-fill: white;
-}
-
-.root {
-    base_color: linear-gradient(to right, #ff7f50, #6a5acd);
 }
 
 .cell_big_label {
@@ -318,8 +314,7 @@
 }
 
 #cardPane {
-    -fx-background-color: base_color;
-    -fx-border-radius: 20;
+    -fx-background-radius: 20;
 }
 
 #commandTypeLabel {

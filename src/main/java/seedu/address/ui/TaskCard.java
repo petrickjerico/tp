@@ -32,7 +32,6 @@ public class TaskCard extends UiPart<Region> {
         super(FXML);
         this.task = task;
         cardPane.setStyle("-fx-background-color: " + BACKGROUND_COLOR[displayedIndex % 3]);
-//        cardPane.setStyle("-fx-border-radius: 20");
         id.setText(displayedIndex + ". ");
         title.setText(task.getTitle().title);
         description.setText(task.getDescription().map(des-> des.description).orElse(""));

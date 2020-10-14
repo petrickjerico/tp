@@ -5,21 +5,34 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TASKS;
 
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
-import seedu.address.model.Model;
+import seedu.address.model.ScheduleModel;
 
 /**
  * Lists all tasks in the Schedule to the user.
  */
-public class ScheduleListCommand extends Command {
+public class ScheduleListCommand extends Command<ScheduleModel> {
     public static final String COMMAND_WORD = "list task";
 
     public static final String MESSAGE_SUCCESS = "Listed all tasks.";
 
 
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(ScheduleModel model) {
         requireNonNull(model);
         model.updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
         return new CommandResult(MESSAGE_SUCCESS);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        if (!(obj instanceof ScheduleListCommand)) {
+            return false;
+        }
+
+        return true;
     }
 }

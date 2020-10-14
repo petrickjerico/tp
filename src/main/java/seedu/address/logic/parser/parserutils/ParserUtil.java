@@ -156,7 +156,7 @@ public class ParserUtil {
         }
 
         String trimmedDescription = description.trim();
-        if (!Title.isValidTitle(trimmedDescription)) {
+        if (!Description.isValidDescription(trimmedDescription)) {
             throw new ParseException(Description.MESSAGE_CONSTRAINTS);
         }
         return new Description(description);
@@ -173,7 +173,7 @@ public class ParserUtil {
         }
 
         String trimmedTime = time.trim();
-        if (!Title.isValidTitle(trimmedTime)) {
+        if (!DateTime.isValidDateTime(trimmedTime)) {
             throw new ParseException(DateTime.MESSAGE_CONSTRAINTS);
         }
         return new DateTime(time);

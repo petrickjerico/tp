@@ -5,11 +5,12 @@ import java.nio.file.Path;
 import java.util.Optional;
 
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.ReadOnlySchedule;
+import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
+import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
+import seedu.address.model.systemlevelmodel.Schedule;
 
 /**
- * Represents a storage for {@link seedu.address.model.Schedule}.
+ * Represents a storage for {@link Schedule}.
  */
 public interface ScheduleStorage {
     /**

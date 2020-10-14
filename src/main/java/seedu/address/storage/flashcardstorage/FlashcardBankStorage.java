@@ -5,10 +5,10 @@ import java.nio.file.Path;
 import java.util.Optional;
 
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.ReadOnlyFlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 
 /**
- * Represents a storage for {@link seedu.address.model.FlashcardBank}.
+ * Represents a storage for {@link ReadOnlyFlashcardBank}.
  */
 public interface FlashcardBankStorage {
     /**

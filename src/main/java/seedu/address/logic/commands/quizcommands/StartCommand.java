@@ -10,7 +10,8 @@ import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.flashcard.Question;
 import seedu.address.model.quiz.Quiz;
 
-public class StartCommand extends Command {
+//The abstraction has to be clarified.
+public class StartCommand extends Command<Model> {
 
     public static final String MESSAGE_QUIZ_IN_PROGRESS = "Quiz already in progress!";
     public static final String MESSAGE_FLASHCARD_SET_NONEXISTENT = "Flashcard set does not exist";

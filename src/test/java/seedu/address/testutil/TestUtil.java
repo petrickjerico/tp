@@ -1,5 +1,6 @@
 package seedu.address.testutil;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -51,5 +52,18 @@ public class TestUtil {
      */
     public static Person getPerson(Model model, Index index) {
         return model.getFilteredPersonList().get(index.getZeroBased());
+    }
+
+    /**
+     * Change absolute path into relative path.
+     */
+    public static Path toRelativePath(Path path) {
+        if (path.isAbsolute()) {
+            File root = new File("/");
+            String rootPath = root.getAbsolutePath();
+            String relativePath = path.toString().substring(rootPath.length());
+            return Paths.get(relativePath);
+        }
+        return path;
     }
 }

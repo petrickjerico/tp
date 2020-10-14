@@ -17,7 +17,7 @@ public class JsonAdaptedDateTimeTest {
     @Test
     public void toModelType_validDateTime_returnsDateTime() throws Exception {
         JsonAdaptedDateTime dateTime = new JsonAdaptedDateTime(VALID_DATE_TIME);
-        DateTime dateTimeObject = DateTime.createDateTime(VALID_DATE_TIME);
+        DateTime dateTimeObject = new DateTime(VALID_DATE_TIME);
         assertEquals(dateTimeObject, dateTime.toModelType());
     }
 

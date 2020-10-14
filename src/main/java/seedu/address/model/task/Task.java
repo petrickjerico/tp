@@ -70,7 +70,19 @@ public class Task {
         return bothHaveDescription(t1, t2) && t1.getDescription().get().rigorousEquals(t2.getDescription().get());
     }
 
+    private StringBuilder getDescriptionString() {
+        StringBuilder emptyString = new StringBuilder("");
+        return description.map(desc ->
+                new StringBuilder("Description: ")
+                        .append(desc.toString() + "\n")).orElse(emptyString);
+    }
 
+    private StringBuilder getDateTimeString() {
+        StringBuilder emptyString = new StringBuilder("");
+        return dateTime.map(time ->
+                new StringBuilder("Time: ")
+                        .append(time.toString() + "\n")).orElse(emptyString);
+    }
     /**
      * Returns true if both tasks have the same identity and data fields.
      * This defines a stronger notion of equality between two tasks.
@@ -86,9 +98,6 @@ public class Task {
         }
 
         Task otherTask = (Task) other;
-        boolean checkTitle = otherTask.getTitle().equals(this.getTitle());
-        boolean checkDes = otherTask.getDescription().equals(this.getDescription());
-        boolean checkDate = otherTask.dateTime.equals(this.dateTime);
         return otherTask.getTitle().equals(this.getTitle())
                 && otherTask.getDescription().equals(this.getDescription())
                 && otherTask.dateTime.equals(this.dateTime);
@@ -105,10 +114,8 @@ public class Task {
         final StringBuilder builder = new StringBuilder();
         builder.append("Title: ")
                 .append(getTitle() + "\n")
-                .append("Description: ")
-                .append(getDescription() + "\n")
-                .append(hasDate() ? " Time: " : "")
-                .append(getDateTime());
+                .append(getDescriptionString())
+                .append(getDateTimeString());
         return builder.toString();
     }
 }

@@ -24,7 +24,7 @@ public class TaskBuilder {
     public TaskBuilder() {
         title = new Title(DEFAULT_TITLE);
         description = new Description(DEFAULT_DESCRIPTION);
-        dateTime = DateTime.createDateTime(DEFAULT_DATE_TIME);
+        dateTime = new DateTime(DEFAULT_DATE_TIME);
     }
 
     /**
@@ -56,7 +56,7 @@ public class TaskBuilder {
      * Sets the {@code DateTime} of the {@code Task} that we are building.
      */
     public TaskBuilder withDateTime(String dateTime) {
-        this.dateTime = dateTime.equals("") ? null : DateTime.createDateTime(dateTime);
+        this.dateTime = dateTime.equals("") ? null : new DateTime(dateTime);
         return this;
     }
 

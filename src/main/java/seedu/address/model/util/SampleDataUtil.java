@@ -49,17 +49,17 @@ public class SampleDataUtil {
     public static Task[] getSampleTasks() {
         return new Task[] {
             new Task(new Title("CS2103T"), new Description("Week 8 topics quiz."),
-                    DateTime.createDateTime("2020-10-09 23:59")),
+                    new DateTime("2020-10-09 23:59")),
             new Task(new Title("CS2103T"), new Description("Week 9 topics quiz."),
-                    DateTime.createDateTime("2020-10-16 23:59")),
+                    new DateTime("2020-10-16 23:59")),
             new Task(new Title("CS2103T"), new Description("Popping dance lecture."),
-                    DateTime.createDateTime("2020-10-23 23:59")),
+                    new DateTime("2020-10-23 23:59")),
             new Task(new Title("CCA"), new Description("Week 10 topics quiz."),
-                    DateTime.createDateTime("2020-10-08 13:00")),
+                    new DateTime("2020-10-08 13:00")),
             new Task(new Title("Household"), null,
-                    DateTime.createDateTime("2020-11-11 12:30")),
+                    new DateTime("2020-11-11 12:30")),
             new Task(new Title("Job"), new Description(""),
-                    DateTime.createDateTime("2020-09-29 22:00")),
+                    new DateTime("2020-09-29 22:00")),
         };
     }
 

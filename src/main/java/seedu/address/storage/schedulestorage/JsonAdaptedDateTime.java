@@ -38,6 +38,6 @@ public class JsonAdaptedDateTime {
         if (!DateTime.isValidDateTime(dateTime)) {
             throw new IllegalValueException(DateTime.MESSAGE_CONSTRAINTS);
         }
-        return DateTime.createDateTime(dateTime);
+        return new DateTime(dateTime);
     }
 }

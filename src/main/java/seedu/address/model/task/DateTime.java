@@ -25,24 +25,10 @@ public class DateTime {
      *
      * @param dateTime A valid date time.
      */
-    private DateTime(String dateTime) {
+    public DateTime(String dateTime) {
         requireNonNull(dateTime);
         checkArgument(isValidDateTime(dateTime), MESSAGE_CONSTRAINTS);
         this.dateTime = TimeFormatChecker.mapToLocalDateTime(dateTime);
-    }
-
-    /**
-     * Constructs a {@code DateTime} by checking the input dateTime.
-     *
-     * @param dateTime A date time that can be invalid or valid.
-     * @return null if the date time if invalid, else return the {@code DateTime} object.
-     */
-    public static DateTime createDateTime(String dateTime) {
-        if (dateTime.equals("")) {
-            return null;
-        } else {
-            return new DateTime(dateTime);
-        }
     }
 
     /**

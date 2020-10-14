@@ -176,7 +176,7 @@ public class ParserUtil {
         if (!Title.isValidTitle(trimmedTime)) {
             throw new ParseException(DateTime.MESSAGE_CONSTRAINTS);
         }
-        return DateTime.createDateTime(time);
+        return new DateTime(time);
     }
 
     //=========== Flashcard =============================================================

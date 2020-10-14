@@ -13,25 +13,30 @@ import javafx.scene.control.TextInputControl;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
 import seedu.address.ui.sidebar.SideBarTab;
+import seedu.address.ui.util.Observable;
+import seedu.address.ui.util.Observer;
+import seedu.address.ui.util.SingletonUiState;
+import seedu.address.ui.util.UiStateType;
 
 /**
  * The Main Window. Provides the basic application layout containing
  * a menu bar and space where other JavaFX elements can be placed.
  */
-public class MainWindow extends UiPart<Stage> {
+public class MainWindow extends UiPart<Stage> implements Observer {
 
     private static final String FXML = "MainWindow.fxml";
     private final Image SCHEDULE_IMAGE = new Image(this.getClass()
             .getResourceAsStream("/images/icon_schedule.png"));
     private final Image FLASHCARDS_IMAGE = new Image(this.getClass()
             .getResourceAsStream("/images/icon_flashcards.png"));
+
     private final List<SideBarTab> studyBananasTabs = Arrays.asList(new SideBarTab(SCHEDULE_IMAGE, "SCHEDULE"),
             new SideBarTab(FLASHCARDS_IMAGE, "FLASHCARDS"));
 
@@ -50,7 +55,9 @@ public class MainWindow extends UiPart<Stage> {
     private VBox sideBar;
 
     @FXML
-    private AnchorPane ap;
+    private BorderPane mainWindow;
+
+    private SingletonUiState uiState;
 
 
 
@@ -70,6 +77,10 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpWindow = new HelpWindow();
+
+        //subscribe to UiState
+        uiState = SingletonUiState.getInstance();
+        subscribe(uiState);
     }
 
     public Stage getPrimaryStage() {
@@ -117,7 +128,8 @@ public class MainWindow extends UiPart<Stage> {
         List<Node> tabs = studyBananasTabs.stream().map(tab -> tab.getRoot()).collect(Collectors.toList());
         sideBar.getChildren().addAll(tabs);
 
-        ap.getChildren().addAll(new ScheduleUi(logic).getRoot());
+        //get the default uiState
+        handleStateChange(this.uiState.getUiState());
 
     }
 
@@ -159,6 +171,29 @@ public class MainWindow extends UiPart<Stage> {
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
         primaryStage.hide();
+    }
+
+    private void handleStateChange(UiStateType state) {
+        switch (state) {
+        case SCHEDULE:
+            mainWindow.setCenter(new ScheduleUi(logic).getRoot());
+            break;
+        case FLASHCARD:
+            mainWindow.setCenter(new FlashcardUi().getRoot());
+            break;
+        default:
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @Override
+    public void subscribe(Observable news) {
+        news.register(this);
+    }
+
+    @Override
+    public void update(UiStateType state) {
+        handleStateChange(state);
     }
 
 }

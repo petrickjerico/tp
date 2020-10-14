@@ -12,7 +12,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 public class ScheduleUi extends UiPart<Region> {
-    private static final String FXML = "anything.fxml";
+    private static final String FXML = "ScheduleUi.fxml";
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 

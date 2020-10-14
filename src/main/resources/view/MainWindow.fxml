@@ -27,17 +27,18 @@
                 <URL value="@DarkTheme.css" />
                 <URL value="@Extensions.css" />
             </stylesheets>
-            <VBox>
-            <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
-                <Menu mnemonicParsing="false" text="File">
-                    <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
-                </Menu>
-            </MenuBar>
 
             <BorderPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+                <top>
+                    <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
+                        <Menu mnemonicParsing="false" text="File">
+                            <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
+                        </Menu>
+                    </MenuBar>
+                </top>
                 <left>
                     <VBox fx:id="sideBar" prefHeight="400.0" prefWidth="205.0" style="-fx-background-color: linear-gradient(to top left, #FAE7AC 0%, #F6C609 97%, #F6C504 100%);" BorderPane.alignment="CENTER">
                         <children>
@@ -79,11 +80,7 @@
                         </children>
                     </VBox>
                 </left>
-                <center>
-                    <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-                </center>
             </BorderPane>
-            </VBox>
         </Scene>
     </scene>
 </fx:root>

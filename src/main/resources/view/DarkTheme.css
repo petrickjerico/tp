@@ -1,6 +1,6 @@
 .background {
-    -fx-background-color: derive(#1d1d1d, 20%);
-    background-color: #383838; /* Used in the default.html file */
+    -fx-background-color: derive(#D9EFF0, 20%);
+    background-color: #D9EFF0; /* Used in the default.html file */
 }
 
 .label {
@@ -96,15 +96,15 @@
 .list-cell {
     -fx-label-padding: 0 0 0 0;
     -fx-graphic-text-gap : 0;
-    -fx-padding: 0 0 0 0;
+    -fx-padding: 10 0 10 0;
 }
 
 .list-cell:filled:even {
-    -fx-background-color: #3c3e3f;
+    -fx-background-color: transparent;
 }
 
 .list-cell:filled:odd {
-    -fx-background-color: #515658;
+    -fx-background-color: transparent;
 }
 
 .list-cell:filled:selected {
@@ -120,16 +120,25 @@
     -fx-text-fill: white;
 }
 
+.root {
+    base_color: linear-gradient(to right, #ff7f50, #6a5acd);
+}
+
 .cell_big_label {
     -fx-font-family: "Segoe UI Semibold";
     -fx-font-size: 16px;
-    -fx-text-fill: #010504;
+    -fx-text-fill: red;
 }
 
 .cell_small_label {
     -fx-font-family: "Segoe UI";
+    -fx-border-radius: 20px;
     -fx-font-size: 13px;
     -fx-text-fill: #010504;
+}
+
+.task_row {
+    -fx-border-radius: 30px;
 }
 
 .stack-pane {
@@ -308,8 +317,8 @@
 }
 
 #cardPane {
-    -fx-background-color: transparent;
-    -fx-border-width: 0;
+    -fx-background-color: base_color;
+    -fx-border-radius: 20;
 }
 
 #commandTypeLabel {

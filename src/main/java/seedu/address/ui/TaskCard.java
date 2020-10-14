@@ -8,7 +8,10 @@ import seedu.address.model.task.Task;
 
 public class TaskCard extends UiPart<Region> {
     private static final String FXML = "TaskListCard.fxml";
-
+    private static final String[] BACKGROUND_COLOR = new String[]{
+            "linear-gradient(to right, #ff7f50, #6a5acd);",
+            "linear-gradient(to right, #D2F064, #4BC61A);",
+            "linear-gradient(to right, #EAC887, #E6D4B3);"};
     public final Task task;
 
     @FXML
@@ -23,11 +26,13 @@ public class TaskCard extends UiPart<Region> {
     private Label time;
 
     /**
-     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
+     * Creates a {@code TaskCode} with the given {@code Task} and index to display.
      */
     public TaskCard(Task task, int displayedIndex) {
         super(FXML);
         this.task = task;
+        cardPane.setStyle("-fx-background-color: " + BACKGROUND_COLOR[displayedIndex % 3]);
+//        cardPane.setStyle("-fx-border-radius: 20");
         id.setText(displayedIndex + ". ");
         title.setText(task.getTitle().title);
         description.setText(task.getDescription().map(des-> des.description).orElse(""));

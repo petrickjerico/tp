@@ -219,8 +219,8 @@ public class ParserUtil {
             throws ParseException {
         requireNonNull(flashcardSetName);
         String trimmedName = flashcardSetName.trim();
-        if (!Question.isValidQuestion(trimmedName)) {
-            throw new ParseException(Question.MESSAGE_CONSTRAINTS);
+        if (!FlashcardSetName.isValidName(trimmedName)) {
+            throw new ParseException(FlashcardSetName.MESSAGE_CONSTRAINTS);
         }
         return new FlashcardSetName(flashcardSetName);
     }

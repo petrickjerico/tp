@@ -10,6 +10,12 @@ import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 
 public interface FlashcardModel {
 
+    /** {@code Predicate} that always evaluate to true */
+    Predicate<FlashcardSet> PREDICATE_SHOW_ALL_FLASHCARDSETS = unused -> true;
+
+    /** {@code Predicate} that always evaluate to true */
+    Predicate<FlashcardSet> PREDICATE_SHOW_ALL_FLASHCARDS = unused -> true;
+
     //=========== Flashcard ==================================================================================
 
     /**
@@ -74,7 +80,7 @@ public interface FlashcardModel {
      * Replaces the target {@code FlashcardSet} in the {@code FlashcardBank}
      * with an edited {@code FlashcardSet}.
      * {@code target} must exist in the {@code FlashcardBank}.
-     * The task identity of the edited {@code FlashcardSet must not
+     * The task identity of the edited {@code FlashcardSet} must not
      * be the same as any other existing {@code FlashcardSet} in
      * the {@code FlashcardBank}.
      *
@@ -109,12 +115,6 @@ public interface FlashcardModel {
     void deleteFlashcardSet(FlashcardSet target);
 
     //=========== Flashcard Bank ==================================================================================
-
-    /** {@code Predicate} that always evaluate to true */
-    Predicate<FlashcardSet> PREDICATE_SHOW_ALL_FLASHCARDSETS = unused -> true;
-
-    /** {@code Predicate} that always evaluate to true */
-    Predicate<FlashcardSet> PREDICATE_SHOW_ALL_FLASHCARDS = unused -> true;
 
     /**
      * Replaces the target {@code FlashcardBank} data

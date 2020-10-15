@@ -11,6 +11,7 @@ import seedu.address.logic.parser.flashcardparsers.FlashcardParser;
 import seedu.address.logic.parser.parserutils.CommandTypeMatcher;
 import seedu.address.logic.parser.quizparsers.QuizParser;
 import seedu.address.logic.parser.scheduleparsers.ScheduleParser;
+import seedu.address.model.Model;
 
 /**
  * Parses user input.
@@ -29,7 +30,7 @@ public class StudyBananasParser {
      * @return the command based on the user input
      * @throws ParseException if the user input does not conform the expected format
      */
-    public Command parseCommand(String userInput) throws ParseException {
+    public Command<? super Model> parseCommand(String userInput) throws ParseException {
         final CommandTypeMatcher ctm = new CommandTypeMatcher();
 
         switch (ctm.match(userInput)) {

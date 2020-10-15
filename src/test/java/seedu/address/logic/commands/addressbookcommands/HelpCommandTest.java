@@ -1,11 +1,11 @@
-package seedu.address.logic.commands;
+package seedu.address.logic.commands.addressbookcommands;
 
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.addressbookcommands.HelpCommand.SHOWING_HELP_MESSAGE;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.assertCommandSuccess;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.addressbookcommands.HelpCommand;
+import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 

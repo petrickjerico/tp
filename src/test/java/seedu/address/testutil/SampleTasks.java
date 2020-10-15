@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import seedu.address.model.Schedule;
+import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.task.Task;
 
 /**

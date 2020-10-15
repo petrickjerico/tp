@@ -9,13 +9,14 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
+import seedu.address.model.FlashcardModel;
 import seedu.address.model.flashcard.Flashcard;
+import seedu.address.model.flashcard.FlashcardSet;
 
 /**
  * Adds a flashcard to a flashcard set.
  */
-public class AddFlashcardCommand extends Command {
+public class AddFlashcardCommand extends Command<FlashcardModel> {
 
     public static final String COMMAND_WORD = "add fl";
 
@@ -30,6 +31,8 @@ public class AddFlashcardCommand extends Command {
             + PREFIX_ANSWER + "Price increases ";
 
     public static final String MESSAGE_SUCCESS = "New flashcard added: %1$s";
+    public static final String MESSAGE_DUPLICATE_FLASHCARD =
+            "This flashcard already exists in the given flashcard set.";
 
     private final Flashcard toAdd;
     private final Index flashcardSetIndex;
@@ -44,10 +47,15 @@ public class AddFlashcardCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(FlashcardModel model) throws CommandException {
         requireNonNull(model);
+        FlashcardSet flashcardSet = model.getFlashcardSet(flashcardSetIndex);
 
-        model.addFlashcard(toAdd, flashcardSetIndex);
+        if (model.hasFlashcard(flashcardSet, toAdd)) {
+            throw new CommandException(MESSAGE_DUPLICATE_FLASHCARD);
+        }
+
+        model.addFlashcard(flashcardSet, toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 

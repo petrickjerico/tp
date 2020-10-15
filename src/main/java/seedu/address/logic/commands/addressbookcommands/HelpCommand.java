@@ -2,12 +2,12 @@ package seedu.address.logic.commands.addressbookcommands;
 
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
-import seedu.address.model.Model;
+import seedu.address.model.AddressBookModel;
 
 /**
  * Format full help instructions for every command for display.
  */
-public class HelpCommand extends Command {
+public class HelpCommand extends Command<AddressBookModel> {
 
     public static final String COMMAND_WORD = "help";
 
@@ -17,7 +17,7 @@ public class HelpCommand extends Command {
     public static final String SHOWING_HELP_MESSAGE = "Opened help window.";
 
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(AddressBookModel model) {
         return new CommandResult(SHOWING_HELP_MESSAGE, true, false);
     }
 }

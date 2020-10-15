@@ -17,6 +17,7 @@ import seedu.address.logic.commands.addressbookcommands.HelpCommand;
 import seedu.address.logic.commands.addressbookcommands.ListCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.AddressBookModel;
 
 public class AddressBookParser implements Parser<Command> {
 
@@ -26,7 +27,7 @@ public class AddressBookParser implements Parser<Command> {
     private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
 
     @Override
-    public Command parse(String userInput) throws ParseException {
+    public Command<AddressBookModel> parse(String userInput) throws ParseException {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
 
         if (!matcher.matches()) {

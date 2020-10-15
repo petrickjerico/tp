@@ -1,14 +1,14 @@
-package seedu.address.logic.commands;
+package seedu.address.logic.commands.addressbookcommands;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.DESC_AMY;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.DESC_BOB;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.VALID_NAME_BOB;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.VALID_TAG_HUSBAND;
 
 import org.junit.jupiter.api.Test;
 

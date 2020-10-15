@@ -18,6 +18,7 @@ public class CliSyntax {
 
     /* StudyBananas Prefix definitions */
     public static final Prefix PREFIX_FLASHCARDSET = new Prefix("flset:");
+    public static final Prefix PREFIX_FLASHCARDSET_NAME = new Prefix("name:");
     public static final Prefix PREFIX_FLASHCARD = new Prefix("fl:");
     public static final Prefix PREFIX_QUESTION = new Prefix("q:");
     public static final Prefix PREFIX_ANSWER = new Prefix("a:");

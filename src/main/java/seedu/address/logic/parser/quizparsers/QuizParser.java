@@ -9,13 +9,14 @@ import seedu.address.logic.commands.quizcommands.ViewScoreCommand;
 import seedu.address.logic.commands.quizcommands.WrongCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.Model;
 
 public class QuizParser implements Parser<Command> {
 
     public static final String MESSAGE_PARSING_ERROR = "";
 
     @Override
-    public Command parse(String userInput) throws ParseException {
+    public Command<? super Model> parse(String userInput) throws ParseException {
         if (userInput.contains("quiz flset:")) {
             userInput = userInput.replace("quiz flset:", "");
             int index = parseNumber(userInput);

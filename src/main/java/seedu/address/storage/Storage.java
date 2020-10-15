@@ -5,11 +5,11 @@ import java.nio.file.Path;
 import java.util.Optional;
 
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.ReadOnlyFlashcardBank;
-import seedu.address.model.ReadOnlySchedule;
-import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.UserPrefs;
+import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
+import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
+import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
+import seedu.address.model.systemlevelmodel.UserPrefs;
 import seedu.address.storage.flashcardstorage.FlashcardBankStorage;
 import seedu.address.storage.schedulestorage.ScheduleStorage;
 

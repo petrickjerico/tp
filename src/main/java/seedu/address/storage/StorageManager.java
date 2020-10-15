@@ -7,11 +7,11 @@ import java.util.logging.Logger;
 
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.ReadOnlyFlashcardBank;
-import seedu.address.model.ReadOnlySchedule;
-import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.UserPrefs;
+import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
+import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
+import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
+import seedu.address.model.systemlevelmodel.UserPrefs;
 import seedu.address.storage.schedulestorage.ScheduleStorage;
 
 /**
@@ -29,7 +29,6 @@ public class StorageManager implements Storage {
      */
     public StorageManager(ScheduleStorage scheduleStorage, AddressBookStorage addressBookStorage,
                           UserPrefsStorage userPrefsStorage) {
-        super();
         this.addressBookStorage = addressBookStorage;
         this.userPrefsStorage = userPrefsStorage;
         this.scheduleStorage = scheduleStorage;

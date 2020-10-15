@@ -15,6 +15,7 @@ import seedu.address.logic.commands.schedulecommands.ScheduleListCommand;
 import seedu.address.logic.commands.schedulecommands.ScheduleSearchCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.ScheduleModel;
 
 public class ScheduleParser implements Parser<Command> {
     /**
@@ -24,7 +25,7 @@ public class ScheduleParser implements Parser<Command> {
             .compile("((\\w+) (\\w+))(\\s.*)?");
 
     @Override
-    public Command parse(String userInput) throws ParseException {
+    public Command<ScheduleModel> parse(String userInput) throws ParseException {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
 
         if (!matcher.matches()) {

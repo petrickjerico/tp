@@ -5,15 +5,15 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
+import seedu.address.model.QuizModel;
 
-public class CancelCommand extends Command {
+public class CancelCommand extends Command<QuizModel> {
 
     public static final String COMMAND_WORD = "cancel";
     public static final String MESSAGE_SUCCESS = "Quiz cancelled!";
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(QuizModel model) throws CommandException {
         requireNonNull(model);
 
         if (!model.hasStarted()) {

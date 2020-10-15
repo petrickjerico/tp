@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.JsonUtil;
-import seedu.address.model.Schedule;
+import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.storage.schedulestorage.JsonSerializableSchedule;
 import seedu.address.testutil.SampleTasks;
 

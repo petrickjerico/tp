@@ -17,8 +17,8 @@ public class FlashcardBankCommandTestUtil {
     public static final String VALID_QUESTION_SECOND_LAW = "Newton's Second Law";
     public static final String VALID_QUESTION_OPPORTUNITY_COST = "Explain the idea of an opportunity cost.";
 
-    public static final String VALID_ANSWER_SECOND_LAW = "The rate of change of momentum of a body is directly proportional "
-            + "to the resultant force acting on it"
+    public static final String VALID_ANSWER_SECOND_LAW = "The rate of change of momentum of a body "
+            + "is directly proportional to the resultant force acting on it"
             + " and occurs in the direction of the force";
     public static final String VALID_ANSWER_OPPORTUNITY_COST = "Benefits or value of the next best alternative forgone";
 

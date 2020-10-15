@@ -15,10 +15,14 @@ import seedu.address.model.FlashcardModel;
 import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
 
+/**
+ * Regulates the behaviour of a {@code Command} that deletes a {@code Flashcard}
+ * from a {@code FlashcardSet}
+ */
 public class DeleteFlashcardCommand extends Command<FlashcardModel> {
 
     public static final String COMMAND_WORD = "delete fl";
-
+    public static final String MESSAGE_DELETE_FLASHCARD_SUCCESS = "Deleted flashcard: %1$s";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes a single flashcard in a specified flashcard set. "
             + "identified by the index number used in the displayed flashcard set list.\n"
@@ -30,13 +34,11 @@ public class DeleteFlashcardCommand extends Command<FlashcardModel> {
             + PREFIX_FLASHCARDSET + "1 "
             + PREFIX_FLASHCARD + "3";
 
-    public static final String MESSAGE_DELETE_FLASHCARD_SUCCESS = "Deleted flashcard: %1$s";
-
     private final Index targetFlashcardSetIndex;
     private final Index targetFlashcardIndex;
 
     /**
-     * Creates a DeleteFlashcardCommand to delete a specified {@code Flashcard}
+     * Creates a {@code Command} to delete a specified {@code Flashcard}
      * from a specified {@code FlashcardSet}
      */
     public DeleteFlashcardCommand(Index targetFlashcardSetIndex, Index targetFlashcardIndex) {

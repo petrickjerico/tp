@@ -17,7 +17,8 @@ public class FlashcardModelManager implements FlashcardModel {
     private final FilteredList<FlashcardSet> filteredFlashcardSets;
 
     /**
-     * Create FlashcardModelManager from {@flashcardBank}
+     * Creates FlashcardModelManager from {@code flashcardBank}
+     *
      * @param flashcardBank
      */
     FlashcardModelManager(ReadOnlyFlashcardBank flashcardBank) {

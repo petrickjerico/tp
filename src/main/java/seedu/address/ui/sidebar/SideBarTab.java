@@ -14,6 +14,7 @@ import seedu.address.ui.util.UiStateType;
 
 public class SideBarTab extends UiPart<Region> implements Observer {
     private static final String FXML = "SideBarTab.fxml";
+    private static final String BUTTON_FOCUSED_BACKGROUND_COLOR = "-fx-background-color: #E2B603";
 
     @FXML
     private Button tab;
@@ -41,6 +42,7 @@ public class SideBarTab extends UiPart<Region> implements Observer {
         switch (description) {
         case "SCHEDULE":
             this.tabType = UiStateType.SCHEDULE;
+            tab.setStyle(BUTTON_FOCUSED_BACKGROUND_COLOR); //Schedule button is focused when the app starts
             break;
         case "FLASHCARDS":
             this.tabType = UiStateType.FLASHCARD;

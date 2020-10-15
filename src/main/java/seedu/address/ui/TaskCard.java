@@ -9,9 +9,9 @@ import seedu.address.model.task.Task;
 public class TaskCard extends UiPart<Region> {
     private static final String FXML = "TaskListCard.fxml";
     private static final String[] BACKGROUND_COLOR = new String[]{
-            "linear-gradient(to right, #DCF2E1, #B6CCBB);", //white
-            "linear-gradient(to right, #D2F064, #4BC61A);", //green
-            "linear-gradient(to right, #E6D4B3, #EAC887);", //light yellow
+        "linear-gradient(to right, #DCF2E1, #B6CCBB);", //white
+        "linear-gradient(to right, #D2F064, #4BC61A);", //green
+        "linear-gradient(to right, #E6D4B3, #EAC887);", //light yellow
     };
     public final Task task;
 

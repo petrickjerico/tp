@@ -42,7 +42,7 @@ public class SideBarTab extends UiPart<Region> implements Observer {
         switch (description) {
         case "SCHEDULE":
             this.tabType = UiStateType.SCHEDULE;
-            tab.setStyle(BUTTON_FOCUSED_BACKGROUND_COLOR);  //Schedule button is focused when the app starts
+            tab.setStyle(BUTTON_FOCUSED_BACKGROUND_COLOR); //Schedule button is focused when the app starts
             break;
         case "FLASHCARDS":
             this.tabType = UiStateType.FLASHCARD;

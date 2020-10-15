@@ -23,6 +23,7 @@
                 <URL value="@Extensions.css" />
             </stylesheets>
 
+
             <BorderPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
                 <left>
                     <VBox fx:id="sideBar" prefHeight="400.0" prefWidth="205.0" style="-fx-background-color: linear-gradient(to top left, #FAE7AC 0%, #F6C609 97%, #F6C504 100%);" BorderPane.alignment="CENTER">

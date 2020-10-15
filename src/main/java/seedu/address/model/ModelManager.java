@@ -268,7 +268,7 @@ public class ModelManager implements Model {
 
     @Override
     public FlashcardSet getFlashcardSet(Index index) {
-        return null;
+        return flashcardModelManager.getFlashcardSet(index);
     }
 
     @Override

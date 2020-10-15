@@ -29,6 +29,33 @@ public class TypicalFlashcards {
             .withQuestion("Decay constant")
             .withAnswer("Probability of a radioactive nucleus decaying per unit time")
             .build();
+    public static final Flashcard OPPORTUNITY_COST = new FlashcardBuilder()
+            .withQuestion("Define the idea of opportunity cost")
+            .withAnswer("Benefits or value of the last next best alternative forgone")
+            .build();
+    public static final Flashcard NEGATIVE_EXTERNALITIES = new FlashcardBuilder()
+            .withQuestion("What are negative externalities?")
+            .withAnswer("Harmful side effects of production or consumption on persons "
+                    + "other than the producers or consumers themselves."
+                    + "The third parties are not compensated for the external costs.")
+            .build();
+    public static final Flashcard EXPLAIN_INTEREST_TO_AD = new FlashcardBuilder()
+            .withQuestion("Explain how interest rate increasing leads to a decrease in aggregate demand (AD).")
+            .withAnswer("increase i/r -> increased cost of borrowing "
+                    + "-> decrease in Consumption and Investments -> decrease in AD")
+            .build();
+    public static final Flashcard CHICKEN_JOKE = new FlashcardBuilder()
+            .withQuestion("Why did the chicken cross the road?")
+            .withAnswer("To get to the other side")
+            .build();
+    public static final Flashcard WATCH_JOKE = new FlashcardBuilder()
+            .withQuestion("Why did the late dude sit on his watch?")
+            .withAnswer("He wanted to be on time")
+            .build();
+    public static final Flashcard PROCRASTINATION_JOKE = new FlashcardBuilder()
+            .withQuestion("Define procrastination")
+            .withAnswer("I'll do it later")
+            .build();
 
     public static final String KEYWORD_MATCHING_PTERODACTYL = "Pterodactyl"; // A keyword that matches PTERODACTYL
 

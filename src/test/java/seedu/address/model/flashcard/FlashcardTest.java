@@ -2,6 +2,7 @@ package seedu.address.model.flashcard;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.testutil.TypicalFlashcards.DECAY_CONSTANT;
 import static seedu.address.testutil.TypicalFlashcards.NEWTONS_SECOND_LAW;
 
 import org.junit.jupiter.api.Test;
@@ -30,6 +31,13 @@ public class FlashcardTest {
                         + "induced magnetic field that opposes the change in flux")
                 .build();
         assertFalse(NEWTONS_SECOND_LAW.equals(editedSecondLaw));
+
+        // same values -> returns true
+        Flashcard secondLawCopy = new FlashcardBuilder(NEWTONS_SECOND_LAW).build();
+        assertTrue(NEWTONS_SECOND_LAW.equals(secondLawCopy));
+
+        // different flashcard -> returns false
+        assertFalse(NEWTONS_SECOND_LAW.equals(DECAY_CONSTANT));
     }
 
 }

@@ -9,22 +9,26 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.FlashcardModel;
 import seedu.address.model.flashcard.FlashcardSet;
 
+/**
+ * Regulates the behaviour of a {@code Command} that adds a {@code FlashcardSet}
+ */
 public class AddFlashcardSetCommand extends Command<FlashcardModel> {
 
     public static final String COMMAND_WORD = "add flset";
-
+    public static final String MESSAGE_SUCCESS = "New flashcard set added: %1$s";
+    public static final String MESSAGE_DUPLICATE_FLASHCARD_SET =
+            "This flashcard set already exists in the flashcard bank.";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a flashcard set to the flashcard bank. "
             + "Parameters: "
             + PREFIX_FLASHCARDSET_NAME + "<name>\n"
             + "Example: "
             + COMMAND_WORD + " " + PREFIX_FLASHCARDSET_NAME + "Japanese";
 
-    public static final String MESSAGE_SUCCESS = "New flashcard set added: %1$s";
-    public static final String MESSAGE_DUPLICATE_FLASHCARD_SET =
-            "This flashcard set already exists in the flashcard bank.";
-
     private final FlashcardSet toAdd;
 
+    /**
+     * Creates a {@code Command} to add the specified {@code FlashcardSet}
+     */
     public AddFlashcardSetCommand(FlashcardSet toAdd) {
         this.toAdd = toAdd;
     }

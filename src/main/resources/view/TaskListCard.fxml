@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.text.Font?>
+<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <GridPane HBox.hgrow="ALWAYS">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
@@ -19,19 +20,40 @@
                 <Insets bottom="5" left="15" right="5" top="5" />
             </padding>
             <HBox alignment="CENTER_LEFT" spacing="5">
-                <Label fx:id="id" styleClass="cell_big_label">
+                <Label fx:id="title"
+                       style="-fx-font-family: Arial;
+                              -fx-font-weight: bold;
+                              -fx-font-size: 20px;" text="\$first">
+                </Label>
+                <Region prefHeight="27.0"  HBox.hgrow="ALWAYS" />
+                <Label fx:id="id" prefHeight="35.0" prefWidth="35.0"
+                       style="-fx-background-color: white;
+                              -fx-background-radius: 8;
+                              -fx-text-fill: black;
+                              -fx-font-family: Arial;
+                              -fx-font-weight: bold;
+                              -fx-font-size: 20px;
+                              -fx-alignment:center;" styleClass="cellHeader">
                     <minWidth>
                         <!-- Ensures that the label text is never truncated -->
                         <Region fx:constant="USE_PREF_SIZE" />
                     </minWidth>
+               <HBox.margin>
+                  <Insets left="75.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
                 </Label>
-                <Label fx:id="title" styleClass="cell_big_label" text="\$first" />
+            <padding>
+               <Insets bottom="5.0" top="-5.0" />
+            </padding>
             </HBox>
-            <Label fx:id="description" styleClass="cell_small_label" text="\$description" />
-            <Label fx:id="time" styleClass="cell_small_label" text="\$time" />
+            <Label fx:id="description" styleClass="cellBody" text="\$description" />
+            <Label fx:id="time" styleClass="cellBody" text="\$time" />
         </VBox>
         <padding>
-            <Insets bottom="10" left="5" right="5" top="10" />
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
         </padding>
       <rowConstraints>
          <RowConstraints />

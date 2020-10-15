@@ -96,13 +96,13 @@ Exits the program
 
 Adds a new flashcard set.
 
-Format: `add flset:<setname>​`
+Format: `add flset name:<setname>​`
 - `<setname>` can accept names separated with spaces.
 - if `<setname>` is already used, the app will request a new `<setname>`.
 
 Examples:
-- `add flset:Japanese`
-- `add flset:Economics – Micro`
+- `add flset name:Japanese`
+- `add flset name:Economics – Micro`
 <p>&nbsp;</p>
 
 ### **List all existing flashcard sets**: `list flset`
@@ -116,20 +116,20 @@ Format: `list flset`
 
 Deletes an existing flashcard set and all flashcards that it contains.
 
-Format: `delete flset:<setindex>`
+Format: `delete flset <setindex>`
 - `<setindex>` should be a positive integer.
 - `<setindex>` will throw an error if `setindex` does not exist.
 
 Examples:
-- `delete flset:1`
-- `delete flset:2`
+- `delete flset 1`
+- `delete flset 2`
 <p>&nbsp;</p>
 
 ### **Add a flashcard into a flashcard set**: `add fl`
 
 Adds a single flashcard with a question and an answer in a specified flashcard set.
 
-Format:` add flset:<setindex> q:<question> a:<answer>`
+Format:` add fl flset:<setindex> q:<question> a:<answer>`
 
 - `<question>`, `<answer>` and `<setindex>` fields are compulsory.
 - `<question>` and `<answer>` can accept strings that are capitalized or separated with spaces.
@@ -137,36 +137,36 @@ Format:` add flset:<setindex> q:<question> a:<answer>`
 - `<setindex>` will throw an error if `setindex` does not exist.
 
 Examples:
-- `add flset:1 q:konnichiwa a:hello `
-- `add flset:2 q:When demand goes up, what happens to price? a:Price increases`
+- `add fl flset:1 q:konnichiwa a:hello `
+- `add fl flset:2 q:When demand goes up, what happens to price? a:Price increases`
 <p>&nbsp;</p>
 
 ### **List flashcards in a flashcard set**: `list fl`
 
 Shows the list of flashcards with details: question, answer and index.
 
-Format: `list fl:<setindex>`
+Format: `list fl <setindex>`
 
 - `<setindex>` should be a positive integer.
 - `<setindex>` will throw an error if `setindex` does not exist.
 
 Examples:
-- `list flset:1`
-- `list flset:2`
+- `list fl 1`
+- `list fl 2`
 <p>&nbsp;</p>
 
 ### **Delete a flashcard in a flashcard set**: `delete fl`
 
 Deletes a single flashcard in a specified flashcard set.
 
-Format: `delete flset:<setindex> fl:<index>`
+Format: `delete fl flset:<setindex> fl:<index>`
 
 - `<setindex>` and `<index>` fields are compulsory.
 - `<setindex>` and `<index>` should be a positive integer.
 - `<setindex>` and `<index>` will throw an error if either does not exist.
 
 Examples:
-- `delete flset:1 fl:3`
+- `delete fl flset:1 fl:3`
 <p>&nbsp;</p>
 
 ### **Quiz of flashcard set**: `quiz flset`

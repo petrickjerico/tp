@@ -41,7 +41,7 @@ public class TypicalFlashcards {
         FlashcardSetName physics = new FlashcardSetName("Physics");
         FlashcardSet flset = new FlashcardSet(physics);
         for (Flashcard flashcard : getTypicalFlashcards()) {
-            flset.add(flashcard);
+            flset.addFlashcard(flashcard);
         }
         return flset;
     }

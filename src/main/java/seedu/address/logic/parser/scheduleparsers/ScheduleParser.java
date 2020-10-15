@@ -33,8 +33,7 @@ public class ScheduleParser implements Parser<Command> {
         }
         final String commandWord = matcher.group(1);
         //temporary to solve the bug...
-        final String arguments = matcher.group(4);
-
+        final String arguments = toTokenizableString(matcher.group(4));
 
         switch (commandWord) {
         case ScheduleListCommand.COMMAND_WORD:
@@ -49,5 +48,9 @@ public class ScheduleParser implements Parser<Command> {
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
 
+    }
+
+    private String toTokenizableString(String str) {
+        return str == null ? "" : str;
     }
 }

@@ -4,14 +4,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import seedu.address.model.task.Task;
 
 public class TaskCard extends UiPart<Region> {
     private static final String FXML = "TaskListCard.fxml";
     private static final String[] BACKGROUND_COLOR = new String[]{
-        "linear-gradient(to right, #DCF2E1, #B6CCBB);", //white
-        "linear-gradient(to right, #D2F064, #4BC61A);", //green
-        "linear-gradient(to right, #E6D4B3, #EAC887);", //light yellow
+        "#ff6666", //red
+        "#3366ff;", //blue
+        "#cc66ff", //purple
     };
     public final Task task;
 
@@ -33,7 +35,7 @@ public class TaskCard extends UiPart<Region> {
         super(FXML);
         this.task = task;
         cardPane.setStyle("-fx-background-color: " + BACKGROUND_COLOR[displayedIndex % 3]);
-        id.setText(displayedIndex + ". ");
+        id.setText(String.valueOf(displayedIndex));
         title.setText(task.getTitle().title);
         description.setText(task.getDescription().map(des-> des.description).orElse(""));
         time.setText(task.getDateTime().map(time -> time.toString()).orElse(""));

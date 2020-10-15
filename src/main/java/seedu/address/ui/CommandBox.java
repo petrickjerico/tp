@@ -30,7 +30,7 @@ public class CommandBox extends UiPart<Region> {
         // calls #setStyleToDefault() whenever there is a change to the text of the command box.
         commandTextField.textProperty().addListener((unused1, unused2, unused3) -> setStyleToDefault());
         commandTextField.focusedProperty().addListener(((observable, oldValue, newValue)
-                -> handleFocus(newValue)));
+            -> handleFocus(newValue)));
     }
 
     /**
@@ -68,11 +68,11 @@ public class CommandBox extends UiPart<Region> {
 
     private void handleFocus(boolean isFocused) {
         if (isFocused) {
-            this.commandTextField.setStyle("-fx-border-color: transparent transparent #F6C504 transparent;" +
-                    "-fx-border-width: 2;");
+            this.commandTextField.setStyle("-fx-border-color: transparent transparent #F6C504 transparent;"
+                    + "-fx-border-width: 2;");
         } else {
-            this.commandTextField.setStyle("-fx-border-color: transparent transparent #cccccc transparent;" +
-                    "-fx-border-width: 1;");
+            this.commandTextField.setStyle("-fx-border-color: transparent transparent #cccccc transparent;"
+                    + "-fx-border-width: 1;");
         }
     }
 

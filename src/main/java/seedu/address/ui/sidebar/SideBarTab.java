@@ -42,8 +42,8 @@ public class SideBarTab extends UiPart<Region> implements Observer {
         switch (description) {
         case "SCHEDULE":
             this.tabType = UiStateType.SCHEDULE;
-            tabText.setStyle("-fx-text-fill: #0066ff; " +
-                    "-fx-font-weight: bold;"); //Schedule button is focused when the app starts
+            tabText.setStyle("-fx-text-fill: #0066ff; "
+                    + "-fx-font-weight: bold;"); //Schedule button is focused when the app starts
             break;
         case "FLASHCARDS":
             this.tabType = UiStateType.FLASHCARD;
@@ -66,11 +66,11 @@ public class SideBarTab extends UiPart<Region> implements Observer {
     @Override
     public void update(UiStateType state) {
         if (this.tabType == state) {
-            tabText.setStyle("-fx-text-fill: #0066ff; " +
-                    "-fx-font-weight: bold;");
+            tabText.setStyle("-fx-text-fill: #0066ff; "
+                    + "-fx-font-weight: bold;");
         } else {
-            tabText.setStyle("-fx-text-fill: #cccccc; " +
-                    "-fx-font-weight: light;");
+            tabText.setStyle("-fx-text-fill: #cccccc; "
+                    + "-fx-font-weight: light;");
         }
     }
 

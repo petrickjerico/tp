@@ -8,6 +8,7 @@
     -fx-font-family: "Helvetica Neue";
     -fx-text-fill: #555555;
     -fx-opacity: 0.9;
+    -fx-font-weight: bold;
 }
 
 .label-bright {
@@ -90,13 +91,14 @@
 .list-view {
     -fx-background-insets: 0;
     -fx-padding: 0;
-    -fx-background-color: derive(#EFE0C5, 20%);
+    -fx-background-color: #e6f2ff;
 }
 
 .list-cell {
     -fx-label-padding: 0 0 0 0;
     -fx-graphic-text-gap : 0;
     -fx-padding: 10 0 10 0;
+    -fx-opacity: 0.8;
 }
 
 .list-cell:filled:even {
@@ -115,14 +117,23 @@
 }
 
 .list-cell .label {
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
 
 .cell_big_label {
+    -fx-font-family: "Helvetica";
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+#cellHeader {
     -fx-font-family: "Segoe UI Semibold";
     -fx-font-size: 16px;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
+
 
 .cell_small_label {
     -fx-font-family: "Segoe UI";
@@ -131,18 +142,35 @@
     -fx-text-fill: black;
 }
 
+
+#cellBody {
+    -fx-font-family: "Segoe UI";
+    -fx-border-radius: 20px;
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+}
+
 .task_row {
     -fx-border-radius: 30px;
 }
 
 .stack-pane {
      -fx-background-color: derive(#EFE0C5, 20%);
+     -fx-border-color: transparent;
 }
 
+/* background color */
+
 .pane-with-border {
-     -fx-background-color: #EFE0C5;
+     -fx-background-color: #e6f2ff;
      -fx-border-color: derive(#EFE0C5, 10%);
      -fx-border-top-width: 1px;
+     -fx-border-color: white
+}
+
+.pane-without-border {
+     -fx-background-color: #e6f2ff;
+     -fx-border-width: 0;
 }
 
 .status-bar {
@@ -150,10 +178,11 @@
 }
 
 .result-display {
-    -fx-background-color: black;
-    -fx-font-family: "Segoe UI Light";
     -fx-font-size: 13pt;
-    -fx-text-fill: black;
+    -fx-text-fill: #3399ff;
+    -fx-border-color: #cccccc;
+    -fx-border-style: segments(10, 15, 15, 15)  line-cap round ;
+    -fx-font-family: "Comic Sans MS";
 }
 
 .result-display .label {
@@ -319,15 +348,21 @@
     -fx-text-fill: #F70D1A;
 }
 
+/* command area style*/
+
 #commandTextField {
-    -fx-background-color: transparent #383838 transparent #383838;
+    -fx-background-color: #e6f2ff;
     -fx-background-insets: 0;
-    -fx-border-color: #383838 #383838 #ffffff #383838;
+    -fx-border-color: transparent transparent #cccccc transparent;
     -fx-border-insets: 0;
-    -fx-border-width: 1;
+    -fx-border-width: 0 0 1 0;
     -fx-font-family: "Segoe UI Light";
     -fx-font-size: 13pt;
     -fx-text-fill: black;
+    -fx-background-size: 20px;
+    -fx-background-image:url('/images/icon_search.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right center;
 }
 
 #filterField, #personListPanel, #personWebpage, #taskListPanel {
@@ -335,7 +370,7 @@
 }
 
 #resultDisplay .content {
-    -fx-background-color: derive(#EFE0C5, 20%);
+    -fx-background-color: white;
     -fx-background-radius: 0;
 }
 
@@ -363,4 +398,9 @@
 
 #menubarItem {
     -fx-text-fill: white;
+}
+
+#commandInput {
+      -fx-background-color: #e6f2ff;
+     -fx-width: 0;
 }

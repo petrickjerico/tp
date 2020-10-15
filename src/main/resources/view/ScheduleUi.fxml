@@ -1,30 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.geometry.Insets?>
-<VBox maxHeight="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <StackPane VBox.vgrow="NEVER" fx:id="commandBoxPlaceholder" styleClass="pane-with-border">
+<VBox maxHeight="-Infinity"
+      style="-fx-background-color: white;"
+      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox style="-fx-background-color: #e6f2ff;
+                  -fx-background-radius: 25;"
+          styleClass="scheduleUiPanel">
+    <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-without-border" VBox.vgrow="NEVER">
         <padding>
-            <Insets top="5" right="10" bottom="5" left="10" />
+            <Insets bottom="5" left="10" right="10" top="5" />
         </padding>
     </StackPane>
 
-    <StackPane VBox.vgrow="NEVER" fx:id="resultDisplayPlaceholder" styleClass="pane-with-border"
-               minHeight="100" prefHeight="100" maxHeight="100">
+    <StackPane fx:id="resultDisplayPlaceholder" maxHeight="100" minHeight="100" prefHeight="100" styleClass="pane-without-border" VBox.vgrow="NEVER">
         <padding>
-            <Insets top="5" right="10" bottom="5" left="10" />
+            <Insets bottom="5" left="10" right="10" top="5" />
         </padding>
     </StackPane>
 
-    <VBox fx:id="taskList" styleClass="pane-with-border" minWidth="340" prefWidth="340" VBox.vgrow="ALWAYS">
+    <VBox fx:id="taskList" minWidth="340" prefWidth="340" styleClass="pane-without-border" VBox.vgrow="ALWAYS">
         <padding>
-            <Insets top="10" right="10" bottom="10" left="10" />
+            <Insets bottom="10" left="10" right="10" top="10" />
         </padding>
-        <StackPane fx:id="taskListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+        <StackPane fx:id="taskListPanelPlaceholder" VBox.vgrow="ALWAYS" />
     </VBox>
 
-    <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
+      <VBox.margin>
+         <Insets />
+      </VBox.margin>
+      <padding>
+         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </padding>
+    </VBox>
+   <padding>
+      <Insets bottom="5.0" top="5.0" />
+   </padding>
 </VBox>

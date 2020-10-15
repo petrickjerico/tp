@@ -54,7 +54,7 @@ StudyBananas is a **desktop study companion app that helps students centralize a
 
    * **`delete`**`flset:3` : Deletes the 3rd flashcard set in the current list of flashcard sets.
    
-   * **`add`**`task:Do CS2100 tutorial question` : Adds Doing CS2100 task to the task list.
+   * **`add`**`task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 task to the task list.
 
    * **`exit`** : Exits the app.
 
@@ -72,7 +72,7 @@ StudyBananas is a **desktop study companion app that helps students centralize a
   e.g. in `add flset:<setname>`, `<setname>` is a parameter which can be used as `add flset:Chemistry`.
 
 * Words wrapped with square brackets `[]` are optional parameters to be supplied by the user.<br>
-  e.g. in `add task:<description> t:[time]`, `[time]` is an optional parameter.
+  e.g. in `add task T:<title> d:[description] t:[time]`, `[description]` and `[time]` are optional parameters.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `flset:<setindex> q:<question> a:<answer>`, `a:<answer> q:<question> flset:<setindex>` is also acceptable.
@@ -249,15 +249,15 @@ Examples:
 
 Adds a study task to the task list.  
   
-Format: `add task:<title> d:[description] t:[time]`
+Format: `add task: T:<title> d:[description] t:[time]`
 - `<title>` field is compulsory.
 - `<title>` can accept strings that are capitalized or separated with spaces.
 - `[description]` field is optional.
 - `[time]` field is optional if the user wants to set a deadline or time limit for the task.
 
 Examples:
-- `add task Do CS2100 tutorial questions`
-- `add task CS2103T iP submission t:17/09/2020 23:59`
+- `add task T: CS2100 d: Pipeline tutorial`
+- `add task T: CS2103T d: iP submission t: 2020-09-17 23:59`
 <p>&nbsp;</p>
 
 ### **List tasks**: `list task`
@@ -274,7 +274,7 @@ Examples:
 
 Deletes the specified task from the study bananas.  
 
-Format: `delete task:<index>`  
+Format: `delete task <index>`  
 
 Examples:
 - Deletes the task at the specified index.
@@ -286,7 +286,7 @@ Examples:
 
 Finds the tasks of which information contains any of the given keywords.  
 
-Format: `search task:<keyword>`
+Format: `search task <keyword>`
 
 Basic Usage: 
 - The search is case-insensitive. e.g. `homework` will match `Homework`.
@@ -299,9 +299,9 @@ Advanced Usage:
 - `and` search (search is and search by default): Tasks matching all the keywords will be returned e.g. `CS2103t week 7` will return `CS2103T homework week 7`
 
 Examples: <br />
-`search CS2103t` <br />
+`search task CS2103t` <br />
 returns `CS2103T topics quiz week 7` and `CS2103T topics quiz week 8` <br />
-`or search CS2103t CS2101`  <br />
+or `search task CS2103t CS2101`  <br />
 returns `CS2103t topics quiz week 7` and `CS2101 OP1`
 <p>&nbsp;</p>
 
@@ -361,7 +361,7 @@ _{explain the feature here}_
 
 | Action              | Format, Examples                                                                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Add task**        | `add task:<description> t:<time>` <br> e.g., `add task:Do CS2100 tutorial questions`, `add task:CS2103T iP submission t: 17/09/2020 23:59` |
+| **Add task**        | `add task T:titile d:[description] t:[time]` <br> e.g., `add task T:CS2100 d: Pipeline tutorial`, `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
 | **List tasks**      | `list task` <br>                                                                                                                           |
-| **Delete task**     | `delete task:<index>` <br>  e.g., `delete task:6`                                                                                          |
-| **Search for task** | `search task:<keywords>` or `search <keywords>` <br> e.g., `search task:CS2103T` or `search CS2103T`                                       |
+| **Delete task**     | `delete task <index>` <br>  e.g., `delete task 6`                                                                                          |
+| **Search for task** | `search task <keywords>` or `search <keywords>` <br> e.g., `search task CS2103T` or `search CS2103T`                                       |

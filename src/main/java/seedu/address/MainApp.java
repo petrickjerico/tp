@@ -32,6 +32,8 @@ import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.Storage;
 import seedu.address.storage.StorageManager;
 import seedu.address.storage.UserPrefsStorage;
+import seedu.address.storage.flashcardstorage.FlashcardBankStorage;
+import seedu.address.storage.flashcardstorage.JsonFlashcardBankStorage;
 import seedu.address.storage.schedulestorage.JsonScheduleStorage;
 import seedu.address.storage.schedulestorage.ScheduleStorage;
 import seedu.address.ui.Ui;
@@ -64,7 +66,9 @@ public class MainApp extends Application {
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
         AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
         ScheduleStorage scheduleStorage = new JsonScheduleStorage(userPrefs.getScheduleFilePath());
-        storage = new StorageManager(scheduleStorage, addressBookStorage, userPrefsStorage);
+        FlashcardBankStorage flashcardBankStorage = new JsonFlashcardBankStorage(userPrefs.getFlashcardBankFilePath());
+
+        storage = new StorageManager(scheduleStorage, flashcardBankStorage, addressBookStorage, userPrefsStorage);
 
         initLogging(config);
 
@@ -83,13 +87,14 @@ public class MainApp extends Application {
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
         Optional<ReadOnlyAddressBook> addressBookOptional;
         Optional<ReadOnlySchedule> scheduleOptional;
+        Optional<ReadOnlyFlashcardBank> flashcardBankOptional;
         ReadOnlyAddressBook initialAddressBookData;
         ReadOnlySchedule initialScheduleData;
         ReadOnlyFlashcardBank initialFlashcardBankData;
         try {
             addressBookOptional = storage.readAddressBook();
 
-            if (!addressBookOptional.isPresent()) {
+            if (addressBookOptional.isEmpty()) {
                 logger.info("AddressBook data file not found. Will be starting with a sample AddressBook");
             }
 
@@ -105,7 +110,7 @@ public class MainApp extends Application {
         try {
             scheduleOptional = storage.readSchedule();
 
-            if (!scheduleOptional.isPresent()) {
+            if (scheduleOptional.isEmpty()) {
                 logger.info("Schedule data file not found. Will be starting with a sample Schedule");
             }
 
@@ -118,8 +123,21 @@ public class MainApp extends Application {
             initialScheduleData = new Schedule();
         }
 
-        // TODO: FlashcardBank storage implementation
-        initialFlashcardBankData = new FlashcardBank();
+        try {
+            flashcardBankOptional = storage.readFlashcardBank();
+
+            if (flashcardBankOptional.isEmpty()) {
+                logger.info("FlashcardBank data file not found. Will be starting with a sample FlashcardBank");
+            }
+
+            initialFlashcardBankData = flashcardBankOptional.orElseGet(SampleDataUtil::getSampleFlashcardBank);
+        } catch (DataConversionException e) {
+            logger.warning("Data file not in the correct format. Will be starting with an empty FlashcardBank");
+            initialFlashcardBankData = new FlashcardBank();
+        } catch (IOException e) {
+            logger.warning("Problem while reading from the file. Will be starting with an empty FlashcardBank");
+            initialFlashcardBankData = new FlashcardBank();
+        }
 
         return new ModelManager(initialAddressBookData, userPrefs, initialScheduleData, initialFlashcardBankData);
     }

@@ -8,7 +8,7 @@ public class SingletonUiState implements Observable {
 
     private static SingletonUiState instance;
 
-    private UiStateType uiState;
+    private UiStateType uiState = UiStateType.SCHEDULE;
     private List<Observer> observers = new ArrayList<>();
 
     private SingletonUiState() {

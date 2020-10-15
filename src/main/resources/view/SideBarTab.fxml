@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<Button fx:id="tab" mnemonicParsing="false" onMouseClicked="#handleTabPressed" prefHeight="50.0" prefWidth="205.0" textFill="#908c8c" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Button fx:id="tab" mnemonicParsing="false" onMouseClicked="#handleTabPressed" prefHeight="50.0" prefWidth="205.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 0px 0px; -fx-border-color: transparent; -fx-focus-color: transparent; -fx-faint-focus-color: transparent;" textFill="#908c8c" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <font>
       <Font name="System Bold" size="15.0" />
    </font>
@@ -16,7 +16,7 @@
          <children>
             <ImageView fx:id="tabImage" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets left="15.0" top="10.0" />
+                  <Insets left="5.0" top="10.0" />
                </HBox.margin>
             </ImageView>
             <Label fx:id="tabText" textAlignment="CENTER">

@@ -7,11 +7,13 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.FlashcardModel;
 
+/**
+ * Regulates the behaviour of a {@code Command} that lists down {@code FlashcardSet}s
+ */
 public class ListFlashcardSetCommand extends Command<FlashcardModel> {
+
     public static final String COMMAND_WORD = "list flset";
-
     public static final String MESSAGE_SUCCESS = "Listed all flashcard sets";
-
 
     @Override
     public CommandResult execute(FlashcardModel model) {

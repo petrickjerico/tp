@@ -12,22 +12,23 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.FlashcardModel;
 import seedu.address.model.flashcard.FlashcardSet;
 
-
-
+/**
+ * Regulates the behaviour of a {@code Command} that deletes a {@code FlashcardSet}
+ */
 public class DeleteFlashcardSetCommand extends Command<FlashcardModel> {
-    public static final String COMMAND_WORD = "delete flset";
 
+    public static final String COMMAND_WORD = "delete flset";
+    public static final String MESSAGE_SUCCESS = "Flashcard set deleted: %1$s";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Deletes a flashcard set."
             + "Parameters: "
             + "<flashcardsetindex> "
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_SUCCESS = "Flashcard set deleted: %1$s";
-
     private final Index flashcardSetIndex;
 
     /**
-     * Creates an AddFlashcardCommand to add the specified {@code Flashcard}
+     * Creates a {@code Command} to delete a {@code FlashcardSet}
+     * with the specified {@code Index}
      */
     public DeleteFlashcardSetCommand(Index targetIndex) {
         flashcardSetIndex = targetIndex;

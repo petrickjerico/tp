@@ -14,12 +14,15 @@ import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
 
 /**
- * Adds a flashcard to a flashcard set.
+ * Regulates the behaviour of a {@code Command} that adds a {@code Flashcard}
+ * to a {@code FlashcardSet}
  */
 public class AddFlashcardCommand extends Command<FlashcardModel> {
 
     public static final String COMMAND_WORD = "add fl";
-
+    public static final String MESSAGE_SUCCESS = "New flashcard added: %1$s";
+    public static final String MESSAGE_DUPLICATE_FLASHCARD =
+            "This flashcard already exists in the given flashcard set.";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a flashcard to a flashcard set. "
             + "Parameters: "
             + PREFIX_FLASHCARDSET + "<flashcardsetindex> "
@@ -30,15 +33,12 @@ public class AddFlashcardCommand extends Command<FlashcardModel> {
             + PREFIX_QUESTION + "When demand goes up, what happens to price? "
             + PREFIX_ANSWER + "Price increases ";
 
-    public static final String MESSAGE_SUCCESS = "New flashcard added: %1$s";
-    public static final String MESSAGE_DUPLICATE_FLASHCARD =
-            "This flashcard already exists in the given flashcard set.";
-
     private final Flashcard toAdd;
     private final Index flashcardSetIndex;
 
     /**
-     * Creates an AddFlashcardCommand to add the specified {@code Flashcard}
+     * Creates a {@code Command} to add a {@code Flashcard}
+     * in the specified {@code FlashcardSet}
      */
     public AddFlashcardCommand(Flashcard flashcard, Index targetIndex) {
         requireNonNull(flashcard);

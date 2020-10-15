@@ -31,7 +31,7 @@ public class TypicalFlashcards {
             .build();
     public static final Flashcard OPPORTUNITY_COST = new FlashcardBuilder()
             .withQuestion("Define the idea of opportunity cost")
-            .withAnswer("Benefits or value of the last next best alternative forgone")
+            .withAnswer("Benefits or value of the next best alternative forgone")
             .build();
     public static final Flashcard NEGATIVE_EXTERNALITIES = new FlashcardBuilder()
             .withQuestion("What are negative externalities?")

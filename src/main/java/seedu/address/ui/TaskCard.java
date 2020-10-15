@@ -11,7 +11,7 @@ public class TaskCard extends UiPart<Region> {
     private static final String[] BACKGROUND_COLOR = new String[]{
             "linear-gradient(to right, #ff7f50, #6a5acd);",
             "linear-gradient(to right, #D2F064, #4BC61A);",
-            "linear-gradient(to right, #EAC887, #E6D4B3);"};
+            "linear-gradient(to right, #E6D4B3, #EAC887);"};
     public final Task task;
 
     @FXML

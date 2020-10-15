@@ -54,7 +54,7 @@ StudyBananas is a **desktop study companion app that helps students centralize a
 
    * **`delete`**`flset:3` : Deletes the 3rd flashcard set in the current list of flashcard sets.
    
-   * **`add`**`task T:CS2100 d: Pipeline tutorial t:2020-10-10` : Adds Doing CS2100 task to the task list.
+   * **`add`**`task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 task to the task list.
 
    * **`exit`** : Exits the app.
 
@@ -72,7 +72,7 @@ StudyBananas is a **desktop study companion app that helps students centralize a
   e.g. in `add flset:<setname>`, `<setname>` is a parameter which can be used as `add flset:Chemistry`.
 
 * Words wrapped with square brackets `[]` are optional parameters to be supplied by the user.<br>
-  e.g. in `add task T:<title> d:[description] t:[time]`, `description` and `[time]` are optional parameters.
+  e.g. in `add task T:<title> d:[description] t:[time]`, `[description]` and `[time]` are optional parameters.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `flset:<setindex> q:<question> a:<answer>`, `a:<answer> q:<question> flset:<setindex>` is also acceptable.
@@ -361,7 +361,7 @@ _{explain the feature here}_
 
 | Action              | Format, Examples                                                                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Add task**        | `add task T:titile d:[description] t:[time]` <br> e.g., `add task:Do CS2100 tutorial questions`, `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
+| **Add task**        | `add task T:titile d:[description] t:[time]` <br> e.g., `add task T:CS2100 d: Pipeline tutorial`, `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
 | **List tasks**      | `list task` <br>                                                                                                                           |
 | **Delete task**     | `delete task <index>` <br>  e.g., `delete task 6`                                                                                          |
 | **Search for task** | `search task <keywords>` or `search <keywords>` <br> e.g., `search task CS2103T` or `search CS2103T`                                       |

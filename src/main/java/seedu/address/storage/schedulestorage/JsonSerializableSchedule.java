@@ -10,8 +10,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.ReadOnlySchedule;
-import seedu.address.model.Schedule;
+import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
+import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.task.Task;
 
 /**
@@ -19,7 +19,7 @@ import seedu.address.model.task.Task;
  */
 @JsonRootName(value = "schedule")
 public class JsonSerializableSchedule {
-    public static final String MESSAGE_DUPLICATE_PERSON = "Tasks list contains duplicate task(s).";
+    public static final String MESSAGE_DUPLICATE_TASK = "Tasks list contains duplicate task(s).";
 
     private final List<JsonAdaptedTask> tasks = new ArrayList<>();
 
@@ -34,7 +34,7 @@ public class JsonSerializableSchedule {
     /**
      * Converts a given {@code ReadOnlySchedule} into this class for Jackson use.
      *
-     * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
+     * @param source future changes to this will not affect the created {@code JsonSerializableSchedule}.
      */
     public JsonSerializableSchedule(ReadOnlySchedule source) {
         tasks.addAll(source.getTaskList().stream().map(JsonAdaptedTask::new).collect(Collectors.toList()));
@@ -50,7 +50,7 @@ public class JsonSerializableSchedule {
         for (JsonAdaptedTask jsonAdaptedTask : tasks) {
             Task task = jsonAdaptedTask.toModelType();
             if (schedule.hasTask(task)) {
-                throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
+                throw new IllegalValueException(MESSAGE_DUPLICATE_TASK);
             }
             schedule.addTask(task);
         }

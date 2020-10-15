@@ -1,0 +1,78 @@
+@startuml
+
+interface Model
+interface AddressBookModel
+class AddressBookModelManager
+interface ScheduleModel
+class ScheduleModelManager
+interface FlashcardModel
+class FlashcardModelManager
+interface QuizModel
+class QuizModelManager
+
+
+class AddressBook
+class Schedule
+class FlashcardBank
+class Quiz
+
+Model --|> AddressBookModel
+Model --|> ScheduleModel
+Model --|> FlashcardModel
+Model --|> QuizModel
+
+AddressBookModel <|.. AddressBookModelManager
+ScheduleModel <|.. ScheduleModelManager
+FlashcardModel <|.. FlashcardModelManager
+QuizModel <|.. QuizModelManager
+
+AddressBookModelManager ..> AddressBook
+ScheduleModelManager ..> Schedule
+FlashcardModelManager ..> FlashcardBank
+QuizModelManager ..> Quiz
+
+ModelManager ..> AddressBookModelManager
+ModelManager ..> ScheduleModelManager
+ModelManager ..> FlashcardModelManager
+ModelManager ..> QuizModelManager
+Model <|-- ModelManager
+
+AddressBookModel : ReadOnlyAddressBook getAddressBook()
+AddressBookModel : void setAddressBook(ReadOnlyAddressBook addressBook)
+AddressBookModel : boolean hasPerson()
+AddressBookModel : void deletePerson(Person p)
+AddressBookModel : void addPerson(Person person)
+AddressBookModel : void setPerson(Person target, Person editedPerson)
+AddressBookModel :  ObservableList<Person> getFilteredPersonList()
+AddressBookModel : void updateFilteredPersonList(Predicate<Person> predicate)
+
+ScheduleModel : ReadOnlySchedule getSchedule()
+ScheduleModel : boolean hasTask(Task task)
+ScheduleModel : void deleteTask(Task target)
+ScheduleModel : void addTask(Task task)
+ScheduleModel : void setTask(Task target, Task editedTask)
+ScheduleModel : ObservableList<Task> getFilteredTaskList()
+ScheduleModel : void updateFilteredTaskList(Predicate<Task> predicate)
+
+FlashcardModel : void setFlashcardBank(ReadOnlyFlashcardBank flashcardBank)
+FlashcardModel : ReadOnlyFlashcardBank getFlashcardBank()
+FlashcardModel : boolean hasFlashcardSet(FlashcardSet flashcardSet)
+FlashcardModel : void deleteFlashcardSet(FlashcardSet target)
+FlashcardModel : void addFlashcardSet(FlashcardSet flashcardSet)
+FlashcardModel : void setFlashcardSet(FlashcardSet target, FlashcardSet editedFlashcardSet)
+FlashcardModel : ObservableList<FlashcardSet> getFlashcardSetList()
+FlashcardModel : void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate)
+FlashcardModel : void addFlashcard(Flashcard flashcard, Index flashcardSetIndex)
+FlashcardModel : FlashcardSet getFlashcardSet(int index)
+
+QuizModel : Question start(Quiz quiz)
+QuizModel : boolean hasStarted()
+QuizModel : void tallyScore(boolean isCorrect)
+QuizModel : Question getQuestion()
+QuizModel : Answer getAnswer()
+QuizModel : double stopQuiz()
+QuizModel : String getQuizRecords(int index)
+
+
+
+@enduml

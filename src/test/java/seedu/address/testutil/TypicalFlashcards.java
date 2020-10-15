@@ -6,7 +6,7 @@ import java.util.List;
 
 import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
-import seedu.address.model.flashcard.Name;
+import seedu.address.model.flashcard.FlashcardSetName;
 
 /**
  * A utility class containing a list of {@code Flashcard} objects to be used in tests.
@@ -38,7 +38,7 @@ public class TypicalFlashcards {
      * Returns a {@code FlashcardSet} with all the typical flashcards.
      */
     public static FlashcardSet getTypicalFlashcardSet() {
-        Name physics = new Name("Physics");
+        FlashcardSetName physics = new FlashcardSetName("Physics");
         FlashcardSet flset = new FlashcardSet(physics);
         for (Flashcard flashcard : getTypicalFlashcards()) {
             flset.add(flashcard);

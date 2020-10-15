@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalTasks.CS2100_TUTORIAL_HOMEWORK;
-import static seedu.address.testutil.TypicalTasks.CS2103T_WEEK8_QUIZ;
+import static seedu.address.testutil.SampleTasks.CS2100_TUTORIAL_HOMEWORK;
+import static seedu.address.testutil.SampleTasks.CS2103T_WEEK8_QUIZ;
 
 import java.util.Arrays;
 import java.util.Collections;

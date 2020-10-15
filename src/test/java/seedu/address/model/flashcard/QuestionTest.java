@@ -27,10 +27,10 @@ public class QuestionTest {
         // invalid question
         assertFalse(Question.isValidQuestion("")); // empty string
         assertFalse(Question.isValidQuestion(" ")); // spaces only
-        assertFalse(Question.isValidQuestion("What is Google?")); // with non-alphanumeric character '?'
 
         // valid questions
         assertTrue(Question.isValidQuestion("Define enthalpy change"));
+        assertTrue(Question.isValidQuestion("What is Google?")); // with non-alphanumeric character '?'
         assertTrue(Question.isValidQuestion("H")); // one character
     }
 }

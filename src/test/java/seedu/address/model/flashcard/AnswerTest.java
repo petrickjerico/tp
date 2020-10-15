@@ -27,11 +27,11 @@ public class AnswerTest {
         // invalid question
         assertFalse(Answer.isValidAnswer("")); // empty string
         assertFalse(Answer.isValidAnswer(" ")); // spaces only
-        assertFalse(Answer.isValidAnswer("Google is a search engine.")); // with non-alphanumeric character '.'
 
         // valid questions
         assertTrue(Answer.isValidAnswer("Amount of heat evolved or "
                 + "absorbed in a reaction carried out at constant pressure"));
+        assertTrue(Answer.isValidAnswer("Google is a search engine.")); // with non-alphanumeric character '.'
         assertTrue(Answer.isValidAnswer("Y")); // one character
     }
 }

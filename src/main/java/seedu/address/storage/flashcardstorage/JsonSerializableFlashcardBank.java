@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.FlashcardBank;
-import seedu.address.model.ReadOnlyFlashcardBank;
 import seedu.address.model.flashcard.FlashcardSet;
+import seedu.address.model.systemlevelmodel.FlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 
 
 public class JsonSerializableFlashcardBank {

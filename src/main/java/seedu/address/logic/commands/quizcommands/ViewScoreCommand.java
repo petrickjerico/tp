@@ -3,9 +3,9 @@ package seedu.address.logic.commands.quizcommands;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
+import seedu.address.model.QuizModel;
 
-public class ViewScoreCommand extends Command {
+public class ViewScoreCommand extends Command<QuizModel> {
 
     public static final String MESSAGE_UNABLE_TO_VIEW =
             "Unable to view score as quiz is in progress. "
@@ -19,7 +19,7 @@ public class ViewScoreCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(QuizModel model) throws CommandException {
 
         if (model.hasStarted()) {
             throw new CommandException(MESSAGE_UNABLE_TO_VIEW);

@@ -12,7 +12,7 @@ import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.FileUtil;
 import seedu.address.commons.util.JsonUtil;
-import seedu.address.model.ReadOnlySchedule;
+import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 
 public class JsonScheduleStorage implements ScheduleStorage {
     private static final Logger logger = LogsCenter.getLogger(JsonScheduleStorage.class);
@@ -52,6 +52,9 @@ public class JsonScheduleStorage implements ScheduleStorage {
         } catch (IllegalValueException ive) {
             logger.info("Illegal values found in " + filePath + ": " + ive.getMessage());
             throw new DataConversionException(ive);
+        } catch (IllegalArgumentException iae) {
+            logger.info("Illegal values found in " + filePath + ": " + iae.getMessage());
+            throw new DataConversionException(iae);
         }
     }
 

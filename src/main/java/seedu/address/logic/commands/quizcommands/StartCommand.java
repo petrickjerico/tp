@@ -2,6 +2,7 @@ package seedu.address.logic.commands.quizcommands;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -10,7 +11,8 @@ import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.flashcard.Question;
 import seedu.address.model.quiz.Quiz;
 
-public class StartCommand extends Command {
+//The abstraction has to be clarified.
+public class StartCommand extends Command<Model> {
 
     public static final String MESSAGE_QUIZ_IN_PROGRESS = "Quiz already in progress!";
     public static final String MESSAGE_FLASHCARD_SET_NONEXISTENT = "Flashcard set does not exist";
@@ -30,7 +32,8 @@ public class StartCommand extends Command {
         }
 
         try {
-            FlashcardSet flashcardSet = model.getFlashcardSet(this.index);
+            Index indexWrapper = Index.fromOneBased(index);
+            FlashcardSet flashcardSet = model.getFlashcardSet(indexWrapper);
             Quiz quiz = new Quiz(this.index, flashcardSet);
             Question firstQuestion = model.start(quiz);
             QuizCommand.setStatus(Status.ON_QUESTION);

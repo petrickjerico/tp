@@ -32,6 +32,7 @@ import seedu.address.model.systemlevelmodel.UserPrefs;
 import seedu.address.storage.JsonAddressBookStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.StorageManager;
+import seedu.address.storage.flashcardstorage.JsonFlashcardBankStorage;
 import seedu.address.storage.schedulestorage.JsonScheduleStorage;
 import seedu.address.testutil.PersonBuilder;
 
@@ -50,8 +51,11 @@ public class LogicManagerTest {
                 new JsonAddressBookStorage(temporaryFolder.resolve("addressBook.json"));
         JsonScheduleStorage scheduleStorage =
                 new JsonScheduleStorage(temporaryFolder.resolve("schedule.json"));
+        JsonFlashcardBankStorage flashcardBankStorage =
+                new JsonFlashcardBankStorage(temporaryFolder.resolve("flashcardbank.json"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
-        StorageManager storage = new StorageManager(scheduleStorage, addressBookStorage, userPrefsStorage);
+        StorageManager storage = new StorageManager(scheduleStorage, flashcardBankStorage,
+                addressBookStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
     }
 
@@ -80,9 +84,12 @@ public class LogicManagerTest {
                 new JsonAddressBookIoExceptionThrowingStub(temporaryFolder.resolve("ioExceptionAddressBook.json"));
         JsonScheduleStorage userScheduleStorage =
                 new JsonScheduleStorage(temporaryFolder.resolve("ioExceptionSchedule.json"));
+        JsonFlashcardBankStorage userFlashcardBankStorage =
+                new JsonFlashcardBankStorage(temporaryFolder.resolve("ioExceptionUserPrefs.json"));
         JsonUserPrefsStorage userPrefsStorage =
                 new JsonUserPrefsStorage(temporaryFolder.resolve("ioExceptionUserPrefs.json"));
-        StorageManager storage = new StorageManager(userScheduleStorage, addressBookStorage, userPrefsStorage);
+        StorageManager storage = new StorageManager(userScheduleStorage, userFlashcardBankStorage,
+                addressBookStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
 
         // Execute add command

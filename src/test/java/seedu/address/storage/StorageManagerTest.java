@@ -17,6 +17,7 @@ import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.systemlevelmodel.UserPrefs;
+import seedu.address.storage.flashcardstorage.JsonFlashcardBankStorage;
 import seedu.address.storage.schedulestorage.JsonScheduleStorage;
 
 public class StorageManagerTest {
@@ -30,8 +31,10 @@ public class StorageManagerTest {
     public void setUp() {
         JsonAddressBookStorage addressBookStorage = new JsonAddressBookStorage(getTempFilePath("ab"));
         JsonScheduleStorage scheduleStorage = new JsonScheduleStorage(getTempFilePath("sch"));
+        JsonFlashcardBankStorage flashcardBankStorage = new JsonFlashcardBankStorage(getTempFilePath("flbank"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(getTempFilePath("prefs"));
-        storageManager = new StorageManager(scheduleStorage, addressBookStorage, userPrefsStorage);
+        storageManager = new StorageManager(scheduleStorage, flashcardBankStorage,
+                addressBookStorage, userPrefsStorage);
     }
 
     private Path getTempFilePath(String fileName) {

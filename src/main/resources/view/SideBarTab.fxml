@@ -16,7 +16,7 @@
          <children>
             <ImageView fx:id="tabImage" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets left="5.0" top="10.0" />
+                  <Insets left="5.0" top="20.0" />
                </HBox.margin>
             </ImageView>
             <Label fx:id="tabText" textAlignment="CENTER">
@@ -24,7 +24,7 @@
                   <Font name="Helvetica Neue" size="15.0" />
                </font>
                <HBox.margin>
-                  <Insets left="20.0" top="10.0" />
+                  <Insets left="20.0" top="20.0" />
                </HBox.margin>
             </Label>
          </children>

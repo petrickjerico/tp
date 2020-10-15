@@ -1,10 +1,14 @@
 package seedu.address.model.flashcard;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.model.flashcard.exceptions.DuplicateFlashcardException;
+import seedu.address.model.flashcard.exceptions.FlashcardNotFoundException;
 
 /**
  * Represents a FlashcardSet that contains flashcards for quiz.
@@ -29,6 +33,10 @@ public class FlashcardSet {
         this.flashcards.addAll(flashcards);
     }
 
+    public FlashcardSetName getName() {
+        return flashcardSetName;
+    }
+
     public FlashcardSetName getFlashcardSetName() {
         return flashcardSetName;
     }
@@ -47,19 +55,50 @@ public class FlashcardSet {
 
     public void setFlashcard(Flashcard target, Flashcard editedFlashcard) {
         int setIndex = flashcards.indexOf(target);
+
+        if (setIndex == -1) {
+            throw new FlashcardNotFoundException();
+        }
+
+        if (!target.equals(editedFlashcard) && hasFlashcard(editedFlashcard)) {
+            throw new DuplicateFlashcardException();
+        }
+
         flashcards.set(setIndex, editedFlashcard);
     }
 
+    /**
+     * Checks if the flashcard set contains the specified flashcard.
+     * @param flashcard as specified
+     * @return boolean true or false
+     */
     public boolean hasFlashcard(Flashcard flashcard) {
+        requireNonNull(flashcard);
         return flashcards.contains(flashcard);
     }
 
+    /**
+     * Adds a flashcard to the flashcard set.
+     * @param flashcard provided
+     */
     public void addFlashcard(Flashcard flashcard) {
+        requireNonNull(flashcard);
+        if (hasFlashcard(flashcard)) {
+            throw new DuplicateFlashcardException();
+        }
         flashcards.add(flashcard);
     }
 
+    /**
+     * Deletes a flashcard at the specified flashcard index.
+     * @param flashcardIndex provided
+     */
     public void deleteFlashcard(Index flashcardIndex) {
-        flashcards.remove(flashcardIndex.getZeroBased());
+        try {
+            flashcards.remove(flashcardIndex.getZeroBased());
+        } catch (IndexOutOfBoundsException e) {
+            throw new FlashcardNotFoundException();
+        }
     }
 
     @Override
@@ -89,5 +128,4 @@ public class FlashcardSet {
         getFlashcards().forEach(builder::append);
         return builder.toString();
     }
-
 }

@@ -30,6 +30,7 @@ public class AddFlashcardSetCommand extends Command<FlashcardModel> {
      * Creates a {@code Command} to add the specified {@code FlashcardSet}
      */
     public AddFlashcardSetCommand(FlashcardSet toAdd) {
+        requireNonNull(toAdd);
         this.toAdd = toAdd;
     }
 

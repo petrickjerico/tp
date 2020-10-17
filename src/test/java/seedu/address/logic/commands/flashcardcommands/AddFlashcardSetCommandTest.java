@@ -43,7 +43,7 @@ public class AddFlashcardSetCommandTest {
     }
 
     @Test
-    public void execute_duplicateTask_throwsCommandException() {
+    public void execute_duplicateFlashcardSet_throwsCommandException() {
         FlashcardSet validFlset = new FlashcardSetBuilder().build();
         AddFlashcardSetCommand addCommand = new AddFlashcardSetCommand(validFlset);
         AddFlashcardSetCommandTest.ModelStubWithFlashcardSet modelStub =

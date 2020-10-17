@@ -21,7 +21,7 @@ public class FlashcardModelManager implements FlashcardModel {
      *
      * @param flashcardBank
      */
-    FlashcardModelManager(ReadOnlyFlashcardBank flashcardBank) {
+    public FlashcardModelManager(ReadOnlyFlashcardBank flashcardBank) {
         this.flashcardBank = new FlashcardBank(flashcardBank);
         filteredFlashcardSets = new FilteredList<>(this.flashcardBank.getFlashcardSetList());
     }

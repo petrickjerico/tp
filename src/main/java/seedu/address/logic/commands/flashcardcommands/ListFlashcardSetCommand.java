@@ -6,6 +6,7 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_FLASHCARDSETS;
 import javafx.collections.ObservableList;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
+import seedu.address.logic.commands.schedulecommands.ScheduleListCommand;
 import seedu.address.model.FlashcardModel;
 import seedu.address.model.flashcard.FlashcardSet;
 
@@ -30,5 +31,14 @@ public class ListFlashcardSetCommand extends Command<FlashcardModel> {
         flashcardSets.forEach(flashcardSet -> details.append("\n" + flashcardSet.toString()));
 
         return new CommandResult(MESSAGE_SUCCESS + details.toString());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        return obj instanceof ListFlashcardSetCommand;
     }
 }

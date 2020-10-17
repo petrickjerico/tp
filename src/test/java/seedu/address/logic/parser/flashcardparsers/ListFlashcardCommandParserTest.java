@@ -7,20 +7,20 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.flashcardcommands.DeleteFlashcardSetCommand;
+import seedu.address.logic.commands.flashcardcommands.ListFlashcardCommand;
 
 
-public class DeleteFlashcardSetCommandParserTest {
-    private final DeleteFlashcardSetCommandParser parser = new DeleteFlashcardSetCommandParser();
+public class ListFlashcardCommandParserTest {
+    private final ListFlashcardCommandParser parser = new ListFlashcardCommandParser();
 
     @Test
-    public void parse_validArgs_returnsDeleteFlashcardSetCommand() {
-        assertParseSuccess(parser, "1", new DeleteFlashcardSetCommand(INDEX_FIRST));
+    public void parse_validArgs_returnsListFlashcardCommand() {
+        assertParseSuccess(parser, "1", new ListFlashcardCommand(INDEX_FIRST));
     }
 
     @Test
     public void parse_invalidArgs_throwsParseException() {
         assertParseFailure(parser, "a", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                DeleteFlashcardSetCommand.MESSAGE_USAGE));
+                ListFlashcardCommand.MESSAGE_USAGE));
     }
 }

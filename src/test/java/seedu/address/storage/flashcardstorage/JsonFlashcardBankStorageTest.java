@@ -31,7 +31,8 @@ public class JsonFlashcardBankStorageTest {
     }
 
     private java.util.Optional<ReadOnlyFlashcardBank> readFlashcardBank(String filePath) throws Exception {
-        return new JsonFlashcardBankStorage(Paths.get(filePath)).readFlashcardBank(addToTestDataPathIfNotNull(filePath));
+        return new JsonFlashcardBankStorage(Paths.get(filePath))
+                .readFlashcardBank(addToTestDataPathIfNotNull(filePath));
     }
 
     private Path addToTestDataPathIfNotNull(String prefsFileInTestDataFolder) {

@@ -8,14 +8,17 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalFlashcardSets.ECONOMICS;
 import static seedu.address.testutil.TypicalFlashcardSets.PHYSICS;
 import static seedu.address.testutil.TypicalFlashcards.DECAY_CONSTANT;
+import static seedu.address.testutil.TypicalFlashcards.HOOKES_LAW;
 import static seedu.address.testutil.TypicalFlashcards.NEWTONS_SECOND_LAW;
 import static seedu.address.testutil.TypicalFlashcards.OPPORTUNITY_COST;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.flashcard.exceptions.DuplicateFlashcardException;
 import seedu.address.model.flashcard.exceptions.FlashcardNotFoundException;
+import seedu.address.model.task.UniqueTaskList;
 import seedu.address.testutil.FlashcardBuilder;
 import seedu.address.testutil.FlashcardSetBuilder;
 
@@ -124,8 +127,12 @@ public class FlashcardSetTest {
     @Test
     public void delete_existingFlashcard_deletesFlashcard() {
         FlashcardSet physics = new FlashcardSetBuilder(PHYSICS).build();
-        physics.deleteFlashcard(Index.fromZeroBased(0));
-        assertEquals(physics.getSize(), 2);
+        physics.deleteFlashcard(INDEX_FIRST);
+        FlashcardSet expectedPhysics = new FlashcardSetBuilder()
+                .addFlashcard(HOOKES_LAW)
+                .addFlashcard(DECAY_CONSTANT)
+                .build();
+        assertEquals(expectedPhysics, physics);
     }
 
 }

@@ -4,14 +4,17 @@ import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.assertCommandFailure;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND;
 
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
+import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -56,6 +59,17 @@ public class AddFlashcardCommandTest {
     }
 
     @Test
+    public void execute_invalidIndexFlset_throwsCommandException() {
+        Flashcard validFlashcard = new FlashcardBuilder().build();
+        AddFlashcardCommand addCommand = new AddFlashcardCommand(validFlashcard, INDEX_SECOND);
+        AddFlashcardCommandTest.ModelStubWithFlashcard modelStub =
+                new AddFlashcardCommandTest.ModelStubWithFlashcard();
+
+        assertThrows(CommandException.class, Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX, (
+        ) -> addCommand.execute(modelStub));
+    }
+
+    @Test
     public void equals() {
         Flashcard google = new FlashcardBuilder().build();
         Flashcard blueOcean = new FlashcardBuilder().withQuestion("Why is the ocean blue")
@@ -78,7 +92,7 @@ public class AddFlashcardCommandTest {
         // null -> returns false
         assertFalse(addGoogle.equals(null));
 
-        // different flashcard sets -> returns false
+        // different flashcards -> returns false
         assertFalse(addGoogle.equals(addBlueOcean));
     }
 

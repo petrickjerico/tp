@@ -4,6 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.VALID_FLSET_NAME_ECONOMICS;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.VALID_FLSET_NAME_PHYSICS;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -55,8 +57,8 @@ public class AddFlashcardSetCommandTest {
 
     @Test
     public void equals() {
-        FlashcardSet physics = new FlashcardSetBuilder().build();
-        FlashcardSet economics = new FlashcardSetBuilder().withFlashcardSetName("Economics").build();
+        FlashcardSet physics = new FlashcardSetBuilder().withFlashcardSetName(VALID_FLSET_NAME_PHYSICS).build();
+        FlashcardSet economics = new FlashcardSetBuilder().withFlashcardSetName(VALID_FLSET_NAME_ECONOMICS).build();
         AddFlashcardSetCommand addPhysics = new AddFlashcardSetCommand(physics);
         AddFlashcardSetCommand addEconomics = new AddFlashcardSetCommand(economics);
 

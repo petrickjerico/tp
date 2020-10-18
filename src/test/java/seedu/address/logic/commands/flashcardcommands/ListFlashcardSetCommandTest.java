@@ -6,8 +6,10 @@ import static seedu.address.testutil.TypicalFlashcardSets.getTypicalFlashcardBan
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javafx.collections.ObservableList;
 import seedu.address.model.FlashcardModel;
 import seedu.address.model.FlashcardModelManager;
+import seedu.address.model.flashcard.FlashcardSet;
 
 public class ListFlashcardSetCommandTest {
     private FlashcardModel model;
@@ -21,7 +23,16 @@ public class ListFlashcardSetCommandTest {
 
     @Test
     public void execute_list_showsEverything() {
+        ObservableList<FlashcardSet> flashcardSets = model.getFlashcardSetList();
+
+        StringBuilder details = new StringBuilder();
+        details.append("\nThere are ");
+        details.append(flashcardSets.size());
+        details.append(" sets");
+        flashcardSets.forEach(flashcardSet -> details.append("\n" + flashcardSet.toString()));
+
+        String expectedMessage = ListFlashcardSetCommand.MESSAGE_SUCCESS + details;
         assertCommandSuccess(new ListFlashcardSetCommand(), model,
-                ListFlashcardSetCommand.MESSAGE_SUCCESS, expectedModel);
+                expectedMessage, expectedModel);
     }
 }

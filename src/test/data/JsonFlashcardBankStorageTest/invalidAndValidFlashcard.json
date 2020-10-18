@@ -7,7 +7,8 @@
     }, {
       "question" : "What are conditions for binary search?",
       "answer" : "It has to be sorted array"
-    } ],
+    } ] },
+    {
     "name" : "CS2100",
     "flashcards" : [ {
       "question" : " ",

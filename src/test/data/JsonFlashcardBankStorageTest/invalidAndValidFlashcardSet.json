@@ -7,7 +7,8 @@
     }, {
       "question" : "What are conditions for binary search?",
       "answer" : "It has to be sorted array"
-    } ],
+    } ] },
+    {
     "name" : " ",
     "flashcards" : [ {
       "question" : "In what circumstances is there a compulsory miss?",

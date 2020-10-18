@@ -3,6 +3,7 @@ package seedu.address.logic.parser.flashcardparsers;
 import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.FLSET_INDEX_DESC_ONE;
 import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.FL_INDEX_DESC_ONE;
 import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_FLSET_INDEX_NEGATIVE;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_FLSET_INDEX_NON_INTEGER;
 import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_FL_INDEX_NEGATIVE;
 import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_FL_INDEX_NON_INTEGER;
 import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_INDEX_ERROR_MESSAGE;
@@ -30,7 +31,7 @@ public class DeleteFlashcardCommandParserTest {
                 INVALID_INDEX_ERROR_MESSAGE);
 
         // non-integer flset index and fl index
-        assertParseFailure(parser, INVALID_FL_INDEX_NON_INTEGER + INVALID_FL_INDEX_NON_INTEGER,
+        assertParseFailure(parser, INVALID_FLSET_INDEX_NON_INTEGER + INVALID_FL_INDEX_NON_INTEGER,
                 INVALID_INDEX_ERROR_MESSAGE);
     }
 }

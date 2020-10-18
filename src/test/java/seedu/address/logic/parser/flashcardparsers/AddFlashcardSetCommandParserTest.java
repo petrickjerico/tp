@@ -1,7 +1,10 @@
 package seedu.address.logic.parser.flashcardparsers;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.*;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.NAME_DESC_ECONOMICS;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.NAME_DESC_PHYSICS;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.NAME_DESC_PHYSICS_EXTRA_WHITESPACE;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.VALID_FLSET_NAME_PHYSICS;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 

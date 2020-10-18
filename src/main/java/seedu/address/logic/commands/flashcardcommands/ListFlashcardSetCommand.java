@@ -6,7 +6,6 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_FLASHCARDSETS;
 import javafx.collections.ObservableList;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.schedulecommands.ScheduleListCommand;
 import seedu.address.model.FlashcardModel;
 import seedu.address.model.flashcard.FlashcardSet;
 

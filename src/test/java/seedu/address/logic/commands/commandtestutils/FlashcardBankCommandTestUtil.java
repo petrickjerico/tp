@@ -1,7 +1,11 @@
 package seedu.address.logic.commands.commandtestutils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ANSWER;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FLASHCARD;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FLASHCARDSET;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FLASHCARDSET_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_QUESTION;
 
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
@@ -10,7 +14,7 @@ import seedu.address.model.FlashcardModel;
 
 public class FlashcardBankCommandTestUtil {
     public static final String VALID_FLSET_NAME_PHYSICS = "Physics";
-        public static final String VALID_FLSET_NAME_ECONOMICS = "Economics";
+    public static final String VALID_FLSET_NAME_ECONOMICS = "Economics";
 
     public static final String VALID_QUESTION_SECOND_LAW = "Newton's Second Law";
     public static final String VALID_QUESTION_OPPORTUNITY_COST = "Explain the idea of an opportunity cost.";

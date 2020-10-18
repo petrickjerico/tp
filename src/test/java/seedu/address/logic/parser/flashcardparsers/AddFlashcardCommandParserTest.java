@@ -1,7 +1,19 @@
 package seedu.address.logic.parser.flashcardparsers;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.*;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.ANSWER_DESC_OPPORTUNITY_COST;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.ANSWER_DESC_SECOND_LAW;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.FLSET_INDEX_DESC_ONE;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.FLSET_INDEX_DESC_TWO;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_ANSWER_DESC;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_FLSET_INDEX_NEGATIVE;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_FLSET_INDEX_NON_INTEGER;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_INDEX_ERROR_MESSAGE;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_QUESTION_DESC;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.QUESTION_DESC_OPPORTUNITY_COST;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.QUESTION_DESC_SECOND_LAW;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.VALID_ANSWER_SECOND_LAW;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.VALID_QUESTION_SECOND_LAW;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 

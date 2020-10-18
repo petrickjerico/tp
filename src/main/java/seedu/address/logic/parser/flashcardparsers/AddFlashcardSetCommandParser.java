@@ -19,8 +19,7 @@ public class AddFlashcardSetCommandParser implements Parser<AddFlashcardSetComma
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(userInput, PREFIX_FLASHCARDSET_NAME);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_FLASHCARDSET_NAME)
-                || !argMultimap.getPreamble().isEmpty()) {
+        if (!arePrefixesPresent(argMultimap, PREFIX_FLASHCARDSET_NAME)) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddFlashcardSetCommand.MESSAGE_USAGE));
         }

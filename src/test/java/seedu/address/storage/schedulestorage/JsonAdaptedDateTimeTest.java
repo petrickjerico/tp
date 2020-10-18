@@ -1,4 +1,4 @@
-package seedu.address.storage;
+package seedu.address.storage.schedulestorage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.task.DateTime;
-import seedu.address.storage.schedulestorage.JsonAdaptedDateTime;
 
 public class JsonAdaptedDateTimeTest {
     private static final String INVALID_DATE_TIME = "12/10/2020 12:00";

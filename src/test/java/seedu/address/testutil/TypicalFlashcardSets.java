@@ -51,6 +51,9 @@ public class TypicalFlashcardSets {
     }
 
     public static List<FlashcardSet> getTypicalFlashcards() {
-        return new ArrayList<>(Arrays.asList(PHYSICS, ECONOMICS, ICEBREAKER_JOKES));
+        FlashcardSet physics = new FlashcardSetBuilder(PHYSICS).build();
+        FlashcardSet economics = new FlashcardSetBuilder(ECONOMICS).build();
+        FlashcardSet icebreakerJokes = new FlashcardSetBuilder(ICEBREAKER_JOKES).build();
+        return new ArrayList<>(Arrays.asList(physics, economics, icebreakerJokes));
     }
 }

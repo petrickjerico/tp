@@ -5,6 +5,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ANSWER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FLASHCARDSET;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_QUESTION;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
@@ -49,14 +50,19 @@ public class AddFlashcardCommand extends Command<FlashcardModel> {
     @Override
     public CommandResult execute(FlashcardModel model) throws CommandException {
         requireNonNull(model);
-        FlashcardSet flashcardSet = model.getFlashcardSet(flashcardSetIndex);
+        try {
+            FlashcardSet flashcardSet = model.getFlashcardSet(flashcardSetIndex);
 
-        if (model.hasFlashcard(flashcardSet, toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_FLASHCARD);
+            if (model.hasFlashcard(flashcardSet, toAdd)) {
+                throw new CommandException(MESSAGE_DUPLICATE_FLASHCARD);
+            }
+
+            model.addFlashcard(flashcardSet, toAdd);
+            return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+        } catch (IndexOutOfBoundsException e) {
+            throw new CommandException(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);
         }
 
-        model.addFlashcard(flashcardSet, toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 
     @Override

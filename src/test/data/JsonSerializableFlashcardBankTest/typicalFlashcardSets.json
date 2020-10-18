@@ -1,0 +1,55 @@
+{
+  "flashcardSets" : [
+    {
+      "name": "Physics",
+      "flashcards": [
+        {
+          "question": "Newton's Second Law",
+          "answer": "The rate of change of momentum of a body is directly proportional to the resultant force acting on it and occurs in the direction of the force"
+        },
+        {
+          "question": "Hooke's Law",
+          "answer": "The change in length x of the material is directly proportional to the resultant force applied to it provided that the limit of proportionality is not exceeded"
+        },
+        {
+          "question": "Decay constant",
+          "answer": "Probability of a radioactive nucleus decaying per unit time"
+        }
+      ]
+    },
+    {
+      "name": "Economics",
+      "flashcards": [
+        {
+          "question": "Define the idea of opportunity cost",
+          "answer": "Benefits or value of the next best alternative forgone"
+        },
+        {
+          "question": "What are negative externalities?",
+          "answer": "Harmful side effects of production or consumption on persons other than the producers or consumers themselves. The third parties are not compensated for the external costs."
+        },
+        {
+          "question": "Explain how interest rate increasing leads to a decrease in aggregate demand (AD).",
+          "answer": "increase i/r -> increased cost of borrowing -> decrease in Consumption and Investments -> decrease in AD"
+        }
+      ]
+    },
+    {
+      "name" : "Icebreaker jokes",
+      "flashcards" : [
+        {
+          "question" : "Why did the chicken cross the road?",
+          "answer" : "To get to the other side"
+        },
+        {
+          "question" : "Why did the late dude sit on his watch?",
+          "answer" : "He wanted to be on time"
+        },
+        {
+          "question" : "Define procrastination",
+          "answer" : "I'll do it later"
+        }
+      ]
+    }
+  ]
+}

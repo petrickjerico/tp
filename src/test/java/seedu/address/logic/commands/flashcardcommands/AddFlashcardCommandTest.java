@@ -7,9 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
@@ -21,8 +18,6 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.FlashcardModel;
 import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
-import seedu.address.model.flashcard.FlashcardSetName;
-import seedu.address.model.person.Name;
 import seedu.address.model.systemlevelmodel.FlashcardBank;
 import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.address.testutil.FlashcardBuilder;
@@ -59,7 +54,7 @@ public class AddFlashcardCommandTest {
         assertThrows(CommandException.class, AddFlashcardCommand.MESSAGE_DUPLICATE_FLASHCARD, (
         ) -> addCommand.execute(modelStub));
     }
-//
+
     @Test
     public void equals() {
         Flashcard google = new FlashcardBuilder().build();

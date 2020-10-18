@@ -18,7 +18,6 @@ import org.junit.jupiter.api.Test;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.flashcard.exceptions.DuplicateFlashcardException;
 import seedu.address.model.flashcard.exceptions.FlashcardNotFoundException;
-import seedu.address.model.task.UniqueTaskList;
 import seedu.address.testutil.FlashcardBuilder;
 import seedu.address.testutil.FlashcardSetBuilder;
 

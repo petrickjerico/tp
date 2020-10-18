@@ -16,7 +16,6 @@ import seedu.address.model.FlashcardModel;
 import seedu.address.model.FlashcardModelManager;
 import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
-import seedu.address.testutil.FlashcardBuilder;
 
 public class DeleteFlashcardCommandTest {
 
@@ -29,7 +28,8 @@ public class DeleteFlashcardCommandTest {
 
         DeleteFlashcardCommand deleteCommand = new DeleteFlashcardCommand(INDEX_FIRST, INDEX_FIRST);
 
-        String expectedMessage = String.format(DeleteFlashcardCommand.MESSAGE_DELETE_FLASHCARD_SUCCESS, flashcardToDelete);
+        String expectedMessage = String.format(DeleteFlashcardCommand.MESSAGE_DELETE_FLASHCARD_SUCCESS,
+                flashcardToDelete);
 
         FlashcardModelManager expectedModel = new FlashcardModelManager(getTypicalFlashcardBank());
         expectedModel.deleteFlashcard(flsetToDeleteFrom, INDEX_SECOND); // There is might be some issue here

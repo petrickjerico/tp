@@ -21,6 +21,7 @@ public class ListFlashcardSetCommand extends Command<FlashcardModel> {
     public CommandResult execute(FlashcardModel model) {
         requireNonNull(model);
         model.updateFilteredFlashcardSetList(PREDICATE_SHOW_ALL_FLASHCARDSETS);
+
         ObservableList<FlashcardSet> flashcardSets = model.getFlashcardSetList();
 
         StringBuilder details = new StringBuilder();
@@ -30,5 +31,14 @@ public class ListFlashcardSetCommand extends Command<FlashcardModel> {
         flashcardSets.forEach(flashcardSet -> details.append("\n" + flashcardSet.toString()));
 
         return new CommandResult(MESSAGE_SUCCESS + details.toString());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        return obj instanceof ListFlashcardSetCommand;
     }
 }

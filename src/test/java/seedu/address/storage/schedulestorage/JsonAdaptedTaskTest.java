@@ -1,4 +1,4 @@
-package seedu.address.storage;
+package seedu.address.storage.schedulestorage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.storage.schedulestorage.JsonAdaptedTask.MISSING_FIELD_MESSAGE_FORMAT;
@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.task.Title;
-import seedu.address.storage.schedulestorage.JsonAdaptedTask;
 
 public class JsonAdaptedTaskTest {
     private static final Optional<String> VALID_DESCRIPTION =

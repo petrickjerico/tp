@@ -33,7 +33,8 @@ public class FlashcardParserTest {
     @Test
     public void parse_listCommand_returnListFlashcardSetCommand() throws ParseException {
         ListFlashcardSetCommand expectedCommand = new ListFlashcardSetCommand();
-        ListFlashcardSetCommand listCommand = (ListFlashcardSetCommand) parser.parse("list flset");
+        ListFlashcardSetCommand listCommand = (ListFlashcardSetCommand) parser
+                .parse(ListFlashcardSetCommand.COMMAND_WORD);
         assertEquals(expectedCommand, listCommand);
     }
 }

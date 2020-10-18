@@ -10,7 +10,7 @@ import seedu.address.model.FlashcardModel;
 
 public class FlashcardBankCommandTestUtil {
     public static final String VALID_FLSET_NAME_PHYSICS = "Physics";
-    public static final String VALID_FLSET_NAME_ECONOMICS = "Economics";
+        public static final String VALID_FLSET_NAME_ECONOMICS = "Economics";
 
     public static final String VALID_QUESTION_SECOND_LAW = "Newton's Second Law";
     public static final String VALID_QUESTION_OPPORTUNITY_COST = "Explain the idea of an opportunity cost.";
@@ -37,8 +37,11 @@ public class FlashcardBankCommandTestUtil {
 
     public static final String FLSET_INDEX_DESC_ONE = " " + PREFIX_FLASHCARDSET + "1";
     public static final String FLSET_INDEX_DESC_TWO = " " + PREFIX_FLASHCARDSET + "2";
+    public static final String FL_INDEX_DESC_ONE = " " + PREFIX_FLASHCARD + "1";
     public static final String INVALID_FLSET_INDEX_NEGATIVE = " " + PREFIX_FLASHCARDSET + "-1";
     public static final String INVALID_FLSET_INDEX_NON_INTEGER = " " + PREFIX_FLASHCARDSET + "A";
+    public static final String INVALID_FL_INDEX_NEGATIVE = " " + PREFIX_FLASHCARD + "-1";
+    public static final String INVALID_FL_INDEX_NON_INTEGER = " " + PREFIX_FLASHCARD + "A";
     public static final String INVALID_INDEX_ERROR_MESSAGE = "Index is not a non-zero unsigned integer.";
 
     /**

@@ -1,5 +1,10 @@
 package seedu.address.logic.parser.flashcardparsers;
 
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.FLSET_INDEX_DESC_ONE;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.FL_INDEX_DESC_ONE;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_FLSET_INDEX_NEGATIVE;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_FL_INDEX_NEGATIVE;
+import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_FL_INDEX_NON_INTEGER;
 import static seedu.address.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.INVALID_INDEX_ERROR_MESSAGE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -14,15 +19,18 @@ public class DeleteFlashcardCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsDeleteFlashcardCommand() {
-        assertParseSuccess(parser, " flset:1 fl:1", new DeleteFlashcardCommand(INDEX_FIRST, INDEX_FIRST));
+        assertParseSuccess(parser, FLSET_INDEX_DESC_ONE + FL_INDEX_DESC_ONE,
+                new DeleteFlashcardCommand(INDEX_FIRST, INDEX_FIRST));
     }
 
     @Test
     public void parse_invalidArgs_throwsParseException() {
         // negative flset index and fl index
-        assertParseFailure(parser, " flset:-1 fl:-1", INVALID_INDEX_ERROR_MESSAGE);
+        assertParseFailure(parser, INVALID_FLSET_INDEX_NEGATIVE + INVALID_FL_INDEX_NEGATIVE,
+                INVALID_INDEX_ERROR_MESSAGE);
 
         // non-integer flset index and fl index
-        assertParseFailure(parser, " flset:A fl:A", INVALID_INDEX_ERROR_MESSAGE);
+        assertParseFailure(parser, INVALID_FL_INDEX_NON_INTEGER + INVALID_FL_INDEX_NON_INTEGER,
+                INVALID_INDEX_ERROR_MESSAGE);
     }
 }

@@ -32,4 +32,13 @@ public class ListFlashcardSetCommand extends Command<FlashcardModel> {
 
         return new CommandResult(MESSAGE_SUCCESS + details.toString());
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        return obj instanceof ListFlashcardSetCommand;
+    }
 }

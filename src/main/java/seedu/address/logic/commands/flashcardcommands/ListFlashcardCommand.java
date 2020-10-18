@@ -53,4 +53,11 @@ public class ListFlashcardCommand extends Command<FlashcardModel> {
 
         return new CommandResult(MESSAGE_SUCCESS + details.toString());
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ListFlashcardCommand // instanceof handles nulls
+                && flashcardSetIndex.equals(((ListFlashcardCommand) other).flashcardSetIndex)); // state check
+    }
 }

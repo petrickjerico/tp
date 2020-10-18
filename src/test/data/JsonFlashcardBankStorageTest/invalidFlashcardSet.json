@@ -1,0 +1,12 @@
+{
+  "flashcardSets" : [ {
+    "name" : " ",
+    "flashcards" : [ {
+      "question" : "Time complexity of binary search?",
+      "answer" : "O(logn)"
+    }, {
+      "question" : "What are conditions for binary search?",
+      "answer" : "It has to be sorted array"
+    } ]
+  } ]
+}

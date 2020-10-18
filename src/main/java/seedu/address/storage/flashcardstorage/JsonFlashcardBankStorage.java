@@ -51,7 +51,7 @@ public class JsonFlashcardBankStorage implements FlashcardBankStorage {
 
         try {
             return Optional.of(jsonFlashcardBank.get().toModelType());
-        } catch (IllegalValueException ive) {
+        } catch (IllegalValueException | IllegalArgumentException ive) {
             logger.info("Illegal values found in " + filePath + ": " + ive.getMessage());
             throw new DataConversionException(ive);
         }

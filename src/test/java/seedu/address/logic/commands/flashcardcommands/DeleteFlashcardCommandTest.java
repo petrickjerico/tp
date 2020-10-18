@@ -57,6 +57,7 @@ public class DeleteFlashcardCommandTest {
     public void equals() {
         DeleteFlashcardCommand firstFlsetFirstFl = new DeleteFlashcardCommand(INDEX_FIRST, INDEX_FIRST);
         DeleteFlashcardCommand secondFlsetSecondFl = new DeleteFlashcardCommand(INDEX_SECOND, INDEX_SECOND);
+        DeleteFlashcardCommand firstFlsetSecondFl = new DeleteFlashcardCommand(INDEX_FIRST, INDEX_SECOND);
 
         // same object -> returns true
         assertTrue(firstFlsetFirstFl.equals(firstFlsetFirstFl));
@@ -73,5 +74,7 @@ public class DeleteFlashcardCommandTest {
 
         // different flashcards -> returns false
         assertFalse(firstFlsetFirstFl.equals(secondFlsetSecondFl));
+        assertFalse(firstFlsetFirstFl.equals(firstFlsetSecondFl));
+        assertFalse(firstFlsetSecondFl.equals(secondFlsetSecondFl));
     }
 }

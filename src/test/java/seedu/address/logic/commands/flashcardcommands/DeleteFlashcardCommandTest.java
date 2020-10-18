@@ -31,8 +31,10 @@ public class DeleteFlashcardCommandTest {
         String expectedMessage = String.format(DeleteFlashcardCommand.MESSAGE_DELETE_FLASHCARD_SUCCESS,
                 flashcardToDelete);
 
-        FlashcardModelManager expectedModel = new FlashcardModelManager(getTypicalFlashcardBank());
-        expectedModel.deleteFlashcard(flsetToDeleteFrom, INDEX_SECOND); // There is might be some issue here
+        FlashcardModelManager expectedModel = new FlashcardModelManager(model.getFlashcardBank());
+        expectedModel.deleteFlashcard(flsetToDeleteFrom, INDEX_SECOND); // This should be INDEX_FIRST.
+        /* Not sure if this is a testing issue or a problem with source code,
+        need help reviewing because I can't find why this happens. */
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }

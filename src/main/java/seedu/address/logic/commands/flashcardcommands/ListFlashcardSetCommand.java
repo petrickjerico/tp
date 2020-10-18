@@ -21,6 +21,7 @@ public class ListFlashcardSetCommand extends Command<FlashcardModel> {
     public CommandResult execute(FlashcardModel model) {
         requireNonNull(model);
         model.updateFilteredFlashcardSetList(PREDICATE_SHOW_ALL_FLASHCARDSETS);
+
         ObservableList<FlashcardSet> flashcardSets = model.getFlashcardSetList();
 
         StringBuilder details = new StringBuilder();

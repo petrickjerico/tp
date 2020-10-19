@@ -14,7 +14,8 @@ import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 
 
 public class JsonSerializableFlashcardBank {
-    public static final String MESSAGE_DUPLICATE_PERSON = "FlashcardSets list contains duplicate flashcardSet(s).";
+    public static final String MESSAGE_DUPLICATE_FLASHCARD_SETS =
+            "FlashcardSets list contains duplicate flashcardSet(s).";
 
     private final List<JsonAdaptedFlashcardSet> flashcardSets = new ArrayList<>();
 
@@ -46,7 +47,7 @@ public class JsonSerializableFlashcardBank {
         for (JsonAdaptedFlashcardSet jsonAdaptedFlashcardSet : flashcardSets) {
             FlashcardSet flashcardSet = jsonAdaptedFlashcardSet.toModelType();
             if (flashcardBank.hasFlashcardSet(flashcardSet)) {
-                throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
+                throw new IllegalValueException(MESSAGE_DUPLICATE_FLASHCARD_SETS);
             }
             flashcardBank.addFlashcardSet(flashcardSet);
         }

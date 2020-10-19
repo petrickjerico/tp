@@ -12,6 +12,7 @@ import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
 import seedu.address.model.systemlevelmodel.UserPrefs;
+import seedu.address.storage.flashcardstorage.FlashcardBankStorage;
 import seedu.address.storage.schedulestorage.ScheduleStorage;
 
 /**
@@ -23,15 +24,17 @@ public class StorageManager implements Storage {
     private final AddressBookStorage addressBookStorage;
     private final ScheduleStorage scheduleStorage;
     private final UserPrefsStorage userPrefsStorage;
+    private final FlashcardBankStorage flashcardBankStorage;
 
     /**
      * Creates a {@code StorageManager} with the given {@code AddressBookStorage} and {@code UserPrefStorage}.
      */
-    public StorageManager(ScheduleStorage scheduleStorage, AddressBookStorage addressBookStorage,
-                          UserPrefsStorage userPrefsStorage) {
+    public StorageManager(ScheduleStorage scheduleStorage, FlashcardBankStorage flashcardBankStorage,
+                          AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage) {
         this.addressBookStorage = addressBookStorage;
         this.userPrefsStorage = userPrefsStorage;
         this.scheduleStorage = scheduleStorage;
+        this.flashcardBankStorage = flashcardBankStorage;
     }
 
     // ================ UserPrefs methods ==============================
@@ -115,27 +118,29 @@ public class StorageManager implements Storage {
 
     @Override
     public Path getFlashcardBankFilePath() {
-        return null;
+        return flashcardBankStorage.getFlashcardBankFilePath();
     }
 
     @Override
     public Optional<ReadOnlyFlashcardBank> readFlashcardBank() throws DataConversionException, IOException {
-        return Optional.empty();
+        return readFlashcardBank(flashcardBankStorage.getFlashcardBankFilePath());
     }
 
     @Override
     public Optional<ReadOnlyFlashcardBank> readFlashcardBank(Path filePath) throws
             DataConversionException, IOException {
-        return Optional.empty();
+        logger.fine("Attempting to read FlashcardBank from file: " + filePath);
+        return flashcardBankStorage.readFlashcardBank(filePath);
     }
 
     @Override
     public void saveFlashcardBank(ReadOnlyFlashcardBank flashcardBank) throws IOException {
-
+        saveFlashcardBank(flashcardBank, flashcardBankStorage.getFlashcardBankFilePath());
     }
 
     @Override
-    public void saveFlashcardBank(ReadOnlyFlashcardBank schedule, Path filePath) throws IOException {
-
+    public void saveFlashcardBank(ReadOnlyFlashcardBank flashcardBank, Path filePath) throws IOException {
+        logger.fine("Attempting to write to FlashcardBank data file: " + filePath);
+        flashcardBankStorage.saveFlashcardBank(flashcardBank, filePath);
     }
 }

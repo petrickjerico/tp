@@ -16,6 +16,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     private GuiSettings guiSettings = new GuiSettings();
     private Path addressBookFilePath = Paths.get("data" , "addressbook.json").toAbsolutePath();
     private Path scheduleFilePath = Paths.get("data", "schedule.json").toAbsolutePath();
+    private Path flashcardBankFilePath = Paths.get("data", "flashcardbank.json").toAbsolutePath();
 
     /**
      * Creates a {@code UserPrefs} with default values.
@@ -66,6 +67,15 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         this.scheduleFilePath = scheduleFilePath;
     }
 
+    public Path getFlashcardBankFilePath() {
+        return flashcardBankFilePath;
+    }
+
+    public void setFlashcardBankFilePath(Path flashcardBankFilePath) {
+        requireNonNull(flashcardBankFilePath);
+        this.flashcardBankFilePath = flashcardBankFilePath;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -79,12 +89,13 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
         return guiSettings.equals(o.guiSettings)
                 && addressBookFilePath.equals(o.addressBookFilePath)
-                && scheduleFilePath.equals(o.scheduleFilePath);
+                && scheduleFilePath.equals(o.scheduleFilePath)
+                && flashcardBankFilePath.equals(o.flashcardBankFilePath);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(guiSettings, addressBookFilePath);
+        return Objects.hash(guiSettings, addressBookFilePath, scheduleFilePath, flashcardBankFilePath);
     }
 
     @Override
@@ -93,6 +104,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         sb.append("Gui Settings : " + guiSettings);
         sb.append("\nLocal addressbook data file location : " + addressBookFilePath);
         sb.append("\nLocal schedule data file location : " + scheduleFilePath);
+        sb.append("\nLocal flashcardbank data file location : " + flashcardBankFilePath);
         return sb.toString();
     }
 

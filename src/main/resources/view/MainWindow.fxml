@@ -31,6 +31,9 @@
                             <HBox fx:id="SideBarHeader" prefHeight="100.0" prefWidth="200.0">
                                 <children>
                                     <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@/images/icon_horizonlines.png" />
+                                        </image>
                                         <HBox.margin>
                                             <Insets left="12.0" top="10.0" />
                                         </HBox.margin>

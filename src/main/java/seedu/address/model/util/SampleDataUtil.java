@@ -1,16 +1,25 @@
 package seedu.address.model.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import seedu.address.model.flashcard.Answer;
+import seedu.address.model.flashcard.Flashcard;
+import seedu.address.model.flashcard.FlashcardSet;
+import seedu.address.model.flashcard.FlashcardSetName;
+import seedu.address.model.flashcard.Question;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.systemlevelmodel.AddressBook;
+import seedu.address.model.systemlevelmodel.FlashcardBank;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
+import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.tag.Tag;
@@ -63,6 +72,18 @@ public class SampleDataUtil {
         };
     }
 
+    public static List<Flashcard> getSampleFlashcardCS2040() {
+        List<Flashcard> flashcards = new ArrayList<>();
+        flashcards.add(new Flashcard(new Question("Time complexity of binary search?"),
+                new Answer("O(logn)")));
+        flashcards.add(new Flashcard(new Question("What are conditions for binary search?"),
+                new Answer("It has to be sorted array")));
+        return flashcards;
+    }
+
+    public static FlashcardSet[] getSampleFlashcardSets() {
+        return new FlashcardSet[] {new FlashcardSet(new FlashcardSetName("CS2040"), getSampleFlashcardCS2040())};
+    }
 
     public static ReadOnlyAddressBook getSampleAddressBook() {
         AddressBook sampleAb = new AddressBook();
@@ -78,6 +99,14 @@ public class SampleDataUtil {
             sampleSchedule.addTask(sampleTask);
         }
         return sampleSchedule;
+    }
+
+    public static ReadOnlyFlashcardBank getSampleFlashcardBank() {
+        FlashcardBank sampleFlashcardBank = new FlashcardBank();
+        for (FlashcardSet sampleFlashcardSet : getSampleFlashcardSets()) {
+            sampleFlashcardBank.addFlashcardSet(sampleFlashcardSet);
+        }
+        return sampleFlashcardBank;
     }
 
     /**

@@ -21,7 +21,7 @@ public class TypicalFlashcards {
             .build();
     public static final Flashcard HOOKES_LAW = new FlashcardBuilder()
             .withQuestion("Hooke's Law")
-            .withAnswer("The change in length x of the material is directly proportional"
+            .withAnswer("The change in length x of the material is directly proportional "
                     + "to the resultant force applied to it, "
                     + "provided that the limit of proportionality is not exceeded")
             .build();

@@ -29,10 +29,6 @@ public class ScheduleListCommand extends Command<ScheduleModel> {
             return true;
         }
 
-        if (!(obj instanceof ScheduleListCommand)) {
-            return false;
-        }
-
-        return true;
+        return obj instanceof ScheduleListCommand;
     }
 }

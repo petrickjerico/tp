@@ -17,17 +17,16 @@ public class CommandTypeMatcher {
      */
     public CommandType match(String command) throws ParseException {
 
-        if (isQuizCommand(command)) {
-            return CommandType.QUIZ;
-        }
-
-        // switched these 2 bc quiz is more specific
         if (isFlashcardCommand(command)) {
             return CommandType.FLASHCARD;
         }
 
         if (isTaskCommand(command)) {
             return CommandType.TASK;
+        }
+
+        if (isQuizCommand(command)) {
+            return CommandType.QUIZ;
         }
 
         if (isAddressBookCommand(command)) {
@@ -41,10 +40,21 @@ public class CommandTypeMatcher {
         return true;
     }
 
+    private String getSecondWord(String userInput) {
+        String[] splittedWords = userInput.split(" ");
+        return splittedWords[1];
+    }
+
+    private boolean doesContainTwoOrMoreWords(String userInput) {
+        String[] splittedWords = userInput.split(" ");
+        return splittedWords.length > 1;
+    }
+
     //buggy, temporary, still need to evaluate the pattern
     private boolean isFlashcardCommand(String command) {
         String lowercaseCommand = command.toLowerCase();
-        return lowercaseCommand.contains("flset") || lowercaseCommand.contains("fl");
+        return doesContainTwoOrMoreWords(command) && (
+                getSecondWord(lowercaseCommand).equals("flset") || getSecondWord(lowercaseCommand).equals("fl"));
     }
 
     private boolean isQuizCommand(String command) {
@@ -62,8 +72,7 @@ public class CommandTypeMatcher {
 
     //buggy, temporary, still need to evaluate the pattern
     private boolean isTaskCommand(String command) {
-        return command.toLowerCase().contains("task");
+        return doesContainTwoOrMoreWords(command) && (
+                getSecondWord(command).toLowerCase().equals("task"));
     }
-
-
 }

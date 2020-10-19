@@ -36,10 +36,6 @@ public class CommandTypeMatcher {
         throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
     }
 
-    private boolean isAddressBookCommand(String command) {
-        return true;
-    }
-
     private String getSecondWord(String userInput) {
         String[] splittedWords = userInput.split(" ");
         return splittedWords[1];
@@ -50,7 +46,10 @@ public class CommandTypeMatcher {
         return splittedWords.length > 1;
     }
 
-    //buggy, temporary, still need to evaluate the pattern
+    private boolean isAddressBookCommand(String command) {
+        return true;
+    }
+
     private boolean isFlashcardCommand(String command) {
         String lowercaseCommand = command.toLowerCase();
         return doesContainTwoOrMoreWords(command) && (
@@ -70,7 +69,6 @@ public class CommandTypeMatcher {
         }
     }
 
-    //buggy, temporary, still need to evaluate the pattern
     private boolean isTaskCommand(String command) {
         return doesContainTwoOrMoreWords(command) && (
                 getSecondWord(command).toLowerCase().equals("task"));

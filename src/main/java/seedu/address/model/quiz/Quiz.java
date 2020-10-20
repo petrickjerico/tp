@@ -43,7 +43,7 @@ public class Quiz {
     }
 
     public void setPointsScored(boolean isCorrect) {
-        scoreboard[currentIndex] = isCorrect;
+        scoreboard[currentIndex - 1] = isCorrect;
         if (isCorrect) {
             pointsScored++;
         }
@@ -55,14 +55,16 @@ public class Quiz {
 
     /**
      * Gives the string representation of the quiz,
-     * using it's score records.
+     * using its score records.
      * @return string representation
      */
     public String toString() {
         StringBuilder builder = new StringBuilder();
+        builder.append("Total score = " + pointsScored + "/" + totalScore + "\n");
+        builder.append("Percentage scored = " + getPercentageScore() + "\n");
         for (int i = 0; i < totalScore; i++) {
             String isCorrect = scoreboard[i] ? "\u2713" : "\u2718";
-            builder.append(i).append(". Question: ")
+            builder.append(i + 1).append(". Question: ")
                     .append(flashcardSet.getFlashcards().get(i).getQuestion())
                     .append("\n");
             builder.append(isCorrect).append(". Answer: ")

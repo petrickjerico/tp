@@ -21,8 +21,8 @@ public class QuizParser implements Parser<Command> {
             userInput = userInput.replace("quiz flset:", "");
             int index = parseNumber(userInput);
             return new StartCommand(index);
-        } else if (userInput.contains("view flset quiz:")) {
-            userInput = userInput.replace("view flset quiz:", "");
+        } else if (userInput.contains("quiz score flset:")) {
+            userInput = userInput.replace("quiz score flset:", "");
             int index = parseNumber(userInput);
             return new ViewScoreCommand(index);
         }

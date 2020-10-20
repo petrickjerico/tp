@@ -30,8 +30,8 @@ public class WrongCommand extends Command<QuizModel> {
             QuizCommand.setStatus(Status.ON_QUESTION);
             return new CommandResult(nextQuestion.toString());
 
-        } catch (NullPointerException e) {
-            return new CommandResult("Score: " + model.stopQuiz());
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
+            return new CommandResult("Percentage score: " + model.stopQuiz() + "%");
         }
     }
 }

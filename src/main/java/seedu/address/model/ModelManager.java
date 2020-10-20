@@ -244,11 +244,16 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public double stopQuiz() {
-        double score = this.quiz.getPercentageScore();
+    public String stopQuiz() {
+        String score = this.quiz.toString();
         quizRecords.put(quiz.getFlashcardSetIndex(), quiz);
         this.quiz = null;
         return score;
+    }
+
+    @Override
+    public void cancelQuiz() {
+        this.quiz = null;
     }
 
     @Override

@@ -9,9 +9,9 @@ public class ViewScoreCommand extends Command<QuizModel> {
 
     public static final String MESSAGE_UNABLE_TO_VIEW =
             "Unable to view score as quiz is in progress. "
-                    + "Please cancel or finish the quiz to view";
+                    + "Cancel or finish the quiz to view recent quiz score.";
     public static final String MESSAGE_QUIZ_NONEXISTENT =
-            "Quiz records for this flashcard set does not exist";
+            "Quiz records for this flashcard set does not exist.";
     private final int index;
 
     public ViewScoreCommand(int index) {
@@ -27,6 +27,8 @@ public class ViewScoreCommand extends Command<QuizModel> {
 
         try {
             String score = model.getQuizRecords(index);
+            QuizCommand.updateCommandResult(score);
+
             return new CommandResult(score);
         } catch (NullPointerException e) {
             throw new CommandException(MESSAGE_QUIZ_NONEXISTENT);

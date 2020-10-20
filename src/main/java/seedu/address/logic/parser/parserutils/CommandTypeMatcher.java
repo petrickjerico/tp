@@ -60,6 +60,7 @@ public class CommandTypeMatcher {
         String lowercaseCommand = command.toLowerCase();
         switch (lowercaseCommand) {
         case "cancel":
+        case "refresh":
         case "c":
         case "flip":
         case "w":

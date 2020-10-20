@@ -4,6 +4,7 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.quizcommands.CancelCommand;
 import seedu.address.logic.commands.quizcommands.CorrectCommand;
 import seedu.address.logic.commands.quizcommands.FlipCommand;
+import seedu.address.logic.commands.quizcommands.RefreshCommand;
 import seedu.address.logic.commands.quizcommands.StartCommand;
 import seedu.address.logic.commands.quizcommands.ViewScoreCommand;
 import seedu.address.logic.commands.quizcommands.WrongCommand;
@@ -35,6 +36,8 @@ public class QuizParser implements Parser<Command> {
             return new CorrectCommand();
         case "w":
             return new WrongCommand();
+        case "refresh":
+            return new RefreshCommand();
         default:
             throw new ParseException(MESSAGE_PARSING_ERROR);
         }

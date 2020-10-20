@@ -16,7 +16,9 @@ public interface QuizModel {
 
     Answer getAnswer();
 
-    double stopQuiz();
+    String stopQuiz();
+
+    void cancelQuiz();
 
     String getQuizRecords(int index);
 }

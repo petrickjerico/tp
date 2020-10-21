@@ -36,6 +36,11 @@ public class CommandTypeMatcher {
         throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
     }
 
+    private String getFirstWord(String userInput) {
+        String[] splittedWords = userInput.split(" ");
+        return splittedWords[0];
+    }
+
     private String getSecondWord(String userInput) {
         String[] splittedWords = userInput.split(" ");
         return splittedWords[1];
@@ -65,7 +70,8 @@ public class CommandTypeMatcher {
         case "w":
             return true;
         default:
-            return lowercaseCommand.contains("quiz");
+            return doesContainTwoOrMoreWords(lowercaseCommand) && (
+                    getFirstWord(lowercaseCommand).equals("quiz"));
         }
     }
 

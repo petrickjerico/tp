@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import seedu.address.model.flashcard.Answer;
+import seedu.address.model.flashcard.FlashcardSetName;
 import seedu.address.model.flashcard.Question;
 import seedu.address.model.quiz.Quiz;
 
@@ -20,5 +21,7 @@ public interface QuizModel {
 
     void cancelQuiz();
 
-    String getQuizRecords(int index);
+    String getQuizRecords(FlashcardSetName name);
+
+    void deleteQuiz(FlashcardSetName name);
 }

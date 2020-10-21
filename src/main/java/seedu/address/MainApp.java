@@ -19,8 +19,10 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.systemlevelmodel.AddressBook;
 import seedu.address.model.systemlevelmodel.FlashcardBank;
+import seedu.address.model.systemlevelmodel.QuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlyQuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
 import seedu.address.model.systemlevelmodel.Schedule;
@@ -85,12 +87,17 @@ public class MainApp extends Application {
      * or an empty address book will be used instead if errors occur when reading {@code storage}'s address book.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
+
         Optional<ReadOnlyAddressBook> addressBookOptional;
         Optional<ReadOnlySchedule> scheduleOptional;
         Optional<ReadOnlyFlashcardBank> flashcardBankOptional;
+        Optional<ReadOnlyQuizRecords> quizRecordsOptional;
+
         ReadOnlyAddressBook initialAddressBookData;
         ReadOnlySchedule initialScheduleData;
         ReadOnlyFlashcardBank initialFlashcardBankData;
+        ReadOnlyQuizRecords initialQuizRecordsData;
+
         try {
             addressBookOptional = storage.readAddressBook();
 
@@ -139,7 +146,24 @@ public class MainApp extends Application {
             initialFlashcardBankData = new FlashcardBank();
         }
 
-        return new ModelManager(initialAddressBookData, userPrefs, initialScheduleData, initialFlashcardBankData);
+        try {
+            quizRecordsOptional = storage.readQuizRecords();
+
+            if (quizRecordsOptional.isEmpty()) {
+                logger.info("Quiz Records data file not found. Will be starting with a sample FlashcardBank");
+            }
+
+            initialQuizRecordsData = quizRecordsOptional.orElseGet(SampleDataUtil::getSampleQuizRecords);
+        } catch (DataConversionException e) {
+            logger.warning("Data file not in the correct format. Will be starting with an empty Quiz Record");
+            initialQuizRecordsData = new QuizRecords();
+        } catch (IOException e) {
+            logger.warning("Problem while reading from the file. Will be starting with an empty Quiz Record");
+            initialQuizRecordsData = new QuizRecords();
+        }
+
+        return new ModelManager(initialAddressBookData, userPrefs, initialScheduleData,
+                initialFlashcardBankData, initialQuizRecordsData);
     }
 
     private void initLogging(Config config) {

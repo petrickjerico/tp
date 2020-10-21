@@ -24,6 +24,7 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.person.Person;
 import seedu.address.model.systemlevelmodel.AddressBook;
 import seedu.address.model.systemlevelmodel.FlashcardBank;
+import seedu.address.model.systemlevelmodel.QuizRecords;
 import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.systemlevelmodel.UserPrefs;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
@@ -34,7 +35,7 @@ import seedu.address.testutil.PersonBuilder;
  */
 public class EditCommandTest {
     private final Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(),
-            new Schedule(), new FlashcardBank());
+            new Schedule(), new FlashcardBank(), new QuizRecords());
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
@@ -45,7 +46,7 @@ public class EditCommandTest {
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedPerson);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
-                new UserPrefs(), new Schedule(), new FlashcardBank());
+                new UserPrefs(), new Schedule(), new FlashcardBank(), new QuizRecords());
         expectedModel.setPerson(model.getFilteredPersonList().get(0), editedPerson);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -67,7 +68,7 @@ public class EditCommandTest {
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedPerson);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
-                new Schedule(), new FlashcardBank());
+                new Schedule(), new FlashcardBank(), new QuizRecords());
         expectedModel.setPerson(lastPerson, editedPerson);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -81,7 +82,7 @@ public class EditCommandTest {
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedPerson);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
-                new Schedule(), new FlashcardBank());
+                new Schedule(), new FlashcardBank(), new QuizRecords());
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
@@ -98,7 +99,7 @@ public class EditCommandTest {
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedPerson);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
-                new Schedule(), new FlashcardBank());
+                new Schedule(), new FlashcardBank(), new QuizRecords());
         expectedModel.setPerson(model.getFilteredPersonList().get(0), editedPerson);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);

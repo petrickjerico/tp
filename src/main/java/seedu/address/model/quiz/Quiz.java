@@ -2,6 +2,7 @@ package seedu.address.model.quiz;
 
 import seedu.address.model.flashcard.Answer;
 import seedu.address.model.flashcard.FlashcardSet;
+import seedu.address.model.flashcard.FlashcardSetName;
 import seedu.address.model.flashcard.Question;
 
 public class Quiz {
@@ -60,8 +61,8 @@ public class Quiz {
      */
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Total score = " + pointsScored + "/" + totalScore + "\n");
-        builder.append("Percentage scored = " + getPercentageScore() + "\n");
+        builder.append("Total score = ").append(pointsScored).append("/").append(totalScore).append("\n");
+        builder.append("Percentage scored = ").append(getPercentageScore()).append("\n");
         for (int i = 0; i < totalScore; i++) {
             String isCorrect = scoreboard[i] ? "\u2713" : "\u2718";
             builder.append(i + 1).append(". Question: ")
@@ -76,6 +77,10 @@ public class Quiz {
 
     public double getPercentageScore() {
         return ((double) pointsScored) / ((double) totalScore) * 100;
+    }
+
+    public FlashcardSetName getFlsetName() {
+        return flashcardSet.getFlashcardSetName();
     }
 
     @Override

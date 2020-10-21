@@ -26,6 +26,7 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.person.Person;
 import seedu.address.model.systemlevelmodel.FlashcardBank;
+import seedu.address.model.systemlevelmodel.QuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.systemlevelmodel.UserPrefs;
@@ -144,7 +145,7 @@ public class LogicManagerTest {
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
             String expectedMessage) {
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(),
-                new Schedule(), new FlashcardBank());
+                new Schedule(), new FlashcardBank(), new QuizRecords());
         assertCommandFailure(inputCommand, expectedException, expectedMessage, expectedModel);
     }
 

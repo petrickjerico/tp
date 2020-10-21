@@ -9,6 +9,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlyQuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
 import seedu.address.model.systemlevelmodel.UserPrefs;
@@ -142,5 +143,20 @@ public class StorageManager implements Storage {
     public void saveFlashcardBank(ReadOnlyFlashcardBank flashcardBank, Path filePath) throws IOException {
         logger.fine("Attempting to write to FlashcardBank data file: " + filePath);
         flashcardBankStorage.saveFlashcardBank(flashcardBank, filePath);
+    }
+
+    @Override
+    public Path getQuizRecordsFilePath() {
+        return null;
+    }
+
+    @Override
+    public Optional<ReadOnlyQuizRecords> readQuizRecords() throws DataConversionException, IOException {
+        return Optional.empty();
+    }
+
+    @Override
+    public void saveQuizRecords(ReadOnlyQuizRecords quizRecords) throws IOException {
+
     }
 }

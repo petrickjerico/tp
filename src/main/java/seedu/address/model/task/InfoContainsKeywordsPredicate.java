@@ -13,7 +13,7 @@ public class InfoContainsKeywordsPredicate implements Predicate<Task> {
         this.keywords = keywords;
     }
 
-    private boolean isEmptyKeyword(List<String> keyword) {
+    private boolean isEmptyKeyword(List<String> keywords) {
         return keywords.size() == 0;
     }
 
@@ -38,8 +38,8 @@ public class InfoContainsKeywordsPredicate implements Predicate<Task> {
 
     @Override
     public boolean test(Task task) {
-        return doesDateTimeContainKeywords(task) || doesDescriptionContainKeywords(task) ||
-                doesTitleContainKeywords(task);
+        return doesDateTimeContainKeywords(task) || doesDescriptionContainKeywords(task)
+                || doesTitleContainKeywords(task);
     }
 
     @Override

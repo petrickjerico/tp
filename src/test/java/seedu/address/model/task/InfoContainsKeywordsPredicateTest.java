@@ -11,21 +11,21 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.testutil.TaskBuilder;
 
-public class TitleContainsKeywordsPredicateTest {
+public class InfoContainsKeywordsPredicateTest {
 
     @Test
     public void equals() {
         List<String> firstPredicateKeywordList = Collections.singletonList("first");
         List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
 
-        TitleContainsKeywordsPredicate firstPredicate = new TitleContainsKeywordsPredicate(firstPredicateKeywordList);
-        TitleContainsKeywordsPredicate secondPredicate = new TitleContainsKeywordsPredicate(secondPredicateKeywordList);
+        InfoContainsKeywordsPredicate firstPredicate = new InfoContainsKeywordsPredicate(firstPredicateKeywordList);
+        InfoContainsKeywordsPredicate secondPredicate = new InfoContainsKeywordsPredicate(secondPredicateKeywordList);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same values -> returns true
-        TitleContainsKeywordsPredicate firstPredicateCopy = new TitleContainsKeywordsPredicate(
+        InfoContainsKeywordsPredicate firstPredicateCopy = new InfoContainsKeywordsPredicate(
                 firstPredicateKeywordList);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
@@ -42,31 +42,31 @@ public class TitleContainsKeywordsPredicateTest {
     @Test
     public void test_titleContainsKeywords_returnsTrue() {
         // One keyword
-        TitleContainsKeywordsPredicate predicate = new TitleContainsKeywordsPredicate(
+        InfoContainsKeywordsPredicate predicate = new InfoContainsKeywordsPredicate(
                 Collections.singletonList("CS2100"));
         assertTrue(predicate.test(new TaskBuilder().withTitle("CS2100").build()));
 
         // Multiple keywords
-        predicate = new TitleContainsKeywordsPredicate(Arrays.asList("CS2100", "Homework"));
+        predicate = new InfoContainsKeywordsPredicate(Arrays.asList("CS2100", "Homework"));
         assertTrue(predicate.test(new TaskBuilder().withTitle("CS2100 Homework").build()));
 
         // Only one matching keyword
-        predicate = new TitleContainsKeywordsPredicate(Arrays.asList("CS2103T", "Homework"));
+        predicate = new InfoContainsKeywordsPredicate(Arrays.asList("CS2103T", "Homework"));
         assertTrue(predicate.test(new TaskBuilder().withTitle("CS2100 Homework").build()));
 
         // Mixed-case keywords
-        predicate = new TitleContainsKeywordsPredicate(Arrays.asList("cS2103t", "qUiz"));
+        predicate = new InfoContainsKeywordsPredicate(Arrays.asList("cS2103t", "qUiz"));
         assertTrue(predicate.test(new TaskBuilder().withTitle("CS2103T Quiz").build()));
     }
 
     @Test
     public void test_titleDoesNotContainKeywords_returnsFalse() {
         // Zero keywords
-        TitleContainsKeywordsPredicate predicate = new TitleContainsKeywordsPredicate(Collections.emptyList());
+        InfoContainsKeywordsPredicate predicate = new InfoContainsKeywordsPredicate(Collections.emptyList());
         assertFalse(predicate.test(new TaskBuilder().withTitle("CS2100").build()));
 
         // Non-matching keyword
-        predicate = new TitleContainsKeywordsPredicate(Arrays.asList("CS2103T"));
+        predicate = new InfoContainsKeywordsPredicate(Arrays.asList("CS2103T"));
         assertFalse(predicate.test(new TaskBuilder().withTitle("CS2100 Homework").build()));
     }
 }

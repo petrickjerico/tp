@@ -13,6 +13,10 @@ public class InfoContainsKeywordsPredicate implements Predicate<Task> {
         this.keywords = keywords;
     }
 
+    private boolean isEmptyKeyword(List<String> keyword) {
+        return keywords.size() == 0;
+    }
+
     private boolean doesTitleContainKeywords(Task task) {
         return keywords.stream()
                 .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(task.getTitle().title, keyword));
@@ -20,22 +24,22 @@ public class InfoContainsKeywordsPredicate implements Predicate<Task> {
 
     private boolean doesDescriptionContainKeywords(Task task) {
         Optional<Description> description = task.getDescription();
-        return keywords.stream()
+        return !isEmptyKeyword(keywords) && keywords.stream()
                 .allMatch(keyword -> description.map(desc ->
                         StringUtil.containsWordIgnoreCase(desc.toString(), keyword)).orElse(false));
     }
 
     private boolean doesDateTimeContainKeywords(Task task) {
         Optional<DateTime> dateTime = task.getDateTime();
-        return keywords.stream()
+        return !isEmptyKeyword(keywords) && keywords.stream()
                 .allMatch(keyword -> dateTime.map(date ->
                         StringUtil.containsWordIgnoreCase(date.toString(), keyword)).orElse(false));
     }
 
     @Override
     public boolean test(Task task) {
-        return doesTitleContainKeywords(task) || doesDescriptionContainKeywords(task)
-                || doesDateTimeContainKeywords(task);
+        return doesDateTimeContainKeywords(task) || doesDescriptionContainKeywords(task) ||
+                doesTitleContainKeywords(task);
     }
 
     @Override

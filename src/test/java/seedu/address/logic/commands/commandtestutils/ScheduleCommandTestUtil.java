@@ -17,8 +17,8 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.ScheduleModel;
 import seedu.address.model.systemlevelmodel.Schedule;
+import seedu.address.model.task.InfoContainsKeywordsPredicate;
 import seedu.address.model.task.Task;
-import seedu.address.model.task.TitleContainsKeywordsPredicate;
 
 public class ScheduleCommandTestUtil {
     public static final String VALID_TITLE_CS2103T = "CS2103T";
@@ -91,7 +91,7 @@ public class ScheduleCommandTestUtil {
 
         Task task = model.getFilteredTaskList().get(targetIndex.getZeroBased());
         final String[] splitName = task.getTitle().title.split("\\s+");
-        model.updateFilteredTaskList(new TitleContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+        model.updateFilteredTaskList(new InfoContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
         assertEquals(1, model.getFilteredTaskList().size());
     }

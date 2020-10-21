@@ -63,4 +63,9 @@ public class QuizModelManager implements QuizModel {
     public void deleteQuiz(FlashcardSetName name) {
         quizRecords.removeQuiz(name);
     }
+
+    @Override
+    public ReadOnlyQuizRecords getAllQuizRecords() {
+        return quizRecords;
+    }
 }

@@ -36,6 +36,8 @@ import seedu.address.storage.StorageManager;
 import seedu.address.storage.UserPrefsStorage;
 import seedu.address.storage.flashcardstorage.FlashcardBankStorage;
 import seedu.address.storage.flashcardstorage.JsonFlashcardBankStorage;
+import seedu.address.storage.quizstorage.JsonQuizRecordsStorage;
+import seedu.address.storage.quizstorage.QuizRecordsStorage;
 import seedu.address.storage.schedulestorage.JsonScheduleStorage;
 import seedu.address.storage.schedulestorage.ScheduleStorage;
 import seedu.address.ui.Ui;
@@ -69,8 +71,10 @@ public class MainApp extends Application {
         AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
         ScheduleStorage scheduleStorage = new JsonScheduleStorage(userPrefs.getScheduleFilePath());
         FlashcardBankStorage flashcardBankStorage = new JsonFlashcardBankStorage(userPrefs.getFlashcardBankFilePath());
+        QuizRecordsStorage quizRecordsStorage = new JsonQuizRecordsStorage(userPrefs.getQuizRecordsFilePath());
 
-        storage = new StorageManager(scheduleStorage, flashcardBankStorage, addressBookStorage, userPrefsStorage);
+        storage = new StorageManager(scheduleStorage, flashcardBankStorage,
+                quizRecordsStorage, addressBookStorage, userPrefsStorage);
 
         initLogging(config);
 

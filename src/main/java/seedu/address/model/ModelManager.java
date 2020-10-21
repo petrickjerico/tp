@@ -260,6 +260,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public ReadOnlyQuizRecords getAllQuizRecords() {
+        return quizModelManager.getAllQuizRecords();
+    }
+
+    @Override
     public void deleteQuiz(FlashcardSetName name) {
         quizModelManager.deleteQuiz(name);
     }

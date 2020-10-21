@@ -13,5 +13,10 @@ public interface QuizRecordsStorage {
 
     Optional<ReadOnlyQuizRecords> readQuizRecords() throws DataConversionException, IOException;
 
+    Optional<ReadOnlyQuizRecords> readQuizRecords(Path filePath) throws
+            DataConversionException, IOException;
+
     void saveQuizRecords(ReadOnlyQuizRecords quizRecords) throws IOException;
+
+    void saveQuizRecords(ReadOnlyQuizRecords quizRecords, Path filePath) throws IOException;
 }

@@ -16,14 +16,30 @@ public class Quiz {
 
     /**
      * Creates a quiz from a given flashcard set.
-     * @param index
-     * @param flashcardSet
+     * @param index provided
+     * @param flashcardSet based on index given
      */
     public Quiz(int index, FlashcardSet flashcardSet) {
         this.flashcardSetIndex = index;
         this.flashcardSet = flashcardSet;
         this.totalScore = this.flashcardSet.getFlashcards().size();
         this.scoreboard = new boolean[totalScore];
+    }
+
+    /**
+     * Creates a Quiz object with the given attributes.
+     * @param flashcardSet
+     * @param totalScore
+     * @param pointsScored
+     * @param scoreboard
+     */
+    public Quiz(FlashcardSet flashcardSet, int totalScore, int pointsScored,
+                boolean[] scoreboard) {
+        this.totalScore = totalScore;
+        this.flashcardSet = flashcardSet;
+        this.pointsScored = pointsScored;
+        this.scoreboard = scoreboard;
+        this.flashcardSetIndex = 0; // index doesn't matter here anymore
     }
 
     public Question getQuestion() {
@@ -54,6 +70,10 @@ public class Quiz {
         return scoreboard;
     }
 
+    public FlashcardSet getFlashcardSet() {
+        return flashcardSet;
+    }
+
     /**
      * Gives the string representation of the quiz,
      * using its score records.
@@ -77,6 +97,14 @@ public class Quiz {
 
     public double getPercentageScore() {
         return ((double) pointsScored) / ((double) totalScore) * 100;
+    }
+
+    public int getPointsScored() {
+        return pointsScored;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
     }
 
     public FlashcardSetName getFlsetName() {

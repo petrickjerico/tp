@@ -14,6 +14,7 @@ import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
 import seedu.address.model.systemlevelmodel.UserPrefs;
 import seedu.address.storage.flashcardstorage.FlashcardBankStorage;
+import seedu.address.storage.quizstorage.QuizRecordsStorage;
 import seedu.address.storage.schedulestorage.ScheduleStorage;
 
 /**
@@ -26,16 +27,19 @@ public class StorageManager implements Storage {
     private final ScheduleStorage scheduleStorage;
     private final UserPrefsStorage userPrefsStorage;
     private final FlashcardBankStorage flashcardBankStorage;
+    private final QuizRecordsStorage quizRecordsStorage;
 
     /**
      * Creates a {@code StorageManager} with the given {@code AddressBookStorage} and {@code UserPrefStorage}.
      */
     public StorageManager(ScheduleStorage scheduleStorage, FlashcardBankStorage flashcardBankStorage,
+                          QuizRecordsStorage quizRecordsStorage,
                           AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage) {
         this.addressBookStorage = addressBookStorage;
         this.userPrefsStorage = userPrefsStorage;
         this.scheduleStorage = scheduleStorage;
         this.flashcardBankStorage = flashcardBankStorage;
+        this.quizRecordsStorage = quizRecordsStorage;
     }
 
     // ================ UserPrefs methods ==============================
@@ -145,18 +149,33 @@ public class StorageManager implements Storage {
         flashcardBankStorage.saveFlashcardBank(flashcardBank, filePath);
     }
 
+    // ================ QuizRecords methods ==============================
+
     @Override
     public Path getQuizRecordsFilePath() {
-        return null;
+        return quizRecordsStorage.getQuizRecordsFilePath();
     }
 
     @Override
     public Optional<ReadOnlyQuizRecords> readQuizRecords() throws DataConversionException, IOException {
-        return Optional.empty();
+        return readQuizRecords(quizRecordsStorage.getQuizRecordsFilePath());
+    }
+
+    @Override
+    public Optional<ReadOnlyQuizRecords> readQuizRecords(Path filePath) throws
+            DataConversionException, IOException {
+        logger.fine("Attempting to read Quiz Records from file: " + filePath);
+        return quizRecordsStorage.readQuizRecords(filePath);
     }
 
     @Override
     public void saveQuizRecords(ReadOnlyQuizRecords quizRecords) throws IOException {
+        saveQuizRecords(quizRecords, quizRecordsStorage.getQuizRecordsFilePath());
+    }
 
+    @Override
+    public void saveQuizRecords(ReadOnlyQuizRecords quizRecords, Path filePath) throws IOException {
+        logger.fine("Attempting to write to Quiz Records data file: " + filePath);
+        quizRecordsStorage.saveQuizRecords(quizRecords, filePath);
     }
 }

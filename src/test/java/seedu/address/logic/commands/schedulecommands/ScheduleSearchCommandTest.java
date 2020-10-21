@@ -7,7 +7,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_TASKS_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.SampleTasks.CS2100_FINAL;
 import static seedu.address.testutil.SampleTasks.CS2100_TUTORIAL_HOMEWORK;
-import static seedu.address.testutil.SampleTasks.getSampleTasks;
+import static seedu.address.testutil.SampleTasks.getSampleSchedule;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,8 +19,8 @@ import seedu.address.model.ScheduleModelManager;
 import seedu.address.model.task.TitleContainsKeywordsPredicate;
 
 public class ScheduleSearchCommandTest {
-    private ScheduleModel model = new ScheduleModelManager(getTypicalSchedule());
-    private ScheduleModel expectedModel = new ScheduleModelManager(getTypicalSchedule());
+    private ScheduleModel model = new ScheduleModelManager(getSampleSchedule());
+    private ScheduleModel expectedModel = new ScheduleModelManager(getSampleSchedule());
 
 
     @Test

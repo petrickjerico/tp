@@ -6,10 +6,10 @@ import java.util.function.Predicate;
 
 import seedu.address.commons.util.StringUtil;
 
-public class TitleContainsKeywordsPredicate implements Predicate<Task> {
+public class InfoContainsKeywordsPredicate implements Predicate<Task> {
     private final List<String> keywords;
 
-    public TitleContainsKeywordsPredicate(List<String> keywords) {
+    public InfoContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords;
     }
 
@@ -41,7 +41,7 @@ public class TitleContainsKeywordsPredicate implements Predicate<Task> {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof TitleContainsKeywordsPredicate // instanceof handles nulls
-                && keywords.equals(((TitleContainsKeywordsPredicate) other).keywords)); // state check
+                || (other instanceof InfoContainsKeywordsPredicate // instanceof handles nulls
+                && keywords.equals(((InfoContainsKeywordsPredicate) other).keywords)); // state check
     }
 }

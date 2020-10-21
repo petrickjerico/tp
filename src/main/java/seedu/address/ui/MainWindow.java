@@ -1,21 +1,15 @@
 package seedu.address.ui;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.image.Image;
+import javafx.geometry.Insets;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
-import seedu.address.ui.sidebar.SideBarHelpMenu;
-import seedu.address.ui.sidebar.SideBarTab;
+import seedu.address.ui.sidebar.SideBar;
 import seedu.address.ui.util.Observable;
 import seedu.address.ui.util.Observer;
 import seedu.address.ui.util.SingletonUiState;
@@ -28,27 +22,16 @@ import seedu.address.ui.util.UiStateType;
 public class MainWindow extends UiPart<Stage> implements Observer {
 
     private static final String FXML = "MainWindow.fxml";
-    private final Image scheduleImage = new Image(this.getClass()
-            .getResourceAsStream("/images/icon_schedule.png"));
-    private final Image flashcardsImage = new Image(this.getClass()
-            .getResourceAsStream("/images/icon_flashcards.png"));
-
-    private final List<SideBarTab> studyBananasTabs = Arrays.asList(new SideBarTab(scheduleImage, "SCHEDULE"),
-            new SideBarTab(flashcardsImage, "FLASHCARDS"));
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
     private final Stage primaryStage;
     private final Logic logic;
 
-
-    @FXML
-    private VBox sideBar;
+    private SingletonUiState uiState;
 
     @FXML
     private BorderPane mainWindow;
-
-    private SingletonUiState uiState;
 
 
 
@@ -62,12 +45,14 @@ public class MainWindow extends UiPart<Stage> implements Observer {
         this.primaryStage = primaryStage;
         this.logic = logic;
 
+
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
 
         //subscribe to UiState
         uiState = SingletonUiState.getInstance();
         subscribe(uiState);
+
     }
 
     public Stage getPrimaryStage() {
@@ -79,23 +64,10 @@ public class MainWindow extends UiPart<Stage> implements Observer {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        //set label
-        List<Node> tabs = studyBananasTabs.stream().map(tab -> tab.getRoot()).collect(Collectors.toList());
-        sideBar.getChildren().addAll(tabs);
+        mainWindow.setLeft(new SideBar(primaryStage, logic).getRoot());
 
-        VBox padding = new VBox();
-        padding.setPrefHeight(470);
-
-        //temporary set the middle empty part
-        sideBar.getChildren().add(padding);
-
-        //set sidebar help menu
-        sideBar.getChildren().add(new SideBarHelpMenu(primaryStage, logic).getRoot());
-
-
-        //get the default uiState
+        //default center view
         handleStateChange(this.uiState.getUiState());
-
     }
 
     /**

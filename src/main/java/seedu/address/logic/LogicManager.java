@@ -106,6 +106,11 @@ public class LogicManager implements Logic {
     }
 
     @Override
+    public FlashcardSet getFlashcardSetToView() {
+        return model.getFlashcardSetToView();
+    }
+
+    @Override
     public GuiSettings getGuiSettings() {
         return model.getGuiSettings();
     }

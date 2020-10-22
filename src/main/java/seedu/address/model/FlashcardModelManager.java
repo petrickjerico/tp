@@ -15,6 +15,7 @@ import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 public class FlashcardModelManager implements FlashcardModel {
     private final FlashcardBank flashcardBank;
     private final FilteredList<FlashcardSet> filteredFlashcardSets;
+    private FlashcardSet flashcardSetToDisplay;
 
     /**
      * Creates FlashcardModelManager from {@code flashcardBank}
@@ -24,6 +25,7 @@ public class FlashcardModelManager implements FlashcardModel {
     public FlashcardModelManager(ReadOnlyFlashcardBank flashcardBank) {
         this.flashcardBank = new FlashcardBank(flashcardBank);
         filteredFlashcardSets = new FilteredList<>(this.flashcardBank.getFlashcardSetList());
+        flashcardSetToDisplay = null;
     }
 
     //=========== Flashcard =============================================================
@@ -92,6 +94,16 @@ public class FlashcardModelManager implements FlashcardModel {
     public void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate) {
         requireNonNull(predicate);
         filteredFlashcardSets.setPredicate(predicate);
+    }
+
+    @Override
+    public FlashcardSet getFlashcardSetToView() {
+        return flashcardSetToDisplay;
+    }
+
+    @Override
+    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+        flashcardSetToDisplay = flashcardSet;
     }
 
     //=========== Flashcard Bank =============================================================

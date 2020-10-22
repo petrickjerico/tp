@@ -2,6 +2,8 @@ package seedu.address.model.flashcard;
 
 import java.util.Objects;
 
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  * Represents a Flashcard in a FlashcardSet.
  */
@@ -9,6 +11,8 @@ public class Flashcard {
 
     private final Question question;
     private final Answer answer;
+    private final SimpleStringProperty questionString;
+    private final SimpleStringProperty answerString;
 
     /**
      * Every field must be present and not null.
@@ -16,6 +20,8 @@ public class Flashcard {
     public Flashcard(Question question, Answer answer) {
         this.question = question;
         this.answer = answer;
+        questionString = new SimpleStringProperty(question.toString());
+        answerString = new SimpleStringProperty(answer.toString());
     }
 
     public Question getQuestion() {
@@ -24,6 +30,22 @@ public class Flashcard {
 
     public Answer getAnswer() {
         return answer;
+    }
+
+    public String getQuestionString() {
+        return questionString.get();
+    }
+
+    public void setQuestionString(String question) {
+        questionString.set(question);
+    }
+
+    public String getAnswerString() {
+        return answerString.get();
+    }
+
+    public void setAnswerString(String answer) {
+        answerString.set(answer);
     }
 
     @Override

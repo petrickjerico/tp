@@ -21,6 +21,7 @@ public class FlashcardUi extends UiPart<Region> {
     // Independent Ui parts residing in this Ui container
     private FlashcardSetListPanel flashcardSetListPanel;
     private ResultDisplay resultDisplay;
+    private FlashcardsDisplay flashcardsDisplay;
 
     @javafx.fxml.FXML
     private StackPane commandBoxPlaceholder;
@@ -32,7 +33,7 @@ public class FlashcardUi extends UiPart<Region> {
     private StackPane resultDisplayPlaceholder;
 
     @FXML
-    private StackPane flashcardDisplay;
+    private StackPane flashcardsDisplayPlaceholder;
 
     /**
      * Constructor for ScheduleUi.
@@ -49,11 +50,12 @@ public class FlashcardUi extends UiPart<Region> {
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
+        flashcardsDisplay = new FlashcardsDisplay(logic.getFlashcardSetToView());
+        flashcardsDisplayPlaceholder.getChildren().add(flashcardsDisplay.getRoot());
+
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
     }
-
-
 
     public FlashcardSetListPanel getFlashcardSetListPanel() {
         return flashcardSetListPanel;

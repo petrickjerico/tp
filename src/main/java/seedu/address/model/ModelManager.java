@@ -336,4 +336,14 @@ public class ModelManager implements Model {
     public void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate) {
         flashcardModelManager.updateFilteredFlashcardSetList(predicate);
     }
+
+    @Override
+    public FlashcardSet getFlashcardSetToView() {
+        return flashcardModelManager.getFlashcardSetToView();
+    }
+
+    @Override
+    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+        flashcardModelManager.setFlashcardSetToView(flashcardSet);
+    }
 }

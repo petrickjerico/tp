@@ -62,19 +62,22 @@ public interface Logic {
 
 
     /**
-     * Returns the Schedule.
+     * Returns the Flashcard Bank.
      *
      * @see seedu.address.model.Model#getSchedule()
      */
     ReadOnlyFlashcardBank getFlashcardBank();
 
-    /** Returns an unmodifiable view of the filtered list of tasks */
+    /** Returns an unmodifiable view of the filtered list of flashcard sets */
     ObservableList<FlashcardSet> getFilteredFlashcardSetList();
 
     /**
-     * Returns the user prefs' schedule file path.
+     * Returns the user prefs' flashcard bank file path.
      */
     Path getFlashcardBankFilePath();
+
+    /** Returns the selected flashcards to view */
+    FlashcardSet getFlashcardSetToView();
 
 
     /**
@@ -86,4 +89,6 @@ public interface Logic {
      * Set the user prefs' GUI settings.
      */
     void setGuiSettings(GuiSettings guiSettings);
+
+
 }

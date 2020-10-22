@@ -137,4 +137,13 @@ public interface FlashcardModel {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate);
+
+    //=========== Filtered Flashcard Set Accessors =========================================================
+
+    /** Returns an unmodifiable view of the filtered flashcard set list */
+    FlashcardSet getFlashcardSetToView();
+
+    /** Sets an unmodifiable view of the filtered flashcard set list */
+    void setFlashcardSetToView(FlashcardSet flashcardSet);
+
 }

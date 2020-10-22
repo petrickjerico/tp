@@ -72,7 +72,8 @@ public class CommandTypeMatcher {
             return true;
         default:
             return doesContainTwoOrMoreWords(lowercaseCommand) && (
-                    getFirstWord(lowercaseCommand).equals("quiz"));
+                    getFirstWord(lowercaseCommand).equals("quiz"))
+                    || lowercaseCommand.startsWith("ans:");
         }
     }
 

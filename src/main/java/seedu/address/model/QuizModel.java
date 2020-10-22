@@ -27,4 +27,6 @@ public interface QuizModel {
     void deleteQuiz(FlashcardSetName name);
 
     ReadOnlyQuizRecords getAllQuizRecords();
+
+    void saveAnswer(String answer);
 }

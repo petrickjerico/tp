@@ -68,4 +68,9 @@ public class QuizModelManager implements QuizModel {
     public ReadOnlyQuizRecords getAllQuizRecords() {
         return quizRecords;
     }
+
+    @Override
+    public void saveAnswer(String answer) {
+        this.quiz.saveAnswer(answer);
+    }
 }

@@ -270,6 +270,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void saveAnswer(String answer) {
+        quizModelManager.saveAnswer(answer);
+    }
+
+    @Override
     public void setFlashcardBank(ReadOnlyFlashcardBank flashcardBank) {
         flashcardModelManager.setFlashcardBank(flashcardBank);
     }

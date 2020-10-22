@@ -1,6 +1,7 @@
 package seedu.address.logic.parser.quizparsers;
 
 import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.quizcommands.AnswerCommand;
 import seedu.address.logic.commands.quizcommands.CancelCommand;
 import seedu.address.logic.commands.quizcommands.CorrectCommand;
 import seedu.address.logic.commands.quizcommands.FlipCommand;
@@ -19,14 +20,21 @@ public class QuizParser implements Parser<Command> {
 
     @Override
     public Command<? super Model> parse(String userInput) throws ParseException {
-        if (userInput.contains("quiz flset:")) {
+        if (userInput.startsWith("quiz flset:")) {
             userInput = userInput.replace("quiz flset:", "");
             int index = parseNumber(userInput);
             return new StartCommand(index);
-        } else if (userInput.contains("quiz score flset:")) {
+        } else if (userInput.startsWith("quiz score flset:")) {
             userInput = userInput.replace("quiz score flset:", "");
             int index = parseNumber(userInput);
             return new ViewScoreCommand(index);
+        } else if (userInput.startsWith("quiz store flset:")) {
+            userInput = userInput.replace("quiz store flset:", "");
+            int index = parseNumber(userInput);
+            return new StartCommand(index);
+        } else if (userInput.startsWith("ans:")) {
+            userInput = userInput.replace("ans:", "");
+            return new AnswerCommand(userInput);
         }
         switch (userInput) {
         case "cancel":

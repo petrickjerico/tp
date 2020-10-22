@@ -16,6 +16,7 @@ public class JsonAdaptedQuiz {
     private final int totalScore;
     private final int pointsScored;
     private final boolean[] scoreboard;
+    private final String[] userAnswers;
 
     /**
      * Creates a JsonAdaptedQuiz object.
@@ -28,11 +29,13 @@ public class JsonAdaptedQuiz {
     public JsonAdaptedQuiz(@JsonProperty("flashcardSet") JsonAdaptedFlashcardSet flset,
                     @JsonProperty("totalScore") int totalScore,
                     @JsonProperty("pointsScored") int pointsScored,
-                    @JsonProperty("scoreboard") boolean[] scoreboard) {
+                    @JsonProperty("scoreboard") boolean[] scoreboard,
+                    @JsonProperty("userAnswers") String[] userAnswers) {
         this.flset = flset;
         this.pointsScored = pointsScored;
         this.totalScore = totalScore;
         this.scoreboard = scoreboard;
+        this.userAnswers = userAnswers;
     }
 
     /**
@@ -43,6 +46,7 @@ public class JsonAdaptedQuiz {
         pointsScored = source.getPointsScored();
         totalScore = source.getTotalScore();
         scoreboard = source.getResults();
+        userAnswers = source.getUserAnswers();
     }
 
     /**
@@ -66,7 +70,7 @@ public class JsonAdaptedQuiz {
         }
 
         final FlashcardSet flashcardSet = flset.toModelType();
-        return new Quiz(flashcardSet, totalScore, pointsScored, scoreboard);
+        return new Quiz(flashcardSet, totalScore, pointsScored, scoreboard, userAnswers);
     }
 
 }

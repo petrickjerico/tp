@@ -13,6 +13,7 @@ public class Quiz {
     private int pointsScored = 0;
     private int currentIndex = 0;
     private final boolean[] scoreboard;
+    private final String[] userAnswers;
 
     /**
      * Creates a quiz from a given flashcard set.
@@ -24,6 +25,7 @@ public class Quiz {
         this.flashcardSet = flashcardSet;
         this.totalScore = this.flashcardSet.getFlashcards().size();
         this.scoreboard = new boolean[totalScore];
+        this.userAnswers = new String[totalScore];
     }
 
     /**
@@ -34,12 +36,13 @@ public class Quiz {
      * @param scoreboard
      */
     public Quiz(FlashcardSet flashcardSet, int totalScore, int pointsScored,
-                boolean[] scoreboard) {
+                boolean[] scoreboard, String[] userAnswers) {
         this.totalScore = totalScore;
         this.flashcardSet = flashcardSet;
         this.pointsScored = pointsScored;
         this.scoreboard = scoreboard;
         this.flashcardSetIndex = 0; // index doesn't matter here anymore
+        this.userAnswers = userAnswers;
     }
 
     public Question getQuestion() {
@@ -53,6 +56,15 @@ public class Quiz {
         Answer answer = flashcardSet.getFlashcards().get(currentIndex).getAnswer();
         currentIndex++;
         return answer;
+    }
+
+    public String[] getUserAnswers() {
+        return userAnswers;
+    }
+
+    public void saveAnswer(String input) {
+        assert currentIndex < totalScore;
+        this.userAnswers[currentIndex] = input;
     }
 
     public int getFlashcardSetIndex() {
@@ -88,9 +100,18 @@ public class Quiz {
             builder.append(i + 1).append(". Question: ")
                     .append(flashcardSet.getFlashcards().get(i).getQuestion())
                     .append("\n");
-            builder.append(isCorrect).append(". Answer: ")
-                    .append(flashcardSet.getFlashcards().get(i).getAnswer())
-                    .append("\n");
+            if (userAnswers[i] != null) {
+                builder.append("Correct Answer: ")
+                        .append(flashcardSet.getFlashcards().get(i).getAnswer())
+                        .append("\n");
+                builder.append(isCorrect).append(". Your Answer: ")
+                        .append(userAnswers[i])
+                        .append("\n");
+            } else {
+                builder.append(isCorrect).append("Answer: ")
+                        .append(flashcardSet.getFlashcards().get(i).getAnswer())
+                        .append("\n");
+            }
         }
         return builder.toString();
     }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import seedu.address.ui.UiPart;
@@ -13,6 +14,7 @@ public class TimeScale extends UiPart<Region> {
     private static final String FXML = "TimeScale.fxml";
 
     private List<TimeScaleCell> timeScaleCells = new ArrayList<>();
+    private CurrentTimePointer currentTimePointer;
 
     @FXML
     private StackPane timeScale;
@@ -50,5 +52,19 @@ public class TimeScale extends UiPart<Region> {
             timeScale.getChildren().add(timeScaleCells.get(i).getRoot());
             timeScale.setMargin(timeScaleCells.get(i).getRoot(), new Insets(i * 40, 0, 0, 0));
         }
+    }
+
+    public void placeItem(Node node, double marginTop) {
+        timeScale.getChildren().add(node);
+        timeScale.setMargin(node, new Insets(marginTop, 0, 0, 0));
+    }
+
+    public void placeCurrentTime(CurrentTimePointer currentTimePointer, double marginTop) {
+        placeItem(currentTimePointer.getRoot(), marginTop);
+        this.currentTimePointer = currentTimePointer;
+    }
+
+    public void updateCurrentTimePosition(double newMarginTop){
+        timeScale.setMargin(currentTimePointer.getRoot(), new Insets(newMarginTop, 0, 0, 0));
     }
 }

@@ -10,13 +10,12 @@ import seedu.address.model.flashcard.Answer;
 
 public class AnswerCommand extends Command<QuizModel> {
 
+    public static final Status STATUS = Status.ON_QUESTION;
     private final String answer;
 
     public AnswerCommand(String answer) {
         this.answer = answer;
     }
-
-    public static final Status STATUS = Status.ON_QUESTION;
 
     @Override
     public CommandResult execute(QuizModel model) throws CommandException {

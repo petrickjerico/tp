@@ -62,6 +62,10 @@ public class Quiz {
         return userAnswers;
     }
 
+    /**
+     * Stores the user answer.
+     * @param input user answer
+     */
     public void saveAnswer(String input) {
         assert currentIndex < totalScore;
         this.userAnswers[currentIndex] = input;

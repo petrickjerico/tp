@@ -201,20 +201,23 @@ The next question of the next flashcard will be displayed. Steps 1-2 are repeate
 Once the quiz stops, the score will be displayed. This score can be viewed when viewing the last attempt of the flashcard set.
 <p>&nbsp;</p>
 
+At any point should the user enter a command not pertaining to quiz, 
+they may key in `refresh` to see their current quiz question/answer.
+
 #### **CASE 2**: Stores the user answers to the quiz
-Format: `quiz flset store:<setindex>`  
+Format: `quiz store flset:<setindex>`  
 
 Examples: 
-`quiz flset store:1`, `quiz flset store:5`
+`quiz store flset:1`, `quiz store flset:5`
 
 As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for the user to type in the answer to the question, or cancel, <answer> or cancel.
 
-- `<answer>`: Displays the answer to the flashcard question.
+- `ans:<answer>`: Displays the answer to the flashcard question.
 - `cancel`: Stops the quiz 
 
 <img src="images/question.png" width="200px">
 
-If the user enters the `<answer>`, the correct answer to the question will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`.  
+If the user enters the `ans:<answer>`, the correct answer to the question will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`.  
 
 Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
 
@@ -228,6 +231,9 @@ The next question of the next flashcard will be displayed. Steps 1-2 are repeate
 
 Once the quiz stops, the score and answers will be displayed. Both information can be viewed when viewing the last attempt of the flashcard set.
 <p>&nbsp;</p>
+
+At any point should the user enter a command not pertaining to quiz, 
+they may key in `refresh` to see their current quiz question/answer.
 
 ### **View last quiz attempt**: `quiz score flset`
 Shows the last attempt of a specific flashcard set.
@@ -350,11 +356,11 @@ _{explain the feature here}_
 
 ### Quiz commands
 
-| Action                           | Format, Examples                                                                        |
-| -------------------------------- | --------------------------------------------------------------------------------------- |
-| **Quiz flset (without storage)** | `quiz flset:<setindex>` <br> e.g., `quiz flset:7`, `flip`, `c/w`, `cancel`              |
-| **Quiz flset (with storage)**    | `quiz flset store:<setindex>` <br> e.g., `quiz flset store:10`, `flip`, `c/w`, `cancel` |
-| **Quiz score flset**                   | `quiz score flset` <br>  e.g., `quiz score flset:6`                            |
+| Action                           | Format, Examples                                                                                  |
+| -------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Quiz flset (without storage)** | `quiz flset:<setindex>` <br> e.g., `quiz flset:7`, `flip`, `c/w`, `cancel`, `refresh`             |
+| **Quiz flset (with storage)**    | `quiz store flset:<setindex>` <br> e.g., `quiz store flset:10`, `flip`, `c/w`, `cancel`, refresh  |
+| **Quiz score flset**                   | `quiz score flset` <br>  e.g., `quiz score flset:6`                                         |
 
 <p>&nbsp;</p>
 

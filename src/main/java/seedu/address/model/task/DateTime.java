@@ -5,6 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 import seedu.address.model.task.timeformat.TimeFormatChecker;
@@ -18,23 +19,14 @@ public class DateTime {
             "DateTime should be in the yyyy-MM-dd HH:mm format";
     public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm";
 
-    /**
-     * Util function for sample data.
-     * @return
-     */
-    public static DateTime getToday(int hour, int minute) {
-        LocalDate today = LocalDate.now();
-        DateTime todayDateTime = new DateTime();
-        todayDateTime.dateTime = today.atTime(hour, minute);
-        return todayDateTime;
+    public final LocalDateTime dateTime;
+
+    private DateTime() {
+        dateTime = null;
     }
-
-    public LocalDateTime dateTime;
-
 
     /**
      * Constructs a {@code DateTime}.
-     *
      * @param dateTime A valid date time.
      */
     public DateTime(String dateTime) {
@@ -43,8 +35,17 @@ public class DateTime {
         this.dateTime = TimeFormatChecker.mapToLocalDateTime(dateTime);
     }
 
-    private DateTime() {
-        dateTime = null;
+    /**
+     * Util function for sample data.
+     * @return
+     */
+    public static DateTime getToday(int hour, int minute) {
+        LocalDate today = LocalDate.now();
+        LocalTime time = LocalTime.of(hour, minute);
+        DateTimeFormatter dayFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+        String todayStr = dayFormatter.format(today) + " " + timeFormatter.format(time);
+        return new DateTime(todayStr);
     }
 
     /**

@@ -24,6 +24,10 @@ public class Duration {
         this.duration = Integer.valueOf(duration);
     }
 
+    /**
+     * Construct Duration from an {@Code Integer}.
+     * @param duration
+     */
     public Duration(Integer duration) {
         requireNonNull(duration);
         checkArgument(duration < MINUTE_PER_DAY, MESSAGE_CONSTRAINTS);

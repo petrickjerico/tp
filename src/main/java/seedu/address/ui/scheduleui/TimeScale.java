@@ -48,6 +48,10 @@ public class TimeScale extends UiPart<Region> {
     @FXML
     private ScrollPane scrollPane;
 
+    /**
+     * Constructor of the TimeScale.
+     * @param tasks the task list that TimeScale listens to.
+     */
     public TimeScale(ObservableList<Task> tasks) {
         super(FXML);
         this.tasks = tasks;
@@ -63,9 +67,9 @@ public class TimeScale extends UiPart<Region> {
 
     private void init() {
         //set morning
-        timeScaleCells.add(new TimeScaleCell( "12 AM"));
+        timeScaleCells.add(new TimeScaleCell("12 AM"));
         for (int i = 1; i < 12; i++) {
-            timeScaleCells.add(new TimeScaleCell( i + " AM"));
+            timeScaleCells.add(new TimeScaleCell(i + " AM"));
         }
 
         //set noon
@@ -118,17 +122,30 @@ public class TimeScale extends UiPart<Region> {
         }
     }
 
+    /**
+     * Place a {@Code Node} in the TimeScale with marginTop being {@Code marginTop}.
+     * @param node node to place
+     * @param marginTop marginTop of the node
+     */
     public void placeItem(Node node, double marginTop) {
         timeScale.getChildren().add(node);
         timeScale.setMargin(node, new Insets(marginTop, 0, 0, 0));
     }
 
+    /**
+     * Place the {@Code CurrentTimePointer} with the initial {@Code marginTop}.
+     * @param marginTop initial marginTop
+     */
     public void placeCurrentTime(CurrentTimePointer currentTimePointer, double marginTop) {
         placeItem(currentTimePointer.getRoot(), marginTop);
         this.currentTimePointer = currentTimePointer;
     }
 
-    public void updateCurrentTimePosition(double newMarginTop){
+    /**
+     * Update the position of {@CurrentTimePosition}.
+     * @param newMarginTop
+     */
+    public void updateCurrentTimePosition(double newMarginTop) {
         timeScale.setMargin(currentTimePointer.getRoot(), new Insets(newMarginTop, 0, 0, 0));
 
     }
@@ -149,7 +166,7 @@ public class TimeScale extends UiPart<Region> {
             //hour is one-based, and the timeScaleCell starts from 12AM
             TimeScaleCell overlappedCell = timeScaleCells.get(hour);
             overlappedCell.hideTime();
-        } else if (minute > 15){
+        } else if (minute > 15) {
             timeScaleCells.get(hour).recoverTime();
             timeScaleCells.get(hour + 1).recoverTime();
         } else if (minute >= 45) {

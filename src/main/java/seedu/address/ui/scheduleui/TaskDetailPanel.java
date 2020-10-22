@@ -14,7 +14,6 @@ import seedu.address.ui.CommandBox;
 import seedu.address.ui.ResultDisplay;
 import seedu.address.ui.TaskListPanel;
 import seedu.address.ui.UiPart;
-import seedu.address.ui.scheduleui.TimeScale;
 
 public class TaskDetailPanel extends UiPart<Region> {
     private static final String FXML = "TaskDetailPanel.fxml";

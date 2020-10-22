@@ -83,7 +83,7 @@ public class TaskCell extends UiPart<Region> {
 
     private String getTimeFromTask(Task task) {
         LocalDateTime dateTime = task.getDateTime().get().dateTime;
-        DateTimeFormatter formmater =  DateTimeFormatter.ofPattern("HH:mm");
+        DateTimeFormatter formmater = DateTimeFormatter.ofPattern("HH:mm");
         return toAmPmTime(formmater.format(dateTime));
     }
 

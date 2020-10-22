@@ -17,15 +17,6 @@ public class Task {
     private final Optional<DateTime> dateTime;
     private final Optional<Duration> duration;
 
-
-    public TaskCell getTaskCellBind() {
-        return taskCellBind;
-    }
-
-    public void setTaskCellBind(TaskCell taskCellBind) {
-        this.taskCellBind = taskCellBind;
-    }
-
     // Not sure if this is a good practice. This is used by the ListChangeListener in TimeScale
     private TaskCell taskCellBind;
 
@@ -111,6 +102,13 @@ public class Task {
                         .append(time.toString() + "\n")).orElse(emptyString);
     }
 
+    public TaskCell getTaskCellBind() {
+        return taskCellBind;
+    }
+
+    public void setTaskCellBind(TaskCell taskCellBind) {
+        this.taskCellBind = taskCellBind;
+    }
     public boolean happensToday() {
         return duration.isPresent() && dateTime.isPresent() && dateTime.get().isToday();
     }

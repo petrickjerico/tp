@@ -37,6 +37,10 @@ public class UpcomingSchedule extends UiPart<Region> {
 
     private Logic logic;
 
+    /**
+     * Constructor for the UpcomingSchedulePanel, which is the left panel of the {@ScheduleUi}.
+     * @param logic
+     */
     public UpcomingSchedule(Logic logic) {
         super(FXML);
         this.logic = logic;
@@ -86,7 +90,7 @@ public class UpcomingSchedule extends UiPart<Region> {
     private String getDateString(LocalDate date) {
         String month = date.getMonth().toString();
         String dayOfMonth = String.valueOf(date.getDayOfMonth());
-        String dateString = month + " " +dayOfMonth + ",";
+        String dateString = month + " " + dayOfMonth + ",";
         return dateString;
     }
 

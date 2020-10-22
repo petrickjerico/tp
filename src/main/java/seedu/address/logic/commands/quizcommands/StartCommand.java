@@ -14,7 +14,9 @@ import seedu.address.model.quiz.Quiz;
 //The abstraction has to be clarified.
 public class StartCommand extends Command<Model> {
 
-    public static final String MESSAGE_QUIZ_IN_PROGRESS = "Quiz already in progress!";
+    public static final String MESSAGE_QUIZ_IN_PROGRESS = "A quiz is already in progress! "
+            + "Key 'refresh' to see current question/answer. \n"
+            + "To stop the current quiz, key 'cancel'.";
     public static final String MESSAGE_FLASHCARD_SET_NONEXISTENT = "Flashcard set does not exist";
     public static final String MESSAGE_FLASHCARD_SET_EMPTY = "Flashcard set is empty";
     private final int index;
@@ -36,7 +38,10 @@ public class StartCommand extends Command<Model> {
             FlashcardSet flashcardSet = model.getFlashcardSet(indexWrapper);
             Quiz quiz = new Quiz(this.index, flashcardSet);
             Question firstQuestion = model.start(quiz);
+
             QuizCommand.setStatus(Status.ON_QUESTION);
+            QuizCommand.updateCommandResult(firstQuestion.toString());
+
             return new CommandResult(firstQuestion.toString());
 
         } catch (IndexOutOfBoundsException e) {

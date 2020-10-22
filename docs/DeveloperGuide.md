@@ -251,6 +251,7 @@ Step 3. The user now knows what is the due date of the currently added task, and
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** `ScheduleEditCommand#execute()` creates a new task sharing some of the overlapped fields with the to-be-replaced task. Then `ScheduleModelManager#setTask()` sets the to-be-replaced task with the newly created task at index 4 of the `Schedule`.  
 
+</div> 
 
 The following sequence diagram shows how the edit task operation works:
 

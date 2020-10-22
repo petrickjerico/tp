@@ -195,6 +195,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public ObservableList<Task> getUpcomingTaskList() {
+        return scheduleModelManager.getUpcomingTaskList();
+    }
+
+    @Override
     public void updateFilteredTaskList(Predicate<Task> predicate) {
         this.scheduleModelManager.updateFilteredTaskList(predicate);
     }

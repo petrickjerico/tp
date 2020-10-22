@@ -3,7 +3,9 @@ package seedu.address.model.task;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 import seedu.address.model.task.timeformat.TimeFormatChecker;
@@ -19,10 +21,12 @@ public class DateTime {
 
     public final LocalDateTime dateTime;
 
+    private DateTime() {
+        dateTime = null;
+    }
 
     /**
      * Constructs a {@code DateTime}.
-     *
      * @param dateTime A valid date time.
      */
     public DateTime(String dateTime) {
@@ -32,10 +36,30 @@ public class DateTime {
     }
 
     /**
+     * Util function for sample data.
+     * @return
+     */
+    public static DateTime getToday(int hour, int minute) {
+        LocalDate today = LocalDate.now();
+        LocalTime time = LocalTime.of(hour, minute);
+        DateTimeFormatter dayFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+        String todayStr = dayFormatter.format(today) + " " + timeFormatter.format(time);
+        return new DateTime(todayStr);
+    }
+
+    /**
      * Returns true if a given string is a valid date or an empty string.
      */
     public static boolean isValidDateTime(String test) {
         return test.equals("") || TimeFormatChecker.check(test);
+    }
+
+    /**
+     * Check if the dateTime is today
+     */
+    public boolean isToday() {
+        return LocalDate.now().equals(dateTime.toLocalDate());
     }
 
 
@@ -57,4 +81,5 @@ public class DateTime {
     public int hashCode() {
         return dateTime.hashCode();
     }
+
 }

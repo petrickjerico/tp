@@ -3,22 +3,27 @@
   "tasks" : [ {
     "title" : "CS2103T",
     "description" : "Week 8 Quiz",
-    "dateTime" : "2020-09-27 12:00"
+    "dateTime" : "2020-09-27 12:00",
+    "duration" : 30
   }, {
     "title" : "CS2100",
     "description" : "Pipeline homework",
-    "dateTime" : "2020-10-04 10:00"
+    "dateTime" : "2020-10-04 10:00",
+    "duration" : 40
   }, {
     "title" : "ST2334",
     "description" : "Chapter 2 Quiz",
-    "dateTime" : "2020-10-01 23:00"
+    "dateTime" : "2020-10-01 23:00",
+    "duration" : 50
   }, {
     "title" : "CS2100",
     "description" : "",
-    "dateTime" : "2020-11-30 13:00"
+    "dateTime" : "2020-11-30 13:00",
+    "duration" : 60
   }, {
     "title" : "CS2101",
     "description" : "Luminus Feedback",
-    "dateTime" : null
+    "dateTime" : null,
+    "duration" : 60
   } ]
 }

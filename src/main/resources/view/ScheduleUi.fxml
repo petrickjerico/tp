@@ -1,42 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity"
-      style="-fx-background-color: white;"
-      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <VBox style="-fx-background-color: #e6f2ff;
-                  -fx-background-radius: 25;"
-          styleClass="scheduleUiPanel">
-    <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-without-border" VBox.vgrow="NEVER">
-        <padding>
-            <Insets bottom="5" left="10" right="10" top="5" />
-        </padding>
-    </StackPane>
 
-    <StackPane fx:id="resultDisplayPlaceholder" maxHeight="100" minHeight="100" prefHeight="100" styleClass="pane-without-border" VBox.vgrow="NEVER">
-        <padding>
-            <Insets bottom="5" left="10" right="10" top="5" />
-        </padding>
-    </StackPane>
-
-    <VBox fx:id="taskList" minWidth="340" prefWidth="340" styleClass="pane-without-border" VBox.vgrow="ALWAYS">
-        <padding>
-            <Insets bottom="10" left="10" right="10" top="10" />
-        </padding>
-        <StackPane fx:id="taskListPanelPlaceholder" VBox.vgrow="ALWAYS" />
-    </VBox>
-
-      <VBox.margin>
-         <Insets />
-      </VBox.margin>
-      <padding>
-         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-      </padding>
-    </VBox>
-   <padding>
-      <Insets bottom="5.0" top="5.0" />
-   </padding>
-</VBox>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+       xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane fx:id="upcomingSchedulePlaceholder" prefHeight="150.0" prefWidth="400.0" />
+      <StackPane fx:id="taskDetailPanelPlaceholder" prefHeight="150.0" prefWidth="200.0" />
+   </children>
+</HBox>

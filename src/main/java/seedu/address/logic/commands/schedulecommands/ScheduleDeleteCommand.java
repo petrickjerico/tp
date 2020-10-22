@@ -39,6 +39,8 @@ public class ScheduleDeleteCommand extends Command<ScheduleModel> {
 
         Task taskToDelete = lastShownList.get(targetIndex.getZeroBased());
         model.deleteTask(taskToDelete);
+
+
         return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS, taskToDelete));
     }
 

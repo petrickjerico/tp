@@ -16,15 +16,19 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.quiz.Quiz;
 import seedu.address.model.systemlevelmodel.AddressBook;
 import seedu.address.model.systemlevelmodel.FlashcardBank;
+import seedu.address.model.systemlevelmodel.QuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlyQuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.Description;
+import seedu.address.model.task.Duration;
 import seedu.address.model.task.Task;
 import seedu.address.model.task.Title;
 
@@ -58,17 +62,17 @@ public class SampleDataUtil {
     public static Task[] getSampleTasks() {
         return new Task[] {
             new Task(new Title("CS2103T"), new Description("Week 8 topics quiz."),
-                    new DateTime("2020-10-09 23:59")),
+                    DateTime.getToday(11, 30), new Duration(60)),
             new Task(new Title("CS2103T"), new Description("Week 9 topics quiz."),
-                    new DateTime("2020-10-16 23:59")),
+                    new DateTime("2020-10-16 23:59"), new Duration(60)),
             new Task(new Title("CS2103T"), new Description("Popping dance lecture."),
-                    new DateTime("2020-10-23 23:59")),
+                    new DateTime("2020-10-23 23:59"), new Duration(60)),
             new Task(new Title("CCA"), new Description("Week 10 topics quiz."),
-                    new DateTime("2020-10-08 13:00")),
+                    DateTime.getToday(13, 0), new Duration(120)),
             new Task(new Title("Household"), null,
-                    new DateTime("2020-11-11 12:30")),
+                    new DateTime("2020-11-11 12:30"), new Duration(60)),
             new Task(new Title("Job"), new Description(""),
-                    new DateTime("2020-09-29 22:00"))
+                    new DateTime("2020-09-29 22:00"), new Duration(60))
         };
     }
 
@@ -83,6 +87,13 @@ public class SampleDataUtil {
 
     public static FlashcardSet[] getSampleFlashcardSets() {
         return new FlashcardSet[] {new FlashcardSet(new FlashcardSetName("CS2040"), getSampleFlashcardCS2040())};
+    }
+
+    private static Quiz[] getSampleQuizzes() {
+        return new Quiz[] {
+            new Quiz(1, new FlashcardSet(new FlashcardSetName("CS2040"),
+                    getSampleFlashcardCS2040()))
+        };
     }
 
     public static ReadOnlyAddressBook getSampleAddressBook() {
@@ -107,6 +118,14 @@ public class SampleDataUtil {
             sampleFlashcardBank.addFlashcardSet(sampleFlashcardSet);
         }
         return sampleFlashcardBank;
+    }
+
+    public static ReadOnlyQuizRecords getSampleQuizRecords() {
+        QuizRecords quizRecords = new QuizRecords();
+        for (Quiz sampleQuiz: getSampleQuizzes()) {
+            quizRecords.addQuiz(sampleQuiz);
+        }
+        return quizRecords;
     }
 
     /**

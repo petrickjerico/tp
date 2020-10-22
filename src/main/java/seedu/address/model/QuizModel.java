@@ -1,8 +1,10 @@
 package seedu.address.model;
 
 import seedu.address.model.flashcard.Answer;
+import seedu.address.model.flashcard.FlashcardSetName;
 import seedu.address.model.flashcard.Question;
 import seedu.address.model.quiz.Quiz;
+import seedu.address.model.systemlevelmodel.ReadOnlyQuizRecords;
 
 public interface QuizModel {
     // QUIZ
@@ -16,7 +18,15 @@ public interface QuizModel {
 
     Answer getAnswer();
 
-    double stopQuiz();
+    String stopQuiz();
 
-    String getQuizRecords(int index);
+    void cancelQuiz();
+
+    String getQuizRecords(FlashcardSetName name);
+
+    void deleteQuiz(FlashcardSetName name);
+
+    ReadOnlyQuizRecords getAllQuizRecords();
+
+    void saveAnswer(String answer);
 }

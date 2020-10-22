@@ -5,6 +5,8 @@ import static java.util.Objects.requireNonNull;
 import java.util.Objects;
 import java.util.Optional;
 
+import seedu.address.ui.scheduleui.TaskCell;
+
 /**
  * Represents a Task in the StudyBananas.
  */
@@ -14,6 +16,18 @@ public class Task {
     private final Optional<Description> description;
     private final Optional<DateTime> dateTime;
     private final Optional<Duration> duration;
+
+
+    public TaskCell getTaskCellBind() {
+        return taskCellBind;
+    }
+
+    public void setTaskCellBind(TaskCell taskCellBind) {
+        this.taskCellBind = taskCellBind;
+    }
+
+    // Not sure if this is a good practice. This is used by the ListChangeListener in TimeScale
+    private TaskCell taskCellBind;
 
     /**
      * Initializes a Task.

@@ -69,8 +69,12 @@ public class TaskCell extends UiPart<Region> {
      * Method used to update the title.
      * @param titleStr
      */
-    public void setTitle(String titleStr) {
+    private void setTitle(String titleStr) {
         this.title.setText(titleStr);
+    }
+
+    public void update(Task task) {
+        this.taskObj = task;
     }
 
     private boolean checkTaskValidation(Task task) {
@@ -81,7 +85,19 @@ public class TaskCell extends UiPart<Region> {
         LocalDateTime dateTime = task.getDateTime().get().dateTime;
         DateTimeFormatter formmater =  DateTimeFormatter.ofPattern("HH:mm");
         return toAmPmTime(formmater.format(dateTime));
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+
+        if (!(o instanceof TaskCell)) {
+            return false;
+        }
+
+        return this.taskObj.equals(((TaskCell) o).taskObj);
     }
 
 }

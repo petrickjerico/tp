@@ -14,7 +14,7 @@ import seedu.address.model.task.TaskHappensTodayPredicate;
 public class ScheduleModelManager implements ScheduleModel {
     private final Schedule schedule;
     private final FilteredList<Task> filteredTasks;
-    private final FilteredList<Task> todayTasks;
+    private FilteredList<Task> todayTasks;
 
     /**
      * Create ScheduleModelManager from {@schedule}
@@ -70,11 +70,11 @@ public class ScheduleModelManager implements ScheduleModel {
         return todayTasks;
     }
 
-
     @Override
     public void updateFilteredTaskList(Predicate<Task> predicate) {
         requireNonNull(predicate);
         filteredTasks.setPredicate(predicate);
+        todayTasks.setPredicate(task -> predicate.test(task) && new TaskHappensTodayPredicate().test(task));
     }
 
     @Override

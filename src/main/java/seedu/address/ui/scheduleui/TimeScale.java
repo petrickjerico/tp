@@ -17,14 +17,26 @@ import seedu.address.ui.UiPart;
 public class TimeScale extends UiPart<Region> {
     private static final String FXML = "TimeScale.fxml";
 
-    /*private static final ListChangeListener<Task> taskListener = new ListChangeListener<Task>() {
+    // Solution adapted from Stack Overflow
+    // https://stackoverflow.com/questions/25498747/javafx-gridpane-observablelist-and-listchangelistener
+    private final ListChangeListener<Task> taskListener = new ListChangeListener<Task>() {
         @Override
         public void onChanged(Change<? extends Task> c) {
             while (c.next()) {
-
+                if (c.wasAdded()) {
+                    for (Task task : c.getAddedSubList()) {
+                        addTaskToTimeScale(task);
+                    }
+                } else if (c.wasRemoved()) {
+                    for (Task task : c.getRemoved()) {
+                        removeTaskFromTimeScale(task);
+                    }
+                } else {
+                    assert false : "should never reach here, this system does not support object editting.";
+                }
             }
         }
-    }*/
+    };
 
     private List<TimeScaleCell> timeScaleCells = new ArrayList<>();
     private CurrentTimePointer currentTimePointer;
@@ -73,11 +85,27 @@ public class TimeScale extends UiPart<Region> {
 
         //add taskCell
         for (Task task : tasks) {
-            TaskCell taskCell = new TaskCell(task);
-            timeScale.getChildren().add(taskCell.getRoot());
-            timeScale.setMargin(taskCell.getRoot(), new Insets(taskCell.marginTop(), 0, 0, 40));
+            addTaskToTimeScale(task);
         }
 
+    }
+
+    private void addTaskToTimeScale(Task task) {
+        TaskCell taskCell = new TaskCell(task);
+
+        //bind the TaskCell to the Task
+        task.setTaskCellBind(taskCell);
+
+        timeScale.getChildren().add(taskCell.getRoot());
+        timeScale.setMargin(taskCell.getRoot(), new Insets(taskCell.marginTop(), 0, 0, 40));
+    }
+
+    private void addTaskToTimeScale(int taskId) {
+        addTaskToTimeScale(tasks.get(taskId));
+    }
+
+    private void removeTaskFromTimeScale(Task task) {
+        timeScale.getChildren().remove(task.getTaskCellBind().getRoot());
     }
 
     /**
@@ -132,6 +160,6 @@ public class TimeScale extends UiPart<Region> {
     }
 
     private void handleListener() {
-        //tasks.addListener();
+        tasks.addListener(taskListener);
     }
 }

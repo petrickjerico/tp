@@ -17,7 +17,7 @@ class Quiz {
 +getQuestion()
 }
 
-QuizModelManager -> Quiz
+QuizModelManager -> "0..1" Quiz
 StartCommand --> Quiz
 StartCommand .> QuizModelManager
 @enduml

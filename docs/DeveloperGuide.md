@@ -265,7 +265,7 @@ The call to `StartCommand#execute()` will allow the `Quiz` to be initialized wit
 the `currentIndex` pointing to the index of the first flashcard, 
 and the current command result being the first question through the call of `Quiz#getQuestion()`.
 
-The `Quiz` is saved into the `QuizModelManager`object.
+The `Quiz` is saved into the `QuizModelManager`object as an attribute named `quiz`.
 
 ![StartQuizClassDiagram](images/StartQuizClassDiagram.png)
 
@@ -286,10 +286,10 @@ After viewing the answer, the user executes either `c` or `w` to indicate whethe
 This creates either a `CorrectCommand` or `WrongCommand` object. 
 
 In the case of the `CorrectCommand` class below, the call to `CorrectCommand#execute()`
-calls the `Quiz:tallyScore()` method through the interaction with `QuizModelManager`.
+calls the `Quiz:tallyScore()` method through the interaction with `QuizModel`.
 This increments the `pointsScored` attribute in quiz.
 
-The following sequence diagram shows how the `CorrectCommand:execute()` works:
+The following sequence diagram shows how this step works:
 
 ![UpdateScoreSequenceDiagram](images/UpdateScoreSequenceDiagram.png)
 
@@ -306,7 +306,19 @@ through `QuizModelManager`, during the execution of `CorrectCommand:execute()`.
 
 ![NextQuestion](images/NextQuestion.png)
 
-Step 4. Assume that the user has reached the end of the flashcards. The 
+##### Step 4
+Assume that the user has reached the end of the flashcards as shown below:
+
+![OutOfIndex](images/OutOfIndex.png)
+
+From the `CorrectCommand:execute()` / `WrongCommand:execute()` operation, 
+the `QuizModelManager:stopQuiz()` operation will be called.
+This stops the quiz by removing the `Quiz` object stored in the `quiz` 
+attribute of `QuizModelManager`.
+
+This leads to also calling the `Quiz:toString()` operation to show the quiz score and statistics.
+
+
 
 The following activity diagram summarizes what happens when a user executes a new command:
 

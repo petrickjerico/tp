@@ -18,5 +18,5 @@ class Quiz {
 }
 
 AnswerCommand .> QuizModelManager
-QuizModelManager -> Quiz
+QuizModelManager -> "0..1" Quiz
 @enduml

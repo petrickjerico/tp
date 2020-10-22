@@ -7,7 +7,7 @@ import java.util.Arrays;
 import seedu.address.logic.commands.schedulecommands.ScheduleSearchCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.task.TitleContainsKeywordsPredicate;
+import seedu.address.model.task.InfoContainsKeywordsPredicate;
 
 public class ScheduleSearchCommandParser implements Parser<ScheduleSearchCommand> {
     /**
@@ -24,6 +24,6 @@ public class ScheduleSearchCommandParser implements Parser<ScheduleSearchCommand
 
         String[] titleKeywords = trimmedArgs.split("\\s+");
 
-        return new ScheduleSearchCommand(new TitleContainsKeywordsPredicate(Arrays.asList(titleKeywords)));
+        return new ScheduleSearchCommand(new InfoContainsKeywordsPredicate(Arrays.asList(titleKeywords)));
     }
 }

@@ -278,7 +278,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `StudyBananas` and the **Actor** is the `user`, unless specified otherwise)  
 
-#### Use case: UC01 create a set of flashcards
+#### Use case: UC01 Create a set of flashcards
 **MSS:**
 1. User adds a new empty set of flashcards with a given name.
 2. User <ins> UC02 create and add an individual flashcard into a set </ins>
@@ -302,13 +302,13 @@ Use case ends
    * a1. Shows missing parameter error message.  
       Use case ends
 
-#### Use case: UC03 see all existing flashcard sets
+#### Use case: UC03 See all existing flashcard sets
 **MSS**
 1. User requests for the list of flashcards.
 2. StudyBananas shows the list of flashcards.
 Use case ends
 
-#### Use case: UC04 delete a flashcard set
+#### Use case: UC04 Delete a flashcard set
 **MSS:**
 1. User <ins> UC03 see all existing flashcard sets </ins>.
 2. User enters the index to delete the set.  
@@ -321,7 +321,7 @@ Use case ends
   * a1. StudyBananas shows an error message  
     Use case ends
     
-#### Use case: UC05 see all flashcards in a flashcard set
+#### Use case: UC05 See all flashcards in a flashcard set
 **MSS**:
 1. User <ins> UC03 see all existing flashcard sets </ins>.
 2. User requests for the list of flashcards using a given flashcard set index.
@@ -333,7 +333,7 @@ Use case ends
     * a1. StudyBananas shows an error to indicate the invalid index.  
     Use case ends
 
-#### Use case: UC06 delete an individual flashcard from a set    
+#### Use case: UC06 Delete an individual flashcard from a set    
 **MSS**:
 1. User <ins> UC05 see all flashcards in a set. </ins>
 2. User enter the index of the set and the individual flashcard to delete it.  
@@ -346,13 +346,13 @@ Use case ends.
     * a1. StudyBananas shows an error message.  
    Use case resumes at step 2.
 
-#### Use case: UC07 quiz of flashcard set (no storage of answer)
+#### Use case: UC07 Quiz of flashcard set (no storage of answer)
 **MSS**
-1. User requests a quiz of a given flashcard set
-2. StudyBananas shows the first question in the flashcard set
-3. User manually answers the question
-4. User flips the flashcard to check the answer
-5. User indicates whether the input answer is correct or incorrect
+1. User requests a quiz of a given flashcard set.
+2. StudyBananas shows the first question in the flashcard set.
+3. User manually answers the question.
+4. User flips the flashcard to check the answer.
+5. User indicates whether the input answer is correct or incorrect.
 6. StudyBananas loads the next flashcard.  
    Step 2 - 6 are repeated until reaching the end of the flashcard set, or the User wants to stop the quiz halfway.  
    Use case ends.  
@@ -361,16 +361,17 @@ Use case ends.
 * 2a. The flashcard set is empty.  
   Use case ends.
 * 2b. The flashcard set does not exist.  
-  StudyBananas shows an error message.  
+  * 2b1. StudyBananas shows an error message.  
+  User case ends
 * 5a. The answer indicator is invalid  
-  StudyBananas shows an error message.   
+  * 5a1. StudyBananas shows an error message.   
   User case resumes at step 5.
 * *a. At any time, User chooses to cancel the quiz.
    * *a1. StudyBananas requests to confirm the cancellation.
    * *a2. User confirms the cancellation.
    Use case ends.
 
-#### Use case: UC08 quiz of flashcard set (with storage of answer)
+#### Use case: UC08 Quiz of flashcard set (with storage of answer)
 **MSS**
 1.  User requests a quiz of a given flashcard set.
 2.  StudyBananas shows the first question in the flashcard set.
@@ -386,22 +387,23 @@ Use case ends.
 * 2a. The flashcard set is empty.  
   Use case ends.
 * 2b. The flashcard set does not exist.
-  StudyBananas shows an error message.  
+  * 2b1. StudyBananas shows an error message.  
   Use case ends.
 * 5a. The answer indicator is invalid  
-  StudyBananas shows an error message. User case resumes at step 5.
+  * 5a1. StudyBananas shows an error message.  
+  User case resumes at step 5.
 * *a. At any time, User chooses to cancel the quiz.
     * *a1. StudyBananas requests to confirm the cancellation.
     * *a2. User confirms the cancellation.
     Use case ends.
 
-#### Use case: UC09 add a task to the task list
+#### Use case: UC09 Add a task to the task list
 **MSS**
 1.  User requests to add a new task to the list.
 2.  StudyBananas asks for confirmation.
 3.  User confirms it.
-4.  StudyBananas adds the task to the task list.
-     Use case ends
+4.  StudyBananas adds the task to the task list.  
+    Use case ends
 
 **Extensions**
 * 2a. User disconfirms the request.
@@ -411,13 +413,13 @@ Use case ends.
    * a1. User asks for cancellation of current command.
     Use case ends
     
-#### Use case: UC10 delete a task
+#### Use case: UC10 Delete a task
 **MSS**
 1. The user requests to delete a certain task.
 2. The system asks for confirmation.
 3. The user confirms it.
-4. The system deletes the task.
-  Use case ends
+4. The system deletes the task.  
+   Use case ends
 
 **Extensions**
 * 2a. Disconfirmation
@@ -425,13 +427,13 @@ Use case ends.
     * 2a2. System stops implementation.
    Use case ends
 * 3a. Invalid task specified
-    * 3a1. System signals to the user that the task is invalid
+    * 3a1. System signals to the user that the task is invalid.  
     Use case ends
 * *a. Cancellation
    * a1. User asks for cancellation of current command.
     Use case ends
 
-#### Use case: UC11 search for tasks
+#### Use case: UC11 Search for tasks
 **MSS**
 1. The user requests to search for tasks.
 2. The system asks for query key.
@@ -444,17 +446,17 @@ Use case ends.
    * *a1. User asks for cancellation of current command.
     Use case ends.
 
-#### Use case: UC12 view all tasks
+#### Use case: UC12 View all tasks
 **MSS**:
 1. User requests to view all the tasks
-2. StudyBananas shows all the tasks.
+2. StudyBananas shows all the tasks.  
 Use case ends
 
-#### Use case: UC13 view quiz score and past attempt
+#### Use case: UC13 View quiz score and past attempt
 **MSS**:
 1. User requests to <ins> UC03 see all available flashcard sets </ins>
 2. User requests for the score and past attempt of a quiz regarding a flashcard set using a given flashcard set index
-3. StudyBananas shows the score and most recent past attempt for the requested flashcard set
+3. StudyBananas shows the score and most recent past attempt for the requested flashcard set.  
    Use case ends
 
 **Extensions**:

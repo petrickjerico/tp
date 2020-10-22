@@ -1,0 +1,15 @@
+@startuml
+
+
+class SingleUiState
+class SidebarTab
+
+SingleUiState <-- SidebarTab : update
+
+class SingleUiState {
+NewState
+}
+
+
+
+@enduml

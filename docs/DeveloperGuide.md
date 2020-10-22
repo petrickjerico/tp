@@ -386,6 +386,51 @@ The following activity diagram summarizes what happens when a user executes a ne
 _{more aspects and alternatives to be added}_
 
 
+### Sidebar view
+
+#### Implementation
+
+The implementation of the Sidebar view is designed using the Singleton pattern and the Observer Pattern. Global Ui state which stores the UiState is designed to be singleton - `SingletonUiState`. The `SingletonUiState` is created when the application is launched, and `SingletonUiState` implements `Observable` interface, making it observable to other ui components. `MainWindow` and `SidebarTab` implements the `Observer` interface and subscribe to the change of `SingletonUiState` to achieve the sidebar effect.
+
+* `Observable#register(Observer o)` — Register a certain Observer to an Observable object, after registration, the observer object will be notified on any update of the Observable object.
+* `Observable#inform()` — When the observable object is modified, use this method to inform all the subscribed observers.
+* `Observer#subscribe(Observable o)` — Help the Observer class subscribes to an Observable Object.
+* `Observer#update()` — This is the API for the Observer object to modify the Observable object and further helps inform all the subscribers.
+
+The concrete implementation of these methods lies in the `MainWindow`, `SidebarTab`, and `SingletonUiState`, with `MainWindow` and `SidebarTab` being `Observer` and `SingletonUiState` being Observable
+
+Given below is an example usage scenario and how the sidebar view mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `MainWindow` will initialize the `SingletonUiState` with the default state `Schedule` which represents the view of Schedule system, and then subscribe to it.
+
+![SidebarStep1](images/SidebarStep1.png)
+
+Step 2. When the `Sidebar` is initiated, the `SidebarTab`s contained will subscribe to the changes of SingleUiState. 
+
+![SidebarStep2](images/SidebarStep2.png)
+
+Step 3. When a user click on any `SidebarTab`, `SidebarTab` would update the `SingletonUiState`.
+
+![SidebarStep3](images/SidebarStep3.png)
+
+Step 4. After the `SingletonUiState` is updated, it will then go ahead to update all the observers and change the view.
+
+![SidebarStep4](images/SidebarStep4.png)
+
+
+The following sequence diagram shows how the switching between tabs works, the example clicks the schedule tab:
+
+![UndoSequenceDiagram](images/SidebarSequenceDiagram.png)
+
+
+#### Design consideration:
+
+* Multiple Ui components rely on the Global UiState, therefore, Singleton makes sense here.
+* Many components would be affected by the change of UiState, it makes sense to build it using Observer pattern.
+
+
+
+
 
 --------------------------------------------------------------------------------------------------------------------
 

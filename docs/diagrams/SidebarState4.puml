@@ -1,0 +1,17 @@
+@startuml
+
+
+class SingleUiState
+class MainWindow
+class SidebarTab
+
+SingleUiState --> MainWindow : inform
+SingleUiState --> SidebarTab : inform
+
+class SingleUiState {
+NewState
+}
+
+
+
+@enduml

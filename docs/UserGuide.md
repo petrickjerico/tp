@@ -17,8 +17,6 @@ StudyBananas is a **desktop study companion app that helps students centralize a
   * [List flashcards in a flashcard set: `list fl`](#list-flashcards-in-a-flashcard-set-list-fl)
   * [Delete a flashcard in a flashcard set: `delete fl`](#delete-a-flashcard-in-a-flashcard-set-delete-fl)
   * [Quiz of flashcard set: `quiz flset`](#quiz-of-flashcard-set-quiz-flset)
-    + [Case 1: No storage of answers required](#case-1-no-storage-of-answers-required)
-    + [Case 2: Stores the user answers to the quiz](#case-2-stores-the-user-answers-to-the-quiz)
   * [View last quiz attempt: `view flset quiz`](#view-last-quiz-attempt-view-flset-quiz)
   * [Add a task: `add task`](#add-a-task)
   * [List tasks: `list task`](#list-tasks)
@@ -170,64 +168,45 @@ Examples:
 <p>&nbsp;</p>
 
 ### **Quiz of flashcard set**: `quiz flset`
-Shows the questions of the specific flashcard set. Depending on the user command, it may prompt for answers to store them for reference in the last attempt. Follow-up commands are required to continue with the quiz.
-<p>&nbsp;</p>
+Shows the questions of the specific flashcard set. Depending on the command, it store the answers for reference in the last attempt. 
+Follow-up commands are required to continue with the quiz.
 
-#### **CASE 1**: No storage of answers required
 Format: `quiz flset:<setindex>`
 
 Examples: 
 `quiz flset:2`, `quiz flset:3`
 
-As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for the user to type in the next command, `flip` or `cancel`.
-
-- `flip`: Displays the answer to the flashcard question.
-- `cancel`: Stops the quiz 
+As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for the user to type in the next command, `flip`, `ans:<answer>` or `cancel`.
 
 <img src="images/question.png" width="200px">
 
-If the command entered is `flip`, the correct answer will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`.  
+- `flip`: Displays the answer to the flashcard question.
+- `ans:<answer>`: Stores the user's answer. Also, displays the answer to the flashcard question.
+- `cancel`: Stops the quiz 
+
+If the command entered is `flip` or `ans:<answer>`, the correct answer will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`.
+
+<img src="images/answer.png" width="200px">
+
+Result when `flip` command is entered
+
+<img src="images/saved answer.png" width="200px">
+
+Result when `ans:<answer>` command is entered
 
 Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
 
 - `c`: Indicate that the question on the flashcard is answered correctly.
 - `w`: Indicates that the question is answered wrongly.
 - `cancel`: Stops the quiz
-
-<img src="images/answer.png" width="200px">
 
 The next question of the next flashcard will be displayed. Steps 1-2 are repeated until all flashcards in the set are displayed and answered.
 
 Once the quiz stops, the score will be displayed. This score can be viewed when viewing the last attempt of the flashcard set.
 <p>&nbsp;</p>
 
-#### **CASE 2**: Stores the user answers to the quiz
-Format: `quiz flset store:<setindex>`  
-
-Examples: 
-`quiz flset store:1`, `quiz flset store:5`
-
-As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for the user to type in the answer to the question, or cancel, <answer> or cancel.
-
-- `<answer>`: Displays the answer to the flashcard question.
-- `cancel`: Stops the quiz 
-
-<img src="images/question.png" width="200px">
-
-If the user enters the `<answer>`, the correct answer to the question will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`.  
-
-Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
-
-- `c`: Indicate that the question on the flashcard is answered correctly.
-- `w`: Indicates that the question is answered wrongly.
-- `cancel`: Stops the quiz
-
-<img src="images/saved answer.png" width="200px">
-
-The next question of the next flashcard will be displayed. Steps 1-2 are repeated until all flashcards in the set are displayed and answered.
-
-Once the quiz stops, the score and answers will be displayed. Both information can be viewed when viewing the last attempt of the flashcard set.
-<p>&nbsp;</p>
+At any point should the user enter a command not pertaining to quiz, 
+they may key in `refresh` to see their current quiz question/answer.
 
 ### **View last quiz attempt**: `quiz score flset`
 Shows the last attempt of a specific flashcard set.
@@ -350,11 +329,10 @@ _{explain the feature here}_
 
 ### Quiz commands
 
-| Action                           | Format, Examples                                                                        |
-| -------------------------------- | --------------------------------------------------------------------------------------- |
-| **Quiz flset (without storage)** | `quiz flset:<setindex>` <br> e.g., `quiz flset:7`, `flip`, `c/w`, `cancel`              |
-| **Quiz flset (with storage)**    | `quiz flset store:<setindex>` <br> e.g., `quiz flset store:10`, `flip`, `c/w`, `cancel` |
-| **Quiz score flset**                   | `quiz score flset` <br>  e.g., `quiz score flset:6`                            |
+| Action                           | Format, Examples                                                                                     |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Quiz flset**                   | `quiz flset:<setindex>` <br> e.g., `quiz flset:7`, `flip`, `ans:<answer>`, `c/w`, `cancel`, `refresh`|
+| **Quiz score flset**             | `quiz score flset` <br>  e.g., `quiz score flset:6`                                                  |
 
 <p>&nbsp;</p>
 

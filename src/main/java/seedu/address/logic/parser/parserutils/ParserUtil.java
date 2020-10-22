@@ -22,6 +22,7 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.Description;
+import seedu.address.model.task.Duration;
 import seedu.address.model.task.Title;
 
 /**
@@ -179,6 +180,25 @@ public class ParserUtil {
         }
         return new DateTime(time);
     }
+
+    /**
+     * Parses {@code String duration} into a {@code Duration}.
+     *
+     * @throws ParseException if the given {@code duration} is invalid.
+     */
+    public static Duration parseDuration(String duration) throws ParseException {
+        if (duration == null) {
+            return null;
+        }
+
+        String trimmedDuration = duration.trim();
+        if (!Duration.isValidDuration(trimmedDuration)) {
+            throw new ParseException(Duration.MESSAGE_CONSTRAINTS);
+        }
+        return new Duration(trimmedDuration);
+    }
+
+
 
     //=========== Flashcard =============================================================
     /**

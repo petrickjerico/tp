@@ -25,7 +25,10 @@ public class FlipCommand extends Command<QuizModel> {
         }
 
         Answer answer = model.getAnswer();
+
         QuizCommand.setStatus(Status.ON_ANSWER);
+        QuizCommand.updateCommandResult(answer.toString());
+
         return new CommandResult(answer.toString());
     }
 }

@@ -133,6 +133,14 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### [Proposed] Flashcard
+
+#### Proposed Implementation
+
+The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `FlashcardBank` contains a list of `FlashcardSet`. Each `FlashcardSet` contains a list of `Flashcard`.
+
+![Flashcard Class Diagram](diagrams/FlashcardClassDiagram.png)
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
@@ -263,6 +271,123 @@ The following sequence diagram shows how the edit task operation works:
 ### \[Proposed\] Data archiving
 
 _{Explain here how the data archiving feature will be implemented}_
+
+
+### \[Proposed\] Quiz with storage of answers feature
+
+#### Proposed Implementation
+
+The proposed quiz with storage of answers mechanism is facilitated by `Quiz` and `QuizModelManager`, which implements the `QuizModel` interface. 
+It makes use of an array of answer strings as an attribute, stored within a `Quiz` object as `userAnswers`.
+Additionally, it implements the following core operations with `Quiz`, which is called by `QuizModelManager`:
+
+* `QuizModelManager#start(Quiz quiz)` — Starts the quiz by initiating the quiz object in the model, 
+iterating through the associated flashcard set and showing the first question in the flashcard set.
+The presence of at most one quiz object ensures that at most one quiz running at a time.
+
+* `QuizModelManager#hasStarted()` — Checks if a quiz has started. 
+This prevents multiple quizzes from running concurrently.
+
+* `QuizModelManager#tallyScore(boolean isCorrect)` — Tallies the score after each answer is shown, 
+depending on user's judgement of correctness.
+
+* `QuizModelManager#getQuestion()` — Obtains the question of the next flashcard in the flashcard set.
+
+* `QuizModelManager#getAnswer()` — Obtains the answer of the next flashcard in the flashcard set.
+
+* `QuizModelManager#stopQuiz()` — Stops the quiz. This method is called at the end of the flashcard set iteration. 
+
+* `QuizModelManager#cancelQuiz()` — Cancels the quiz. 
+This method is called when the user cancels the quiz before reaching the end of the flashcard set.
+
+* `QuizModelManager#getQuizRecords(FlashcardSetName name)` — Fetches the quiz score based on the associated flashcard set's name. 
+The score includes: 
+    * the number of correct answers out of the total score within the flashcard set, and percentage scored.
+    * the set of questions, the corresponding correct answers and the answers provided by the user
+    * whether each question was answered correctly.
+
+These operations are as exactly written in the `QuizModel` and `Model` interface.
+
+#### Usage Scenario
+Given below is an example usage scenario and how the quiz with storage of answers mechanism behaves at each step.
+
+##### Step 1
+The user launches the application and starts the quiz for a non-empty, valid flashcard set. 
+Assume the flashcard set contains only two flashcards for simplicity.
+
+The `Quiz` will be initialized with the initial quiz state with default values for score, 
+and the `currentIndex` pointing to the index of the first flashcard, 
+with the current command result being the first question.
+
+![StartQuiz](images/StartQuiz.png)
+
+##### Step 2
+The user executes `answer` command to submit their answer to the question. 
+The `answer` command calls `Quiz#saveAnswer()`, 
+storing their answer into the `userAnswers` array attribute in Quiz 
+for the question before moving on to the next question.
+
+![StoreAnswer](images/StoreAnswer.png)
+
+##### Step 3
+The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
+
+![UndoRedoState2](images/UndoRedoState2.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
+
+</div>
+
+Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
+
+![UndoRedoState3](images/UndoRedoState3.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
+than attempting to perform the undo.
+
+</div>
+
+The following sequence diagram shows how the undo operation works:
+
+![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+
+</div>
+
+The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+
+</div>
+
+Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
+
+![UndoRedoState4](images/UndoRedoState4.png)
+
+Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
+
+![UndoRedoState5](images/UndoRedoState5.png)
+
+The following activity diagram summarizes what happens when a user executes a new command:
+
+![CommitActivityDiagram](images/QuizStorageActivityDiagram.png)
+
+#### Design consideration:
+
+##### Aspect: How quiz with storage of answers executes
+
+* **Alternative 1 (current choice):** .
+  * Pros: Easy to implement.
+  * Cons: May have performance issues in terms of memory usage.
+
+* **Alternative 2:** Individual command knows how to undo/redo by
+  itself.
+  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
+  * Cons: We must ensure that the implementation of each individual command are correct.
+
+_{more aspects and alternatives to be added}_
+
 
 
 --------------------------------------------------------------------------------------------------------------------

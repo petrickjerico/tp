@@ -8,9 +8,14 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.QuizModel;
 import seedu.address.model.flashcard.Answer;
 
-public class FlipCommand extends Command<QuizModel> {
+public class AnswerCommand extends Command<QuizModel> {
 
     public static final Status STATUS = Status.ON_QUESTION;
+    private final String answer;
+
+    public AnswerCommand(String answer) {
+        this.answer = answer;
+    }
 
     @Override
     public CommandResult execute(QuizModel model) throws CommandException {
@@ -24,6 +29,7 @@ public class FlipCommand extends Command<QuizModel> {
             throw new CommandException(QuizCommand.MESSAGE_UNAVAIL_ON_ANSWER);
         }
 
+        model.saveAnswer(answer);
         Answer answer = model.getAnswer();
 
         QuizCommand.setStatus(Status.ON_ANSWER);

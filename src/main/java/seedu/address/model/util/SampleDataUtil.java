@@ -16,10 +16,13 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.quiz.Quiz;
 import seedu.address.model.systemlevelmodel.AddressBook;
 import seedu.address.model.systemlevelmodel.FlashcardBank;
+import seedu.address.model.systemlevelmodel.QuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlyQuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.tag.Tag;
@@ -86,6 +89,13 @@ public class SampleDataUtil {
         return new FlashcardSet[] {new FlashcardSet(new FlashcardSetName("CS2040"), getSampleFlashcardCS2040())};
     }
 
+    private static Quiz[] getSampleQuizzes() {
+        return new Quiz[] {
+            new Quiz(1, new FlashcardSet(new FlashcardSetName("CS2040"),
+                    getSampleFlashcardCS2040()))
+        };
+    }
+
     public static ReadOnlyAddressBook getSampleAddressBook() {
         AddressBook sampleAb = new AddressBook();
         for (Person samplePerson : getSamplePersons()) {
@@ -108,6 +118,14 @@ public class SampleDataUtil {
             sampleFlashcardBank.addFlashcardSet(sampleFlashcardSet);
         }
         return sampleFlashcardBank;
+    }
+
+    public static ReadOnlyQuizRecords getSampleQuizRecords() {
+        QuizRecords quizRecords = new QuizRecords();
+        for (Quiz sampleQuiz: getSampleQuizzes()) {
+            quizRecords.addQuiz(sampleQuiz);
+        }
+        return quizRecords;
     }
 
     /**

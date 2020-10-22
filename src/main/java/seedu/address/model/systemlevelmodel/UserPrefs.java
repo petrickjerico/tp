@@ -17,6 +17,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     private Path addressBookFilePath = Paths.get("data" , "addressbook.json").toAbsolutePath();
     private Path scheduleFilePath = Paths.get("data", "schedule.json").toAbsolutePath();
     private Path flashcardBankFilePath = Paths.get("data", "flashcardbank.json").toAbsolutePath();
+    private Path quizRecordsFilePath = Paths.get("data", "quizrecords.json").toAbsolutePath();
 
     /**
      * Creates a {@code UserPrefs} with default values.
@@ -76,6 +77,15 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         this.flashcardBankFilePath = flashcardBankFilePath;
     }
 
+    public Path getQuizRecordsFilePath() {
+        return quizRecordsFilePath;
+    }
+
+    public void setQuizRecordsFilePath(Path quizRecordsFilePath) {
+        requireNonNull(quizRecordsFilePath);
+        this.quizRecordsFilePath = quizRecordsFilePath;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -90,12 +100,14 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         return guiSettings.equals(o.guiSettings)
                 && addressBookFilePath.equals(o.addressBookFilePath)
                 && scheduleFilePath.equals(o.scheduleFilePath)
-                && flashcardBankFilePath.equals(o.flashcardBankFilePath);
+                && flashcardBankFilePath.equals(o.flashcardBankFilePath)
+                && quizRecordsFilePath.equals(o.quizRecordsFilePath);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(guiSettings, addressBookFilePath, scheduleFilePath, flashcardBankFilePath);
+        return Objects.hash(guiSettings, addressBookFilePath,
+                scheduleFilePath, flashcardBankFilePath, quizRecordsFilePath);
     }
 
     @Override
@@ -105,6 +117,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         sb.append("\nLocal addressbook data file location : " + addressBookFilePath);
         sb.append("\nLocal schedule data file location : " + scheduleFilePath);
         sb.append("\nLocal flashcardbank data file location : " + flashcardBankFilePath);
+        sb.append("\nLocal quizrecords data file location : " + quizRecordsFilePath);
         return sb.toString();
     }
 

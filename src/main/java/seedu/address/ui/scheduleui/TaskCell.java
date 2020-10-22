@@ -1,12 +1,19 @@
 package seedu.address.ui.scheduleui;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.ui.util.ScheduleUiUtil.MARGIN_PER_MINUTE;
 import static seedu.address.ui.util.ScheduleUiUtil.checkTimePattern;
+import static seedu.address.ui.util.ScheduleUiUtil.getMarginFromDateTime;
+import static seedu.address.ui.util.ScheduleUiUtil.toAmPmTime;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import seedu.address.model.task.Task;
 import seedu.address.ui.UiPart;
 
 public class TaskCell extends UiPart<Region> {
@@ -21,22 +28,25 @@ public class TaskCell extends UiPart<Region> {
     @FXML
     private Label title;
 
-    private String startTimeStr;
-    private String titleStr;
+    private Task taskObj;
 
     /**
-     * Constructor of taskCell.
-     * @param startTime must be in the form of hh:mm AM/PM
+     * Construct a TaskCell from a {@Code task}
      */
-    public TaskCell(String startTime, String title) {
+    public TaskCell(Task task) {
         super(FXML);
-        requireNonNull(startTime, title);
-        assert checkTimePattern(startTime);
+        requireNonNull(task);
+        assert checkTaskValidation(task) : "task must happen today and has duration and a startTime.";
+        taskObj = task;
 
-        this.startTime.setText(startTime);
-        this.title.setText(title);
-        this.startTimeStr = startTime;
-        this.titleStr = title;
+        // Set title and startTime
+        title.setText(task.getTitle().title);
+        startTime.setText(getTimeFromTask(task));
+
+        // Violation of LoD, may need to improve.
+        // Calculate the height of the cell;
+        double height = task.getDuration().get().duration * MARGIN_PER_MINUTE;
+        this.task.setPrefHeight(height);
     }
 
     /**
@@ -45,8 +55,14 @@ public class TaskCell extends UiPart<Region> {
      */
     public void setStartTime(String startTimeStr) {
         assert checkTimePattern(startTimeStr);
-        this.startTimeStr = startTimeStr;
         this.startTime.setText(startTimeStr);
+    }
+
+    /**
+     * Calculate the margin top by the task for the TimeScale.
+     */
+    public double marginTop() {
+        return getMarginFromDateTime(this.taskObj.getDateTime().get());
     }
 
     /**
@@ -54,7 +70,18 @@ public class TaskCell extends UiPart<Region> {
      * @param titleStr
      */
     public void setTitle(String titleStr) {
-        this.titleStr = titleStr;
         this.title.setText(titleStr);
     }
+
+    private boolean checkTaskValidation(Task task) {
+        return task.getDateTime().isPresent() && task.getDuration().isPresent() && task.happensToday();
+    }
+
+    private String getTimeFromTask(Task task) {
+        LocalDateTime dateTime = task.getDateTime().get().dateTime;
+        DateTimeFormatter formmater =  DateTimeFormatter.ofPattern("HH:mm");
+        return toAmPmTime(formmater.format(dateTime));
+
+    }
+
 }

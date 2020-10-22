@@ -46,6 +46,7 @@ public class TimeScale extends UiPart<Region> {
 
         //listener set-up
         handleListener();
+
     }
 
     private void init() {
@@ -70,7 +71,12 @@ public class TimeScale extends UiPart<Region> {
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setFitToWidth(true);
 
-        //add task to
+        //add taskCell
+        for (Task task : tasks) {
+            TaskCell taskCell = new TaskCell(task);
+            timeScale.getChildren().add(taskCell.getRoot());
+            timeScale.setMargin(taskCell.getRoot(), new Insets(taskCell.marginTop(), 0, 0, 40));
+        }
 
     }
 

@@ -90,6 +90,13 @@ public class Task {
                         .append(time.toString() + "\n")).orElse(emptyString);
     }
 
+    private StringBuilder getDurationString() {
+        StringBuilder emptyString = new StringBuilder("");
+        return duration.map(time ->
+                new StringBuilder("Duration: ")
+                        .append(time.toString() + "\n")).orElse(emptyString);
+    }
+
     public boolean happensToday() {
         return duration.isPresent() && dateTime.isPresent() && dateTime.get().isToday();
     }
@@ -127,7 +134,7 @@ public class Task {
                 .append(getTitle() + "\n")
                 .append(getDescriptionString())
                 .append(getDateTimeString())
-                .append(getDuration());
+                .append(getDurationString());
         return builder.toString();
     }
 }

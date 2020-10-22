@@ -29,7 +29,7 @@ public class ScheduleAddCommandParser implements Parser<ScheduleAddCommand> {
     public ScheduleAddCommand parse(String args) throws ParseException {
 
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_TITLE, PREFIX_DESCRIPTION, PREFIX_TIME);
+                ArgumentTokenizer.tokenize(args, PREFIX_TITLE, PREFIX_DESCRIPTION, PREFIX_TIME, PREFIX_DURATION);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_TITLE)
                 || !argMultimap.getPreamble().isEmpty()) {

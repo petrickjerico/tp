@@ -47,4 +47,11 @@ public class DeleteFlashcardSetCommand extends Command<FlashcardModel> {
         model.deleteFlashcardSet(flashcardSetToDelete);
         return new CommandResult(String.format(MESSAGE_SUCCESS, flashcardSetToDelete));
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof DeleteFlashcardSetCommand // instanceof handles nulls
+                && flashcardSetIndex.equals(((DeleteFlashcardSetCommand) other).flashcardSetIndex)); // state check
+    }
 }

@@ -85,6 +85,11 @@ public class LogicManager implements Logic {
     }
 
     @Override
+    public ObservableList<Task> getUpcomingTaskList() {
+        return model.getUpcomingTaskList();
+    }
+
+    @Override
     public Path getScheduleFilePath() {
         return model.getScheduleFilePath();
     }

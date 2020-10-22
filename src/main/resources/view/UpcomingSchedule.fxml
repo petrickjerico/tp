@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="schedule" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="30.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="date" text="October, 20">
+               <font>
+                  <Font name="Arial Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="year" text="2020">
+               <font>
+                  <Font name="Arial" size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <Label fx:id="day" style="-fx-font-weight: 100;" text="Thursday">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </VBox.margin>
+      </Label>
+      <Line endX="270.0" startX="-100.0" stroke="#0000001c" />
+      <Label text="all-day" textFill="#cdcdcd">
+         <VBox.margin>
+            <Insets bottom="5.0" left="20.0" top="5.0" />
+         </VBox.margin>
+      </Label>
+      <Line endX="270.0" startX="-100.0" stroke="#00000031" strokeWidth="3.0" />
+   </children>
+   <padding>
+      <Insets left="10.0" top="10.0" />
+   </padding>
+</VBox>

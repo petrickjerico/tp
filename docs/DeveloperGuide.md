@@ -133,6 +133,14 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### [Proposed] Flashcard
+
+#### Proposed Implementation
+
+The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `FlashcardBank` contains a list of `FlashcardSet`. Each `FlashcardSet` contains a list of `Flashcard`.
+
+![Flashcard Class Diagram](diagrams/FlashcardClassDiagram.png)
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
@@ -212,6 +220,53 @@ The following activity diagram summarizes what happens when a user executes a ne
   * Cons: We must ensure that the implementation of each individual command are correct.
 
 _{more aspects and alternatives to be added}_
+
+### Edit Task feature
+
+#### Implementation
+
+The edit mechanism is facilitated by `Schedule`, which contains a `UniqueTaskList` such that each task's information can be modified 
+after its creation and addition into the `UniqueTaskList`. It implements this following feature:  
+
+* `Schedule#setTask()` — Replaces an existing task in the `UniqueTaskList` with a new task.
+
+These operations are exposed in the `ScheduleModel` interface as `ScheduleModel#setTask()`.
+
+Given below is the example usage scenario and how the edit task mechanism behaves at each step.
+
+Step 1. The user launches the application. The `Schedule` is initialized with the user's saved Schedule, which is saved in the JSON file `schedule.json` locally.
+For example, the user already has 3 tasks in the beginning.
+
+![EditCommand0](images/EditCommand0.png) 
+
+Step 2. The user executes `add task T: CS2100 d: Tutorial 8 homework`, adding a new task with a title "CS2100", the description "Tutorial 8 homework" with the unspecified date into the schedule. This task is assigned the index 4 in the `Schedule`
+
+![EditCommand1](images/EditCommand1.png) 
+
+Step 3. The user now knows what is the due date of the currently added task, and decides to edit the relevant time information of the task by executing the `edit task 4 t: 2020-10-21 10:00`. The `edit task` command calls `ScheduleEditCommand#execute()`
+ to generate a new task, containing the updated information, for the fields that is not specified in the `edit task` command, such as `title` or `description` in the example, the new task 
+ copies the existing fields of the to-be-replaced task. It is followed by calling `ScheduleModelManager#setTask()` to replace the to-be-replaced task at index 4 with the new edited task.
+ 
+ ![EditCommand2](images/EditCommand2.png) 
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** `ScheduleEditCommand#execute()` creates a new task sharing some of the overlapped fields with the to-be-replaced task. Then `ScheduleModelManager#setTask()` sets the to-be-replaced task with the newly created task at index 4 of the `Schedule`.  
+
+
+The following sequence diagram shows how the edit task operation works:
+
+ ![EditTaskSeqDiagram](images/EditTaskSequenceDiagram.png)
+
+#### Design consideration:
+
+##### Aspect: How edit task executes
+
+* **Alternative 1 (current choice):** Creates the new edited task object to replace the to-be-replaced task object.
+  * Pros: Update the Schedule consistently throughout the program so that side-effects, such as there are 2 versions of Schedule, can be avoided.
+  * Cons: May have performance issues in terms of memory usage as the replaced task object still remains in the memory.
+
+* **Alternative 2:** Mutate the task object itself in the Schedule at the corresponding index.
+  * Pros: Will use less memory as there is no new creation of task object.
+  * Cons: May result in side-effects such as there are out-of-dated versions of Schedule throughout the program.
 
 ### \[Proposed\] Data archiving
 

@@ -22,6 +22,7 @@ public class Title {
      */
     public Title(String title) {
         requireNonNull(title);
+        assert title != null;
         checkArgument(isValidTitle(title), MESSAGE_CONSTRAINTS);
         this.title = title;
     }

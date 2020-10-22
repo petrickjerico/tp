@@ -284,7 +284,8 @@ Examples:
 
 ### **Search for a task**: `search task`
 
-Finds the tasks of which information contains any of the given keywords.  
+Finds the tasks of which information contains any of the given keywords (for `title`) 
+or all of the given keywords (`description` and `dateTime`).  
 
 Format: `search task <keyword>`
 

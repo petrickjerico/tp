@@ -285,7 +285,7 @@ _{Explain here how the data archiving feature will be implemented}_
 
 * is a student, at upper secondary or tertiary education level
 * has a need to keep track of study tasks and test their understanding of what is learnt
-* prefer desktop apps over other types
+* prefers desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
@@ -325,204 +325,215 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `StudyBananas` and the **Actor** is the `user`, unless specified otherwise)  
 
-#### Use case: UC01 create a set of flashcards
+#### Use case: UC01 Create a set of flashcards
 **MSS:**
 1. User adds a new empty set of flashcards with a given name.
 2. User <ins> UC02 create and add an individual flashcard into a set </ins>
-3. Repeat 2 until all flashcards for the set are added.
+3. Repeat 2 until all flashcards for the set are added.  
 Use case ends.
 
 **Extensions:**
-- 1a. Missing parameter - empty set name. 
-   * a1. StudyBananas shows a missing parameter error message
-      Use case ends
+* 1a. Missing parameter - empty set name. 
+   * a1. StudyBananas shows a missing parameter error message.  
+      Use case ends.
 
 #### Use case: UC02 Create and add an individual flashcard into a set
 **MSS:**
 1. User defines the question and answer of the flashcard.
-2. User <ins> UC03 see all existing flashcard sets </ins>
-3. User adds the flashcard to the set using the flashcard set index
-Use case ends
+2. User <ins> UC03 see all existing flashcard sets </ins>.
+3. User adds the flashcard to the set using the flashcard set index.  
+Use case ends.
 
 **Extensions:**
 * 1a. Missing parameter - question, answer or index of the flashcard set.
-   * a1. Shows missing parameter error message.
-      Use case ends
+   * a1. Shows missing parameter error message.  
+      Use case ends.
 
-#### Use case: UC03 see all existing flashcard sets
+#### Use case: UC03 See all existing flashcard sets
 **MSS**
-1. User requests for the list of flashcards
-2. StudyBananas shows the list of flashcards
-Use case ends
+1. User requests for the list of flashcards.
+2. StudyBananas shows the list of flashcards.  
+Use case ends.
 
-#### Use case: UC04 delete a flashcard set
+#### Use case: UC04 Delete a flashcard set
 **MSS:**
-1. User <ins> UC03 see all existing flashcard sets </ins>
-2. User enters the index to delete the set.
-Use case ends
+1. User <ins> UC03 see all existing flashcard sets. </ins>
+2. User enters the index to delete the set.  
+Use case ends.
  
 **Extensions**:
-* 1a. There are no existing flashcard sets
-Use case ends
+* 1a. There are no existing flashcard sets.  
+Use case ends.
 * 2a. Invalid index
-  * a1. StudyBananas shows an error message
-    Use case ends
+  * a1. StudyBananas shows an error message.  
+    Use case ends.
     
-#### Use case: UC05 see all flashcards in a flashcard set
+#### Use case: UC05 See all flashcards in a flashcard set
 **MSS**:
-1. User <ins> UC03 see all existing flashcard sets </ins>
-2. User requests for the list of flashcards using a given flashcard set index
-3. StudyBananas shows the list of flashcards for the requested flashcard set
-Use case ends
+1. User <ins> UC03 see all existing flashcard sets </ins>.
+2. User requests for the list of flashcards using a given flashcard set index.
+3. StudyBananas shows the list of flashcards for the requested flashcard set.  
+Use case ends.
 
 **Extensions**:
-* 1a. Flashcard set is not present at entered index
-* a1. StudyBananas shows an error to indicate the invalid index
+* 1a. Flashcard set is not present at entered index.
+    * a1. StudyBananas shows an error to indicate the invalid index.  
+    Use case ends.
 
-#### Use case: UC06 delete an individual flashcard from a set    
+#### Use case: UC06 Delete an individual flashcard from a set    
 **MSS**:
 1. User <ins> UC05 see all flashcards in a set. </ins>
-2. User enter the index of the set and the individual flashcard to delete it.
-Use case ends
+2. User enter the index of the set and the individual flashcard to delete it.  
+Use case ends.
 
 **Extensions**:
-* 1a. The list is empty.
-Use case ends.
+* 1a. The list is empty.  
+      Use case ends.
 * 2a. The given index is invalid.
-    * a1. StudyBanana shows an error message.
+    * a1. StudyBananas shows an error message.  
    Use case resumes at step 2.
 
-#### Use case: UC07 quiz of flashcard set (no storage of answer)
+#### Use case: UC07 Quiz of flashcard set (no storage of answer)
 **MSS**
-1. User requests a quiz of a given flashcard set
-2. StudyBananas shows the first question in the flashcard set
-3. User manually answers the question
-4. User flips the flashcard to check the answer
-5. User indicates whether the input answer is correct or incorrect
-6. StudyBananas loads the next flashcard
-   Step 2 - 6 are repeated until reaching the end of the flashcard set, or the User wants to stop the quiz halfway.
+1. User requests a quiz of a given flashcard set.
+2. StudyBananas shows the first question in the flashcard set.
+3. User manually answers the question.
+4. User flips the flashcard to check the answer.
+5. User indicates whether the input answer is correct or incorrect.
+6. StudyBananas loads the next flashcard.  
+   Step 2 - 6 are repeated until reaching the end of the flashcard set, or the User wants to stop the quiz halfway.  
    Use case ends.  
     
 **Extensions**
-* 2a. The flashcard set is empty.
+* 2a. The flashcard set is empty.  
   Use case ends.
-* 2b. The flashcard set does not exist.
-  StudyBanana shows an error message.  
-* 5a. The answer indicator is invalid
-  StudyBanana shows an error message. User case resumes at step 5.
+* 2b. The flashcard set does not exist.  
+  * 2b1. StudyBananas shows an error message.  
+  User case ends.
+* 5a. The answer indicator is invalid.  
+  * 5a1. StudyBananas shows an error message.   
+  User case resumes at step 5.
 * *a. At any time, User chooses to cancel the quiz.
    * *a1. StudyBananas requests to confirm the cancellation.
-   * *a2. User confirms the cancellation.
+   * *a2. User confirms the cancellation.  
    Use case ends.
 
-#### Use case: UC08 quiz of flashcard set (with storage of answer)
+#### Use case: UC08 Quiz of flashcard set (with storage of answer)
 **MSS**
-1. User requests a quiz of a given flashcard set
-2. StudyBananas shows the first question in the flashcard set
-3.  User keys in their answer to the question
-4.  User flips the flashcard to check the answer
-5.  User indicates whether the input answer is correct or incorrect
-6. StudyBananas stores the answer to each question and whether the answer was correct
-7.  StudyBananas loads the next flashcard
-    Step 2 - 6 are repeated until reaching the end of the flashcard set, or the User wants to stop the quiz halfway.
+1.  User requests a quiz of a given flashcard set.
+2.  StudyBananas shows the first question in the flashcard set.
+3.  User keys in their answer to the question.
+4.  User flips the flashcard to check the answer.
+5.  User indicates whether the input answer is correct or incorrect.
+6.  StudyBananas stores the answer to each question and whether the answer was correct.
+7.  StudyBananas loads the next flashcard.  
+    Step 2 - 6 are repeated until reaching the end of the flashcard set, or the User wants to stop the quiz halfway.  
     Use case ends.  
 
 **Extensions**
-* 2a. The flashcard set is empty.
+* 2a. The flashcard set is empty.  
   Use case ends.
 * 2b. The flashcard set does not exist.
-  StudyBanana shows an error message.  
-* 5a. The answer indicator is invalid
-  StudyBanana shows an error message. User case resumes at step 5.
+  * 2b1. StudyBananas shows an error message.  
+  Use case ends.
+* 5a. The answer indicator is invalid  
+  * 5a1. StudyBananas shows an error message.  
+  User case resumes at step 5.
 * *a. At any time, User chooses to cancel the quiz.
     * *a1. StudyBananas requests to confirm the cancellation.
-    * *a2. User confirms the cancellation.
+    * *a2. User confirms the cancellation.  
     Use case ends.
 
-#### Use case: UC09 add a task to the task list
+#### Use case: UC09 Add a task to the task list
 **MSS**
 1.  User requests to add a new task to the list.
-2.  Study Bananas asks for confirmation.
+2.  StudyBananas asks for confirmation.
 3.  User confirms it.
-4.  Study Bananas adds the task to the task list.
-     Use case ends
+4.  StudyBananas adds the task to the task list.  
+    Use case ends.
 
 **Extensions**
 * 2a. User disconfirms the request.
-   * a1. Study Bananas stops the process. 
-    Use case ends
+   * a1. StudyBananas stops the process.  
+    Use case ends.
 * *a. Cancellation
-   * a1. User asks for cancellation of current command.
-    Use case ends
+   * a1. User asks for cancellation of current command.  
+    Use case ends.
     
-#### Use case: UC10 delete a task
+#### Use case: UC10 Delete a task
 **MSS**
 1. The user requests to delete a certain task.
 2. The system asks for confirmation.
 3. The user confirms it.
-4. The system deletes the task.
-  Use case ends
+4. The system deletes the task.  
+   Use case ends.
 
 **Extensions**
 * 2a. Disconfirmation
-* 2a1. User disconfirms it.
-* 2a2. System stops implementation.
-   Use case ends
+    * 2a1. User disconfirms it.
+    * 2a2. System stops implementation.  
+   Use case ends.
 * 3a. Invalid task specified
-    * 3a1. System signals to the user that the task is invalid
-    Use case ends
+    * 3a1. System signals to the user that the task is invalid.  
+    Use case ends.
 * *a. Cancellation
-   * a1. User asks for cancellation of current command.
-    Use case ends
+   * a1. User asks for cancellation of current command.  
+    Use case ends.
 
-#### Use case: UC11 search for tasks
+#### Use case: UC11 Search for tasks
 **MSS**
 1. The user requests to search for tasks.
 2. The system asks for query key.
 3. The user types in the query key.
-4. The system replies with all the tasks that matched the query key.
-   Use case ends
+4. The system replies with all the tasks that matched the query key.  
+   Use case ends.
 
 **Extensions**
 * *a. Cancellation
-   * *a1. User asks for cancellation of current command.
+   * *a1. User asks for cancellation of current command.  
     Use case ends.
 
-#### Use case: UC12 view all tasks
+#### Use case: UC12 View all tasks
 **MSS**:
-1. User requests to view all the tasks
-2. StudyBananas shows all the tasks.
-Use case ends
+1. User requests to view all the tasks.
+2. StudyBananas shows all the tasks.  
+Use case ends.
 
-#### Use case: UC13 view quiz score and past attempt
+#### Use case: UC13 View quiz score and past attempt
 **MSS**:
 1. User requests to <ins> UC03 see all available flashcard sets </ins>
 2. User requests for the score and past attempt of a quiz regarding a flashcard set using a given flashcard set index
-3. StudyBananas shows the score and most recent past attempt for the requested flashcard set
-   Use case ends
+3. StudyBananas shows the score and most recent past attempt for the requested flashcard set.  
+   Use case ends.
 
 **Extensions**:
 * 2a. Flashcard set is not present at entered index
-   * a1. StudyBananas shows an error to indicate the invalid index
+   * a1. StudyBananas shows an error to indicate the invalid index  
+   Use case resumes at step 2.
 * 3a. Flashcard set has not been quizzed yet
-   * a1. StudyBananas shows an error to indicate that flashcard set has not been quizzed
+   * a1. StudyBananas shows an error to indicate that flashcard set has not been quizzed  
+   Use case ends.
 
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should work without requiring an installer.
-3.  The system should work on  64-bit environment.
-4.  The product should be for a single user.
-5.  The product should be usable by a student who has little to much experience in using computer.
-6.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-7.  The data should be stored locally and should be in a human editable text file. 
-
+3.  The system should work on a 64-bit environment.
+4.  The system should start up in no more than 2 seconds.
+5.  The system should response to user input in less than 1 second.
+6.  The product should be for a single user.
+7.  The product should be usable by a student who has little to much experience in using computer.
+8.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+9.  The data should be stored locally and should be in a human editable text file. 
 
 
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-
+* **CLI**: Command Line Interface
+* **GUI**: Graphical User Interface
+* **Flashcard**: An object containing a question and the corresponding answer.
+* **Flashcard Set**: A set of flashcards relevant to a specific topic. 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for manual testing**

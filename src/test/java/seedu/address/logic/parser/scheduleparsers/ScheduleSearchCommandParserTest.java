@@ -9,7 +9,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.schedulecommands.ScheduleSearchCommand;
-import seedu.address.model.task.TitleContainsKeywordsPredicate;
+import seedu.address.model.task.InfoContainsKeywordsPredicate;
 
 public class ScheduleSearchCommandParserTest {
 
@@ -25,7 +25,7 @@ public class ScheduleSearchCommandParserTest {
     public void parse_validArgs_returnsFindCommand() {
         // no leading and trailing whitespaces
         ScheduleSearchCommand expectedSearchCommand =
-                new ScheduleSearchCommand(new TitleContainsKeywordsPredicate(Arrays.asList("CS2101", "CS2103T")));
+                new ScheduleSearchCommand(new InfoContainsKeywordsPredicate(Arrays.asList("CS2101", "CS2103T")));
         assertParseSuccess(parser, "CS2101 CS2103T", expectedSearchCommand);
 
         // multiple whitespaces between keywords

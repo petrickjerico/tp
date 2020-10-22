@@ -6,7 +6,7 @@ import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.ScheduleModel;
-import seedu.address.model.task.TitleContainsKeywordsPredicate;
+import seedu.address.model.task.InfoContainsKeywordsPredicate;
 
 public class ScheduleSearchCommand extends Command<ScheduleModel> {
     public static final String COMMAND_WORD = "search task";
@@ -16,9 +16,9 @@ public class ScheduleSearchCommand extends Command<ScheduleModel> {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " CS2100";
 
-    private final TitleContainsKeywordsPredicate predicate;
+    private final InfoContainsKeywordsPredicate predicate;
 
-    public ScheduleSearchCommand(TitleContainsKeywordsPredicate predicate) {
+    public ScheduleSearchCommand(InfoContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 

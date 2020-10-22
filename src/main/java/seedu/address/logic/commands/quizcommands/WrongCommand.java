@@ -27,11 +27,15 @@ public class WrongCommand extends Command<QuizModel> {
         try {
             model.tallyScore(false);
             Question nextQuestion = model.getQuestion();
+
             QuizCommand.setStatus(Status.ON_QUESTION);
+            QuizCommand.updateCommandResult(nextQuestion.toString());
+
             return new CommandResult(nextQuestion.toString());
 
-        } catch (NullPointerException e) {
-            return new CommandResult("Score: " + model.stopQuiz());
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
+            QuizCommand.updateCommandResult(null);
+            return new CommandResult(model.stopQuiz());
         }
     }
 }

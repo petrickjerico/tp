@@ -1,0 +1,19 @@
+@startuml
+start
+:User executes start quiz command;
+
+repeat :System shows question;
+  :User answers question;
+  :System stores answer to question;
+  :System shows the correct answer;
+  if () then ([correct user answer])
+      :User marks answer as right;
+      :System increments points scored;
+  else ([else])
+      :User marks answer as wrong;
+  endif
+  :System stores correctness response to question;
+repeat while () is ([quiz end not reached]);
+:System shows quiz score and statistics;
+stop
+@enduml

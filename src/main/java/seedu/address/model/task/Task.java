@@ -5,6 +5,8 @@ import static java.util.Objects.requireNonNull;
 import java.util.Objects;
 import java.util.Optional;
 
+import seedu.address.ui.scheduleui.TaskCell;
+
 /**
  * Represents a Task in the StudyBananas.
  */
@@ -13,6 +15,10 @@ public class Task {
     private final Title title;
     private final Optional<Description> description;
     private final Optional<DateTime> dateTime;
+    private final Optional<Duration> duration;
+
+    // Not sure if this is a good practice. This is used by the ListChangeListener in TimeScale
+    private TaskCell taskCellBind;
 
     /**
      * Initializes a Task.
@@ -20,11 +26,12 @@ public class Task {
      * @param description Description of the task.
      * @param dateTime    Date and Time of the task (Optional)
      */
-    public Task(Title title, Description description, DateTime dateTime) {
+    public Task(Title title, Description description, DateTime dateTime, Duration duration) {
         requireNonNull(title);
         this.title = title;
         this.description = Optional.ofNullable(description);
         this.dateTime = Optional.ofNullable(dateTime);
+        this.duration = Optional.ofNullable(duration);
     }
 
     public Optional<Description> getDescription() {
@@ -33,6 +40,10 @@ public class Task {
 
     public Optional<DateTime> getDateTime() {
         return dateTime;
+    }
+
+    public Optional<Duration> getDuration() {
+        return duration;
     }
 
     public Title getTitle() {
@@ -83,6 +94,24 @@ public class Task {
                 new StringBuilder("Time: ")
                         .append(time.toString() + "\n")).orElse(emptyString);
     }
+
+    private StringBuilder getDurationString() {
+        StringBuilder emptyString = new StringBuilder("");
+        return duration.map(time ->
+                new StringBuilder("Duration: ")
+                        .append(time.toString() + "\n")).orElse(emptyString);
+    }
+
+    public TaskCell getTaskCellBind() {
+        return taskCellBind;
+    }
+
+    public void setTaskCellBind(TaskCell taskCellBind) {
+        this.taskCellBind = taskCellBind;
+    }
+    public boolean happensToday() {
+        return duration.isPresent() && dateTime.isPresent() && dateTime.get().isToday();
+    }
     /**
      * Returns true if both tasks have the same identity and data fields.
      * This defines a stronger notion of equality between two tasks.
@@ -100,13 +129,14 @@ public class Task {
         Task otherTask = (Task) other;
         return otherTask.getTitle().equals(this.getTitle())
                 && otherTask.getDescription().equals(this.getDescription())
-                && otherTask.dateTime.equals(this.dateTime);
+                && otherTask.dateTime.equals(this.dateTime)
+                && otherTask.duration.equals(this.duration);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(title, description, dateTime);
+        return Objects.hash(title, description, dateTime, duration);
     }
 
     @Override
@@ -115,7 +145,8 @@ public class Task {
         builder.append("Title: ")
                 .append(getTitle() + "\n")
                 .append(getDescriptionString())
-                .append(getDateTimeString());
+                .append(getDateTimeString())
+                .append(getDurationString());
         return builder.toString();
     }
 }

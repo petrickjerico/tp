@@ -51,6 +51,7 @@ public class LogicManager implements Logic {
             storage.saveAddressBook(model.getAddressBook());
             storage.saveSchedule(model.getSchedule());
             storage.saveFlashcardBank(model.getFlashcardBank());
+            storage.saveQuizRecords(model.getAllQuizRecords());
         } catch (IOException ioe) {
             throw new CommandException(FILE_OPS_ERROR_MESSAGE + ioe, ioe);
         }
@@ -81,6 +82,11 @@ public class LogicManager implements Logic {
     @Override
     public ObservableList<Task> getFilteredTaskList() {
         return model.getFilteredTaskList();
+    }
+
+    @Override
+    public ObservableList<Task> getUpcomingTaskList() {
+        return model.getUpcomingTaskList();
     }
 
     @Override

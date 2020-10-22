@@ -1,78 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Scene?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.Scene?>
 <?import javafx.stage.Stage?>
-
-<fx:root minHeight="600" minWidth="450" title="Study Bananas" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root
+        minHeight="600" minWidth="450" title="Study Bananas" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <icons>
         <Image url="@/images/study-bananas-icon.png" />
     </icons>
     <scene>
         <Scene>
             <stylesheets>
-                <URL value="@DarkTheme.css" />
+                <URL value="@LightTheme.css" />
                 <URL value="@Extensions.css" />
             </stylesheets>
-
-
-            <BorderPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-                <left>
-                    <VBox fx:id="sideBar" prefHeight="400.0" prefWidth="205.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-                        <children>
-                            <HBox fx:id="SideBarHeader" prefHeight="100.0" prefWidth="200.0">
-                                <children>
-                                    <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
-                                        <image>
-                                            <Image url="@/images/icon_horizonlines.png" />
-                                        </image>
-                                        <HBox.margin>
-                                            <Insets left="12.0" top="10.0" />
-                                        </HBox.margin>
-                                    </ImageView>
-                                    <VBox fx:id="logoAndProductName" prefHeight="200.0" prefWidth="120.0">
-                                        <children>
-                                            <ImageView fx:id="logo" fitHeight="61.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="@/images/study-bananas-icon.png" />
-                                                </image>
-                                                <VBox.margin>
-                                                    <Insets left="30.0" />
-                                                </VBox.margin>
-                                            </ImageView>
-                                            <Label id="StudyBananas" fx:id="productName" style="-fx-font-weight: bold;" text="StudyBananas" textAlignment="CENTER" textFill="#908c8c">
-                                                <font>
-                                                    <Font name="Helvetica Neue" size="17.0" />
-                                                </font>
-                                                <opaqueInsets>
-                                                    <Insets />
-                                                </opaqueInsets>
-                                                <VBox.margin>
-                                                    <Insets left="5.0" top="-5.0" />
-                                                </VBox.margin>
-                                            </Label>
-                                        </children>
-                                        <HBox.margin>
-                                            <Insets left="17.0" top="10.0" />
-                                        </HBox.margin>
-                                    </VBox>
-                                </children>
-                        <VBox.margin>
-                           <Insets bottom="10.0" />
-                        </VBox.margin>
-                            </HBox>
-                        </children>
-                    </VBox>
-                </left>
-            </BorderPane>
+            <BorderPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" />
         </Scene>
     </scene>
 </fx:root>

@@ -19,8 +19,10 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.systemlevelmodel.AddressBook;
 import seedu.address.model.systemlevelmodel.FlashcardBank;
+import seedu.address.model.systemlevelmodel.QuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlyQuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
 import seedu.address.model.systemlevelmodel.Schedule;
@@ -34,6 +36,8 @@ import seedu.address.storage.StorageManager;
 import seedu.address.storage.UserPrefsStorage;
 import seedu.address.storage.flashcardstorage.FlashcardBankStorage;
 import seedu.address.storage.flashcardstorage.JsonFlashcardBankStorage;
+import seedu.address.storage.quizstorage.JsonQuizRecordsStorage;
+import seedu.address.storage.quizstorage.QuizRecordsStorage;
 import seedu.address.storage.schedulestorage.JsonScheduleStorage;
 import seedu.address.storage.schedulestorage.ScheduleStorage;
 import seedu.address.ui.Ui;
@@ -67,8 +71,10 @@ public class MainApp extends Application {
         AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
         ScheduleStorage scheduleStorage = new JsonScheduleStorage(userPrefs.getScheduleFilePath());
         FlashcardBankStorage flashcardBankStorage = new JsonFlashcardBankStorage(userPrefs.getFlashcardBankFilePath());
+        QuizRecordsStorage quizRecordsStorage = new JsonQuizRecordsStorage(userPrefs.getQuizRecordsFilePath());
 
-        storage = new StorageManager(scheduleStorage, flashcardBankStorage, addressBookStorage, userPrefsStorage);
+        storage = new StorageManager(scheduleStorage, flashcardBankStorage,
+                quizRecordsStorage, addressBookStorage, userPrefsStorage);
 
         initLogging(config);
 
@@ -85,12 +91,17 @@ public class MainApp extends Application {
      * or an empty address book will be used instead if errors occur when reading {@code storage}'s address book.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
+
         Optional<ReadOnlyAddressBook> addressBookOptional;
         Optional<ReadOnlySchedule> scheduleOptional;
         Optional<ReadOnlyFlashcardBank> flashcardBankOptional;
+        Optional<ReadOnlyQuizRecords> quizRecordsOptional;
+
         ReadOnlyAddressBook initialAddressBookData;
         ReadOnlySchedule initialScheduleData;
         ReadOnlyFlashcardBank initialFlashcardBankData;
+        ReadOnlyQuizRecords initialQuizRecordsData;
+
         try {
             addressBookOptional = storage.readAddressBook();
 
@@ -139,7 +150,24 @@ public class MainApp extends Application {
             initialFlashcardBankData = new FlashcardBank();
         }
 
-        return new ModelManager(initialAddressBookData, userPrefs, initialScheduleData, initialFlashcardBankData);
+        try {
+            quizRecordsOptional = storage.readQuizRecords();
+
+            if (quizRecordsOptional.isEmpty()) {
+                logger.info("Quiz Records data file not found. Will be starting with a sample FlashcardBank");
+            }
+
+            initialQuizRecordsData = quizRecordsOptional.orElseGet(SampleDataUtil::getSampleQuizRecords);
+        } catch (DataConversionException e) {
+            logger.warning("Data file not in the correct format. Will be starting with an empty Quiz Record");
+            initialQuizRecordsData = new QuizRecords();
+        } catch (IOException e) {
+            logger.warning("Problem while reading from the file. Will be starting with an empty Quiz Record");
+            initialQuizRecordsData = new QuizRecords();
+        }
+
+        return new ModelManager(initialAddressBookData, userPrefs, initialScheduleData,
+                initialFlashcardBankData, initialQuizRecordsData);
     }
 
     private void initLogging(Config config) {

@@ -11,12 +11,20 @@ public class TimeScaleCell extends UiPart<Region> {
     @FXML
     private Label time;
 
+    private String timeStr;
+
     TimeScaleCell(String timeString) {
         super(FXML);
         time.setText(timeString);
+        //memoize the time, for hiding purpose.
+        this.timeStr = timeString;
     }
 
-    void setMarginTop(int marginTop) {
+    public void hideTime() {
+        time.setText("");
+    }
 
+    public void recoverTime() {
+        time.setText(timeStr);
     }
 }

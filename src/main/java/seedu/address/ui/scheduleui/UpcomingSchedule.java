@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import seedu.address.logic.Logic;
 import seedu.address.ui.UiPart;
 
 public class UpcomingSchedule extends UiPart<Region> {
@@ -17,9 +18,9 @@ public class UpcomingSchedule extends UiPart<Region> {
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
 
     // This part needs to synchronize with TimeScaleCell
-    private static final double INITIAL_PADDING = 10;
-    private static final double MARGIN_PER_HOUR = 40;
-    private static final double MARGIN_PER_MINUTE = MARGIN_PER_HOUR/60.0;
+    public static final double INITIAL_PADDING = 5;
+    public static final double MARGIN_PER_HOUR = 40;
+    public static final double MARGIN_PER_MINUTE = MARGIN_PER_HOUR/60.0;
 
 
     @FXML
@@ -37,15 +38,18 @@ public class UpcomingSchedule extends UiPart<Region> {
     private CurrentTimePointer currentTimePointer;
     private TimeScale timeScale;
 
-    public UpcomingSchedule() {
+    private Logic logic;
+
+    public UpcomingSchedule(Logic logic) {
         super(FXML);
+        this.logic = logic;
         fillInner();
     }
 
     private void fillInner() {
         LocalDate today = LocalDate.now();
 
-        timeScale = new TimeScale();
+        timeScale = new TimeScale(logic.getFilteredTaskList());
 
         schedule.getChildren().add(timeScale.getRoot());
 
@@ -105,13 +109,14 @@ public class UpcomingSchedule extends UiPart<Region> {
     private String toAmPmTime(String formattedTime) {
         String[] splitTime = formattedTime.split(":");
         int hour = Integer.parseInt(splitTime[0]);
-        int minute = Integer.parseInt(splitTime[1]);
+        //make sure that minutes have a trailing 0.
+        String minute = splitTime[1];
 
         if (hour >= 12) {
             hour -= 12;
-            return String.format("%d:%d PM", hour, minute);
+            return String.format("%d:%s PM", hour, minute);
         } else {
-            return String.format("%d:%d AM", hour, minute);
+            return String.format("%d:%s AM", hour, minute);
         }
     }
 
@@ -124,7 +129,7 @@ public class UpcomingSchedule extends UiPart<Region> {
         int hour = Integer.parseInt(splitTime[0]);
         int minute = Integer.parseInt(splitTime[1]);
 
-        return hour * MARGIN_PER_HOUR + minute * MARGIN_PER_MINUTE;
+        return INITIAL_PADDING + hour * MARGIN_PER_HOUR + minute * MARGIN_PER_MINUTE;
 
     }
 

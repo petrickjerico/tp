@@ -3,7 +3,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<ScrollPane
+<ScrollPane fx:id="scrollPane"
         maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
         prefHeight="480" prefWidth="400.0" style="-fx-background-color: white;
                                                     -fx-border-width: 0;"

@@ -1,8 +1,6 @@
 package seedu.address.ui.scheduleui;
 
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+import static seedu.address.ui.util.ScheduleUiUtil.checkTimePattern;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -14,6 +12,7 @@ public class CurrentTimePointer extends UiPart<Region> {
 
     @FXML
     private Label currentTime;
+
 
     /**
      * Constructor of CurrentTimePointer
@@ -30,13 +29,5 @@ public class CurrentTimePointer extends UiPart<Region> {
         currentTime.setText(time);
     }
 
-    private boolean checkTimePattern(String time) {
-        String[] splitTime = time.split(" ");
-        try {
-            LocalTime.parse(splitTime[0]);
-            return splitTime[1].matches("AM|PM");
-        } catch (DateTimeParseException e) {
-            return false;
-        }
-    }
+
 }

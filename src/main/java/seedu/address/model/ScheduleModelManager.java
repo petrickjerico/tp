@@ -9,10 +9,12 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.task.Task;
+import seedu.address.model.task.TaskHappensTodayPredicate;
 
 public class ScheduleModelManager implements ScheduleModel {
     private final Schedule schedule;
     private final FilteredList<Task> filteredTasks;
+    private final FilteredList<Task> todayTasks;
 
     /**
      * Create ScheduleModelManager from {@schedule}
@@ -21,6 +23,7 @@ public class ScheduleModelManager implements ScheduleModel {
     public ScheduleModelManager(ReadOnlySchedule schedule) {
         this.schedule = new Schedule(schedule);
         filteredTasks = new FilteredList<>(this.schedule.getTaskList());
+        todayTasks = new FilteredList<>(this.schedule.getTaskList());
     }
     @Override
     public void setSchedule(ReadOnlySchedule schedule) {
@@ -62,10 +65,18 @@ public class ScheduleModelManager implements ScheduleModel {
     }
 
     @Override
+    public ObservableList<Task> getUpcomingTaskList() {
+        todayTasks.setPredicate(new TaskHappensTodayPredicate());
+        return todayTasks;
+    }
+
+
+    @Override
     public void updateFilteredTaskList(Predicate<Task> predicate) {
         requireNonNull(predicate);
         filteredTasks.setPredicate(predicate);
     }
+
     @Override
     public boolean equals(Object obj) {
         // short circuit if same object

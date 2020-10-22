@@ -4,12 +4,8 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity"
-      style="-fx-background-color: white;"
-      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <VBox style="-fx-background-color: #e6f2ff;
-                  -fx-background-radius: 25;"
-          styleClass="scheduleUiPanel">
+<VBox maxHeight="-Infinity" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox style="-fx-background-color: #e6f2ff; -fx-background-radius: 25;" prefHeight="600" styleClass="scheduleUiPanel">
     <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-without-border" VBox.vgrow="NEVER">
         <padding>
             <Insets bottom="5" left="10" right="10" top="5" />
@@ -22,18 +18,11 @@
         </padding>
     </StackPane>
 
-    <VBox fx:id="taskList" minWidth="340" prefWidth="340"  VBox.vgrow="ALWAYS">
+    <VBox fx:id="taskList" minWidth="340" prefWidth="340" VBox.vgrow="ALWAYS">
         <StackPane fx:id="taskListPanelPlaceholder" VBox.vgrow="ALWAYS" />
     </VBox>
-
-      <VBox.margin>
-         <Insets />
-      </VBox.margin>
       <padding>
-         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
       </padding>
     </VBox>
-   <padding>
-      <Insets bottom="5.0" top="5.0" />
-   </padding>
 </VBox>

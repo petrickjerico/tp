@@ -3,6 +3,7 @@ package seedu.address.model.task;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -38,6 +39,13 @@ public class DateTime {
         return test.equals("") || TimeFormatChecker.check(test);
     }
 
+    /**
+     * Check if the dateTime is today
+     */
+    public boolean isToday() {
+        return LocalDate.now().equals(dateTime.toLocalDate());
+    }
+
 
     @Override
     public String toString() {
@@ -57,4 +65,5 @@ public class DateTime {
     public int hashCode() {
         return dateTime.hashCode();
     }
+
 }

@@ -3,26 +3,49 @@ package seedu.address.ui.scheduleui;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import seedu.address.model.task.Task;
 import seedu.address.ui.UiPart;
 
 public class TimeScale extends UiPart<Region> {
     private static final String FXML = "TimeScale.fxml";
 
+    private static final ListChangeListener<Task> taskListener = new ListChangeListener<Task>() {
+        @Override
+        public void onChanged(Change<? extends Task> c) {
+            while (c.next()) {
+
+            }
+        }
+    }
+
     private List<TimeScaleCell> timeScaleCells = new ArrayList<>();
     private CurrentTimePointer currentTimePointer;
+    private ObservableList<Task> tasks;
 
     @FXML
     private StackPane timeScale;
 
-    public TimeScale() {
+    @FXML
+    private ScrollPane scrollPane;
+
+    public TimeScale(ObservableList<Task> tasks) {
         super(FXML);
+        this.tasks = tasks;
+
+        //ui set-up
         init();
         setMargin();
+
+        //listener set-up
+        handleListener();
     }
 
     private void init() {
@@ -42,6 +65,13 @@ public class TimeScale extends UiPart<Region> {
 
         //repeat 12 AM
         timeScaleCells.add(new TimeScaleCell("12 AM"));
+
+        //style, temporary, todo: move to fxml/css
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setFitToWidth(true);
+
+        //add task to
+
     }
 
     /**
@@ -66,5 +96,36 @@ public class TimeScale extends UiPart<Region> {
 
     public void updateCurrentTimePosition(double newMarginTop){
         timeScale.setMargin(currentTimePointer.getRoot(), new Insets(newMarginTop, 0, 0, 0));
+
+    }
+
+    /**
+     * Handle the overlap of timeScale and the currentTimePointer
+     * @param time time has to be in the format of HH:mm.
+     */
+    public void handleOverlap(String time) {
+        assert time.matches("^([0-12]|2[0-3]):[0-5][0-9]$");
+        String[] splitTime = time.split(":");
+        int hour = Integer.valueOf(splitTime[0]);
+        int minute = Integer.valueOf(splitTime[1]);
+
+        // ugly implementation, should try to improve.
+        // a bit violate LoD.
+        if (minute <= 15) {
+            //hour is one-based, and the timeScaleCell starts from 12AM
+            TimeScaleCell overlappedCell = timeScaleCells.get(hour);
+            overlappedCell.hideTime();
+        } else if (minute > 15){
+            timeScaleCells.get(hour).recoverTime();
+            timeScaleCells.get(hour + 1).recoverTime();
+        } else if (minute >= 45) {
+            TimeScaleCell overlappedCell = timeScaleCells.get(hour + 1);
+            overlappedCell.hideTime();
+        }
+
+    }
+
+    private void handleListener() {
+        tasks.addListener();
     }
 }

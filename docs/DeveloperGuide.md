@@ -258,47 +258,59 @@ Given below is an example usage scenario and how the quiz with storage of answer
 
 ##### Step 1
 The user launches the application and starts the quiz for a non-empty, valid flashcard set. 
+As a result, it creates a `QuizModelManager` object and a `StartCommand` object.
 Assume the flashcard set contains only two flashcards for simplicity.
 
-The `Quiz` will be initialized with the initial quiz state with default values for score, 
-and the `currentIndex` pointing to the index of the first flashcard, 
-with the current command result being the first question.
+The call to `StartCommand#execute()` will allow the `Quiz` to be initialized with the initial quiz state with default values for score, 
+the `currentIndex` pointing to the index of the first flashcard, 
+and the current command result being the first question through the call of `Quiz#getQuestion()`.
+
+The `Quiz` is saved into the `QuizModelManager`object.
+
+![StartQuizClassDiagram](images/StartQuizClassDiagram.png)
 
 ![StartQuiz](images/StartQuiz.png)
 
 ##### Step 2
-The user executes `answer` command to submit their answer to the question. 
-The `answer` command calls `Quiz#saveAnswer()`, 
+The user executes `ans:<answer>` command to submit their answer to the question. 
+The `AnswerCommand` object created calls `Quiz#saveAnswer()`, 
 storing their answer into the `userAnswers` array attribute in Quiz 
-for the question before moving on to the next question.
+for the question before moving on to the correct answer through the call of `Quiz#getAnswer()`.
 
-![StoreAnswer](images/StoreAnswer.png)
+The `currentIndex` attribute is incremented at this stage to point to the next flashcard.
+
+![StoreAnswerClassDiagram](images/StoreAnswerClassDiagram.png)
 
 ##### Step 3
-The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
+After viewing the answer, the user executes either `c` or `w` to indicate whether the question is answered correctly. 
+This creates either a `CorrectCommand` or `WrongCommand` object. 
 
-![UndoRedoState2](images/UndoRedoState2.png)
+In the case of a `CorrectCommand` object below, the call to `CorrectCommand#execute()`
+calls the `Quiz:tallyScore()` method through the interaction with `QuizModelManager`.
+This increments the `pointsScored` attribute in quiz.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
+![UpdateScoreClassDiagram](images/UpdateScoreClassDiagram.png)
 
-</div>
+The object created will check if the `currentIndex` (updated in the previous step) 
+is within bounds to obtain the next flashcard.
 
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If there are no flashcards left, the quiz exits.
+
+</div> 
+
+In the current scenario, the question of the next flashcard is fetched and displayed
+by calling the `Quiz:getQuestion()` method,
+through `QuizModelManager`, during the execution of `CorrectCommand:execute()`.
+
+![NextQuestion](images/NextQuestion.png)
+
+Step 4. Assume that the user has reached the end of the flashcards. The user now decides to cancel the quiz. 
 
 ![UndoRedoState3](images/UndoRedoState3.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
-
-The following sequence diagram shows how the undo operation works:
+The following sequence diagram shows how the Quiz:stop() operation works:
 
 ![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
 
 The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
 

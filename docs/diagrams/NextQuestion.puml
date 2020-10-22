@@ -11,5 +11,5 @@ package FlashcardSet {
 }
 State1 -[hidden]right-> State2
 class Pointer as "Current Index" #FFFFF
-Pointer -up-> State1
+Pointer -up-> State2
 @end

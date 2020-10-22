@@ -12,6 +12,6 @@ public class TaskHappensTodayPredicate implements Predicate<Task> {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof TitleContainsKeywordsPredicate); // instanceof handles nulls
+                || (other instanceof TaskHappensTodayPredicate); // instanceof handles nulls
     }
 }

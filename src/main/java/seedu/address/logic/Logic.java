@@ -7,8 +7,10 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.person.Person;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
+import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.task.Task;
 
@@ -56,6 +58,23 @@ public interface Logic {
      * Returns the user prefs' schedule file path.
      */
     Path getScheduleFilePath();
+
+
+
+    /**
+     * Returns the Schedule.
+     *
+     * @see seedu.address.model.Model#getSchedule()
+     */
+    ReadOnlyFlashcardBank getFlashcardBank();
+
+    /** Returns an unmodifiable view of the filtered list of tasks */
+    ObservableList<FlashcardSet> getFilteredFlashcardSetList();
+
+    /**
+     * Returns the user prefs' schedule file path.
+     */
+    Path getFlashcardBankFilePath();
 
 
     /**

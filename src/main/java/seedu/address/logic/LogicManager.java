@@ -13,8 +13,10 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.StudyBananasParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
+import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.person.Person;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
+import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.task.Task;
 import seedu.address.storage.Storage;
@@ -86,6 +88,21 @@ public class LogicManager implements Logic {
     @Override
     public Path getScheduleFilePath() {
         return model.getScheduleFilePath();
+    }
+
+    @Override
+    public ReadOnlyFlashcardBank getFlashcardBank() {
+        return model.getFlashcardBank();
+    }
+
+    @Override
+    public ObservableList<FlashcardSet> getFilteredFlashcardSetList() {
+        return model.getFilteredFlashcardSetList();
+    }
+
+    @Override
+    public Path getFlashcardBankFilePath() {
+        return model.getFlashcardBankFilePath();
     }
 
     @Override

@@ -179,7 +179,7 @@ public class AddFlashcardSetCommandTest {
         }
 
         @Override
-        public ObservableList<FlashcardSet> getFlashcardSetList() {
+        public ObservableList<FlashcardSet> getFilteredFlashcardSetList() {
             throw new AssertionError("This method should not be called.");
         }
 

@@ -84,7 +84,7 @@ public class FlashcardModelManager implements FlashcardModel {
     //=========== Filtered Flashcard Set Accessors =============================================================
 
     @Override
-    public ObservableList<FlashcardSet> getFlashcardSetList() {
+    public ObservableList<FlashcardSet> getFilteredFlashcardSetList() {
         return filteredFlashcardSets;
     }
 

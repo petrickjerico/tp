@@ -130,7 +130,7 @@ public interface FlashcardModel {
     //=========== Filtered Flashcard Set Accessors =========================================================
 
     /** Returns an unmodifiable view of the filtered flashcard set list */
-    ObservableList<FlashcardSet> getFlashcardSetList();
+    ObservableList<FlashcardSet> getFilteredFlashcardSetList();
 
     /**
      * Updates the filter of the filtered flashcard set list to filter by the given {@code predicate}.

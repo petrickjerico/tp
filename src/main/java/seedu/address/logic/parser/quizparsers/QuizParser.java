@@ -14,7 +14,8 @@ import seedu.address.model.Model;
 
 public class QuizParser implements Parser<Command> {
 
-    public static final String MESSAGE_PARSING_ERROR = "";
+    public static final String MESSAGE_PARSING_ERROR =
+            "The command for quiz is invalid. Please check the command format and try again.";
 
     @Override
     public Command<? super Model> parse(String userInput) throws ParseException {

@@ -229,7 +229,7 @@ The next question of the next flashcard will be displayed. Steps 1-2 are repeate
 Once the quiz stops, the score and answers will be displayed. Both information can be viewed when viewing the last attempt of the flashcard set.
 <p>&nbsp;</p>
 
-### **View last quiz attempt**: `view flset quiz`
+### **View last quiz attempt**: `quiz score flset`
 Shows the last attempt of a specific flashcard set.
 
 It comprises of the following information:
@@ -239,10 +239,10 @@ It comprises of the following information:
 
 <img src="images/view score.png" width="200px">
 
-Format: `view flset quiz:<setindex>`
+Format: `quiz score flset:<setindex>`
 
 Examples: 
-`view flset quiz:9`, `view flset quiz:16`
+`quiz score flset:9`, `quiz score flset:16`
 <p>&nbsp;</p>
 
 ### **Add a task**: `add task`
@@ -284,7 +284,8 @@ Examples:
 
 ### **Search for a task**: `search task`
 
-Finds the tasks of which information contains any of the given keywords.  
+Finds the tasks of which information contains any of the given keywords (for `title`) 
+or all of the given keywords (`description` and `dateTime`).  
 
 Format: `search task <keyword>`
 
@@ -353,7 +354,7 @@ _{explain the feature here}_
 | -------------------------------- | --------------------------------------------------------------------------------------- |
 | **Quiz flset (without storage)** | `quiz flset:<setindex>` <br> e.g., `quiz flset:7`, `flip`, `c/w`, `cancel`              |
 | **Quiz flset (with storage)**    | `quiz flset store:<setindex>` <br> e.g., `quiz flset store:10`, `flip`, `c/w`, `cancel` |
-| **View flset**                   | `view flset quiz:<setindex>` <br>  e.g., `view flset quiz:6`                            |
+| **Quiz score flset**                   | `quiz score flset` <br>  e.g., `quiz score flset:6`                            |
 
 <p>&nbsp;</p>
 

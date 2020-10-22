@@ -18,7 +18,7 @@ public class ScheduleUi extends UiPart<Region> {
 
     ScheduleUi (Logic logic) {
         super(FXML);
-        upcomingSchedulePlaceholder.getChildren().add(new UpcomingSchedule().getRoot());
+        upcomingSchedulePlaceholder.getChildren().add(new UpcomingSchedule(logic).getRoot());
         taskDetailPanelPlaceholder.getChildren().add(new TaskDetailPanel(logic).getRoot());
     }
 

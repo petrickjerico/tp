@@ -2,6 +2,7 @@ package seedu.address.logic.parser.scheduleparsers;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DURATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TITLE;
 import static seedu.address.logic.parser.parserutils.ParserUtil.arePrefixesPresent;
@@ -14,6 +15,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.logic.parser.parserutils.ParserUtil;
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.Description;
+import seedu.address.model.task.Duration;
 import seedu.address.model.task.Task;
 import seedu.address.model.task.Title;
 
@@ -37,8 +39,9 @@ public class ScheduleAddCommandParser implements Parser<ScheduleAddCommand> {
         Title title = ParserUtil.parseTitle(argMultimap.getValue(PREFIX_TITLE).get());
         Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).orElse(null));
         DateTime time = ParserUtil.parseTime(argMultimap.getValue(PREFIX_TIME).orElse(null));
+        Duration duration =ParserUtil.parseDuration(argMultimap.getValue(PREFIX_DURATION).orElse(null));
 
-        Task task = new Task(title, description, time);
+        Task task = new Task(title, description, time, duration);
 
         return new ScheduleAddCommand(task);
     }

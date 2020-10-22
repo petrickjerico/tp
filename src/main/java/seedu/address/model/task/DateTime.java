@@ -18,7 +18,18 @@ public class DateTime {
             "DateTime should be in the yyyy-MM-dd HH:mm format";
     public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm";
 
-    public final LocalDateTime dateTime;
+    /**
+     * Util function for sample data.
+     * @return
+     */
+    public static DateTime getToday(int hour, int minute) {
+        LocalDate today = LocalDate.now();
+        DateTime todayDateTime = new DateTime();
+        todayDateTime.dateTime = today.atTime(hour, minute);
+        return todayDateTime;
+    }
+
+    public LocalDateTime dateTime;
 
 
     /**
@@ -30,6 +41,10 @@ public class DateTime {
         requireNonNull(dateTime);
         checkArgument(isValidDateTime(dateTime), MESSAGE_CONSTRAINTS);
         this.dateTime = TimeFormatChecker.mapToLocalDateTime(dateTime);
+    }
+
+    private DateTime() {
+        dateTime = null;
     }
 
     /**

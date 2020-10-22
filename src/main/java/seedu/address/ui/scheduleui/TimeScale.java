@@ -17,14 +17,14 @@ import seedu.address.ui.UiPart;
 public class TimeScale extends UiPart<Region> {
     private static final String FXML = "TimeScale.fxml";
 
-    private static final ListChangeListener<Task> taskListener = new ListChangeListener<Task>() {
+    /*private static final ListChangeListener<Task> taskListener = new ListChangeListener<Task>() {
         @Override
         public void onChanged(Change<? extends Task> c) {
             while (c.next()) {
 
             }
         }
-    }
+    }*/
 
     private List<TimeScaleCell> timeScaleCells = new ArrayList<>();
     private CurrentTimePointer currentTimePointer;
@@ -126,6 +126,6 @@ public class TimeScale extends UiPart<Region> {
     }
 
     private void handleListener() {
-        tasks.addListener();
+        //tasks.addListener();
     }
 }

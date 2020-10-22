@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.Description;
+import seedu.address.model.task.Duration;
 import seedu.address.model.task.Task;
 import seedu.address.model.task.Title;
 
@@ -16,6 +17,7 @@ public class JsonAdaptedTask {
 
     private final String title;
     private final Optional<String> description;
+    private final Optional<Integer> duration;
     private final Optional<JsonAdaptedDateTime> dateTime;
 
     /**
@@ -24,10 +26,12 @@ public class JsonAdaptedTask {
     @JsonCreator
     public JsonAdaptedTask(@JsonProperty("title") String title,
                            @JsonProperty("description") Optional<String> description,
-                             @JsonProperty("dateTime") Optional<String> dateTime) {
+                           @JsonProperty("dateTime") Optional<String> dateTime,
+                           @JsonProperty("duration") Optional<Integer> duration) {
         this.title = title;
         this.description = description;
         this.dateTime = dateTime.map(JsonAdaptedDateTime::new);
+        this.duration = duration;
     }
 
     /**
@@ -37,6 +41,7 @@ public class JsonAdaptedTask {
         title = source.getTitle().title;
         description = source.getDescription().map(description -> description.toString());
         dateTime = source.getDateTime().map(JsonAdaptedDateTime::new);
+        duration = source.getDuration().map(duration-> duration.duration);
     }
 
     /**
@@ -61,7 +66,9 @@ public class JsonAdaptedTask {
                 return null;
             }
         }).orElse(null);
-        return new Task(modelTitle, modelDescription, modelDateTime);
+
+        final Duration modelDuration = duration.map(dur -> new Duration(dur)).orElse(null);
+        return new Task(modelTitle, modelDescription, modelDateTime, modelDuration);
     }
 
 }

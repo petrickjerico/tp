@@ -25,6 +25,7 @@ import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.Description;
+import seedu.address.model.task.Duration;
 import seedu.address.model.task.Task;
 import seedu.address.model.task.Title;
 
@@ -58,17 +59,17 @@ public class SampleDataUtil {
     public static Task[] getSampleTasks() {
         return new Task[] {
             new Task(new Title("CS2103T"), new Description("Week 8 topics quiz."),
-                    new DateTime("2020-10-09 23:59")),
+                    DateTime.getToday(11, 30), new Duration(60)),
             new Task(new Title("CS2103T"), new Description("Week 9 topics quiz."),
-                    new DateTime("2020-10-16 23:59")),
+                    new DateTime("2020-10-16 23:59"), new Duration(60)),
             new Task(new Title("CS2103T"), new Description("Popping dance lecture."),
-                    new DateTime("2020-10-23 23:59")),
+                    new DateTime("2020-10-23 23:59"), new Duration(60)),
             new Task(new Title("CCA"), new Description("Week 10 topics quiz."),
-                    new DateTime("2020-10-08 13:00")),
+                    DateTime.getToday(13, 0), new Duration(120)),
             new Task(new Title("Household"), null,
-                    new DateTime("2020-11-11 12:30")),
+                    new DateTime("2020-11-11 12:30"), new Duration(60)),
             new Task(new Title("Job"), new Description(""),
-                    new DateTime("2020-09-29 22:00"))
+                    new DateTime("2020-09-29 22:00"), new Duration(60))
         };
     }
 

@@ -12,7 +12,7 @@ public class Duration {
 
     private static final int MINUTE_PER_DAY = 60 * 24;
 
-    public final String duration;
+    public final Integer duration;
 
     /**
      * Constructs a {@code Duration}.
@@ -21,6 +21,12 @@ public class Duration {
     public Duration(String duration) {
         requireNonNull(duration);
         checkArgument(isValidDuration(duration), MESSAGE_CONSTRAINTS);
+        this.duration = Integer.valueOf(duration);
+    }
+
+    public Duration(Integer duration) {
+        requireNonNull(duration);
+        checkArgument(duration < MINUTE_PER_DAY, MESSAGE_CONSTRAINTS);
         this.duration = duration;
     }
 

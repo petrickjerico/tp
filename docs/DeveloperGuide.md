@@ -127,6 +127,58 @@ The `Storage` component,
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
+
+
+## **StudyBananas Architecture**
+
+StudyBananas is an integration of 4 systems, namely AddressBook3(AB3), Schedule, Quiz, Flashcard. Structure-wise, our team decided to stick to the original architecture of the AB3 (see architecture diagram above). Nonetheless, this decision incurs strong couplings between systems in each components. Therefore, we introduce layers of abstraction for each components to reduce the couplings. This section describes how we implement each component.
+
+![architectureDiagram](images/ArchitectureDiagram.png)
+
+### Model
+
+#### Reasoning
+
+In the original implementation of AB3, `ModelManager` which implements `Model` interface serves as the API to interact with other components. We preserve the convention and leave `ModelManager` as our **"one and only"** API for Model component. This decision has brought about the following pros and cons.
+
+  * Pros: It simplifies the system, as `Model` contains every methods that other components need. It makes cooperation easier and vastly reduces the time that other developers need to spend on understanding multiple APIs and makes the code cleaner when working with other components.  
+  * Cons: 
+    1. It breaks Single Responsibility Principle, for `Model`is no longer only responsible for the AB3, it holds accountable for 4 systems at the same time.
+    2. It breaks Interface Segregation Principle when writing ModelStubs for the unit tests and incur tons of conflicts when 4 systems are developed at the same time. 
+    
+#### Implementation
+
+Hugely fond of the great advantage of single API Model system, our team built a structure which segregates the Model API into the 4 systems but at the same time integrates all Models with the **"one and only one"** API class ModelManager. The following is the step by step guide of how we create the structure and can be followed to integrate more systems to StudyBananas.
+
+Step1. Create XYZModel interfaces for each system which can be viewed as 4 APIs for 4 SystemModel, and have our API `Model` interface extends from all of them to make sure that `Model` still contains all the methods that other components require.
+
+![ModelStructure-Step1](images/ModelStructure-Step1.png)
+
+Step2. Create XYZModelManagers which implement the XYZModel and handles the real "operations" for XYZModels.
+
+![ModelStructure-Step2](images/ModelStructure-Step2.png)
+
+Step3. Create system-level Models (Addressbook, Schedule, Flashcard, Quiz) which are the "real" Models. (**Note:** XYZModelManagers are APIs for these system-level Models.) Then, have XYZModelManagers depend on these system-level Models. (**Note:** system-level models represents the persistence layer for each system and system-level is relative to lower level Models e.g. Address, Tag, Title...)
+
+
+![ModelStructure-Step3](images/ModelStructure-Step3.png)
+
+Step4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` still contains all the methods from 4 individual systems. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the ModelManagers. Therefore, during the unit tests, we create XYZModelStubs which contains only methods that are related to the SUT.
+
+
+![ModelStructure-Step4](images/ModelArchitectureDiagram.png)
+
+
+#### Analysis
+
+  * Pros: 
+    1. It preserves the advantage of easier and faster cooperation from the reasoning section.
+    2. It solves the second disadvantage in the reasoning section by one more layer of segregation.
+    3. Although adding new systems still requires adding methods in the Model interface, it makes sure, there is no need to modify the old codes or modify the test case implementation. Therefore, it meets the Open-Closed Principle.
+  * Cons: 
+    1. It still breaks the Single Responsibility Principle, for `Model`is no longer only responsible for the AB3, it holds accountable for 4 systems at the same time.
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Implementation**

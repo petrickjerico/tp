@@ -1,0 +1,45 @@
+@startuml
+
+interface Model
+interface AddressBookModel
+class AddressBookModelManager
+interface ScheduleModel
+class ScheduleModelManager
+interface FlashcardModel
+class FlashcardModelManager
+interface QuizModel
+class QuizModelManager
+
+
+class AddressBook
+class Schedule
+class FlashcardBank
+class Quiz
+
+Model --|> AddressBookModel
+Model --|> ScheduleModel
+Model --|> FlashcardModel
+Model --|> QuizModel
+
+AddressBookModel <|.. AddressBookModelManager
+ScheduleModel <|.. ScheduleModelManager
+FlashcardModel <|.. FlashcardModelManager
+QuizModel <|.. QuizModelManager
+
+AddressBookModelManager ..> AddressBook
+ScheduleModelManager ..> Schedule
+FlashcardModelManager ..> FlashcardBank
+QuizModelManager ..> Quiz
+
+ModelManager ..> AddressBookModelManager
+ModelManager ..> ScheduleModelManager
+ModelManager ..> FlashcardModelManager
+ModelManager ..> QuizModelManager
+Model <|-- ModelManager
+
+
+
+
+
+
+@enduml

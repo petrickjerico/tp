@@ -7,7 +7,7 @@ import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestU
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.showTaskAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND;
-import static seedu.address.testutil.TypicalTasks.getTypicalSchedule;
+import static seedu.address.testutil.SampleTasks.getSampleSchedule;
 
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +18,7 @@ import seedu.address.model.ScheduleModelManager;
 import seedu.address.model.task.Task;
 
 public class ScheduleDeleteCommandTest {
-    private ScheduleModel model = new ScheduleModelManager(getTypicalSchedule());
+    private ScheduleModel model = new ScheduleModelManager(getSampleSchedule());
 
     @Test
     public void execute_validIndexUnfilteredList_success() {

@@ -33,6 +33,16 @@ public class ParserUtil {
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
 
     /**
+     * Parses {@code numericString} and checks whether the string is numeric.
+     * @param numericString
+     * @return true if the string is numeric, false otherwise.
+     */
+    public static boolean isNumeric(String numericString) {
+        boolean isNumber = numericString.chars().allMatch(Character::isDigit);
+        return isNumber;
+    }
+
+    /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).

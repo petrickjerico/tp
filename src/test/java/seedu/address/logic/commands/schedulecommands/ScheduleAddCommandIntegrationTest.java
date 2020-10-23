@@ -2,7 +2,7 @@ package seedu.address.logic.commands.schedulecommands;
 
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.TypicalTasks.getTypicalSchedule;
+import static seedu.address.testutil.SampleTasks.getSampleSchedule;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ public class ScheduleAddCommandIntegrationTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ScheduleModelManager(getTypicalSchedule());
+        model = new ScheduleModelManager(getSampleSchedule());
     }
 
     @Test

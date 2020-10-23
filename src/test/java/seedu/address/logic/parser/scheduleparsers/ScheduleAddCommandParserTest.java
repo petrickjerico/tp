@@ -88,7 +88,7 @@ public class ScheduleAddCommandParserTest {
         assertParseFailure(parser, INVALID_TITLE_DESC + DESCRIPTION_DESC_CS2103T + DATETIME_DESC_CS2103T,
                 Title.MESSAGE_CONSTRAINTS);
 
-        // invalid email
+        // invalid date time
         assertParseFailure(parser, TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2103T + INVALID_DATETIME_DESC,
                 DateTime.MESSAGE_CONSTRAINTS);
 

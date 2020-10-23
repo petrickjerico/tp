@@ -1,7 +1,10 @@
 package seedu.address.logic.commands.schedulecommands;
 
 import static java.util.Objects.requireNonNull;
-
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DURATION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TITLE;
 import java.util.List;
 
 import seedu.address.commons.core.Messages;
@@ -10,10 +13,7 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.ScheduleModel;
-import seedu.address.model.task.DateTime;
-import seedu.address.model.task.Description;
-import seedu.address.model.task.Task;
-import seedu.address.model.task.Title;
+import seedu.address.model.task.*;
 
 public class ScheduleEditCommand extends Command<ScheduleModel> {
     public static final String COMMAND_WORD = "edit task";
@@ -21,7 +21,11 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Edits the task identified by the index number used in the displayed task list.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
-            + "Example: " + COMMAND_WORD + " 1";
+            + PREFIX_TITLE + "TITLE (if any) \n"
+            + PREFIX_DESCRIPTION + "DESCRIPTION (if any) \n"
+            + PREFIX_TIME + "TIME (if any) \n"
+            + PREFIX_DURATION + "DURATION (if any) \n"
+            + "Example: " + COMMAND_WORD + " 1 T: Household dur: 60";
 
     public static final String MESSAGE_EDIT_TASK_SUCCESS = "Edited Task: %1$s";
 
@@ -29,19 +33,24 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
     private final Title title;
     private final Description description;
     private final DateTime dateTime;
+    private final Duration duration;
 
-    public ScheduleEditCommand(Index targetIndex, Title title, Description description, DateTime dateTime) {
+    public ScheduleEditCommand(
+            Index targetIndex, Title title, Description description, DateTime dateTime, Duration duration) {
         this.targetIndex = targetIndex;
         this.title = title;
         this.description = description;
         this.dateTime = dateTime;
+        this.duration = duration;
     }
 
-    private Task generateEditedTask(Task taskToEdit, Title newTitle, Description newDescription, DateTime newDateTime) {
+    private Task generateEditedTask(
+            Task taskToEdit, Title newTitle, Description newDescription, DateTime newDateTime, Duration newDuration) {
         Title title = newTitle == null ? taskToEdit.getTitle() : newTitle;
         Description description = newDescription == null ? taskToEdit.getDescription().get() : newDescription;
         DateTime dateTime = newDateTime == null ? taskToEdit.getDateTime().get() : newDateTime;
-        Task editedTask = new Task(title, description, dateTime);
+        Duration duration = newDuration == null ? taskToEdit.getDuration().get() : newDuration;
+        Task editedTask = new Task(title, description, dateTime, duration);
         return editedTask;
     }
 
@@ -55,7 +64,7 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
         }
 
         Task taskToEdit = lastShownList.get(targetIndex.getZeroBased());
-        Task editedTask = generateEditedTask(taskToEdit, title, description, dateTime);
+        Task editedTask = generateEditedTask(taskToEdit, title, description, dateTime, duration);
         model.setTask(taskToEdit, editedTask);
         return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
     }

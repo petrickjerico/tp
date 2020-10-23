@@ -14,6 +14,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.logic.parser.parserutils.ParserUtil;
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.Description;
+import seedu.address.model.task.Duration;
 import seedu.address.model.task.Title;
 
 public class ScheduleEditCommandParser implements Parser<ScheduleEditCommand> {
@@ -38,11 +39,13 @@ public class ScheduleEditCommandParser implements Parser<ScheduleEditCommand> {
             String editInfoString = getEditInfo(args);
             Index index = ParserUtil.parseIndex(indexString);
             ArgumentMultimap argMultimap =
-                    ArgumentTokenizer.tokenize(editInfoString, PREFIX_TITLE, PREFIX_DESCRIPTION, PREFIX_TIME);
+                    ArgumentTokenizer.tokenize(
+                            editInfoString, PREFIX_TITLE, PREFIX_DESCRIPTION, PREFIX_TIME, PREFIX_DURATION);
 
             if ((!arePrefixesPresent(argMultimap, PREFIX_TITLE)
                     && !arePrefixesPresent(argMultimap, PREFIX_DESCRIPTION)
-                    && !arePrefixesPresent(argMultimap, PREFIX_TIME))
+                    && !arePrefixesPresent(argMultimap, PREFIX_TIME)
+                    && !arePrefixesPresent(argMultimap, PREFIX_DURATION))
                     ) {
                 throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ScheduleEditCommand.MESSAGE_USAGE));
             }
@@ -56,7 +59,8 @@ public class ScheduleEditCommandParser implements Parser<ScheduleEditCommand> {
             }).orElse(null);
             Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).orElse(null));
             DateTime time = ParserUtil.parseTime(argMultimap.getValue(PREFIX_TIME).orElse(null));
-            return new ScheduleEditCommand(index, title, description, time);
+            Duration duration = ParserUtil.parseDuration(argMultimap.getValue(PREFIX_DURATION).orElse(null));
+            return new ScheduleEditCommand(index, title, description, time, duration);
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, ScheduleEditCommand.MESSAGE_USAGE), pe);

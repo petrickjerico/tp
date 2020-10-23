@@ -23,7 +23,7 @@ public class ListFlashcardSetCommandTest {
 
     @Test
     public void execute_list_showsEverything() {
-        ObservableList<FlashcardSet> flashcardSets = model.getFlashcardSetList();
+        ObservableList<FlashcardSet> flashcardSets = model.getFilteredFlashcardSetList();
 
         StringBuilder details = new StringBuilder();
         details.append("\nThere are ");

@@ -93,10 +93,10 @@ public class FlashcardBankCommandTestUtil {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
         FlashcardBank expectedFlashcardBank = new FlashcardBank(actualModel.getFlashcardBank());
-        List<FlashcardSet> expectedFilteredList = new ArrayList<>(actualModel.getFlashcardSetList());
+        List<FlashcardSet> expectedFilteredList = new ArrayList<>(actualModel.getFilteredFlashcardSetList());
 
         assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel));
         assertEquals(expectedFlashcardBank, actualModel.getFlashcardBank());
-        assertEquals(expectedFilteredList, actualModel.getFlashcardSetList());
+        assertEquals(expectedFilteredList, actualModel.getFilteredFlashcardSetList());
     }
 }

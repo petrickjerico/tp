@@ -130,11 +130,20 @@ public interface FlashcardModel {
     //=========== Filtered Flashcard Set Accessors =========================================================
 
     /** Returns an unmodifiable view of the filtered flashcard set list */
-    ObservableList<FlashcardSet> getFlashcardSetList();
+    ObservableList<FlashcardSet> getFilteredFlashcardSetList();
 
     /**
      * Updates the filter of the filtered flashcard set list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate);
+
+    //=========== Filtered Flashcard Set Accessors =========================================================
+
+    /** Returns an unmodifiable view of the filtered flashcard set list */
+    FlashcardSet getFlashcardSetToView();
+
+    /** Sets an unmodifiable view of the filtered flashcard set list */
+    void setFlashcardSetToView(FlashcardSet flashcardSet);
+
 }

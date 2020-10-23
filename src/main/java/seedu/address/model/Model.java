@@ -55,4 +55,13 @@ public interface Model extends AddressBookModel, ScheduleModel, FlashcardModel, 
      */
     void setScheduleFilePath(Path scheduleFilePath);
 
+    /**
+     * Returns the user prefs' flashcard bank file path.
+     */
+    Path getFlashcardBankFilePath();
+
+    /**
+     * Sets the user prefs' flashcard bank file path.
+     */
+    void setFlashcardBankFilePath(Path flashcardBankFilePath);
 }

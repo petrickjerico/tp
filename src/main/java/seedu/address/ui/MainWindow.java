@@ -92,7 +92,7 @@ public class MainWindow extends UiPart<Stage> implements Observer {
             mainWindow.setCenter(new ScheduleUi(logic).getRoot());
             break;
         case FLASHCARD:
-            mainWindow.setCenter(new FlashcardUi().getRoot());
+            mainWindow.setCenter(new FlashcardUi(logic).getRoot());
             break;
         default:
             throw new IllegalArgumentException();

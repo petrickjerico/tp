@@ -127,11 +127,71 @@ The `Storage` component,
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
+
+
+## **StudyBananas Architecture**
+
+StudyBananas is an integration of 4 systems, namely AddressBook3(AB3), Schedule, Quiz, Flashcard. Structure-wise, our team decided to stick to the original architecture of the AB3 (see architecture diagram above). Nonetheless, this decision incurs strong couplings between systems in each components. Therefore, we introduce layers of abstraction for each components to reduce the couplings. This section describes how we implement each component.
+
+![architectureDiagram](images/ArchitectureDiagram.png)
+
+### Model
+
+#### Reasoning
+
+In the original implementation of AB3, `ModelManager` which implements `Model` interface serves as the API to interact with other components. We preserve the convention and leave `ModelManager` as our **"one and only"** API for Model component. This decision has brought about the following pros and cons.
+
+  * Pros: It simplifies the system, as `Model` contains every methods that other components need. It makes cooperation easier and vastly reduces the time that other developers need to spend on understanding multiple APIs and makes the code cleaner when working with other components.  
+  * Cons: 
+    1. It breaks Single Responsibility Principle, for `Model`is no longer only responsible for the AB3, it holds accountable for 4 systems at the same time.
+    2. It breaks Interface Segregation Principle when writing ModelStubs for the unit tests and incur tons of conflicts when 4 systems are developed at the same time. 
+    
+#### Implementation
+
+Hugely fond of the great advantage of single API Model system, our team built a structure which segregates the Model API into the 4 systems but at the same time integrates all Models with the **"one and only one"** API class ModelManager. The following is the step by step guide of how we create the structure and can be followed to integrate more systems to StudyBananas.
+
+Step1. Create XYZModel interfaces for each system which can be viewed as 4 APIs for 4 SystemModel, and have our API `Model` interface extends from all of them to make sure that `Model` still contains all the methods that other components require.
+
+![ModelStructure-Step1](images/ModelStructure-Step1.png)
+
+Step2. Create XYZModelManagers which implement the XYZModel and handles the real "operations" for XYZModels.
+
+![ModelStructure-Step2](images/ModelStructure-Step2.png)
+
+Step3. Create system-level Models (Addressbook, Schedule, Flashcard, Quiz) which are the "real" Models. (**Note:** XYZModelManagers are APIs for these system-level Models.) Then, have XYZModelManagers depend on these system-level Models. (**Note:** system-level models represents the persistence layer for each system and system-level is relative to lower level Models e.g. Address, Tag, Title...)
+
+
+![ModelStructure-Step3](images/ModelStructure-Step3.png)
+
+Step4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` still contains all the methods from 4 individual systems. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the ModelManagers. Therefore, during the unit tests, we create XYZModelStubs which contains only methods that are related to the SUT.
+
+
+![ModelStructure-Step4](images/ModelArchitectureDiagram.png)
+
+
+#### Analysis
+
+  * Pros: 
+    1. It preserves the advantage of easier and faster cooperation from the reasoning section.
+    2. It solves the second disadvantage in the reasoning section by one more layer of segregation.
+    3. Although adding new systems still requires adding methods in the Model interface, it makes sure, there is no need to modify the old codes or modify the test case implementation. Therefore, it meets the Open-Closed Principle.
+  * Cons: 
+    1. It still breaks the Single Responsibility Principle, for `Model`is no longer only responsible for the AB3, it holds accountable for 4 systems at the same time.
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
+
+### [Proposed] Flashcard
+
+#### Proposed Implementation
+
+The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `FlashcardBank` contains a list of `FlashcardSet`. Each `FlashcardSet` contains a list of `Flashcard`.
+
+![Flashcard Class Diagram](diagrams/FlashcardClassDiagram.png)
 
 ### \[Proposed\] Undo/redo feature
 
@@ -213,9 +273,219 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
+### Edit Task feature
+
+#### Implementation
+
+The edit mechanism is facilitated by `Schedule`, which contains a `UniqueTaskList` such that each task's information can be modified 
+after its creation and addition into the `UniqueTaskList`. It implements this following feature:  
+
+* `Schedule#setTask()` — Replaces an existing task in the `UniqueTaskList` with a new task.
+
+These operations are exposed in the `ScheduleModel` interface as `ScheduleModel#setTask()`.
+
+Given below is the example usage scenario and how the edit task mechanism behaves at each step.
+
+Step 1. The user launches the application. The `Schedule` is initialized with the user's saved Schedule, which is saved in the JSON file `schedule.json` locally.
+For example, the user already has 3 tasks in the beginning.
+
+![EditCommand0](images/EditCommand0.png) 
+
+Step 2. The user executes `add task T: CS2100 d: Tutorial 8 homework`, adding a new task with a title "CS2100", the description "Tutorial 8 homework" with the unspecified date into the schedule. This task is assigned the index 4 in the `Schedule`
+
+![EditCommand1](images/EditCommand1.png) 
+
+Step 3. The user now knows what is the due date of the currently added task, and decides to edit the relevant time information of the task by executing the `edit task 4 t: 2020-10-21 10:00`. The `edit task` command calls `ScheduleEditCommand#execute()`
+ to generate a new task, containing the updated information, for the fields that is not specified in the `edit task` command, such as `title` or `description` in the example, the new task 
+ copies the existing fields of the to-be-replaced task. It is followed by calling `ScheduleModelManager#setTask()` to replace the to-be-replaced task at index 4 with the new edited task.
+ 
+ ![EditCommand2](images/EditCommand2.png) 
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** `ScheduleEditCommand#execute()` creates a new task sharing some of the overlapped fields with the to-be-replaced task. Then `ScheduleModelManager#setTask()` sets the to-be-replaced task with the newly created task at index 4 of the `Schedule`.  
+
+</div> 
+
+The following sequence diagram shows how the edit task operation works:
+
+ ![EditTaskSeqDiagram](images/EditTaskSequenceDiagram.png)
+
+#### Design consideration:
+
+##### Aspect: How edit task executes
+
+* **Alternative 1 (current choice):** Creates the new edited task object to replace the to-be-replaced task object.
+  * Pros: Update the Schedule consistently throughout the program so that side-effects, such as there are 2 versions of Schedule, can be avoided.
+  * Cons: May have performance issues in terms of memory usage as the replaced task object still remains in the memory.
+
+* **Alternative 2:** Mutate the task object itself in the Schedule at the corresponding index.
+  * Pros: Will use less memory as there is no new creation of task object.
+  * Cons: May result in side-effects such as there are out-of-dated versions of Schedule throughout the program.
+
 ### \[Proposed\] Data archiving
 
 _{Explain here how the data archiving feature will be implemented}_
+
+
+### \[Proposed\] Quiz with storage of answers feature
+
+#### Proposed Implementation
+
+The proposed quiz with storage of answers mechanism is facilitated by `Quiz` and `QuizModelManager`, which implements the `QuizModel` interface. 
+It makes use of an array of answer strings as an attribute, stored within a `Quiz` object as `userAnswers`.
+Additionally, it implements the following core operations with `Quiz`, which is called by `QuizModelManager`:
+
+* `QuizModelManager#start(Quiz quiz)` — Starts the quiz by initiating the quiz object in the model, 
+iterating through the associated flashcard set and showing the first question in the flashcard set.
+The presence of at most one quiz object ensures that at most one quiz running at a time.
+
+* `QuizModelManager#hasStarted()` — Checks if a quiz has started. 
+This prevents multiple quizzes from running concurrently.
+
+* `QuizModelManager#tallyScore(boolean isCorrect)` — Tallies the score after each answer is shown, 
+depending on user's judgement of correctness.
+
+* `QuizModelManager#getQuestion()` — Obtains the question of the next flashcard in the flashcard set.
+
+* `QuizModelManager#getAnswer()` — Obtains the answer of the next flashcard in the flashcard set.
+
+* `QuizModelManager#stopQuiz()` — Stops the quiz. This method is called at the end of the flashcard set iteration. 
+
+* `QuizModelManager#cancelQuiz()` — Cancels the quiz. 
+This method is called when the user cancels the quiz before reaching the end of the flashcard set.
+
+* `QuizModelManager#getQuizRecords(FlashcardSetName name)` — Fetches the quiz score based on the associated flashcard set's name. 
+The score includes: 
+    * the number of correct answers out of the total score within the flashcard set, and percentage scored.
+    * the set of questions, the corresponding correct answers and the answers provided by the user
+    * whether each question was answered correctly.
+
+These operations are as exactly written in the `QuizModel` and `Model` interface.
+
+#### Usage Scenario
+Given below is an example usage scenario and how the quiz with storage of answers mechanism behaves at each step.
+
+##### Step 1
+The user launches the application and starts the quiz for a non-empty, valid flashcard set. 
+As a result, it creates a `QuizModelManager` object and a `StartCommand` object.
+Assume the flashcard set contains only two flashcards for simplicity.
+
+The call to `StartCommand#execute()` will allow the `Quiz` to be initialized with the initial quiz state with default values for score, 
+the `currentIndex` pointing to the index of the first flashcard, 
+and the current command result being the first question through the call of `Quiz#getQuestion()`.
+
+The `Quiz` is saved into the `QuizModelManager`object as an attribute named `quiz`.
+
+![StartQuizClassDiagram](images/StartQuizClassDiagram.png)
+
+![StartQuiz](images/StartQuiz.png)
+
+##### Step 2
+The user executes `ans:<answer>` command to submit their answer to the question. 
+The `AnswerCommand` object created calls `Quiz#saveAnswer()`, 
+storing their answer into the `userAnswers` array attribute in Quiz 
+for the question before moving on to the correct answer through the call of `Quiz#getAnswer()`.
+
+The `currentIndex` attribute is incremented at this stage to point to the next flashcard.
+
+![StoreAnswerClassDiagram](images/StoreAnswerClassDiagram.png)
+
+##### Step 3
+After viewing the answer, the user executes either `c` or `w` to indicate whether the question is answered correctly. 
+This creates either a `CorrectCommand` or `WrongCommand` object. 
+
+In the case of the `CorrectCommand` class below, the call to `CorrectCommand#execute()`
+calls the `Quiz:tallyScore()` method through the interaction with `QuizModel`.
+This increments the `pointsScored` attribute in quiz.
+
+The following sequence diagram shows how this step works:
+
+![UpdateScoreSequenceDiagram](images/UpdateScoreSequenceDiagram.png)
+
+The object created will check if the `currentIndex` (updated in the previous step) 
+is within bounds to obtain the next flashcard.
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If there are no flashcards left, the quiz exits.
+
+</div> 
+
+In the current scenario, the question of the next flashcard is fetched and displayed
+by calling the `Quiz:getQuestion()` method,
+through `QuizModelManager`, during the execution of `CorrectCommand:execute()`.
+
+![NextQuestion](images/NextQuestion.png)
+
+##### Step 4
+Assume that the user has reached the end of the flashcards as shown below:
+
+![OutOfIndex](images/OutOfIndex.png)
+
+From the `CorrectCommand:execute()` / `WrongCommand:execute()` operation, 
+the `QuizModelManager:stopQuiz()` operation will be called.
+This stops the quiz by removing the `Quiz` object stored in the `quiz` 
+attribute of `QuizModelManager`.
+
+This leads to also calling the `Quiz:toString()` operation to show the quiz score and statistics.
+
+
+
+The following activity diagram summarizes what happens when a user executes a new command:
+
+![CommitActivityDiagram](images/QuizStorageActivityDiagram.png)
+
+#### Design consideration:
+
+##### Aspect: How quiz with storage of answers executes
+
+* **Current choice** .
+  * Pros: Easy to implement.
+  * Cons: May have performance issues in terms of memory usage.
+_{more aspects and alternatives to be added}_
+
+
+### Sidebar view
+
+#### Implementation
+
+The implementation of the Sidebar view is designed using the Singleton pattern and the Observer Pattern. Global Ui state which stores the UiState is designed to be singleton - `SingletonUiState`. The `SingletonUiState` is created when the application is launched, and `SingletonUiState` implements `Observable` interface, making it observable to other ui components. `MainWindow` and `SidebarTab` implements the `Observer` interface and subscribe to the change of `SingletonUiState` to achieve the sidebar effect.
+
+* `Observable#register(Observer o)` — Register a certain Observer to an Observable object, after registration, the observer object will be notified on any update of the Observable object.
+* `Observable#inform()` — When the observable object is modified, use this method to inform all the subscribed observers.
+* `Observer#subscribe(Observable o)` — Help the Observer class subscribes to an Observable Object.
+* `Observer#update()` — This is the API for the Observer object to modify the Observable object and further helps inform all the subscribers.
+
+The concrete implementation of these methods lies in the `MainWindow`, `SidebarTab`, and `SingletonUiState`, with `MainWindow` and `SidebarTab` being `Observer` and `SingletonUiState` being Observable
+
+Given below is an example usage scenario and how the sidebar view mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `MainWindow` will initialize the `SingletonUiState` with the default state `Schedule` which represents the view of Schedule system, and then subscribe to it.
+
+![SidebarStep1](images/SidebarStep1.png)
+
+Step 2. When the `Sidebar` is initiated, the `SidebarTab`s contained will subscribe to the changes of SingleUiState. 
+
+![SidebarStep2](images/SidebarStep2.png)
+
+Step 3. When a user click on any `SidebarTab`, `SidebarTab` would update the `SingletonUiState`.
+
+![SidebarStep3](images/SidebarStep3.png)
+
+Step 4. After the `SingletonUiState` is updated, it will then go ahead to update all the observers and change the view.
+
+![SidebarStep4](images/SidebarStep4.png)
+
+
+The following sequence diagram shows how the switching between tabs works, the example clicks the schedule tab:
+
+![UndoSequenceDiagram](images/SidebarSequenceDiagram.png)
+
+
+#### Design consideration:
+
+* Multiple Ui components rely on the Global UiState, therefore, Singleton makes sense here.
+* Many components would be affected by the change of UiState, it makes sense to build it using Observer pattern.
+
+
+
 
 
 --------------------------------------------------------------------------------------------------------------------

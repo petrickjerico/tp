@@ -17,6 +17,8 @@ public class JsonAdaptedTaskTest {
             Optional.ofNullable((CS2103T_WEEK8_QUIZ.getDescription().get().toString()));
     private static final Optional<String> VALID_DATE_TIME =
             CS2103T_WEEK8_QUIZ.getDateTime().map(dateTime -> dateTime.toString());
+    private static final Optional<Integer> VALID_DURATION =
+            CS2103T_WEEK8_QUIZ.getDuration().map(dur -> dur.duration);
 
     @Test
     public void toModelType_validTaskDetails_returnsTask() throws Exception {
@@ -26,7 +28,7 @@ public class JsonAdaptedTaskTest {
 
     @Test
     public void toModelType_nullTitle_throwsIllegalValueException() {
-        JsonAdaptedTask task = new JsonAdaptedTask(null, VALID_DESCRIPTION, VALID_DATE_TIME);
+        JsonAdaptedTask task = new JsonAdaptedTask(null, VALID_DESCRIPTION, VALID_DATE_TIME, VALID_DURATION);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Title.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, task::toModelType);
     }

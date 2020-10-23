@@ -1,0 +1,32 @@
+@startuml
+
+interface Observer
+interface Observable
+class SingleUiState
+class MainWindow
+
+Observable <|-- SingleUiState
+Observer <|-- MainWindow
+
+MainWindow ..> SingleUiState : subscribe
+
+
+
+
+interface Observer {
+subscribe(Observable o)
+update(UiStateType state)
+}
+
+interface Observable {
+register(Observer o)
+inform()
+}
+
+class SingleUiState {
+Schedule (the default state)
+}
+
+
+
+@enduml

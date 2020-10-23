@@ -4,8 +4,6 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -16,13 +14,16 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.model.flashcard.Answer;
 import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
+import seedu.address.model.flashcard.FlashcardSetName;
 import seedu.address.model.flashcard.Question;
 import seedu.address.model.person.Person;
 import seedu.address.model.quiz.Quiz;
 import seedu.address.model.systemlevelmodel.AddressBook;
 import seedu.address.model.systemlevelmodel.FlashcardBank;
+import seedu.address.model.systemlevelmodel.QuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
+import seedu.address.model.systemlevelmodel.ReadOnlyQuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
 import seedu.address.model.systemlevelmodel.Schedule;
@@ -38,17 +39,17 @@ public class ModelManager implements Model {
     private final AddressBookModelManager addressBookModelManager;
     private final ScheduleModelManager scheduleModelManager;
     private final FlashcardModelManager flashcardModelManager;
+    private final QuizModelManager quizModelManager;
     private final UserPrefs userPrefs;
-    private final Map<Integer, Quiz> quizRecords = new HashMap<>();
-    private Quiz quiz;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
     public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs,
-                        ReadOnlySchedule schedule, ReadOnlyFlashcardBank flashcardBank) {
+                        ReadOnlySchedule schedule, ReadOnlyFlashcardBank flashcardBank,
+                        ReadOnlyQuizRecords quizRecords) {
         super();
-        requireAllNonNull(addressBook, schedule, userPrefs);
+        requireAllNonNull(addressBook, schedule, userPrefs, flashcardBank, quizRecords);
 
         logger.fine("Initializing with address book: " + addressBook + " , user prefs "
                 + userPrefs + " , and schedule: " + schedule);
@@ -56,11 +57,12 @@ public class ModelManager implements Model {
         addressBookModelManager = new AddressBookModelManager(addressBook);
         scheduleModelManager = new ScheduleModelManager(schedule);
         flashcardModelManager = new FlashcardModelManager(flashcardBank);
+        quizModelManager = new QuizModelManager(quizRecords);
         this.userPrefs = new UserPrefs(userPrefs);
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs(), new Schedule(), new FlashcardBank());
+        this(new AddressBook(), new UserPrefs(), new Schedule(), new FlashcardBank(), new QuizRecords());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -204,6 +206,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public ObservableList<Task> getUpcomingTaskList() {
+        return scheduleModelManager.getUpcomingTaskList();
+    }
+
+    @Override
     public void updateFilteredTaskList(Predicate<Task> predicate) {
         this.scheduleModelManager.updateFilteredTaskList(predicate);
     }
@@ -231,40 +238,56 @@ public class ModelManager implements Model {
     //=========== Quiz =============================================================
     @Override
     public Question start(Quiz quiz) {
-        this.quiz = quiz;
-        return getQuestion();
+        return quizModelManager.start(quiz);
     }
 
     public boolean hasStarted() {
-        return this.quiz != null;
+        return quizModelManager.hasStarted();
     }
 
     @Override
     public void tallyScore(boolean isCorrect) {
-        this.quiz.setPointsScored(isCorrect);
+        quizModelManager.tallyScore(isCorrect);
     }
 
     @Override
     public Question getQuestion() {
-        return this.quiz.getQuestion();
+        return quizModelManager.getQuestion();
     }
 
     @Override
     public Answer getAnswer() {
-        return this.quiz.getAnswer();
+        return quizModelManager.getAnswer();
     }
 
     @Override
-    public double stopQuiz() {
-        double score = this.quiz.getPercentageScore();
-        quizRecords.put(quiz.getFlashcardSetIndex(), quiz);
-        this.quiz = null;
-        return score;
+    public String stopQuiz() {
+        return quizModelManager.stopQuiz();
     }
 
     @Override
-    public String getQuizRecords(int index) {
-        return this.quizRecords.get(index).toString();
+    public void cancelQuiz() {
+        quizModelManager.cancelQuiz();
+    }
+
+    @Override
+    public String getQuizRecords(FlashcardSetName name) {
+        return quizModelManager.getQuizRecords(name);
+    }
+
+    @Override
+    public ReadOnlyQuizRecords getAllQuizRecords() {
+        return quizModelManager.getAllQuizRecords();
+    }
+
+    @Override
+    public void deleteQuiz(FlashcardSetName name) {
+        quizModelManager.deleteQuiz(name);
+    }
+
+    @Override
+    public void saveAnswer(String answer) {
+        quizModelManager.saveAnswer(answer);
     }
 
     @Override
@@ -290,6 +313,7 @@ public class ModelManager implements Model {
     @Override
     public void deleteFlashcardSet(FlashcardSet target) {
         flashcardModelManager.deleteFlashcardSet(target);
+        quizModelManager.deleteQuiz(target.getFlashcardSetName());
     }
 
     @Override

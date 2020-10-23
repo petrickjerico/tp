@@ -65,13 +65,15 @@ public class CommandTypeMatcher {
         String lowercaseCommand = command.toLowerCase();
         switch (lowercaseCommand) {
         case "cancel":
+        case "refresh":
         case "c":
         case "flip":
         case "w":
             return true;
         default:
             return doesContainTwoOrMoreWords(lowercaseCommand) && (
-                    getFirstWord(lowercaseCommand).equals("quiz"));
+                    getFirstWord(lowercaseCommand).equals("quiz"))
+                    || lowercaseCommand.startsWith("ans:");
         }
     }
 

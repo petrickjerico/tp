@@ -2,6 +2,7 @@ package seedu.address.testutil;
 
 import seedu.address.model.task.DateTime;
 import seedu.address.model.task.Description;
+import seedu.address.model.task.Duration;
 import seedu.address.model.task.Task;
 import seedu.address.model.task.Title;
 
@@ -17,6 +18,7 @@ public class TaskBuilder {
     private Title title;
     private Description description;
     private DateTime dateTime;
+    private Duration duration;
 
     /**
      * Creates a {@code TaskBuilder} with the default details.
@@ -60,8 +62,16 @@ public class TaskBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Duration} of the {@code Task} that we are building.
+     */
+    public TaskBuilder withDuration(String duration) {
+        this.duration = new Duration(duration);
+        return this;
+    }
+
     public Task build() {
-        return new Task(title, description, dateTime);
+        return new Task(title, description, dateTime, duration);
     }
 
 }

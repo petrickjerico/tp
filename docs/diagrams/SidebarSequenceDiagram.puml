@@ -1,0 +1,45 @@
+@startuml
+!include style.puml
+
+box Ui LOGIC_COLOR_T1
+participant "Schedule:SidebarTab" as SidebarTab1 LOGIC_COLOR
+participant ":SingletoUiState" as UiState LOGIC_COLOR
+participant ":MainWindow" as MainWindow LOGIC_COLOR
+participant "View" as View LOGIC_COLOR
+end box
+
+[-> SidebarTab1 : handleTabPressed()
+activate SidebarTab1
+
+SidebarTab1 -> UiState : updateState(SCHEDULE)
+activate UiState
+
+UiState -> UiState : inform()
+
+UiState -> MainWindow : update(SCHEDULE)
+activate MainWindow
+
+MainWindow -> MainWindow : handleStateChanged(SCHEDULE)
+
+MainWindow -> View : changeView
+View --> MainWindow
+
+MainWindow --> UiState
+deactivate MainWindow
+
+UiState -> SidebarTab1 : update(SCHEDULE)
+
+SidebarTab1 -> View : changeView
+
+View --> SidebarTab1
+
+SidebarTab1 --> UiState
+
+UiState --> SidebarTab1
+deactivate UiState
+
+deactivate SidebarTab1
+
+
+
+@enduml

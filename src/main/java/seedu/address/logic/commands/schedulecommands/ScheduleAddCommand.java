@@ -42,6 +42,7 @@ public class ScheduleAddCommand extends Command<ScheduleModel> {
         }
 
         model.addTask(toAdd);
+
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 

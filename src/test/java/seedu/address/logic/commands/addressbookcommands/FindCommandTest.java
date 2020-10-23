@@ -19,6 +19,7 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.systemlevelmodel.FlashcardBank;
+import seedu.address.model.systemlevelmodel.QuizRecords;
 import seedu.address.model.systemlevelmodel.Schedule;
 import seedu.address.model.systemlevelmodel.UserPrefs;
 
@@ -27,9 +28,9 @@ import seedu.address.model.systemlevelmodel.UserPrefs;
  */
 public class FindCommandTest {
     private final Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(),
-            new Schedule(), new FlashcardBank());
+            new Schedule(), new FlashcardBank(), new QuizRecords());
     private final Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs(),
-            new Schedule(), new FlashcardBank());
+            new Schedule(), new FlashcardBank(), new QuizRecords());
 
 
     @Test

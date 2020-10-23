@@ -185,6 +185,14 @@ Step4. Finally, create our **"one and only one"** Model component API class - `M
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### [Proposed] Flashcard
+
+#### Proposed Implementation
+
+The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `FlashcardBank` contains a list of `FlashcardSet`. Each `FlashcardSet` contains a list of `Flashcard`.
+
+![Flashcard Class Diagram](diagrams/FlashcardClassDiagram.png)
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
@@ -265,6 +273,54 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
+### Edit Task feature
+
+#### Implementation
+
+The edit mechanism is facilitated by `Schedule`, which contains a `UniqueTaskList` such that each task's information can be modified 
+after its creation and addition into the `UniqueTaskList`. It implements this following feature:  
+
+* `Schedule#setTask()` — Replaces an existing task in the `UniqueTaskList` with a new task.
+
+These operations are exposed in the `ScheduleModel` interface as `ScheduleModel#setTask()`.
+
+Given below is the example usage scenario and how the edit task mechanism behaves at each step.
+
+Step 1. The user launches the application. The `Schedule` is initialized with the user's saved Schedule, which is saved in the JSON file `schedule.json` locally.
+For example, the user already has 3 tasks in the beginning.
+
+![EditCommand0](images/EditCommand0.png) 
+
+Step 2. The user executes `add task T: CS2100 d: Tutorial 8 homework`, adding a new task with a title "CS2100", the description "Tutorial 8 homework" with the unspecified date into the schedule. This task is assigned the index 4 in the `Schedule`
+
+![EditCommand1](images/EditCommand1.png) 
+
+Step 3. The user now knows what is the due date of the currently added task, and decides to edit the relevant time information of the task by executing the `edit task 4 t: 2020-10-21 10:00`. The `edit task` command calls `ScheduleEditCommand#execute()`
+ to generate a new task, containing the updated information, for the fields that is not specified in the `edit task` command, such as `title` or `description` in the example, the new task 
+ copies the existing fields of the to-be-replaced task. It is followed by calling `ScheduleModelManager#setTask()` to replace the to-be-replaced task at index 4 with the new edited task.
+ 
+ ![EditCommand2](images/EditCommand2.png) 
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** `ScheduleEditCommand#execute()` creates a new task sharing some of the overlapped fields with the to-be-replaced task. Then `ScheduleModelManager#setTask()` sets the to-be-replaced task with the newly created task at index 4 of the `Schedule`.  
+
+</div> 
+
+The following sequence diagram shows how the edit task operation works:
+
+ ![EditTaskSeqDiagram](images/EditTaskSequenceDiagram.png)
+
+#### Design consideration:
+
+##### Aspect: How edit task executes
+
+* **Alternative 1 (current choice):** Creates the new edited task object to replace the to-be-replaced task object.
+  * Pros: Update the Schedule consistently throughout the program so that side-effects, such as there are 2 versions of Schedule, can be avoided.
+  * Cons: May have performance issues in terms of memory usage as the replaced task object still remains in the memory.
+
+* **Alternative 2:** Mutate the task object itself in the Schedule at the corresponding index.
+  * Pros: Will use less memory as there is no new creation of task object.
+  * Cons: May result in side-effects such as there are out-of-dated versions of Schedule throughout the program.
+
 ### \[Proposed\] Data archiving
 
 _{Explain here how the data archiving feature will be implemented}_
@@ -310,61 +366,67 @@ Given below is an example usage scenario and how the quiz with storage of answer
 
 ##### Step 1
 The user launches the application and starts the quiz for a non-empty, valid flashcard set. 
+As a result, it creates a `QuizModelManager` object and a `StartCommand` object.
 Assume the flashcard set contains only two flashcards for simplicity.
 
-The `Quiz` will be initialized with the initial quiz state with default values for score, 
-and the `currentIndex` pointing to the index of the first flashcard, 
-with the current command result being the first question.
+The call to `StartCommand#execute()` will allow the `Quiz` to be initialized with the initial quiz state with default values for score, 
+the `currentIndex` pointing to the index of the first flashcard, 
+and the current command result being the first question through the call of `Quiz#getQuestion()`.
+
+The `Quiz` is saved into the `QuizModelManager`object as an attribute named `quiz`.
+
+![StartQuizClassDiagram](images/StartQuizClassDiagram.png)
 
 ![StartQuiz](images/StartQuiz.png)
 
 ##### Step 2
-The user executes `answer` command to submit their answer to the question. 
-The `answer` command calls `Quiz#saveAnswer()`, 
+The user executes `ans:<answer>` command to submit their answer to the question. 
+The `AnswerCommand` object created calls `Quiz#saveAnswer()`, 
 storing their answer into the `userAnswers` array attribute in Quiz 
-for the question before moving on to the next question.
+for the question before moving on to the correct answer through the call of `Quiz#getAnswer()`.
 
-![StoreAnswer](images/StoreAnswer.png)
+The `currentIndex` attribute is incremented at this stage to point to the next flashcard.
+
+![StoreAnswerClassDiagram](images/StoreAnswerClassDiagram.png)
 
 ##### Step 3
-The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
+After viewing the answer, the user executes either `c` or `w` to indicate whether the question is answered correctly. 
+This creates either a `CorrectCommand` or `WrongCommand` object. 
 
-![UndoRedoState2](images/UndoRedoState2.png)
+In the case of the `CorrectCommand` class below, the call to `CorrectCommand#execute()`
+calls the `Quiz:tallyScore()` method through the interaction with `QuizModel`.
+This increments the `pointsScored` attribute in quiz.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
+The following sequence diagram shows how this step works:
 
-</div>
+![UpdateScoreSequenceDiagram](images/UpdateScoreSequenceDiagram.png)
 
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
+The object created will check if the `currentIndex` (updated in the previous step) 
+is within bounds to obtain the next flashcard.
 
-![UndoRedoState3](images/UndoRedoState3.png)
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If there are no flashcards left, the quiz exits.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
+</div> 
 
-</div>
+In the current scenario, the question of the next flashcard is fetched and displayed
+by calling the `Quiz:getQuestion()` method,
+through `QuizModelManager`, during the execution of `CorrectCommand:execute()`.
 
-The following sequence diagram shows how the undo operation works:
+![NextQuestion](images/NextQuestion.png)
 
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
+##### Step 4
+Assume that the user has reached the end of the flashcards as shown below:
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+![OutOfIndex](images/OutOfIndex.png)
 
-</div>
+From the `CorrectCommand:execute()` / `WrongCommand:execute()` operation, 
+the `QuizModelManager:stopQuiz()` operation will be called.
+This stops the quiz by removing the `Quiz` object stored in the `quiz` 
+attribute of `QuizModelManager`.
 
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
+This leads to also calling the `Quiz:toString()` operation to show the quiz score and statistics.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
@@ -374,15 +436,9 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 ##### Aspect: How quiz with storage of answers executes
 
-* **Alternative 1 (current choice):** .
+* **Current choice** .
   * Pros: Easy to implement.
   * Cons: May have performance issues in terms of memory usage.
-
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
-
 _{more aspects and alternatives to be added}_
 
 

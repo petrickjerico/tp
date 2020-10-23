@@ -17,20 +17,32 @@ import seedu.address.model.task.Description;
 import seedu.address.model.task.Duration;
 import seedu.address.model.task.Title;
 
+import java.util.Optional;
+
 public class ScheduleEditCommandParser implements Parser<ScheduleEditCommand> {
+    private static int EXPECTED_PART_OF_INPUT = 3;
 
-    private String getIndexFromInput(String input) {
-        String[] splittedInput = input.split(" ", 3);
-        return splittedInput[1];
+    private String getIndexFromInput(String input) throws ParseException {
+        String[] splittedPartInput = input.split(" ", EXPECTED_PART_OF_INPUT);
+        if (splittedPartInput.length < EXPECTED_PART_OF_INPUT) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ScheduleEditCommand.MESSAGE_USAGE));
+        }
+        return splittedPartInput[1];
     }
 
-    private String getEditInfo(String input) {
-        String[] splittedInput = input.split(" ", 3);
-        return " " + splittedInput[2];
+    private String getEditInfo(String input) throws ParseException {
+        String[] splittedPartInput = input.split(" ", EXPECTED_PART_OF_INPUT);
+        String emptySpace = " ";
+        if (splittedPartInput.length < EXPECTED_PART_OF_INPUT) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ScheduleEditCommand.MESSAGE_USAGE));
+        }
+        // add back the empty space to conform to the format of ArgumentTokenizer#tokenize()
+        return emptySpace + splittedPartInput[2];
     }
+
     /**
-     * Parses the given {@code String} of arguments in the context of the ScheduleDeleteCommand
-     * and returns a ScheduleDeleteCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the ScheduleEditCommand
+     * and returns a ScheduleEditCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public ScheduleEditCommand parse(String args) throws ParseException {
@@ -60,6 +72,7 @@ public class ScheduleEditCommandParser implements Parser<ScheduleEditCommand> {
             Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).orElse(null));
             DateTime time = ParserUtil.parseTime(argMultimap.getValue(PREFIX_TIME).orElse(null));
             Duration duration = ParserUtil.parseDuration(argMultimap.getValue(PREFIX_DURATION).orElse(null));
+
             return new ScheduleEditCommand(index, title, description, time, duration);
         } catch (ParseException pe) {
             throw new ParseException(

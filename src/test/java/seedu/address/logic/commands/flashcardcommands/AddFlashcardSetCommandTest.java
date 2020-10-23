@@ -187,5 +187,15 @@ public class AddFlashcardSetCommandTest {
         public void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public FlashcardSet getFlashcardSetToView() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 }

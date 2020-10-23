@@ -19,7 +19,7 @@ public class DeleteFlashcardSetCommandTest {
 
     @Test
     public void execute_validIndexList_success() {
-        FlashcardSet flsetToDelete = model.getFlashcardSetList().get(INDEX_FIRST.getZeroBased());
+        FlashcardSet flsetToDelete = model.getFilteredFlashcardSetList().get(INDEX_FIRST.getZeroBased());
         DeleteFlashcardSetCommand deleteCommand = new DeleteFlashcardSetCommand(INDEX_FIRST);
 
         String expectedMessage = String.format(DeleteFlashcardSetCommand.MESSAGE_SUCCESS, flsetToDelete);

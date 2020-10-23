@@ -8,8 +8,11 @@ title Quiz
 package FlashcardSet {
     class State1 as "__flashcard1:Flashcard__"
     class State2 as "__flashcard2:Flashcard__"
+    class State3 as "__flashcard3:Flashcard__"
 }
 State1 -[hidden]right-> State2
+State2 -[hidden]right-> State3
 class Pointer as "Current Index" #FFFFF
-Pointer -up-> State1
+Pointer -up-> State3
+hide State3
 @end

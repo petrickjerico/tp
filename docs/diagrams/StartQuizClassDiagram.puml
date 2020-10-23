@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+Class StartCommand {
+ + execute()
+}
+
+class QuizModelManager {
++getQuestion()
+}
+
+class Quiz {
+-flashcardSet:FlashcardSet
+-totalScore:int = flashcardSetSize
+-pointsScored:int = 0
+-currentIndex:int = 0
++getQuestion()
+}
+
+QuizModelManager -> "0..1" Quiz
+StartCommand --> Quiz
+StartCommand .> QuizModelManager
+@enduml

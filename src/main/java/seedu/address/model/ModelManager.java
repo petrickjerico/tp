@@ -111,6 +111,17 @@ public class ModelManager implements Model {
         userPrefs.setScheduleFilePath(scheduleFilePath);
     }
 
+    @Override
+    public Path getFlashcardBankFilePath() {
+        return userPrefs.getFlashcardBankFilePath();
+    }
+
+    @Override
+    public void setFlashcardBankFilePath(Path flashcardBankFilePath) {
+        requireNonNull(flashcardBankFilePath);
+        userPrefs.setFlashcardBankFilePath(flashcardBankFilePath);
+    }
+
     //=========== AddressBook ================================================================================
 
     @Override
@@ -341,12 +352,22 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public ObservableList<FlashcardSet> getFlashcardSetList() {
-        return flashcardModelManager.getFlashcardSetList();
+    public ObservableList<FlashcardSet> getFilteredFlashcardSetList() {
+        return flashcardModelManager.getFilteredFlashcardSetList();
     }
 
     @Override
     public void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate) {
         flashcardModelManager.updateFilteredFlashcardSetList(predicate);
+    }
+
+    @Override
+    public FlashcardSet getFlashcardSetToView() {
+        return flashcardModelManager.getFlashcardSetToView();
+    }
+
+    @Override
+    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+        flashcardModelManager.setFlashcardSetToView(flashcardSet);
     }
 }

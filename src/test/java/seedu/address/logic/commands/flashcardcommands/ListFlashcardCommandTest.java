@@ -29,13 +29,9 @@ public class ListFlashcardCommandTest {
         FlashcardSet flashcardSet = expectedModel.getFlashcardSet(INDEX_FIRST);
         List<Flashcard> flashcards = flashcardSet.getFlashcards();
 
-        StringBuilder details = new StringBuilder();
-        details.append("\nThere are ");
-        details.append(flashcards.size());
-        details.append(" flashcards");
-        flashcards.forEach(flashcard -> details.append("\n" + flashcard.toString()));
-
-        String expectedMessage = ListFlashcardCommand.MESSAGE_SUCCESS + details;
+        String expectedMessage = String.format(
+                ListFlashcardCommand.MESSAGE_SUCCESS + "\n" + "There are %d flashcards",
+                flashcards.size());
 
         assertCommandSuccess(new ListFlashcardCommand(INDEX_FIRST), model,
                 expectedMessage, expectedModel);

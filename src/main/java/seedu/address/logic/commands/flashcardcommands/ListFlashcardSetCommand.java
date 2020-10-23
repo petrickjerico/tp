@@ -22,7 +22,7 @@ public class ListFlashcardSetCommand extends Command<FlashcardModel> {
         requireNonNull(model);
         model.updateFilteredFlashcardSetList(PREDICATE_SHOW_ALL_FLASHCARDSETS);
 
-        ObservableList<FlashcardSet> flashcardSets = model.getFlashcardSetList();
+        ObservableList<FlashcardSet> flashcardSets = model.getFilteredFlashcardSetList();
 
         StringBuilder details = new StringBuilder();
         details.append("\nThere are ");

@@ -44,14 +44,11 @@ public class ListFlashcardCommand extends Command<FlashcardModel> {
 
         FlashcardSet flashcardSet = model.getFlashcardSet(flashcardSetIndex);
         List<Flashcard> flashcards = flashcardSet.getFlashcards();
+        model.setFlashcardSetToView(flashcardSet);
 
-        StringBuilder details = new StringBuilder();
-        details.append("\nThere are ");
-        details.append(flashcards.size());
-        details.append(" flashcards");
-        flashcards.forEach(flashcard -> details.append("\n" + flashcard.toString()));
-
-        return new CommandResult(MESSAGE_SUCCESS + details.toString());
+        return new CommandResult(String.format(
+                MESSAGE_SUCCESS + "\n" + "There are %d flashcards",
+                flashcards.size()));
     }
 
     @Override

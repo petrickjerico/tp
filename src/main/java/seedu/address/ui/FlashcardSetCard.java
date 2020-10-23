@@ -5,14 +5,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.address.model.flashcard.FlashcardSet;
-import seedu.address.model.task.Task;
 
 public class FlashcardSetCard extends UiPart<Region> {
     private static final String FXML = "FlashcardSetCard.fxml";
     private static final String[] BACKGROUND_COLOR = new String[]{
-            "#ff6666", //red
-            "#3366ff;", //blue
-            "#cc66ff", //purple
+        "#ff6666", //red
+        "#3366ff;", //blue
+        "#cc66ff", //purple
     };
     public final FlashcardSet flashcardSet;
 

@@ -29,6 +29,9 @@ public class FlashcardsDisplay extends UiPart<Region> {
     @FXML
     private Label name;
 
+    /**
+     * Creates a {@code FlashcardsDisplay} with the given {@code FlashcardSet}.
+     */
     public FlashcardsDisplay(FlashcardSet flashcardSet) {
         super(FXML);
 

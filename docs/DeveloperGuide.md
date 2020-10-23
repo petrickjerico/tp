@@ -127,6 +127,58 @@ The `Storage` component,
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
+
+
+## **StudyBananas Architecture**
+
+StudyBananas is an integration of 4 systems, namely AddressBook3(AB3), Schedule, Quiz, Flashcard. Structure-wise, our team decided to stick to the original architecture of the AB3 (see architecture diagram above). Nonetheless, this decision incurs strong couplings between systems in each components. Therefore, we introduce layers of abstraction for each components to reduce the couplings. This section describes how we implement each component.
+
+![architectureDiagram](images/ArchitectureDiagram.png)
+
+### Model
+
+#### Reasoning
+
+In the original implementation of AB3, `ModelManager` which implements `Model` interface serves as the API to interact with other components. We preserve the convention and leave `ModelManager` as our **"one and only"** API for Model component. This decision has brought about the following pros and cons.
+
+  * Pros: It simplifies the system, as `Model` contains every methods that other components need. It makes cooperation easier and vastly reduces the time that other developers need to spend on understanding multiple APIs and makes the code cleaner when working with other components.  
+  * Cons: 
+    1. It breaks Single Responsibility Principle, for `Model`is no longer only responsible for the AB3, it holds accountable for 4 systems at the same time.
+    2. It breaks Interface Segregation Principle when writing ModelStubs for the unit tests and incur tons of conflicts when 4 systems are developed at the same time. 
+    
+#### Implementation
+
+Hugely fond of the great advantage of single API Model system, our team built a structure which segregates the Model API into the 4 systems but at the same time integrates all Models with the **"one and only one"** API class ModelManager. The following is the step by step guide of how we create the structure and can be followed to integrate more systems to StudyBananas.
+
+Step1. Create XYZModel interfaces for each system which can be viewed as 4 APIs for 4 SystemModel, and have our API `Model` interface extends from all of them to make sure that `Model` still contains all the methods that other components require.
+
+![ModelStructure-Step1](images/ModelStructure-Step1.png)
+
+Step2. Create XYZModelManagers which implement the XYZModel and handles the real "operations" for XYZModels.
+
+![ModelStructure-Step2](images/ModelStructure-Step2.png)
+
+Step3. Create system-level Models (Addressbook, Schedule, Flashcard, Quiz) which are the "real" Models. (**Note:** XYZModelManagers are APIs for these system-level Models.) Then, have XYZModelManagers depend on these system-level Models. (**Note:** system-level models represents the persistence layer for each system and system-level is relative to lower level Models e.g. Address, Tag, Title...)
+
+
+![ModelStructure-Step3](images/ModelStructure-Step3.png)
+
+Step4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` still contains all the methods from 4 individual systems. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the ModelManagers. Therefore, during the unit tests, we create XYZModelStubs which contains only methods that are related to the SUT.
+
+
+![ModelStructure-Step4](images/ModelArchitectureDiagram.png)
+
+
+#### Analysis
+
+  * Pros: 
+    1. It preserves the advantage of easier and faster cooperation from the reasoning section.
+    2. It solves the second disadvantage in the reasoning section by one more layer of segregation.
+    3. Although adding new systems still requires adding methods in the Model interface, it makes sure, there is no need to modify the old codes or modify the test case implementation. Therefore, it meets the Open-Closed Principle.
+  * Cons: 
+    1. It still breaks the Single Responsibility Principle, for `Model`is no longer only responsible for the AB3, it holds accountable for 4 systems at the same time.
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Implementation**
@@ -388,6 +440,51 @@ The following activity diagram summarizes what happens when a user executes a ne
   * Pros: Easy to implement.
   * Cons: May have performance issues in terms of memory usage.
 _{more aspects and alternatives to be added}_
+
+
+### Sidebar view
+
+#### Implementation
+
+The implementation of the Sidebar view is designed using the Singleton pattern and the Observer Pattern. Global Ui state which stores the UiState is designed to be singleton - `SingletonUiState`. The `SingletonUiState` is created when the application is launched, and `SingletonUiState` implements `Observable` interface, making it observable to other ui components. `MainWindow` and `SidebarTab` implements the `Observer` interface and subscribe to the change of `SingletonUiState` to achieve the sidebar effect.
+
+* `Observable#register(Observer o)` — Register a certain Observer to an Observable object, after registration, the observer object will be notified on any update of the Observable object.
+* `Observable#inform()` — When the observable object is modified, use this method to inform all the subscribed observers.
+* `Observer#subscribe(Observable o)` — Help the Observer class subscribes to an Observable Object.
+* `Observer#update()` — This is the API for the Observer object to modify the Observable object and further helps inform all the subscribers.
+
+The concrete implementation of these methods lies in the `MainWindow`, `SidebarTab`, and `SingletonUiState`, with `MainWindow` and `SidebarTab` being `Observer` and `SingletonUiState` being Observable
+
+Given below is an example usage scenario and how the sidebar view mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `MainWindow` will initialize the `SingletonUiState` with the default state `Schedule` which represents the view of Schedule system, and then subscribe to it.
+
+![SidebarStep1](images/SidebarStep1.png)
+
+Step 2. When the `Sidebar` is initiated, the `SidebarTab`s contained will subscribe to the changes of SingleUiState. 
+
+![SidebarStep2](images/SidebarStep2.png)
+
+Step 3. When a user click on any `SidebarTab`, `SidebarTab` would update the `SingletonUiState`.
+
+![SidebarStep3](images/SidebarStep3.png)
+
+Step 4. After the `SingletonUiState` is updated, it will then go ahead to update all the observers and change the view.
+
+![SidebarStep4](images/SidebarStep4.png)
+
+
+The following sequence diagram shows how the switching between tabs works, the example clicks the schedule tab:
+
+![UndoSequenceDiagram](images/SidebarSequenceDiagram.png)
+
+
+#### Design consideration:
+
+* Multiple Ui components rely on the Global UiState, therefore, Singleton makes sense here.
+* Many components would be affected by the change of UiState, it makes sense to build it using Observer pattern.
+
+
 
 
 

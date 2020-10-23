@@ -32,8 +32,10 @@ public class ScheduleUiUtil {
         //make sure that minutes have a trailing 0.
         String minute = splitTime[1];
 
-        if (hour >= 12) {
+        if (hour > 12) {
             hour -= 12;
+            return String.format("%d:%s PM", hour, minute);
+        } else if (hour == 12) {
             return String.format("%d:%s PM", hour, minute);
         } else {
             return String.format("%d:%s AM", hour, minute);

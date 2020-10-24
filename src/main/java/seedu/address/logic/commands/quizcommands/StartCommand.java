@@ -36,18 +36,24 @@ public class StartCommand extends Command<Model> {
         try {
             Index indexWrapper = Index.fromOneBased(index);
             FlashcardSet flashcardSet = model.getFlashcardSet(indexWrapper);
+
+            if (flashcardSet.getSize() == 0) { // check for empty flashcard set
+                throw new CommandException(MESSAGE_FLASHCARD_SET_EMPTY);
+            }
+
             Quiz quiz = new Quiz(this.index, flashcardSet);
             Question firstQuestion = model.start(quiz);
 
             QuizCommand.setStatus(Status.ON_QUESTION);
-            QuizCommand.updateCommandResult(firstQuestion.toString());
 
-            return new CommandResult(firstQuestion.toString());
+            String questionStringtoShow = firstQuestion.toString()
+                    + QuizCommand.MESSAGE_AVAIL_ON_QUESTION;
+            QuizCommand.updateCommandResult(questionStringtoShow);
+
+            return new CommandResult(questionStringtoShow);
 
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException(MESSAGE_FLASHCARD_SET_NONEXISTENT);
-        } catch (NullPointerException e) {
-            throw new CommandException(MESSAGE_FLASHCARD_SET_EMPTY);
         }
     }
 }

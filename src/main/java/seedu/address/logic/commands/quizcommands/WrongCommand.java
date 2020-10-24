@@ -29,9 +29,12 @@ public class WrongCommand extends Command<QuizModel> {
             Question nextQuestion = model.getQuestion();
 
             QuizCommand.setStatus(Status.ON_QUESTION);
-            QuizCommand.updateCommandResult(nextQuestion.toString());
 
-            return new CommandResult(nextQuestion.toString());
+            String questionStringToShow = nextQuestion.toString()
+                    + QuizCommand.MESSAGE_AVAIL_ON_QUESTION;
+            QuizCommand.updateCommandResult(questionStringToShow);
+
+            return new CommandResult(questionStringToShow);
 
         } catch (NullPointerException | IndexOutOfBoundsException e) {
             QuizCommand.updateCommandResult(null);

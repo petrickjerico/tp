@@ -147,6 +147,6 @@ public class Quiz {
         }
 
         Quiz otherQuiz = (Quiz) other;
-        return otherQuiz.getFlashcardSetIndex() == (this.flashcardSetIndex);
+        return otherQuiz.getFlsetName().equals(flashcardSet.getName());
     }
 }

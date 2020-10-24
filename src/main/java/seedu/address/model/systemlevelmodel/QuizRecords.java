@@ -108,7 +108,7 @@ public class QuizRecords implements ReadOnlyQuizRecords {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof QuizRecords // instanceof handles nulls
-                && quizRecordsMap.equals(((QuizRecords) other).getQuizRecordsMap()));
+                && quizRecordsMap.equals(((QuizRecords) other).quizRecordsMap));
     }
 
     @Override

@@ -4,10 +4,10 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
+import seedu.address.model.FlashcardQuizModel;
 import seedu.address.model.flashcard.FlashcardSetName;
 
-public class ViewScoreCommand extends Command<Model> {
+public class ViewScoreCommand extends Command<FlashcardQuizModel> {
 
     public static final String COMMAND_WORD = "quiz score flset:";
     public static final String MESSAGE_UNABLE_TO_VIEW =
@@ -22,7 +22,7 @@ public class ViewScoreCommand extends Command<Model> {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(FlashcardQuizModel model) throws CommandException {
 
         if (model.hasStarted()) {
             throw new CommandException(MESSAGE_UNABLE_TO_VIEW);

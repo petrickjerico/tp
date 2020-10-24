@@ -38,8 +38,7 @@ public class ModelManager implements Model {
 
     private final AddressBookModelManager addressBookModelManager;
     private final ScheduleModelManager scheduleModelManager;
-    private final FlashcardModelManager flashcardModelManager;
-    private final QuizModelManager quizModelManager;
+    private final FlashcardQuizModelManager flashcardQuizModelManager;
     private final UserPrefs userPrefs;
 
     /**
@@ -56,8 +55,7 @@ public class ModelManager implements Model {
 
         addressBookModelManager = new AddressBookModelManager(addressBook);
         scheduleModelManager = new ScheduleModelManager(schedule);
-        flashcardModelManager = new FlashcardModelManager(flashcardBank);
-        quizModelManager = new QuizModelManager(quizRecords);
+        flashcardQuizModelManager = new FlashcardQuizModelManager(flashcardBank, quizRecords);
         this.userPrefs = new UserPrefs(userPrefs);
     }
 
@@ -232,142 +230,141 @@ public class ModelManager implements Model {
         return userPrefs.equals(other.userPrefs)
                 && addressBookModelManager.equals(other.addressBookModelManager)
                 && scheduleModelManager.equals(other.scheduleModelManager)
-                && flashcardModelManager.equals(other.flashcardModelManager);
+                && flashcardQuizModelManager.equals(other.flashcardQuizModelManager);
     }
 
     //=========== Quiz =============================================================
     @Override
     public Question start(Quiz quiz) {
-        return quizModelManager.start(quiz);
+        return flashcardQuizModelManager.start(quiz);
     }
 
     public boolean hasStarted() {
-        return quizModelManager.hasStarted();
+        return flashcardQuizModelManager.hasStarted();
     }
 
     @Override
     public void tallyScore(boolean isCorrect) {
-        quizModelManager.tallyScore(isCorrect);
+        flashcardQuizModelManager.tallyScore(isCorrect);
     }
 
     @Override
     public Question getQuestion() {
-        return quizModelManager.getQuestion();
+        return flashcardQuizModelManager.getQuestion();
     }
 
     @Override
     public Answer getAnswer() {
-        return quizModelManager.getAnswer();
+        return flashcardQuizModelManager.getAnswer();
     }
 
     @Override
     public String stopQuiz() {
-        return quizModelManager.stopQuiz();
+        return flashcardQuizModelManager.stopQuiz();
     }
 
     @Override
     public void cancelQuiz() {
-        quizModelManager.cancelQuiz();
+        flashcardQuizModelManager.cancelQuiz();
     }
 
     @Override
     public String getQuizRecords(FlashcardSetName name) {
-        return quizModelManager.getQuizRecords(name);
+        return flashcardQuizModelManager.getQuizRecords(name);
     }
 
     @Override
     public ReadOnlyQuizRecords getAllQuizRecords() {
-        return quizModelManager.getAllQuizRecords();
+        return flashcardQuizModelManager.getAllQuizRecords();
     }
 
     @Override
     public void deleteQuiz(FlashcardSetName name) {
-        quizModelManager.deleteQuiz(name);
+        flashcardQuizModelManager.deleteQuiz(name);
     }
 
     @Override
     public void saveAnswer(String answer) {
-        quizModelManager.saveAnswer(answer);
+        flashcardQuizModelManager.saveAnswer(answer);
     }
 
     @Override
     public void setFlashcardBank(ReadOnlyFlashcardBank flashcardBank) {
-        flashcardModelManager.setFlashcardBank(flashcardBank);
+        flashcardQuizModelManager.setFlashcardBank(flashcardBank);
     }
 
     @Override
     public ReadOnlyFlashcardBank getFlashcardBank() {
-        return flashcardModelManager.getFlashcardBank();
+        return flashcardQuizModelManager.getFlashcardBank();
     }
 
     @Override
     public FlashcardSet getFlashcardSet(Index index) {
-        return flashcardModelManager.getFlashcardSet(index);
+        return flashcardQuizModelManager.getFlashcardSet(index);
     }
 
     @Override
     public boolean hasFlashcardSet(FlashcardSet flashcardSet) {
-        return flashcardModelManager.hasFlashcardSet(flashcardSet);
+        return flashcardQuizModelManager.hasFlashcardSet(flashcardSet);
     }
 
     @Override
     public void deleteFlashcardSet(FlashcardSet target) {
-        flashcardModelManager.deleteFlashcardSet(target);
-        quizModelManager.deleteQuiz(target.getFlashcardSetName());
+        flashcardQuizModelManager.deleteFlashcardSet(target);
     }
 
     @Override
     public Flashcard getFlashcard(FlashcardSet flashcardSet, Index flashcardIndex) {
-        return flashcardModelManager.getFlashcard(flashcardSet, flashcardIndex);
+        return flashcardQuizModelManager.getFlashcard(flashcardSet, flashcardIndex);
     }
 
     @Override
     public void setFlashcard(FlashcardSet flashcardSet, Flashcard target, Flashcard editedFlashcard) {
-        flashcardModelManager.setFlashcard(flashcardSet, target, editedFlashcard);
+        flashcardQuizModelManager.setFlashcard(flashcardSet, target, editedFlashcard);
     }
 
     @Override
     public boolean hasFlashcard(FlashcardSet flashcardSet, Flashcard flashcard) {
-        return flashcardModelManager.hasFlashcard(flashcardSet, flashcard);
+        return flashcardQuizModelManager.hasFlashcard(flashcardSet, flashcard);
     }
 
     @Override
     public void addFlashcard(FlashcardSet flashcardSet, Flashcard flashcard) {
-        flashcardModelManager.addFlashcard(flashcardSet, flashcard);
+        flashcardQuizModelManager.addFlashcard(flashcardSet, flashcard);
     }
 
     @Override
     public void deleteFlashcard(FlashcardSet flashcardSet, Index flashcardIndex) {
-        flashcardModelManager.deleteFlashcard(flashcardSet, flashcardIndex);
+        flashcardQuizModelManager.deleteFlashcard(flashcardSet, flashcardIndex);
     }
 
     @Override
     public void addFlashcardSet(FlashcardSet flashcardSet) {
-        flashcardModelManager.addFlashcardSet(flashcardSet);
+        flashcardQuizModelManager.addFlashcardSet(flashcardSet);
     }
 
     @Override
     public void setFlashcardSet(FlashcardSet target, FlashcardSet editedFlashcardSet) {
-        flashcardModelManager.setFlashcardSet(target, editedFlashcardSet);
+        flashcardQuizModelManager.setFlashcardSet(target, editedFlashcardSet);
     }
 
     @Override
     public ObservableList<FlashcardSet> getFilteredFlashcardSetList() {
-        return flashcardModelManager.getFilteredFlashcardSetList();
+        return flashcardQuizModelManager.getFilteredFlashcardSetList();
     }
 
     @Override
     public void updateFilteredFlashcardSetList(Predicate<FlashcardSet> predicate) {
-        flashcardModelManager.updateFilteredFlashcardSetList(predicate);
+        flashcardQuizModelManager.updateFilteredFlashcardSetList(predicate);
     }
 
     @Override
     public FlashcardSet getFlashcardSetToView() {
-        return flashcardModelManager.getFlashcardSetToView();
+        return flashcardQuizModelManager.getFlashcardSetToView();
     }
 
     @Override
     public void setFlashcardSetToView(FlashcardSet flashcardSet) {
-        flashcardModelManager.setFlashcardSetToView(flashcardSet);
+        flashcardQuizModelManager.setFlashcardSetToView(flashcardSet);
     }
 }

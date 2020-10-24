@@ -48,6 +48,9 @@ public class SideBarTab extends UiPart<Region> implements Observer {
         case "FLASHCARDS":
             this.tabType = UiStateType.FLASHCARD;
             break;
+        case "QUIZ":
+            this.tabType = UiStateType.QUIZ;
+            break;
         default:
             throw new IllegalArgumentException();
         }

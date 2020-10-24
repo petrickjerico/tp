@@ -21,6 +21,7 @@ public class QuizParser implements Parser<Command> {
 
     @Override
     public Command<? super Model> parse(String userInput) throws ParseException {
+        userInput = userInput.trim();
         if (userInput.startsWith(StartCommand.COMMAND_WORD)) {
             userInput = userInput.replace(StartCommand.COMMAND_WORD, BLANK_LITERAL_REPLACEMENT);
             int index = parseNumber(userInput);

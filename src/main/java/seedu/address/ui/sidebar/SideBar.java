@@ -24,9 +24,13 @@ public class SideBar extends UiPart<Region> implements Observer {
             .getResourceAsStream("/images/icon_schedule.png"));
     private final Image flashcardsImage = new Image(this.getClass()
             .getResourceAsStream("/images/icon_flashcards.png"));
+    private final Image quizImage = new Image(this.getClass()
+            .getResourceAsStream("/images/icon_quiz.png"));
 
-    private final List<SideBarTab> studyBananasTabs = Arrays.asList(new SideBarTab(scheduleImage, "SCHEDULE"),
-            new SideBarTab(flashcardsImage, "FLASHCARDS"));
+    private final List<SideBarTab> studyBananasTabs = Arrays.asList(
+            new SideBarTab(scheduleImage, "SCHEDULE"),
+            new SideBarTab(flashcardsImage, "FLASHCARDS"),
+            new SideBarTab(quizImage, "QUIZ"));
 
     private SingletonUiState uiState;
 

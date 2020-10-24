@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
+import seedu.address.ui.quizui.QuizUi;
 import seedu.address.ui.sidebar.SideBar;
 import seedu.address.ui.util.Observable;
 import seedu.address.ui.util.Observer;
@@ -30,6 +31,7 @@ public class MainWindow extends UiPart<Stage> implements Observer {
     private SingletonUiState uiState;
     private ScheduleUi scheduleUi;
     private FlashcardUi flashcardUi;
+    private QuizUi quizUi;
 
     @FXML
     private BorderPane mainWindow;
@@ -49,6 +51,7 @@ public class MainWindow extends UiPart<Stage> implements Observer {
         // Init the component.
         scheduleUi = new ScheduleUi(logic);
         flashcardUi = new FlashcardUi(logic);
+        quizUi = new QuizUi(logic);
 
 
         // Configure the UI
@@ -99,6 +102,9 @@ public class MainWindow extends UiPart<Stage> implements Observer {
             break;
         case FLASHCARD:
             mainWindow.setCenter(flashcardUi.getRoot());
+            break;
+        case QUIZ:
+            mainWindow.setCenter(quizUi.getRoot());
             break;
         default:
             throw new IllegalArgumentException();

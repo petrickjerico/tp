@@ -123,7 +123,7 @@ public class TimeScale extends UiPart<Region> {
     }
 
     /**
-     * Place a {@Code Node} in the TimeScale with marginTop being {@Code marginTop}.
+     * Places a {@Code Node} in the TimeScale with marginTop being {@Code marginTop}.
      * @param node node to place
      * @param marginTop marginTop of the node
      */
@@ -133,7 +133,7 @@ public class TimeScale extends UiPart<Region> {
     }
 
     /**
-     * Place the {@Code CurrentTimePointer} with the initial {@Code marginTop}.
+     * Places the {@Code CurrentTimePointer} with the initial {@Code marginTop}.
      * @param marginTop initial marginTop
      */
     public void placeCurrentTime(CurrentTimePointer currentTimePointer, double marginTop) {
@@ -142,7 +142,7 @@ public class TimeScale extends UiPart<Region> {
     }
 
     /**
-     * Update the position of {@CurrentTimePosition}.
+     * Updates the position of {@CurrentTimePosition}.
      * @param newMarginTop
      */
     public void updateCurrentTimePosition(double newMarginTop) {
@@ -151,7 +151,7 @@ public class TimeScale extends UiPart<Region> {
     }
 
     /**
-     * Handle the overlap of timeScale and the currentTimePointer
+     * Handles the overlap of timeScale and the currentTimePointer
      * @param time time has to be in the format of HH:mm.
      */
     public void handleOverlap(String time) {

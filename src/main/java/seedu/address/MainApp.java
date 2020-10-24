@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.logging.Logger;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 import seedu.address.commons.core.Config;
 import seedu.address.commons.core.LogsCenter;
@@ -253,6 +254,8 @@ public class MainApp extends Application {
         logger.info("============================ [ Stopping Study Bananas ] =============================");
         try {
             storage.saveUserPrefs(model.getUserPrefs());
+            Platform.exit();
+            System.exit(0);
         } catch (IOException e) {
             logger.severe("Failed to save preferences " + StringUtil.getDetails(e));
         }

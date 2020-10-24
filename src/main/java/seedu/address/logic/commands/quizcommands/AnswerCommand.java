@@ -10,6 +10,7 @@ import seedu.address.model.flashcard.Answer;
 
 public class AnswerCommand extends Command<QuizModel> {
 
+    public static final String COMMAND_WORD = "ans:";
     public static final Status STATUS = Status.ON_QUESTION;
     private final String answer;
 

@@ -10,6 +10,7 @@ import seedu.address.model.flashcard.Answer;
 
 public class FlipCommand extends Command<QuizModel> {
 
+    public static final String COMMAND_WORD = "flip";
     public static final Status STATUS = Status.ON_QUESTION;
 
     @Override

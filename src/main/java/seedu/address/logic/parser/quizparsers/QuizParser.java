@@ -15,33 +15,34 @@ import seedu.address.model.Model;
 
 public class QuizParser implements Parser<Command> {
 
+    public static final String BLANK_LITERAL_REPLACEMENT = "";
     public static final String MESSAGE_PARSING_ERROR =
             "The command for quiz is invalid. Please check the command format and try again.";
 
     @Override
     public Command<? super Model> parse(String userInput) throws ParseException {
-        if (userInput.startsWith("quiz flset:")) {
-            userInput = userInput.replace("quiz flset:", "");
+        if (userInput.startsWith(StartCommand.COMMAND_WORD)) {
+            userInput = userInput.replace(StartCommand.COMMAND_WORD, BLANK_LITERAL_REPLACEMENT);
             int index = parseNumber(userInput);
             return new StartCommand(index);
-        } else if (userInput.startsWith("quiz score flset:")) {
-            userInput = userInput.replace("quiz score flset:", "");
+        } else if (userInput.startsWith(ViewScoreCommand.COMMAND_WORD)) {
+            userInput = userInput.replace(ViewScoreCommand.COMMAND_WORD, BLANK_LITERAL_REPLACEMENT);
             int index = parseNumber(userInput);
             return new ViewScoreCommand(index);
-        } else if (userInput.startsWith("ans:")) {
-            userInput = userInput.replace("ans:", "");
+        } else if (userInput.startsWith(AnswerCommand.COMMAND_WORD)) {
+            userInput = userInput.replace(AnswerCommand.COMMAND_WORD, BLANK_LITERAL_REPLACEMENT);
             return new AnswerCommand(userInput);
         }
         switch (userInput) {
-        case "cancel":
+        case CancelCommand.COMMAND_WORD:
             return new CancelCommand();
-        case "flip":
+        case FlipCommand.COMMAND_WORD:
             return new FlipCommand();
-        case "c":
+        case CorrectCommand.COMMAND_WORD:
             return new CorrectCommand();
-        case "w":
+        case WrongCommand.COMMAND_WORD:
             return new WrongCommand();
-        case "refresh":
+        case RefreshCommand.COMMAND_WORD:
             return new RefreshCommand();
         default:
             throw new ParseException(MESSAGE_PARSING_ERROR);

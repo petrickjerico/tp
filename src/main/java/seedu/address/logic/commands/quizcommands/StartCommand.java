@@ -14,6 +14,7 @@ import seedu.address.model.quiz.Quiz;
 //The abstraction has to be clarified.
 public class StartCommand extends Command<Model> {
 
+    public static final String COMMAND_WORD = "quiz flset:";
     public static final String MESSAGE_QUIZ_IN_PROGRESS = "A quiz is already in progress! "
             + "Key 'refresh' to see current question/answer. \n"
             + "To stop the current quiz, key 'cancel'.";

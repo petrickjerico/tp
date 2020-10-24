@@ -35,10 +35,10 @@ public class ScheduleEditCommandTest {
 
     @Test
     public void execute_taskAcceptedByModel_editSuccess() throws Exception {
-        Description editedDescription = new Description("Week 8 Quiz");
+        Description editedDescription = new Description("Week 9 Quiz");
         DateTime editedDateTime = new DateTime("2020-09-27 12:00");
         Duration editedDuration = new Duration("30");
-        Task editedTask = new TaskBuilder().withDescription("Week 8 Quiz")
+        Task editedTask = new TaskBuilder().withDescription("Week 9 Quiz")
                 .withDateTime(("2020-09-27 12:00"))
                 .withDuration("30")
                 .build();

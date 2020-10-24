@@ -28,6 +28,8 @@ public class MainWindow extends UiPart<Stage> implements Observer {
     private final Logic logic;
 
     private SingletonUiState uiState;
+    private ScheduleUi scheduleUi;
+    private FlashcardUi flashcardUi;
 
     @FXML
     private BorderPane mainWindow;
@@ -43,6 +45,10 @@ public class MainWindow extends UiPart<Stage> implements Observer {
         // Set dependencies
         this.primaryStage = primaryStage;
         this.logic = logic;
+
+        // Init the component.
+        scheduleUi = new ScheduleUi(logic);
+        flashcardUi = new FlashcardUi(logic);
 
 
         // Configure the UI
@@ -89,10 +95,10 @@ public class MainWindow extends UiPart<Stage> implements Observer {
     private void handleStateChange(UiStateType state) {
         switch (state) {
         case SCHEDULE:
-            mainWindow.setCenter(new ScheduleUi(logic).getRoot());
+            mainWindow.setCenter(scheduleUi.getRoot());
             break;
         case FLASHCARD:
-            mainWindow.setCenter(new FlashcardUi(logic).getRoot());
+            mainWindow.setCenter(flashcardUi.getRoot());
             break;
         default:
             throw new IllegalArgumentException();

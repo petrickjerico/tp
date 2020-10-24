@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-StudyBananas is a **desktop study companion app that helps students centralize all their study tasks and sets up focused study sessions into one place, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
+StudyBananas is a desktop study companion app that helps students centralize all their study tasks and sets up focused study sessions into one place, optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). Our main target users are secondary and tertiary students who study and use computer frequently. This user guide aims to equip you with all necessary understanding to use StudyBananas effectively.
 
 ## Table of Contents
 - [**Quick start**](#quick-start)
@@ -66,10 +66,10 @@ StudyBananas is a **desktop study companion app that helps students centralize a
 
 **Notes about the command format:**<br>
 
-* Words wrapped with angled brackets `<>` are the parameters to be supplied by the user.<br>
+* Words wrapped with angled brackets `<>` are the parameters to be supplied by you.<br>
   e.g. in `add flset:<setname>`, `<setname>` is a parameter which can be used as `add flset:Chemistry`.
 
-* Words wrapped with square brackets `[]` are optional parameters to be supplied by the user.<br>
+* Words wrapped with square brackets `[]` are optional parameters to be supplied by you.<br>
   e.g. in `add task T:<title> d:[description] t:[time]`, `[description]` and `[time]` are optional parameters.
 
 * Parameters can be in any order.<br>
@@ -78,7 +78,7 @@ StudyBananas is a **desktop study companion app that helps students centralize a
 </div>
 <p>&nbsp;</p>
 
-### **Viewing help**: `help`
+### **View help**: `help`
 
 Lists all available commands.
 
@@ -168,7 +168,7 @@ Examples:
 <p>&nbsp;</p>
 
 ### **Quiz of flashcard set**: `quiz flset`
-Shows the questions of the specific flashcard set. Depending on the command, it store the answers for reference in the last attempt. 
+Shows the questions of the specific flashcard set. Depending on the command, it stores the answers for reference in the last attempt. 
 Follow-up commands are required to continue with the quiz.
 
 Format: `quiz flset:<setindex>`
@@ -176,12 +176,12 @@ Format: `quiz flset:<setindex>`
 Examples: 
 `quiz flset:2`, `quiz flset:3`
 
-As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for the user to type in the next command, `flip`, `ans:<answer>` or `cancel`.
+As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for you to type in the next command, `flip`, `ans:<answer>` or `cancel`.
 
 <img src="images/question.png" width="200px">
 
 - `flip`: Displays the answer to the flashcard question.
-- `ans:<answer>`: Stores the user's answer. Also, displays the answer to the flashcard question.
+- `ans:<answer>`: Stores your answer. Also, displays the answer to the flashcard question.
 - `cancel`: Stops the quiz 
 
 If the command entered is `flip` or `ans:<answer>`, the correct answer will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`.
@@ -205,7 +205,7 @@ The next question of the next flashcard will be displayed. Steps 1-2 are repeate
 Once the quiz stops, the score will be displayed. This score can be viewed when viewing the last attempt of the flashcard set.
 <p>&nbsp;</p>
 
-At any point should the user enter a command not pertaining to quiz, 
+At any point should you enter a command not pertaining to quiz, 
 they may key in `refresh` to see their current quiz question/answer.
 
 ### **View last quiz attempt**: `quiz score flset`
@@ -232,7 +232,7 @@ Format: `add task: T:<title> d:[description] t:[time]`
 - `<title>` field is compulsory.
 - `<title>` can accept strings that are capitalized or separated with spaces.
 - `[description]` field is optional.
-- `[time]` field is optional if the user wants to set a deadline or time limit for the task.
+- `[time]` field is optional if you want to set a deadline or time limit for the task.
 
 Examples:
 - `add task T: CS2100 d: Pipeline tutorial`
@@ -271,14 +271,14 @@ or all of the given keywords (`description` and `dateTime`).
 Format: `search task <keyword>`
 
 Basic Usage: 
-- The search is case-insensitive. e.g. `homework` will match `Homework`.
-- The order of the keywords does not matter. e.g. `CS2103T topics` will match `topics CS2103T`.
+- The search is case-insensitive. e.g. `homework` matches `Homework`.
+- The order of the keywords does not matter. e.g. `CS2103T topics` matches `topics CS2103T`.
 - Start_time, period and name of the tasks are all searched.
-- Partial word would match e.g. `CS2013` matches `CS2103T`.
+- Partial words match e.g. `CS2013` matches `CS2103T`.
 
 Advanced Usage:
-- `or` search: Tasks matching at least one keyword will be returned e.g. `CS2103T`, `CS2101`, `ST2334` will return `CS2103T homework`, `CS2101 homework`, and `ST2334 homework`. 
-- `and` search (search is and search by default): Tasks matching all the keywords will be returned e.g. `CS2103t week 7` will return `CS2103T homework week 7`
+- `or` search: Tasks matching at least one keyword will be returned e.g. `CS2103T`, `CS2101`, `ST2334` returns `CS2103T homework`, `CS2101 homework`, and `ST2334 homework`. 
+- `and` search (search is and search by default): Tasks matching all the keywords will be returned e.g. `CS2103t week 7` returns `CS2103T homework week 7`
 
 Examples: <br />
 `search task CS2103t` <br />

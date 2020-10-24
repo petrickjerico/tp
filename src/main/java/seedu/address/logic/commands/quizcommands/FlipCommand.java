@@ -28,7 +28,8 @@ public class FlipCommand extends Command<QuizModel> {
 
         QuizCommand.setStatus(Status.ON_ANSWER);
 
-        String answerStringToShow = answer.toString() + QuizCommand.MESSAGE_AVAIL_ON_ANSWER;
+        String answerStringToShow = "Correct answer: " + answer.toString()
+                + QuizCommand.MESSAGE_AVAIL_ON_ANSWER;
         QuizCommand.updateCommandResult(answerStringToShow);
 
         return new CommandResult(answerStringToShow);

@@ -30,11 +30,13 @@ public class AnswerCommand extends Command<QuizModel> {
         }
 
         model.saveAnswer(answer);
+        String userAnswerToShow = "Your answer: " + answer;
         Answer answer = model.getAnswer();
 
         QuizCommand.setStatus(Status.ON_ANSWER);
 
-        String answerStringToShow = answer.toString() + QuizCommand.MESSAGE_AVAIL_ON_ANSWER;
+        String answerStringToShow = userAnswerToShow + "\nCorrect answer: " + answer.toString()
+                + QuizCommand.MESSAGE_AVAIL_ON_ANSWER;
         QuizCommand.updateCommandResult(answerStringToShow);
 
         return new CommandResult(answerStringToShow);

@@ -1,6 +1,8 @@
 package seedu.address.logic.commands.schedulecommands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_DUPLICATED_TASK;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DURATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
@@ -19,6 +21,7 @@ import seedu.address.model.task.Description;
 import seedu.address.model.task.Duration;
 import seedu.address.model.task.Task;
 import seedu.address.model.task.Title;
+import seedu.address.model.task.exceptions.DuplicateTaskException;
 
 public class ScheduleEditCommand extends Command<ScheduleModel> {
     public static final String COMMAND_WORD = "edit task";
@@ -55,9 +58,9 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
     private Task generateEditedTask(
             Task taskToEdit, Title newTitle, Description newDescription, DateTime newDateTime, Duration newDuration) {
         Title title = newTitle == null ? taskToEdit.getTitle() : newTitle;
-        Description description = newDescription == null ? taskToEdit.getDescription().get() : newDescription;
-        DateTime dateTime = newDateTime == null ? taskToEdit.getDateTime().get() : newDateTime;
-        Duration duration = newDuration == null ? taskToEdit.getDuration().get() : newDuration;
+        Description description = newDescription == null ? taskToEdit.getDescription().orElse(null) : newDescription;
+        DateTime dateTime = newDateTime == null ? taskToEdit.getDateTime().orElse(null) : newDateTime;
+        Duration duration = newDuration == null ? taskToEdit.getDuration().orElse(null) : newDuration;
         Task editedTask = new Task(title, description, dateTime, duration);
         return editedTask;
     }
@@ -71,10 +74,14 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
             throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
 
-        Task taskToEdit = lastShownList.get(targetIndex.getZeroBased());
-        Task editedTask = generateEditedTask(taskToEdit, title, description, dateTime, duration);
-        model.setTask(taskToEdit, editedTask);
-        return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
+        try {
+            Task taskToEdit = lastShownList.get(targetIndex.getZeroBased());
+            Task editedTask = generateEditedTask(taskToEdit, title, description, dateTime, duration);
+            model.setTask(taskToEdit, editedTask);
+            return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
+        } catch (DuplicateTaskException e) {
+            throw new CommandException(MESSAGE_DUPLICATED_TASK);
+        }
     }
 
     @Override

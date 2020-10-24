@@ -294,16 +294,19 @@ Edits the specified task's details with the input information.
 Format: `edit task <index> T:[title] d:[description] t:[time] dur:[duration]`
 - `<index>` is the compulsory field.
 - `<index>` refers to the index number shown in the displayed task list.
+- You can key in multiple `<index>`, but only the task at the first `index` will be edited.
 - `[title]`, `[description]`, `[time]` and `[duration]` are the new information that you want to update the task at the specified index.
 - `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command.
 - `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format.  
+- You can key in multiple `[title]`, `[description]`, `[time]` and `[duration]`, but only the last information of each field will be updated to the task.  
+
 
 Examples:
 - `edit task 1 T: Internship`: Edits the original title of the task at `index 1` to be `Internship`.
 - `edit task 2 d: Pipleline Tutorial homework dur: 60`: Edits the original description and duration of the task at `index 2` to be `Pipeline Tutorial homework` and `60` respectively.  
-- `edit task 5 T: CS2103T d: Post-lecture quiz t: 2020-10-31 13:00 dur: 60`: Edits the original title, description, time and
+- `edit task 5 6 T: CS2103T d: Post-lecture quiz t: 2020-10-31 13:00 dur: 60`: Edits the original title, description, time and
  duration of the task at `index 5` to be `CS2103T`, `Post-lecture quiz`, `2020-10-31 13:00` and `60` respectively.  
-
+- `edit task 2 d: Pipleline Tutorial homework dur: 60 d: Assignment Cache`: Edits the original description and duration of the task at `index 2` to be `Assigment Cache` and `60` respectively.  
 <p>&nbsp;</p>
 
 ### **Saving the data**

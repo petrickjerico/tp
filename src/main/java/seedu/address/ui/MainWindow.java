@@ -89,6 +89,7 @@ public class MainWindow extends UiPart<Stage> implements Observer {
 
     void show() {
         primaryStage.show();
+        primaryStage.setResizable(false);
     }
 
 

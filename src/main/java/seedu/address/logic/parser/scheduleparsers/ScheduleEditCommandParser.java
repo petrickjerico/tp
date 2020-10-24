@@ -1,12 +1,15 @@
 package seedu.address.logic.parser.scheduleparsers;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DURATION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TITLE;
 import static seedu.address.logic.parser.parserutils.ParserUtil.arePrefixesPresent;
 
+import java.util.Optional;
+
 import seedu.address.commons.core.index.Index;
-import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.commands.schedulecommands.ScheduleEditCommand;
 import seedu.address.logic.parser.ArgumentMultimap;
 import seedu.address.logic.parser.ArgumentTokenizer;
@@ -18,7 +21,6 @@ import seedu.address.model.task.Description;
 import seedu.address.model.task.Duration;
 import seedu.address.model.task.Title;
 
-import java.util.Optional;
 
 public class ScheduleEditCommandParser implements Parser<ScheduleEditCommand> {
     /*
@@ -27,7 +29,7 @@ public class ScheduleEditCommandParser implements Parser<ScheduleEditCommand> {
      * The second part is the task index.
      * The third part is the updated task information.
      */
-    private static int EXPECTED_PART_OF_INPUT = 3;
+    private static final int EXPECTED_PART_OF_INPUT = 3;
 
     private String getIndexFromInput(String input) throws ParseException {
         String[] splittedPartInput = input.split(" ", EXPECTED_PART_OF_INPUT);
@@ -81,7 +83,7 @@ public class ScheduleEditCommandParser implements Parser<ScheduleEditCommand> {
                 && !arePrefixesPresent(argMultimap, PREFIX_DESCRIPTION)
                 && !arePrefixesPresent(argMultimap, PREFIX_TIME)
                 && !arePrefixesPresent(argMultimap, PREFIX_DURATION))
-                ) {
+        ) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ScheduleEditCommand.MESSAGE_USAGE));
         }
 

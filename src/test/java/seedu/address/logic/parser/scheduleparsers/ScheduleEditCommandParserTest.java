@@ -12,7 +12,6 @@ import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestU
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_DESCRIPTION_CS2101;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_DURATION;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_TITLE_CS2103T;
-
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;

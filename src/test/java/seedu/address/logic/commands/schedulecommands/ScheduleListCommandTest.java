@@ -2,8 +2,8 @@ package seedu.address.logic.commands.schedulecommands;
 
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.showTaskAtIndex;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 import static seedu.address.testutil.SampleTasks.getSampleSchedule;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

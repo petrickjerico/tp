@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.showTaskAtIndex;
+import static seedu.address.testutil.SampleTasks.getSampleSchedule;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND;
-import static seedu.address.testutil.SampleTasks.getSampleSchedule;
 
 import org.junit.jupiter.api.Test;
 

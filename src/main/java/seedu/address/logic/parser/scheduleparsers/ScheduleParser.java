@@ -9,7 +9,11 @@ import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.addressbookcommands.HelpCommand;
-import seedu.address.logic.commands.schedulecommands.*;
+import seedu.address.logic.commands.schedulecommands.ScheduleAddCommand;
+import seedu.address.logic.commands.schedulecommands.ScheduleDeleteCommand;
+import seedu.address.logic.commands.schedulecommands.ScheduleEditCommand;
+import seedu.address.logic.commands.schedulecommands.ScheduleListCommand;
+import seedu.address.logic.commands.schedulecommands.ScheduleSearchCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ScheduleModel;

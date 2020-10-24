@@ -5,6 +5,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DURATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TITLE;
+
 import java.util.List;
 
 import seedu.address.commons.core.Messages;
@@ -13,7 +14,11 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.ScheduleModel;
-import seedu.address.model.task.*;
+import seedu.address.model.task.DateTime;
+import seedu.address.model.task.Description;
+import seedu.address.model.task.Duration;
+import seedu.address.model.task.Task;
+import seedu.address.model.task.Title;
 
 public class ScheduleEditCommand extends Command<ScheduleModel> {
     public static final String COMMAND_WORD = "edit task";
@@ -35,6 +40,9 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
     private final DateTime dateTime;
     private final Duration duration;
 
+    /**
+     * Creates an ScheduleEditCommand to edit the specified task at {@code Index}
+     */
     public ScheduleEditCommand(
             Index targetIndex, Title title, Description description, DateTime dateTime, Duration duration) {
         this.targetIndex = targetIndex;

@@ -1,11 +1,11 @@
 package seedu.address.logic.commands.schedulecommands;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.assertCommandFailure;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 import static seedu.address.testutil.SampleTasks.getSampleSchedule;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND;
 
 import org.junit.jupiter.api.Test;
@@ -44,7 +44,8 @@ public class ScheduleEditCommandTest {
                 .build();
         CommandResult result = new ScheduleEditCommand(
                 INDEX_FIRST, null, editedDescription, editedDateTime, editedDuration).execute(expectedModel);
-        assertEquals(String.format(ScheduleEditCommand.MESSAGE_EDIT_TASK_SUCCESS, editedTask), result.getFeedbackToUser());
+        assertEquals(String.format(ScheduleEditCommand.MESSAGE_EDIT_TASK_SUCCESS, editedTask),
+                result.getFeedbackToUser());
     }
 
     @Test

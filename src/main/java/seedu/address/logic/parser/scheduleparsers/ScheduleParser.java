@@ -11,6 +11,7 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.addressbookcommands.HelpCommand;
 import seedu.address.logic.commands.schedulecommands.ScheduleAddCommand;
 import seedu.address.logic.commands.schedulecommands.ScheduleDeleteCommand;
+import seedu.address.logic.commands.schedulecommands.ScheduleEditCommand;
 import seedu.address.logic.commands.schedulecommands.ScheduleListCommand;
 import seedu.address.logic.commands.schedulecommands.ScheduleSearchCommand;
 import seedu.address.logic.parser.Parser;
@@ -44,6 +45,8 @@ public class ScheduleParser implements Parser<Command> {
             return new ScheduleDeleteCommandParser().parse(arguments);
         case ScheduleSearchCommand.COMMAND_WORD:
             return new ScheduleSearchCommandParser().parse(arguments);
+        case ScheduleEditCommand.COMMAND_WORD:
+            return new ScheduleEditCommandParser().parse(arguments);
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }

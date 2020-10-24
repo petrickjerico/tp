@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import seedu.address.model.task.exceptions.DuplicateTaskException;
 import seedu.address.model.task.exceptions.TaskNotFoundException;
 
+
 /**
  * A list of tasks that enforces uniqueness between its elements and does not allow nulls.
  * A task is considered unique by comparing using {@code Task#isSameTask(Task)}. As such, adding and updating of
@@ -61,7 +62,7 @@ public class UniqueTaskList implements Iterable<Task> {
             throw new TaskNotFoundException();
         }
 
-        if (!target.isSameTask(editedTask) && contains(editedTask)) {
+        if (target.isSameTask(editedTask) || contains(editedTask)) {
             throw new DuplicateTaskException();
         }
 

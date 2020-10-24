@@ -168,7 +168,7 @@ Examples:
 <p>&nbsp;</p>
 
 ### **Quiz of flashcard set**: `quiz flset`
-Shows the questions of the specific flashcard set. Depending on the command, it store the answers for reference in the last attempt. 
+Shows the questions of the specific flashcard set. Depending on the command, it stores the answers for reference in the last attempt. 
 Follow-up commands are required to continue with the quiz.
 
 Format: `quiz flset:<setindex>`

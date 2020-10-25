@@ -17,7 +17,7 @@ import seedu.address.storage.schedulestorage.ScheduleStorage;
 /**
  * API of the Storage component
  */
-public interface Storage extends AddressBookStorage, UserPrefsStorage, ScheduleStorage,
+public interface Storage extends UserPrefsStorage, ScheduleStorage,
         FlashcardBankStorage, QuizRecordsStorage {
 
     @Override
@@ -25,15 +25,6 @@ public interface Storage extends AddressBookStorage, UserPrefsStorage, ScheduleS
 
     @Override
     void saveUserPrefs(ReadOnlyUserPrefs userPrefs) throws IOException;
-
-    @Override
-    Path getAddressBookFilePath();
-
-    @Override
-    Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException;
-
-    @Override
-    void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException;
 
     @Override
     Path getScheduleFilePath();

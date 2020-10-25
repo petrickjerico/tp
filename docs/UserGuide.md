@@ -17,7 +17,7 @@ StudyBananas is a desktop study companion app that helps students centralize all
   * [List flashcards in a flashcard set: `list fl`](#list-flashcards-in-a-flashcard-set-list-fl)
   * [Delete a flashcard in a flashcard set: `delete fl`](#delete-a-flashcard-in-a-flashcard-set-delete-fl)
   * [Quiz of flashcard set: `quiz flset`](#quiz-of-flashcard-set-quiz-flset)
-  * [View last quiz attempt: `view flset quiz`](#view-last-quiz-attempt-view-flset-quiz)
+  * [View last quiz attempt: `quiz score flset`](#view-last-quiz-attempt-quiz-score-flset)
   * [Add a task: `add task`](#add-a-task)
   * [List tasks: `list task`](#list-tasks)
   * [Delete a task: `delete task`](#delete-a-task)

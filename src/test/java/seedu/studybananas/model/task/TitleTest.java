@@ -21,14 +21,14 @@ public class TitleTest {
 
     @Test
     public void isValidTitle() {
-        // null address
+        // null title
         assertThrows(NullPointerException.class, () -> Title.isValidTitle(null));
 
         // invalid title
         assertFalse(Title.isValidTitle("")); // empty string
         assertFalse(Title.isValidTitle(" ")); // spaces only
 
-        // valid addresses
+        // valid title
         assertTrue(Title.isValidTitle("CS2103T"));
         assertTrue(Title.isValidTitle("H")); // one character
     }

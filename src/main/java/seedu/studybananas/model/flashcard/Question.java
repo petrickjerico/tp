@@ -11,7 +11,7 @@ public class Question {
     public static final String MESSAGE_CONSTRAINTS =
             "Question should only contain alphanumeric characters and spaces, and it should not be blank";
     /*
-     * The first character of the address must not be a whitespace,
+     * The first character of the question must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String VALIDATION_REGEX = "[\\p{Graph}][\\p{Graph} ]*";

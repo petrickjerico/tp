@@ -21,7 +21,7 @@ public class FlashcardSetNameTest {
 
     @Test
     public void isValidAnswer() {
-        // null address
+        // null name
         assertThrows(NullPointerException.class, () -> FlashcardSetName.isValidName(null));
 
         // invalid question

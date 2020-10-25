@@ -69,7 +69,7 @@ public class StorageManager implements Storage {
 
     @Override
     public Optional<ReadOnlySchedule> readSchedule(Path filePath) throws DataConversionException, IOException {
-        logger.fine("Attempting to read address schedule from file: " + filePath);
+        logger.fine("Attempting to read schedule from file: " + filePath);
         return scheduleStorage.readSchedule(filePath);
     }
 

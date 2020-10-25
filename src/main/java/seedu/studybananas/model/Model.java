@@ -36,16 +36,6 @@ public interface Model extends ScheduleModel, FlashcardModel, QuizModel {
     void setGuiSettings(GuiSettings guiSettings);
 
     /**
-     * Returns the user prefs' address book file path.
-     */
-    Path getAddressBookFilePath();
-
-    /**
-     * Sets the user prefs' address book file path.
-     */
-    void setAddressBookFilePath(Path addressBookFilePath);
-
-    /**
      * Returns the user prefs' schedule file path.
      */
     Path getScheduleFilePath();

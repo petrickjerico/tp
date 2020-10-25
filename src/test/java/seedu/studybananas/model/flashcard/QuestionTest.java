@@ -21,7 +21,7 @@ public class QuestionTest {
 
     @Test
     public void isValidQuestion() {
-        // null address
+        // null question
         assertThrows(NullPointerException.class, () -> Question.isValidQuestion(null));
 
         // invalid question

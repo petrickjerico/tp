@@ -30,7 +30,7 @@ public class FlashcardParser implements Parser<Command> {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
 
         if (!matcher.matches()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, "TODO write help message here"));
         }
 
         final String commandWord = matcher.group(1);

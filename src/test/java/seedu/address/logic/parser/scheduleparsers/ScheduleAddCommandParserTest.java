@@ -1,8 +1,6 @@
 package seedu.address.logic.parser.scheduleparsers;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.PREAMBLE_NON_EMPTY;
-import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUtil.PREAMBLE_WHITESPACE;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.DATETIME_DESC_CS2101;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.DATETIME_DESC_CS2103T;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.DESCRIPTION_DESC_CS2101;
@@ -10,6 +8,8 @@ import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestU
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.DURATION;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.INVALID_DATETIME_DESC;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.INVALID_TITLE_DESC;
+import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.PREAMBLE_NON_EMPTY;
+import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.PREAMBLE_WHITESPACE;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.TITLE_DESC_CS2101;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.TITLE_DESC_CS2103T;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_DATETIME_CS2103T;

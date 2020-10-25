@@ -65,13 +65,12 @@ public class MainApp extends Application {
 
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
         ScheduleStorage scheduleStorage = new JsonScheduleStorage(userPrefs.getScheduleFilePath());
         FlashcardBankStorage flashcardBankStorage = new JsonFlashcardBankStorage(userPrefs.getFlashcardBankFilePath());
         QuizRecordsStorage quizRecordsStorage = new JsonQuizRecordsStorage(userPrefs.getQuizRecordsFilePath());
 
         storage = new StorageManager(scheduleStorage, flashcardBankStorage,
-                quizRecordsStorage, addressBookStorage, userPrefsStorage);
+                quizRecordsStorage, userPrefsStorage);
 
         initLogging(config);
 
@@ -89,31 +88,13 @@ public class MainApp extends Application {
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
 
-        Optional<ReadOnlyAddressBook> addressBookOptional;
         Optional<ReadOnlySchedule> scheduleOptional;
         Optional<ReadOnlyFlashcardBank> flashcardBankOptional;
         Optional<ReadOnlyQuizRecords> quizRecordsOptional;
 
-        ReadOnlyAddressBook initialAddressBookData;
         ReadOnlySchedule initialScheduleData;
         ReadOnlyFlashcardBank initialFlashcardBankData;
         ReadOnlyQuizRecords initialQuizRecordsData;
-
-        try {
-            addressBookOptional = storage.readAddressBook();
-
-            if (addressBookOptional.isEmpty()) {
-                logger.info("AddressBook data file not found. Will be starting with a sample AddressBook");
-            }
-
-            initialAddressBookData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
-        } catch (DataConversionException e) {
-            logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
-            initialAddressBookData = new AddressBook();
-        } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
-            initialAddressBookData = new AddressBook();
-        }
 
         try {
             scheduleOptional = storage.readSchedule();
@@ -163,7 +144,7 @@ public class MainApp extends Application {
             initialQuizRecordsData = new QuizRecords();
         }
 
-        return new ModelManager(initialAddressBookData, userPrefs, initialScheduleData,
+        return new ModelManager(userPrefs, initialScheduleData,
                 initialFlashcardBankData, initialQuizRecordsData);
     }
 

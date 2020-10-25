@@ -41,7 +41,7 @@ public class FlashcardSetCard extends UiPart<Region> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof PersonCard)) {
+        if (!(other instanceof FlashcardSetCard)) {
             return false;
         }
 

@@ -42,6 +42,8 @@ public class ScheduleCommandTestUtil {
     public static final String INVALID_DATETIME_DESC = " " + PREFIX_TIME + "JANUARY"; // wrong date time format
     public static final String INVALID_DURATION = " " + PREFIX_DURATION + "-60"; // duration should be a positive number
 
+    public static final String PREAMBLE_WHITESPACE = "\t \r \n";
+    public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
     /**
      * Executes the given {@code command}, confirms that <br>

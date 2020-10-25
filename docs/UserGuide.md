@@ -196,7 +196,7 @@ Result when `ans:<answer>` command is entered
 
 Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
 
-- `c`: Indicate that the question on the flashcard is answered correctly.
+- `c`: Indicates that the question on the flashcard is answered correctly.
 - `w`: Indicates that the question is answered wrongly.
 - `cancel`: Stops the quiz
 
@@ -254,11 +254,13 @@ Examples:
 Deletes the specified task from the study bananas.  
 
 Format: `delete task <index>`  
-
-Examples:
 - Deletes the task at the specified index.
 - The index refers to the index number shown in the displayed task list.
 - The index must be a positive integer 1, 2, 3, …​
+
+Examples:
+- `delete task 2`: Deletes the task at index 2 in the the displayed task list.
+- `delete task 6`: Deletes the task at index 6 in the the displayed task list.
 <p>&nbsp;</p>
 
 ### **Search for a task**: `search task`
@@ -283,6 +285,28 @@ Examples: <br />
 returns `CS2103T topics quiz week 7` and `CS2103T topics quiz week 8` <br />
 or `search task CS2103t CS2101`  <br />
 returns `CS2103t topics quiz week 7` and `CS2101 OP1`
+<p>&nbsp;</p>
+
+### **Edit a task**: `edit task`
+
+Edits the specified task's details with the input information.  
+
+Format: `edit task <index> T:[title] d:[description] t:[time] dur:[duration]`
+- `<index>` is the compulsory field.
+- `<index>` refers to the index number shown in the displayed task list.
+- You can key in multiple `<index>`, but only the task at the first `index` will be edited.
+- `[title]`, `[description]`, `[time]` and `[duration]` are the new information that you want to update the task at the specified index.
+- `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command.
+- `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format.  
+- You can key in multiple `[title]`, `[description]`, `[time]` and `[duration]`, but only the last information of each field will be updated to the task.  
+
+
+Examples:
+- `edit task 1 T: Internship`: Edits the original title of the task at `index 1` to be `Internship`.
+- `edit task 2 d: Pipleline Tutorial homework dur: 60`: Edits the original description and duration of the task at `index 2` to be `Pipeline Tutorial homework` and `60` respectively.  
+- `edit task 5 6 T: CS2103T d: Post-lecture quiz t: 2020-10-31 13:00 dur: 60`: Edits the original title, description, time and
+ duration of the task at `index 5` to be `CS2103T`, `Post-lecture quiz`, `2020-10-31 13:00` and `60` respectively.  
+- `edit task 2 d: Pipleline Tutorial homework dur: 60 d: Assignment Cache`: Edits the original description and duration of the task at `index 2` to be `Assigment Cache` and `60` respectively.  
 <p>&nbsp;</p>
 
 ### **Saving the data**
@@ -340,7 +364,8 @@ _{explain the feature here}_
 
 | Action              | Format, Examples                                                                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Add task**        | `add task T:titile d:[description] t:[time]` <br> e.g., `add task T:CS2100 d: Pipeline tutorial`, `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
+| **Add task**        | `add task T:<titile> d:[description] t:[time]` <br> e.g., `add task T:CS2100 d: Pipeline tutorial`, `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
 | **List tasks**      | `list task` <br>                                                                                                                           |
 | **Delete task**     | `delete task <index>` <br>  e.g., `delete task 6`                                                                                          |
 | **Search for task** | `search task <keywords>` or `search <keywords>` <br> e.g., `search task CS2103T` or `search CS2103T`                                       |
+| **Edit task**       | `edit task <index> T:[title] d:[description] t:[time] dur:[duration]` <br> e.g., `edit task 2 T: CS2103T`, `edit task 1 d: Debug remaining errors dur: 60` |

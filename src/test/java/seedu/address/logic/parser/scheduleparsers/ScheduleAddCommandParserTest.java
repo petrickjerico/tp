@@ -7,12 +7,14 @@ import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestU
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.DATETIME_DESC_CS2103T;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.DESCRIPTION_DESC_CS2101;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.DESCRIPTION_DESC_CS2103T;
+import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.DURATION;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.INVALID_DATETIME_DESC;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.INVALID_TITLE_DESC;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.TITLE_DESC_CS2101;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.TITLE_DESC_CS2103T;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_DATETIME_CS2103T;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_DESCRIPTION_CS2103T;
+import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_DURATION;
 import static seedu.address.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_TITLE_CS2103T;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -31,23 +33,23 @@ public class ScheduleAddCommandParserTest {
     @Test
     public void parse_allFieldsPresent_success() {
         Task expectedTask = new TaskBuilder().withTitle(VALID_TITLE_CS2103T).withDescription(VALID_DESCRIPTION_CS2103T)
-                .withDateTime(VALID_DATETIME_CS2103T).build();
+                .withDateTime(VALID_DATETIME_CS2103T).withDuration(VALID_DURATION).build();
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2103T
-                + DATETIME_DESC_CS2103T, new ScheduleAddCommand(expectedTask));
+                + DATETIME_DESC_CS2103T + DURATION, new ScheduleAddCommand(expectedTask));
 
         // multiple titles - last title accepted
         assertParseSuccess(parser, TITLE_DESC_CS2101 + TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2103T
-                + DATETIME_DESC_CS2103T, new ScheduleAddCommand(expectedTask));
+                + DATETIME_DESC_CS2103T + DURATION, new ScheduleAddCommand(expectedTask));
 
         // multiple descriptions - last description accepted
         assertParseSuccess(parser, TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2101 + DESCRIPTION_DESC_CS2103T
-                + DATETIME_DESC_CS2103T, new ScheduleAddCommand(expectedTask));
+                + DATETIME_DESC_CS2103T + DURATION, new ScheduleAddCommand(expectedTask));
 
-        // multiple emails - last email accepted
+        // multiple dates - last email accepted
         assertParseSuccess(parser, TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2103T + DATETIME_DESC_CS2101
-                + DATETIME_DESC_CS2103T, new ScheduleAddCommand(expectedTask));
+                + DATETIME_DESC_CS2103T + DURATION, new ScheduleAddCommand(expectedTask));
 
     }
 
@@ -55,19 +57,19 @@ public class ScheduleAddCommandParserTest {
     public void parse_optionalFieldsMissing_success() {
         // no dateTime
         Task expectedTaskWithoutDateTime = new TaskBuilder().withTitle(VALID_TITLE_CS2103T)
-                .withDescription(VALID_DESCRIPTION_CS2103T).withDateTime("").build();
+                .withDescription(VALID_DESCRIPTION_CS2103T).withDateTime("").withDuration("").build();
         assertParseSuccess(parser, TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2103T,
                 new ScheduleAddCommand(expectedTaskWithoutDateTime));
 
         // no description
         Task expectedTaskWithoutDescription = new TaskBuilder().withTitle(VALID_TITLE_CS2103T).withDescription("")
-                .withDateTime(VALID_DATETIME_CS2103T).build();
+                .withDateTime(VALID_DATETIME_CS2103T).withDuration("").build();
         assertParseSuccess(parser, TITLE_DESC_CS2103T + DATETIME_DESC_CS2103T,
                 new ScheduleAddCommand(expectedTaskWithoutDescription));
 
         // no dateTime and no description
         Task expectedTaskWithOnlyTitle = new TaskBuilder().withTitle(VALID_TITLE_CS2103T).withDescription("")
-                .withDateTime("").build();
+                .withDateTime("").withDuration("").build();
         assertParseSuccess(parser, TITLE_DESC_CS2103T,
                 new ScheduleAddCommand(expectedTaskWithOnlyTitle));
     }
@@ -88,7 +90,7 @@ public class ScheduleAddCommandParserTest {
         assertParseFailure(parser, INVALID_TITLE_DESC + DESCRIPTION_DESC_CS2103T + DATETIME_DESC_CS2103T,
                 Title.MESSAGE_CONSTRAINTS);
 
-        // invalid email
+        // invalid date time
         assertParseFailure(parser, TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2103T + INVALID_DATETIME_DESC,
                 DateTime.MESSAGE_CONSTRAINTS);
 

@@ -73,12 +73,10 @@ public class UniqueTaskListTest {
     }
 
     @Test
-    public void setTask_editedTaskIsSameTask_success() {
+    public void setTask_editedTaskIsSameTask_throwsDuplicateTaskException() {
         uniqueTaskList.add(CS2103T_WEEK8_QUIZ);
-        uniqueTaskList.setTask(CS2103T_WEEK8_QUIZ, CS2103T_WEEK8_QUIZ);
-        UniqueTaskList expectedUniqueTaskList = new UniqueTaskList();
-        expectedUniqueTaskList.add(CS2103T_WEEK8_QUIZ);
-        assertEquals(expectedUniqueTaskList, uniqueTaskList);
+        assertThrows(DuplicateTaskException.class, () ->
+                uniqueTaskList.setTask(CS2103T_WEEK8_QUIZ, CS2103T_WEEK8_QUIZ));
     }
 
     @Test

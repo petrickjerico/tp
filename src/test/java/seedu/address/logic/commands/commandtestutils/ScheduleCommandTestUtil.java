@@ -3,6 +3,7 @@ package seedu.address.logic.commands.commandtestutils;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DURATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TITLE;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -27,6 +28,7 @@ public class ScheduleCommandTestUtil {
     public static final String VALID_DESCRIPTION_CS2101 = "Oral presentation1.";
     public static final String VALID_DATETIME_CS2103T = "2020-09-25 11:00";
     public static final String VALID_DATETIME_CS2101 = "2020-10-25 10:00";
+    public static final String VALID_DURATION = "60";
 
     public static final String TITLE_DESC_CS2103T = " " + PREFIX_TITLE + VALID_TITLE_CS2103T;
     public static final String TITLE_DESC_CS2101 = " " + PREFIX_TITLE + VALID_TITLE_CS2101;
@@ -34,9 +36,12 @@ public class ScheduleCommandTestUtil {
     public static final String DESCRIPTION_DESC_CS2101 = " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_CS2101;
     public static final String DATETIME_DESC_CS2103T = " " + PREFIX_TIME + VALID_DATETIME_CS2103T;
     public static final String DATETIME_DESC_CS2101 = " " + PREFIX_TIME + VALID_DATETIME_CS2101;
+    public static final String DURATION = " " + PREFIX_DURATION + VALID_DURATION;
 
     public static final String INVALID_TITLE_DESC = " " + PREFIX_TITLE + "&&CS2103T"; // '&' not allowed in names
-    public static final String INVALID_DATETIME_DESC = " " + PREFIX_TIME + "JANUARY"; // missing '@' symbol
+    public static final String INVALID_DATETIME_DESC = " " + PREFIX_TIME + "JANUARY"; // wrong date time format
+    public static final String INVALID_DURATION = " " + PREFIX_DURATION + "-60"; // duration should be a positive number
+
 
     /**
      * Executes the given {@code command}, confirms that <br>

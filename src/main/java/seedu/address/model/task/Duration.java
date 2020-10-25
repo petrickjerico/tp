@@ -8,7 +8,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Duration {
     public static final String MESSAGE_CONSTRAINTS =
-            "Duration should only contain an integer which is less than 1440.";
+            "Duration should only contain a positive integer which is less than 1440.";
 
     private static final int MINUTE_PER_DAY = 60 * 24;
 
@@ -35,12 +35,12 @@ public class Duration {
     }
 
     /**
-     * Returns true if a given string is a valid description.
+     * Returns true if a given string is a valid duration.
      */
     public static boolean isValidDuration(String test) {
         try {
             int duration = Integer.valueOf(test);
-            return duration < MINUTE_PER_DAY;
+            return duration >= 0 && duration < MINUTE_PER_DAY;
         } catch (NumberFormatException e) {
             return false;
         }

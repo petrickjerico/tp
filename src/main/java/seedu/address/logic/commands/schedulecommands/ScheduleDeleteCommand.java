@@ -34,7 +34,7 @@ public class ScheduleDeleteCommand extends Command<ScheduleModel> {
         List<Task> lastShownList = model.getFilteredTaskList();
 
         if (targetIndex.getOneBased() > lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
 
         Task taskToDelete = lastShownList.get(targetIndex.getZeroBased());

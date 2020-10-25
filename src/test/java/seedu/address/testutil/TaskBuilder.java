@@ -14,6 +14,7 @@ public class TaskBuilder {
     public static final String DEFAULT_TITLE = "CS2103T";
     public static final String DEFAULT_DESCRIPTION = "Weekly team meeting";
     public static final String DEFAULT_DATE_TIME = "2020-10-10 13:00";
+    public static final String DEFAULT_DURATION = "30";
 
     private Title title;
     private Description description;
@@ -27,6 +28,7 @@ public class TaskBuilder {
         title = new Title(DEFAULT_TITLE);
         description = new Description(DEFAULT_DESCRIPTION);
         dateTime = new DateTime(DEFAULT_DATE_TIME);
+        duration = new Duration((DEFAULT_DURATION));
     }
 
     /**
@@ -36,6 +38,7 @@ public class TaskBuilder {
         title = taskToCopy.getTitle();
         description = taskToCopy.getDescription().orElse(null);
         dateTime = taskToCopy.getDateTime().orElse(null);
+        duration = taskToCopy.getDuration().orElse(null);
     }
 
     /**
@@ -66,7 +69,7 @@ public class TaskBuilder {
      * Sets the {@code Duration} of the {@code Task} that we are building.
      */
     public TaskBuilder withDuration(String duration) {
-        this.duration = new Duration(duration);
+        this.duration = duration.equals("") ? null : new Duration(duration);
         return this;
     }
 

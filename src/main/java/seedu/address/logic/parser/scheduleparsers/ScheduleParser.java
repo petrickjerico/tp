@@ -32,7 +32,7 @@ public class ScheduleParser implements Parser<Command> {
         if (!matcher.matches()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
-        final String commandWord = matcher.group(1);
+        final String commandWord = matcher.group(1).toLowerCase();
         //temporary to solve the bug...
         final String arguments = toTokenizableString(matcher.group(4));
 

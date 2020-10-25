@@ -15,33 +15,37 @@ import seedu.address.model.Model;
 
 public class QuizParser implements Parser<Command> {
 
+    public static final String EMPTY_SPACE = "";
+
     public static final String MESSAGE_PARSING_ERROR =
             "The command for quiz is invalid. Please check the command format and try again.";
 
     @Override
     public Command<? super Model> parse(String userInput) throws ParseException {
-        if (userInput.startsWith("quiz flset:")) {
-            userInput = userInput.replace("quiz flset:", "");
-            int index = parseNumber(userInput);
+        String lowerCaseUserInput = userInput.toLowerCase();
+        if (lowerCaseUserInput.startsWith(StartCommand.COMMAND_WORD)) {
+            lowerCaseUserInput = lowerCaseUserInput.replace(StartCommand.COMMAND_WORD, EMPTY_SPACE);
+            int index = parseNumber(lowerCaseUserInput);
             return new StartCommand(index);
-        } else if (userInput.startsWith("quiz score flset:")) {
-            userInput = userInput.replace("quiz score flset:", "");
-            int index = parseNumber(userInput);
+        } else if (lowerCaseUserInput.startsWith(ViewScoreCommand.COMMAND_WORD)) {
+            lowerCaseUserInput = lowerCaseUserInput.replace(ViewScoreCommand.COMMAND_WORD, EMPTY_SPACE);
+            int index = parseNumber(lowerCaseUserInput);
             return new ViewScoreCommand(index);
-        } else if (userInput.startsWith("ans:")) {
-            userInput = userInput.replace("ans:", "");
+        } else if (lowerCaseUserInput.startsWith(AnswerCommand.COMMAND_WORD)) {
+            userInput = userInput.substring(AnswerCommand.STARTING_INDEX_OF_ANSWER);
             return new AnswerCommand(userInput);
         }
+
         switch (userInput) {
-        case "cancel":
+        case CancelCommand.COMMAND_WORD:
             return new CancelCommand();
-        case "flip":
+        case FlipCommand.COMMAND_WORD:
             return new FlipCommand();
-        case "c":
+        case CorrectCommand.COMMAND_WORD:
             return new CorrectCommand();
-        case "w":
+        case WrongCommand.COMMAND_WORD:
             return new WrongCommand();
-        case "refresh":
+        case RefreshCommand.COMMAND_WORD:
             return new RefreshCommand();
         default:
             throw new ParseException(MESSAGE_PARSING_ERROR);

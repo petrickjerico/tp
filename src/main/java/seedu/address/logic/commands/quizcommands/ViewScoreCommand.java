@@ -9,6 +9,8 @@ import seedu.address.model.flashcard.FlashcardSetName;
 
 public class ViewScoreCommand extends Command<Model> {
 
+    public static final String COMMAND_WORD = "quiz score flset:";
+
     public static final String MESSAGE_UNABLE_TO_VIEW =
             "Unable to view score as quiz is in progress. "
                     + "Cancel or finish the quiz to view recent quiz score.";

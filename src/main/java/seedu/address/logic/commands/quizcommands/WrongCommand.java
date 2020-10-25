@@ -10,6 +10,8 @@ import seedu.address.model.flashcard.Question;
 
 public class WrongCommand extends Command<QuizModel> {
 
+    public static final String COMMAND_WORD = "w";
+
     public static final Status STATUS = Status.ON_ANSWER;
 
     @Override

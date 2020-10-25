@@ -13,6 +13,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.StudyBananasParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
+import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.person.Person;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
@@ -112,7 +113,7 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public FlashcardSet getFlashcardSetToView() {
+    public ObservableList<Flashcard> getFlashcardSetToView() {
         return model.getFlashcardSetToView();
     }
 

@@ -362,12 +362,12 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public FlashcardSet getFlashcardSetToView() {
+    public ObservableList<Flashcard> getFlashcardSetToView() {
         return flashcardModelManager.getFlashcardSetToView();
     }
 
     @Override
-    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
-        flashcardModelManager.setFlashcardSetToView(flashcardSet);
+    public void setFlashcardSetToView(Index index) {
+        flashcardModelManager.setFlashcardSetToView(index);
     }
 }

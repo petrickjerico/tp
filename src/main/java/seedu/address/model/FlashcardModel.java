@@ -141,9 +141,9 @@ public interface FlashcardModel {
     //=========== Filtered Flashcard Set Accessors =========================================================
 
     /** Returns an unmodifiable view of the filtered flashcard set list */
-    FlashcardSet getFlashcardSetToView();
+    ObservableList<Flashcard> getFlashcardSetToView();
 
     /** Sets an unmodifiable view of the filtered flashcard set list */
-    void setFlashcardSetToView(FlashcardSet flashcardSet);
+    void setFlashcardSetToView(Index index);
 
 }

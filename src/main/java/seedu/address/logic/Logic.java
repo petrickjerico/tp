@@ -7,6 +7,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.person.Person;
 import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
@@ -80,7 +81,7 @@ public interface Logic {
     Path getFlashcardBankFilePath();
 
     /** Returns the selected flashcards to view */
-    FlashcardSet getFlashcardSetToView();
+    ObservableList<Flashcard> getFlashcardSetToView();
 
 
     /**

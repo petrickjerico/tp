@@ -2,7 +2,6 @@ package seedu.address.ui;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -12,7 +11,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 import javafx.util.Callback;
 import seedu.address.model.flashcard.Flashcard;
-import seedu.address.model.flashcard.FlashcardSet;
 
 /**
  * A ui for the flashcards that is displayed next to the list of flashcard sets.
@@ -32,18 +30,8 @@ public class FlashcardsDisplay extends UiPart<Region> {
     /**
      * Creates a {@code FlashcardsDisplay} with the given {@code FlashcardSet}.
      */
-    public FlashcardsDisplay(FlashcardSet flashcardSet) {
+    public FlashcardsDisplay(ObservableList<Flashcard> data) {
         super(FXML);
-
-        ObservableList<Flashcard> data;
-
-        if (flashcardSet == null) {
-            data = null;
-            name.setText(EMPTY_SET);
-        } else {
-            data = FXCollections.observableArrayList(flashcardSet.getFlashcards());
-            name.setText(flashcardSet.getName().name);
-        }
 
         flashcardsDisplay.setEditable(false);
 

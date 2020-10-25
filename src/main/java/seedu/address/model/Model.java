@@ -10,7 +10,7 @@ import seedu.address.model.systemlevelmodel.ReadOnlyUserPrefs;
 /**
  * The API of the Model component.
  */
-public interface Model extends AddressBookModel, ScheduleModel, FlashcardModel, QuizModel {
+public interface Model extends ScheduleModel, FlashcardModel, QuizModel {
 
     /** {@code Predicate} that always evaluate to true */
     Predicate<FlashcardSet> PREDICATE_SHOW_ALL_FLASHCARDSETS = unused -> true;

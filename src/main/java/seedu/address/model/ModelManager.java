@@ -16,12 +16,9 @@ import seedu.address.model.flashcard.Flashcard;
 import seedu.address.model.flashcard.FlashcardSet;
 import seedu.address.model.flashcard.FlashcardSetName;
 import seedu.address.model.flashcard.Question;
-import seedu.address.model.person.Person;
 import seedu.address.model.quiz.Quiz;
-import seedu.address.model.systemlevelmodel.AddressBook;
 import seedu.address.model.systemlevelmodel.FlashcardBank;
 import seedu.address.model.systemlevelmodel.QuizRecords;
-import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.address.model.systemlevelmodel.ReadOnlyQuizRecords;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
@@ -36,7 +33,6 @@ import seedu.address.model.task.Task;
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final AddressBookModelManager addressBookModelManager;
     private final ScheduleModelManager scheduleModelManager;
     private final FlashcardModelManager flashcardModelManager;
     private final QuizModelManager quizModelManager;
@@ -45,16 +41,15 @@ public class ModelManager implements Model {
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs,
+    public ModelManager(ReadOnlyUserPrefs userPrefs,
                         ReadOnlySchedule schedule, ReadOnlyFlashcardBank flashcardBank,
                         ReadOnlyQuizRecords quizRecords) {
         super();
-        requireAllNonNull(addressBook, schedule, userPrefs, flashcardBank, quizRecords);
+        requireAllNonNull(schedule, userPrefs, flashcardBank, quizRecords);
 
-        logger.fine("Initializing with address book: " + addressBook + " , user prefs "
+        logger.fine("Initializing with user prefs "
                 + userPrefs + " , and schedule: " + schedule);
 
-        addressBookModelManager = new AddressBookModelManager(addressBook);
         scheduleModelManager = new ScheduleModelManager(schedule);
         flashcardModelManager = new FlashcardModelManager(flashcardBank);
         quizModelManager = new QuizModelManager(quizRecords);
@@ -62,7 +57,7 @@ public class ModelManager implements Model {
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs(), new Schedule(), new FlashcardBank(), new QuizRecords());
+        this(new UserPrefs(), new Schedule(), new FlashcardBank(), new QuizRecords());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -120,50 +115,6 @@ public class ModelManager implements Model {
     public void setFlashcardBankFilePath(Path flashcardBankFilePath) {
         requireNonNull(flashcardBankFilePath);
         userPrefs.setFlashcardBankFilePath(flashcardBankFilePath);
-    }
-
-    //=========== AddressBook ================================================================================
-
-    @Override
-    public void setAddressBook(ReadOnlyAddressBook addressBook) {
-        this.addressBookModelManager.setAddressBook(addressBook);
-    }
-
-    @Override
-    public ReadOnlyAddressBook getAddressBook() {
-        return this.addressBookModelManager.getAddressBook();
-    }
-
-    @Override
-    public boolean hasPerson(Person person) {
-        return this.addressBookModelManager.hasPerson(person);
-    }
-
-    @Override
-    public void deletePerson(Person target) {
-        this.addressBookModelManager.deletePerson(target);
-    }
-
-    @Override
-    public void addPerson(Person person) {
-        this.addressBookModelManager.addPerson(person);
-    }
-
-    @Override
-    public void setPerson(Person target, Person editedPerson) {
-        this.addressBookModelManager.setPerson(target, editedPerson);
-    }
-
-    //=========== Filtered Person List Accessors =============================================================
-
-    @Override
-    public ObservableList<Person> getFilteredPersonList() {
-        return this.addressBookModelManager.getFilteredPersonList();
-    }
-
-    @Override
-    public void updateFilteredPersonList(Predicate<Person> predicate) {
-        this.addressBookModelManager.updateFilteredPersonList(predicate);
     }
 
     //=========== Schedule =================================================================================
@@ -230,7 +181,6 @@ public class ModelManager implements Model {
         // state check
         ModelManager other = (ModelManager) obj;
         return userPrefs.equals(other.userPrefs)
-                && addressBookModelManager.equals(other.addressBookModelManager)
                 && scheduleModelManager.equals(other.scheduleModelManager)
                 && flashcardModelManager.equals(other.flashcardModelManager);
     }

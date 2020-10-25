@@ -5,13 +5,6 @@ package seedu.address.logic.parser;
  */
 public class CliSyntax {
 
-    /* AB3 Prefix definitions */
-    public static final Prefix PREFIX_NAME = new Prefix("n/");
-    public static final Prefix PREFIX_PHONE = new Prefix("p/");
-    public static final Prefix PREFIX_EMAIL = new Prefix("e/");
-    public static final Prefix PREFIX_ADDRESS = new Prefix("a/");
-    public static final Prefix PREFIX_TAG = new Prefix("t/");
-
     /* StudyBananas Schedule Prefix definitions */
     public static final Prefix PREFIX_TITLE = new Prefix("T:");
     public static final Prefix PREFIX_DESCRIPTION = new Prefix("d:");

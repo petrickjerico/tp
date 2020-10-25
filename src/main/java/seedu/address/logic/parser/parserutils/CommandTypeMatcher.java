@@ -2,7 +2,6 @@ package seedu.address.logic.parser.parserutils;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
-import seedu.address.logic.commands.addressbookcommands.HelpCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 public class CommandTypeMatcher {
@@ -33,7 +32,7 @@ public class CommandTypeMatcher {
             return CommandType.ADDRESSBOOK;
         }
 
-        throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+        throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, "TODO: add help message here"));
     }
 
     private String getFirstWord(String userInput) {

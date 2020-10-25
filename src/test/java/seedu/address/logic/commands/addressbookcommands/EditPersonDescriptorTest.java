@@ -12,7 +12,6 @@ import static seedu.address.logic.commands.commandtestutils.AddressCommandTestUt
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.addressbookcommands.EditCommand.EditPersonDescriptor;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 public class EditPersonDescriptorTest {

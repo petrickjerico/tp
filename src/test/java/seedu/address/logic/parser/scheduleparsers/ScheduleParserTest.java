@@ -7,7 +7,6 @@ import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.addressbookcommands.HelpCommand;
 import seedu.address.logic.commands.schedulecommands.ScheduleListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 

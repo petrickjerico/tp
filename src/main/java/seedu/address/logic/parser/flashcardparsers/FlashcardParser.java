@@ -7,7 +7,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.addressbookcommands.HelpCommand;
 import seedu.address.logic.commands.flashcardcommands.AddFlashcardCommand;
 import seedu.address.logic.commands.flashcardcommands.AddFlashcardSetCommand;
 import seedu.address.logic.commands.flashcardcommands.DeleteFlashcardCommand;

@@ -5,7 +5,6 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.parser.addressbookparsers.AddressBookParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.logic.parser.flashcardparsers.FlashcardParser;
 import seedu.address.logic.parser.parserutils.CommandTypeMatcher;
@@ -34,9 +33,6 @@ public class StudyBananasParser {
         final CommandTypeMatcher ctm = new CommandTypeMatcher();
 
         switch (ctm.match(userInput)) {
-        case ADDRESSBOOK:
-            return new AddressBookParser().parse(userInput);
-
         case FLASHCARD:
             return new FlashcardParser().parse(userInput);
 

@@ -14,8 +14,6 @@ import seedu.address.logic.parser.StudyBananasParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.flashcard.FlashcardSet;
-import seedu.address.model.person.Person;
-import seedu.address.model.systemlevelmodel.ReadOnlyAddressBook;
 import seedu.address.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.address.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.address.model.task.Task;
@@ -50,7 +48,6 @@ public class LogicManager implements Logic {
         commandResult = command.execute(model);
 
         try {
-            storage.saveAddressBook(model.getAddressBook());
             storage.saveSchedule(model.getSchedule());
             storage.saveFlashcardBank(model.getFlashcardBank());
             storage.saveQuizRecords(model.getAllQuizRecords());
@@ -59,21 +56,6 @@ public class LogicManager implements Logic {
         }
 
         return commandResult;
-    }
-
-    @Override
-    public ReadOnlyAddressBook getAddressBook() {
-        return model.getAddressBook();
-    }
-
-    @Override
-    public ObservableList<Person> getFilteredPersonList() {
-        return model.getFilteredPersonList();
-    }
-
-    @Override
-    public Path getAddressBookFilePath() {
-        return model.getAddressBookFilePath();
     }
 
     @Override

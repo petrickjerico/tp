@@ -5,14 +5,12 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.logic.commands.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.ui.CommandBox;
-import seedu.studybananas.ui.ResultDisplay;
 import seedu.studybananas.ui.TaskListPanel;
 import seedu.studybananas.ui.UiPart;
 import seedu.studybananas.ui.commons.PositiveResponse;
@@ -28,8 +26,8 @@ public class TaskDetailPanel extends UiPart<Region> {
 
     // Independent Ui parts residing in this Ui container
     private TaskListPanel taskListPanel;
-    private ResultDisplay resultDisplay;
     private ResponsePopUp responsePopUp;
+    private TaskDetailSkin taskDetailCard;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -38,7 +36,7 @@ public class TaskDetailPanel extends UiPart<Region> {
     private StackPane taskListPanelPlaceholder;
 
     @FXML
-    private StackPane resultDisplayPlaceholder;
+    private StackPane taskDetailCardPlaceholder;
 
     /**
      * Constructor for ScheduleUi.
@@ -50,11 +48,9 @@ public class TaskDetailPanel extends UiPart<Region> {
         this.logic = logic;
         this.responsePopUp = responsePopUp;
 
+
         taskListPanel = new TaskListPanel(logic.getFilteredTaskList());
         taskListPanelPlaceholder.getChildren().add(taskListPanel.getRoot());
-
-        resultDisplay = new ResultDisplay();
-        resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
@@ -75,13 +71,11 @@ public class TaskDetailPanel extends UiPart<Region> {
         try {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
-            resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
             responsePopUp.setContent(new PositiveResponse(commandResult.getFeedbackToUser()));
             responsePopUp.open();
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
-            resultDisplay.setFeedbackToUser(e.getMessage());
             responsePopUp.setContent(new WarningResponse(e.getMessage()));
             responsePopUp.open();
             throw e;

@@ -87,11 +87,16 @@ public class TimeScale extends UiPart<Region> {
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setFitToWidth(true);
 
+    }
+
+    /**
+     * Add tasks to time scale.
+     */
+    public void addInitialTasksToTimeScale() {
         //add taskCell
         for (Task task : tasks) {
             addTaskToTimeScale(task);
         }
-
     }
 
     private void addTaskToTimeScale(Task task) {

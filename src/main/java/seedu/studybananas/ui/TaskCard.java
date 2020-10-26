@@ -1,5 +1,7 @@
 package seedu.studybananas.ui;
 
+import static seedu.studybananas.ui.util.ScheduleUiUtil.toAmPmTime;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -36,7 +38,8 @@ public class TaskCard extends UiPart<Region> {
         id.setText(String.valueOf(displayedIndex));
         title.setText(task.getTitle().title);
         description.setText(task.getDescription().map(des-> des.description).orElse(""));
-        time.setText(task.getDateTime().map(time -> time.toString()).orElse(""));
+        time.setText(task.getDateTime().map(time -> time.getUiFormatDate()
+                + toAmPmTime(time.getStandardFormatTime())).orElse(""));
     }
 
     @Override

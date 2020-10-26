@@ -63,7 +63,9 @@ public class UpcomingSchedule extends UiPart<Region> {
         String currentTime = getCurrentTime();
         double marginTop = getMarginFromTime(currentTime);
         currentTimePointer = new CurrentTimePointer(toAmPmTime(currentTime));
+        // The sequence matters, tasks must be on top.
         timeScale.placeCurrentTime(currentTimePointer, marginTop);
+        timeScale.addInitialTasksToTimeScale();
 
         // Open a new thread to handle the position of the currentTimePointer
         Thread timerThread = new Thread(() -> {

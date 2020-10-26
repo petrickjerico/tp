@@ -18,8 +18,11 @@ public class StartCommand extends Command<FlashcardQuizModel> {
     public static final String MESSAGE_QUIZ_IN_PROGRESS = "A quiz is already in progress! "
             + "Key 'refresh' to see current question/answer. \n"
             + "To stop the current quiz, key 'cancel'.";
+
     public static final String MESSAGE_FLASHCARD_SET_NONEXISTENT = "Flashcard set does not exist";
+
     public static final String MESSAGE_FLASHCARD_SET_EMPTY = "Flashcard set is empty";
+
     private final int index;
 
     public StartCommand(int index) {

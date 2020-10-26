@@ -34,7 +34,7 @@ public class FlashcardParser implements Parser<Command> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
 
-        final String commandWord = matcher.group(1);
+        final String commandWord = matcher.group(1).toLowerCase();
 
         final String argument = matcher.group(4);
 

@@ -15,26 +15,28 @@ import seedu.studybananas.model.Model;
 
 public class QuizParser implements Parser<Command> {
 
-    public static final String BLANK_LITERAL_REPLACEMENT = "";
+    public static final String EMPTY_SPACE = "";
     public static final String MESSAGE_PARSING_ERROR =
             "The command for quiz is invalid. Please check the command format and try again.";
 
     @Override
     public Command<? super Model> parse(String userInput) throws ParseException {
-        userInput = userInput.trim();
-        if (userInput.startsWith(StartCommand.COMMAND_WORD)) {
-            userInput = userInput.replace(StartCommand.COMMAND_WORD, BLANK_LITERAL_REPLACEMENT);
-            int index = parseNumber(userInput);
+        String lowerCaseUserInput = userInput.toLowerCase();
+        lowerCaseUserInput = lowerCaseUserInput.trim();
+        if (lowerCaseUserInput.startsWith(StartCommand.COMMAND_WORD)) {
+            lowerCaseUserInput = lowerCaseUserInput.replace(StartCommand.COMMAND_WORD, EMPTY_SPACE);
+            int index = parseNumber(lowerCaseUserInput);
             return new StartCommand(index);
-        } else if (userInput.startsWith(ViewScoreCommand.COMMAND_WORD)) {
-            userInput = userInput.replace(ViewScoreCommand.COMMAND_WORD, BLANK_LITERAL_REPLACEMENT);
-            int index = parseNumber(userInput);
+        } else if (lowerCaseUserInput.startsWith(ViewScoreCommand.COMMAND_WORD)) {
+            lowerCaseUserInput = lowerCaseUserInput.replace(ViewScoreCommand.COMMAND_WORD, EMPTY_SPACE);
+            int index = parseNumber(lowerCaseUserInput);
             return new ViewScoreCommand(index);
-        } else if (userInput.startsWith(AnswerCommand.COMMAND_WORD)) {
-            userInput = userInput.replace(AnswerCommand.COMMAND_WORD, BLANK_LITERAL_REPLACEMENT);
+        } else if (lowerCaseUserInput.startsWith(AnswerCommand.COMMAND_WORD)) {
+            userInput = userInput.substring(AnswerCommand.STARTING_INDEX_OF_ANSWER);
             return new AnswerCommand(userInput);
         }
-        switch (userInput) {
+
+        switch (lowerCaseUserInput) {
         case CancelCommand.COMMAND_WORD:
             return new CancelCommand();
         case FlipCommand.COMMAND_WORD:

@@ -10,6 +10,7 @@ import seedu.studybananas.model.QuizModel;
 public class CancelCommand extends Command<QuizModel> {
 
     public static final String COMMAND_WORD = "cancel";
+
     public static final String MESSAGE_SUCCESS = "Quiz cancelled! "
             + "Don't worry, your cancelled quiz scores are not recorded.";
 

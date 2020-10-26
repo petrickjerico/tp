@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-StudyBananas is a **desktop study companion app that helps students centralize all their study tasks and sets up focused study sessions into one place, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
+StudyBananas is a desktop study companion app that helps students centralize all their study tasks and sets up focused study sessions into one place, optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). Our main target users are secondary and tertiary students who study and use computer frequently. This user guide aims to equip you with all necessary understanding to use StudyBananas effectively.
 
 ## Table of Contents
 - [**Quick start**](#quick-start)
@@ -17,7 +17,7 @@ StudyBananas is a **desktop study companion app that helps students centralize a
   * [List flashcards in a flashcard set: `list fl`](#list-flashcards-in-a-flashcard-set-list-fl)
   * [Delete a flashcard in a flashcard set: `delete fl`](#delete-a-flashcard-in-a-flashcard-set-delete-fl)
   * [Quiz of flashcard set: `quiz flset`](#quiz-of-flashcard-set-quiz-flset)
-  * [View last quiz attempt: `view flset quiz`](#view-last-quiz-attempt-view-flset-quiz)
+  * [View last quiz attempt: `quiz score flset`](#view-last-quiz-attempt-quiz-score-flset)
   * [Add a task: `add task`](#add-a-task)
   * [List tasks: `list task`](#list-tasks)
   * [Delete a task: `delete task`](#delete-a-task)
@@ -66,10 +66,10 @@ StudyBananas is a **desktop study companion app that helps students centralize a
 
 **Notes about the command format:**<br>
 
-* Words wrapped with angled brackets `<>` are the parameters to be supplied by the user.<br>
+* Words wrapped with angled brackets `<>` are the parameters to be supplied by you.<br>
   e.g. in `add flset:<setname>`, `<setname>` is a parameter which can be used as `add flset:Chemistry`.
 
-* Words wrapped with square brackets `[]` are optional parameters to be supplied by the user.<br>
+* Words wrapped with square brackets `[]` are optional parameters to be supplied by you.<br>
   e.g. in `add task T:<title> d:[description] t:[time]`, `[description]` and `[time]` are optional parameters.
 
 * Parameters can be in any order.<br>
@@ -78,7 +78,7 @@ StudyBananas is a **desktop study companion app that helps students centralize a
 </div>
 <p>&nbsp;</p>
 
-### **Viewing help**: `help`
+### **View help**: `help`
 
 Lists all available commands.
 
@@ -168,7 +168,7 @@ Examples:
 <p>&nbsp;</p>
 
 ### **Quiz of flashcard set**: `quiz flset`
-Shows the questions of the specific flashcard set. Depending on the command, it store the answers for reference in the last attempt. 
+Shows the questions of the specific flashcard set. Depending on the command, it stores the answers for reference in the last attempt. 
 Follow-up commands are required to continue with the quiz.
 
 Format: `quiz flset:<setindex>`
@@ -176,12 +176,12 @@ Format: `quiz flset:<setindex>`
 Examples: 
 `quiz flset:2`, `quiz flset:3`
 
-As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for the user to type in the next command, `flip`, `ans:<answer>` or `cancel`.
+As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for you to type in the next command, `flip`, `ans:<answer>` or `cancel`.
 
 <img src="images/question.png" width="200px">
 
 - `flip`: Displays the answer to the flashcard question.
-- `ans:<answer>`: Stores the user's answer. Also, displays the answer to the flashcard question.
+- `ans:<answer>`: Stores your answer. Also, displays the answer to the flashcard question.
 - `cancel`: Stops the quiz 
 
 If the command entered is `flip` or `ans:<answer>`, the correct answer will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`.
@@ -196,7 +196,7 @@ Result when `ans:<answer>` command is entered
 
 Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
 
-- `c`: Indicate that the question on the flashcard is answered correctly.
+- `c`: Indicates that the question on the flashcard is answered correctly.
 - `w`: Indicates that the question is answered wrongly.
 - `cancel`: Stops the quiz
 
@@ -205,7 +205,7 @@ The next question of the next flashcard will be displayed. Steps 1-2 are repeate
 Once the quiz stops, the score will be displayed. This score can be viewed when viewing the last attempt of the flashcard set.
 <p>&nbsp;</p>
 
-At any point should the user enter a command not pertaining to quiz, 
+At any point should you enter a command not pertaining to quiz, 
 they may key in `refresh` to see their current quiz question/answer.
 
 ### **View last quiz attempt**: `quiz score flset`
@@ -232,7 +232,7 @@ Format: `add task: T:<title> d:[description] t:[time]`
 - `<title>` field is compulsory.
 - `<title>` can accept strings that are capitalized or separated with spaces.
 - `[description]` field is optional.
-- `[time]` field is optional if the user wants to set a deadline or time limit for the task.
+- `[time]` field is optional if you want to set a deadline or time limit for the task.
 
 Examples:
 - `add task T: CS2100 d: Pipeline tutorial`
@@ -254,11 +254,13 @@ Examples:
 Deletes the specified task from the study bananas.  
 
 Format: `delete task <index>`  
-
-Examples:
 - Deletes the task at the specified index.
 - The index refers to the index number shown in the displayed task list.
 - The index must be a positive integer 1, 2, 3, …​
+
+Examples:
+- `delete task 2`: Deletes the task at index 2 in the the displayed task list.
+- `delete task 6`: Deletes the task at index 6 in the the displayed task list.
 <p>&nbsp;</p>
 
 ### **Search for a task**: `search task`
@@ -269,20 +271,42 @@ or all of the given keywords (`description` and `dateTime`).
 Format: `search task <keyword>`
 
 Basic Usage: 
-- The search is case-insensitive. e.g. `homework` will match `Homework`.
-- The order of the keywords does not matter. e.g. `CS2103T topics` will match `topics CS2103T`.
+- The search is case-insensitive. e.g. `homework` matches `Homework`.
+- The order of the keywords does not matter. e.g. `CS2103T topics` matches `topics CS2103T`.
 - Start_time, period and name of the tasks are all searched.
-- Partial word would match e.g. `CS2013` matches `CS2103T`.
+- Partial words match e.g. `CS2013` matches `CS2103T`.
 
 Advanced Usage:
-- `or` search: Tasks matching at least one keyword will be returned e.g. `CS2103T`, `CS2101`, `ST2334` will return `CS2103T homework`, `CS2101 homework`, and `ST2334 homework`. 
-- `and` search (search is and search by default): Tasks matching all the keywords will be returned e.g. `CS2103t week 7` will return `CS2103T homework week 7`
+- `or` search: Tasks matching at least one keyword will be returned e.g. `CS2103T`, `CS2101`, `ST2334` returns `CS2103T homework`, `CS2101 homework`, and `ST2334 homework`. 
+- `and` search (search is and search by default): Tasks matching all the keywords will be returned e.g. `CS2103t week 7` returns `CS2103T homework week 7`
 
 Examples: <br />
 `search task CS2103t` <br />
 returns `CS2103T topics quiz week 7` and `CS2103T topics quiz week 8` <br />
 or `search task CS2103t CS2101`  <br />
 returns `CS2103t topics quiz week 7` and `CS2101 OP1`
+<p>&nbsp;</p>
+
+### **Edit a task**: `edit task`
+
+Edits the specified task's details with the input information.  
+
+Format: `edit task <index> T:[title] d:[description] t:[time] dur:[duration]`
+- `<index>` is the compulsory field.
+- `<index>` refers to the index number shown in the displayed task list.
+- You can key in multiple `<index>`, but only the task at the first `index` will be edited.
+- `[title]`, `[description]`, `[time]` and `[duration]` are the new information that you want to update the task at the specified index.
+- `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command.
+- `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format.  
+- You can key in multiple `[title]`, `[description]`, `[time]` and `[duration]`, but only the last information of each field will be updated to the task.  
+
+
+Examples:
+- `edit task 1 T: Internship`: Edits the original title of the task at `index 1` to be `Internship`.
+- `edit task 2 d: Pipleline Tutorial homework dur: 60`: Edits the original description and duration of the task at `index 2` to be `Pipeline Tutorial homework` and `60` respectively.  
+- `edit task 5 6 T: CS2103T d: Post-lecture quiz t: 2020-10-31 13:00 dur: 60`: Edits the original title, description, time and
+ duration of the task at `index 5` to be `CS2103T`, `Post-lecture quiz`, `2020-10-31 13:00` and `60` respectively.  
+- `edit task 2 d: Pipleline Tutorial homework dur: 60 d: Assignment Cache`: Edits the original description and duration of the task at `index 2` to be `Assigment Cache` and `60` respectively.  
 <p>&nbsp;</p>
 
 ### **Saving the data**
@@ -340,7 +364,8 @@ _{explain the feature here}_
 
 | Action              | Format, Examples                                                                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Add task**        | `add task T:titile d:[description] t:[time]` <br> e.g., `add task T:CS2100 d: Pipeline tutorial`, `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
+| **Add task**        | `add task T:<titile> d:[description] t:[time]` <br> e.g., `add task T:CS2100 d: Pipeline tutorial`, `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
 | **List tasks**      | `list task` <br>                                                                                                                           |
 | **Delete task**     | `delete task <index>` <br>  e.g., `delete task 6`                                                                                          |
 | **Search for task** | `search task <keywords>` or `search <keywords>` <br> e.g., `search task CS2103T` or `search CS2103T`                                       |
+| **Edit task**       | `edit task <index> T:[title] d:[description] t:[time] dur:[duration]` <br> e.g., `edit task 2 T: CS2103T`, `edit task 1 d: Debug remaining errors dur: 60` |

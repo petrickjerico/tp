@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.QuizModel;
 import seedu.studybananas.model.flashcard.Question;
@@ -35,7 +36,7 @@ public class WrongCommand extends Command<QuizModel> {
                     + QuizCommand.MESSAGE_AVAIL_ON_QUESTION;
             QuizCommand.updateCommandResult(questionStringToShow);
 
-            return new CommandResult(questionStringToShow);
+            return new QuizCommandResult(questionStringToShow, model.getQuiz());
 
         } catch (NullPointerException | IndexOutOfBoundsException e) {
             QuizCommand.updateCommandResult(null);

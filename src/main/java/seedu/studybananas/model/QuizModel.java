@@ -14,6 +14,8 @@ public interface QuizModel {
 
     void tallyScore(boolean isCorrect);
 
+    Quiz getQuiz();
+
     Question getQuestion();
 
     Answer getAnswer();

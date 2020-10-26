@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.QuizModel;
 import seedu.studybananas.model.flashcard.Answer;
@@ -39,9 +40,10 @@ public class AnswerCommand extends Command<QuizModel> {
         QuizCommand.setStatus(Status.ON_ANSWER);
 
         String answerStringToShow = userAnswerToShow + "\nCorrect answer: " + answer.toString()
+                + QuizCommand.SPECIAL_LITERAL
                 + QuizCommand.MESSAGE_AVAIL_ON_ANSWER;
         QuizCommand.updateCommandResult(answerStringToShow);
 
-        return new CommandResult(answerStringToShow);
+        return new QuizCommandResult(answerStringToShow, model.getQuiz());
     }
 }

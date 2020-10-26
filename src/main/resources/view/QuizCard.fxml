@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="quizCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="105.0" prefWidth="376.0" style="-fx-background-radius: 20 20 0 0;">
+         <content>
+            <Label fx:id="labelQuestion" centerShape="false" prefHeight="105.0" prefWidth="369.0" style="-fx-label-padding: 0 0 0 5; -fx-background-color: #DBA849;" text="\$labelQuestion" textFill="#796b6b" wrapText="true">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </content>
+      </ScrollPane>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #DADD6E;">
+         <content>
+            <Label fx:id="answer" prefHeight="210.0" prefWidth="377.0" style="-fx-label-padding: 0 0 0 5; -fx-background-color: #DADD6E;" text="\$answer" wrapText="true">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+         </content>
+      </ScrollPane>
+      <Label fx:id="instruction" prefHeight="112.0" prefWidth="376.0" style="-fx-background-radius: 0 0 20 20; -fx-label-padding: 0 0 0 5; -fx-background-color: #EFE0C5;" text="\$instruction" wrapText="true">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font>
+      </Label>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</VBox>

@@ -37,6 +37,11 @@ public class QuizModelManager implements QuizModel {
     }
 
     @Override
+    public Quiz getQuiz() {
+        return this.quiz;
+    }
+
+    @Override
     public Answer getAnswer() {
         return this.quiz.getAnswer();
     }

@@ -54,10 +54,12 @@ public class AddFlashcardCommand extends Command<FlashcardModel> {
             FlashcardSet flashcardSet = model.getFlashcardSet(flashcardSetIndex);
 
             if (model.hasFlashcard(flashcardSet, toAdd)) {
+                model.setFlashcardSetToView(flashcardSetIndex);
                 throw new CommandException(MESSAGE_DUPLICATE_FLASHCARD);
             }
 
             model.addFlashcard(flashcardSet, toAdd);
+            model.setFlashcardSetToView(flashcardSetIndex);
             return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);

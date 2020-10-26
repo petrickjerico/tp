@@ -16,4 +16,7 @@ public class Messages {
             "The flashcard set index provided is invalid";
     public static final String MESSAGE_INVALID_FLASHCARD_INDEX =
             "The flashcard index provided is invalid";
+    public static final String MESSAGE_QUIZ_HAS_STARTED = "A quiz is ongoing, "
+            + "no non-quiz commands are allowed.\nKey `refresh' "
+            + "to continue with quiz or 'cancel' to stop quiz.";
 }

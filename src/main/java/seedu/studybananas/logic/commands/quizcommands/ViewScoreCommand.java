@@ -4,11 +4,12 @@ import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
-import seedu.studybananas.model.Model;
+import seedu.studybananas.model.FlashcardQuizModel;
 import seedu.studybananas.model.flashcard.FlashcardSetName;
 
-public class ViewScoreCommand extends Command<Model> {
+public class ViewScoreCommand extends Command<FlashcardQuizModel> {
 
+    public static final String COMMAND_WORD = "quiz score flset:";
     public static final String MESSAGE_UNABLE_TO_VIEW =
             "Unable to view score as quiz is in progress. "
                     + "Cancel or finish the quiz to view recent quiz score.";
@@ -21,7 +22,7 @@ public class ViewScoreCommand extends Command<Model> {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(FlashcardQuizModel model) throws CommandException {
 
         if (model.hasStarted()) {
             throw new CommandException(MESSAGE_UNABLE_TO_VIEW);

@@ -1,5 +1,6 @@
 package seedu.studybananas.logic.parser;
 
+import static seedu.studybananas.commons.core.Messages.MESSAGE_QUIZ_HAS_STARTED;
 import static seedu.studybananas.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import java.util.regex.Pattern;
@@ -29,8 +30,12 @@ public class StudyBananasParser {
      * @return the command based on the user input
      * @throws ParseException if the user input does not conform the expected format
      */
-    public Command<? super Model> parseCommand(String userInput) throws ParseException {
+    public Command<? super Model> parseCommand(String userInput, boolean quizIsOngoing) throws ParseException {
         final CommandTypeMatcher ctm = new CommandTypeMatcher();
+
+        if (quizIsOngoing && !ctm.match(userInput).equals(CommandTypeMatcher.CommandType.QUIZ)) {
+            throw new ParseException(MESSAGE_QUIZ_HAS_STARTED);
+        }
 
         switch (ctm.match(userInput)) {
         case FLASHCARD:

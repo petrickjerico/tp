@@ -44,6 +44,7 @@ public class ScheduleModelManager implements ScheduleModel {
     @Override
     public void deleteTask(Task target) {
         schedule.removeTask(target);
+        updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
     }
 
     @Override

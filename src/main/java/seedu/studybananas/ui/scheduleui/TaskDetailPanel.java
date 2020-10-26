@@ -48,6 +48,8 @@ public class TaskDetailPanel extends UiPart<Region> {
         this.logic = logic;
         this.responsePopUp = responsePopUp;
 
+        TaskDetailSkin taskDetailSkin = new TaskDetailSkin();
+        taskDetailCardPlaceholder.getChildren().add(taskDetailSkin.getRoot());
 
         taskListPanel = new TaskListPanel(logic.getFilteredTaskList());
         taskListPanelPlaceholder.getChildren().add(taskListPanel.getRoot());

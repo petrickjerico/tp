@@ -22,13 +22,13 @@ public abstract class Response extends UiPart<Region> {
     protected void setAnimation() {
         timeline = new Timeline();
 
-        KeyValue transparent  = new KeyValue(this.getRoot().opacityProperty(), 0.0);
-        KeyValue opaque       = new KeyValue(this.getRoot().opacityProperty(), 1.0);
+        KeyValue transparent = new KeyValue(this.getRoot().opacityProperty(), 0.0);
+        KeyValue opaque = new KeyValue(this.getRoot().opacityProperty(), 1.0);
 
-        KeyFrame startFadeIn  = new KeyFrame(Duration.ZERO, transparent);
-        KeyFrame endFadeIn    = new KeyFrame(Duration.millis(1000), opaque);
+        KeyFrame startFadeIn = new KeyFrame(Duration.ZERO, transparent);
+        KeyFrame endFadeIn = new KeyFrame(Duration.millis(1000), opaque);
         KeyFrame startFadeOut = new KeyFrame(Duration.millis(3000), opaque);
-        KeyFrame endFadeOut   = new KeyFrame(Duration.millis(4000), transparent);
+        KeyFrame endFadeOut = new KeyFrame(Duration.millis(4000), transparent);
 
         timeline.getKeyFrames().addAll(startFadeIn, endFadeIn, startFadeOut, endFadeOut);
 

@@ -101,12 +101,12 @@ public class FlashcardQuizModelManager implements FlashcardQuizModel {
     }
 
     @Override
-    public FlashcardSet getFlashcardSetToView() {
+    public ObservableList<Flashcard> getFlashcardSetToView() {
         return flashcardModelManager.getFlashcardSetToView();
     }
 
     @Override
-    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+    public void setFlashcardSetToView(Index flashcardSet) {
         flashcardModelManager.setFlashcardSetToView(flashcardSet);
     }
 

@@ -12,7 +12,7 @@ import seedu.studybananas.ui.util.Observer;
 import seedu.studybananas.ui.util.SingletonUiState;
 import seedu.studybananas.ui.util.UiStateType;
 
-public class SideBarTab extends UiPart<Region> implements Observer {
+public class SideBarTab extends UiPart<Region> implements Observer<UiStateType> {
     private static final String FXML = "SideBarTab.fxml";
     private static final String BUTTON_FOCUSED_BACKGROUND_COLOR = "-fx-background-color: #E2B603";
 

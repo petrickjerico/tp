@@ -189,12 +189,12 @@ public class AddFlashcardSetCommandTest {
         }
 
         @Override
-        public FlashcardSet getFlashcardSetToView() {
+        public ObservableList<Flashcard> getFlashcardSetToView() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+        public void setFlashcardSetToView(Index index) {
             throw new AssertionError("This method should not be called.");
         }
     }

@@ -15,8 +15,11 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import seedu.studybananas.model.task.Task;
 import seedu.studybananas.ui.UiPart;
+import seedu.studybananas.ui.util.Observable;
+import seedu.studybananas.ui.util.Observer;
+import seedu.studybananas.ui.util.SingletonClickedTaskState;
 
-public class TaskCell extends UiPart<Region> {
+public class TaskCell extends UiPart<Region> implements Observer<Task> {
     private static final String FXML = "TaskCell.fxml";
 
     @FXML
@@ -29,6 +32,7 @@ public class TaskCell extends UiPart<Region> {
     private Label title;
 
     private Task taskObj;
+    private SingletonClickedTaskState taskState;
 
     /**
      * Construct a TaskCell from a {@Code task}
@@ -38,6 +42,7 @@ public class TaskCell extends UiPart<Region> {
         requireNonNull(task);
         assert checkTaskValidation(task) : "task must happen today and has duration and a startTime.";
         taskObj = task;
+        taskState = SingletonClickedTaskState.getInstance();
 
         // Set title and startTime
         title.setText(task.getTitle().title);
@@ -47,7 +52,17 @@ public class TaskCell extends UiPart<Region> {
         // Calculate the height of the cell;
         double height = task.getDuration().get().duration * MARGIN_PER_MINUTE;
         this.task.setPrefHeight(height);
+
+        //subscribe to the taskStae
+        taskState.register(this);
+
     }
+
+    @FXML
+    private void handleOnClicked() {
+        taskState.updateState(taskObj);
+    }
+
 
     /**
      * Method used to update the startTime.
@@ -73,10 +88,6 @@ public class TaskCell extends UiPart<Region> {
         this.title.setText(titleStr);
     }
 
-    public void update(Task task) {
-        this.taskObj = task;
-    }
-
     private boolean checkTaskValidation(Task task) {
         return task.getDateTime().isPresent() && task.getDuration().isPresent() && task.happensToday();
     }
@@ -85,6 +96,25 @@ public class TaskCell extends UiPart<Region> {
         LocalDateTime dateTime = task.getDateTime().get().dateTime;
         DateTimeFormatter formmater = DateTimeFormatter.ofPattern("HH:mm");
         return toAmPmTime(formmater.format(dateTime));
+    }
+
+    @Override
+    public void subscribe(Observable news) {
+        news.register(this);
+    }
+
+    @Override
+    public void update(Task task) {
+        // sequence matters, as task can be null!!
+        if (this.taskObj.equals(task)) {
+            this.task.setStyle("-fx-background-color: #00a3cc");
+            this.title.setStyle("-fx-text-fill: white");
+            this.startTime.setStyle("-fx-text-fill: white");
+        } else {
+            this.task.setStyle("-fx-background-color:  rgba(204, 245, 255, 0.5)");
+            this.title.setStyle("-fx-text-fill: #00a3cc");
+            this.startTime.setStyle("-fx-text-fill: #00a3cc");
+        }
     }
 
     @Override

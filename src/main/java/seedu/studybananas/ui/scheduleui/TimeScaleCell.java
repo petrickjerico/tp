@@ -21,7 +21,7 @@ public class TimeScaleCell extends UiPart<Region> {
     }
 
     public void hideTime() {
-        time.setText("");
+        time.setText("  ");
     }
 
     public void recoverTime() {

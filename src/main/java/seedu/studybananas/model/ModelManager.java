@@ -28,7 +28,7 @@ import seedu.studybananas.model.systemlevelmodel.UserPrefs;
 import seedu.studybananas.model.task.Task;
 
 /**
- * Represents the in-memory model of the Study Bananas data.
+ * Represents the in-memory model of the study bananas data.
  */
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
@@ -38,7 +38,7 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given studyBananas and userPrefs.
      */
     public ModelManager(ReadOnlyUserPrefs userPrefs,
                         ReadOnlySchedule schedule, ReadOnlyFlashcardBank flashcardBank,
@@ -303,12 +303,12 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public FlashcardSet getFlashcardSetToView() {
+    public ObservableList<Flashcard> getFlashcardSetToView() {
         return flashcardQuizModelManager.getFlashcardSetToView();
     }
 
     @Override
-    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
-        flashcardQuizModelManager.setFlashcardSetToView(flashcardSet);
+    public void setFlashcardSetToView(Index index) {
+        flashcardQuizModelManager.setFlashcardSetToView(index);
     }
 }

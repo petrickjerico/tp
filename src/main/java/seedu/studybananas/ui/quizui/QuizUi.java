@@ -60,7 +60,10 @@ public class QuizUi extends UiPart<Region> {
     /**
      * Executes the command and returns the result.
      *
+<<<<<<< HEAD
      * @see seedu.studybananas.logic.Logic#execute(String)
+=======
+>>>>>>> 66e4bd491b5a49aa78f96e40af82d4e680017dec
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {

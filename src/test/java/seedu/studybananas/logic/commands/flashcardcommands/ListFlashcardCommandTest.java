@@ -4,14 +4,11 @@ import static seedu.studybananas.logic.commands.commandtestutils.FlashcardBankCo
 import static seedu.studybananas.testutil.TypicalFlashcardSets.getTypicalFlashcardBank;
 import static seedu.studybananas.testutil.TypicalIndexes.INDEX_FIRST;
 
-import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import seedu.studybananas.model.FlashcardModel;
 import seedu.studybananas.model.FlashcardModelManager;
-import seedu.studybananas.model.flashcard.Flashcard;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 
 public class ListFlashcardCommandTest {
@@ -27,11 +24,10 @@ public class ListFlashcardCommandTest {
     @Test
     public void execute_list_showsEverything() {
         FlashcardSet flashcardSet = expectedModel.getFlashcardSet(INDEX_FIRST);
-        List<Flashcard> flashcards = flashcardSet.getFlashcards();
 
         String expectedMessage = String.format(
-                ListFlashcardCommand.MESSAGE_SUCCESS + "\n" + "There are %d flashcards",
-                flashcards.size());
+                ListFlashcardCommand.MESSAGE_SUCCESS + "\n" + "There are %d flashcards in the set %s.",
+                flashcardSet.getSize(), flashcardSet.getName().name);
 
         assertCommandSuccess(new ListFlashcardCommand(INDEX_FIRST), model,
                 expectedMessage, expectedModel);

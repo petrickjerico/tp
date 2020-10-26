@@ -44,6 +44,7 @@ public class ScheduleModelManager implements ScheduleModel {
     @Override
     public void deleteTask(Task target) {
         schedule.removeTask(target);
+        updateTodaysTask(PREDICATE_SHOW_ALL_TASKS);
     }
 
     @Override
@@ -74,6 +75,10 @@ public class ScheduleModelManager implements ScheduleModel {
     public void updateFilteredTaskList(Predicate<Task> predicate) {
         requireNonNull(predicate);
         filteredTasks.setPredicate(predicate);
+        updateTodaysTask(predicate);
+    }
+
+    private void updateTodaysTask(Predicate<Task> predicate) {
         todayTasks.setPredicate(task -> predicate.test(task) && new TaskHappensTodayPredicate().test(task));
     }
 

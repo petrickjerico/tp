@@ -16,13 +16,13 @@ import seedu.studybananas.model.Model;
 public class QuizParser implements Parser<Command> {
 
     public static final String EMPTY_SPACE = "";
-
     public static final String MESSAGE_PARSING_ERROR =
             "The command for quiz is invalid. Please check the command format and try again.";
 
     @Override
     public Command<? super Model> parse(String userInput) throws ParseException {
         String lowerCaseUserInput = userInput.toLowerCase();
+        lowerCaseUserInput = lowerCaseUserInput.trim();
         if (lowerCaseUserInput.startsWith(StartCommand.COMMAND_WORD)) {
             lowerCaseUserInput = lowerCaseUserInput.replace(StartCommand.COMMAND_WORD, EMPTY_SPACE);
             int index = parseNumber(lowerCaseUserInput);
@@ -36,7 +36,7 @@ public class QuizParser implements Parser<Command> {
             return new AnswerCommand(userInput);
         }
 
-        switch (userInput) {
+        switch (lowerCaseUserInput) {
         case CancelCommand.COMMAND_WORD:
             return new CancelCommand();
         case FlipCommand.COMMAND_WORD:

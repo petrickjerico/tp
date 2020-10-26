@@ -4,10 +4,10 @@ import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
-import seedu.studybananas.model.Model;
+import seedu.studybananas.model.FlashcardQuizModel;
 import seedu.studybananas.model.flashcard.FlashcardSetName;
 
-public class ViewScoreCommand extends Command<Model> {
+public class ViewScoreCommand extends Command<FlashcardQuizModel> {
 
     public static final String COMMAND_WORD = "quiz score flset:";
 
@@ -23,7 +23,7 @@ public class ViewScoreCommand extends Command<Model> {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(FlashcardQuizModel model) throws CommandException {
 
         if (model.hasStarted()) {
             throw new CommandException(MESSAGE_UNABLE_TO_VIEW);

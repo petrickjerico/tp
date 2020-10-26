@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import seedu.studybananas.commons.core.GuiSettings;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
+import seedu.studybananas.ui.quizui.QuizUi;
 import seedu.studybananas.ui.sidebar.SideBar;
 import seedu.studybananas.ui.util.Observable;
 import seedu.studybananas.ui.util.Observer;
@@ -30,6 +31,7 @@ public class MainWindow extends UiPart<Stage> implements Observer {
     private SingletonUiState uiState;
     private ScheduleUi scheduleUi;
     private FlashcardUi flashcardUi;
+    private QuizUi quizUi;
 
     @FXML
     private BorderPane mainWindow;
@@ -49,6 +51,7 @@ public class MainWindow extends UiPart<Stage> implements Observer {
         // Init the component.
         scheduleUi = new ScheduleUi(logic);
         flashcardUi = new FlashcardUi(logic);
+        quizUi = new QuizUi(logic);
 
 
         // Configure the UI
@@ -99,6 +102,9 @@ public class MainWindow extends UiPart<Stage> implements Observer {
             break;
         case FLASHCARD:
             mainWindow.setCenter(flashcardUi.getRoot());
+            break;
+        case QUIZ:
+            mainWindow.setCenter(quizUi.getRoot());
             break;
         default:
             throw new IllegalArgumentException();

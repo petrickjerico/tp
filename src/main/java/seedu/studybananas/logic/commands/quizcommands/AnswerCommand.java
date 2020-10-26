@@ -11,9 +11,8 @@ import seedu.studybananas.model.flashcard.Answer;
 public class AnswerCommand extends Command<QuizModel> {
 
     public static final String COMMAND_WORD = "ans:";
-
     public static final int STARTING_INDEX_OF_ANSWER = 4;
-
+  
     public static final Status STATUS = Status.ON_QUESTION;
 
     private final String answer;
@@ -35,11 +34,15 @@ public class AnswerCommand extends Command<QuizModel> {
         }
 
         model.saveAnswer(answer);
+        String userAnswerToShow = "Your answer: " + answer;
         Answer answer = model.getAnswer();
 
         QuizCommand.setStatus(Status.ON_ANSWER);
-        QuizCommand.updateCommandResult(answer.toString());
 
-        return new CommandResult(answer.toString());
+        String answerStringToShow = userAnswerToShow + "\nCorrect answer: " + answer.toString()
+                + QuizCommand.MESSAGE_AVAIL_ON_ANSWER;
+        QuizCommand.updateCommandResult(answerStringToShow);
+
+        return new CommandResult(answerStringToShow);
     }
 }

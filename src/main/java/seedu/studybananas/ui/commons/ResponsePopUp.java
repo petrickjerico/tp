@@ -48,8 +48,9 @@ public class ResponsePopUp {
      * @param response
      */
     public void setContent(Response response) {
-        this.response = response;
+        this.popup.getContent().clear();
         this.popup.getContent().add(response.getRoot());
+        this.response = response;
     }
 
     private void setPosition(Stage stage) {

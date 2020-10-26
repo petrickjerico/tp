@@ -38,6 +38,8 @@ public class ScheduleUiUtil {
             return String.format("%d:%s PM", hour, minute);
         } else if (hour == 12) {
             return String.format("%d:%s PM", hour, minute);
+        } else if (hour == 0){
+            return String.format("%d:%s AM", 12, minute);
         } else {
             return String.format("%d:%s AM", hour, minute);
         }

@@ -8,6 +8,7 @@ import seedu.studybananas.logic.commands.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.studybananas.model.task.Task;
@@ -62,6 +63,12 @@ public interface Logic {
 
     /** Returns the selected flashcards to view */
     FlashcardSet getFlashcardSetToView();
+
+
+    /**
+     * Returns the quiz queried.
+     */
+    Quiz getQuizRecordsToView();
 
 
     /**

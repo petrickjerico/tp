@@ -213,6 +213,16 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public Quiz getQuizRecordsToView() {
+        return flashcardQuizModelManager.getQuizRecordsToView();
+    }
+
+    @Override
+    public void setQuizRecordsToView(FlashcardSetName name) {
+        flashcardQuizModelManager.setQuizRecordsToView(name);
+    }
+
+    @Override
     public ReadOnlyQuizRecords getAllQuizRecords() {
         return flashcardQuizModelManager.getAllQuizRecords();
     }

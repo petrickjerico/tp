@@ -32,6 +32,8 @@ public class ViewScoreCommand extends Command<FlashcardQuizModel> {
         try {
             FlashcardSetName name = model.getFlashcardSet(Index.fromOneBased(index)).getFlashcardSetName();
 
+            model.setQuizRecordsToView(name);
+
             String score = model.getQuizRecords(name);
             QuizCommand.updateCommandResult(score);
 

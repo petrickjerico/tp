@@ -14,6 +14,7 @@ import seedu.studybananas.logic.parser.StudyBananasParser;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.Model;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.studybananas.model.task.Task;
@@ -97,6 +98,11 @@ public class LogicManager implements Logic {
     @Override
     public FlashcardSet getFlashcardSetToView() {
         return model.getFlashcardSetToView();
+    }
+
+    @Override
+    public Quiz getQuizRecordsToView() {
+        return model.getQuizRecordsToView();
     }
 
     @Override

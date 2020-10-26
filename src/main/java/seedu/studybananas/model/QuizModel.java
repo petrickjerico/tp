@@ -24,6 +24,10 @@ public interface QuizModel {
 
     String getQuizRecords(FlashcardSetName name);
 
+    Quiz getQuizRecordsToView();
+
+    void setQuizRecordsToView(FlashcardSetName name);
+
     void deleteQuiz(FlashcardSetName name);
 
     ReadOnlyQuizRecords getAllQuizRecords();

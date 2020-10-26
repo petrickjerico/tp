@@ -10,9 +10,9 @@ import seedu.studybananas.logic.Logic;
 import seedu.studybananas.logic.commands.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
+import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.ui.CommandBox;
 import seedu.studybananas.ui.FlashcardSetListPanel;
-import seedu.studybananas.ui.FlashcardsDisplay;
 import seedu.studybananas.ui.ResultDisplay;
 import seedu.studybananas.ui.UiPart;
 
@@ -24,7 +24,7 @@ public class QuizUi extends UiPart<Region> {
 
     private FlashcardSetListPanel flashcardSetListPanel;
     private ResultDisplay resultDisplay;
-    private FlashcardsDisplay flashcardsDisplay;
+    private Statistics statistics;
 
     @javafx.fxml.FXML
     private StackPane commandBoxPlaceholder;
@@ -36,7 +36,7 @@ public class QuizUi extends UiPart<Region> {
     private StackPane resultDisplayPlaceholder;
 
     @FXML
-    private StackPane flashcardsDisplayPlaceholder;
+    private StackPane statisticsPlaceholder;
 
     /**
      * Constructs a QuizUi object.
@@ -63,13 +63,20 @@ public class QuizUi extends UiPart<Region> {
     /**
      * Executes the command and returns the result.
      *
-     * @see seedu.address.logic.Logic#execute(String)
+     * @see seedu.studybananas.logic.Logic#execute(String)
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+
+            Quiz quiz = logic.getQuizRecordsToView();
+            if (quiz != null) {
+                statistics = new Statistics(quiz);
+                statisticsPlaceholder.getChildren().removeAll(statisticsPlaceholder.getChildren());
+                statisticsPlaceholder.getChildren().add(statistics.getPieChart());
+            }
 
             return commandResult;
         } catch (CommandException | ParseException e) {

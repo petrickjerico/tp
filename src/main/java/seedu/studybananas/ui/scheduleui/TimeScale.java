@@ -171,7 +171,7 @@ public class TimeScale extends UiPart<Region> {
             //hour is one-based, and the timeScaleCell starts from 12AM
             TimeScaleCell overlappedCell = timeScaleCells.get(hour);
             overlappedCell.hideTime();
-        } else if (minute > 15) {
+        } else if (minute > 15 && minute < 45) {
             timeScaleCells.get(hour).recoverTime();
             timeScaleCells.get(hour + 1).recoverTime();
         } else if (minute >= 45) {

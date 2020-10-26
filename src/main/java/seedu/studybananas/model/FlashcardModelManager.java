@@ -76,11 +76,15 @@ public class FlashcardModelManager implements FlashcardModel {
     @Override
     public void addFlashcardSet(FlashcardSet flashcardSet) {
         flashcardBank.addFlashcardSet(flashcardSet);
+        flashcardSetToDisplay.setAll(flashcardSet.getFlashcards());
     }
 
     @Override
     public void deleteFlashcardSet(FlashcardSet target) {
         flashcardBank.removeFlashcardSet(target);
+        if (flashcardSetToDisplay.equals(FXCollections.observableArrayList(target.getFlashcards()))) {
+            flashcardSetToDisplay.clear();
+        }
     }
 
     //=========== Filtered Flashcard Set Accessors =============================================================

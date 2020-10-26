@@ -11,9 +11,11 @@ import seedu.studybananas.logic.commands.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.ui.CommandBox;
-import seedu.studybananas.ui.ResultDisplay;
 import seedu.studybananas.ui.TaskListPanel;
 import seedu.studybananas.ui.UiPart;
+import seedu.studybananas.ui.commons.PositiveResponse;
+import seedu.studybananas.ui.commons.ResponsePopUp;
+import seedu.studybananas.ui.commons.WarningResponse;
 
 public class TaskDetailPanel extends UiPart<Region> {
     private static final String FXML = "TaskDetailPanel.fxml";
@@ -24,7 +26,8 @@ public class TaskDetailPanel extends UiPart<Region> {
 
     // Independent Ui parts residing in this Ui container
     private TaskListPanel taskListPanel;
-    private ResultDisplay resultDisplay;
+    private ResponsePopUp responsePopUp;
+    private TaskDetailSkin taskDetailCard;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -33,22 +36,23 @@ public class TaskDetailPanel extends UiPart<Region> {
     private StackPane taskListPanelPlaceholder;
 
     @FXML
-    private StackPane resultDisplayPlaceholder;
+    private StackPane taskDetailCardPlaceholder;
 
     /**
      * Constructor for ScheduleUi.
      */
-    public TaskDetailPanel(Logic logic) {
+    public TaskDetailPanel(Logic logic, ResponsePopUp responsePopUp) {
         super(FXML);
 
         // Set dependencies
         this.logic = logic;
+        this.responsePopUp = responsePopUp;
+
+        TaskDetailSkin taskDetailSkin = new TaskDetailSkin();
+        taskDetailCardPlaceholder.getChildren().add(taskDetailSkin.getRoot());
 
         taskListPanel = new TaskListPanel(logic.getFilteredTaskList());
         taskListPanelPlaceholder.getChildren().add(taskListPanel.getRoot());
-
-        resultDisplay = new ResultDisplay();
-        resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
@@ -69,13 +73,15 @@ public class TaskDetailPanel extends UiPart<Region> {
         try {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
-            resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
-
+            responsePopUp.setContent(new PositiveResponse(commandResult.getFeedbackToUser()));
+            responsePopUp.open();
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
-            resultDisplay.setFeedbackToUser(e.getMessage());
+            responsePopUp.setContent(new WarningResponse(e.getMessage()));
+            responsePopUp.open();
             throw e;
         }
     }
+
 }

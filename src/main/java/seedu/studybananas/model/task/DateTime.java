@@ -18,6 +18,8 @@ public class DateTime {
     public static final String MESSAGE_CONSTRAINTS =
             "DateTime should be in the yyyy-MM-dd HH:mm format";
     public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm";
+    private static final String UI_FORMAT = "EEEE, MMM dd hh:mm a";
+    private static final String UI_FORMAT_DATE = "EEEE, MMM dd";
 
     public final LocalDateTime dateTime;
 
@@ -80,6 +82,21 @@ public class DateTime {
     @Override
     public int hashCode() {
         return dateTime.hashCode();
+    }
+
+    /**
+     * Provides Ui Format Date.
+     */
+    public String getUiFormatDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(UI_FORMAT_DATE);
+        return formatter.format(this.dateTime);
+    }
+
+    /**
+     * Provides Standard Format Time.
+     */
+    public String getStandardFormatTime() {
+        return toString().split(" ")[1];
     }
 
 }

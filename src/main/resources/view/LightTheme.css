@@ -34,36 +34,51 @@
 }
 
 .table-view {
-    -fx-base: #EFE0C5;
-    -fx-control-inner-background: #EFE0C5;
-    -fx-background-color: #EFE0C5;
-    -fx-table-cell-border-color: transparent;
-    -fx-table-header-border-color: transparent;
-    -fx-padding: 5;
+    -fx-base: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-background-color: tansparent;
+    -fx-border-color: black;
+    -fx-border-radius: 15px;
+}
+
+.table-view .filler {
+    -fx-background-color: transparent;
 }
 
 .table-view .column-header-background {
+    -fx-background-color: black;
+    -fx-background-radius: 15 15 0 0;
+}
+
+.table-view .column-header {
+    -fx-size: 30;
     -fx-background-color: transparent;
 }
 
-.table-view .column-header, .table-view .filler {
-    -fx-size: 35;
-    -fx-border-width: 0 0 1 0;
-    -fx-background-color: transparent;
-    -fx-border-color:
-        transparent
-        transparent
-        derive(-fx-base, 80%)
-        transparent;
-    -fx-border-insets: 0 10 1 0;
+.table-view .placeholder .label {
+    -fx-text-fill: grey;
 }
 
 .table-view .column-header .label {
-    -fx-font-size: 20pt;
-    -fx-font-family: "Segoe UI Light";
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: white;
-    -fx-alignment: center-left;
+    -fx-alignment: center;
     -fx-opacity: 1;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: black;
+}
+
+.table-row-cell:filled {
+    -fx-border-insets: 0 0 1 0;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: grey;
+}
+
+.table-row-cell:empty {
+    -fx-background-color: transparent;
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
@@ -307,12 +322,13 @@
 }
 
 .scroll-bar {
-    -fx-background-color: white;
+    -fx-background-color: transparent;
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: white;
+    -fx-background-color: derive(grey, 50%);
     -fx-background-insets: 3;
+    -fx-background-radius: 10px;
 }
 
 .scroll-bar .increment-button, .scroll-bar .decrement-button {

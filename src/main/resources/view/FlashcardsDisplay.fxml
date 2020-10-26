@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 <VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <TableView fx:id="flashcardsDisplay" style="-fx-background-color: #e6f2ff; -fx-border-color: #555555; -fx-text-fill: #555555" maxWidth="-Infinity"/>
+    <TableView fx:id="flashcardsDisplay"/>
 </VBox>
 
 

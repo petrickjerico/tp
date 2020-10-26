@@ -7,10 +7,10 @@
 <?import javafx.scene.layout.HBox?>
 <VBox maxHeight="-Infinity"
       style="-fx-background-color: white;"
-      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      prefWidth="600.0">
    <VBox style="-fx-background-color: #e6f2ff;
-                  -fx-background-radius: 25;"
-         styleClass="scheduleUiPanel">
+                  -fx-background-radius: 25;">
       <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-without-border" VBox.vgrow="NEVER">
          <padding>
             <Insets bottom="5" left="10" right="10" top="5" />
@@ -24,13 +24,13 @@
       </StackPane>
 
       <HBox minWidth="340" prefWidth="340" styleClass="pane-without-border" HBox.hgrow="ALWAYS">
-         <VBox minWidth="200" prefWidth="200" styleClass="pane-without-border" VBox.vgrow="ALWAYS">
+         <VBox minWidth="200" prefWidth="200" styleClass="pane-without-border" VBox.vgrow="NEVER">
             <padding>
                <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
             <StackPane fx:id="flashcardSetListPanelPlaceholder" VBox.vgrow="ALWAYS" />
          </VBox>
-         <VBox minWidth="340" prefWidth="340" styleClass="pane-without-border" VBox.vgrow="ALWAYS">
+         <VBox minWidth="340" prefWidth="340" styleClass="pane-without-border" VBox.vgrow="NEVER">
             <padding>
                <Insets bottom="10" left="10" right="10" top="10" />
             </padding>

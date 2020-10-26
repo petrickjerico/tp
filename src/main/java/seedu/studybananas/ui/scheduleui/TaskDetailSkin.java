@@ -38,6 +38,9 @@ public class TaskDetailSkin extends UiPart<Region> implements Observer<Task> {
 
         // subscribe to the Task State
         subscribe(taskState);
+
+        // handle wrap text
+        description.setWrapText(true);
     }
 
     public void setTask(Task task) {

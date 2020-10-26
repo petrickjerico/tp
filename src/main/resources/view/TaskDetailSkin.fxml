@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="350.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="title" text="CS2103T">
          <font>
@@ -18,18 +18,27 @@
             <Insets bottom="5.0" />
          </VBox.margin>
       </Label>
-      <Label fx:id="description" text="Add some description for this task by edit command" textFill="#999999">
+      <Label fx:id="description" maxWidth="350" prefWidth="200" text="Add some description for this task by edit command" textFill="#999999">
          <VBox.margin>
-            <Insets bottom="20.0" />
-         </VBox.margin></Label>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Gurmukhi MN" size="15.0" />
+         </font></Label>
       <HBox prefWidth="200.0">
          <children>
-            <Label fx:id="date" text="Monday, Mon 26">
+            <Label fx:id="date" text="Add date by edit command.">
                <HBox.margin>
                   <Insets bottom="5.0" />
-               </HBox.margin></Label>
+               </HBox.margin>
+               <font>
+                  <Font name="Gurmukhi MN" size="15.0" />
+               </font></Label>
             <Region HBox.hgrow="ALWAYS" />
-            <Label fx:id="time" text="5:45 am" />
+            <Label fx:id="time" text="">
+               <font>
+                  <Font name="Gurmukhi MN" size="15.0" />
+               </font></Label>
          </children>
       </HBox>
       <HBox prefWidth="200.0">
@@ -38,9 +47,15 @@
                <HBox.margin>
                   <Insets bottom="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Gurmukhi MN" size="15.0" />
+               </font>
             </Label>
             <Region HBox.hgrow="ALWAYS" />
-            <Label fx:id="duration" text="60 min" />
+            <Label fx:id="duration" text="">
+               <font>
+                  <Font name="Gurmukhi MN" size="15.0" />
+               </font></Label>
          </children>
       </HBox>
       <Line endX="220.0" startX="-100.0" stroke="#999999" />

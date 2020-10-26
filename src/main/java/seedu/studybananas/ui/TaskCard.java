@@ -26,7 +26,11 @@ public class TaskCard extends UiPart<Region> {
     @FXML
     private Label description;
     @FXML
+    private Label date;
+    @FXML
     private Label time;
+    @FXML
+    private Label duration;
 
     /**
      * Creates a {@code TaskCode} with the given {@code Task} and index to display.
@@ -38,8 +42,9 @@ public class TaskCard extends UiPart<Region> {
         id.setText(String.valueOf(displayedIndex));
         title.setText(task.getTitle().title);
         description.setText(task.getDescription().map(des-> des.description).orElse(""));
-        time.setText(task.getDateTime().map(time -> time.getUiFormatDate()
-                + toAmPmTime(time.getStandardFormatTime())).orElse(""));
+        date.setText(task.getDateTime().map(time -> time.getUiFormatDate()). orElse(""));
+        time.setText(task.getDateTime().map(time -> toAmPmTime(time.getStandardFormatTime())).orElse(""));
+
     }
 
     @Override

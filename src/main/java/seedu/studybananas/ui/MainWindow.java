@@ -3,11 +3,13 @@ package seedu.studybananas.ui;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import seedu.studybananas.commons.core.GuiSettings;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
+import seedu.studybananas.ui.commons.ResponsePopUp;
 import seedu.studybananas.ui.quizui.QuizUi;
 import seedu.studybananas.ui.sidebar.SideBar;
 import seedu.studybananas.ui.util.Observable;
@@ -32,6 +34,7 @@ public class MainWindow extends UiPart<Stage> implements Observer {
     private ScheduleUi scheduleUi;
     private FlashcardUi flashcardUi;
     private QuizUi quizUi;
+    private ResponsePopUp responsePopUp;
 
     @FXML
     private BorderPane mainWindow;
@@ -49,10 +52,10 @@ public class MainWindow extends UiPart<Stage> implements Observer {
         this.logic = logic;
 
         // Init the component.
-        scheduleUi = new ScheduleUi(logic);
+        responsePopUp = new ResponsePopUp(primaryStage);
+        scheduleUi = new ScheduleUi(logic, responsePopUp);
         flashcardUi = new FlashcardUi(logic);
         quizUi = new QuizUi(logic);
-
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
@@ -62,6 +65,7 @@ public class MainWindow extends UiPart<Stage> implements Observer {
         subscribe(uiState);
 
     }
+
 
     public Stage getPrimaryStage() {
         return primaryStage;
@@ -120,5 +124,7 @@ public class MainWindow extends UiPart<Stage> implements Observer {
     public void update(UiStateType state) {
         handleStateChange(state);
     }
+
+
 
 }

@@ -12,7 +12,6 @@ public class AnswerCommand extends Command<QuizModel> {
 
     public static final String COMMAND_WORD = "ans:";
     public static final int STARTING_INDEX_OF_ANSWER = 4;
-  
     public static final Status STATUS = Status.ON_QUESTION;
 
     private final String answer;

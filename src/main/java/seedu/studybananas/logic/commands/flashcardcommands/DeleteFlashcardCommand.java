@@ -60,7 +60,6 @@ public class DeleteFlashcardCommand extends Command<FlashcardModel> {
         List<FlashcardSet> lastShownFlashcardSetList = model.getFilteredFlashcardSetList();
 
         if (targetFlashcardSetIndex.getZeroBased() >= lastShownFlashcardSetList.size()) {
-            model.setFlashcardSetToView(targetFlashcardSetIndex);
             throw new CommandException(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);
         }
 

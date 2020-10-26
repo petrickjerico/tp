@@ -28,7 +28,7 @@ import seedu.studybananas.model.systemlevelmodel.UserPrefs;
 import seedu.studybananas.model.task.Task;
 
 /**
- * Represents the in-memory model of the address book data.
+ * Represents the in-memory model of the study bananas data.
  */
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
@@ -38,7 +38,7 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given studyBananas and userPrefs.
      */
     public ModelManager(ReadOnlyUserPrefs userPrefs,
                         ReadOnlySchedule schedule, ReadOnlyFlashcardBank flashcardBank,
@@ -46,7 +46,7 @@ public class ModelManager implements Model {
         super();
         requireAllNonNull(schedule, userPrefs, flashcardBank, quizRecords);
 
-        logger.fine("Initializing with address book: " + " , user prefs "
+        logger.fine("Initializing with user prefs "
                 + userPrefs + " , and schedule: " + schedule);
 
         scheduleModelManager = new ScheduleModelManager(schedule);

@@ -76,13 +76,13 @@ public class TaskDetailPanel extends UiPart<Region> {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
-            responsePopUp.setContent(new PositiveResponse(commandResult.getFeedbackToUser()).getRoot());
+            responsePopUp.setContent(new PositiveResponse(commandResult.getFeedbackToUser()));
             responsePopUp.open();
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
             resultDisplay.setFeedbackToUser(e.getMessage());
-            responsePopUp.setContent(new WarningResponse(e.getMessage()).getRoot());
+            responsePopUp.setContent(new WarningResponse(e.getMessage()));
             responsePopUp.open();
             throw e;
         }

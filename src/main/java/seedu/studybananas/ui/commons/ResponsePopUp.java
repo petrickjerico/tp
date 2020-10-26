@@ -1,7 +1,6 @@
 package seedu.studybananas.ui.commons;
 
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -9,6 +8,7 @@ import javafx.stage.WindowEvent;
 public class ResponsePopUp {
     private final Popup popup;
     private Stage stage;
+    private Response response;
 
     /**
      * Constructor for ResponsePopup window with the stage
@@ -31,7 +31,9 @@ public class ResponsePopUp {
      * Open the response popup.
      */
     public void open() {
+        assert response != null : "should set the content before you open the pop up window.";
         this.popup.show(stage);
+        response.play();
     }
 
     /**
@@ -43,10 +45,11 @@ public class ResponsePopUp {
 
     /**
      * Set the content of the popup window.
-     * @param node
+     * @param response
      */
-    public void setContent(Node node) {
-        this.popup.getContent().add(node);
+    public void setContent(Response response) {
+        this.response = response;
+        this.popup.getContent().add(response.getRoot());
     }
 
     private void setPosition(Stage stage) {

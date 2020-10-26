@@ -2,10 +2,8 @@ package seedu.studybananas.ui.commons;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Region;
-import seedu.studybananas.ui.UiPart;
 
-public class WarningResponse extends UiPart<Region> {
+public class WarningResponse extends Response {
     private static final String FXML = "PositiveResponse.fxml";
 
     @FXML
@@ -18,5 +16,6 @@ public class WarningResponse extends UiPart<Region> {
         super(FXML);
         this.response.setText(response);
     }
+
 }
 

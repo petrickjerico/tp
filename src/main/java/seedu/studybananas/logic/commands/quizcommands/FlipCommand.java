@@ -13,8 +13,6 @@ public class FlipCommand extends Command<QuizModel> {
     public static final String COMMAND_WORD = "flip";
     public static final Status STATUS = Status.ON_QUESTION;
 
-    public static final String COMMAND_WORD = "flip";
-
     @Override
     public CommandResult execute(QuizModel model) throws CommandException {
         requireNonNull(model);

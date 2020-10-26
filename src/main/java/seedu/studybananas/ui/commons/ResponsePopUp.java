@@ -57,8 +57,8 @@ public class ResponsePopUp {
         popup.setOnShown(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent e) {
-                popup.setX(stage.getX() + stage.getWidth()/2 - popup.getWidth()/2);
-                popup.setY(stage.getY() + stage.getHeight() * (0.9) - popup.getHeight()/2);
+                popup.setX(stage.getX() + stage.getWidth() / 2 - popup.getWidth() / 2);
+                popup.setY(stage.getY() + stage.getHeight() * (0.9) - popup.getHeight() / 2);
             }
         });
     }

@@ -6,8 +6,12 @@ import javafx.util.Duration;
 import seedu.studybananas.ui.UiPart;
 
 public abstract class Response extends UiPart<Region> {
-    FadeTransition fadeIn;
+    private FadeTransition fadeIn;
 
+    /**
+     * Constructor for response.
+     * @param fxmlFileName
+     */
     public Response(String fxmlFileName) {
         super(fxmlFileName);
         setAnimation();

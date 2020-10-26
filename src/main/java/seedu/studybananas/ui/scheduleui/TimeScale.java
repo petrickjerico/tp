@@ -31,6 +31,8 @@ public class TimeScale extends UiPart<Region> {
                     for (Task task : c.getRemoved()) {
                         removeTaskFromTimeScale(task);
                     }
+                } else if (c.getAddedSize() == 0) {
+
                 } else {
                     assert false : "should never reach here, this system does not support object editting.";
                 }

@@ -401,6 +401,11 @@
 }
 
 #commandInput {
-      -fx-background-color: #e6f2ff;
-     -fx-width: 0;
+    -fx-background-color: #e6f2ff;
+    -fx-width: 0;
+}
+
+#flashcardsDisplay .background {
+    -fx-background-color: #e6f2ff;
+    -fx-text-fill: black;
 }

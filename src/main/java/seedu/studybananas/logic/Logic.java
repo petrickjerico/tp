@@ -7,6 +7,8 @@ import seedu.studybananas.commons.core.GuiSettings;
 import seedu.studybananas.logic.commands.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
+import seedu.studybananas.model.Model;
+import seedu.studybananas.model.flashcard.Flashcard;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlyFlashcardBank;
@@ -29,7 +31,7 @@ public interface Logic {
     /**
      * Returns the Schedule.
      *
-     * @see seedu.studybananas.model.Model#getSchedule()
+     * @see Model#getSchedule()
      */
     ReadOnlySchedule getSchedule();
 
@@ -49,7 +51,7 @@ public interface Logic {
     /**
      * Returns the Flashcard Bank.
      *
-     * @see seedu.studybananas.model.Model#getSchedule()
+     * @see Model#getFlashcardBank() ()
      */
     ReadOnlyFlashcardBank getFlashcardBank();
 
@@ -62,7 +64,7 @@ public interface Logic {
     Path getFlashcardBankFilePath();
 
     /** Returns the selected flashcards to view */
-    FlashcardSet getFlashcardSetToView();
+    ObservableList<Flashcard> getFlashcardSetToView();
 
 
     /**

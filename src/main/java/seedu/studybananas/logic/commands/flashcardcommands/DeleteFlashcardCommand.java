@@ -66,11 +66,13 @@ public class DeleteFlashcardCommand extends Command<FlashcardModel> {
         FlashcardSet flashcardSet = model.getFlashcardSet(targetFlashcardSetIndex);
 
         if (targetFlashcardIndex.getZeroBased() >= flashcardSet.getSize()) {
+            model.setFlashcardSetToView(targetFlashcardSetIndex);
             throw new CommandException(Messages.MESSAGE_INVALID_FLASHCARD_INDEX);
         }
 
         Flashcard flashcardToDelete = model.getFlashcard(flashcardSet, targetFlashcardIndex);
         model.deleteFlashcard(flashcardSet, targetFlashcardIndex);
+        model.setFlashcardSetToView(targetFlashcardSetIndex);
         return new CommandResult(String.format(MESSAGE_DELETE_FLASHCARD_SUCCESS, flashcardToDelete));
     }
 }

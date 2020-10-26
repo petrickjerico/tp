@@ -82,12 +82,9 @@ public class MainWindow extends UiPart<Stage> implements Observer {
      * Sets the default size based on {@code guiSettings}.
      */
     private void setWindowDefaultSize(GuiSettings guiSettings) {
+        // MainWindow dimensions are FIXED instead
         primaryStage.setHeight(600);
         primaryStage.setWidth(960);
-//        if (guiSettings.getWindowCoordinates() != null) {
-//            primaryStage.setX(guiSettings.getWindowCoordinates().getX());
-//            primaryStage.setY(guiSettings.getWindowCoordinates().getY());
-//        }
     }
 
     void show() {

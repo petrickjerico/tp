@@ -83,4 +83,5 @@ public class TaskDetailPanel extends UiPart<Region> {
             throw e;
         }
     }
+
 }

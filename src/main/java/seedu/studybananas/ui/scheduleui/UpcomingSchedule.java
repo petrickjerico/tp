@@ -1,5 +1,6 @@
 package seedu.studybananas.ui.scheduleui;
 
+import static seedu.studybananas.ui.util.ScheduleUiUtil.CURRENT_TIME_POINTER_PADDING;
 import static seedu.studybananas.ui.util.ScheduleUiUtil.getMarginFromTime;
 import static seedu.studybananas.ui.util.ScheduleUiUtil.toAmPmTime;
 
@@ -61,11 +62,12 @@ public class UpcomingSchedule extends UiPart<Region> {
 
         // Add the currentTimePointer to the TimeScale
         String currentTime = getCurrentTime();
-        double marginTop = getMarginFromTime(currentTime);
+        double marginTop = getMarginFromTime(currentTime) - CURRENT_TIME_POINTER_PADDING;
         currentTimePointer = new CurrentTimePointer(toAmPmTime(currentTime));
         // The sequence matters, tasks must be on top.
         timeScale.placeCurrentTime(currentTimePointer, marginTop);
         timeScale.addInitialTasksToTimeScale();
+        timeScale.handleOverlap(currentTime);
 
         // Open a new thread to handle the position of the currentTimePointer
         Thread timerThread = new Thread(() -> {
@@ -79,7 +81,9 @@ public class UpcomingSchedule extends UiPart<Region> {
                     String newCurrentTime = getCurrentTime();
                     //update the position of the currentTimePointer
                     currentTimePointer.updateTime(toAmPmTime(newCurrentTime));
-                    timeScale.updateCurrentTimePosition(getMarginFromTime(newCurrentTime));
+                    timeScale.updateCurrentTimePosition(getMarginFromTime(newCurrentTime)
+                            - CURRENT_TIME_POINTER_PADDING);
+                    timeScale.handleOverlap(newCurrentTime);
                 });
             }
         });

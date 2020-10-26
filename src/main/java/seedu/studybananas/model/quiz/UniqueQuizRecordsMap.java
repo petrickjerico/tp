@@ -4,9 +4,12 @@ import static java.util.Objects.requireNonNull;
 import static seedu.studybananas.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
+import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.model.flashcard.FlashcardSetName;
 import seedu.studybananas.model.quiz.exceptions.QuizNotFoundException;
 
@@ -15,6 +18,7 @@ public class UniqueQuizRecordsMap {
     private final ObservableMap<FlashcardSetName, Quiz> internalMap = FXCollections.observableHashMap();
     private final ObservableMap<FlashcardSetName, Quiz> internalUnmodifiableMap =
             FXCollections.unmodifiableObservableMap(internalMap);
+    private final Logger logger = LogsCenter.getLogger(UniqueQuizRecordsMap.class);
 
     /**
      * Returns true if the hash map contains an equivalent quiz as the given argument.
@@ -61,9 +65,10 @@ public class UniqueQuizRecordsMap {
     public void remove(FlashcardSetName toRemove) {
         requireNonNull(toRemove);
         if (!internalMap.containsKey(toRemove)) {
-            throw new QuizNotFoundException();
+            logger.log(Level.WARNING, "Quiz not found: ", toRemove);
         }
         internalMap.remove(toRemove);
+
     }
 
     public Quiz getQuiz(FlashcardSetName name) {

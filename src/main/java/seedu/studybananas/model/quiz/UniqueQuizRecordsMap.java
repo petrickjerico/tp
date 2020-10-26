@@ -66,6 +66,7 @@ public class UniqueQuizRecordsMap {
         requireNonNull(toRemove);
         if (!internalMap.containsKey(toRemove)) {
             logger.log(Level.WARNING, "Quiz not found: ", toRemove);
+            return;
         }
         internalMap.remove(toRemove);
 

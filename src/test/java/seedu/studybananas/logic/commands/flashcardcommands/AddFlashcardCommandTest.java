@@ -12,6 +12,7 @@ import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.commons.core.index.Index;
@@ -100,6 +101,7 @@ public class AddFlashcardCommandTest {
      */
     private class ModelStubWithFlashcard extends AddFlashcardCommandTest.FlashcardModelStub {
         private final FlashcardBank flashcardBank = new FlashcardBank();
+        private final ObservableList<Flashcard> flashcardSetToDisplay = FXCollections.observableArrayList();
 
         ModelStubWithFlashcard() {
             FlashcardSet flset = new FlashcardSetBuilder().build();
@@ -124,6 +126,12 @@ public class AddFlashcardCommandTest {
         public FlashcardSet getFlashcardSet(Index index) {
             return flashcardBank.getFlashcardSetList().get(index.getZeroBased());
         }
+
+        @Override
+        public void setFlashcardSetToView(Index index) {
+            requireNonNull(index);
+            flashcardSetToDisplay.setAll(getFlashcardSet(index).getFlashcards());
+        }
     }
 
     /**
@@ -131,6 +139,7 @@ public class AddFlashcardCommandTest {
      */
     private class ModelStubAcceptingFlashcardAdded extends AddFlashcardCommandTest.FlashcardModelStub {
         private final FlashcardBank flashcardBank = new FlashcardBank();
+        private final ObservableList<Flashcard> flashcardSetToDisplay = FXCollections.observableArrayList();
 
         ModelStubAcceptingFlashcardAdded() {
             flashcardBank.addFlashcardSet(new FlashcardSetBuilder().build());
@@ -151,6 +160,12 @@ public class AddFlashcardCommandTest {
         @Override
         public FlashcardSet getFlashcardSet(Index index) {
             return flashcardBank.getFlashcardSetList().get(index.getZeroBased());
+        }
+
+        @Override
+        public void setFlashcardSetToView(Index index) {
+            requireNonNull(index);
+            flashcardSetToDisplay.setAll(getFlashcardSet(index).getFlashcards());
         }
     }
 
@@ -234,7 +249,6 @@ public class AddFlashcardCommandTest {
         @Override
         public void setFlashcardSetToView(Index index) {
             throw new AssertionError("This method should not be called.");
-
         }
     }
 }

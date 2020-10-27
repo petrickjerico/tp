@@ -62,7 +62,7 @@ public class QuizModelManager implements QuizModel {
 
     @Override
     public String getQuizRecords(FlashcardSetName flashcardSetName) {
-        return this.quizRecords.getQuiz(flashcardSetName).toString();
+        return Quiz.END_OF_QUIZ + this.quizRecords.getQuiz(flashcardSetName).toString();
     }
 
     @Override

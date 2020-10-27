@@ -7,7 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.Region;
 
 /**
- * A ui for the status bar that is displayed at the header of the application.
+ * A ui for the result display box that is displayed below the user's command box.
  */
 public class ResultDisplay extends UiPart<Region> {
 
@@ -18,6 +18,10 @@ public class ResultDisplay extends UiPart<Region> {
 
     public ResultDisplay() {
         super(FXML);
+    }
+
+    protected ResultDisplay(String fxml) {
+        super(fxml);
     }
 
     public void setFeedbackToUser(String feedbackToUser) {

@@ -4,9 +4,10 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.QuizModel;
-import seedu.studybananas.model.flashcard.Question;
+import seedu.studybananas.ui.quizui.QuizCard;
 
 public class WrongCommand extends Command<QuizModel> {
 
@@ -27,19 +28,16 @@ public class WrongCommand extends Command<QuizModel> {
 
         try {
             model.tallyScore(false);
-            Question nextQuestion = model.getQuestion();
 
             QuizCommand.setStatus(Status.ON_QUESTION);
-
-            String questionStringToShow = nextQuestion.toString()
-                    + QuizCommand.MESSAGE_AVAIL_ON_QUESTION;
+            String questionStringToShow = QuizCommand.MESSAGE_AVAIL_ON_QUESTION;
             QuizCommand.updateCommandResult(questionStringToShow);
-
-            return new CommandResult(questionStringToShow);
+            QuizCard.setQuestion(model.getQuestion());
+            return new QuizCommandResult(questionStringToShow, model.getQuiz());
 
         } catch (NullPointerException | IndexOutOfBoundsException e) {
             QuizCommand.updateCommandResult(null);
-            return new CommandResult(model.stopQuiz());
+            return new QuizCommandResult(model.stopQuiz());
         }
     }
 }

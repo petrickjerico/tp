@@ -8,12 +8,12 @@ import javafx.scene.layout.StackPane;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.ui.CommandBox;
 import seedu.studybananas.ui.FlashcardSetListPanel;
-import seedu.studybananas.ui.ResultDisplay;
 import seedu.studybananas.ui.UiPart;
 
 public class QuizUi extends UiPart<Region> {
@@ -23,20 +23,20 @@ public class QuizUi extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(getClass());
 
     private FlashcardSetListPanel flashcardSetListPanel;
-    private ResultDisplay resultDisplay;
     private Statistics statistics;
+    private QuizCard resultDisplay;
 
-    @javafx.fxml.FXML
-    private StackPane commandBoxPlaceholder;
-
-    @javafx.fxml.FXML
+    @FXML
     private StackPane flashcardSetListPanelPlaceholder;
 
     @FXML
-    private StackPane resultDisplayPlaceholder;
+    private StackPane commandBoxPlaceholder;
 
     @FXML
     private StackPane statisticsPlaceholder;
+
+    @FXML
+    private StackPane quizCard;
 
     /**
      * Constructs a QuizUi object.
@@ -49,8 +49,8 @@ public class QuizUi extends UiPart<Region> {
         flashcardSetListPanel = new FlashcardSetListPanel(logic.getFilteredFlashcardSetList());
         flashcardSetListPanelPlaceholder.getChildren().add(flashcardSetListPanel.getRoot());
 
-        resultDisplay = new ResultDisplay();
-        resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
+        resultDisplay = new QuizCard();
+        quizCard.getChildren().add(resultDisplay.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
@@ -67,8 +67,9 @@ public class QuizUi extends UiPart<Region> {
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
-            CommandResult commandResult = logic.execute(commandText);
+            QuizCommandResult commandResult = (QuizCommandResult) logic.execute(commandText); //include check instanceof
             logger.info("Result: " + commandResult.getFeedbackToUser());
+            resultDisplay.setQuiz(commandResult.getQuiz());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
 
             Quiz quiz = logic.getQuizRecordsToView();

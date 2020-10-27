@@ -75,7 +75,7 @@ public class QuizUi extends UiPart<Region> {
             if (quiz != null) {
                 statistics = new Statistics(quiz);
                 statisticsPlaceholder.getChildren().removeAll(statisticsPlaceholder.getChildren());
-                statisticsPlaceholder.getChildren().add(statistics.getPieChart());
+                statisticsPlaceholder.getChildren().add(statistics.getStackedBarChart());
             }
 
             return commandResult;

@@ -6,7 +6,7 @@ import seedu.studybananas.model.flashcard.FlashcardSetName;
 import seedu.studybananas.model.flashcard.Question;
 
 public class Quiz {
-
+    public static final String END_OF_QUIZ = "STUDYBANANAS QUIZ FINISH";
     private final FlashcardSet flashcardSet;
     private final int flashcardSetIndex;
     private final int totalScore;
@@ -50,6 +50,10 @@ public class Quiz {
             return null;
         }
         return flashcardSet.getFlashcards().get(currentIndex).getQuestion();
+    }
+
+    public void nextQuestion() {
+        currentIndex++;
     }
 
     public Answer getAnswer() {
@@ -98,7 +102,6 @@ public class Quiz {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Total score = ").append(pointsScored).append("/").append(totalScore).append("\n");
-        builder.append("Percentage scored = ").append(getPercentageScore()).append("\n");
         for (int i = 0; i < totalScore; i++) {
             String isCorrect = scoreboard[i] ? "\u2713" : "\u2718";
             builder.append(i + 1).append(". Question: ")

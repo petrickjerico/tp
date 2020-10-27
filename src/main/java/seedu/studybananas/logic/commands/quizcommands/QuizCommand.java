@@ -1,16 +1,16 @@
 package seedu.studybananas.logic.commands.quizcommands;
 
 public abstract class QuizCommand {
-
+    public static final String SPECIAL_LITERAL = "STUDYBANANAS";
     public static final String MESSAGE_QUIZ_NEVER_STARTED = "There are currently no ongoing quizzes";
     public static final String MESSAGE_UNAVAIL_ON_ANSWER =
             "This command is not available now. Type 'c', 'w', 'refresh' or 'cancel' to continue";
     public static final String MESSAGE_UNAVAIL_ON_QUESTION =
             "This command is not available now. Type 'flip', 'ans:<answer>', 'refresh' or 'cancel' to continue";
     public static final String MESSAGE_AVAIL_ON_ANSWER =
-            "\n\nThe available next commands are 'c', 'w', 'refresh' or `cancel`";
+            "The available next commands are 'c', 'w', 'refresh' or `cancel`";
     public static final String MESSAGE_AVAIL_ON_QUESTION =
-            "\n\nThe available next commands are 'flip', 'ans:<answer>', 'refresh' or 'cancel'";
+            "The available next commands are 'flip', 'ans:<answer>', 'refresh' or 'cancel'";
     private static Status status;
     private static String currentCommandResult;
 

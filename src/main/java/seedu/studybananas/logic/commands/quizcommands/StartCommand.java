@@ -5,11 +5,13 @@ import static java.util.Objects.requireNonNull;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardQuizModel;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.model.flashcard.Question;
 import seedu.studybananas.model.quiz.Quiz;
+import seedu.studybananas.ui.quizui.QuizCard;
 
 //The abstraction has to be clarified.
 public class StartCommand extends Command<FlashcardQuizModel> {
@@ -47,14 +49,13 @@ public class StartCommand extends Command<FlashcardQuizModel> {
 
             Quiz quiz = new Quiz(this.index, flashcardSet);
             Question firstQuestion = model.start(quiz);
-
+            QuizCard.setQuestion(firstQuestion);
             QuizCommand.setStatus(Status.ON_QUESTION);
 
-            String questionStringToShow = firstQuestion.toString()
-                    + QuizCommand.MESSAGE_AVAIL_ON_QUESTION;
-            QuizCommand.updateCommandResult(questionStringToShow);
+            String feedback = QuizCommand.MESSAGE_AVAIL_ON_QUESTION;
+            QuizCommand.updateCommandResult(feedback);
 
-            return new CommandResult(questionStringToShow);
+            return new QuizCommandResult(feedback, quiz);
 
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException(MESSAGE_FLASHCARD_SET_NONEXISTENT);

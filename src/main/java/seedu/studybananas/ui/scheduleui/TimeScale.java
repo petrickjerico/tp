@@ -162,7 +162,7 @@ public class TimeScale extends UiPart<Region> {
      * @param time time has to be in the format of HH:mm.
      */
     public void handleOverlap(String time) {
-        assert time.matches("^([0-12]|2[0-3]):[0-5][0-9]$");
+        assert time.matches("^(([0-1][0-9])|2[0-3]):[0-5][0-9]$");
         String[] splitTime = time.split(":");
         int hour = Integer.valueOf(splitTime[0]);
         int minute = Integer.valueOf(splitTime[1]);

@@ -4,9 +4,11 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.QuizModel;
 import seedu.studybananas.model.flashcard.Answer;
+import seedu.studybananas.ui.quizui.QuizCard;
 
 public class AnswerCommand extends Command<QuizModel> {
 
@@ -33,15 +35,17 @@ public class AnswerCommand extends Command<QuizModel> {
         }
 
         model.saveAnswer(answer);
+        QuizCard.setQuestion(model.getQuestion());
         String userAnswerToShow = "Your answer: " + answer;
         Answer answer = model.getAnswer();
 
         QuizCommand.setStatus(Status.ON_ANSWER);
 
         String answerStringToShow = userAnswerToShow + "\nCorrect answer: " + answer.toString()
+                + QuizCommand.SPECIAL_LITERAL
                 + QuizCommand.MESSAGE_AVAIL_ON_ANSWER;
         QuizCommand.updateCommandResult(answerStringToShow);
 
-        return new CommandResult(answerStringToShow);
+        return new QuizCommandResult(answerStringToShow, model.getQuiz());
     }
 }

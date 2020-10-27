@@ -193,6 +193,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public Quiz getQuiz() {
+        return flashcardQuizModelManager.getQuiz();
+    }
+
+    @Override
     public Answer getAnswer() {
         return flashcardQuizModelManager.getAnswer();
     }
@@ -210,6 +215,16 @@ public class ModelManager implements Model {
     @Override
     public String getQuizRecords(FlashcardSetName name) {
         return flashcardQuizModelManager.getQuizRecords(name);
+    }
+
+    @Override
+    public Quiz getQuizRecordsToView() {
+        return flashcardQuizModelManager.getQuizRecordsToView();
+    }
+
+    @Override
+    public void setQuizRecordsToView(FlashcardSetName name) {
+        flashcardQuizModelManager.setQuizRecordsToView(name);
     }
 
     @Override

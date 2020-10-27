@@ -14,7 +14,11 @@ public interface QuizModel {
 
     void tallyScore(boolean isCorrect);
 
+    Quiz getQuiz();
+
     Question getQuestion();
+
+    //void nextQuestion();
 
     Answer getAnswer();
 
@@ -23,6 +27,10 @@ public interface QuizModel {
     void cancelQuiz();
 
     String getQuizRecords(FlashcardSetName name);
+
+    Quiz getQuizRecordsToView();
+
+    void setQuizRecordsToView(FlashcardSetName name);
 
     void deleteQuiz(FlashcardSetName name);
 

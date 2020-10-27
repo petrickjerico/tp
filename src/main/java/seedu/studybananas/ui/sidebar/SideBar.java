@@ -17,7 +17,7 @@ import seedu.studybananas.ui.util.Observer;
 import seedu.studybananas.ui.util.SingletonUiState;
 import seedu.studybananas.ui.util.UiStateType;
 
-public class SideBar extends UiPart<Region> implements Observer {
+public class SideBar extends UiPart<Region> implements Observer<UiStateType> {
     private static final String FXML = "SideBar.fxml";
 
     private final Image scheduleImage = new Image(this.getClass()

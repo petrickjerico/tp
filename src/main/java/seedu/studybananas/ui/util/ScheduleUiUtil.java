@@ -8,6 +8,7 @@ public class ScheduleUiUtil {
     public static final double INITIAL_PADDING = 9.0; //The paddingTop is set to 10, but 9 is more accurate.
     public static final double MARGIN_PER_HOUR = 40.0;
     public static final double MARGIN_PER_MINUTE = MARGIN_PER_HOUR / 60.0;
+    public static final double CURRENT_TIME_POINTER_PADDING = 5.0;
 
 
     /**
@@ -37,6 +38,8 @@ public class ScheduleUiUtil {
             return String.format("%d:%s PM", hour, minute);
         } else if (hour == 12) {
             return String.format("%d:%s PM", hour, minute);
+        } else if (hour == 0) {
+            return String.format("%d:%s AM", 12, minute);
         } else {
             return String.format("%d:%s AM", hour, minute);
         }

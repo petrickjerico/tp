@@ -4,9 +4,10 @@ title: User Guide
 ---
 
 Are you a student of secondary to tertiary education level,
-who is a fan of using flashcards to understand concepts, 
+who is a fan of **using flashcards to understand concepts**, 
 use your laptop often,
-and would like to schedule your study sessions efficiently?
+and would like to **schedule your study sessions efficiently**?
+If so, we have the product just for you!
  
 **StudyBananas** is a desktop study companion app that **helps you centralize your study tasks, 
 and caters to your recap needs through flashcard-quizzes**.
@@ -40,6 +41,8 @@ This user guide aims to equip you with all necessary understanding to use StudyB
   * [Flashcard commands](#flashcard-commands)
   * [Quiz commands](#quiz-commands)
   * [Task list commands](#task-list-commands)
+  
+  
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start

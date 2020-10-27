@@ -8,9 +8,9 @@
 
 <VBox fx:id="quizCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-radius: 20 20 20 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane hbarPolicy="NEVER" minHeight="-Infinity" prefHeight="105.0" prefWidth="375.0" style="-fx-background-radius: 20 20 0 0;">
+      <ScrollPane hbarPolicy="NEVER" minHeight="-Infinity" prefHeight="105.0" prefWidth="375.0" style="-fx-background-radius: 20 20 0 0;" vmax="0.0">
          <content>
-            <Label fx:id="labelQuestion" centerShape="false" prefHeight="105.0" prefWidth="376.0" style="-fx-label-padding: 0 0 0 5; -fx-background-radius: 20 20 0 0; -fx-background-color: #DBA849;" text="Question" wrapText="true">
+            <Label fx:id="labelQuestion" centerShape="false" prefHeight="103.0" prefWidth="376.0" style="-fx-label-padding: 0 0 0 5; -fx-background-radius: 20 20 0 0; -fx-background-color: #DBA849;" text="Question" wrapText="true">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
@@ -22,7 +22,7 @@
       </ScrollPane>
       <ScrollPane hbarPolicy="NEVER" minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #DADD6E;">
          <content>
-            <Label fx:id="answer" prefHeight="210.0" prefWidth="377.0" style="-fx-label-padding: 0 0 0 5; -fx-background-color: #DADD6E;" text="Answer" wrapText="true">
+            <Label fx:id="answer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="198.0" prefWidth="377.0" style="-fx-label-padding: 0 0 0 5; -fx-background-color: #DADD6E;" text="Answer" wrapText="true">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>

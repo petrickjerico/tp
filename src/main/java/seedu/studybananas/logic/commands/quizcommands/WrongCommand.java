@@ -37,6 +37,7 @@ public class WrongCommand extends Command<QuizModel> {
 
         } catch (NullPointerException | IndexOutOfBoundsException e) {
             QuizCommand.updateCommandResult(null);
+            model.setQuizRecordsToView(model.getQuiz().getFlsetName());
             return new QuizCommandResult(model.stopQuiz());
         }
     }

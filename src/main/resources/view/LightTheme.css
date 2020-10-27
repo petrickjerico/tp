@@ -414,3 +414,10 @@
      -fx-width: 0;
 }
 
+.default-color0.chart-bar {
+    -fx-bar-fill: #32CD32;
+}
+.default-color1.chart-bar {
+    -fx-bar-fill: #F08080;
+}
+

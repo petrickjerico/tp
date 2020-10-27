@@ -102,7 +102,6 @@ public class Quiz {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Total score = ").append(pointsScored).append("/").append(totalScore).append("\n");
-        builder.append("Percentage scored = ").append(getPercentageScore()).append("\n");
         for (int i = 0; i < totalScore; i++) {
             String isCorrect = scoreboard[i] ? "\u2713" : "\u2718";
             builder.append(i + 1).append(". Question: ")

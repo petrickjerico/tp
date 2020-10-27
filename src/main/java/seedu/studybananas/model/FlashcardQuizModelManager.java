@@ -156,6 +156,16 @@ public class FlashcardQuizModelManager implements FlashcardQuizModel {
     }
 
     @Override
+    public Quiz getQuizRecordsToView() {
+        return quizModelManager.getQuizRecordsToView();
+    }
+
+    @Override
+    public void setQuizRecordsToView(FlashcardSetName name) {
+        quizModelManager.setQuizRecordsToView(name);
+    }
+
+    @Override
     public void deleteQuiz(FlashcardSetName name) {
         quizModelManager.deleteQuiz(name);
     }

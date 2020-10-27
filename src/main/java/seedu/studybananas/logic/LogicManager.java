@@ -15,6 +15,7 @@ import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.Model;
 import seedu.studybananas.model.flashcard.Flashcard;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.studybananas.model.task.Task;
@@ -45,7 +46,7 @@ public class LogicManager implements Logic {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
         CommandResult commandResult;
-        Command<? super Model> command = studyBananasParser.parseCommand(commandText, false);
+        Command<? super Model> command = studyBananasParser.parseCommand(commandText, model.hasStarted());
         commandResult = command.execute(model);
 
         try {
@@ -97,6 +98,11 @@ public class LogicManager implements Logic {
     @Override
     public ObservableList<Flashcard> getFlashcardSetToView() {
         return model.getFlashcardSetToView();
+    }
+
+    @Override
+    public Quiz getQuizRecordsToView() {
+        return model.getQuizRecordsToView();
     }
 
     @Override

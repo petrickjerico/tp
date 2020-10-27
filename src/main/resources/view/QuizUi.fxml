@@ -15,10 +15,14 @@
             <Insets bottom="30.0" />
          </VBox.margin>
         </StackPane>
+
       <HBox prefWidth="200.0">
          <children>
                 <StackPane fx:id="flashcardSetListPanelPlaceholder" style="-fx-padding: 0 30 0 0;" />
                 <StackPane fx:id="quizCard" />
+             <VBox prefWidth="5.0">
+                 <StackPane fx:id="statisticsPlaceholder" VBox.vgrow="NEVER" />
+             </VBox>
          </children>
       </HBox>
 

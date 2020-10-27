@@ -3,7 +3,17 @@ layout: page
 title: User Guide
 ---
 
-StudyBananas is a desktop study companion app that helps students centralize all their study tasks and sets up focused study sessions into one place, optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). Our main target users are secondary and tertiary students who study and use computer frequently. This user guide aims to equip you with all necessary understanding to use StudyBananas effectively.
+Are you a student of secondary to tertiary education level,
+who is a fan of using flashcards to understand concepts, 
+use your laptop often,
+and would like to schedule your study sessions efficiently?
+ 
+**StudyBananas** is a desktop study companion app that **helps you centralize your study tasks, 
+and caters to your recap needs through flashcard-quizzes**.
+It is optimized for use via a Command Line Interface (CLI) while still 
+having the benefits of a Graphical User Interface (GUI).
+ 
+This user guide aims to equip you with all necessary understanding to use StudyBananas effectively.
 
 ## Table of Contents
 - [**Quick start**](#quick-start)
@@ -76,18 +86,6 @@ StudyBananas is a desktop study companion app that helps students centralize all
   e.g. if the command specifies `flset:<setindex> q:<question> a:<answer>`, `a:<answer> q:<question> flset:<setindex>` is also acceptable.
 
 </div>
-<p>&nbsp;</p>
-
-### **View help**: `help`
-
-Lists all available commands.
-
-Format: `help`
-<p>&nbsp;</p>
-
-### **Exit program**: `exit`
-
-Exits the program
 <p>&nbsp;</p>
 
 ### **Add a flashcard set**: `add flset`
@@ -168,45 +166,61 @@ Examples:
 <p>&nbsp;</p>
 
 ### **Quiz of flashcard set**: `quiz flset`
-Shows the questions of the specific flashcard set. Depending on the command, it stores the answers for reference in the last attempt. 
-Follow-up commands are required to continue with the quiz.
+Shows the questions of the specific flashcard set. 
+Depending on the command you enter, it stores the answers 
+and whether they are correct for your reference. 
+
+It is required for you to enter follow-up commands 
+to continue with the quiz.
 
 Format: `quiz flset:<setindex>`
 
 Examples: 
 `quiz flset:2`, `quiz flset:3`
 
-As seen below, the first question of the first flashcard within the flashcard set appears, as well as a prompt for you to type in the next command, `flip`, `ans:<answer>` or `cancel`.
+#### Step 1
+After entering the command, as seen below, the question 
+of the first flashcard within the selected flashcard set appears, 
+as well as a prompt to type in the next command, `flip`, `ans:<answer>`, `refresh` or `cancel`.
 
 <img src="images/question.png" width="200px">
 
-- `flip`: Displays the answer to the flashcard question.
+- `flip`: Does not store your answer. Displays the answer to the flashcard question.
+(You may opt to remember your answer for evaluation against the correct answer later)
 - `ans:<answer>`: Stores your answer. Also, displays the answer to the flashcard question.
+- `refresh`: Shows the current state of the quiz 
+(the question, current answer if applicable and prompt instruction)
 - `cancel`: Stops the quiz 
 
-If the command entered is `flip` or `ans:<answer>`, the correct answer will be displayed, and there will be a prompt to enter the next command, `c`, `w` or `cancel`.
-
-<img src="images/answer.png" width="200px">
-
-Result when `flip` command is entered
+#### Step 2
+If the command entered is `flip` or `ans:<answer>`, 
+the correct answer will be displayed, 
+and there will be a prompt to enter the next command, `c`, `w`, `refresh` or `cancel`.
 
 <img src="images/saved answer.png" width="200px">
 
-Result when `ans:<answer>` command is entered
-
-Based on the correct answer displayed, evaluate the answer provided. If the question is answered correctly, type `c`. Else, type `w`. This will be taken into account when tabulating the quiz score.
+Based on the correct answer displayed, you may evaluate the answer provided. 
+If you think the question is answered correctly, type `c`. 
+Else, type `w`. Your response will be taken into account when tabulating the quiz score.
 
 - `c`: Indicates that the question on the flashcard is answered correctly.
 - `w`: Indicates that the question is answered wrongly.
+- `refresh`: Shows the current state of the quiz.
+(the question, current answer if applicable and prompt instruction)
 - `cancel`: Stops the quiz
 
-The next question of the next flashcard will be displayed. Steps 1-2 are repeated until all flashcards in the set are displayed and answered.
+#### Step 3
+The next question of the next flashcard will be displayed. 
+Steps 1-2 are repeated until all flashcards in the set are displayed and answered.
 
-Once the quiz stops, the score will be displayed. This score can be viewed when viewing the last attempt of the flashcard set.
-<p>&nbsp;</p>
+Once the quiz stops, the score statistics will be displayed. 
+This score can also be viewed when viewing the last attempt of the flashcard set.
 
 At any point should you enter a command not pertaining to quiz, 
-they may key in `refresh` to see their current quiz question/answer.
+you may key in `refresh` to see your current quiz state.
+<p>&nbsp;</p>
+
+
 
 ### **View last quiz attempt**: `quiz score flset`
 Shows the last attempt of a specific flashcard set.
@@ -314,9 +328,18 @@ Examples:
 StudyBananas data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 <p>&nbsp;</p>
 
-### Archiving data files `[coming in v2.0]`
 
-_{explain the feature here}_
+### **View help**: `help`
+
+Lists all available commands.
+
+Format: `help`
+<p>&nbsp;</p>
+
+### **Exit program**: `exit`
+
+Exits the program
+<p>&nbsp;</p>
 
 --------------------------------------------------------------------------------------------------------------------
 

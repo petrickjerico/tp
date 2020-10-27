@@ -77,8 +77,10 @@ public class QuizUi extends UiPart<Region> {
                 statistics = new Statistics(quiz);
                 statisticsPlaceholder.getChildren().removeAll(statisticsPlaceholder.getChildren());
                 statisticsPlaceholder.getChildren().add(statistics.getStackedBarChart());
+                return commandResult;
             }
 
+            statisticsPlaceholder.getChildren().removeAll(statisticsPlaceholder.getChildren());
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);

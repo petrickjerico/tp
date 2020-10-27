@@ -67,6 +67,9 @@ public class QuizModelManager implements QuizModel {
 
     @Override
     public Quiz getQuizRecordsToView() {
+        if (toViewFlsetName == null) {
+            return null;
+        }
         FlashcardSetName toViewFlsetName = this.toViewFlsetName;
         this.toViewFlsetName = null;
         return this.quizRecords.getQuiz(toViewFlsetName);

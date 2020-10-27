@@ -25,6 +25,7 @@ public class QuizUi extends UiPart<Region> {
     private FlashcardSetListPanel flashcardSetListPanel;
     private Statistics statistics;
     private QuizCard resultDisplay;
+    private QuizScoreCard quizScoreDisplay;
 
     @FXML
     private StackPane flashcardSetListPanelPlaceholder;
@@ -69,19 +70,38 @@ public class QuizUi extends UiPart<Region> {
         try {
             QuizCommandResult commandResult = (QuizCommandResult) logic.execute(commandText); //include check instanceof
             logger.info("Result: " + commandResult.getFeedbackToUser());
-            resultDisplay.setQuiz(commandResult.getQuiz());
-            resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
 
+            // special case for view quiz score
             Quiz quiz = logic.getQuizRecordsToView();
             if (quiz != null) {
+
+                // replace quiz card with quiz score card
+                quizScoreDisplay = new QuizScoreCard();
+                quizCard.getChildren().removeAll(quizCard.getChildren());
+                quizCard.getChildren().add(quizScoreDisplay.getRoot());
+
+                // show score
+                quizScoreDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+
+                // show stacked bar chart
                 statistics = new Statistics(quiz);
                 statisticsPlaceholder.getChildren().removeAll(statisticsPlaceholder.getChildren());
                 statisticsPlaceholder.getChildren().add(statistics.getStackedBarChart());
                 return commandResult;
             }
 
+            // re-initialise the quiz card
+            quizCard.getChildren().removeAll(quizCard.getChildren());
+            quizCard.getChildren().add(resultDisplay.getRoot());
+
+            // show quiz
+            resultDisplay.setQuiz(commandResult.getQuiz());
+            resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+
+            // remove statistics
             statisticsPlaceholder.getChildren().removeAll(statisticsPlaceholder.getChildren());
             return commandResult;
+
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
             resultDisplay.setFeedbackToUser(e.getMessage());

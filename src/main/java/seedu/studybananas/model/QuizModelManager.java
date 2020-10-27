@@ -52,7 +52,7 @@ public class QuizModelManager implements QuizModel {
         String score = this.quiz.toString();
         quizRecords.addQuiz(quiz);
         this.quiz = null;
-        return Quiz.END_OF_QUIZ + score;
+        return score;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class QuizModelManager implements QuizModel {
 
     @Override
     public String getQuizRecords(FlashcardSetName flashcardSetName) {
-        return Quiz.END_OF_QUIZ + this.quizRecords.getQuiz(flashcardSetName).toString();
+        return this.quizRecords.getQuiz(flashcardSetName).toString();
     }
 
     @Override

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="quizCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-radius: 20 20 20 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <ScrollPane hbarPolicy="NEVER" minHeight="-Infinity" prefHeight="400" prefWidth="375.0" style="-fx-background-radius: 20 20 0 0;">
+        <content>
+            <Label fx:id="score" centerShape="false" prefHeight="400" prefWidth="376.0" style="-fx-label-padding: 0 0 0 5; -fx-background-radius: 20 20 0 0; -fx-background-color: #DBA849;" text="Score" wrapText="true">
+                <font>
+                    <Font name="Comic Sans MS" size="14.0" />
+                </font>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </Label>
+        </content>
+    </ScrollPane>
+</VBox>

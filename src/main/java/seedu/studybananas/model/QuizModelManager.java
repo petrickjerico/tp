@@ -37,6 +37,11 @@ public class QuizModelManager implements QuizModel {
     }
 
     @Override
+    public Quiz getQuiz() {
+        return this.quiz;
+    }
+
+    @Override
     public Answer getAnswer() {
         return this.quiz.getAnswer();
     }
@@ -46,7 +51,7 @@ public class QuizModelManager implements QuizModel {
         String score = this.quiz.toString();
         quizRecords.addQuiz(quiz);
         this.quiz = null;
-        return score;
+        return Quiz.END_OF_QUIZ + score;
     }
 
     @Override

@@ -14,7 +14,11 @@ public interface QuizModel {
 
     void tallyScore(boolean isCorrect);
 
+    Quiz getQuiz();
+
     Question getQuestion();
+
+    //void nextQuestion();
 
     Answer getAnswer();
 

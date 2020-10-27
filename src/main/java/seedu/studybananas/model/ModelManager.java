@@ -193,6 +193,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public Quiz getQuiz() {
+        return flashcardQuizModelManager.getQuiz();
+    }
+
+    @Override
     public Answer getAnswer() {
         return flashcardQuizModelManager.getAnswer();
     }

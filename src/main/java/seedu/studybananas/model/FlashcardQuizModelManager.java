@@ -141,6 +141,11 @@ public class FlashcardQuizModelManager implements FlashcardQuizModel {
     }
 
     @Override
+    public Quiz getQuiz() {
+        return quizModelManager.getQuiz();
+    }
+
+    @Override
     public void cancelQuiz() {
         quizModelManager.cancelQuiz();
     }

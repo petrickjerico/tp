@@ -3,6 +3,7 @@ package seedu.studybananas.logic.commands.quizcommands;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardQuizModel;
 import seedu.studybananas.model.flashcard.FlashcardSetName;
@@ -35,7 +36,7 @@ public class ViewScoreCommand extends Command<FlashcardQuizModel> {
             String score = model.getQuizRecords(name);
             QuizCommand.updateCommandResult(score);
 
-            return new CommandResult(score);
+            return new QuizCommandResult(score);
         } catch (NullPointerException e) {
             throw new CommandException(MESSAGE_QUIZ_NONEXISTENT);
         }

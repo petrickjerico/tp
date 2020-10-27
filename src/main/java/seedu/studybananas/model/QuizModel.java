@@ -18,6 +18,8 @@ public interface QuizModel {
 
     Question getQuestion();
 
+    //void nextQuestion();
+
     Answer getAnswer();
 
     String stopQuiz();

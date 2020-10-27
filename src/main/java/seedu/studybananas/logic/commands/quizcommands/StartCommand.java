@@ -11,6 +11,7 @@ import seedu.studybananas.model.FlashcardQuizModel;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.model.flashcard.Question;
 import seedu.studybananas.model.quiz.Quiz;
+import seedu.studybananas.ui.quizui.QuizCard;
 
 //The abstraction has to be clarified.
 public class StartCommand extends Command<FlashcardQuizModel> {
@@ -48,7 +49,7 @@ public class StartCommand extends Command<FlashcardQuizModel> {
 
             Quiz quiz = new Quiz(this.index, flashcardSet);
             Question firstQuestion = model.start(quiz);
-
+            QuizCard.setQuestion(firstQuestion);
             QuizCommand.setStatus(Status.ON_QUESTION);
 
             String feedback = QuizCommand.MESSAGE_AVAIL_ON_QUESTION;

@@ -6,7 +6,7 @@ import seedu.studybananas.model.flashcard.FlashcardSetName;
 import seedu.studybananas.model.flashcard.Question;
 
 public class Quiz {
-
+    public static final String END_OF_QUIZ = "STUDYBANANAS QUIZ FINISH";
     private final FlashcardSet flashcardSet;
     private final int flashcardSetIndex;
     private final int totalScore;
@@ -50,6 +50,10 @@ public class Quiz {
             return null;
         }
         return flashcardSet.getFlashcards().get(currentIndex).getQuestion();
+    }
+
+    public void nextQuestion() {
+        currentIndex++;
     }
 
     public Answer getAnswer() {

@@ -7,7 +7,7 @@ import seedu.studybananas.logic.commands.CommandResult;
 import seedu.studybananas.logic.commands.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.QuizModel;
-import seedu.studybananas.model.flashcard.Question;
+import seedu.studybananas.ui.quizui.QuizCard;
 
 public class CorrectCommand extends Command<QuizModel> {
 
@@ -28,10 +28,9 @@ public class CorrectCommand extends Command<QuizModel> {
 
         try {
             model.tallyScore(true);
-            Question nextQuestion = model.getQuestion();
 
             QuizCommand.setStatus(Status.ON_QUESTION);
-            //nextQuestion.toString() +
+            QuizCard.setQuestion(model.getQuestion());
             String questionStringToShow = QuizCommand.MESSAGE_AVAIL_ON_QUESTION;
             QuizCommand.updateCommandResult(questionStringToShow);
 
@@ -39,7 +38,7 @@ public class CorrectCommand extends Command<QuizModel> {
 
         } catch (NullPointerException | IndexOutOfBoundsException e) {
             QuizCommand.updateCommandResult(null);
-            return new CommandResult(model.stopQuiz());
+            return new QuizCommandResult(model.stopQuiz());
         }
     }
 }

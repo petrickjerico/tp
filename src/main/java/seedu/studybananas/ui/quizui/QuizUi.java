@@ -67,7 +67,7 @@ public class QuizUi extends UiPart<Region> {
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
-            QuizCommandResult commandResult = (QuizCommandResult) logic.execute(commandText); // include check instanceof
+            QuizCommandResult commandResult = (QuizCommandResult) logic.execute(commandText); //include check instanceof
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setQuiz(commandResult.getQuiz());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());

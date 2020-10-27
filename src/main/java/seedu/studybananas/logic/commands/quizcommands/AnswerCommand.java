@@ -8,6 +8,7 @@ import seedu.studybananas.logic.commands.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.QuizModel;
 import seedu.studybananas.model.flashcard.Answer;
+import seedu.studybananas.ui.quizui.QuizCard;
 
 public class AnswerCommand extends Command<QuizModel> {
 
@@ -34,6 +35,7 @@ public class AnswerCommand extends Command<QuizModel> {
         }
 
         model.saveAnswer(answer);
+        QuizCard.setQuestion(model.getQuestion());
         String userAnswerToShow = "Your answer: " + answer;
         Answer answer = model.getAnswer();
 

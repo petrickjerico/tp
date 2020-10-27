@@ -8,6 +8,7 @@ import seedu.studybananas.logic.commands.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.QuizModel;
 import seedu.studybananas.model.flashcard.Answer;
+import seedu.studybananas.ui.quizui.QuizCard;
 
 public class FlipCommand extends Command<QuizModel> {
 
@@ -25,12 +26,13 @@ public class FlipCommand extends Command<QuizModel> {
         if (!QuizCommand.getStatus().equals(STATUS)) {
             throw new CommandException(QuizCommand.MESSAGE_UNAVAIL_ON_ANSWER);
         }
-
+        QuizCard.setQuestion(model.getQuestion());
         Answer answer = model.getAnswer();
 
         QuizCommand.setStatus(Status.ON_ANSWER);
 
-        String answerStringToShow = "Correct answer: " + answer.toString() + QuizCommand.SPECIAL_LITERAL
+        String answerStringToShow = "Correct answer: " + answer.toString()
+                + QuizCommand.SPECIAL_LITERAL
                 + QuizCommand.MESSAGE_AVAIL_ON_ANSWER;
         QuizCommand.updateCommandResult(answerStringToShow);
 

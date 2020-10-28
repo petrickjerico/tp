@@ -1,13 +1,15 @@
-package seedu.studybananas.logic.commands;
+package seedu.studybananas.logic.commands.commandresults;
 
 import static java.util.Objects.requireNonNull;
 
 import java.util.Objects;
 
+import seedu.studybananas.ui.util.UiStateType;
+
 /**
  * Represents the result of a command execution.
  */
-public class CommandResult {
+public abstract class CommandResult {
 
     protected final String feedbackToUser;
 
@@ -45,6 +47,8 @@ public class CommandResult {
     public boolean isExit() {
         return exit;
     }
+
+    public abstract UiStateType getCommandResultType();
 
     @Override
     public boolean equals(Object other) {

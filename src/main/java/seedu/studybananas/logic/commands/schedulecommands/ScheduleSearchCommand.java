@@ -4,7 +4,8 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.model.ScheduleModel;
 import seedu.studybananas.model.task.InfoContainsKeywordsPredicate;
 
@@ -26,7 +27,7 @@ public class ScheduleSearchCommand extends Command<ScheduleModel> {
     public CommandResult execute(ScheduleModel model) {
         requireNonNull(model);
         model.updateFilteredTaskList(predicate);
-        return new CommandResult(
+        return new ScheduleCommandResult(
                 String.format(Messages.MESSAGE_TASKS_LISTED_OVERVIEW, model.getFilteredTaskList().size()));
     }
 

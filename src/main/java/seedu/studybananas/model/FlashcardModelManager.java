@@ -110,6 +110,11 @@ public class FlashcardModelManager implements FlashcardModel {
         flashcardSetToDisplay.setAll(getFlashcardSet(index).getFlashcards());
     }
 
+    @Override
+    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+        flashcardSetToDisplay.setAll(flashcardSet.getFlashcards());
+    }
+
     //=========== Flashcard Bank =============================================================
 
     @Override

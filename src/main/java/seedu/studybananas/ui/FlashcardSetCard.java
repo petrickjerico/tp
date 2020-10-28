@@ -6,13 +6,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.ui.util.SingletonClickedFlashcardSetState;
 
 public class FlashcardSetCard extends UiPart<Region> {
+    private static final String FXML = "FlashcardSetCard.fxml";
 
     class StyleCombination {
         public final String backgroundColor;
@@ -20,11 +20,12 @@ public class FlashcardSetCard extends UiPart<Region> {
         public final Image intersectImage;
         StyleCombination(String backgroundColor, String innerColor, Image intersectImage) {
             this.backgroundColor = backgroundColor;
-            this.innerColor= innerColor;
+            this.innerColor = innerColor;
             this.intersectImage = intersectImage;
         }
     }
-    private static final String FXML = "FlashcardSetCard.fxml";
+    public final FlashcardSet flashcardSet;
+
     private Image blueIntersect = new Image(this.getClass()
             .getResourceAsStream("/images/blue-intersection.png"));
     private Image yellowIntersect = new Image(this.getClass()
@@ -32,12 +33,12 @@ public class FlashcardSetCard extends UiPart<Region> {
     private Image pinkIntersect = new Image(this.getClass()
             .getResourceAsStream("/images/pink-intersection.png"));
 
-    private final StyleCombination[] STYLE= new StyleCombination[]{
-            new StyleCombination("#ABD6F5", "#ED78E8", pinkIntersect), //Tertiary
-            new StyleCombination("#F5DBAB", "#7886ED", blueIntersect), //Primary
-            new StyleCombination("#7886ED", "#F5DBAB", yellowIntersect) //Secondary
+    private final StyleCombination[] styles = new StyleCombination[] {
+        new StyleCombination("#ABD6F5", "#ED78E8", pinkIntersect), //Tertiary
+        new StyleCombination("#F5DBAB", "#7886ED", blueIntersect), //Primary
+        new StyleCombination("#7886ED", "#F5DBAB", yellowIntersect) //Secondary
     };
-    public final FlashcardSet flashcardSet;
+
     private final Logic logic;
     private SingletonClickedFlashcardSetState flashcardSetState;
 
@@ -59,7 +60,7 @@ public class FlashcardSetCard extends UiPart<Region> {
         super(FXML);
         this.flashcardSet = flashcardSet;
         this.logic = logic;
-        StyleCombination style =  STYLE[displayedIndex % 3];
+        StyleCombination style = this.styles[displayedIndex % 3];
         cardPane.setStyle("-fx-background-color: " + style.backgroundColor + "; "
                 + "-fx-background-radius: 10; -fx-border-radius: 10;");
         id.setText(String.valueOf(displayedIndex) + ". ");

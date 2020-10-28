@@ -1,7 +1,10 @@
 package seedu.studybananas.logic.commands.schedulecommands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.studybananas.logic.parser.CliSyntax.*;
+import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_DURATION;
+import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_TIME;
+import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_TITLE;
 
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.CommandResult;

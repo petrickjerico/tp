@@ -58,6 +58,7 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
+        primaryStage.setResizable(false);
 
         //subscribe to UiState
         uiState = SingletonUiState.getInstance();
@@ -85,14 +86,16 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
      * Sets the default size based on {@code guiSettings}.
      */
     private void setWindowDefaultSize(GuiSettings guiSettings) {
-        // MainWindow dimensions are FIXED instead
-        primaryStage.setHeight(600);
-        primaryStage.setWidth(960);
+        primaryStage.setHeight(guiSettings.getWindowHeight());
+        primaryStage.setWidth(guiSettings.getWindowWidth());
+        if (guiSettings.getWindowCoordinates() != null) {
+            primaryStage.setX(guiSettings.getWindowCoordinates().getX());
+            primaryStage.setY(guiSettings.getWindowCoordinates().getY());
+        }
     }
 
     void show() {
         primaryStage.show();
-        primaryStage.setResizable(false);
     }
 
 

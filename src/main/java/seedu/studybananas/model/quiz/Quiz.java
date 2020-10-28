@@ -131,24 +131,28 @@ public class Quiz {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Total score = ").append(pointsScored).append("/").append(totalScore).append("\n\n");
-        for (int i = 0; i < totalScore; i++) {
-            String isCorrect = scoreboard[i] ? "\u2713" : "\u2718";
-            builder.append(i + 1).append(". Question: ")
-                    .append(flashcardSet.getFlashcards().get(i).getQuestion())
-                    .append("\n");
-            builder.append("Correct Answer: ")
-                    .append(flashcardSet.getFlashcards().get(i).getAnswer())
-                    .append("\n");
-            if (userAnswers[i] != null) {
-                builder.append(isCorrect).append(". Your Answer: ")
-                        .append(userAnswers[i])
-                        .append("\n\n");
-            } else {
-                builder.append(isCorrect).append(". Your Answer: (not stored)")
-                        .append("\n\n");
+        try {
+            for (int i = 0; i < totalScore; i++) {
+                String isCorrect = scoreboard[i] ? "\u2713" : "\u2718";
+                builder.append(i + 1).append(". Question: ")
+                        .append(flashcardSet.getFlashcards().get(i).getQuestion())
+                        .append("\n");
+                builder.append("Correct Answer: ")
+                        .append(flashcardSet.getFlashcards().get(i).getAnswer())
+                        .append("\n");
+                if (userAnswers[i] != null) {
+                    builder.append(isCorrect).append(". Your Answer: ")
+                            .append(userAnswers[i])
+                            .append("\n\n");
+                } else {
+                    builder.append(isCorrect).append(". Your Answer: (not stored)")
+                            .append("\n\n");
+                }
             }
+            return builder.toString();
+        } catch (IndexOutOfBoundsException e) {
+            return null;
         }
-        return builder.toString();
     }
 
     /**

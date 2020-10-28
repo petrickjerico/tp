@@ -63,4 +63,21 @@ public class TaskTest {
         editedCs2103T = new TaskBuilder(CS2103T_WEEK8_QUIZ).withDuration("10").build();
         assertFalse(CS2103T_WEEK8_QUIZ.isSameTask(editedCs2103T));
     }
+
+    @Test
+    public void isDateTimeOverlapped() {
+        // same task -> returns true
+        assertTrue(CS2103T_WEEK8_QUIZ.isDateTimeOverlapped(CS2103T_WEEK8_QUIZ));
+
+        // Task with no dateTime -> returns false
+        Task editedCs2103T = new TaskBuilder(CS2103T_WEEK8_QUIZ).withDuration("").build();
+        assertFalse(CS2100_TUTORIAL_HOMEWORK.isDateTimeOverlapped(editedCs2103T));
+
+        // Task with overlapped dateTime -> returns true
+        editedCs2103T = new TaskBuilder(CS2103T_WEEK8_QUIZ).withDateTime("2020-09-27 11:00").withDuration("75").build();
+        assertTrue(CS2103T_WEEK8_QUIZ.isDateTimeOverlapped(editedCs2103T));
+
+        // Task without overlapped dateTime -> returns false
+        assertFalse(CS2103T_WEEK8_QUIZ.isDateTimeOverlapped(CS2100_TUTORIAL_HOMEWORK));
+    }
 }

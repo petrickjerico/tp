@@ -49,7 +49,7 @@ public class TaskDetailSkin extends UiPart<Region> implements Observer<Task> {
                 "Add description by edit command"));
         date.setText(task.getDateTime().map(time -> time.getUiFormatDate()).orElse(""));
         time.setText(task.getDateTime().map(time -> toAmPmTime(time.getStandardFormatTime())).orElse(""));
-        duration.setText(task.getDuration().map(dur -> String.valueOf(dur.duration)).orElse(""));
+        duration.setText(task.getDuration().map(dur -> String.valueOf(dur.duration) + " minutes").orElse("minutes"));
     }
 
     @Override

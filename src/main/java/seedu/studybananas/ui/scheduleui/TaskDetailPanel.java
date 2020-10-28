@@ -37,7 +37,9 @@ public class TaskDetailPanel extends UiPart<Region> {
     };
 
     // empty callback
-    private final Callback<UiStateType, Void> actionOnUiStateChange = (uiStateType) -> {return null;};
+    private final Callback<UiStateType, Void> actionOnUiStateChange = (uiStateType) -> {
+        return null;
+    };
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 

@@ -121,8 +121,8 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
         }
 
         // try to resolve lag; still need some tuning
-        Thread thread = new Thread(){
-            public void run(){
+        Thread thread = new Thread() {
+            public void run() {
                 animation.play();
             }
         };

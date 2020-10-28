@@ -101,6 +101,11 @@ public class LogicManager implements Logic {
     }
 
     @Override
+    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+        model.setFlashcardSetToView(flashcardSet);
+    }
+
+    @Override
     public Quiz getQuizRecordsToView() {
         return model.getQuizRecordsToView();
     }

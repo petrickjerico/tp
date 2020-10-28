@@ -30,7 +30,9 @@ public class FlashcardUi extends UiPart<Region> {
     };
 
     // empty callback
-    private final Callback<UiStateType, Void> actionOnUiStateChange = (uiStateType) -> {return null;};
+    private final Callback<UiStateType, Void> actionOnUiStateChange = (uiStateType) -> {
+        return null;
+    };
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
@@ -64,7 +66,7 @@ public class FlashcardUi extends UiPart<Region> {
         // Set dependencies
         this.logic = logic;
 
-        flashcardSetListPanel = new FlashcardSetListPanel(logic.getFilteredFlashcardSetList());
+        flashcardSetListPanel = new FlashcardSetListPanel(logic);
         flashcardSetListPanelPlaceholder.getChildren().add(flashcardSetListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();

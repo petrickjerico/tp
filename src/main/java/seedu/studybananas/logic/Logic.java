@@ -66,6 +66,9 @@ public interface Logic {
     /** Returns the selected flashcards to view */
     ObservableList<Flashcard> getFlashcardSetToView();
 
+    /** Sets the flashcardset to the view observable list**/
+    void setFlashcardSetToView(FlashcardSet flashcardSet);
+
 
     /**
      * Returns the quiz queried.

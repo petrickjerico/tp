@@ -197,5 +197,10 @@ public class AddFlashcardSetCommandTest {
         public void setFlashcardSetToView(Index index) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 }

@@ -321,4 +321,10 @@ public class ModelManager implements Model {
     public void setFlashcardSetToView(Index index) {
         flashcardQuizModelManager.setFlashcardSetToView(index);
     }
+
+    @Override
+    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+        flashcardQuizModelManager.setFlashcardSetToView(flashcardSet);
+    }
+
 }

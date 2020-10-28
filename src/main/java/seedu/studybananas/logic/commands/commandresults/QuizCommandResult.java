@@ -15,6 +15,11 @@ public class QuizCommandResult extends CommandResult {
         this.quiz = null;
     }
 
+    public QuizCommandResult(String feedbackToUser, boolean showHelp, boolean exit, Quiz quiz) {
+        super(feedbackToUser, showHelp, exit);
+        this.quiz = quiz;
+    }
+
     /**
      * Initializes a {@code QuizCommandResult}.
      * @param feedbackToUser Feedback displayed to the user.

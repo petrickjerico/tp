@@ -5,6 +5,7 @@ import java.util.Arrays;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -24,7 +25,7 @@ public class FlashcardsDisplay extends UiPart<Region> {
     private static final String FXML = "FlashcardsDisplay.fxml";
 
 
-    @javafx.fxml.FXML
+    @FXML
     private TableView<Flashcard> flashcardsDisplay;
 
     /**

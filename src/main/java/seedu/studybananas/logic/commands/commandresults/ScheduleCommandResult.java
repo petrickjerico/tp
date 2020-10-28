@@ -8,6 +8,10 @@ public class ScheduleCommandResult extends CommandResult {
         super(feedbackToUser);
     }
 
+    public ScheduleCommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
+        super(feedbackToUser, showHelp, exit);
+    }
+
     @Override
     public UiStateType getCommandResultType() {
         return UiStateType.SCHEDULE;

@@ -8,6 +8,10 @@ public class FlashcardCommandResult extends CommandResult {
         super(feedbackToUser);
     }
 
+    public FlashcardCommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
+        super(feedbackToUser, showHelp, exit);
+    }
+
     @Override
     public UiStateType getCommandResultType() {
         return UiStateType.FLASHCARD;

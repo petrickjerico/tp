@@ -143,7 +143,10 @@ public interface FlashcardModel {
     /** Returns an unmodifiable view of the filtered flashcard set list */
     ObservableList<Flashcard> getFlashcardSetToView();
 
-    /** Sets an unmodifiable view of the filtered flashcard set list */
+    /** Sets an unmodifiable view of the filtered flashcard set list by {@Code Index}*/
     void setFlashcardSetToView(Index index);
+
+    /** Sets an unmodifiable view of the filtered flashcard set list by {@Code FlashcardSet}*/
+    void setFlashcardSetToView(FlashcardSet flashcardSet);
 
 }

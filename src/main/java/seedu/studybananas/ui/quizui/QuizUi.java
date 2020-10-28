@@ -27,7 +27,7 @@ public class QuizUi extends UiPart<Region> {
         @Override
         public Void call(CommandResult state) {
             if (shouldRender(state)) {
-                QuizCommandResult quizCommandResult =(QuizCommandResult) state;
+                QuizCommandResult quizCommandResult = (QuizCommandResult) state;
                 updateUi(quizCommandResult);
             }
             return null;
@@ -35,7 +35,9 @@ public class QuizUi extends UiPart<Region> {
     };
 
     // empty callback
-    private final Callback<UiStateType, Void> actionOnUiStateChange = (uiStateType) -> {return null;};
+    private final Callback<UiStateType, Void> actionOnUiStateChange = (uiStateType) -> {
+        return null;
+    };
 
     private final Logic logic;
     private final Logger logger = LogsCenter.getLogger(getClass());
@@ -67,7 +69,7 @@ public class QuizUi extends UiPart<Region> {
         super(FXML);
         this.logic = logic;
 
-        flashcardSetListPanel = new FlashcardSetListPanel(logic.getFilteredFlashcardSetList());
+        flashcardSetListPanel = new FlashcardSetListPanel(logic);
         flashcardSetListPanelPlaceholder.getChildren().add(flashcardSetListPanel.getRoot());
 
         resultDisplay = new QuizCard();

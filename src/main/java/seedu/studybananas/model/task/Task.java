@@ -122,9 +122,20 @@ public class Task {
         this.taskCellBind = taskCellBind;
     }
 
+    /**
+     * Check if the duration of the tasks would happen today.
+     * @return
+     */
     public boolean happensToday() {
         return duration.isPresent() && dateTime.isPresent()
-                && (dateTime.get().isToday() || happensToday(dateTime.get(), duration.get()));
+                && (dateTime.get().isToday() || startFromOldAndExtendToToday(dateTime.get(), duration.get()));
+    }
+
+    private boolean startFromOldAndExtendToToday(DateTime dateTime, Duration duration) {
+        LocalDateTime startTime = dateTime.dateTime;
+        LocalDateTime endTime = dateTime.dateTime.plusMinutes(duration.duration);
+        LocalDate today = LocalDate.now();
+        return today.isAfter(startTime.toLocalDate()) && (!endTime.toLocalDate().isBefore(today));
     }
 
     public double getNumberOfMinuteHappenToday() {
@@ -159,9 +170,6 @@ public class Task {
                 && otherTask.duration.equals(this.duration);
     }
 
-    private boolean happensToday(DateTime dateTime, Duration duration) {
-        return LocalDate.now().equals(dateTime.dateTime.plusMinutes(duration.duration).toLocalDate());
-    }
 
     @Override
     public int hashCode() {

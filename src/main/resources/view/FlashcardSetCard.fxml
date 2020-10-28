@@ -2,20 +2,53 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
 
-<HBox id="cardPane" fx:id="cardPane" alignment="CENTER_LEFT" onMouseClicked="#handleMouseClicked" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <padding>
-        <Insets bottom="5" left="15" right="15" top="5" />
-    </padding>
-    <Label fx:id="id" style="-fx-background-color: white;                               -fx-background-radius: 8;                               -fx-text-fill: black;                               -fx-font-family: Arial;                               -fx-font-weight: 900;                               -fx-font-size: 12px;                               -fx-alignment:center;" styleClass="cellHeader">
-        <padding>
-            <Insets bottom="5" left="5" right="5" top="5" />
-        </padding>
-    </Label>
-    <Label fx:id="title" style="-fx-font-family: Arial;                               -fx-font-weight: 900;                               -fx-font-size: 16px;" text="\$first">
-        <padding>
-            <Insets bottom="5" left="10" right="5" top="5" />
-        </padding>
-    </Label>
-</HBox>
+<StackPane fx:id="cardPane" onMouseClicked="#handleMouseClicked" prefWidth="150.0"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="TOP_CENTER" prefWidth="200.0">
+         <children>
+            <Label fx:id="id" text="1."
+                   style="-fx-font-family: Arial;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #7886ed;
+                          -fx-font-size: 13.0;">
+            </Label>
+            <Label fx:id="title" text="Japanese"
+                   style="-fx-font-family: Arial;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #7886ed;
+                          -fx-font-size: 13.0;">
+            </Label>
+         </children>
+         <padding>
+            <Insets top="12.0" />
+         </padding>
+      </HBox>
+      <HBox prefWidth="200.0" style="-fx-background-color: transparent;">
+         <children>
+            <Circle fx:id="circle" fill="#7886ed" radius="4.5" stroke="#7886ed" strokeType="INSIDE">
+               <HBox.margin>
+                  <Insets left="13.5" top="9.5" />
+               </HBox.margin>
+            </Circle>
+            <Region HBox.hgrow="ALWAYS" />
+            <ImageView fx:id="intersect" fitHeight="33.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/blue-intersection.png" />
+               </image>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <Region prefHeight="40.0" prefWidth="150.0" />
+   </children>
+</StackPane>

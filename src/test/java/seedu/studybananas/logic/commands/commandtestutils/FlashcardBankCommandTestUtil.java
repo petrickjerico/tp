@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardModel;
 import seedu.studybananas.model.flashcard.FlashcardSet;

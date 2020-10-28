@@ -7,7 +7,8 @@ import java.util.List;
 import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.FlashcardCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardModel;
 import seedu.studybananas.model.flashcard.FlashcardSet;
@@ -45,7 +46,7 @@ public class DeleteFlashcardSetCommand extends Command<FlashcardModel> {
 
         FlashcardSet flashcardSetToDelete = flashcardSets.get(flashcardSetIndex.getZeroBased());
         model.deleteFlashcardSet(flashcardSetToDelete);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, flashcardSetToDelete));
+        return new FlashcardCommandResult(String.format(MESSAGE_SUCCESS, flashcardSetToDelete));
     }
 
     @Override

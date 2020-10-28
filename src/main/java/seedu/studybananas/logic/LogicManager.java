@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 import seedu.studybananas.commons.core.GuiSettings;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.StudyBananasParser;
 import seedu.studybananas.logic.parser.exceptions.ParseException;

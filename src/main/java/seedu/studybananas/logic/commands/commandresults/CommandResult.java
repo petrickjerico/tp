@@ -1,4 +1,4 @@
-package seedu.studybananas.logic.commands;
+package seedu.studybananas.logic.commands.commandresults;
 
 import static java.util.Objects.requireNonNull;
 
@@ -7,7 +7,11 @@ import java.util.Objects;
 /**
  * Represents the result of a command execution.
  */
-public class CommandResult {
+public abstract class CommandResult {
+
+    enum CommmandResultType {
+        Schedule, Flashcard, Quiz;
+    }
 
     protected final String feedbackToUser;
 
@@ -45,6 +49,8 @@ public class CommandResult {
     public boolean isExit() {
         return exit;
     }
+
+    public abstract CommmandResultType getCommandResultType();
 
     @Override
     public boolean equals(Object other) {

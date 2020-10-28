@@ -4,7 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_FLASHCARDSET_NAME;
 
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.FlashcardCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardModel;
 import seedu.studybananas.model.flashcard.FlashcardSet;
@@ -50,6 +51,6 @@ public class AddFlashcardSetCommand extends Command<FlashcardModel> {
         }
 
         model.addFlashcardSet(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+        return new FlashcardCommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 }

@@ -4,7 +4,7 @@ import java.nio.file.Path;
 
 import javafx.collections.ObservableList;
 import seedu.studybananas.commons.core.GuiSettings;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.Model;

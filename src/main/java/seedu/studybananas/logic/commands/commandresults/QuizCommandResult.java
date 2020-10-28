@@ -1,4 +1,4 @@
-package seedu.studybananas.logic.commands;
+package seedu.studybananas.logic.commands.commandresults;
 
 import seedu.studybananas.model.quiz.Quiz;
 
@@ -31,6 +31,11 @@ public class QuizCommandResult extends CommandResult {
     @Override
     public String getFeedbackToUser() {
         return feedbackToUser;
+    }
+
+    @Override
+    public CommmandResultType getCommandResultType() {
+        return CommmandResultType.Quiz;
     }
 
 }

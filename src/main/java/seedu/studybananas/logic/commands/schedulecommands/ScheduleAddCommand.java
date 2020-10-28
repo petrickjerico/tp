@@ -6,7 +6,8 @@ import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_TIME;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_TITLE;
 
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.ScheduleModel;
 import seedu.studybananas.model.task.Task;
@@ -43,7 +44,7 @@ public class ScheduleAddCommand extends Command<ScheduleModel> {
 
         model.addTask(toAdd);
 
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+        return new ScheduleCommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 
     @Override

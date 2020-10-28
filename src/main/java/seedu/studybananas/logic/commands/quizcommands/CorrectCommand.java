@@ -3,8 +3,8 @@ package seedu.studybananas.logic.commands.quizcommands;
 import static java.util.Objects.requireNonNull;
 
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
-import seedu.studybananas.logic.commands.QuizCommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.QuizModel;
 import seedu.studybananas.ui.quizui.QuizCard;

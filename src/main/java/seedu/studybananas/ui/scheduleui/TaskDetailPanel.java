@@ -7,7 +7,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.ui.CommandBox;

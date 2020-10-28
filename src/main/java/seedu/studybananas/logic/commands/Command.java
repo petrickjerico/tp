@@ -1,5 +1,6 @@
 package seedu.studybananas.logic.commands;
 
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 
 /**

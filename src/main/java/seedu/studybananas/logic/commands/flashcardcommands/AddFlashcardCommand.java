@@ -8,7 +8,8 @@ import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_QUESTION;
 import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.FlashcardCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardModel;
 import seedu.studybananas.model.flashcard.Flashcard;
@@ -60,7 +61,7 @@ public class AddFlashcardCommand extends Command<FlashcardModel> {
 
             model.addFlashcard(flashcardSet, toAdd);
             model.setFlashcardSetToView(flashcardSetIndex);
-            return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+            return new FlashcardCommandResult(String.format(MESSAGE_SUCCESS, toAdd));
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);
         }

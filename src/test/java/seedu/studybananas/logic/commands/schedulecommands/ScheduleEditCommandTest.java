@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.commons.core.index.Index;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.model.ScheduleModel;
 import seedu.studybananas.model.ScheduleModelManager;
 import seedu.studybananas.model.task.DateTime;

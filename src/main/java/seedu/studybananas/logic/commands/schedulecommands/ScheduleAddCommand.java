@@ -1,7 +1,6 @@
 package seedu.studybananas.logic.commands.schedulecommands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.studybananas.commons.core.Messages.MESSAGE_DUPLICATED_TASK;
 import static seedu.studybananas.commons.core.Messages.MESSAGE_OVERLAP_TASK;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_DURATION;
@@ -9,7 +8,8 @@ import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_TIME;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_TITLE;
 
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.ScheduleModel;
 import seedu.studybananas.model.task.Task;
@@ -28,6 +28,8 @@ public class ScheduleAddCommand extends Command<ScheduleModel> {
 
     public static final String MESSAGE_SUCCESS = "New task added: %1$s";
 
+    public static final String MESSAGE_DUPLICATE_TASK = "This tasks already exists in the schedule";
+
     private final Task toAdd;
 
     /**
@@ -44,12 +46,12 @@ public class ScheduleAddCommand extends Command<ScheduleModel> {
 
         try {
             if (model.hasTask(toAdd)) {
-                throw new CommandException(MESSAGE_DUPLICATED_TASK);
+                throw new CommandException(MESSAGE_DUPLICATE_TASK);
             }
 
             model.addTask(toAdd);
 
-            return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+            return new ScheduleCommandResult(String.format(MESSAGE_SUCCESS, toAdd));
         } catch (OverlapTaskException overlapError) {
             throw new CommandException(MESSAGE_OVERLAP_TASK);
         }

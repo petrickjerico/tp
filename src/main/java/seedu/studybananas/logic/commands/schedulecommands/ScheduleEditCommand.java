@@ -13,7 +13,8 @@ import java.util.List;
 import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.ScheduleModel;
 import seedu.studybananas.model.task.DateTime;
@@ -79,7 +80,7 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
             Task taskToEdit = lastShownList.get(targetIndex.getZeroBased());
             Task editedTask = generateEditedTask(taskToEdit, title, description, dateTime, duration);
             model.setTask(taskToEdit, editedTask);
-            return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
+            return new ScheduleCommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
         } catch (DuplicateTaskException e) {
             throw new CommandException(MESSAGE_DUPLICATED_TASK);
         } catch (OverlapTaskException e) {

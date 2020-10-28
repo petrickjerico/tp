@@ -15,13 +15,13 @@ public class TypicalQuizzes {
 
     public static final Quiz QUIZ_PHYSICS = new QuizBuilder()
             .withFlashcardSet(PHYSICS)
-            .build();
+            .buildDefaultQuiz();
     public static final Quiz QUIZ_ECONOMICS = new QuizBuilder()
             .withFlashcardSet(ECONOMICS)
             .build();
     public static final Quiz QUIZ_ICEBREAKER_JOKES = new QuizBuilder()
             .withFlashcardSet(ICEBREAKER_JOKES)
-            .build();
+            .buildDefaultQuiz();
 
     private TypicalQuizzes() {} // prevents instantiation
 

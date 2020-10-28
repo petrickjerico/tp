@@ -29,16 +29,14 @@ public class TimeScale extends UiPart<Region> {
                     }
                 }
 
-                 if (c.wasAdded()) {
+                if (c.wasAdded()) {
                     for (Task task : c.getAddedSubList()) {
                         addTaskToTimeScale(task);
                     }
-                 }
+                }
 
 
                 return;
-                 //assert false : "should never reach here, this system does not support object editting.";
-
             }
         }
     };

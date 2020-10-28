@@ -31,7 +31,7 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
             + PREFIX_TITLE + "TITLE (if any) \n"
             + PREFIX_DESCRIPTION + "DESCRIPTION (if any) \n"
             + PREFIX_TIME + "TIME (if any) \n"
-            + PREFIX_DURATION + "DURATION (if any) \n"
+            + PREFIX_DURATION + "DURATION (if any in minutes) \n"
             + "Example: " + COMMAND_WORD + " 1 T: Household dur: 60";
 
     public static final String MESSAGE_EDIT_TASK_SUCCESS = "Edited Task: %1$s";

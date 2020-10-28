@@ -9,18 +9,23 @@ import java.time.temporal.ChronoField;
 
 import seedu.studybananas.model.task.exceptions.TimeFormatException;
 
+import javax.swing.text.DefaultTextUI;
+
 public class IsoDate implements TimeFormat {
     private static final String PATTERN = "uuuu-MM-dd";
+
+    // Default time to be set up for date is 12PM
+    private static final String DEFAULT_TIME = " 12:00";
+
     private static final DateTimeFormatter TIME_FORMATTER =
             new DateTimeFormatterBuilder().appendPattern(PATTERN)
                     .optionalStart().appendPattern(" HH:mm")
                     .optionalEnd().toFormatter();
-// parseDefaulting(ChronoField.HOUR_OF_DAY, 12)
-//                    .parseDefaulting(ChronoField.MINUTE_OF_DAY, 0).
+
     @Override
     public LocalDateTime check(String date) {
         try {
-            String dateAppendedTime = date + " 12:00";
+            String dateAppendedTime = date + DEFAULT_TIME;
             DateTimeFormatter strictDateTimeFormatter = TIME_FORMATTER.withResolverStyle(ResolverStyle.STRICT);
             LocalDateTime ld = LocalDateTime.parse(dateAppendedTime, strictDateTimeFormatter);
             return ld;
@@ -28,5 +33,4 @@ public class IsoDate implements TimeFormat {
             throw new TimeFormatException();
         }
     }
-
 }

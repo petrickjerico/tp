@@ -17,6 +17,10 @@ public class ViewScoreCommand extends Command<FlashcardQuizModel> {
                     + "Cancel or finish the quiz to view recent quiz score.";
     public static final String MESSAGE_QUIZ_NONEXISTENT =
             "Quiz records for this flashcard set does not exist.";
+    public static final String MESSAGE_FLASHCARD_DELETED =
+            "Unable to view score as flashcard set has deleted flashcard(s) "
+                    + "since the last quiz. "
+                    + "Do start a new quiz to update the score.";
     private final int index;
 
     public ViewScoreCommand(int index) {
@@ -36,6 +40,12 @@ public class ViewScoreCommand extends Command<FlashcardQuizModel> {
             model.setQuizRecordsToView(name);
 
             String score = model.getQuizRecords(name);
+
+            if (score == null) {
+                model.setQuizRecordsToView(null);
+                throw new CommandException(MESSAGE_FLASHCARD_DELETED);
+            }
+
             QuizCommand.updateCommandResult(score);
 
             return new QuizCommandResult(score);

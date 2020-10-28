@@ -104,6 +104,7 @@ public class QuizUi extends UiPart<Region> {
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
             resultDisplay.setFeedbackToUser(e.getMessage());
+            quizScoreDisplay.setFeedbackToUser(e.getMessage());
             throw e;
         }
     }

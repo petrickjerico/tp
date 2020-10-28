@@ -68,7 +68,7 @@ public class FlashcardSetCard extends UiPart<Region> {
 
         id.setStyle("-fx-text-fill: " + style.innerColor + "; -fx-font-weight: bold; -fx-font-family: Arial;");
         title.setStyle("-fx-text-fill: " + style.innerColor + "; -fx-font-weight: bold; -fx-font-family: Arial;");
-        circle.setStyle("-fx-text-fill: " + style.innerColor);
+        circle.setStyle("-fx-fill: " + style.innerColor);
 
         intersect.setImage(style.intersectImage);
 

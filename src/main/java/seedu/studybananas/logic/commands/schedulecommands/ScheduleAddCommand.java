@@ -2,6 +2,7 @@ package seedu.studybananas.logic.commands.schedulecommands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_DURATION;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_TIME;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_TITLE;
 
@@ -18,8 +19,10 @@ public class ScheduleAddCommand extends Command<ScheduleModel> {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a task to the schedule. \n"
             + "Parameters: \n"
             + PREFIX_TITLE + "TITLE \n"
-            + PREFIX_DESCRIPTION + "DESCRIPTION \n"
-            + "[" + PREFIX_TIME + "TIME] ";
+            + PREFIX_DESCRIPTION + "DESCRIPTION (if any) \n"
+            + PREFIX_TIME + "TIME (if any) \n"
+            + PREFIX_DURATION + "DURATION (if any in minutes) \n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_TITLE + "CS2103T " + PREFIX_DESCRIPTION + "Quiz 11";
 
     public static final String MESSAGE_SUCCESS = "New task added: %1$s";
     public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in the schedule";

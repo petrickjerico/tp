@@ -2,18 +2,40 @@ package seedu.studybananas.ui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.ui.util.SingletonClickedFlashcardSetState;
 
 public class FlashcardSetCard extends UiPart<Region> {
+
+    class StyleCombination {
+        public final String backgroundColor;
+        public final String innerColor;
+        public final Image intersectImage;
+        StyleCombination(String backgroundColor, String innerColor, Image intersectImage) {
+            this.backgroundColor = backgroundColor;
+            this.innerColor= innerColor;
+            this.intersectImage = intersectImage;
+        }
+    }
     private static final String FXML = "FlashcardSetCard.fxml";
-    private static final String[] BACKGROUND_COLOR = new String[]{
-        "#ff6666", //red
-        "#3366ff;", //blue
-        "#cc66ff", //purple
+    private Image blueIntersect = new Image(this.getClass()
+            .getResourceAsStream("/images/blue-intersection.png"));
+    private Image yellowIntersect = new Image(this.getClass()
+            .getResourceAsStream("/images/yellow-intersection.png"));
+    private Image pinkIntersect = new Image(this.getClass()
+            .getResourceAsStream("/images/pink-intersection.png"));
+
+    private final StyleCombination[] STYLE= new StyleCombination[]{
+            new StyleCombination("#ABD6F5", "#ED78E8", pinkIntersect), //Tertiary
+            new StyleCombination("#F5DBAB", "#7886ED", blueIntersect), //Primary
+            new StyleCombination("#7886ED", "#F5DBAB", yellowIntersect) //Secondary
     };
     public final FlashcardSet flashcardSet;
     private final Logic logic;
@@ -22,9 +44,13 @@ public class FlashcardSetCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private HBox cardPane;
+    private StackPane cardPane;
     @FXML
     private Label title;
+    @FXML
+    private Circle circle;
+    @FXML
+    private ImageView intersect;
 
     /**
      * Creates a {@code TaskCode} with the given {@code Task} and index to display.
@@ -33,9 +59,17 @@ public class FlashcardSetCard extends UiPart<Region> {
         super(FXML);
         this.flashcardSet = flashcardSet;
         this.logic = logic;
-        cardPane.setStyle("-fx-background-color: " + BACKGROUND_COLOR[displayedIndex % 3]);
-        id.setText(String.valueOf(displayedIndex));
+        StyleCombination style =  STYLE[displayedIndex % 3];
+        cardPane.setStyle("-fx-background-color: " + style.backgroundColor + "; "
+                + "-fx-background-radius: 10; -fx-border-radius: 10;");
+        id.setText(String.valueOf(displayedIndex) + ". ");
         title.setText(flashcardSet.getName().name);
+
+        id.setStyle("-fx-text-fill: " + style.innerColor + "; -fx-font-weight: bold; -fx-font-family: Arial;");
+        title.setStyle("-fx-text-fill: " + style.innerColor + "; -fx-font-weight: bold; -fx-font-family: Arial;");
+        circle.setStyle("-fx-text-fill: " + style.innerColor);
+
+        intersect.setImage(style.intersectImage);
 
         // get access to the state without subscribing to it.
         flashcardSetState = SingletonClickedFlashcardSetState.getInstance(logic);

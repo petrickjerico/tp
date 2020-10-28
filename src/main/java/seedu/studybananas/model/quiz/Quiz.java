@@ -6,7 +6,6 @@ import seedu.studybananas.model.flashcard.FlashcardSetName;
 import seedu.studybananas.model.flashcard.Question;
 
 public class Quiz {
-    public static final String END_OF_QUIZ = "STUDYBANANAS QUIZ FINISH";
     private final FlashcardSet flashcardSet;
     private final int flashcardSetIndex;
     private final int totalScore;
@@ -101,23 +100,22 @@ public class Quiz {
      */
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Total score = ").append(pointsScored).append("/").append(totalScore).append("\n");
+        builder.append("Total score = ").append(pointsScored).append("/").append(totalScore).append("\n\n");
         for (int i = 0; i < totalScore; i++) {
             String isCorrect = scoreboard[i] ? "\u2713" : "\u2718";
             builder.append(i + 1).append(". Question: ")
                     .append(flashcardSet.getFlashcards().get(i).getQuestion())
                     .append("\n");
+            builder.append("Correct Answer: ")
+                    .append(flashcardSet.getFlashcards().get(i).getAnswer())
+                    .append("\n");
             if (userAnswers[i] != null) {
-                builder.append("Correct Answer: ")
-                        .append(flashcardSet.getFlashcards().get(i).getAnswer())
-                        .append("\n");
                 builder.append(isCorrect).append(". Your Answer: ")
                         .append(userAnswers[i])
-                        .append("\n");
+                        .append("\n\n");
             } else {
-                builder.append(isCorrect).append("Answer: ")
-                        .append(flashcardSet.getFlashcards().get(i).getAnswer())
-                        .append("\n");
+                builder.append(isCorrect).append(". Your Answer: (not stored)")
+                        .append("\n\n");
             }
         }
         return builder.toString();

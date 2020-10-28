@@ -23,19 +23,22 @@ public class TimeScale extends UiPart<Region> {
         @Override
         public void onChanged(Change<? extends Task> c) {
             while (c.next()) {
-                if (c.wasAdded()) {
-                    for (Task task : c.getAddedSubList()) {
-                        addTaskToTimeScale(task);
-                    }
-                } else if (c.wasRemoved()) {
+                if (c.wasRemoved()) {
                     for (Task task : c.getRemoved()) {
                         removeTaskFromTimeScale(task);
                     }
-                } else if (c.getAddedSize() == 0) {
-
-                } else {
-                    assert false : "should never reach here, this system does not support object editting.";
                 }
+
+                 if (c.wasAdded()) {
+                    for (Task task : c.getAddedSubList()) {
+                        addTaskToTimeScale(task);
+                    }
+                 }
+
+
+                return;
+                 //assert false : "should never reach here, this system does not support object editting.";
+
             }
         }
     };

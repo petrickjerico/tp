@@ -1,7 +1,10 @@
 package seedu.studybananas.model.task;
 
+import static java.time.temporal.ChronoUnit.MINUTES;
 import static java.util.Objects.requireNonNull;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -44,6 +47,15 @@ public class Task {
 
     public Optional<Duration> getDuration() {
         return duration;
+    }
+
+    /**
+     * Util function for {@Code TaskCell}, so duration must exist.
+     * @return
+     */
+    public boolean isLongerThanAnHour() {
+        assert duration.isPresent() : "You shouldn't call this method!!";
+        return getNumberOfMinuteHappenToday() >= 60;
     }
 
     public Title getTitle() {
@@ -133,8 +145,32 @@ public class Task {
         this.taskCellBind = taskCellBind;
     }
 
+    /**
+     * Check if the duration of the tasks would happen today.
+     * @return
+     */
     public boolean happensToday() {
-        return duration.isPresent() && dateTime.isPresent() && dateTime.get().isToday();
+        return duration.isPresent() && dateTime.isPresent()
+                && (dateTime.get().isToday() || startFromOldAndExtendToToday(dateTime.get(), duration.get()));
+    }
+
+    private boolean startFromOldAndExtendToToday(DateTime dateTime, Duration duration) {
+        LocalDateTime startTime = dateTime.dateTime;
+        LocalDateTime endTime = dateTime.dateTime.plusMinutes(duration.duration);
+        LocalDate today = LocalDate.now();
+        return today.isAfter(startTime.toLocalDate()) && (!endTime.toLocalDate().isBefore(today));
+    }
+
+    public double getNumberOfMinuteHappenToday() {
+        assert happensToday() : "should only calculate number of minute happens today when the task happens today";
+        double duration = this.duration.get().duration;
+        if (dateTime.get().isToday()) {
+            return duration;
+        } else {
+            LocalDateTime today = LocalDate.now().atStartOfDay();
+            double minutes = MINUTES.between(today, dateTime.get().dateTime);
+            return MINUTES.between(today, dateTime.get().dateTime.plusMinutes((long) duration));
+        }
     }
     /**
      * Returns true if both tasks have the same identity and data fields.
@@ -156,6 +192,7 @@ public class Task {
                 && otherTask.dateTime.equals(this.dateTime)
                 && otherTask.duration.equals(this.duration);
     }
+
 
     @Override
     public int hashCode() {

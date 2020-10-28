@@ -15,10 +15,29 @@ public class QuizCommandResult extends CommandResult {
         this.quiz = null;
     }
 
+    /**
+     * Initializes a {@code QuizCommandResult}.
+     * @param feedbackToUser Feedback displayed to the user.
+     * @param showHelp Whether to show help.
+     * @param exit Whether to exit the app.
+     */
+    public QuizCommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
+        super(feedbackToUser, showHelp, exit);
+        this.quiz = null;
+    }
+
+    /**
+     * Initializes a {@code QuizCommandResult}.
+     * @param feedbackToUser Feedback displayed to the user.
+     * @param showHelp Whether to show help.
+     * @param exit Whether to exit the app.
+     * @param quiz Quiz object to be stored in the CommandResult.
+     */
     public QuizCommandResult(String feedbackToUser, boolean showHelp, boolean exit, Quiz quiz) {
         super(feedbackToUser, showHelp, exit);
         this.quiz = quiz;
     }
+
 
     /**
      * Initializes a {@code QuizCommandResult}.

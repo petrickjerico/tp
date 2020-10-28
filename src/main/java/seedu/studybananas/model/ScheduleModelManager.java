@@ -56,6 +56,7 @@ public class ScheduleModelManager implements ScheduleModel {
     @Override
     public void setTask(Task target, Task editedTask) {
         schedule.setTask(target, editedTask);
+        updateTodaysTask(PREDICATE_SHOW_ALL_TASKS);
     }
 
     //=========== Filtered Task List Accessors =============================================================

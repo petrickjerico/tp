@@ -111,6 +111,12 @@ public class FlashcardQuizModelManager implements FlashcardQuizModel {
     }
 
     @Override
+    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+        flashcardModelManager.setFlashcardSetToView(flashcardSet);
+    }
+
+
+    @Override
     public Question start(Quiz quiz) {
         return quizModelManager.start(quiz);
     }

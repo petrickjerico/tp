@@ -16,16 +16,11 @@ import seedu.studybananas.model.task.timeformat.TimeFormatChecker;
  */
 public class DateTime {
     public static final String MESSAGE_CONSTRAINTS =
-            "DateTime should be in the yyyy-MM-dd HH:mm format";
+            "DateTime should be in the yyyy-MM-dd HH:mm or yyyy-MM-dd format";
     public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm";
-    private static final String UI_FORMAT = "EEEE, MMM dd hh:mm a";
-    private static final String UI_FORMAT_DATE = "EEEE, MMM dd";
+    private static final String UI_FORMAT_DATE = "EEEE, MMM dd yyyy";
 
     public final LocalDateTime dateTime;
-
-    private DateTime() {
-        dateTime = null;
-    }
 
     /**
      * Constructs a {@code DateTime}.
@@ -69,6 +64,7 @@ public class DateTime {
      * Returns true if a given string is a valid date or an empty string.
      */
     public static boolean isValidDateTime(String test) {
+        requireNonNull(test);
         return test.equals("") || TimeFormatChecker.check(test);
     }
 

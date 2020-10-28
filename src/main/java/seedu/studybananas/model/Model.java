@@ -54,4 +54,5 @@ public interface Model extends ScheduleModel, FlashcardQuizModel {
      * Sets the user prefs' flashcard bank file path.
      */
     void setFlashcardBankFilePath(Path flashcardBankFilePath);
+
 }

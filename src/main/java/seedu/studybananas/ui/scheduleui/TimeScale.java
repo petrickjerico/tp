@@ -23,19 +23,20 @@ public class TimeScale extends UiPart<Region> {
         @Override
         public void onChanged(Change<? extends Task> c) {
             while (c.next()) {
+                if (c.wasRemoved()) {
+                    for (Task task : c.getRemoved()) {
+                        removeTaskFromTimeScale(task);
+                    }
+                }
+
                 if (c.wasAdded()) {
                     for (Task task : c.getAddedSubList()) {
                         addTaskToTimeScale(task);
                     }
-                } else if (c.wasRemoved()) {
-                    for (Task task : c.getRemoved()) {
-                        removeTaskFromTimeScale(task);
-                    }
-                } else if (c.getAddedSize() == 0) {
-
-                } else {
-                    assert false : "should never reach here, this system does not support object editting.";
                 }
+
+
+                return;
             }
         }
     };
@@ -162,7 +163,7 @@ public class TimeScale extends UiPart<Region> {
      * @param time time has to be in the format of HH:mm.
      */
     public void handleOverlap(String time) {
-        assert time.matches("^(([0-1][0-9])|2[0-3]):[0-5][0-9]$");
+        assert time.matches("^([0-1][0-9]|2[0-3]):[0-5][0-9]$");
         String[] splitTime = time.split(":");
         int hour = Integer.valueOf(splitTime[0]);
         int minute = Integer.valueOf(splitTime[1]);

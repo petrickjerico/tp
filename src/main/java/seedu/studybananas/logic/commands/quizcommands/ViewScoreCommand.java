@@ -2,8 +2,8 @@ package seedu.studybananas.logic.commands.quizcommands;
 
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
-import seedu.studybananas.logic.commands.QuizCommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardQuizModel;
 import seedu.studybananas.model.flashcard.FlashcardSetName;
@@ -17,6 +17,10 @@ public class ViewScoreCommand extends Command<FlashcardQuizModel> {
                     + "Cancel or finish the quiz to view recent quiz score.";
     public static final String MESSAGE_QUIZ_NONEXISTENT =
             "Quiz records for this flashcard set does not exist.";
+    public static final String MESSAGE_FLASHCARD_DELETED =
+            "Unable to view score as flashcard set has deleted flashcard(s) "
+                    + "since the last quiz. "
+                    + "Do start a new quiz to update the score.";
     private final int index;
 
     public ViewScoreCommand(int index) {
@@ -36,10 +40,16 @@ public class ViewScoreCommand extends Command<FlashcardQuizModel> {
             model.setQuizRecordsToView(name);
 
             String score = model.getQuizRecords(name);
+
+            if (score == null) {
+                model.setQuizRecordsToView(null);
+                throw new CommandException(MESSAGE_FLASHCARD_DELETED);
+            }
+
             QuizCommand.updateCommandResult(score);
 
             return new QuizCommandResult(score);
-        } catch (NullPointerException e) {
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
             throw new CommandException(MESSAGE_QUIZ_NONEXISTENT);
         }
     }

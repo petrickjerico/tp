@@ -82,7 +82,11 @@ public class Task {
         Task otherTask = other;
         return otherTask.getTitle().rigorousEquals(this.getTitle())
                 && (other.getDescription().equals(this.getDescription())
-                || haveSameDescription(otherTask, this));
+                || haveSameDescription(otherTask, this))
+                && (other.getDateTime().equals(this.getDateTime())
+                || haveSameDateTime(otherTask, this))
+                && (other.getDuration().equals(this.getDuration())
+                || haveSameDuration(otherTask, this));
     }
 
     private boolean bothHaveDescription(Task t1, Task t2) {
@@ -93,6 +97,25 @@ public class Task {
         return bothHaveDescription(t1, t2) && t1.getDescription().get().rigorousEquals(t2.getDescription().get());
     }
 
+    private boolean bothHaveDateTime(Task t1, Task t2) {
+        return t1.getDateTime().isPresent() && t2.getDateTime().isPresent();
+    }
+
+    private boolean haveSameDateTime(Task t1, Task t2) {
+        return bothHaveDateTime(t1, t2) && t1.getDateTime().get().equals(t2.getDateTime().get());
+    }
+
+    private boolean bothHaveDuration(Task t1, Task t2) {
+        return t1.getDuration().isPresent() && t2.getDuration().isPresent();
+    }
+
+    private boolean haveSameDuration(Task t1, Task t2) {
+        return bothHaveDuration(t1, t2) && t1.getDuration().get().equals(t2.getDuration().get());
+    }
+
+    private boolean isDateTimeOverlapped(Task otherTask) {
+        return false;
+    }
     private StringBuilder getDescriptionString() {
         StringBuilder emptyString = new StringBuilder("");
         return description.map(desc ->

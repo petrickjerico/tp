@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.FlashcardCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardModel;
 import seedu.studybananas.model.flashcard.FlashcardSet;
@@ -77,7 +78,7 @@ public class FlashcardBankCommandTestUtil {
     public static void assertCommandSuccess(Command<FlashcardModel> command, FlashcardModel actualModel,
                                             String expectedMessage,
                                             FlashcardModel expectedModel) {
-        CommandResult expectedCommandResult = new CommandResult(expectedMessage);
+        CommandResult expectedCommandResult = new FlashcardCommandResult(expectedMessage);
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
     }
 

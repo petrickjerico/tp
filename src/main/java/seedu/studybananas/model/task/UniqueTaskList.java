@@ -9,6 +9,7 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.studybananas.model.task.exceptions.DuplicateTaskException;
+import seedu.studybananas.model.task.exceptions.OverlapTaskException;
 import seedu.studybananas.model.task.exceptions.TaskNotFoundException;
 
 
@@ -46,6 +47,9 @@ public class UniqueTaskList implements Iterable<Task> {
         if (contains(toAdd)) {
             throw new DuplicateTaskException();
         }
+        if (isTaskOverlapped(null, toAdd)) {
+            throw new OverlapTaskException();
+        }
         internalList.add(toAdd);
     }
 
@@ -64,6 +68,10 @@ public class UniqueTaskList implements Iterable<Task> {
 
         if (target.isSameTask(editedTask) || contains(editedTask)) {
             throw new DuplicateTaskException();
+        }
+
+        if (isTaskOverlapped(target, editedTask)) {
+            throw new OverlapTaskException();
         }
 
         internalList.set(index, editedTask);
@@ -136,4 +144,14 @@ public class UniqueTaskList implements Iterable<Task> {
         return true;
     }
 
+    /**
+     * Checks whether {@code toCheck} task duration overlaps with any existing task in the task list.
+     * @param toCheck Task to be checked.
+     * @return True if there is overlap, false otherwise.
+     */
+    private boolean isTaskOverlapped(Task target, Task toCheck) {
+        requireNonNull(toCheck);
+        return internalList.stream().anyMatch(currentTask ->
+                currentTask != (target) && currentTask.isDateTimeOverlapped(toCheck));
+    }
 }

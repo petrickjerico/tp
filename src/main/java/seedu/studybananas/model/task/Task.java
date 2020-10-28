@@ -101,6 +101,9 @@ public class Task {
         return bothHaveDuration(t1, t2) && t1.getDuration().get().equals(t2.getDuration().get());
     }
 
+    private boolean isDateTimeOverlapped(Task otherTask) {
+        return false;
+    }
     private StringBuilder getDescriptionString() {
         StringBuilder emptyString = new StringBuilder("");
         return description.map(desc ->

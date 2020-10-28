@@ -55,8 +55,12 @@ public class TaskTest {
         editedCs2103T = new TaskBuilder(CS2103T_WEEK8_QUIZ).withDescription("Week 9 Tutorial").build();
         assertFalse(CS2103T_WEEK8_QUIZ.isSameTask(editedCs2103T));
 
-        // different time -> returns true
+        // different time -> returns false
         editedCs2103T = new TaskBuilder(CS2103T_WEEK8_QUIZ).withDateTime("2020-09-30 12:30").build();
-        assertTrue(CS2103T_WEEK8_QUIZ.isSameTask(editedCs2103T));
+        assertFalse(CS2103T_WEEK8_QUIZ.isSameTask(editedCs2103T));
+
+        // different duration -> returs false
+        editedCs2103T = new TaskBuilder(CS2103T_WEEK8_QUIZ).withDuration("10").build();
+        assertFalse(CS2103T_WEEK8_QUIZ.isSameTask(editedCs2103T));
     }
 }

@@ -18,14 +18,9 @@ public class DateTime {
     public static final String MESSAGE_CONSTRAINTS =
             "DateTime should be in the yyyy-MM-dd HH:mm format";
     public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm";
-    private static final String UI_FORMAT = "EEEE, MMM dd hh:mm a";
-    private static final String UI_FORMAT_DATE = "EEEE, MMM dd";
+    private static final String UI_FORMAT_DATE = "EEEE, MMM dd yyyy";
 
     public final LocalDateTime dateTime;
-
-    private DateTime() {
-        dateTime = null;
-    }
 
     /**
      * Constructs a {@code DateTime}.

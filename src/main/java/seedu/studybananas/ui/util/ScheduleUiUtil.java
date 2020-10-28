@@ -63,6 +63,10 @@ public class ScheduleUiUtil {
      * Still need to check if it is accurate.
      */
     public static double getMarginFromDateTime(DateTime time) {
+        if (!time.isToday()) {
+            return INITIAL_PADDING;
+        }
+
         int hour = time.dateTime.getHour();
         int minute = time.dateTime.getMinute();
         return INITIAL_PADDING + hour * MARGIN_PER_HOUR + minute * MARGIN_PER_MINUTE;

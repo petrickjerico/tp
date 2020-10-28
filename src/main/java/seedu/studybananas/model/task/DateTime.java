@@ -51,6 +51,21 @@ public class DateTime {
     }
 
     /**
+     * Util function for sample data.
+     * @return
+     */
+    public static DateTime getYesterday(int hour, int minute) {
+        LocalDate today = LocalDate.now().minusDays(1);
+        LocalTime time = LocalTime.of(hour, minute);
+        DateTimeFormatter dayFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+        String todayStr = dayFormatter.format(today) + " " + timeFormatter.format(time);
+        return new DateTime(todayStr);
+    }
+
+
+
+    /**
      * Returns true if a given string is a valid date or an empty string.
      */
     public static boolean isValidDateTime(String test) {

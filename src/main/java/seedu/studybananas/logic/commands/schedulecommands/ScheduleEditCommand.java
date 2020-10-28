@@ -12,7 +12,8 @@ import java.util.List;
 import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.ScheduleModel;
 import seedu.studybananas.model.task.DateTime;
@@ -31,7 +32,7 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
             + PREFIX_TITLE + "TITLE (if any) \n"
             + PREFIX_DESCRIPTION + "DESCRIPTION (if any) \n"
             + PREFIX_TIME + "TIME (if any) \n"
-            + PREFIX_DURATION + "DURATION (if any) \n"
+            + PREFIX_DURATION + "DURATION (if any in minutes) \n"
             + "Example: " + COMMAND_WORD + " 1 T: Household dur: 60";
 
     public static final String MESSAGE_EDIT_TASK_SUCCESS = "Edited Task: %1$s";
@@ -77,7 +78,7 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
             Task taskToEdit = lastShownList.get(targetIndex.getZeroBased());
             Task editedTask = generateEditedTask(taskToEdit, title, description, dateTime, duration);
             model.setTask(taskToEdit, editedTask);
-            return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
+            return new ScheduleCommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
         } catch (DuplicateTaskException e) {
             throw new CommandException(MESSAGE_DUPLICATED_TASK);
         }

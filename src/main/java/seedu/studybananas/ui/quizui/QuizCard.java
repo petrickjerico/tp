@@ -51,9 +51,7 @@ public class QuizCard extends ResultDisplay {
 
     public void setFeedbackToUser(String feedbackToUser) {
         String[] splittedFeedback = parsingAnswer(feedbackToUser);
-        if (isEndOfQuiz(feedbackToUser)) {
-            setFeedbackToUser(parsingStatistic(feedbackToUser)[1], "");
-        } else if (doesContainAnswer(splittedFeedback)) {
+        if (doesContainAnswer(splittedFeedback)) {
             setFeedbackToUser(splittedFeedback[0], splittedFeedback[1]);
         } else {
             setFeedbackToUser("", splittedFeedback[0]);
@@ -63,15 +61,6 @@ public class QuizCard extends ResultDisplay {
     private String[] parsingAnswer(String feedbackToUser) {
         String[] splittedFeedback = feedbackToUser.split("STUDYBANANAS");
         return splittedFeedback;
-    }
-
-    private String[] parsingStatistic(String feedbackToUser) {
-        String[] statistics = feedbackToUser.split(Quiz.END_OF_QUIZ);
-        return statistics;
-    }
-
-    private boolean isEndOfQuiz(String feedbackToUser) {
-        return feedbackToUser.startsWith(Quiz.END_OF_QUIZ);
     }
 
     private boolean doesContainAnswer(String[] splittedFeedback) {

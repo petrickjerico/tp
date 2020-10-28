@@ -5,8 +5,10 @@ import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.model.flashcard.FlashcardSetName;
 import seedu.studybananas.model.flashcard.Question;
 
+/**
+ * Represents a quiz pertaining to a flashcard set.
+ */
 public class Quiz {
-    public static final String END_OF_QUIZ = "STUDYBANANAS QUIZ FINISH";
     private final FlashcardSet flashcardSet;
     private final int flashcardSetIndex;
     private final int totalScore;
@@ -45,6 +47,11 @@ public class Quiz {
         this.userAnswers = userAnswers;
     }
 
+    /**
+     * Returns the next {@code Question} in the quiz.
+     * If the last question is reached, it returns null.
+     * @return the question of the next flashcard
+     */
     public Question getQuestion() {
         if (currentIndex >= totalScore) {
             return null;
@@ -52,16 +59,21 @@ public class Quiz {
         return flashcardSet.getFlashcards().get(currentIndex).getQuestion();
     }
 
-    public void nextQuestion() {
-        currentIndex++;
-    }
-
+    /**
+     * Returns the {@code Answer} to the current question in the quiz.
+     * Also increases the index to prepare to get the next question.
+     * @return answer of the current flashcard
+     */
     public Answer getAnswer() {
         Answer answer = flashcardSet.getFlashcards().get(currentIndex).getAnswer();
         currentIndex++;
         return answer;
     }
 
+    /**
+     * Returns the user answers saved for the quiz.
+     * @return userAnswers
+     */
     public String[] getUserAnswers() {
         return userAnswers;
     }
@@ -75,10 +87,19 @@ public class Quiz {
         this.userAnswers[currentIndex] = input;
     }
 
+    /**
+     * Returns the flashcard set index of the flashcard set.
+     * @return int flashcardSetIndex
+     */
     public int getFlashcardSetIndex() {
         return this.flashcardSetIndex;
     }
 
+    /**
+     * Sets the points scored based on whether a question
+     * is answered correctly.
+     * @param isCorrect boolean
+     */
     public void setPointsScored(boolean isCorrect) {
         scoreboard[currentIndex - 1] = isCorrect;
         if (isCorrect) {
@@ -86,10 +107,18 @@ public class Quiz {
         }
     }
 
+    /**
+     * Obtains the records for the correctness of answers in the quiz.
+     * @return boolean[] scoreboard
+     */
     public boolean[] getResults() {
         return scoreboard;
     }
 
+    /**
+     * Returns the {@code FlashcardSet} in the quiz.
+     * @return FlashcardSet flashcardSet
+     */
     public FlashcardSet getFlashcardSet() {
         return flashcardSet;
     }
@@ -101,41 +130,59 @@ public class Quiz {
      */
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Total score = ").append(pointsScored).append("/").append(totalScore).append("\n");
-        builder.append("Percentage scored = ").append(getPercentageScore()).append("\n");
-        for (int i = 0; i < totalScore; i++) {
-            String isCorrect = scoreboard[i] ? "\u2713" : "\u2718";
-            builder.append(i + 1).append(". Question: ")
-                    .append(flashcardSet.getFlashcards().get(i).getQuestion())
-                    .append("\n");
-            if (userAnswers[i] != null) {
+        builder.append("Total score = ").append(pointsScored).append("/").append(totalScore).append("\n\n");
+        try {
+            for (int i = 0; i < totalScore; i++) {
+                String isCorrect = scoreboard[i] ? "\u2713" : "\u2718";
+                builder.append(i + 1).append(". Question: ")
+                        .append(flashcardSet.getFlashcards().get(i).getQuestion())
+                        .append("\n");
                 builder.append("Correct Answer: ")
                         .append(flashcardSet.getFlashcards().get(i).getAnswer())
                         .append("\n");
-                builder.append(isCorrect).append(". Your Answer: ")
-                        .append(userAnswers[i])
-                        .append("\n");
-            } else {
-                builder.append(isCorrect).append("Answer: ")
-                        .append(flashcardSet.getFlashcards().get(i).getAnswer())
-                        .append("\n");
+                if (userAnswers[i] != null) {
+                    builder.append(isCorrect).append(". Your Answer: ")
+                            .append(userAnswers[i])
+                            .append("\n\n");
+                } else {
+                    builder.append(isCorrect).append(". Your Answer: (not stored)")
+                            .append("\n\n");
+                }
             }
+            return builder.toString();
+        } catch (IndexOutOfBoundsException e) {
+            return null;
         }
-        return builder.toString();
     }
 
+    /**
+     * Obtains the percentage score of the quiz.
+     * @return double percentage score
+     */
     public double getPercentageScore() {
         return ((double) pointsScored) / ((double) totalScore) * 100;
     }
 
+    /**
+     * Obtains the points scored for the quiz.
+     * @return int pointsScored
+     */
     public int getPointsScored() {
         return pointsScored;
     }
 
+    /**
+     * Returns the total score.
+     * @return int totalScore
+     */
     public int getTotalScore() {
         return totalScore;
     }
 
+    /**
+     * Returns the {@code FlashcardSetName} of the quiz.
+     * @return FlashcardSetName name of flashcard set
+     */
     public FlashcardSetName getFlsetName() {
         return flashcardSet.getFlashcardSetName();
     }

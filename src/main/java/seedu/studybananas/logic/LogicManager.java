@@ -8,13 +8,14 @@ import javafx.collections.ObservableList;
 import seedu.studybananas.commons.core.GuiSettings;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.StudyBananasParser;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.Model;
 import seedu.studybananas.model.flashcard.Flashcard;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlySchedule;
 import seedu.studybananas.model.task.Task;
@@ -45,7 +46,7 @@ public class LogicManager implements Logic {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
         CommandResult commandResult;
-        Command<? super Model> command = studyBananasParser.parseCommand(commandText, false);
+        Command<? super Model> command = studyBananasParser.parseCommand(commandText, model.hasStarted());
         commandResult = command.execute(model);
 
         try {
@@ -97,6 +98,16 @@ public class LogicManager implements Logic {
     @Override
     public ObservableList<Flashcard> getFlashcardSetToView() {
         return model.getFlashcardSetToView();
+    }
+
+    @Override
+    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+        model.setFlashcardSetToView(flashcardSet);
+    }
+
+    @Override
+    public Quiz getQuizRecordsToView() {
+        return model.getQuizRecordsToView();
     }
 
     @Override

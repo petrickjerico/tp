@@ -5,7 +5,8 @@ import static seedu.studybananas.model.Model.PREDICATE_SHOW_ALL_FLASHCARDSETS;
 
 import javafx.collections.ObservableList;
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.FlashcardCommandResult;
 import seedu.studybananas.model.FlashcardModel;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 
@@ -30,7 +31,7 @@ public class ListFlashcardSetCommand extends Command<FlashcardModel> {
         details.append(" sets");
         flashcardSets.forEach(flashcardSet -> details.append("\n" + flashcardSet.toString()));
 
-        return new CommandResult(MESSAGE_SUCCESS + details.toString());
+        return new FlashcardCommandResult(MESSAGE_SUCCESS + details.toString());
     }
 
     @Override

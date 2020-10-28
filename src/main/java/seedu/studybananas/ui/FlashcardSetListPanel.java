@@ -2,11 +2,12 @@ package seedu.studybananas.ui;
 
 import java.util.logging.Logger;
 
-import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import seedu.studybananas.commons.core.LogsCenter;
+import seedu.studybananas.logic.Logic;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 
 /**
@@ -16,15 +17,18 @@ public class FlashcardSetListPanel extends UiPart<Region> {
     private static final String FXML = "FlashcardSetListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(FlashcardSetListPanel.class);
 
-    @javafx.fxml.FXML
+    @FXML
     private ListView<FlashcardSet> flashcardSetListView;
+
+    private Logic logic;
 
     /**
      * Creates a {@code TaskListPanel} with the given {@code ObservableList}.
      */
-    public FlashcardSetListPanel(ObservableList<FlashcardSet> flashcardSets) {
+    public FlashcardSetListPanel(Logic logic) {
         super(FXML);
-        flashcardSetListView.setItems(flashcardSets);
+        this.logic = logic;
+        flashcardSetListView.setItems(logic.getFilteredFlashcardSetList());
         flashcardSetListView.setCellFactory(listView -> new FlashcardSetListViewCell());
     }
 
@@ -42,7 +46,7 @@ public class FlashcardSetListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new FlashcardSetCard(flashcardSet, getIndex() + 1).getRoot());
+                setGraphic(new FlashcardSetCard(logic, flashcardSet, getIndex() + 1).getRoot());
             }
         }
     }

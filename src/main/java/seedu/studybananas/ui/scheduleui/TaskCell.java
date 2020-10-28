@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -21,6 +22,8 @@ import seedu.studybananas.ui.util.SingletonClickedTaskState;
 
 public class TaskCell extends UiPart<Region> implements Observer<Task> {
     private static final String FXML = "TaskCell.fxml";
+
+    private static final double MINIMUM_CELL_HEIGHT = 13.0; // The height of title label.
 
     @FXML
     private Label startTime;
@@ -50,8 +53,14 @@ public class TaskCell extends UiPart<Region> implements Observer<Task> {
 
         // Violation of LoD, may need to improve.
         // Calculate the height of the cell;
-        double height = task.getDuration().get().duration * MARGIN_PER_MINUTE;
+        double height = getTaskCellHeight();
         this.task.setPrefHeight(height);
+
+        //only shows the title when the duration is less than an hour.
+        if (!task.isLongerThanAnHour()) {
+            this.task.getChildren().remove(startTime);
+            this.task.setAlignment(Pos.CENTER);
+        }
 
         //subscribe to the taskStae
         taskState.register(this);
@@ -96,6 +105,15 @@ public class TaskCell extends UiPart<Region> implements Observer<Task> {
         LocalDateTime dateTime = task.getDateTime().get().dateTime;
         DateTimeFormatter formmater = DateTimeFormatter.ofPattern("HH:mm");
         return toAmPmTime(formmater.format(dateTime));
+    }
+
+    private double getTaskCellHeight() {
+        double calculatedVal = calculateMinuteHappensToday() * MARGIN_PER_MINUTE;
+        return calculatedVal < MINIMUM_CELL_HEIGHT ? MINIMUM_CELL_HEIGHT : calculatedVal;
+    }
+
+    private double calculateMinuteHappensToday() {
+        return taskObj.getNumberOfMinuteHappenToday();
     }
 
     @Override

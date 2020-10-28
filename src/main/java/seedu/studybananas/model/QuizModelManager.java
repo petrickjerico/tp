@@ -11,6 +11,7 @@ public class QuizModelManager implements QuizModel {
 
     private final QuizRecords quizRecords;
     private Quiz quiz;
+    private FlashcardSetName toViewFlsetName;
 
     public QuizModelManager(ReadOnlyQuizRecords quizRecords) {
         this.quizRecords = new QuizRecords(quizRecords);
@@ -51,7 +52,7 @@ public class QuizModelManager implements QuizModel {
         String score = this.quiz.toString();
         quizRecords.addQuiz(quiz);
         this.quiz = null;
-        return Quiz.END_OF_QUIZ + score;
+        return score;
     }
 
     @Override
@@ -62,6 +63,21 @@ public class QuizModelManager implements QuizModel {
     @Override
     public String getQuizRecords(FlashcardSetName flashcardSetName) {
         return this.quizRecords.getQuiz(flashcardSetName).toString();
+    }
+
+    @Override
+    public Quiz getQuizRecordsToView() {
+        if (toViewFlsetName == null) {
+            return null;
+        }
+        FlashcardSetName toViewFlsetName = this.toViewFlsetName;
+        this.toViewFlsetName = null;
+        return this.quizRecords.getQuiz(toViewFlsetName);
+    }
+
+    @Override
+    public void setQuizRecordsToView(FlashcardSetName name) {
+        this.toViewFlsetName = name;
     }
 
     @Override

@@ -2,9 +2,11 @@ package seedu.studybananas.ui;
 
 import java.util.logging.Logger;
 
+import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import seedu.studybananas.commons.core.GuiSettings;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
@@ -58,6 +60,7 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
+        primaryStage.setResizable(false);
 
         //subscribe to UiState
         uiState = SingletonUiState.getInstance();
@@ -85,31 +88,45 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
      * Sets the default size based on {@code guiSettings}.
      */
     private void setWindowDefaultSize(GuiSettings guiSettings) {
-        // MainWindow dimensions are FIXED instead
-        primaryStage.setHeight(600);
-        primaryStage.setWidth(960);
+        primaryStage.setHeight(guiSettings.getWindowHeight());
+        primaryStage.setWidth(guiSettings.getWindowWidth());
+        if (guiSettings.getWindowCoordinates() != null) {
+            primaryStage.setX(guiSettings.getWindowCoordinates().getX());
+            primaryStage.setY(guiSettings.getWindowCoordinates().getY());
+        }
     }
 
     void show() {
         primaryStage.show();
-        primaryStage.setResizable(false);
     }
 
 
     private void handleStateChange(UiStateType state) {
+        ScaleTransition animation = handleSwitchAnimation();
         switch (state) {
         case SCHEDULE:
             mainWindow.setCenter(scheduleUi.getRoot());
+            animation.setNode(scheduleUi.getRoot());
             break;
         case FLASHCARD:
+            animation.setNode(flashcardUi.getRoot());
             mainWindow.setCenter(flashcardUi.getRoot());
             break;
         case QUIZ:
+            animation.setNode(quizUi.getRoot());
             mainWindow.setCenter(quizUi.getRoot());
             break;
         default:
             throw new IllegalArgumentException();
         }
+
+        // try to resolve lag; still need some tuning
+        Thread thread = new Thread() {
+            public void run() {
+                animation.play();
+            }
+        };
+        thread.start();
     }
 
     @Override
@@ -120,6 +137,15 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
     @Override
     public void update(UiStateType state) {
         handleStateChange(state);
+    }
+
+    private ScaleTransition handleSwitchAnimation() {
+        ScaleTransition switchAnimation = new ScaleTransition(Duration.millis(100));
+        switchAnimation.setFromX(0.8);
+        switchAnimation.setFromY(0.8);
+        switchAnimation.setToX(1.0);
+        switchAnimation.setToY(1.0);
+        return switchAnimation;
     }
 
 

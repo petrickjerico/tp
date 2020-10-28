@@ -10,7 +10,7 @@ public class TimeFormatChecker {
     private static final List<TimeFormat> VALID_FORMATS = Arrays.asList(new IsoDateTime(), new IsoDate());
 
     /**
-     * Check if the time format is supported by Study bananas)
+     * Check if the time format is supported by StudyBananas)
      * @param time
      */
     public static boolean check(String time) {
@@ -19,7 +19,7 @@ public class TimeFormatChecker {
                 LocalDateTime ldt = format.check(time);
                 return true;
             } catch (TimeFormatException e) {
-                // not a good practice, still need refactor.
+                continue;
             }
         }
         return false;

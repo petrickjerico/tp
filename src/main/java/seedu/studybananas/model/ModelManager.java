@@ -218,6 +218,16 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public Quiz getQuizRecordsToView() {
+        return flashcardQuizModelManager.getQuizRecordsToView();
+    }
+
+    @Override
+    public void setQuizRecordsToView(FlashcardSetName name) {
+        flashcardQuizModelManager.setQuizRecordsToView(name);
+    }
+
+    @Override
     public ReadOnlyQuizRecords getAllQuizRecords() {
         return flashcardQuizModelManager.getAllQuizRecords();
     }
@@ -311,4 +321,10 @@ public class ModelManager implements Model {
     public void setFlashcardSetToView(Index index) {
         flashcardQuizModelManager.setFlashcardSetToView(index);
     }
+
+    @Override
+    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+        flashcardQuizModelManager.setFlashcardSetToView(flashcardSet);
+    }
+
 }

@@ -1,7 +1,10 @@
 package seedu.studybananas.model.task;
 
+import static java.time.temporal.ChronoUnit.MINUTES;
 import static java.util.Objects.requireNonNull;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -46,6 +49,15 @@ public class Task {
         return duration;
     }
 
+    /**
+     * Util function for {@Code TaskCell}, so duration must exist.
+     * @return
+     */
+    public boolean isLongerThanAnHour() {
+        assert duration.isPresent() : "You shouldn't call this method!!";
+        return getNumberOfMinuteHappenToday() >= 60;
+    }
+
     public Title getTitle() {
         return title;
     }
@@ -70,7 +82,11 @@ public class Task {
         Task otherTask = other;
         return otherTask.getTitle().rigorousEquals(this.getTitle())
                 && (other.getDescription().equals(this.getDescription())
-                || haveSameDescription(otherTask, this));
+                || haveSameDescription(otherTask, this))
+                && (other.getDateTime().equals(this.getDateTime())
+                || haveSameDateTime(otherTask, this))
+                && (other.getDuration().equals(this.getDuration())
+                || haveSameDuration(otherTask, this));
     }
 
     private boolean bothHaveDescription(Task t1, Task t2) {
@@ -81,6 +97,25 @@ public class Task {
         return bothHaveDescription(t1, t2) && t1.getDescription().get().rigorousEquals(t2.getDescription().get());
     }
 
+    private boolean bothHaveDateTime(Task t1, Task t2) {
+        return t1.getDateTime().isPresent() && t2.getDateTime().isPresent();
+    }
+
+    private boolean haveSameDateTime(Task t1, Task t2) {
+        return bothHaveDateTime(t1, t2) && t1.getDateTime().get().equals(t2.getDateTime().get());
+    }
+
+    private boolean bothHaveDuration(Task t1, Task t2) {
+        return t1.getDuration().isPresent() && t2.getDuration().isPresent();
+    }
+
+    private boolean haveSameDuration(Task t1, Task t2) {
+        return bothHaveDuration(t1, t2) && t1.getDuration().get().equals(t2.getDuration().get());
+    }
+
+    private boolean isDateTimeOverlapped(Task otherTask) {
+        return false;
+    }
     private StringBuilder getDescriptionString() {
         StringBuilder emptyString = new StringBuilder("");
         return description.map(desc ->
@@ -109,8 +144,33 @@ public class Task {
     public void setTaskCellBind(TaskCell taskCellBind) {
         this.taskCellBind = taskCellBind;
     }
+
+    /**
+     * Check if the duration of the tasks would happen today.
+     * @return
+     */
     public boolean happensToday() {
-        return duration.isPresent() && dateTime.isPresent() && dateTime.get().isToday();
+        return duration.isPresent() && dateTime.isPresent()
+                && (dateTime.get().isToday() || startFromOldAndExtendToToday(dateTime.get(), duration.get()));
+    }
+
+    private boolean startFromOldAndExtendToToday(DateTime dateTime, Duration duration) {
+        LocalDateTime startTime = dateTime.dateTime;
+        LocalDateTime endTime = dateTime.dateTime.plusMinutes(duration.duration);
+        LocalDate today = LocalDate.now();
+        return today.isAfter(startTime.toLocalDate()) && (!endTime.toLocalDate().isBefore(today));
+    }
+
+    public double getNumberOfMinuteHappenToday() {
+        assert happensToday() : "should only calculate number of minute happens today when the task happens today";
+        double duration = this.duration.get().duration;
+        if (dateTime.get().isToday()) {
+            return duration;
+        } else {
+            LocalDateTime today = LocalDate.now().atStartOfDay();
+            double minutes = MINUTES.between(today, dateTime.get().dateTime);
+            return MINUTES.between(today, dateTime.get().dateTime.plusMinutes((long) duration));
+        }
     }
     /**
      * Returns true if both tasks have the same identity and data fields.
@@ -132,6 +192,7 @@ public class Task {
                 && otherTask.dateTime.equals(this.dateTime)
                 && otherTask.duration.equals(this.duration);
     }
+
 
     @Override
     public int hashCode() {

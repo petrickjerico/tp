@@ -14,7 +14,8 @@ import java.util.List;
 
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.ScheduleModel;
 import seedu.studybananas.model.systemlevelmodel.Schedule;
@@ -68,7 +69,7 @@ public class ScheduleCommandTestUtil {
     public static void assertCommandSuccess(Command<ScheduleModel> command, ScheduleModel actualModel,
                                             String expectedMessage,
                                             ScheduleModel expectedModel) {
-        CommandResult expectedCommandResult = new CommandResult(expectedMessage);
+        CommandResult expectedCommandResult = new ScheduleCommandResult(expectedMessage);
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
     }
 

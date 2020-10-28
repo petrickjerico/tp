@@ -111,6 +111,12 @@ public class FlashcardQuizModelManager implements FlashcardQuizModel {
     }
 
     @Override
+    public void setFlashcardSetToView(FlashcardSet flashcardSet) {
+        flashcardModelManager.setFlashcardSetToView(flashcardSet);
+    }
+
+
+    @Override
     public Question start(Quiz quiz) {
         return quizModelManager.start(quiz);
     }
@@ -153,6 +159,16 @@ public class FlashcardQuizModelManager implements FlashcardQuizModel {
     @Override
     public String getQuizRecords(FlashcardSetName name) {
         return quizModelManager.getQuizRecords(name);
+    }
+
+    @Override
+    public Quiz getQuizRecordsToView() {
+        return quizModelManager.getQuizRecordsToView();
+    }
+
+    @Override
+    public void setQuizRecordsToView(FlashcardSetName name) {
+        quizModelManager.setQuizRecordsToView(name);
     }
 
     @Override

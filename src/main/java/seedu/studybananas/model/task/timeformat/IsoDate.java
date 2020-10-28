@@ -14,14 +14,15 @@ public class IsoDate implements TimeFormat {
     private static final DateTimeFormatter TIME_FORMATTER =
             new DateTimeFormatterBuilder().appendPattern(PATTERN)
                     .optionalStart().appendPattern(" HH:mm")
-                    .optionalEnd().parseDefaulting(ChronoField.HOUR_OF_DAY, 12)
-                    .parseDefaulting(ChronoField.MINUTE_OF_DAY, 0).toFormatter();
-
+                    .optionalEnd().toFormatter();
+// parseDefaulting(ChronoField.HOUR_OF_DAY, 12)
+//                    .parseDefaulting(ChronoField.MINUTE_OF_DAY, 0).
     @Override
     public LocalDateTime check(String date) {
         try {
+            String dateAppendedTime = date + " 12:00";
             DateTimeFormatter strictDateTimeFormatter = TIME_FORMATTER.withResolverStyle(ResolverStyle.STRICT);
-            LocalDateTime ld = LocalDateTime.parse(date, strictDateTimeFormatter);
+            LocalDateTime ld = LocalDateTime.parse(dateAppendedTime, strictDateTimeFormatter);
             return ld;
         } catch (DateTimeParseException e) {
             throw new TimeFormatException();

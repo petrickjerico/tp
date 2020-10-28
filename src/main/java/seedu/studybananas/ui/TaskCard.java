@@ -44,7 +44,6 @@ public class TaskCard extends UiPart<Region> {
         description.setText(task.getDescription().map(des-> des.description).orElse(""));
         date.setText(task.getDateTime().map(time -> time.getUiFormatDate()).orElse(""));
         time.setText(task.getDateTime().map(time -> toAmPmTime(time.getStandardFormatTime())).orElse(""));
-
     }
 
     @Override

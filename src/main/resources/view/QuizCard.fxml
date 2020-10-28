@@ -9,9 +9,9 @@
 <VBox fx:id="quizCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-radius: 20px; -fx-border-radius: 20px;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
 
-      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="105.0" prefWidth="375.0" style="-fx-background-radius: 20 20 0 0; -fx-background-color: #DBA849;">
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" hmax="0.4" prefHeight="105.0" prefWidth="375.0" style="-fx-background-radius: 20 20 0 0; -fx-background-color: #DBA849;">
          <content>
-            <Label fx:id="labelQuestion" centerShape="false" minHeight="105.0" minWidth="375.0" style="-fx-label-padding: 0 0 0 5; -fx-background-radius: 20 20 0 0; -fx-background-color: #DBA849;" text="Question" wrapText="true">
+            <Label fx:id="labelQuestion" centerShape="false" minHeight="105.0" minWidth="357.0" prefHeight="105.0" prefWidth="357.0" style="-fx-label-padding: 0 0 0 5; -fx-background-radius: 20 0 0 0; -fx-background-color: #DBA849;" text="Question" wrapText="true">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
@@ -21,10 +21,10 @@
             </Label>
          </content>
       </ScrollPane>
-      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="375.0" style="-fx-background-color: #DADD6E; -fx-border-width: 1px">
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" hmax="0.4" prefHeight="200.0" prefWidth="375.0" style="-fx-background-color: #DADD6E; -fx-border-width: 1px">
          <content>
 
-            <Label fx:id="answer" minHeight="200.0" minWidth="375.0" style="-fx-label-padding: 0 0 0 5; -fx-background-color: #DADD6E;" text="Answer" wrapText="true">
+            <Label fx:id="answer" minHeight="200.0" minWidth="358.0" prefHeight="200.0" prefWidth="358.0" style="-fx-label-padding: 0 0 0 5; -fx-background-color: #DADD6E;" text="Answer" wrapText="true">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>

@@ -1,5 +1,7 @@
 package seedu.studybananas.logic.commands.commandresults;
 
+import seedu.studybananas.ui.util.UiStateType;
+
 public class ScheduleCommandResult extends CommandResult {
 
     public ScheduleCommandResult(String feedbackToUser) {
@@ -7,8 +9,8 @@ public class ScheduleCommandResult extends CommandResult {
     }
 
     @Override
-    public CommmandResultType getCommandResultType() {
-        return CommmandResultType.Schedule;
+    public UiStateType getCommandResultType() {
+        return UiStateType.SCHEDULE;
     }
 
 }

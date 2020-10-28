@@ -5,9 +5,11 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import javafx.util.Callback;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.ui.CommandBox;
@@ -16,9 +18,26 @@ import seedu.studybananas.ui.UiPart;
 import seedu.studybananas.ui.commons.PositiveResponse;
 import seedu.studybananas.ui.commons.ResponsePopUp;
 import seedu.studybananas.ui.commons.WarningResponse;
+import seedu.studybananas.ui.listeners.CommandResultStateListener;
+import seedu.studybananas.ui.listeners.UiStateListener;
+import seedu.studybananas.ui.util.UiStateType;
 
 public class TaskDetailPanel extends UiPart<Region> {
     private static final String FXML = "TaskDetailPanel.fxml";
+    private final Callback<CommandResult, Void> actionOnCommandResultChange = new Callback<CommandResult, Void>() {
+        @Override
+        public Void call(CommandResult state) {
+            if (shouldRender(state)) {
+                logger.info("Result: " + state.getFeedbackToUser());
+                responsePopUp.setContent(new PositiveResponse(state.getFeedbackToUser()));
+                responsePopUp.open();
+            }
+            return null;
+        }
+    };
+
+    // empty callback
+    private final Callback<UiStateType, Void> actionOnUiStateChange = (uiStateType) -> {return null;};
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
@@ -28,6 +47,9 @@ public class TaskDetailPanel extends UiPart<Region> {
     private TaskListPanel taskListPanel;
     private ResponsePopUp responsePopUp;
     private TaskDetailSkin taskDetailCard;
+    private CommandResultStateListener commandResultStateListener;
+    private UiStateListener uiStateListener;
+
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -56,8 +78,14 @@ public class TaskDetailPanel extends UiPart<Region> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
-    }
 
+        // set up listener
+        commandResultStateListener = new CommandResultStateListener();
+        uiStateListener = new UiStateListener();
+        commandResultStateListener.onChange(actionOnCommandResultChange);
+        uiStateListener.onChange(actionOnUiStateChange);
+
+    }
 
 
     public TaskListPanel getTaskListPanel() {
@@ -72,9 +100,8 @@ public class TaskDetailPanel extends UiPart<Region> {
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
             CommandResult commandResult = logic.execute(commandText);
-            logger.info("Result: " + commandResult.getFeedbackToUser());
-            responsePopUp.setContent(new PositiveResponse(commandResult.getFeedbackToUser()));
-            responsePopUp.open();
+            uiStateListener.updateState(commandResult.getCommandResultType());
+            commandResultStateListener.updateState(commandResult);
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
@@ -84,4 +111,8 @@ public class TaskDetailPanel extends UiPart<Region> {
         }
     }
 
+
+    private boolean shouldRender(CommandResult commandResult) {
+        return commandResult instanceof ScheduleCommandResult;
+    }
 }

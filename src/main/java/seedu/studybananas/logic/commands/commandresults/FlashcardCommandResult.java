@@ -1,5 +1,7 @@
 package seedu.studybananas.logic.commands.commandresults;
 
+import seedu.studybananas.ui.util.UiStateType;
+
 public class FlashcardCommandResult extends CommandResult {
 
     public FlashcardCommandResult(String feedbackToUser) {
@@ -7,7 +9,7 @@ public class FlashcardCommandResult extends CommandResult {
     }
 
     @Override
-    public CommmandResultType getCommandResultType() {
-        return CommmandResultType.Flashcard;
+    public UiStateType getCommandResultType() {
+        return UiStateType.FLASHCARD;
     }
 }

@@ -4,14 +4,12 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Objects;
 
+import seedu.studybananas.ui.util.UiStateType;
+
 /**
  * Represents the result of a command execution.
  */
 public abstract class CommandResult {
-
-    enum CommmandResultType {
-        Schedule, Flashcard, Quiz;
-    }
 
     protected final String feedbackToUser;
 
@@ -50,7 +48,7 @@ public abstract class CommandResult {
         return exit;
     }
 
-    public abstract CommmandResultType getCommandResultType();
+    public abstract UiStateType getCommandResultType();
 
     @Override
     public boolean equals(Object other) {

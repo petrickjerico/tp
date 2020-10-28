@@ -1,6 +1,7 @@
 package seedu.studybananas.logic.commands.commandresults;
 
 import seedu.studybananas.model.quiz.Quiz;
+import seedu.studybananas.ui.util.UiStateType;
 
 public class QuizCommandResult extends CommandResult {
     private final Quiz quiz;
@@ -34,8 +35,8 @@ public class QuizCommandResult extends CommandResult {
     }
 
     @Override
-    public CommmandResultType getCommandResultType() {
-        return CommmandResultType.Quiz;
+    public UiStateType getCommandResultType() {
+        return UiStateType.QUIZ;
     }
 
 }

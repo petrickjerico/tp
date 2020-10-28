@@ -2,6 +2,9 @@ package seedu.studybananas.model.task;
 
 import static java.util.Objects.requireNonNull;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -22,6 +25,7 @@ public class Task {
 
     /**
      * Initializes a Task.
+     *
      * @param title       Title of the task.
      * @param description Description of the task.
      * @param dateTime    Date and Time of the task (Optional)
@@ -50,8 +54,16 @@ public class Task {
         return title;
     }
 
-    private boolean hasDate() {
-        return !dateTime.isEmpty();
+    private boolean hasDescription() {
+        return description.isPresent();
+    }
+
+    private boolean hasDateTime() {
+        return dateTime.isPresent();
+    }
+
+    private boolean hasDuration() {
+        return duration.isPresent();
     }
 
     /**
@@ -78,32 +90,68 @@ public class Task {
     }
 
     private boolean bothHaveDescription(Task t1, Task t2) {
-        return t1.getDescription().isPresent() && t2.getDescription().isPresent();
+        return t1.hasDescription() && t2.hasDescription();
     }
 
     private boolean haveSameDescription(Task t1, Task t2) {
-        return bothHaveDescription(t1, t2) && t1.getDescription().get().rigorousEquals(t2.getDescription().get());
+        return bothHaveDescription(t1, t2)
+                && t1.getDescription().get().rigorousEquals(t2.getDescription().get());
     }
 
     private boolean bothHaveDateTime(Task t1, Task t2) {
-        return t1.getDateTime().isPresent() && t2.getDateTime().isPresent();
+        return t1.hasDateTime() && t2.hasDateTime();
     }
 
     private boolean haveSameDateTime(Task t1, Task t2) {
-        return bothHaveDateTime(t1, t2) && t1.getDateTime().get().equals(t2.getDateTime().get());
+        return bothHaveDateTime(t1, t2)
+                && t1.getDateTime().get().equals(t2.getDateTime().get());
     }
 
     private boolean bothHaveDuration(Task t1, Task t2) {
-        return t1.getDuration().isPresent() && t2.getDuration().isPresent();
+        return t1.hasDuration() && t2.hasDuration();
     }
 
     private boolean haveSameDuration(Task t1, Task t2) {
-        return bothHaveDuration(t1, t2) && t1.getDuration().get().equals(t2.getDuration().get());
+        return bothHaveDuration(t1, t2)
+                && t1.getDuration().get().equals(t2.getDuration().get());
     }
 
-    private boolean isDateTimeOverlapped(Task otherTask) {
-        return false;
+    /**
+     * Checks whether the duration of {@code otherTask} overlaps
+     * with the duration of {@code this} task.
+     *
+     * @param otherTask Task to be checked.
+     * @return True if the two tasks overlap, false other wise.
+     */
+    public boolean isDateTimeOverlapped(Task otherTask) {
+        if (!bothHaveDateTime(otherTask, this)) {
+            return false;
+        } else {
+            LocalDateTime thisTaskStartingTime = this.getTaskStartingTime();
+            LocalDateTime thisTaskEndingTime = this.getTaskEndingTime();
+            LocalDateTime otherTaskStartingTime = otherTask.getTaskStartingTime();
+            LocalDateTime otherTaskEndingTime = otherTask.getTaskEndingTime();
+            return thisTaskStartingTime.isBefore(otherTaskEndingTime)
+                    && thisTaskEndingTime.isAfter(otherTaskStartingTime);
+        }
     }
+
+    private LocalDateTime getTaskStartingTime() {
+        return getDateTime().get().dateTime;
+    }
+
+    private LocalDateTime getTaskEndingTime() {
+        Integer duration = this.duration.map(dur -> dur.duration).orElse(0);
+        LocalDateTime endingDateTime = getDateTime().get().dateTime.plus(duration, ChronoUnit.MINUTES);
+        return endingDateTime;
+    }
+
+    private StringBuilder getTitleString() {
+        StringBuilder titleInString = new StringBuilder();
+        titleInString.append("Title: ").append(getTitle() + "\n");
+        return titleInString;
+    }
+
     private StringBuilder getDescriptionString() {
         StringBuilder emptyString = new StringBuilder("");
         return description.map(desc ->
@@ -133,9 +181,15 @@ public class Task {
         this.taskCellBind = taskCellBind;
     }
 
+    /**
+     * Checks if the task takes place today.
+     *
+     * @return True if it takes place today, false otherwise.
+     */
     public boolean happensToday() {
         return duration.isPresent() && dateTime.isPresent() && dateTime.get().isToday();
     }
+
     /**
      * Returns true if both tasks have the same identity and data fields.
      * This defines a stronger notion of equality between two tasks.
@@ -166,8 +220,7 @@ public class Task {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append("Title: ")
-                .append(getTitle() + "\n")
+        builder.append(getTitleString())
                 .append(getDescriptionString())
                 .append(getDateTimeString())
                 .append(getDurationString());

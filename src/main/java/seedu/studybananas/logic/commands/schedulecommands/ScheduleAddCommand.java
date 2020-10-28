@@ -1,6 +1,8 @@
 package seedu.studybananas.logic.commands.schedulecommands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.studybananas.commons.core.Messages.MESSAGE_DUPLICATED_TASK;
+import static seedu.studybananas.commons.core.Messages.MESSAGE_OVERLAP_TASK;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_DURATION;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_TIME;
@@ -11,6 +13,7 @@ import seedu.studybananas.logic.commands.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.ScheduleModel;
 import seedu.studybananas.model.task.Task;
+import seedu.studybananas.model.task.exceptions.OverlapTaskException;
 
 public class ScheduleAddCommand extends Command<ScheduleModel> {
     public static final String COMMAND_WORD = "add task";
@@ -24,7 +27,6 @@ public class ScheduleAddCommand extends Command<ScheduleModel> {
             + "Example: " + COMMAND_WORD + " " + PREFIX_TITLE + "CS2103T " + PREFIX_DESCRIPTION + "Quiz 11";
 
     public static final String MESSAGE_SUCCESS = "New task added: %1$s";
-    public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in the schedule";
 
     private final Task toAdd;
 
@@ -40,13 +42,17 @@ public class ScheduleAddCommand extends Command<ScheduleModel> {
     public CommandResult execute(ScheduleModel model) throws CommandException {
         requireNonNull(model);
 
-        if (model.hasTask(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_TASK);
+        try {
+            if (model.hasTask(toAdd)) {
+                throw new CommandException(MESSAGE_DUPLICATED_TASK);
+            }
+
+            model.addTask(toAdd);
+
+            return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+        } catch (OverlapTaskException overlapError) {
+            throw new CommandException(MESSAGE_OVERLAP_TASK);
         }
-
-        model.addTask(toAdd);
-
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 
     @Override

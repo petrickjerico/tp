@@ -2,6 +2,7 @@ package seedu.studybananas.logic.commands.schedulecommands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.studybananas.commons.core.Messages.MESSAGE_DUPLICATED_TASK;
+import static seedu.studybananas.commons.core.Messages.MESSAGE_OVERLAP_TASK;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_DURATION;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_TIME;
@@ -21,6 +22,7 @@ import seedu.studybananas.model.task.Duration;
 import seedu.studybananas.model.task.Task;
 import seedu.studybananas.model.task.Title;
 import seedu.studybananas.model.task.exceptions.DuplicateTaskException;
+import seedu.studybananas.model.task.exceptions.OverlapTaskException;
 
 public class ScheduleEditCommand extends Command<ScheduleModel> {
     public static final String COMMAND_WORD = "edit task";
@@ -80,6 +82,8 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
             return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
         } catch (DuplicateTaskException e) {
             throw new CommandException(MESSAGE_DUPLICATED_TASK);
+        } catch (OverlapTaskException e) {
+            throw new CommandException(MESSAGE_OVERLAP_TASK);
         }
     }
 

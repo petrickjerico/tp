@@ -47,7 +47,7 @@ public class UniqueTaskList implements Iterable<Task> {
         if (contains(toAdd)) {
             throw new DuplicateTaskException();
         }
-        if (isTaskOverlapped(toAdd)) {
+        if (isTaskOverlapped(null, toAdd)) {
             throw new OverlapTaskException();
         }
         internalList.add(toAdd);
@@ -70,7 +70,7 @@ public class UniqueTaskList implements Iterable<Task> {
             throw new DuplicateTaskException();
         }
 
-        if (isTaskOverlapped(editedTask)) {
+        if (isTaskOverlapped(target, editedTask)) {
             throw new OverlapTaskException();
         }
 
@@ -149,8 +149,9 @@ public class UniqueTaskList implements Iterable<Task> {
      * @param toCheck Task to be checked.
      * @return True if there is overlap, false otherwise.
      */
-    private boolean isTaskOverlapped(Task toCheck) {
+    private boolean isTaskOverlapped(Task target, Task toCheck) {
         requireNonNull(toCheck);
-        return internalList.stream().anyMatch(toCheck::isDateTimeOverlapped);
+        return internalList.stream().anyMatch(currentTask ->
+                currentTask != (target) && currentTask.isDateTimeOverlapped(toCheck));
     }
 }

@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
 import seedu.studybananas.commons.core.index.Index;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardModel;
 import seedu.studybananas.model.flashcard.Flashcard;
@@ -195,6 +195,11 @@ public class AddFlashcardSetCommandTest {
 
         @Override
         public void setFlashcardSetToView(Index index) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setFlashcardSetToView(FlashcardSet flashcardSet) {
             throw new AssertionError("This method should not be called.");
         }
     }

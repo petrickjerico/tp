@@ -4,7 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.studybananas.model.Model.PREDICATE_SHOW_ALL_TASKS;
 
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.model.ScheduleModel;
 
 /**
@@ -20,7 +21,7 @@ public class ScheduleListCommand extends Command<ScheduleModel> {
     public CommandResult execute(ScheduleModel model) {
         requireNonNull(model);
         model.updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
-        return new CommandResult(MESSAGE_SUCCESS);
+        return new ScheduleCommandResult(MESSAGE_SUCCESS);
     }
 
     @Override

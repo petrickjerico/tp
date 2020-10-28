@@ -5,7 +5,8 @@ import static seedu.studybananas.model.Model.PREDICATE_SHOW_ALL_FLASHCARDS;
 
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.FlashcardCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardModel;
 import seedu.studybananas.model.flashcard.FlashcardSet;
@@ -42,7 +43,7 @@ public class ListFlashcardCommand extends Command<FlashcardModel> {
         model.setFlashcardSetToView(flashcardSetIndex);
         FlashcardSet flashcardSet = model.getFlashcardSet(flashcardSetIndex);
 
-        return new CommandResult(String.format(
+        return new FlashcardCommandResult(String.format(
                 MESSAGE_SUCCESS + "\n" + "There are %d flashcards in the set %s.",
                 flashcardSet.getSize(), flashcardSet.getName().name));
     }

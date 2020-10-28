@@ -36,7 +36,7 @@ public class AnswerCommand extends Command<QuizModel> {
 
         model.saveAnswer(answer);
         QuizCard.setQuestion(model.getQuestion());
-        String userAnswerToShow = "Your answer: " + answer;
+        String userAnswerToShow = "Your answer: " + answer + "\n\n";
         Answer answer = model.getAnswer();
 
         QuizCommand.setStatus(Status.ON_ANSWER);

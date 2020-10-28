@@ -48,7 +48,9 @@ public class SingletonUiState implements Observable {
      * @param state
      */
     public void updateState(UiStateType state) {
-        this.uiState = state;
-        inform();
+        if (this.uiState != state) {
+            this.uiState = state;
+            inform();
+        }
     }
 }

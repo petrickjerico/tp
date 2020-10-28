@@ -5,14 +5,34 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import javafx.util.Callback;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
-import seedu.studybananas.logic.commands.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.FlashcardCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
+import seedu.studybananas.ui.listeners.CommandResultStateListener;
+import seedu.studybananas.ui.listeners.UiStateListener;
+import seedu.studybananas.ui.util.UiStateType;
 
 public class FlashcardUi extends UiPart<Region> {
     private static final String FXML = "FlashcardUi.fxml";
+    private final Callback<CommandResult, Void> actionOnCommandResultChange = new Callback<CommandResult, Void>() {
+        @Override
+        public Void call(CommandResult state) {
+            if (shouldRender(state)) {
+                logger.info("Result: " + state.getFeedbackToUser());
+                resultDisplay.setFeedbackToUser(state.getFeedbackToUser());
+            }
+            return null;
+        }
+    };
+
+    // empty callback
+    private final Callback<UiStateType, Void> actionOnUiStateChange = (uiStateType) -> {
+        return null;
+    };
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
@@ -22,8 +42,10 @@ public class FlashcardUi extends UiPart<Region> {
     private FlashcardSetListPanel flashcardSetListPanel;
     private ResultDisplay resultDisplay;
     private FlashcardsDisplay flashcardsDisplay;
+    private UiStateListener uiStateListener;
+    private CommandResultStateListener commandResultStateListener;
 
-    @javafx.fxml.FXML
+    @FXML
     private StackPane commandBoxPlaceholder;
 
     @FXML
@@ -44,7 +66,7 @@ public class FlashcardUi extends UiPart<Region> {
         // Set dependencies
         this.logic = logic;
 
-        flashcardSetListPanel = new FlashcardSetListPanel(logic.getFilteredFlashcardSetList());
+        flashcardSetListPanel = new FlashcardSetListPanel(logic);
         flashcardSetListPanelPlaceholder.getChildren().add(flashcardSetListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
@@ -55,6 +77,12 @@ public class FlashcardUi extends UiPart<Region> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+
+        // set listeners
+        uiStateListener = new UiStateListener();
+        commandResultStateListener = new CommandResultStateListener();
+        uiStateListener.onChange(actionOnUiStateChange);
+        commandResultStateListener.onChange(actionOnCommandResultChange);
     }
 
     public FlashcardSetListPanel getFlashcardSetListPanel() {
@@ -69,9 +97,8 @@ public class FlashcardUi extends UiPart<Region> {
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
             CommandResult commandResult = logic.execute(commandText);
-            logger.info("Result: " + commandResult.getFeedbackToUser());
-            resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
-
+            uiStateListener.updateState(commandResult.getCommandResultType());
+            commandResultStateListener.updateState(commandResult);
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
@@ -79,4 +106,9 @@ public class FlashcardUi extends UiPart<Region> {
             throw e;
         }
     }
+
+    private boolean shouldRender(CommandResult commandResult) {
+        return commandResult instanceof FlashcardCommandResult;
+    }
+
 }

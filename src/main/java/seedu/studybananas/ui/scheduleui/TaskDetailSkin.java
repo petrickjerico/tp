@@ -1,10 +1,16 @@
 package seedu.studybananas.ui.scheduleui;
 
+import static seedu.studybananas.ui.util.ScheduleUiUtil.constructQuizDescription;
+import static seedu.studybananas.ui.util.ScheduleUiUtil.replaceComponent;
 import static seedu.studybananas.ui.util.ScheduleUiUtil.toAmPmTime;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
+import seedu.studybananas.logic.Logic;
+import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.task.Task;
 import seedu.studybananas.ui.UiPart;
 import seedu.studybananas.ui.util.Observable;
@@ -17,6 +23,8 @@ public class TaskDetailSkin extends UiPart<Region> implements Observer<Task> {
     private SingletonClickedTaskState taskState;
 
     @FXML
+    private VBox cardPane;
+    @FXML
     private Label title;
     @FXML
     private Label description;
@@ -26,12 +34,16 @@ public class TaskDetailSkin extends UiPart<Region> implements Observer<Task> {
     private Label time;
     @FXML
     private Label duration;
+    private Logic logic;
+    private Node currentDescription;
 
     /**
      * Default constructor for TaskDetailSkin
      */
-    public TaskDetailSkin() {
+    public TaskDetailSkin(Logic logic) {
         super(FXML);
+        this.logic = logic;
+
         title.setText("Untitled");
         description.setText("Click on the task on the time scale to view its detail");
         taskState = SingletonClickedTaskState.getInstance();
@@ -41,15 +53,28 @@ public class TaskDetailSkin extends UiPart<Region> implements Observer<Task> {
 
         // handle wrap text
         description.setWrapText(true);
+
+        // set current description for future replacement
+        currentDescription = description;
     }
 
     public void setTask(Task task) {
         title.setText(task.getTitle().title);
-        description.setText(task.getDescription().map(des-> des.description).orElse(
-                "Add description by edit command"));
         date.setText(task.getDateTime().map(time -> time.getUiFormatDate()).orElse(""));
         time.setText(task.getDateTime().map(time -> toAmPmTime(time.getStandardFormatTime())).orElse(""));
         duration.setText(task.getDuration().map(dur -> String.valueOf(dur.duration) + " minutes").orElse("minutes"));
+
+        String descriptionText = task.getDescription().map(des-> des.description).orElse(
+                "Add description by edit command");
+        try {
+            QuizDescription quizDescription = constructQuizDescription(descriptionText, logic);
+            replaceComponent(currentDescription, quizDescription.getRoot(), cardPane);
+            currentDescription = quizDescription.getRoot();
+        } catch (ParseException e) {
+            description.setText(descriptionText);
+            replaceComponent(currentDescription, description, cardPane);
+            currentDescription = description;
+        }
     }
 
     @Override
@@ -61,4 +86,5 @@ public class TaskDetailSkin extends UiPart<Region> implements Observer<Task> {
     public void update(Task state) {
         setTask(state);
     }
+
 }

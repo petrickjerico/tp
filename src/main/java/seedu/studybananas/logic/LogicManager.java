@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import seedu.studybananas.commons.core.GuiSettings;
 import seedu.studybananas.commons.core.LogsCenter;
+import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
@@ -58,6 +59,36 @@ public class LogicManager implements Logic {
         }
 
         return commandResult;
+    }
+
+    @Override
+    public CommandResult execute(Command command) throws CommandException {
+        logger.info("----------------[USER COMMAND][" + command + "]");
+
+        CommandResult commandResult;
+        commandResult = command.execute(model);
+
+        try {
+            storage.saveSchedule(model.getSchedule());
+            storage.saveFlashcardBank(model.getFlashcardBank());
+            storage.saveQuizRecords(model.getAllQuizRecords());
+        } catch (IOException ioe) {
+            throw new CommandException(FILE_OPS_ERROR_MESSAGE + ioe, ioe);
+        }
+
+        return commandResult;
+    }
+
+    @Override
+    public FlashcardSet getFlashcardSetFromIndex(Index idx) {
+        return model.getFlashcardSet(idx);
+    }
+
+
+
+    @Override
+    public Command parse(String commandText) throws ParseException {
+        return studyBananasParser.parseCommand(commandText, false);
     }
 
     @Override

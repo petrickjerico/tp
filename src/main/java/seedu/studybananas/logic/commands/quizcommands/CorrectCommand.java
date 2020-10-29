@@ -19,25 +19,25 @@ public class CorrectCommand extends Command<QuizModel> {
         requireNonNull(model);
 
         if (!model.hasStarted()) {
-            throw new CommandException(QuizCommand.MESSAGE_QUIZ_NEVER_STARTED);
+            throw new CommandException(QuizCommandUitl.MESSAGE_QUIZ_NEVER_STARTED);
         }
 
-        if (!QuizCommand.getStatus().equals(STATUS)) {
-            throw new CommandException(QuizCommand.MESSAGE_UNAVAIL_ON_QUESTION);
+        if (!QuizCommandUitl.getStatus().equals(STATUS)) {
+            throw new CommandException(QuizCommandUitl.MESSAGE_UNAVAIL_ON_QUESTION);
         }
 
         try {
             model.tallyScore(true);
 
-            QuizCommand.setStatus(Status.ON_QUESTION);
+            QuizCommandUitl.setStatus(Status.ON_QUESTION);
             QuizCard.setQuestion(model.getQuestion());
-            String questionStringToShow = QuizCommand.MESSAGE_AVAIL_ON_QUESTION;
-            QuizCommand.updateCommandResult(questionStringToShow);
+            String questionStringToShow = QuizCommandUitl.MESSAGE_AVAIL_ON_QUESTION;
+            QuizCommandUitl.updateCommandResult(questionStringToShow);
 
             return new QuizCommandResult(questionStringToShow, model.getQuiz());
 
         } catch (NullPointerException | IndexOutOfBoundsException e) {
-            QuizCommand.updateCommandResult(null);
+            QuizCommandUitl.updateCommandResult(null);
             model.setQuizRecordsToView(model.getQuiz().getFlsetName());
             return new QuizCommandResult(model.stopQuiz());
         }

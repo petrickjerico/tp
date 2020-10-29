@@ -4,6 +4,8 @@ import java.nio.file.Path;
 
 import javafx.collections.ObservableList;
 import seedu.studybananas.commons.core.GuiSettings;
+import seedu.studybananas.commons.core.index.Index;
+import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
@@ -27,6 +29,28 @@ public interface Logic {
      * @throws ParseException If an error occurs during parsing.
      */
     CommandResult execute(String commandText) throws CommandException, ParseException;
+
+    /**
+     * Executes the command without parsing commandText.
+     * @return the result of the command execution.
+     * @throws CommandException If an error occurs during command execution.
+     */
+    CommandResult execute(Command command) throws CommandException;
+
+    /**
+     * Parse command without executing it.
+     * @param commandText
+     * @return the result of the command.
+     * @throws ParseException If an error occurs during parsing.
+     */
+    Command parse(String commandText) throws ParseException;
+
+    /**
+     * Get {@Code FlashcardSet} by {@Code Index}.
+     * @param idx index of the flashcardSet.
+     */
+    FlashcardSet getFlashcardSetFromIndex(Index idx);
+
 
     /**
      * Returns the Schedule.
@@ -85,6 +109,8 @@ public interface Logic {
      * Set the user prefs' GUI settings.
      */
     void setGuiSettings(GuiSettings guiSettings);
+
+
 
 
 }

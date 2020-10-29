@@ -14,9 +14,9 @@ public class RefreshCommand extends Command<FlashcardQuizModel> {
     public CommandResult execute(FlashcardQuizModel model) throws CommandException {
 
         if (!model.hasStarted()) {
-            throw new CommandException(QuizCommand.MESSAGE_QUIZ_NEVER_STARTED);
+            throw new CommandException(QuizCommandUitl.MESSAGE_QUIZ_NEVER_STARTED);
         }
 
-        return new QuizCommandResult(QuizCommand.getCurrentCommandResult());
+        return new QuizCommandResult(QuizCommandUitl.getCurrentCommandResult());
     }
 }

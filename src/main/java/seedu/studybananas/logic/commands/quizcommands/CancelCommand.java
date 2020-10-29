@@ -21,12 +21,12 @@ public class CancelCommand extends Command<QuizModel> {
         requireNonNull(model);
         try {
             if (!model.hasStarted()) {
-                throw new CommandException(QuizCommand.MESSAGE_QUIZ_NEVER_STARTED);
+                throw new CommandException(QuizCommandUitl.MESSAGE_QUIZ_NEVER_STARTED);
             }
 
             model.cancelQuiz();
             QuizCard.setQuestion(null);
-            QuizCommand.updateCommandResult(QuizCommand.MESSAGE_QUIZ_NEVER_STARTED);
+            QuizCommandUitl.updateCommandResult(QuizCommandUitl.MESSAGE_QUIZ_NEVER_STARTED);
 
             return new QuizCommandResult(MESSAGE_SUCCESS);
         } catch (NullPointerException e) {

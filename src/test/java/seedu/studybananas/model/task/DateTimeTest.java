@@ -15,7 +15,7 @@ public class DateTimeTest {
 
     @Test
     public void isValidDateTime() {
-        // null phone number
+        // null date time
         assertThrows(NullPointerException.class, () -> DateTime.isValidDateTime(null));
 
         // invalid date time
@@ -25,6 +25,7 @@ public class DateTimeTest {
         assertFalse(DateTime.isValidDateTime("2020/03/20")); // no time
 
         // valid date time
-        assertTrue(DateTime.isValidDateTime("2020-10-10 12:00")); // correct format
+        assertTrue(DateTime.isValidDateTime("2020-10-10")); // correct format
+        assertTrue(DateTime.isValidDateTime("Thursday, Oct 29 2020 08:00")); // correct format
     }
 }

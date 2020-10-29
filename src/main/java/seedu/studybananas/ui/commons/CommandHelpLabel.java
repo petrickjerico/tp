@@ -10,14 +10,17 @@ public class CommandHelpLabel extends UiPart<Region> {
     private static final String FXML = "CommandHelpLabel.fxml";
 
     @FXML
-    HBox labelPane;
+    private HBox labelPane;
     @FXML
-    Label command;
+    private Label command;
     @FXML
-    Label argument;
+    private Label argument;
     @FXML
-    Label description;
+    private Label description;
 
+    /**
+     * Constructs CommandHelpLabel with command, argument and description.
+     */
     public CommandHelpLabel(String command, String argument, String description) {
         super(FXML);
         this.command.setText(command);

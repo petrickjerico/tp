@@ -1,6 +1,5 @@
 package seedu.studybananas.ui;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
@@ -38,12 +37,12 @@ public class HelpWindow extends UiPart<Stage> {
 
     private final List<CommandInfo> commands = Arrays.asList(
            new CommandInfo("list task", null, "list all the task in the schedule"),
-            new CommandInfo("add task", "T: <title>\nd: <description>\n" +
-                    "t: <time>\ndur:<duration>", "add a new task to your schedule"),
+            new CommandInfo("add task", "T: <title>\nd: <description>\n"
+                    + "t: <time>\ndur:<duration>", "add a new task to your schedule"),
             new CommandInfo("delete task", "<index>", "delete your task by index"),
             new CommandInfo("search task", "queryKey", "search tasks by their title"),
-            new CommandInfo("edit task", "<index>\nT: <title>\nd: <description>\n" +
-                    "t: <time>\ndur:<duration>", "edit task "),
+            new CommandInfo("edit task", "<index>\nT: <title>\nd: <description>\n"
+                    + "t: <time>\ndur:<duration>", "edit task "),
             new CommandInfo("add flset", "name: <setname>", "create a new flashcard set"),
             new CommandInfo("list flset", null, "list all the flashcards that you have"),
             new CommandInfo("delete flset", "<setIndex>", "delete flashcard set by index"),

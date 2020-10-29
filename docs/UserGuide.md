@@ -340,7 +340,7 @@ Upon deletion of the `task`, the saved information of the task will be deleted.
 
 Format: `delete task <index>`  
 
-Examples:
+Example:
 - `delete task 2`  
 
 Remarks:
@@ -365,48 +365,76 @@ Figure __. Result of `delete task` command
 
 ### **Search for a task**: `search task`
 
-Finds the tasks of which information contains any of the given keywords (for `title`) 
-or all of the given keywords (`description` and `dateTime`).  
+If you would like to search for a specific task using a certain **keyword(s)**, this command displays any `task` that its `title`
+contains *any* of the given **keyword(s)** or its `description` and `time` contains *all* of the given **keyword(s)**. 
 
-Format: `search task <keyword>`
+Format: `search task <keywords>`  
 
-Basic Usage: 
-- The search is case-insensitive. e.g. `homework` matches `Homework`.
-- The order of the keywords does not matter. e.g. `CS2103T topics` matches `topics CS2103T`.
-- Start_time, period and name of the tasks are all searched.
-- Partial words match e.g. `CS2013` matches `CS2103T`.
+Examples:  
+- `search task CS2103T`
+- `search task Assignment`
+- `search task 2020-10-30`
 
-Advanced Usage:
-- `or` search: Tasks matching at least one keyword will be returned e.g. `CS2103T`, `CS2101`, `ST2334` returns `CS2103T homework`, `CS2101 homework`, and `ST2334 homework`. 
-- `and` search (search is and search by default): Tasks matching all the keywords will be returned e.g. `CS2103t week 7` returns `CS2103T homework week 7`
+Remarks:
+- The search is case-insensitive. For instance, `homework` matches `Homework`.
 
-Examples: <br />
-`search task CS2103t` <br />
-returns `CS2103T topics quiz week 7` and `CS2103T topics quiz week 8` <br />
-or `search task CS2103t CS2101`  <br />
-returns `CS2103t topics quiz week 7` and `CS2101 OP1`
+Expected Outcome:  
+
+For example, you would like to search for a `task` in the `schedule` with the **keyword** *Lab 8*. StudyBananas 
+searches for all tasks containing *Lab 8* in their `title`, `description` and `time` and displays all matching tasks.
+
+1)Enter the command `search task Lab 8` to search for tasks with the **keyword** *Lab 8*.  
+![searchTask1](images/searchTask1.png)  
+
+Figure __. Using `search task` command  
+
+2)After using the `search task` command, StudyBananas displays all the tasks with the
+specified **keyword**  
+![searchTask2](images/searchTask2.png)  
+  
+Figure __. Result of `search task` command
+
 <p>&nbsp;</p>
 
 ### **Edit a task**: `edit task`
 
-Edits the specified task's details with the input information.  
+If you would like to update some task details, this command allows you to edit the details of a trip at a specified `index` in the `schedule`.
 
-Format: `edit task <index> T:[title] d:[description] t:[time] dur:[duration]`
-- `<index>` is the compulsory field.
-- `<index>` refers to the index number shown in the displayed task list.
-- You can key in multiple `<index>`, but only the task at the first `index` will be edited.
-- `[title]`, `[description]`, `[time]` and `[duration]` are the new information that you want to update the task at the specified index.
-- `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command.
-- `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format.  
-- You can key in multiple `[title]`, `[description]`, `[time]` and `[duration]`, but only the last information of each field will be updated to the task.  
-
+You can edit a task's `title`, `description`, `time` and `duration`.  
+  
+Format: `edit task <index> [T:title] [d:description] [t:time] [dur:duration]`  
 
 Examples:
-- `edit task 1 T: Internship`: Edits the original title of the task at `index 1` to be `Internship`.
-- `edit task 2 d: Pipleline Tutorial homework dur: 60`: Edits the original description and duration of the task at `index 2` to be `Pipeline Tutorial homework` and `60` respectively.  
-- `edit task 5 6 T: CS2103T d: Post-lecture quiz t: 2020-10-31 13:00 dur: 60`: Edits the original title, description, time and
- duration of the task at `index 5` to be `CS2103T`, `Post-lecture quiz`, `2020-10-31 13:00` and `60` respectively.  
-- `edit task 2 d: Pipleline Tutorial homework dur: 60 d: Assignment Cache`: Edits the original description and duration of the task at `index 2` to be `Assigment Cache` and `60` respectively.  
+- `edit task 1 T: Internship`
+- `edit task 2 d: Pipleline Tutorial homework dur: 60`
+- `edit task 5 6 T: CS2103T d: Post-lecture quiz t: 2020-10-31 13:00 dur: 60`
+- `edit task 2 d: Pipleline Tutorial homework dur: 60 d: Assignment Cache`  
+
+Remarks:
+- The index refers to the index number shown in the fully displayed `schedule`.
+- The index must be a positive integer 1, 2, 3, …​ and within range of the task in your `schedule`. 
+- You can key in multiple `<index>`, but only the task at the first `index` will be edited.
+- `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command.
+- `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format.  
+- You can key in multiple `[title]`, `[description]`, `[time]` and `[duration]`, but only the last information of each field is by the task.  
+
+Expected Outcome:  
+
+For example, you previously add a `task`: *CS2100 Lab 8 on Thursday, Oct 29 2020 10:00 with duration 60 minutes*, which has 
+the index of `7` in the `schedule`. Later on, you 
+realise that you the lesson is supposed to start at 11:00 instead, you want to `edit task` it to the correct time.
+
+1)Enter the command `edit task 7 t: Thursday, Oct 29 2020 11:00` to edit the task.  
+![editTask1](images/editTask1.jpg)  
+
+Figure __. Using `edit task` command
+
+2)After using the `edit task` command, the details of the `task` are updated accordingly.
+![editTask2](images/editTask2.jpg)  
+
+Figure __. Result of `edit task` command, the task at index `7` is updated 
+
+
 <p>&nbsp;</p>
 
 ### **Saving the data**

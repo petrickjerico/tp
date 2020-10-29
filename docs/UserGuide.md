@@ -508,8 +508,8 @@ Exits the program
 
 | Action              | Format, Examples                                                                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Add task**        | `add task T:<titile> d:[description] t:[time]` <br> e.g., `add task T:CS2100 d: Pipeline tutorial`, `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
+| **Add task**        | `add task <T:titile> [d:description] [t:time]` <br> e.g., `add task T:CS2100 d: Pipeline tutorial`, `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
 | **List tasks**      | `list task` <br>                                                                                                                           |
 | **Delete task**     | `delete task <index>` <br>  e.g., `delete task 6`                                                                                          |
-| **Search for task** | `search task <keywords>` or `search <keywords>` <br> e.g., `search task CS2103T` or `search CS2103T`                                       |
-| **Edit task**       | `edit task <index> T:[title] d:[description] t:[time] dur:[duration]` <br> e.g., `edit task 2 T: CS2103T`, `edit task 1 d: Debug remaining errors dur: 60` |
+| **Search for task** | `search task <keywords>` <br> e.g., `search task CS2103T`                                     |
+| **Edit task**       | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g., `edit task 2 T: CS2103T`, `edit task 1 d: Debug remaining errors dur: 60` |

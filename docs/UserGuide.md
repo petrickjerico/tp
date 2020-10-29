@@ -458,8 +458,10 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 ### **View help**: `help`
 Directs you to this user guide by providing its link.
 
-Format: click on `help` button at the bottom left of the application.
-From the window that pops up, copy the link and paste it in your browser:
+Format: click on `help` button at the bottom left of the application.  
+ 
+A short summary of all the available commands is displayed in the new window. The link to our full UserGuide 
+is also available in the window. If you wish to read it, copy the link and paste it in your browser:
 
 ![HelpMessage](images/helpMessage.png)
 <p>&nbsp;</p>

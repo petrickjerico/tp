@@ -176,6 +176,9 @@ and whether they are correct for your reference.
 It is required for you to enter follow-up commands 
 to continue with the quiz.
 
+Refer to the picture of the quiz window for how the quiz is displayed below:
+![QuizWindow](images/QuizWindow.png)
+
 Format: `quiz <flset:setindex>`
 
 Alternatively, if you have a quiz task scheduled, 
@@ -190,23 +193,24 @@ Examples:
 #### Step 1
 When the quiz starts, as seen below, the question 
 of the first flashcard within the selected flashcard set appears, 
-as well as a prompt to type in the next command, `flip`, `ans:<answer>`, `refresh` or `cancel`.
+as well as an Instruction prompt to type in the next command, `flip`, `ans:<answer>`, `refresh` or `cancel`.
 
 ![FirstQuestion](images/FirstQuestion.png)
 
 - `flip`: Does not store your answer. Displays the answer to the flashcard question.
 (You may opt to remember your answer for evaluation against the correct answer later)
 - `ans:<answer>`: Stores your answer. Also, displays the answer to the flashcard question.
-- `refresh`: Shows the current state of the quiz 
+- `refresh`: Shows the current state of the quiz - Question, Answer and Instruction
 (the question, current answer if applicable and prompt instruction)
 - `cancel`: Stops the quiz 
 
 #### Step 2
 If the command entered is `flip` or `ans:<answer>`, 
 the correct answer will be displayed, 
-and there will be a prompt to enter the next command, `c`, `w`, `refresh` or `cancel`.
+and there will be the Instruction prompt to enter the next command, `c`, `w`, `refresh` or `cancel`.
 
-<img src="images/saved answer.png" width="200px">
+The image below shows the result when `ans:improves code quality and reduces bugs` is entered:
+![AnswerShown](images/AnswerShown.png)
 
 Based on the correct answer displayed, you may evaluate the answer provided. 
 If you think the question is answered correctly, type `c`. 
@@ -214,7 +218,7 @@ Else, type `w`. Your response will be taken into account when tabulating the qui
 
 - `c`: Indicates that the question on the flashcard is answered correctly.
 - `w`: Indicates that the question is answered wrongly.
-- `refresh`: Shows the current state of the quiz.
+- `refresh`: Shows the current state of the quiz - Question, Answer and Instruction
 (the question, current answer if applicable and prompt instruction)
 - `cancel`: Stops the quiz
 
@@ -224,9 +228,7 @@ Steps 1-2 are repeated until all flashcards in the set are displayed and answere
 
 Once the quiz stops, the score statistics will be displayed. 
 This score can also be viewed when viewing the last attempt of the flashcard set.
-
-At any point should you enter a command not pertaining to quiz, 
-you may key in `refresh` to see your current quiz state.
+(see [View last quiz attempt: `quiz score flset`](#view-last-quiz-attempt-quiz-score-flset))
 <p>&nbsp;</p>
 
 
@@ -239,9 +241,9 @@ It contains the following information:
 - List of questions each followed by answers from the last attempt
 - Indicators of whether the question is answered correctly (shown as tick and cross) beside each question
 
-<img src="images/view score.png" width="200px">
+![ViewScore](images/View Score.png)
 
-Format: `quiz score flset:<setindex>`
+Format: `quiz score <flset:setindex>`
 
 Examples: 
 `quiz score flset:9`, `quiz score flset:16`
@@ -387,8 +389,8 @@ Exits the program
 
 | Action                           | Format, Examples                                                                                     |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Quiz flset**                   | `quiz flset:<setindex>` <br> e.g., `quiz flset:7`, `flip`, `ans:<answer>`, `c/w`, `cancel`, `refresh`|
-| **Quiz score flset**             | `quiz score flset` <br>  e.g., `quiz score flset:6`                                                  |
+| **Quiz flset**                   | `quiz <flset:setindex>` <br> e.g., `quiz flset:7`, `flip`, `ans:<answer>`, `c/w`, `cancel`, `refresh`|
+| **Quiz score flset**             | `quiz score <flset:setindex>` <br>  e.g., `quiz score flset:6`                                                  |
 
 <p>&nbsp;</p>
 

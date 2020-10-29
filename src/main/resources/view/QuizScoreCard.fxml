@@ -13,7 +13,7 @@
                 style="-fx-background-color: #DADD6E;"
                 fitToWidth="true">
         <content>
-            <Label fx:id="score" minHeight="400.0" minWidth="375.0"
+            <Label fx:id="score" minHeight="400.0" minWidth="357.0"
                    style="-fx-label-padding: 0 0 0 5; -fx-background-color: #DADD6E;"
                    text="Score" wrapText="true">
                 <font>

@@ -37,6 +37,7 @@ public class UpcomingSchedule extends UiPart<Region> {
     private TimeScale timeScale;
 
     private Logic logic;
+    private LocalDate today;
 
     /**
      * Constructor for the UpcomingSchedulePanel, which is the left panel of the {@ScheduleUi}.
@@ -55,10 +56,8 @@ public class UpcomingSchedule extends UiPart<Region> {
 
         schedule.getChildren().add(timeScale.getRoot());
 
-        // Fill the label with date of "TODAY"
-        year.setText(String.valueOf(today.getYear()));
-        date.setText(getDateString(today));
-        day.setText(getDayString(today));
+        // Fill the label for today.
+        fillTopLabelForToday();
 
         // Add the currentTimePointer to the TimeScale
         String currentTime = getCurrentTime();
@@ -84,6 +83,8 @@ public class UpcomingSchedule extends UiPart<Region> {
                     timeScale.updateCurrentTimePosition(getMarginFromTime(newCurrentTime)
                             - CURRENT_TIME_POINTER_PADDING);
                     timeScale.handleOverlap(newCurrentTime);
+                    // update the today label
+                    fillTopLabelForToday();
                 });
             }
         });
@@ -91,6 +92,18 @@ public class UpcomingSchedule extends UiPart<Region> {
         timerThread.start();
 
 
+    }
+
+    private void fillTopLabelForToday() {
+        if (LocalDate.now().equals(today)) {
+            return;
+        }
+
+        // Fill the label with date of "TODAY"
+        today = LocalDate.now();
+        year.setText(String.valueOf(today.getYear()));
+        date.setText(getDateString(today));
+        day.setText(getDayString(today));
     }
 
     private String getDateString(LocalDate date) {

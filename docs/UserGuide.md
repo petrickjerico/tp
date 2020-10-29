@@ -250,7 +250,8 @@ After you add a new task to `StudyBananas`, the task information will be saved i
 
 You can also add a `quiz` as a valid `task` by entering the `quiz flset:<index>` command in the `description` field. 
   
-Format: `add task: <T:title> [d:description] [t:time] [dur: duration]`
+Format: `add task: <T:title> [d:description] [t:time] [dur: duration]`  
+
 Examples:
 - `add task T: CS2100 d: Pipeline tutorial dur: 45`
 - `add task T: CS2103T d: iP submission t: 2020-09-17 23:59`
@@ -302,33 +303,65 @@ Figure __. Result of `add task` command integrating with `quiz`.
 3)Click on the `Quiz CS2040` box in the `Description` of the task will redirect you to the `quiz` tab and start the `quiz` immediately for you.  
 ![addTaskWithQuiz3](images/addTaskWithQuiz3.png)  
 
-Figure __. Result of clicking on the `Quiz CS2040` box.
+Figure __. Result of clicking on the `Quiz CS2040` box
 
  <p>&nbsp;</p>
 
 ### **List tasks**: `list task`
 
-Shows a list of all the added study tasks.  
-
+If you  would like to view your full `schedule`, this command displays the full `schedule` that you have.  
+ 
 Format: `list task`
 
 Examples:
 - `list task`
+
+Expected Outcome:  
+
+1)Enter the command `list task`.
+![listTask1](images/listTask1.png)  
+  
+Figure __. Using `list task` command on `Schedule` tab  
+
+2)After using the `list task` command, you can see the full `schedule`.
+![listTask2](images/listTask2.png)  
+
+Figure __. Result of `list task` command
+
+
 <p>&nbsp;</p>
 
 ### **Delete a task**: `delete task`
 
-Deletes the specified task from the study bananas.  
+If you complete a task and would like to remove that task from your `schedule`, this command will remove the task
+at the specified `index`.  
+
+Upon deletion of the `task`, the saved information of the task will be deleted.  
 
 Format: `delete task <index>`  
-- Deletes the task at the specified index.
-- The index refers to the index number shown in the displayed task list.
-- The index must be a positive integer 1, 2, 3, …​
 
 Examples:
-- `delete task 2`: Deletes the task at index 2 in the the displayed task list.
-- `delete task 6`: Deletes the task at index 6 in the the displayed task list.
-<p>&nbsp;</p>
+- `delete task 2`  
+
+Remarks:
+- The index refers to the index number shown in the fully displayed `schedule`.
+- The index must be a positive integer 1, 2, 3, …​ and within range of the task in your `schedule`.  
+
+Expected Outcome:  
+
+For example, you just finished the `task` at index 4, **CS2100 Lab** and you 
+would like to delete that `task` from your `schedule`.  
+
+1)Enter the command `delete task 4`.  
+![deleteTask1](images/deleteTask1.jpg)  
+
+Figure __. Using `delete task` command
+
+2)After using the `delete task` command, the specified task is removed from your `schedule`.  
+![deleteTask1](images/deleteTask2.png)  
+
+Figure __. Result of `delete task` command  
+
 
 ### **Search for a task**: `search task`
 

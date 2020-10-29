@@ -79,11 +79,11 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 
 **Notes about the command format:**<br>
 
-* Words wrapped with angled brackets `<>` are the parameters to be supplied by you.<br>
+* Words wrapped with angled brackets `<>` are compulsory parameters to be supplied by you.<br>
   e.g. in `add flset:<setname>`, `<setname>` is a parameter which can be used as `add flset:Chemistry`.
 
 * Words wrapped with square brackets `[]` are optional parameters to be supplied by you.<br>
-  e.g. in `add task T:<title> d:[description] t:[time]`, `[description]` and `[time]` are optional parameters.
+  e.g. in `add task <T:title> [d:description]` can be used as `add task T: CS2103T d: Post-lecture quiz` or as `add taskT: CS2103T`. 
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `flset:<setindex> q:<question> a:<answer>`, `a:<answer> q:<question> flset:<setindex>` is also acceptable.
@@ -243,18 +243,68 @@ Examples:
 
 ### **Add a task**: `add task`
 
-Adds a study task to the task list.  
-  
-Format: `add task: T:<title> d:[description] t:[time]`
-- `<title>` field is compulsory.
-- `<title>` can accept strings that are capitalized or separated with spaces.
-- `[description]` field is optional.
-- `[time]` field is optional if you want to set a deadline or time limit for the task.
+If you would like to add a study task to your schedule, this command allows you to create a task and saves it to the 
+schedule, while specifying the `<title>`, `[description]`, `[time]` and `[duration]` of the task.  
 
+After you add a new task to `StudyBananas`, the task information will be saved in the `schedule.json` file.
+
+You can also add a `quiz` as a valid `task` by entering the `quiz flset:<index>` command in the `description` field. 
+  
+Format: `add task: <T:title> [d:description] [t:time] [dur: duration]`
 Examples:
-- `add task T: CS2100 d: Pipeline tutorial`
+- `add task T: CS2100 d: Pipeline tutorial dur: 45`
 - `add task T: CS2103T d: iP submission t: 2020-09-17 23:59`
-<p>&nbsp;</p>
+- `add Task T: CS2105 d: quiz flset:2 t: Saturday, Oct 31 2020 13:00 dur: 120`
+
+Remarks:
+- `title` can accept strings that are capitalized or separated with spaces.
+- `time` should be written in the format `t: yyyy-MM-dd HH:mm` or `t: EEEE, MMM-dd-yyyy HH:mm`
+- The hours and minutes in `time` is optional. If you do not specify it, the time will be set to 12:00 by default.
+- You cannot add a task such that it results in duplicated task, which are tasks having the same title, description, time and 
+duration.
+- You cannot add a task such that its time range coincides with the time range of existing tasks.
+
+Expected Outcome:
+
+For example, you would like to add a `task` to your schedule with the title **CS2100**, description **Lab 8**, date time 
+**2020-10-29 10:00** and duration of **60** minutes.
+
+Entering the command `add task T: CS2100 d: Lab 8 t: 2020-10-29 10:00 dur: 60` while on `Schedule` tab will add the `task` 
+to your schedule.
+
+1)Enter the `add task` command, including the specific information of the `task`.
+![addTask1](images/addTask1.png)  
+
+Figure __. Using `add task` command
+
+2)After using the `add task` command, the new `task` will be added to your schedule and displayed at the end of the 
+schedule.
+![addTask2](images/addTask2.png)  
+
+Figure __. Result of `add task` command
+
+Now, if you would like to add a `quiz` of flashcard set 1 as a `task` to your schedule.
+
+Entering the command `add task T: CS2040S d: quiz flset:1 dur: 30` while on `Schedule` tab will ad the `task` containing
+the `quiz` to your schedule.
+
+1)Enter the `add task` command, including the specific information of the `task`.
+![addTaskWithQuiz1](images/addTaskWithQuiz1.png)  
+
+Figure __. Using `add task` command integrate with `quiz`
+
+2)After using the `add task` command, the new `task` containing the `quiz` will be added to your schedule and displayed at the 
+end of the schedule.
+![addTaskWithQuiz2](images/addTaskWithQuiz2.png)  
+
+Figure __. Result of `add task` command integrating with `quiz`.  
+
+3)Click on the `Quiz CS2040` box in the `Description` of the task will redirect you to the `quiz` tab and start the `quiz` immediately for you.  
+![addTaskWithQuiz3](images/addTaskWithQuiz3.png)  
+
+Figure __. Result of clicking on the `Quiz CS2040` box.
+
+ <p>&nbsp;</p>
 
 ### **List tasks**: `list task`
 

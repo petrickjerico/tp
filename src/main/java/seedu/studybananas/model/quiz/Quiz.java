@@ -201,4 +201,8 @@ public class Quiz {
         Quiz otherQuiz = (Quiz) other;
         return otherQuiz.getFlsetName().equals(flashcardSet.getName());
     }
+
+    public String getQuizName() {
+        return "Quiz: " + this.flashcardSet.getFlashcardSetName().toString();
+    }
 }

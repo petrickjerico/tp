@@ -28,7 +28,7 @@ public class SampleDataUtil {
 
     public static Task[] getSampleTasks() {
         return new Task[] {
-            new Task(new Title("CS2103T"), new Description("Week 11 topics quiz."),
+            new Task(new Title("CS2103T"), new Description("quiz flset:1"),
                     DateTime.getYesterday(23, 0), new Duration(120)),
             new Task(new Title("CS2103T"), new Description("Week 8 topics quiz."),
                     DateTime.getToday(11, 30), new Duration(60)),

@@ -1,6 +1,6 @@
 package seedu.studybananas.logic.commands.quizcommands;
 
-public abstract class QuizCommand {
+public abstract class QuizCommandUitl {
     public static final String SPECIAL_LITERAL = "STUDYBANANAS";
     public static final String MESSAGE_QUIZ_NEVER_STARTED = "There are currently no ongoing quizzes";
     public static final String MESSAGE_UNAVAIL_ON_ANSWER =

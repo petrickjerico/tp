@@ -8,6 +8,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import seedu.studybananas.commons.core.LogsCenter;
+import seedu.studybananas.logic.Logic;
 import seedu.studybananas.model.task.Task;
 
 /**
@@ -20,13 +21,17 @@ public class TaskListPanel extends UiPart<Region> {
     @FXML
     private ListView<Task> taskListView;
 
+    private Logic logic;
+
+
     /**
      * Creates a {@code TaskListPanel} with the given {@code ObservableList}.
      */
-    public TaskListPanel(ObservableList<Task> taskList) {
+    public TaskListPanel(ObservableList<Task> taskList, Logic logic) {
         super(FXML);
         taskListView.setItems(taskList);
         taskListView.setCellFactory(listView -> new TaskListViewCell());
+        this.logic = logic;
     }
 
     /**
@@ -41,7 +46,7 @@ public class TaskListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new TaskCard(task, getIndex() + 1).getRoot());
+                setGraphic(new TaskCard(task, getIndex() + 1, logic).getRoot());
             }
         }
     }

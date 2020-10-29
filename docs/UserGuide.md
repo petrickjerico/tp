@@ -19,8 +19,6 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 ## Table of Contents
 - [**Quick start**](#quick-start)
 - [**Features**](#features)
-  * [Viewing help: `help`](#viewing-help-help)
-  * [Exit program: `exit`](#exit-program-exit)
   * [Add a flashcard set: `add flset`](#add-a-flashcard-set-add-flset)
   * [List all existing flashcard sets: `list flset`](#list-all-existing-flashcard-sets-list-flset)
   * [Delete a flashcard set: `delete flset`](#delete-a-flashcard-set-delete-flset)
@@ -34,7 +32,8 @@ This user guide aims to equip you with all necessary understanding to use StudyB
   * [Delete a task: `delete task`](#delete-a-task)
   * [Search for a task: `search task`](#search-for-a-task)
   * [Saving the data](#saving-the-data)
-  * [Archiving data files `[coming in v2.0]`](#archiving-data-files-coming-in-v20)
+  * [Viewing help: `help`](#viewing-help-help)
+  * [Exit program: `exit`](#exit-program-exit)
 - [**FAQ**](#faq)
 - [**Command summary**](#command-summary)
   * [General commands](#general-commands)

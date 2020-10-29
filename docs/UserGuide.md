@@ -176,17 +176,23 @@ and whether they are correct for your reference.
 It is required for you to enter follow-up commands 
 to continue with the quiz.
 
-Format: `quiz flset:<setindex>`
+Format: `quiz <flset:setindex>`
+
+Alternatively, if you have a quiz task scheduled, 
+you may double-click the bright-colored `Quiz:<quizname>` label 
+contained in the description of the task (as shown below):
+
+![TaskQuizLabel](images/TaskQuizLabel.png)
 
 Examples: 
 `quiz flset:2`, `quiz flset:3`
 
 #### Step 1
-After entering the command, as seen below, the question 
+When the quiz starts, as seen below, the question 
 of the first flashcard within the selected flashcard set appears, 
 as well as a prompt to type in the next command, `flip`, `ans:<answer>`, `refresh` or `cancel`.
 
-<img src="images/question.png" width="200px">
+![FirstQuestion](images/FirstQuestion.png)
 
 - `flip`: Does not store your answer. Displays the answer to the flashcard question.
 (You may opt to remember your answer for evaluation against the correct answer later)
@@ -228,7 +234,7 @@ you may key in `refresh` to see your current quiz state.
 ### **View last quiz attempt**: `quiz score flset`
 Shows the last attempt of a specific flashcard set.
 
-It comprises of the following information:
+It contains the following information:
 - Score (percentage out of 100%), and
 - List of questions each followed by answers from the last attempt
 - Indicators of whether the question is answered correctly (shown as tick and cross) beside each question

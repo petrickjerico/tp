@@ -19,8 +19,6 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 ## Table of Contents
 - [**Quick start**](#quick-start)
 - [**Features**](#features)
-  * [Viewing help: `help`](#viewing-help-help)
-  * [Exit program: `exit`](#exit-program-exit)
   * [Add a flashcard set: `add flset`](#add-a-flashcard-set-add-flset)
   * [List all existing flashcard sets: `list flset`](#list-all-existing-flashcard-sets-list-flset)
   * [Delete a flashcard set: `delete flset`](#delete-a-flashcard-set-delete-flset)
@@ -34,7 +32,8 @@ This user guide aims to equip you with all necessary understanding to use StudyB
   * [Delete a task: `delete task`](#delete-a-task)
   * [Search for a task: `search task`](#search-for-a-task)
   * [Saving the data](#saving-the-data)
-  * [Archiving data files `[coming in v2.0]`](#archiving-data-files-coming-in-v20)
+  * [Viewing help: `help`](#viewing-help-help)
+  * [Exit program: `exit`](#exit-program-exit)
 - [**FAQ**](#faq)
 - [**Command summary**](#command-summary)
   * [General commands](#general-commands)
@@ -56,18 +55,16 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+5. Type the command in the command box and press `Enter` to execute it.
    Some example commands you can try:
 
    * **`list`**`flset` : Lists all flashcard sets
 
-   * **`add`**`flset Chemistry` : Add a new empty set with name `Chemistry`.
+   * **`add`**`flset name:Chemistry` : Add a new empty set with name `Chemistry`.
 
-   * **`delete`**`flset:3` : Deletes the 3rd flashcard set in the current list of flashcard sets.
+   * **`delete`**`flset 3` : Deletes the 3rd flashcard set in the current list of flashcard sets.
    
    * **`add`**`task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 task to the task list.
-
-   * **`exit`** : Exits the app.
 
 6. Refer to the [Features](#features) below for details of each command.
 
@@ -80,13 +77,13 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 **Notes about the command format:**<br>
 
 * Words wrapped with angled brackets `<>` are compulsory parameters to be supplied by you.<br>
-  e.g. in `add flset:<setname>`, `<setname>` is a parameter which can be used as `add flset:Chemistry`.
+  e.g. in `add <flset:setname>`, `setname` is a parameter which can be used as `add flset:Chemistry`.
 
 * Words wrapped with square brackets `[]` are optional parameters to be supplied by you.<br>
   e.g. in `add task <T:title> [d:description]` can be used as `add task T: CS2103T d: Post-lecture quiz` or as `add taskT: CS2103T`. 
 
 * Parameters can be in any order.<br>
-  e.g. if the command specifies `flset:<setindex> q:<question> a:<answer>`, `a:<answer> q:<question> flset:<setindex>` is also acceptable.
+  e.g. if the command specifies `<flset:setindex> <q:question> <a:answer>`, `<a:answer> <q:question> <flset:setindex>` is also acceptable.
 
 </div>
 <p>&nbsp;</p>
@@ -176,19 +173,17 @@ and whether they are correct for your reference.
 It is required for you to enter follow-up commands 
 to continue with the quiz.
 
-Refer to the picture of the quiz window for how the quiz is displayed below:
-![QuizWindow](images/QuizWindow.png)
-
 Format: `quiz <flset:setindex>`
-
-Alternatively, if you have a quiz task scheduled, 
-you may double-click the bright-colored `Quiz:<quizname>` label 
-contained in the description of the task (as shown below):
-
-![TaskQuizLabel](images/TaskQuizLabel.png)
 
 Examples: 
 `quiz flset:2`, `quiz flset:3`
+
+Alternatively, if you have a quiz task scheduled, 
+you may double-click the bright-colored `Quiz:<quizname>` label 
+contained in the description of the task as shown below 
+(see [Task list commands](#task-list-commands)):
+
+![TaskQuizLabel](images/TaskQuizLabel.png)
 
 #### Step 1
 When the quiz starts, as seen below, the question 
@@ -210,6 +205,7 @@ the correct answer will be displayed,
 and there will be the Instruction prompt to enter the next command, `c`, `w`, `refresh` or `cancel`.
 
 The image below shows the result when `ans:improves code quality and reduces bugs` is entered:
+
 ![AnswerShown](images/AnswerShown.png)
 
 Based on the correct answer displayed, you may evaluate the answer provided. 
@@ -239,9 +235,9 @@ Shows the last attempt of a specific flashcard set.
 It contains the following information:
 - Score (percentage out of 100%), and
 - List of questions each followed by answers from the last attempt
-- Indicators of whether the question is answered correctly (shown as tick and cross) beside each question
+- Indicators of whether the question is answered correctly (shown as tick and cross)
 
-![ViewScore](images/View Score.png)
+![ViewScore](images/ViewScore.png)
 
 Format: `quiz score <flset:setindex>`
 
@@ -459,15 +455,18 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 
 
 ### **View help**: `help`
+Directs you to this user guide by providing its link.
 
-Lists all available commands.
+Format: click on `help` button at the bottom left of the application.
+From the window that pops up, copy the link and paste it in your browser:
 
-Format: `help`
+![HelpMessage](images/helpMessage.png)
 <p>&nbsp;</p>
 
 ### **Exit program**: `exit`
+Exits the program.
+Format: click on `Exit` button at the bottom left of the application.
 
-Exits the program
 <p>&nbsp;</p>
 
 --------------------------------------------------------------------------------------------------------------------

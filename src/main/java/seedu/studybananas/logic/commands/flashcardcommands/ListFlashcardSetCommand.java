@@ -29,7 +29,6 @@ public class ListFlashcardSetCommand extends Command<FlashcardModel> {
         details.append("\nThere are ");
         details.append(flashcardSets.size());
         details.append(" sets");
-        flashcardSets.forEach(flashcardSet -> details.append("\n" + flashcardSet.toString()));
 
         return new FlashcardCommandResult(MESSAGE_SUCCESS + details.toString());
     }

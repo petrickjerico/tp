@@ -43,7 +43,7 @@ public class Statistics {
 
         StackedBarChart<String, Number> stackedBarChart =
                 new StackedBarChart<>(xAxis, yAxis);
-        stackedBarChart.setTitle("Quiz score for " + quiz.getFlsetName());
+        stackedBarChart.setTitle("Percentage Score");
 
         XYChart.Series<String, Number> cSeries = new XYChart.Series<>();
         cSeries.setName("Correct - " + String.format("%.0f", percentageScore) + "%");

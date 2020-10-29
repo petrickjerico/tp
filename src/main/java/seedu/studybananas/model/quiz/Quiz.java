@@ -130,7 +130,8 @@ public class Quiz {
      */
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Total score = ").append(pointsScored).append("/").append(totalScore).append("\n\n");
+        builder.append("Total score for " + flashcardSet.getName() + " = ")
+                .append(pointsScored).append("/").append(totalScore).append("\n\n");
         try {
             for (int i = 0; i < totalScore; i++) {
                 String isCorrect = scoreboard[i] ? "\u2713" : "\u2718";

@@ -276,13 +276,13 @@ to your schedule.
 1)Enter the `add task` command, including the specific information of the `task`.
 ![addTask1](images/addTask1.png)  
 
-<div align="center"> Figure __. Using `add task` command
+<div align="center"> Figure __. Using `add task` command</div>  
 
 2)After using the `add task` command, the new `task` will be added to your schedule and displayed at the end of the 
 schedule.
 ![addTask2](images/addTask2.png)  
 
-<div align="center">Figure __. Result of `add task` command  
+<div align="center">Figure __. Result of `add task` command</div>    
 
 Now, if you would like to add a `quiz` of flashcard set 1 as a `task` to your schedule.
 
@@ -292,18 +292,18 @@ the `quiz` to your schedule.
 1)Enter the `add task` command, including the specific information of the `task`.
 ![addTaskWithQuiz1](images/addTaskWithQuiz1.png)  
 
-<div align="center">Figure __. Using `add task` command integrate with `quiz`
+<div align="center">Figure __. Using `add task` command integrate with `quiz`</div>  
 
 2)After using the `add task` command, the new `task` containing the `quiz` will be added to your schedule and displayed at the 
 end of the schedule.
 ![addTaskWithQuiz2](images/addTaskWithQuiz2.png)  
 
-<div align="center">Figure __. Result of `add task` command integrating with `quiz`.  
+<div align="center">Figure __. Result of `add task` command integrating with `quiz`</div>    
 
 3)Click on the `Quiz CS2040` box in the `Description` of the task will redirect you to the `quiz` tab and start the `quiz` immediately for you.  
 ![addTaskWithQuiz3](images/addTaskWithQuiz3.png)  
 
-<div align="center">Figure __. Result of clicking on the `Quiz CS2040` box
+<div align="center">Figure __. Result of clicking on the `Quiz CS2040` box</div>  
 
  <p>&nbsp;</p>
 
@@ -321,12 +321,12 @@ Expected Outcome:
 1)Enter the command `list task`.
 ![listTask1](images/listTask1.png)  
   
-<div align="center">Figure __. Using `list task` command on `Schedule` tab  
+<div align="center">Figure __. Using `list task` command on `Schedule` tab</div>    
 
 2)After using the `list task` command, you can see the full `schedule`.
 ![listTask2](images/listTask2.png)  
 
-<div align="center">Figure __. Result of `list task` command
+<div align="center">Figure __. Result of `list task` command</div>  
 
 
 <p>&nbsp;</p>
@@ -355,12 +355,12 @@ would like to delete that `task` from your `schedule`.
 1)Enter the command `delete task 4`.  
 ![deleteTask1](images/deleteTask1.jpg)  
 
-<div align="center">Figure __. Using `delete task` command
+<div align="center">Figure __. Using `delete task` command</div>  
 
 2)After using the `delete task` command, the specified task is removed from your `schedule`.  
 ![deleteTask1](images/deleteTask2.png)  
 
-<div align="center">Figure __. Result of `delete task` command  
+<div align="center">Figure __. Result of `delete task` command</div>  
 
 
 ### **Search for a task**: `search task`
@@ -386,13 +386,13 @@ searches for all tasks containing *Lab 8* in their `title`, `description` and `t
 1)Enter the command `search task Lab 8` to search for tasks with the **keyword** *Lab 8*.  
 ![searchTask1](images/searchTask1.png)  
 
-<div align="center">igure __. Using `search task` command  
+<div align="center">Figure __. Using `search task` command  </div>
 
 2)After using the `search task` command, StudyBananas displays all the tasks with the
 specified **keyword**  
 ![searchTask2](images/searchTask2.png)  
   
-<div align="center">Figure __. Result of `search task` command
+<div align="center">Figure __. Result of `search task` command </div>
 
 <p>&nbsp;</p>
 
@@ -421,18 +421,17 @@ Remarks:
 Expected Outcome:  
 
 For example, you previously add a `task`: *CS2100 Lab 8 on Thursday, Oct 29 2020 10:00 with duration 60 minutes*, which has 
-the index of `7` in the `schedule`. Later on, you 
-realise that you the lesson is supposed to start at 11:00 instead, you want to `edit task` it to the correct time.
+the index of `7` in the `schedule`. Later on, you want to edit the time to 11:00 instead.
 
 1)Enter the command `edit task 7 t: Thursday, Oct 29 2020 11:00` to edit the task.  
 ![editTask1](images/editTask1.jpg)  
 
-<div align="center">Figure __. Using `edit task` command
+<div align="center">Figure __. Using `edit task` command </div>
 
 2)After using the `edit task` command, the details of the `task` are updated accordingly.
 ![editTask2](images/editTask2.jpg)  
 
-<div align="center">Figure __. Result of `edit task` command, the task at index `7` is updated 
+<div align="center">Figure __. Result of `edit task` command, the task at index `7` is updated </div>
 
 
 <p>&nbsp;</p>

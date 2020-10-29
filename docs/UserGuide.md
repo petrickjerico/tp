@@ -49,7 +49,7 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `study-bananas.jar` from [here]().
+2. Download the latest `study-bananas.jar` from [here](https://github.com/AY2021S1-CS2103T-F12-2/tp/releases).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your StudyBananas.
 

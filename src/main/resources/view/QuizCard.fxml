@@ -13,10 +13,10 @@
       xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="105.0" prefWidth="375.0" hmax="0.4"
-                  style="-fx-background-radius: 20 20 0 0; -fx-background-color: #DBA849;" fitToWidth="true">
+                  style="-fx-background-radius: 20 20 0 0; -fx-background-color: #DBA849; -fx-padding: 0 0 0 20;" fitToWidth="true">
          <content>
-            <Label fx:id="labelQuestion" centerShape="false" minWidth="357.0" minHeight="100.0" prefWidth="357.0"
-                   style="-fx-label-padding: 0 0 0 5; -fx-background-radius: 20 0 0 0; -fx-background-color: #DBA849;"
+            <Label fx:id="labelQuestion" centerShape="false" minWidth="337.0" minHeight="100.0" prefWidth="337.0"
+                   style="-fx-background-color: #DBA849;"
                    text="Question" wrapText="true">
                <font>
                   <Font name="Comic Sans MS" size="14.0"/>
@@ -31,7 +31,7 @@
                   style="-fx-background-color: #DADD6E; -fx-border-width: 1px" fitToWidth="true">
          <content>
             <Label fx:id="answer" minHeight="190.0" minWidth="358.0" prefWidth="358.0"
-                   style="-fx-label-padding: 0 0 0 5; -fx-background-color: #DADD6E;"
+                   style="-fx-label-padding: 0 0 0 20; -fx-background-color: #DADD6E;"
                    text="Answer" wrapText="true">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
@@ -40,7 +40,7 @@
          </content>
       </ScrollPane>
       <Label fx:id="instruction" prefHeight="105.0" prefWidth="375.0"
-             style="-fx-background-radius: 0 0 20 20; -fx-label-padding: 0 0 0 5;
+             style="-fx-background-radius: 0 0 20 20; -fx-label-padding: 0 0 0 20;
              -fx-background-color: #EFE0C5;" text="Instruction" wrapText="true">
          <font>
             <Font name="Comic Sans MS" size="13.0" />

@@ -181,14 +181,15 @@ Refer to the picture of the quiz window for how the quiz is displayed below:
 
 Format: `quiz <flset:setindex>`
 
-Alternatively, if you have a quiz task scheduled, 
-you may double-click the bright-colored `Quiz:<quizname>` label 
-contained in the description of the task (as shown below):
-
-![TaskQuizLabel](images/TaskQuizLabel.png)
-
 Examples: 
 `quiz flset:2`, `quiz flset:3`
+
+Alternatively, if you have a quiz task scheduled, 
+you may double-click the bright-colored `Quiz:<quizname>` label 
+contained in the description of the task as shown below 
+(see [Task list commands](#task-list-commands)):
+
+![TaskQuizLabel](images/TaskQuizLabel.png)
 
 #### Step 1
 When the quiz starts, as seen below, the question 
@@ -210,6 +211,7 @@ the correct answer will be displayed,
 and there will be the Instruction prompt to enter the next command, `c`, `w`, `refresh` or `cancel`.
 
 The image below shows the result when `ans:improves code quality and reduces bugs` is entered:
+
 ![AnswerShown](images/AnswerShown.png)
 
 Based on the correct answer displayed, you may evaluate the answer provided. 

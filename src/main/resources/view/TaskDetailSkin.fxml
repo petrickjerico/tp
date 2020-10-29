@@ -18,7 +18,7 @@
             <Insets bottom="5.0" />
          </VBox.margin>
       </Label>
-      <Label fx:id="description" maxWidth="350" prefWidth="200" text="Add some description for this task by edit command" textFill="#999999">
+      <Label fx:id="description" maxWidth="350" minHeight="-Infinity" prefWidth="200" text="Add some description for this task by edit command" textFill="#999999">
          <VBox.margin>
             <Insets />
          </VBox.margin>

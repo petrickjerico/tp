@@ -27,11 +27,11 @@ public class AnswerCommand extends Command<QuizModel> {
         requireNonNull(model);
 
         if (!model.hasStarted()) {
-            throw new CommandException(QuizCommandUitl.MESSAGE_QUIZ_NEVER_STARTED);
+            throw new CommandException(QuizCommandUtil.MESSAGE_QUIZ_NEVER_STARTED);
         }
 
-        if (!QuizCommandUitl.getStatus().equals(STATUS)) {
-            throw new CommandException(QuizCommandUitl.MESSAGE_UNAVAIL_ON_ANSWER);
+        if (!QuizCommandUtil.getStatus().equals(STATUS)) {
+            throw new CommandException(QuizCommandUtil.MESSAGE_UNAVAIL_ON_ANSWER);
         }
 
         model.saveAnswer(answer);
@@ -39,12 +39,12 @@ public class AnswerCommand extends Command<QuizModel> {
         String userAnswerToShow = "Your answer: " + answer + "\n\n";
         Answer answer = model.getAnswer();
 
-        QuizCommandUitl.setStatus(Status.ON_ANSWER);
+        QuizCommandUtil.setStatus(Status.ON_ANSWER);
 
         String answerStringToShow = userAnswerToShow + "\nCorrect answer: " + answer.toString()
-                + QuizCommandUitl.SPECIAL_LITERAL
-                + QuizCommandUitl.MESSAGE_AVAIL_ON_ANSWER;
-        QuizCommandUitl.updateCommandResult(answerStringToShow);
+                + QuizCommandUtil.SPECIAL_LITERAL
+                + QuizCommandUtil.MESSAGE_AVAIL_ON_ANSWER;
+        QuizCommandUtil.updateCommandResult(answerStringToShow);
 
         return new QuizCommandResult(answerStringToShow, model.getQuiz());
     }

@@ -46,7 +46,7 @@ public class ViewScoreCommand extends Command<FlashcardQuizModel> {
                 throw new CommandException(MESSAGE_FLASHCARD_DELETED);
             }
 
-            QuizCommandUitl.updateCommandResult(score);
+            QuizCommandUtil.updateCommandResult(score);
 
             return new QuizCommandResult(score);
         } catch (NullPointerException | IndexOutOfBoundsException e) {

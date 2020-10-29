@@ -54,10 +54,10 @@ public class StartCommand extends Command<FlashcardQuizModel> {
             Quiz quiz = new Quiz(this.index, flashcardSet);
             Question firstQuestion = model.start(quiz);
             QuizCard.setQuestion(firstQuestion);
-            QuizCommandUitl.setStatus(Status.ON_QUESTION);
+            QuizCommandUtil.setStatus(Status.ON_QUESTION);
 
-            String feedback = QuizCommandUitl.MESSAGE_AVAIL_ON_QUESTION;
-            QuizCommandUitl.updateCommandResult(feedback);
+            String feedback = QuizCommandUtil.MESSAGE_AVAIL_ON_QUESTION;
+            QuizCommandUtil.updateCommandResult(feedback);
 
             return new QuizCommandResult(feedback, quiz);
 

@@ -53,7 +53,7 @@ public class QuizParser implements Parser<Command> {
     }
 
     /**
-     * Parses a int number from an inoput string
+     * Parses a int number from an input string
      * @param input string provided
      * @return an int number
      * @throws ParseException if the format of string is invalid

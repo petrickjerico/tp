@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.model.flashcard.FlashcardSetName;
+import seedu.studybananas.model.quiz.exceptions.DuplicateQuizException;
 import seedu.studybananas.model.quiz.exceptions.QuizNotFoundException;
 
 public class UniqueQuizRecordsMap {
@@ -51,7 +52,7 @@ public class UniqueQuizRecordsMap {
         }
 
         if (!target.equals(editedQuiz) && contains(editedQuiz)) {
-            throw new QuizNotFoundException();
+            throw new DuplicateQuizException();
         }
 
         internalMap.remove(target.getFlsetName());
@@ -72,12 +73,23 @@ public class UniqueQuizRecordsMap {
 
     }
 
+    /**
+     * Returns the quiz associated with the {@code FlashcardSetName}.
+     * @param name FlashcardSet name
+     * @return quiz as specified
+     */
     public Quiz getQuiz(FlashcardSetName name) {
         return internalMap.get(name);
     }
 
+    /**
+     * Sets the contents of this map with {@code replacement}.
+     * @param replacement
+     */
     public void setQuizRecords(UniqueQuizRecordsMap replacement) {
         requireNonNull(replacement);
+
+        internalMap.clear();
         internalMap.putAll(replacement.internalMap);
     }
 
@@ -87,6 +99,8 @@ public class UniqueQuizRecordsMap {
      */
     public void setQuizRecords(Map<FlashcardSetName, Quiz> quizRecords) {
         requireAllNonNull(quizRecords);
+
+        internalMap.clear();
         internalMap.putAll(quizRecords);
     }
 

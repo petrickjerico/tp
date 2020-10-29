@@ -277,12 +277,15 @@ to your schedule.
 ![addTask1](images/addTask1.png)  
 
 <div align="center"> Figure __. Using `add task` command</div>  
+<br>
 
 2)After using the `add task` command, the new `task` will be added to your schedule and displayed at the end of the 
 schedule.
 ![addTask2](images/addTask2.png)  
 
 <div align="center">Figure __. Result of `add task` command</div>    
+<br>
+&nbsp;
 
 Now, if you would like to add a `quiz` of flashcard set 1 as a `task` to your schedule.
 
@@ -293,12 +296,14 @@ the `quiz` to your schedule.
 ![addTaskWithQuiz1](images/addTaskWithQuiz1.png)  
 
 <div align="center">Figure __. Using `add task` command integrate with `quiz`</div>  
+<br>
 
 2)After using the `add task` command, the new `task` containing the `quiz` will be added to your schedule and displayed at the 
 end of the schedule.
 ![addTaskWithQuiz2](images/addTaskWithQuiz2.png)  
 
 <div align="center">Figure __. Result of `add task` command integrating with `quiz`</div>    
+<br>
 
 3)Click on the `Quiz CS2040` box in the `Description` of the task will redirect you to the `quiz` tab and start the `quiz` immediately for you.  
 ![addTaskWithQuiz3](images/addTaskWithQuiz3.png)  
@@ -322,6 +327,7 @@ Expected Outcome:
 ![listTask1](images/listTask1.png)  
   
 <div align="center">Figure __. Using `list task` command on `Schedule` tab</div>    
+<br>
 
 2)After using the `list task` command, you can see the full `schedule`.
 ![listTask2](images/listTask2.png)  
@@ -356,6 +362,7 @@ would like to delete that `task` from your `schedule`.
 ![deleteTask1](images/deleteTask1.jpg)  
 
 <div align="center">Figure __. Using `delete task` command</div>  
+<br>
 
 2)After using the `delete task` command, the specified task is removed from your `schedule`.  
 ![deleteTask1](images/deleteTask2.png)  
@@ -387,6 +394,7 @@ searches for all tasks containing *Lab 8* in their `title`, `description` and `t
 ![searchTask1](images/searchTask1.png)  
 
 <div align="center">Figure __. Using `search task` command  </div>
+<br>
 
 2)After using the `search task` command, StudyBananas displays all the tasks with the
 specified **keyword**  

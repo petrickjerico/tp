@@ -50,18 +50,51 @@ public class SampleDataUtil {
         flashcards.add(new Flashcard(new Question("Time complexity of binary search?"),
                 new Answer("O(logn)")));
         flashcards.add(new Flashcard(new Question("What are conditions for binary search?"),
-                new Answer("It has to be sorted array")));
+                new Answer("It has to be a sorted array")));
+        return flashcards;
+    }
+
+    public static List<Flashcard> getSampleFlashcardPhysics() {
+        List<Flashcard> flashcards = new ArrayList<>();
+        flashcards.add(new Flashcard(new Question("Formula to show Newton's Second Law of Motion"),
+                new Answer("F = ma [where m = mass (in kg) and a = acceleration (in ms^-2)]")));
+        flashcards.add(new Flashcard(new Question("Formula for GPE"),
+                new Answer("GPE = mgh [where m = mass (in kg), g = 9.81ms^-2 and h = height (in m)]")));
+        return flashcards;
+    }
+
+    public static List<Flashcard> getSampleFlashcardCS2103T() {
+        List<Flashcard> flashcards = new ArrayList<>();
+        flashcards.add(new Flashcard(new Question("What is an advantage of defensive programming?"),
+                new Answer("Improves software and source code quality and comprehensibility, "
+                        + "for software to behave in a predictable manner despite unexpected inputs or user actions")));
+        flashcards.add(new Flashcard(new Question("Why are sequence diagrams important?"),
+                new Answer("It is useful to show shows the interaction logic between the objects in the system "
+                        + "in the time order that the interactions take place")));
+        flashcards.add(new Flashcard(new Question("What UML diagram should we use to describe an object instance?"),
+                new Answer("Object Diagram")));
         return flashcards;
     }
 
     public static FlashcardSet[] getSampleFlashcardSets() {
-        return new FlashcardSet[] {new FlashcardSet(new FlashcardSetName("CS2040"), getSampleFlashcardCS2040())};
+        return new FlashcardSet[] {
+            new FlashcardSet(new FlashcardSetName("CS2103T"), getSampleFlashcardCS2103T()),
+            new FlashcardSet(new FlashcardSetName("CS2040"), getSampleFlashcardCS2040()),
+            new FlashcardSet(new FlashcardSetName("Physics"), getSampleFlashcardPhysics())
+        };
     }
 
     private static Quiz[] getSampleQuizzes() {
         return new Quiz[] {
-            new Quiz(1, new FlashcardSet(new FlashcardSetName("CS2040"),
-                    getSampleFlashcardCS2040()))
+            new Quiz(new FlashcardSet(new FlashcardSetName("CS2103T"), getSampleFlashcardCS2103T()),
+                    3, 2, new boolean[]{true, true, false},
+                    new String[]{"improves software code quality", "shows interaction logic", "class diagram"}),
+            new Quiz(new FlashcardSet(new FlashcardSetName("CS2040"), getSampleFlashcardCS2040()),
+                    2, 2, new boolean[]{true, true},
+                    new String[]{"o(logn)", "must be sorted"}),
+            new Quiz(new FlashcardSet(new FlashcardSetName("Physics"), getSampleFlashcardPhysics()),
+                    2, 1, new boolean[] {true, false},
+                    new String[]{"F = ma", "hmm i forgot"})
         };
     }
 

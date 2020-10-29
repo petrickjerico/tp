@@ -173,9 +173,6 @@ and whether they are correct for your reference.
 It is required for you to enter follow-up commands 
 to continue with the quiz.
 
-Refer to the picture of the quiz window for how the quiz is displayed below:
-![QuizWindow](images/QuizWindow.png)
-
 Format: `quiz <flset:setindex>`
 
 Examples: 

@@ -305,7 +305,7 @@ the `quiz` to your schedule.
 2)After using the `add task` command, the new `task` containing the `quiz` will be added to your schedule and displayed at the 
 end of the schedule.
 ![addTaskWithQuiz2](images/addTaskWithQuiz2.png)  
-
+N
 <div align="center">Figure __. Result of `add task` command integrating with `quiz`</div>    
 <br>
 

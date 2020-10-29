@@ -36,7 +36,7 @@
 .table-view {
     -fx-base: transparent;
     -fx-control-inner-background: transparent;
-    -fx-background-color: tansparent;
+    -fx-background-color: transparent;
     -fx-border-color: black;
     -fx-border-radius: 15px;
 }

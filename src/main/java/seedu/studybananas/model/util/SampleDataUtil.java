@@ -66,11 +66,11 @@ public class SampleDataUtil {
     public static List<Flashcard> getSampleFlashcardCS2103T() {
         List<Flashcard> flashcards = new ArrayList<>();
         flashcards.add(new Flashcard(new Question("What is an advantage of defensive programming?"),
-                new Answer("Improves software and source code quality and comprehensibility, " +
-                        "for software to behave in a predictable manner despite unexpected inputs or user actions")));
+                new Answer("Improves software and source code quality and comprehensibility, "
+                        + "for software to behave in a predictable manner despite unexpected inputs or user actions")));
         flashcards.add(new Flashcard(new Question("Why are sequence diagrams important?"),
-                new Answer("It is useful to show shows the interaction logic between the objects in the system " +
-                        "in the time order that the interactions take place")));
+                new Answer("It is useful to show shows the interaction logic between the objects in the system "
+                        + "in the time order that the interactions take place")));
         flashcards.add(new Flashcard(new Question("What UML diagram should we use to describe an object instance?"),
                 new Answer("Object Diagram")));
         return flashcards;
@@ -78,9 +78,9 @@ public class SampleDataUtil {
 
     public static FlashcardSet[] getSampleFlashcardSets() {
         return new FlashcardSet[] {
-                new FlashcardSet(new FlashcardSetName("CS2103T"), getSampleFlashcardCS2103T()),
-                new FlashcardSet(new FlashcardSetName("CS2040"), getSampleFlashcardCS2040()),
-                new FlashcardSet(new FlashcardSetName("Physics"), getSampleFlashcardPhysics())
+            new FlashcardSet(new FlashcardSetName("CS2103T"), getSampleFlashcardCS2103T()),
+            new FlashcardSet(new FlashcardSetName("CS2040"), getSampleFlashcardCS2040()),
+            new FlashcardSet(new FlashcardSetName("Physics"), getSampleFlashcardPhysics())
         };
     }
 

@@ -27,6 +27,8 @@ public class StartCommand extends Command<FlashcardQuizModel> {
 
     private final int index;
 
+    private FlashcardQuizModel model;
+
     public StartCommand(int index) {
         this.index = index;
     }
@@ -34,6 +36,8 @@ public class StartCommand extends Command<FlashcardQuizModel> {
     @Override
     public CommandResult execute(FlashcardQuizModel model) throws CommandException {
         requireNonNull(model);
+
+        this.model = model;
 
         if (model.hasStarted()) {
             throw new CommandException(MESSAGE_QUIZ_IN_PROGRESS);
@@ -50,15 +54,22 @@ public class StartCommand extends Command<FlashcardQuizModel> {
             Quiz quiz = new Quiz(this.index, flashcardSet);
             Question firstQuestion = model.start(quiz);
             QuizCard.setQuestion(firstQuestion);
-            QuizCommand.setStatus(Status.ON_QUESTION);
+            QuizCommandUitl.setStatus(Status.ON_QUESTION);
 
-            String feedback = QuizCommand.MESSAGE_AVAIL_ON_QUESTION;
-            QuizCommand.updateCommandResult(feedback);
+            String feedback = QuizCommandUitl.MESSAGE_AVAIL_ON_QUESTION;
+            QuizCommandUitl.updateCommandResult(feedback);
 
             return new QuizCommandResult(feedback, quiz);
 
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException(MESSAGE_FLASHCARD_SET_NONEXISTENT);
         }
+    }
+
+    /**
+     * Get the {@Code Index} of the flashcardSet for the quiz.
+     */
+    public Index getQuizIndex() {
+        return Index.fromOneBased(index);
     }
 }

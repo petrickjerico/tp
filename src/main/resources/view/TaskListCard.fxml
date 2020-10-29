@@ -42,7 +42,7 @@
                      <Insets right="10.0" />
                   </padding>
                </Label>
-                  <Label fx:id="description" styleClass="cellBody" text="\$description" />
+                  <Label fx:id="description" onMouseClicked="#handleMouseClicked" styleClass="cellBody" text="\$description" />
             </children>
          </HBox>
          <HBox prefWidth="200.0">

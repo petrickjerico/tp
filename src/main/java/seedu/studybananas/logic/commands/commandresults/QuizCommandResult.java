@@ -63,4 +63,9 @@ public class QuizCommandResult extends CommandResult {
         return UiStateType.QUIZ;
     }
 
+    @Override
+    public String toString() {
+        return quiz.getQuizName();
+    }
+
 }

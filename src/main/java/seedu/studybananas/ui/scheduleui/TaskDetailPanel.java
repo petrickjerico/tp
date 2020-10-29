@@ -75,7 +75,7 @@ public class TaskDetailPanel extends UiPart<Region> {
         TaskDetailSkin taskDetailSkin = new TaskDetailSkin();
         taskDetailCardPlaceholder.getChildren().add(taskDetailSkin.getRoot());
 
-        taskListPanel = new TaskListPanel(logic.getFilteredTaskList());
+        taskListPanel = new TaskListPanel(logic.getFilteredTaskList(), logic);
         taskListPanelPlaceholder.getChildren().add(taskListPanel.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);

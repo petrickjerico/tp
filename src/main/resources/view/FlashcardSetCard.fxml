@@ -9,23 +9,27 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
 
-<StackPane fx:id="cardPane" onMouseClicked="#handleMouseClicked" prefWidth="150.0"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="cardPane" minHeight="-Infinity" onMouseClicked="#handleMouseClicked" prefWidth="150.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="TOP_CENTER" prefWidth="200.0">
+      <HBox alignment="TOP_CENTER" minHeight="-Infinity" prefWidth="200.0">
          <children>
-            <Label fx:id="id" text="1."
-                   style="-fx-font-family: Arial;
-                          -fx-font-weight: bold;
-                          -fx-text-fill: #7886ed;
-                          -fx-font-size: 13.0;">
-            </Label>
-            <Label fx:id="title" text="Japanese"
-                   style="-fx-font-family: Arial;
-                          -fx-font-weight: bold;
-                          -fx-text-fill: #7886ed;
-                          -fx-font-size: 13.0;">
-            </Label>
+            <Label fx:id="id" style="-fx-font-family: Arial;
+                                       -fx-font-weight: bold;
+                                       -fx-text-fill: #7886ed;
+                                       -fx-font-size: 13.0;"
+                   text="1."
+                   wrapText="true"
+            >
+               <HBox.margin>
+                  <Insets bottom="12.0" left="15.0" />
+               </HBox.margin></Label>
+            <Label fx:id="title" minHeight="-Infinity" style="-fx-font-family: Arial;                    -fx-font-weight: bold;                    -fx-text-fill: #7886ed;                    -fx-font-size: 13.0;" text=" very very very very vey long" wrapText="true">
+               <HBox.margin>
+                  <Insets bottom="12.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets right="10.0" />
+               </padding></Label>
          </children>
          <padding>
             <Insets top="12.0" />
@@ -33,9 +37,9 @@
       </HBox>
       <HBox prefWidth="200.0" style="-fx-background-color: transparent;">
          <children>
-            <Circle fx:id="circle" fill="#7886ed" radius="4.5" stroke="#7886ed" strokeType="INSIDE">
+            <Circle fx:id="circle" fill="#7886ed" radius="4.5" stroke="TRANSPARENT" strokeType="INSIDE">
                <HBox.margin>
-                  <Insets left="13.5" top="9.5" />
+                  <Insets left="8.0" top="9.5" />
                </HBox.margin>
             </Circle>
             <Region HBox.hgrow="ALWAYS" />

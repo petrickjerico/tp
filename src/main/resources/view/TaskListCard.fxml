@@ -38,7 +38,11 @@
                      <Insets right="10.0" />
                   </padding>
                </Label>
-                  <Label fx:id="description" maxWidth="200.0" minHeight="-Infinity" prefWidth="180.0" styleClass="cellBody" text="\$description" />
+                  <Label fx:id="description" maxWidth="200.0" minHeight="-Infinity" prefWidth="180.0"
+                         styleClass="cellBody"
+                         text="\$description"
+                         wrapText="true"
+                  />
             </children>
             <VBox.margin>
                <Insets />

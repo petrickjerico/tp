@@ -75,6 +75,8 @@ public class QuizUi extends UiPart<Region> {
         resultDisplay = new QuizCard();
         quizCard.getChildren().add(resultDisplay.getRoot());
 
+        quizScoreDisplay = new QuizScoreCard(); // initiate quiz score display first
+
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
 

@@ -1,6 +1,14 @@
 package seedu.studybananas.ui.util;
 
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
+import seedu.studybananas.logic.Logic;
+import seedu.studybananas.logic.commands.Command;
+import seedu.studybananas.logic.commands.quizcommands.StartCommand;
+import seedu.studybananas.logic.parser.exceptions.ParseException;
+import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.model.task.DateTime;
+import seedu.studybananas.ui.scheduleui.QuizDescription;
 
 public class ScheduleUiUtil {
 
@@ -71,5 +79,45 @@ public class ScheduleUiUtil {
         int minute = time.dateTime.getMinute();
         return INITIAL_PADDING + hour * MARGIN_PER_HOUR + minute * MARGIN_PER_MINUTE;
 
+    }
+
+    /**
+     * Check if the description is {@StartCommand}
+     */
+    public boolean isStartQuizDescription(String description, Logic logic) {
+        try {
+            Command command = logic.parse(description);
+            if (!(command instanceof StartCommand)) {
+                throw new ParseException("Not a start command.");
+            }
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Constructs quiz description from description and {@Code Logic}.
+     * @throws ParseException if the description is not valid command.
+     * @throws IndexOutOfBoundsException if the flashcardSet index is not valid;
+     */
+    public static QuizDescription constructQuizDescription(String description, Logic logic)
+            throws ParseException, IndexOutOfBoundsException {
+        Command command = logic.parse(description);
+        if (!(command instanceof StartCommand)) {
+            throw new ParseException("Not a start command.");
+        }
+
+        StartCommand quizStartCommand = (StartCommand) command;
+        FlashcardSet flashcardSet = logic.getFlashcardSetFromIndex(quizStartCommand.getQuizIndex());
+        String text = "Quiz: " + flashcardSet.getFlashcardSetName();
+        return new QuizDescription(text, quizStartCommand, logic);
+
+    }
+
+    public static void replaceComponent(Node beReplaced, Node toReplace, Pane parent) {
+        int idx = parent.getChildren().indexOf(beReplaced);
+        parent.getChildren().remove(idx);
+        parent.getChildren().add(idx, toReplace);
     }
 }

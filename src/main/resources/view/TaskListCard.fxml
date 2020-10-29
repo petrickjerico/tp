@@ -35,15 +35,18 @@
                <Insets bottom="5.0" top="-5.0" />
             </padding>
             </HBox>
-         <HBox prefWidth="200.0">
+         <HBox fx:id="descriptionPane" prefWidth="200.0">
             <children>
                <Label text="Description:">
                   <padding>
                      <Insets right="10.0" />
                   </padding>
                </Label>
-                  <Label fx:id="description" onMouseClicked="#handleMouseClicked" styleClass="cellBody" text="\$description" />
+                  <Label fx:id="description" styleClass="cellBody" text="\$description" />
             </children>
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
          </HBox>
          <HBox prefWidth="200.0">
             <children>

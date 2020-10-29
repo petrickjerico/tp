@@ -1,5 +1,7 @@
 package seedu.studybananas.ui;
 
+import static seedu.studybananas.ui.util.ScheduleUiUtil.constructQuizDescription;
+import static seedu.studybananas.ui.util.ScheduleUiUtil.replaceComponent;
 import static seedu.studybananas.ui.util.ScheduleUiUtil.toAmPmTime;
 
 import javafx.fxml.FXML;
@@ -16,6 +18,7 @@ import seedu.studybananas.logic.commands.quizcommands.StartCommand;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.model.task.Task;
+import seedu.studybananas.ui.scheduleui.QuizDescription;
 import seedu.studybananas.ui.util.SingletonCommandResultState;
 import seedu.studybananas.ui.util.SingletonUiState;
 import seedu.studybananas.ui.util.UiStateType;
@@ -34,6 +37,8 @@ public class TaskCard extends UiPart<Region> {
     @FXML
     private HBox cardPane;
     @FXML
+    private HBox descriptionPane;
+    @FXML
     private Label title;
     @FXML
     private Label description;
@@ -47,7 +52,6 @@ public class TaskCard extends UiPart<Region> {
     private SingletonCommandResultState commandResultState;
     private SingletonUiState uiState;
     private Logic logic;
-    private Command quiz;
 
     /**
      * Creates a {@code TaskCode} with the given {@code Task} and index to display.
@@ -72,33 +76,10 @@ public class TaskCard extends UiPart<Region> {
         uiState = SingletonUiState.getInstance();
     }
 
-    @FXML
-    private void handleMouseClicked() {
-        try {
-            CommandResult commandResult = logic.execute(this.quiz);
-            commandResultState.updateCommandResult(commandResult);
-            uiState.updateState(UiStateType.QUIZ);
-        } catch (CommandException e) {
-            return;
-        }
-    }
-
     private void handleDescription(String description) {
         try {
-            Command command = logic.parse(description);
-            if (command instanceof StartCommand) {
-                StartCommand quizStartCommand = (StartCommand) command;
-                FlashcardSet flashcardSet = logic.getFlashcardSetFromIndex(quizStartCommand.getQuizIndex());
-                // can create another fxml!
-                this.description.setStyle("-fx-background-color: #33cccc;"
-                        + "-fx-background-radius: 5;"
-                        + "-fx-font-weight: bold;"
-                        + "-fx-font-family: Arial;");
-                this.description.setText("Quiz: " + flashcardSet.getFlashcardSetName());
-                this.quiz = command;
-                return;
-            }
-            this.description.setText(description);
+            QuizDescription descripLabel = constructQuizDescription(description, logic);
+            replaceComponent(this.description, descripLabel.getRoot(), descriptionPane);
         } catch (ParseException | IndexOutOfBoundsException e) {
             this.description.setText(description);
         }

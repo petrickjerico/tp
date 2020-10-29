@@ -239,9 +239,9 @@ Shows the last attempt of a specific flashcard set.
 It contains the following information:
 - Score (percentage out of 100%), and
 - List of questions each followed by answers from the last attempt
-- Indicators of whether the question is answered correctly (shown as tick and cross) beside each question
+- Indicators of whether the question is answered correctly (shown as tick and cross)
 
-![ViewScore](images/View Score.png)
+![ViewScore](images/ViewScore.png)
 
 Format: `quiz score <flset:setindex>`
 

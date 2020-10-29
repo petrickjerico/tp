@@ -15,6 +15,8 @@ public class WarningResponse extends Response {
     public WarningResponse(String response) {
         super(FXML);
         this.response.setText(response);
+        this.response.setMaxWidth(300);
+        this.response.setWrapText(true);
     }
 
 }

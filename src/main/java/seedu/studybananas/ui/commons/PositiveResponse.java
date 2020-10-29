@@ -15,6 +15,8 @@ public class PositiveResponse extends Response {
     public PositiveResponse(String response) {
         super(FXML);
         this.response.setText(response);
+        this.response.setMaxWidth(300);
+        this.response.setWrapText(true);
     }
 
 }

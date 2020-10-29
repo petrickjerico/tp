@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class ResponsePopUp {
+    private final double BOTTOM_PADDING = 10.0;
     private final Popup popup;
     private Stage stage;
     private Response response;
@@ -58,7 +59,7 @@ public class ResponsePopUp {
             @Override
             public void handle(WindowEvent e) {
                 popup.setX(stage.getX() + stage.getWidth() / 2 - popup.getWidth() / 2);
-                popup.setY(stage.getY() + stage.getHeight() * (0.9) - popup.getHeight() / 2);
+                popup.setY(stage.getY() + stage.getHeight() - popup.getHeight() - BOTTOM_PADDING);
             }
         });
     }

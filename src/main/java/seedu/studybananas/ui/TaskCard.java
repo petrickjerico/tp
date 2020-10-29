@@ -8,20 +8,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.Logic;
-import seedu.studybananas.logic.commands.Command;
-import seedu.studybananas.logic.commands.commandresults.CommandResult;
-import seedu.studybananas.logic.commands.commandresults.QuizCommandResult;
-import seedu.studybananas.logic.commands.exceptions.CommandException;
-import seedu.studybananas.logic.commands.quizcommands.StartCommand;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
-import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.model.task.Task;
 import seedu.studybananas.ui.scheduleui.QuizDescription;
 import seedu.studybananas.ui.util.SingletonCommandResultState;
 import seedu.studybananas.ui.util.SingletonUiState;
-import seedu.studybananas.ui.util.UiStateType;
 
 public class TaskCard extends UiPart<Region> {
     private static final String FXML = "TaskListCard.fxml";

@@ -115,6 +115,12 @@ public class ScheduleUiUtil {
 
     }
 
+    /**
+     * Replaces one component with another component within parent.
+     * @param beReplaced the component to be replaced.
+     * @param toReplace the component to show.
+     * @param parent the parent Node.
+     */
     public static void replaceComponent(Node beReplaced, Node toReplace, Pane parent) {
         int idx = parent.getChildren().indexOf(beReplaced);
         parent.getChildren().remove(idx);

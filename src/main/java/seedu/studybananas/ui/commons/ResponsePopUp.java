@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class ResponsePopUp {
-    private final double BOTTOM_PADDING = 10.0;
+    private static final double BOTTOM_PADDING = 10.0;
     private final Popup popup;
     private Stage stage;
     private Response response;

@@ -30,8 +30,8 @@ public class QuizDescription extends UiPart<Region> {
      */
     public QuizDescription(String description, Command quizStartCommand, Logic logic) {
         super(FXML);
-        assert quizStartCommand instanceof StartCommand : "You should only construct a QuizDescription Label " +
-                "if the description is start command";
+        assert quizStartCommand instanceof StartCommand : "You should only construct a QuizDescription Label "
+                + "if the description is start command";
         this.description.setText(description);
         this.quizStartCommand = quizStartCommand;
         this.logic = logic;

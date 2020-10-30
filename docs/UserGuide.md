@@ -181,7 +181,7 @@ Examples:
 Alternatively, if you have a quiz task scheduled, 
 you may double-click the bright-colored `Quiz:<quizname>` label 
 contained in the description of the task as shown below 
-(see [Task list commands](#task-list-commands)):
+(see 3) of [Add a task: `add task`](#add-a-task-add-task))
 
 ![TaskQuizLabel](images/TaskQuizLabel.png)
 
@@ -314,7 +314,17 @@ end of the schedule.
 
 <div align="center">Figure __. Result of clicking on the `Quiz CS2040` box</div>  
 
- <p>&nbsp;</p>
+<p>&nbsp;</p>
+
+### **View the details of your task**: 
+ 
+There are several panels in our user interface that provides the details of your task. 
+- Firstly, the time scale lists out all of your study sessions which are tasks with start time and duration, you can click on your study session on the time scale to view the detail on the top right panel.
+- Secondly, the list panel located at the bottom right corner of the schedule tab lists all of your tasks, you can scroll down to view the details of your task or takes advantage of our search feature (please refer to [search task section](#search-for-a-task)) to quickly a specific task.
+- In the following user guide, we would time scale to refer to the middle panel of schedule tab, and uses task lists to refer to the bottom right panel.
+ 
+![TaskDetailPanels](images/TaskDetailPanels.png)
+<p>&nbsp;</p>
 
 ### **List tasks**: `list task`
 

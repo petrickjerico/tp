@@ -1,6 +1,7 @@
 package seedu.studybananas.ui;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -82,6 +83,7 @@ public class HelpWindow extends UiPart<Stage> {
      */
     public HelpWindow(Stage root) {
         super(FXML, root);
+        Collections.reverse(commands);
         for (CommandInfo commandInfo : commands) {
             CommandHelpLabel commandHelpLabel = new CommandHelpLabel(commandInfo.command,
                     commandInfo.argument, commandInfo.description);

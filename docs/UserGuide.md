@@ -19,6 +19,7 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 ## Table of Contents
 - [**Quick start**](#quick-start)
 - [**Features**](#features)
+  * [View all the available commands](#view-all-the-available-commands)
   * [Add a flashcard set: `add flset`](#add-a-flashcard-set-add-flset)
   * [List all existing flashcard sets: `list flset`](#list-all-existing-flashcard-sets-list-flset)
   * [Delete a flashcard set: `delete flset`](#delete-a-flashcard-set-delete-flset)
@@ -306,7 +307,7 @@ the `quiz` to your schedule.
 2)After using the `add task` command, the new `task` containing the `quiz` will be added to your schedule and displayed at the 
 end of the schedule.
 ![addTaskWithQuiz2](images/addTaskWithQuiz2.png)  
-
+N
 <div align="center">Figure __. Result of `add task` command integrating with `quiz`</div>    
 <br>
 
@@ -316,10 +317,20 @@ end of the schedule.
 <div align="center">Figure __. Result of clicking on the `Quiz CS2040` box</div>  
 
  <p>&nbsp;</p>
+ 
+ ### **View the details of your task**: 
+ 
+ There are several panels in our user interface that provides the details of your task. 
+ - Firstly, the time scale lists out all of your study sessions which are tasks with start time and duration, you can click on your study session on the time scale to view the detail on the top right panel.
+ - Secondly, the list panel located at the bottom right corner of the schedule tab lists all of your tasks, you can scroll down to view the details of your task or takes advantage of our search feature (please refer to [search task section](#search-for-a-task)) to quickly a specific task.
+ - In the following user guide, we would time scale to refer to the middle panel of schedule tab, and uses task lists to refer to the bottom right panel.
+ 
+ ![TaskDetailPanels](images/TaskDetailPanels.png)
+ 
 
 ### **List tasks**: `list task`
 
-If you  would like to view your full `schedule`, this command displays the full `schedule` that you have.  
+If you  would like to view your full `schedule`, this command displays the full `schedule` that you have in both time scale and the task list.  
  
 Format: `list task`
 
@@ -454,16 +465,17 @@ the index of `7` in the `schedule`. Later on, you want to edit the time to 11:00
 StudyBananas data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 <p>&nbsp;</p>
 
+### **View all the available commands**
+Click on the help button located at the bottom of the sidebar to view all the available commands.
 
-### **View help**: `help`
-Directs you to this user guide by providing its link.
+![HelpButton](images/HelpButton.png)
 
-Format: click on `help` button at the bottom left of the application.  
- 
-A short summary of all the available commands is displayed in the new window. The link to our full UserGuide 
-is also available in the window. If you wish to read it, copy the link and paste it in your browser:
+The help window shows most of the available CLI commands. 
+- The green part is the name of the command 
+- The purple part lists all the arguments that can be adjust in a customary manner. 
+- Please refer to the description below for more details in each command.
 
-![HelpMessage](images/helpMessage.png)
+![HelpWindow](images/HelpWindow.png)
 <p>&nbsp;</p>
 
 ### **Exit program**: `exit`

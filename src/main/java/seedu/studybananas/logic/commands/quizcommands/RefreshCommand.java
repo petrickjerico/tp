@@ -19,4 +19,9 @@ public class RefreshCommand extends Command<FlashcardQuizModel> {
 
         return new QuizCommandResult(QuizCommandUtil.getCurrentCommandResult());
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof RefreshCommand;
+    }
 }

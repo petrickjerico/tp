@@ -53,4 +53,11 @@ public class ViewScoreCommand extends Command<FlashcardQuizModel> {
             throw new CommandException(MESSAGE_QUIZ_NONEXISTENT);
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ViewScoreCommand // instanceof handles nulls
+                && index == (((ViewScoreCommand) other).index)); // state check
+    }
 }

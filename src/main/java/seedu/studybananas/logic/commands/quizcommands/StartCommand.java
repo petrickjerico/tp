@@ -13,7 +13,6 @@ import seedu.studybananas.model.flashcard.Question;
 import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.ui.quizui.QuizCard;
 
-//The abstraction has to be clarified.
 public class StartCommand extends Command<FlashcardQuizModel> {
 
     public static final String COMMAND_WORD = "quiz flset:";
@@ -64,6 +63,13 @@ public class StartCommand extends Command<FlashcardQuizModel> {
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException(MESSAGE_FLASHCARD_SET_NONEXISTENT);
         }
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof StartCommand // instanceof handles nulls
+                && index == (((StartCommand) other).index)); // state check
     }
 
     /**

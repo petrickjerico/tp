@@ -73,7 +73,7 @@ public class SideBarTab extends UiPart<Region> implements Observer<UiStateType> 
                     + "-fx-font-weight: bold;");
         } else {
             tabText.setStyle("-fx-text-fill: #cccccc; "
-                    + "-fx-font-weight: light;");
+                    + "-fx-font-weight: 100;");
         }
     }
 

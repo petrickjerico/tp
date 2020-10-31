@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="labelPane" minHeight="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="command" style="-fx-background-color: #33cccc#33cccc; -fx-background-radius: 5; -fx-wrap-text: true;" text="add task" textFill="WHITE">
+         <padding>
+            <Insets bottom="2.0" left="3.0" right="3.0" top="2.0" />
+         </padding>
+         <font>
+            <Font name="Arial Bold" size="11.0" />
+         </font>
+         <HBox.margin>
+            <Insets bottom="5.0" right="5.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="argument" maxWidth="110.0" style="-fx-background-color: #9966ff#9966ff; -fx-background-radius: 5; -fx-wrap-text: true;" text="T: &lt;title&gt; &#10;d: &lt;description&gt; &#10;t: &lt;startTime&gt; &#10;dur: &lt;duration&gt;" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="11.0" />
+         </font>
+         <HBox.margin>
+            <Insets bottom="5.0" />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="2.0" left="3.0" top="2.0" />
+         </padding>
+      </Label>
+      <Label text=": ">
+         <HBox.margin>
+            <Insets top="2.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="description" minHeight="-Infinity" style="-fx-wrap-text: true;" text="create your own task and put it in your schedule">
+         <HBox.margin>
+            <Insets bottom="5.0" top="2.0" />
+         </HBox.margin>
+      </Label>
+   </children>
+</HBox>

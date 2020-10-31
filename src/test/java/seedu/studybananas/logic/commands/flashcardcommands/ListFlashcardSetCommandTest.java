@@ -29,7 +29,6 @@ public class ListFlashcardSetCommandTest {
         details.append("\nThere are ");
         details.append(flashcardSets.size());
         details.append(" sets");
-        flashcardSets.forEach(flashcardSet -> details.append("\n" + flashcardSet.toString()));
 
         String expectedMessage = ListFlashcardSetCommand.MESSAGE_SUCCESS + details;
         assertCommandSuccess(new ListFlashcardSetCommand(), model,

@@ -1,5 +1,7 @@
 package seedu.studybananas.logic.commands.quizcommands;
 
+import static java.util.Objects.requireNonNull;
+
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.commandresults.QuizCommandResult;
@@ -12,6 +14,7 @@ public class RefreshCommand extends Command<FlashcardQuizModel> {
 
     @Override
     public CommandResult execute(FlashcardQuizModel model) throws CommandException {
+        requireNonNull(model);
 
         if (!model.hasStarted()) {
             throw new CommandException(QuizCommandUtil.MESSAGE_QUIZ_NEVER_STARTED);

@@ -519,10 +519,10 @@ Format: click on `Exit` button at the bottom left of the application.
 
 ### Quiz commands
 
-| Action                           | Format, Examples                                                                                     |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Quiz flset**                   | `quiz <flset:setindex>` <br> e.g., `quiz flset:7`, `flip`, `ans:<answer>`, `c/w`, `cancel`, `refresh`|
-| **Quiz score flset**             | `quiz score <flset:setindex>` <br>  e.g., `quiz score flset:6`                                                  |
+| Action                           | Format, Examples                                                                                                                          |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Quiz flset**                   | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> Available only in quiz mode: `flip`, `ans:<answer>`, `c/w`, `cancel`, `refresh`   |
+| **Quiz score flset**             | `quiz score <flset:setindex>` <br>  e.g., `quiz score flset:6`                                                                            |
 
 <p>&nbsp;</p>
 

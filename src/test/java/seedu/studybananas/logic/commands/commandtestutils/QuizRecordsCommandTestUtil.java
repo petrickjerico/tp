@@ -22,8 +22,6 @@ public class QuizRecordsCommandTestUtil {
                                             CommandResult expectedCommandResult, QuizModel expectedModel) {
         try {
             CommandResult result = command.execute(actualModel);
-            System.out.println(result.getFeedbackToUser());
-            System.out.println(result.toString());
             assertEquals(expectedCommandResult, result);
             assertEquals(expectedModel, actualModel);
         } catch (CommandException ce) {

@@ -187,6 +187,13 @@ contained in the description of the task as shown below
 
 ![TaskQuizLabel](images/TaskQuizLabel.png)
 
+<div markdown="block" class="alert alert-info">
+
+Note: When the quiz has started, you may only key in commands available in quiz mode at appropriate times.<br>
+Such commands are `flip`, `ans:<answer>`, `c`, `w`, `cancel` or `refresh`.
+
+</div>
+
 #### Step 1
 When the quiz starts, as seen below, the question 
 of the first flashcard within the selected flashcard set appears, 
@@ -521,7 +528,7 @@ Format: click on `Exit` button at the bottom left of the application.
 
 | Action                           | Format, Examples                                                                                                                          |
 | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Quiz flset**                   | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> Available only in quiz mode: `flip`, `ans:<answer>`, `c/w`, `cancel`, `refresh`   |
+| **Quiz flset**                   | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> Available only in quiz mode: `flip`, `ans:<answer>`, `c`, `w`, `cancel`, `refresh`   |
 | **Quiz score flset**             | `quiz score <flset:setindex>` <br>  e.g., `quiz score flset:6`                                                                            |
 
 <p>&nbsp;</p>

@@ -48,4 +48,11 @@ public class AnswerCommand extends Command<QuizModel> {
 
         return new QuizCommandResult(answerStringToShow, model.getQuiz());
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof AnswerCommand // instanceof handles nulls
+                && answer.equals(((AnswerCommand) other).answer)); // state check
+    }
 }

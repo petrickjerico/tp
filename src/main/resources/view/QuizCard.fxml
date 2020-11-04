@@ -13,10 +13,10 @@
       xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="105.0" prefWidth="375.0" hmax="0.4"
-                  style="-fx-background-radius: 20 20 0 0; -fx-background-color: #DBA849; -fx-padding: 0 0 0 20;" fitToWidth="true">
+                  style="-fx-background-radius: 20 20 0 0; -fx-background-color: #AFEEEE; -fx-padding: 0 0 0 20;" fitToWidth="true">
          <content>
             <Label fx:id="labelQuestion" centerShape="false" minWidth="337.0" minHeight="100.0" prefWidth="337.0"
-                   style="-fx-background-color: #DBA849;"
+                   style="-fx-background-color: #AFEEEE;"
                    text="Question - This is where the question will be shown" wrapText="true">
                <font>
                   <Font name="Comic Sans MS" size="14.0"/>
@@ -28,10 +28,10 @@
          </content>
       </ScrollPane>
       <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="375.0" hmax="0.4"
-                  style="-fx-background-color: #DADD6E; -fx-border-width: 1px" fitToWidth="true">
+                  style="-fx-background-color: #FFFFE0; -fx-border-width: 1px" fitToWidth="true">
          <content>
             <Label fx:id="answer" minHeight="190.0" minWidth="358.0" prefWidth="358.0"
-                   style="-fx-label-padding: 0 0 0 20; -fx-background-color: #DADD6E;"
+                   style="-fx-label-padding: 0 0 0 20; -fx-background-color: #FFFFE0;"
                    text="Answer - This is where the correct answer is shown (with or without your answer,
                    depending on the command given)" wrapText="true">
                <font>
@@ -42,7 +42,7 @@
       </ScrollPane>
       <Label fx:id="instruction" prefHeight="105.0" prefWidth="375.0"
              style="-fx-background-radius: 0 0 20 20; -fx-label-padding: 0 0 0 20;
-             -fx-background-color: #EFE0C5;" text="Instruction - This is where the next quiz commands are shown" wrapText="true">
+             -fx-background-color: #DDA0DD;" text="Instruction - This is where the next quiz commands are shown" wrapText="true">
          <font>
             <Font name="Comic Sans MS" size="13.0" />
          </font>

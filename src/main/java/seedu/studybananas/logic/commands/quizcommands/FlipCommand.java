@@ -38,4 +38,9 @@ public class FlipCommand extends Command<QuizModel> {
 
         return new QuizCommandResult(answerStringToShow, model.getQuiz());
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof FlipCommand; // instanceof handles nulls
+    }
 }

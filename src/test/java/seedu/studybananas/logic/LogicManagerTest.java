@@ -243,6 +243,19 @@ public class LogicManagerTest {
     }
 
     /**
+     * Executes the command and confirms that
+     * - the {@code expectedException} is thrown <br>
+     * - the resulting error message is equal to {@code expectedMessage} <br>
+     * - the internal model manager state is the same as that in {@code expectedModel} <br>
+     * @see #assertCommandSuccess(String, String, Model)
+     */
+    private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
+                                      String expectedMessage, Model expectedModel) {
+        assertThrows(expectedException, expectedMessage, () -> logic.execute(inputCommand));
+        assertEquals(expectedModel, model);
+    }
+
+    /**
      * Executes the command, confirms that the exception is thrown and that the result message is correct.
      * @see #assertCommandObjectFailure(Command, Class, String, Model)
      */
@@ -253,18 +266,6 @@ public class LogicManagerTest {
         assertCommandObjectFailure(inputCommand, expectedException, expectedMessage, expectedModel);
     }
 
-    /**
-     * Executes the command and confirms that
-     * - the {@code expectedException} is thrown <br>
-     * - the resulting error message is equal to {@code expectedMessage} <br>
-     * - the internal model manager state is the same as that in {@code expectedModel} <br>
-     * @see #assertCommandSuccess(String, String, Model)
-     */
-    private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
-            String expectedMessage, Model expectedModel) {
-        assertThrows(expectedException, expectedMessage, () -> logic.execute(inputCommand));
-        assertEquals(expectedModel, model);
-    }
 
     /**
      * Executes the command and confirms that
@@ -278,6 +279,9 @@ public class LogicManagerTest {
         assertEquals(expectedModel, model);
     }
 
+    /**
+     * A stub class to throw an {@code IOException} when the save method of flashcardBank is called.
+     */
     private static class JsonFlashcardBankStorageIoExceptionThrowingStub extends JsonFlashcardBankStorage {
         private JsonFlashcardBankStorageIoExceptionThrowingStub(Path filePath) {
             super(filePath);
@@ -289,6 +293,9 @@ public class LogicManagerTest {
         }
     }
 
+    /**
+     * A stub class to throw an {@code IOException} when the save method of schedule is called.
+     */
     private static class JsonScheduleStorageIoExceptionThrowingStub extends JsonScheduleStorage {
         private JsonScheduleStorageIoExceptionThrowingStub(Path filePath) {
             super(filePath);
@@ -300,6 +307,9 @@ public class LogicManagerTest {
         }
     }
 
+    /**
+     * A stub class to throw an {@code IOException} when the save method of quizRecords is called.
+     */
     private static class JsonQuizRecordsStorageIoExceptionThrowingStub extends JsonQuizRecordsStorage {
         private JsonQuizRecordsStorageIoExceptionThrowingStub(Path filePath) {
             super(filePath);

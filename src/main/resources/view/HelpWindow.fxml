@@ -17,7 +17,7 @@
   </icons>
   <scene>
     <Scene>
-        <VBox fx:id="helpWindow">
+        <VBox fx:id="helpWindow" prefWidth="650">
             <Label text="Available Commands: ">
                <font>
                   <Font name="Arial Bold" size="18.0" />

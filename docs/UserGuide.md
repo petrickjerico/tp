@@ -19,7 +19,6 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 ## Table of Contents
 - [**Quick start**](#quick-start)
 - [**Features**](#features)
-  * [View all the available commands](#view-all-the-available-commands)
   * [Add a flashcard set: `add flset`](#add-a-flashcard-set-add-flset)
   * [List all existing flashcard sets: `list flset`](#list-all-existing-flashcard-sets-list-flset)
   * [Delete a flashcard set: `delete flset`](#delete-a-flashcard-set-delete-flset)
@@ -28,12 +27,13 @@ This user guide aims to equip you with all necessary understanding to use StudyB
   * [Delete a flashcard in a flashcard set: `delete fl`](#delete-a-flashcard-in-a-flashcard-set-delete-fl)
   * [Quiz of flashcard set: `quiz flset`](#quiz-of-flashcard-set-quiz-flset)
   * [View last quiz attempt: `quiz score flset`](#view-last-quiz-attempt-quiz-score-flset)
-  * [Add a task: `add task`](#add-a-task)
-  * [List tasks: `list task`](#list-tasks)
-  * [Delete a task: `delete task`](#delete-a-task)
-  * [Search for a task: `search task`](#search-for-a-task)
+  * [Add a task: `add task`](#add-a-task-add-task)
+  * [List tasks: `list task`](#list-tasks-list-task)
+  * [Delete a task: `delete task`](#delete-a-task-delete-task)
+  * [Search for a task: `search task`](#search-for-a-task-search-task)
+  * [Edit a task: `edit task`](#edit-a-task-edit-task)
   * [Saving the data](#saving-the-data)
-  * [Viewing help: `help`](#viewing-help-help)
+  * [View all the available commands](#view-all-the-available-commands)
   * [Exit program: `exit`](#exit-program-exit)
 - [**FAQ**](#faq)
 - [**Command summary**](#command-summary)
@@ -88,21 +88,6 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 
 </div>
 <p>&nbsp;</p>
-
-
-### **View all the available commands**
-Click on the help button located at the bottom of the sidebar to view all the available commands.
-
-![HelpButton](images/HelpButton.png)
-
-The help window shows most of the available CLI commands. 
-- The green part is the name of the command 
-- The purple part lists all the arguments that can be adjust in a customary manner. 
-- Please refer to the description below for more details in each command.
-
-
-![HelpWindow](images/HelpWindow.png)
-
 
 ### **Add a flashcard set**: `add flset`
 
@@ -197,7 +182,7 @@ Examples:
 Alternatively, if you have a quiz task scheduled, 
 you may double-click the bright-colored `Quiz:<quizname>` label 
 contained in the description of the task as shown below 
-(see [Task list commands](#task-list-commands)):
+(see 3) of [Add a task: `add task`](#add-a-task-add-task))
 
 ![TaskQuizLabel](images/TaskQuizLabel.png)
 
@@ -321,7 +306,7 @@ the `quiz` to your schedule.
 2)After using the `add task` command, the new `task` containing the `quiz` will be added to your schedule and displayed at the 
 end of the schedule.
 ![addTaskWithQuiz2](images/addTaskWithQuiz2.png)  
-N
+
 <div align="center">Figure __. Result of `add task` command integrating with `quiz`</div>    
 <br>
 
@@ -330,17 +315,27 @@ N
 
 <div align="center">Figure __. Result of clicking on the `Quiz CS2040` box</div>  
 
- <p>&nbsp;</p>
+<p>&nbsp;</p>
+
+### **View the details of your task**: 
  
- ### **View the details of your task**: 
+There are several panels in our user interface that provides the details of your task. 
+- Firstly, the time scale lists out all of your study sessions which are tasks with start time and duration, you can click on your study session on the time scale to view the detail on the top right panel.
+- Secondly, the list panel located at the bottom right corner of the schedule tab lists all of your tasks, you can scroll down to view the details of your task or takes advantage of our search feature (please refer to [search task section](#search-for-a-task)) to quickly a specific task.
+- In the following user guide, we would time scale to refer to the middle panel of schedule tab, and uses task lists to refer to the bottom right panel.
  
- There are several panels in our user interface that provides the details of your task. 
- - Firstly, the time scale lists out all of your study sessions which are tasks with start time and duration, you can click on your study session on the time scale to view the detail on the top right panel.
- - Secondly, the list panel located at the bottom right corner of the schedule tab lists all of your tasks, you can scroll down to view the details of your task or takes advantage of our search feature (please refer to [search task section](#search-for-a-task)) to quickly a specific task.
- - In the following user guide, we would time scale to refer to the middle panel of schedule tab, and uses task lists to refer to the bottom right panel.
+![TaskDetailPanels](images/TaskDetailPanels.png)
+<p>&nbsp;</p>
+
+### **View the details of your task**: 
  
- ![TaskDetailPanels](images/TaskDetailPanels.png)
+There are several panels in our user interface that provides the details of your task. 
+- Firstly, the time scale lists out all of your study sessions which are tasks with start time and duration, you can click on your study session on the time scale to view the detail on the top right panel.
+- Secondly, the list panel located at the bottom right corner of the schedule tab lists all of your tasks, you can scroll down to view the details of your task or takes advantage of our search feature (please refer to [search task section](#search-for-a-task)) to quickly a specific task.
+- In the following user guide, we would time scale to refer to the middle panel of schedule tab, and uses task lists to refer to the bottom right panel.
  
+![TaskDetailPanels](images/TaskDetailPanels.png)
+<p>&nbsp;</p>
 
 ### **List tasks**: `list task`
 
@@ -477,6 +472,20 @@ the index of `7` in the `schedule`. Later on, you want to edit the time to 11:00
 ### **Saving the data**
 
 StudyBananas data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+<p>&nbsp;</p>
+
+### **View all the available commands**
+Click on the help button located at the bottom of the sidebar to view all the available commands.
+
+![HelpButton](images/HelpButton.png)
+
+The help window shows most of the available CLI commands. 
+- The green part is the name of the command 
+- The purple part lists all the arguments that can be adjust in a customary manner. 
+- Please refer to the description below for more details in each command.
+
+![HelpWindow](images/HelpWindow.png)
+<p>&nbsp;</p>
 
 ### **Exit program**: `exit`
 Exits the program.

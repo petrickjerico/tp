@@ -12,7 +12,7 @@
             <Insets bottom="2.0" left="3.0" right="3.0" top="2.0" />
          </padding>
          <font>
-            <Font name="Arial Bold" size="13.0" />
+            <Font name="Arial Bold" size="11.0" />
          </font>
          <HBox.margin>
             <Insets bottom="5.0" right="5.0" />
@@ -20,7 +20,7 @@
       </Label>
       <Label fx:id="argument" maxWidth="110.0" style="-fx-background-color: #9966ff#9966ff; -fx-background-radius: 5; -fx-wrap-text: true;" text="T: &lt;title&gt; &#10;d: &lt;description&gt; &#10;t: &lt;startTime&gt; &#10;dur: &lt;duration&gt;" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="13.0" />
+            <Font name="Arial Bold" size="11.0" />
          </font>
          <HBox.margin>
             <Insets bottom="5.0" />

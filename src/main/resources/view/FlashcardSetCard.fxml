@@ -9,17 +9,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
 
-<StackPane fx:id="cardPane" minHeight="-Infinity" onMouseClicked="#handleMouseClicked" prefWidth="150.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="cardPane" minHeight="-Infinity" onMouseClicked="#handleMouseClicked" prefWidth="150.0" style="-fx-focus-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="TOP_CENTER" minHeight="-Infinity" prefWidth="200.0">
          <children>
-            <Label fx:id="id" style="-fx-font-family: Arial;
-                                       -fx-font-weight: bold;
-                                       -fx-text-fill: #7886ed;
-                                       -fx-font-size: 13.0;"
-                   text="1."
-                   wrapText="true"
-            >
+            <Label fx:id="id" style="-fx-font-family: Arial;                                        -fx-font-weight: bold;                                        -fx-text-fill: #7886ed;                                        -fx-font-size: 13.0;" text="1." wrapText="true">
                <HBox.margin>
                   <Insets bottom="12.0" left="15.0" />
                </HBox.margin></Label>

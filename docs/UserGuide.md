@@ -106,7 +106,7 @@ The help window shows most of the available CLI commands.
 
 ### **Add a flashcard set**: `add flset`
 
-Adds a new flashcard set.
+Creates a new flashcard set with your customary name, which can then serve as folder to store and categorize your flashcards.
 
 Format: `add flset name:<setname>​`
 - `<setname>` can accept names separated with spaces.

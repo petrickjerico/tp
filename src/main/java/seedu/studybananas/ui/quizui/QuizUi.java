@@ -18,6 +18,7 @@ import seedu.studybananas.ui.FlashcardSetListPanel;
 import seedu.studybananas.ui.UiPart;
 import seedu.studybananas.ui.listeners.CommandResultStateListener;
 import seedu.studybananas.ui.listeners.UiStateListener;
+import seedu.studybananas.ui.util.GlobalState;
 import seedu.studybananas.ui.util.UiStateType;
 
 public class QuizUi extends UiPart<Region> {
@@ -79,6 +80,8 @@ public class QuizUi extends UiPart<Region> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+        GlobalState globalState = GlobalState.getInstance();
+        globalState.setQuizCommandBox(commandBox);
 
         // set up listeners
         uiStateListener = new UiStateListener();

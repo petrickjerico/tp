@@ -1,9 +1,9 @@
 package seedu.studybananas.model.task;
 
-import seedu.studybananas.commons.util.StringUtil;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.studybananas.commons.util.AppUtil.checkArgument;
+
+import seedu.studybananas.commons.util.StringUtil;
 
 /**
  * Represents a Task's description in StudyBananas.

@@ -73,7 +73,7 @@ public class JsonFlashcardBankStorageTest {
 
     @Test
     public void readAndSaveFlashcardBank_allInOrder_success() throws Exception {
-        Path filePath = testFolder.resolve("TempFlashcardSet.json");
+        Path filePath = testFolder.resolve("TempFlashcardBank.json");
         FlashcardBank original = getTypicalFlashcardBank();
         JsonFlashcardBankStorage jsonFlashcardBankStorage = new JsonFlashcardBankStorage(filePath);
 

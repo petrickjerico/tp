@@ -21,6 +21,7 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 - [**Features**](#features)
   * [Add a flashcard set: `add flset`](#add-a-flashcard-set-add-flset)
   * [Delete a flashcard set: `delete flset`](#delete-a-flashcard-set-delete-flset)
+  * [List flashcards in a flashcard set: `list fl`](#list-flashcards-in-a-flashcard-set-list-fl)
   * [Add a flashcard into a flashcard set: `add fl`](#add-a-flashcard-into-a-flashcard-set-add-fl)
   * [Delete a flashcard in a flashcard set: `delete fl`](#delete-a-flashcard-in-a-flashcard-set-delete-fl)
   * [Quiz of flashcard set: `quiz flset`](#quiz-of-flashcard-set-quiz-flset)
@@ -112,6 +113,22 @@ Examples:
 - `delete flset 1`
 - `delete flset 2`
 <p>&nbsp;</p>
+
+### **List flashcards in a flashcard set**: `list fl`
+
+Shows the list of flashcards with details: question, answer and index.
+
+Format: `list fl <setindex>`
+
+- `<setindex>` should be a positive integer.
+- `<setindex>` will throw an error if `setindex` does not exist.
+
+Examples:
+- `list fl 1`
+- `list fl 2`
+
+Alternatively, you can double-click on the flashcard set.
+<p></p>
 
 ### **Add a flashcard into a flashcard set**: `add fl`
 

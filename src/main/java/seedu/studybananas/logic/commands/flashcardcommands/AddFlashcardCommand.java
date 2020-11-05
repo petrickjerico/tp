@@ -32,8 +32,8 @@ public class AddFlashcardCommand extends Command<FlashcardModel> {
             + PREFIX_ANSWER + "<answer> \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_FLASHCARDSET + "1 "
-            + PREFIX_QUESTION + "When demand goes up, what happens to price? "
-            + PREFIX_ANSWER + "Price increases ";
+            + PREFIX_QUESTION + "Is earth flat?"
+            + PREFIX_ANSWER + "Maybe!";
 
     private final Flashcard toAdd;
     private final Index flashcardSetIndex;

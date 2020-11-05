@@ -126,7 +126,7 @@ Format:` add fl flset:<setindex> q:<question> a:<answer>`
 
 Examples:
 - `add fl flset:1 q:konnichiwa a:hello `
-- `add fl flset:2 q:When demand goes up, what happens to price? a:Price increases`
+- `add fl flset:2 q:Is earth flat? a:Maybe!`
 <p>&nbsp;</p>
 
 ### **Delete a flashcard in a flashcard set**: `delete fl`
@@ -492,12 +492,12 @@ Format: click on `Exit` button at the bottom left of the application.
 
 ### Flashcard commands
 
-| Action                                 | Format, Examples                                                                                                                         |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **Add flashcard set**                  | `add flset:<setname>` <br> e.g., `add flset:Japanese`                                                                                    |
-| **Delete flashcard set**               | `delete flset:<setindex>` <br>  e.g., `delete flset:1`                                                                                   |
-| **Add flashcard in a specified set**   | `add flset:<setindex> q:<question> a:<answer>` <br> e.g., `add flset:2 q:When demand goes up, what happens to price? a:Price increases.` |
-| **Delete flashcard in specified set**  | `delete flset:<setindex> fl:<index>` <br> e.g., `delete flset:1 fl:1`                                                                    |
+| Action                                 | Format, Examples                                                                                        |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Add flashcard set**                  | `add flset name:<setname>` <br> e.g., `add flset name:Japanese`                                         |
+| **Delete flashcard set**               | `delete flset <setindex>` <br>  e.g., `delete flset 1`                                                  |
+| **Add flashcard in a specified set**   | `add fl flset:<setindex> q:<question> a:<answer>` <br> e.g., `add fl flset:2 q:Is earth flat? a:Maybe!` |
+| **Delete flashcard in specified set**  | `delete fl flset:<setindex> fl:<index>` <br> e.g., `delete fl flset:1 fl:1`                             |
 
 <p>&nbsp;</p>
 

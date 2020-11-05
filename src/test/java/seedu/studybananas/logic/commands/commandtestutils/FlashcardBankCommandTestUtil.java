@@ -53,7 +53,7 @@ public class FlashcardBankCommandTestUtil {
     public static final String INVALID_FLSET_INDEX_NON_INTEGER = " " + PREFIX_FLASHCARDSET + "A";
     public static final String INVALID_FL_INDEX_NEGATIVE = " " + PREFIX_FLASHCARD + "-1";
     public static final String INVALID_FL_INDEX_NON_INTEGER = " " + PREFIX_FLASHCARD + "A";
-    public static final String INVALID_INDEX_ERROR_MESSAGE = "Index is not a non-zero unsigned integer.";
+    public static final String INVALID_INDEX_ERROR_MESSAGE = "Invalid index, please provide valid index.";
 
     /**
      * Executes the given {@code command}, confirms that <br>

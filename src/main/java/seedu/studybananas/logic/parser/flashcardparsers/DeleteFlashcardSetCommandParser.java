@@ -21,8 +21,7 @@ public class DeleteFlashcardSetCommandParser implements Parser<DeleteFlashcardSe
             Index index = ParserUtil.parseIndex(userInput);
             return new DeleteFlashcardSetCommand(index);
         } catch (ParseException pe) {
-            throw new ParseException(
-                    String.format(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX), pe);
+            throw new ParseException(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);
         }
     }
 }

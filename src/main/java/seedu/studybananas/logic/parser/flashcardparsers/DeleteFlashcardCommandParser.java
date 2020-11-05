@@ -37,15 +37,13 @@ public class DeleteFlashcardCommandParser implements Parser<DeleteFlashcardComma
         try {
             flashcardSetIndex = ParserUtil.parseIndex(argMultimap.getValue(PREFIX_FLASHCARDSET).get());
         } catch (ParseException pe) {
-            throw new ParseException(
-                    String.format(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX), pe);
+            throw new ParseException(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);
         }
 
         try {
             flashcardIndex = ParserUtil.parseIndex(argMultimap.getValue(PREFIX_FLASHCARD).get());
         } catch (ParseException pe) {
-            throw new ParseException(
-                    String.format(Messages.MESSAGE_INVALID_FLASHCARD_INDEX), pe);
+            throw new ParseException(Messages.MESSAGE_INVALID_FLASHCARD_INDEX);
         }
 
         return new DeleteFlashcardCommand(flashcardSetIndex, flashcardIndex);

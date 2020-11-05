@@ -48,6 +48,11 @@ public class StringUtil {
         return t.getMessage() + "\n" + sw.toString();
     }
 
+    public static String getStringNoPunctuation(String sentence) {
+        String punctuationRegex = "[\\p{Punct}&&[^-:]]+";
+        String stringNoPunctuation = sentence.replaceAll(punctuationRegex, " ");
+        return stringNoPunctuation;
+    }
     /**
      * Returns true if {@code s} represents a non-zero unsigned integer
      * e.g. 1, 2, 3, ..., {@code Integer.MAX_VALUE} <br>

@@ -3,6 +3,8 @@ package seedu.studybananas.model.task;
 import static java.util.Objects.requireNonNull;
 import static seedu.studybananas.commons.util.AppUtil.checkArgument;
 
+import seedu.studybananas.commons.util.StringUtil;
+
 /**
  * Represents a Task's description in StudyBananas.
  * Guarantees: immutable; is valid as declared in {@link #isValidDescription(String)}
@@ -44,6 +46,15 @@ public class Description {
     @Override
     public String toString() {
         return description;
+    }
+
+    /**
+     * Gets the description string without any punctuation.
+     *
+     * @return Description string without punctuation.
+     */
+    public String toStringNoPunctuation() {
+        return StringUtil.getStringNoPunctuation(description);
     }
 
     @Override

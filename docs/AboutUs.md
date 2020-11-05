@@ -30,7 +30,7 @@ You may reach us through the following email addresses:
 <img src="images/bowei-yu.png" width="200px">
 
 [[github](http://github.com/bowei-yu)]
-[[portfolio](team/yubowei.md)]
+[[portfolio](team/bowei-yu.md)]
 
 * Role: Developer
 * Responsibilities: UI

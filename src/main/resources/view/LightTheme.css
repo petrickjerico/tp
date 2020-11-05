@@ -333,7 +333,7 @@
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: derive(grey, 50%);
+    -fx-background-color: transparent;
     -fx-background-insets: 3;
     -fx-background-radius: 10px;
 }

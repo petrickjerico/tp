@@ -7,6 +7,7 @@ import static seedu.studybananas.ui.util.ScheduleUiUtil.toAmPmTime;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import seedu.studybananas.logic.Logic;
@@ -22,6 +23,8 @@ public class TaskDetailSkin extends UiPart<Region> implements Observer<Task> {
 
     private SingletonClickedTaskState taskState;
 
+    @FXML
+    private ScrollPane scrollPane;
     @FXML
     private VBox cardPane;
     @FXML
@@ -43,6 +46,10 @@ public class TaskDetailSkin extends UiPart<Region> implements Observer<Task> {
     public TaskDetailSkin(Logic logic) {
         super(FXML);
         this.logic = logic;
+
+        // Disable horizontal scroll
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setFitToWidth(true);
 
         title.setText("");
         description.setText("Click on the task on the time scale to view its detail");

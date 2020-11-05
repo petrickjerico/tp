@@ -70,4 +70,9 @@ public class StorageManagerTest {
     public void getScheduleFilePath() {
         assertNotNull(storageManager.getScheduleFilePath());
     }
+
+    @Test
+    public void flashcardBankReadSave() throws Exception {
+
+    }
 }

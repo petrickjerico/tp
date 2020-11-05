@@ -20,14 +20,14 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 - [**Quick start**](#quick-start)
 - [**Features**](#features)
   * [Add a flashcard set: `add flset`](#add-a-flashcard-set-add-flset)
-  * [List all existing flashcard sets: `list flset`](#list-all-existing-flashcard-sets-list-flset)
   * [Delete a flashcard set: `delete flset`](#delete-a-flashcard-set-delete-flset)
-  * [Add a flashcard into a flashcard set: `add fl`](#add-a-flashcard-into-a-flashcard-set-add-fl)
   * [List flashcards in a flashcard set: `list fl`](#list-flashcards-in-a-flashcard-set-list-fl)
+  * [Add a flashcard into a flashcard set: `add fl`](#add-a-flashcard-into-a-flashcard-set-add-fl)
   * [Delete a flashcard in a flashcard set: `delete fl`](#delete-a-flashcard-in-a-flashcard-set-delete-fl)
   * [Quiz of flashcard set: `quiz flset`](#quiz-of-flashcard-set-quiz-flset)
   * [View last quiz attempt: `quiz score flset`](#view-last-quiz-attempt-quiz-score-flset)
   * [Add a task: `add task`](#add-a-task-add-task)
+  * [View the details of your task](#view-the-details-of-your-task)
   * [List tasks: `list task`](#list-tasks-list-task)
   * [Delete a task: `delete task`](#delete-a-task-delete-task)
   * [Search for a task: `search task`](#search-for-a-task-search-task)
@@ -102,13 +102,6 @@ Examples:
 - `add flset name:Economics – Micro`
 <p>&nbsp;</p>
 
-### **List all existing flashcard sets**: `list flset`
-
-Shows all existing flashcard sets - index and name.
-
-Format: `list flset`
-<p>&nbsp;</p>
-
 ### **Delete a flashcard set**: `delete flset`
 
 Deletes an existing flashcard set and all flashcards that it contains.
@@ -120,22 +113,6 @@ Format: `delete flset <setindex>`
 Examples:
 - `delete flset 1`
 - `delete flset 2`
-<p>&nbsp;</p>
-
-### **Add a flashcard into a flashcard set**: `add fl`
-
-Adds a single flashcard with a question and an answer in a specified flashcard set.
-
-Format:` add fl flset:<setindex> q:<question> a:<answer>`
-
-- `<question>`, `<answer>` and `<setindex>` fields are compulsory.
-- `<question>` and `<answer>` can accept strings that are capitalized or separated with spaces.
-- `<setindex>` should be a positive integer.
-- `<setindex>` will throw an error if `setindex` does not exist.
-
-Examples:
-- `add fl flset:1 q:konnichiwa a:hello `
-- `add fl flset:2 q:When demand goes up, what happens to price? a:Price increases`
 <p>&nbsp;</p>
 
 ### **List flashcards in a flashcard set**: `list fl`
@@ -150,6 +127,24 @@ Format: `list fl <setindex>`
 Examples:
 - `list fl 1`
 - `list fl 2`
+
+Alternatively, you can double-click on the flashcard set.
+<p></p>
+
+### **Add a flashcard into a flashcard set**: `add fl`
+
+Adds a single flashcard with a question and an answer in a specified flashcard set.
+
+Format:` add fl flset:<setindex> q:<question> a:<answer>`
+
+- `<question>`, `<answer>` and `<setindex>` fields are compulsory.
+- `<question>` and `<answer>` can accept strings that are capitalized or separated with spaces.
+- `<setindex>` should be a positive integer.
+- `<setindex>` will throw an error if `setindex` does not exist.
+
+Examples:
+- `add fl flset:1 q:konnichiwa a:hello `
+- `add fl flset:2 q:Is earth flat? a:Maybe!`
 <p>&nbsp;</p>
 
 ### **Delete a flashcard in a flashcard set**: `delete fl`
@@ -185,6 +180,13 @@ contained in the description of the task as shown below
 (see 3) of [Add a task: `add task`](#add-a-task-add-task))
 
 ![TaskQuizLabel](images/TaskQuizLabel.png)
+
+<div markdown="block" class="alert alert-info">
+
+Note: When the quiz has started, you may only key in commands available in quiz mode at appropriate times.<br>
+Such commands are `flip`, `ans:<answer>`, `c`, `w`, `cancel` or `refresh`.
+
+</div>
 
 #### Step 1
 When the quiz starts, as seen below, the question 
@@ -315,16 +317,6 @@ end of the schedule.
 
 <div align="center">Figure __. Result of clicking on the `Quiz CS2040` box</div>  
 
-<p>&nbsp;</p>
-
-### **View the details of your task**: 
- 
-There are several panels in our user interface that provides the details of your task. 
-- Firstly, the time scale lists out all of your study sessions which are tasks with start time and duration, you can click on your study session on the time scale to view the detail on the top right panel.
-- Secondly, the list panel located at the bottom right corner of the schedule tab lists all of your tasks, you can scroll down to view the details of your task or takes advantage of our search feature (please refer to [search task section](#search-for-a-task)) to quickly a specific task.
-- In the following user guide, we would time scale to refer to the middle panel of schedule tab, and uses task lists to refer to the bottom right panel.
- 
-![TaskDetailPanels](images/TaskDetailPanels.png)
 <p>&nbsp;</p>
 
 ### **View the details of your task**: 
@@ -506,23 +498,22 @@ Format: click on `Exit` button at the bottom left of the application.
 
 ### Flashcard commands
 
-| Action                                 | Format, Examples                                                                                                                         |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **Add flashcard set**                  | `add flset:<setname>` <br> e.g., `add flset:Japanese`                                                                                    |
-| **List all flashcard sets**            | `list flset` <br>                                                                                                                        |
-| **Delete flashcard set**               | `delete flset:<setindex>` <br>  e.g., `delete flset:1`                                                                                   |
-| **Add flashcard in a specified set**   | `add flset:<setindex> q:<question> a:<answer>` <br> e.g., `add flset:2 q:When demand goes up, what happens to price? a:Price increases.` |
-| **List flashcards in a specified set** | `list flset:<setindex>` <br> e.g., `list fl:1`                                                                                           |
-| **Delete flashcard in specified set**  | `delete flset:<setindex> fl:<index>` <br> e.g., `delete flset:1 fl:1`                                                                    |
+| Action                                 | Format, Examples                                                                                        |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Add flashcard set**                  | `add flset name:<setname>` <br> e.g., `add flset name:Japanese`                                         |
+| **Delete flashcard set**               | `delete flset <setindex>` <br>  e.g., `delete flset 1`                                                  |
+| **List flashcards in a specified set** | `list fl <setindex>` <br>  e.g., `list fl 1`                                                            |
+| **Add flashcard in a specified set**   | `add fl flset:<setindex> q:<question> a:<answer>` <br> e.g., `add fl flset:2 q:Is earth flat? a:Maybe!` |
+| **Delete flashcard in specified set**  | `delete fl flset:<setindex> fl:<index>` <br> e.g., `delete fl flset:1 fl:1`                             |
 
 <p>&nbsp;</p>
 
 ### Quiz commands
 
-| Action                           | Format, Examples                                                                                     |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Quiz flset**                   | `quiz <flset:setindex>` <br> e.g., `quiz flset:7`, `flip`, `ans:<answer>`, `c/w`, `cancel`, `refresh`|
-| **Quiz score flset**             | `quiz score <flset:setindex>` <br>  e.g., `quiz score flset:6`                                                  |
+| Action                           | Format, Examples                                                                                                                          |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Quiz flset**                   | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> Available only in quiz mode: `flip`, `ans:<answer>`, `c`, `w`, `cancel`, `refresh`   |
+| **Quiz score flset**             | `quiz score <flset:setindex>` <br>  e.g., `quiz score flset:6`                                                                            |
 
 <p>&nbsp;</p>
 

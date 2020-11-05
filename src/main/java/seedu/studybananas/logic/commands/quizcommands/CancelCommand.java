@@ -34,4 +34,9 @@ public class CancelCommand extends Command<QuizModel> {
             return new QuizCommandResult(MESSAGE_SUCCESS, CANCEL);
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof CancelCommand; // instanceof handles nulls
+    }
 }

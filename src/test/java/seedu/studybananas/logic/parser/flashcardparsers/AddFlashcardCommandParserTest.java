@@ -58,8 +58,31 @@ public class AddFlashcardCommandParserTest {
     }
 
     @Test
+    public void parse_variousOrder_success() {
+        Flashcard expectedFlashcard = new FlashcardBuilder().withQuestion(VALID_QUESTION_SECOND_LAW)
+                .withAnswer(VALID_ANSWER_SECOND_LAW).build();
+        Index expectedIndex = Index.fromOneBased(1);
+
+        // index answer question
+        assertParseSuccess(parser, FLSET_INDEX_DESC_ONE + ANSWER_DESC_SECOND_LAW + QUESTION_DESC_SECOND_LAW,
+                new AddFlashcardCommand(expectedFlashcard, expectedIndex));
+
+        // question index answer
+        assertParseSuccess(parser, QUESTION_DESC_SECOND_LAW + FLSET_INDEX_DESC_ONE + ANSWER_DESC_SECOND_LAW,
+                new AddFlashcardCommand(expectedFlashcard, expectedIndex));
+
+        // answer question index
+        assertParseSuccess(parser, ANSWER_DESC_SECOND_LAW + QUESTION_DESC_SECOND_LAW + FLSET_INDEX_DESC_ONE,
+                new AddFlashcardCommand(expectedFlashcard, expectedIndex));
+
+    }
+
+    @Test
     public void parse_missingFields_failure() {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddFlashcardCommand.MESSAGE_USAGE);
+
+        // missing all parameters
+        assertParseFailure(parser, "", expectedMessage);
 
         // missing index prefix
         assertParseFailure(parser, QUESTION_DESC_SECOND_LAW + ANSWER_DESC_SECOND_LAW,

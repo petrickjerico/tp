@@ -1,7 +1,6 @@
 package seedu.studybananas.logic.parser.scheduleparsers;
 
-import static seedu.studybananas.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-
+import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.schedulecommands.ScheduleDeleteCommand;
 import seedu.studybananas.logic.parser.Parser;
@@ -19,8 +18,7 @@ public class ScheduleDeleteCommandParser implements Parser<ScheduleDeleteCommand
             Index index = ParserUtil.parseIndex(args);
             return new ScheduleDeleteCommand(index);
         } catch (ParseException pe) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, ScheduleDeleteCommand.MESSAGE_USAGE), pe);
+            throw new ParseException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
     }
 }

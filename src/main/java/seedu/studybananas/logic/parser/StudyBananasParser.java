@@ -3,8 +3,6 @@ package seedu.studybananas.logic.parser;
 import static seedu.studybananas.commons.core.Messages.MESSAGE_QUIZ_HAS_STARTED;
 import static seedu.studybananas.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
-import java.util.regex.Pattern;
-
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.logic.parser.flashcardparsers.FlashcardParser;
@@ -19,37 +17,36 @@ import seedu.studybananas.model.Model;
 public class StudyBananasParser {
 
     /**
-     * Used for initial separation of command word and args.
-     */
-    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
-
-    /**
      * Parses user input into command for execution.
      *
-     * @param userInput full user input string
-     * @return the command based on the user input
-     * @throws ParseException if the user input does not conform the expected format
+     * @param userInput Full user input string.
+     * @return The command based on the user input.
+     * @throws ParseException If the user input does not conform the expected format.
      */
     public Command<? super Model> parseCommand(String userInput, boolean quizIsOngoing) throws ParseException {
         final CommandTypeMatcher ctm = new CommandTypeMatcher();
-
-        if (quizIsOngoing && !ctm.match(userInput).equals(CommandTypeMatcher.CommandType.QUIZ)) {
+        String trimmedUserInput = userInput.trim();
+        if (quizIsOngoing && isQuizCommand(ctm, trimmedUserInput)) {
             throw new ParseException(MESSAGE_QUIZ_HAS_STARTED);
         }
 
-        switch (ctm.match(userInput)) {
+        switch (ctm.match(trimmedUserInput)) {
         case FLASHCARD:
-            return new FlashcardParser().parse(userInput);
+            return new FlashcardParser().parse(trimmedUserInput);
 
         case QUIZ:
-            return new QuizParser().parse(userInput);
+            return new QuizParser().parse(trimmedUserInput);
 
         case TASK:
-            return new ScheduleParser().parse(userInput);
+            return new ScheduleParser().parse(trimmedUserInput);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 
+    private boolean isQuizCommand(CommandTypeMatcher ctm, String userInput) throws ParseException {
+        CommandTypeMatcher.CommandType quizCommand = CommandTypeMatcher.CommandType.QUIZ;
+        return !ctm.match(userInput).equals(quizCommand);
+    }
 }

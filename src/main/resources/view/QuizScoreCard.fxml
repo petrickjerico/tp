@@ -14,7 +14,7 @@
                 fitToWidth="true">
         <content>
             <Label fx:id="score" minHeight="400.0" minWidth="357.0"
-                   style="-fx-label-padding: 0 0 0 5; -fx-background-color: #DADD6E;"
+                   style="-fx-label-padding: 0 0 0 5; -fx-background-color: #FFFFE0;"
                    text="Score" wrapText="true">
                 <font>
                     <Font name="Comic Sans MS" size="14.0" />

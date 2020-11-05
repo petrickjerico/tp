@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" maxHeight="150.0" minWidth="-Infinity" prefWidth="370.0" style="-fx-fit-to-width: true;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" maxHeight="150.0" minHeight="130.0" minWidth="-Infinity" prefWidth="370.0" style="-fx-fit-to-width: true;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
 <VBox fx:id="cardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="150.0" minWidth="-Infinity" prefWidth="350.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="title" text="CS2103T">

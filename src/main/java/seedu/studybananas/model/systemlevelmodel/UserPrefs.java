@@ -14,7 +14,6 @@ import seedu.studybananas.commons.core.GuiSettings;
 public class UserPrefs implements ReadOnlyUserPrefs {
 
     private GuiSettings guiSettings = new GuiSettings();
-    private Path addressBookFilePath = Paths.get("data" , "addressbook.json").toAbsolutePath();
     private Path scheduleFilePath = Paths.get("data", "schedule.json").toAbsolutePath();
     private Path flashcardBankFilePath = Paths.get("data", "flashcardbank.json").toAbsolutePath();
     private Path quizRecordsFilePath = Paths.get("data", "quizrecords.json").toAbsolutePath();
@@ -38,7 +37,9 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     public void resetData(ReadOnlyUserPrefs newUserPrefs) {
         requireNonNull(newUserPrefs);
         setGuiSettings(newUserPrefs.getGuiSettings());
-        setAddressBookFilePath(newUserPrefs.getAddressBookFilePath());
+        setScheduleFilePath(newUserPrefs.getScheduleFilePath());
+        setFlashcardBankFilePath(newUserPrefs.getFlashcardBankFilePath());
+        setQuizRecordsFilePath(newUserPrefs.getQuizRecordsFilePath());
     }
 
     public GuiSettings getGuiSettings() {
@@ -48,15 +49,6 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     public void setGuiSettings(GuiSettings guiSettings) {
         requireNonNull(guiSettings);
         this.guiSettings = guiSettings;
-    }
-
-    public Path getAddressBookFilePath() {
-        return addressBookFilePath;
-    }
-
-    public void setAddressBookFilePath(Path addressBookFilePath) {
-        requireNonNull(addressBookFilePath);
-        this.addressBookFilePath = addressBookFilePath;
     }
 
     public Path getScheduleFilePath() {
@@ -98,7 +90,6 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         UserPrefs o = (UserPrefs) other;
 
         return guiSettings.equals(o.guiSettings)
-                && addressBookFilePath.equals(o.addressBookFilePath)
                 && scheduleFilePath.equals(o.scheduleFilePath)
                 && flashcardBankFilePath.equals(o.flashcardBankFilePath)
                 && quizRecordsFilePath.equals(o.quizRecordsFilePath);
@@ -106,15 +97,13 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
     @Override
     public int hashCode() {
-        return Objects.hash(guiSettings, addressBookFilePath,
-                scheduleFilePath, flashcardBankFilePath, quizRecordsFilePath);
+        return Objects.hash(guiSettings, scheduleFilePath, flashcardBankFilePath, quizRecordsFilePath);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Gui Settings : " + guiSettings);
-        sb.append("\nLocal addressbook data file location : " + addressBookFilePath);
         sb.append("\nLocal schedule data file location : " + scheduleFilePath);
         sb.append("\nLocal flashcardbank data file location : " + flashcardBankFilePath);
         sb.append("\nLocal quizrecords data file location : " + quizRecordsFilePath);

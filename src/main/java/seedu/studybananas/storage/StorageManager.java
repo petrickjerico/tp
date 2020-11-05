@@ -17,7 +17,7 @@ import seedu.studybananas.storage.quizstorage.QuizRecordsStorage;
 import seedu.studybananas.storage.schedulestorage.ScheduleStorage;
 
 /**
- * Manages storage of AddressBook data in local storage.
+ * Manages storage of StudyBananas data in local storage.
  */
 public class StorageManager implements Storage {
 
@@ -28,7 +28,8 @@ public class StorageManager implements Storage {
     private final QuizRecordsStorage quizRecordsStorage;
 
     /**
-     * Creates a {@code StorageManager} with the given {@code AddressBookStorage} and {@code UserPrefStorage}.
+     * Creates a {@code StorageManager} with the given {@code ScheduleStorage}, {@code FlashcardBankStorage},
+     * {@code QuizRecordsStorage}, and {@code UserPrefStorage}.
      */
     public StorageManager(ScheduleStorage scheduleStorage, FlashcardBankStorage flashcardBankStorage,
                           QuizRecordsStorage quizRecordsStorage, UserPrefsStorage userPrefsStorage) {

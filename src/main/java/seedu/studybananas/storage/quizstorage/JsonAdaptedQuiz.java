@@ -68,6 +68,10 @@ public class JsonAdaptedQuiz {
             throw new IllegalValueException(String.format(MESSAGE_MISSING_FIELD,
                     "scoreboard"));
         }
+        if (userAnswers == null || userAnswers.length == 0) {
+            throw new IllegalValueException(String.format(MESSAGE_MISSING_FIELD,
+                    "user answers"));
+        }
 
         final FlashcardSet flashcardSet = flset.toModelType();
         return new Quiz(flashcardSet, totalScore, pointsScored, scoreboard, userAnswers);

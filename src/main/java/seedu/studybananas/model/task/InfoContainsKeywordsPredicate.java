@@ -39,8 +39,7 @@ public class InfoContainsKeywordsPredicate implements Predicate<Task> {
                         StringUtil.containsWordIgnoreCase(date.toString(), StringUtil.getStringNoPunctuation(keyword))
                         || StringUtil.containsWordIgnoreCase(
                                 date.getUiFormatDateNoPunctuation(),
-                                StringUtil.getStringNoPunctuation(keyword))
-                )
+                                StringUtil.getStringNoPunctuation(keyword)))
                         .orElse(false));
     }
 

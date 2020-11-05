@@ -17,7 +17,8 @@ import seedu.studybananas.model.task.timeformat.TimeFormatChecker;
  */
 public class DateTime {
     public static final String MESSAGE_CONSTRAINTS =
-            "DateTime should be in the yyyy-MM-dd HH:mm or yyyy-MM-dd format";
+            "DateTime should be a valid date and in the yyyy-MM-dd HH:mm, yyyy-MM-dd "
+                    + "EEEE, MMM dd yyyy or EEEE, MMM dd yyyy HH:mm format";
     public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm";
     private static final String UI_FORMAT_DATE = "EEEE, MMM dd yyyy";
 

@@ -4,6 +4,7 @@ import static seedu.studybananas.commons.core.Messages.MESSAGE_INVALID_COMMAND_F
 import static seedu.studybananas.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.NAME_DESC_ECONOMICS;
 import static seedu.studybananas.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.NAME_DESC_PHYSICS;
 import static seedu.studybananas.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.NAME_DESC_PHYSICS_EXTRA_WHITESPACE;
+import static seedu.studybananas.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.QUESTION_DESC_SECOND_LAW;
 import static seedu.studybananas.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.VALID_FLSET_NAME_PHYSICS;
 import static seedu.studybananas.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.studybananas.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -34,6 +35,10 @@ public class AddFlashcardSetCommandParserTest {
         // multiple names - last name accepted
         assertParseSuccess(parser, NAME_DESC_ECONOMICS
                 + NAME_DESC_PHYSICS, new AddFlashcardSetCommand(expectedFlashcardSet));
+
+        // extra irrelevant parameters
+        assertParseSuccess(parser, QUESTION_DESC_SECOND_LAW + NAME_DESC_PHYSICS,
+                new AddFlashcardSetCommand(expectedFlashcardSet));
     }
 
     @Test

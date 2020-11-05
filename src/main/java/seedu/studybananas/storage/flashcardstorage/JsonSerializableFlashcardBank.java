@@ -30,7 +30,7 @@ public class JsonSerializableFlashcardBank {
     /**
      * Converts a given {@code ReadOnlyFlashcardBank} into this class for Jackson use.
      *
-     * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
+     * @param source future changes to this will not affect the created {@code JsonSerializableFlashcardBank}.
      */
     public JsonSerializableFlashcardBank(ReadOnlyFlashcardBank source) {
         flashcardSets.addAll(source.getFlashcardSetList().stream()

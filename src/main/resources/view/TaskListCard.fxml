@@ -19,7 +19,7 @@
                 <Insets bottom="5" left="15" right="5" top="5" />
             </padding>
             <HBox alignment="CENTER_LEFT" prefHeight="20.0" spacing="5">
-                <Label fx:id="title" style="-fx-font-family: Arial;                               -fx-font-weight: bold;                               -fx-font-size: 20px;" text="\$first">
+                <Label fx:id="title" minHeight="-Infinity" style="-fx-font-family: Arial; -fx-font-weight: bold; -fx-font-size: 20px; -fx-wrap-text: true;" text="First">
                 </Label>
                 <Region prefHeight="27.0" HBox.hgrow="ALWAYS" />
                 <Label fx:id="id" minWidth="20.0" prefHeight="20.0" style="-fx-background-color: white;                               -fx-background-radius: 8;                               -fx-text-fill: black;                               -fx-font-family: Arial;                               -fx-font-weight: bold;                               -fx-font-size: 20px;                               -fx-alignment:center;" styleClass="cellHeader">
@@ -38,11 +38,7 @@
                      <Insets right="10.0" />
                   </padding>
                </Label>
-                  <Label fx:id="description" maxWidth="200.0" minHeight="-Infinity" prefWidth="180.0"
-                         styleClass="cellBody"
-                         text="\$description"
-                         wrapText="true"
-                  />
+                  <Label fx:id="description" maxWidth="200.0" minHeight="-Infinity" prefWidth="180.0" styleClass="cellBody" text="\$description" wrapText="true" />
             </children>
             <VBox.margin>
                <Insets />
@@ -50,7 +46,7 @@
          </HBox>
          <HBox prefWidth="200.0">
             <children>
-               <Label text="StartTime:">
+               <Label text="Start Time:">
                   <padding>
                      <Insets right="5.0" />
                   </padding>

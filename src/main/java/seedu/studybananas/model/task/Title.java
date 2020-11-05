@@ -5,7 +5,8 @@ import static seedu.studybananas.commons.util.AppUtil.checkArgument;
 
 public class Title {
     public static final String MESSAGE_CONSTRAINTS =
-            "Task title should only contain alphanumeric characters and spaces, and it should not be blank";
+            "Task title should only contain alphanumeric characters and spaces, and it should not be blank"
+                    + "\n(The length of the title has to be less than 40 characters.";
 
     /*
      * The first character of the title must not be a whitespace,
@@ -31,7 +32,7 @@ public class Title {
      * Returns true if a given string is a valid name.
      */
     public static boolean isValidTitle(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.matches(VALIDATION_REGEX) && test.length() <= 40;
     }
 
     public boolean rigorousEquals(Title other) {

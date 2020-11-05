@@ -40,14 +40,6 @@ public abstract class CommandResult {
         return feedbackToUser;
     }
 
-    public boolean isShowHelp() {
-        return showHelp;
-    }
-
-    public boolean isExit() {
-        return exit;
-    }
-
     public abstract UiStateType getCommandResultType();
 
     @Override

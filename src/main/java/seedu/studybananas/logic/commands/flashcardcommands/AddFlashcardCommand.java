@@ -25,15 +25,15 @@ public class AddFlashcardCommand extends Command<FlashcardModel> {
     public static final String MESSAGE_SUCCESS = "New flashcard added: %1$s";
     public static final String MESSAGE_DUPLICATE_FLASHCARD =
             "This flashcard already exists in the given flashcard set.";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a flashcard to a flashcard set. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a flashcard to a flashcard set. \n"
             + "Parameters: "
             + PREFIX_FLASHCARDSET + "<flashcardsetindex> "
             + PREFIX_QUESTION + "<question> "
-            + PREFIX_ANSWER + "<answer> "
+            + PREFIX_ANSWER + "<answer> \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_FLASHCARDSET + "1 "
-            + PREFIX_QUESTION + "When demand goes up, what happens to price? "
-            + PREFIX_ANSWER + "Price increases ";
+            + PREFIX_QUESTION + "Is earth flat?"
+            + PREFIX_ANSWER + "Maybe!";
 
     private final Flashcard toAdd;
     private final Index flashcardSetIndex;

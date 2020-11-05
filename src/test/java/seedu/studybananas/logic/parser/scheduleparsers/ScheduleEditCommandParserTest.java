@@ -6,7 +6,6 @@ import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommand
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.DURATION;
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.INVALID_DATETIME_DESC;
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.INVALID_DURATION;
-import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.INVALID_TITLE_DESC;
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.TITLE_DESC_CS2103T;
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_DATETIME_CS2103T;
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_DESCRIPTION_CS2101;
@@ -68,9 +67,6 @@ public class ScheduleEditCommandParserTest {
         // no task information is provided
         assertParseFailure(parser, " 1", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                 ScheduleEditCommand.MESSAGE_USAGE));
-
-        // invalid edited title format
-        assertParseFailure(parser, " 1" + INVALID_TITLE_DESC, Title.MESSAGE_CONSTRAINTS);
 
         // invalid edited dateTime format and valid title
         assertParseFailure(parser, " 1" + TITLE_DESC_CS2103T + INVALID_DATETIME_DESC,

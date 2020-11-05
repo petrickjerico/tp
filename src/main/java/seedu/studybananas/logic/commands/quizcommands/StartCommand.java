@@ -20,9 +20,11 @@ public class StartCommand extends Command<FlashcardQuizModel> {
             + "Key 'refresh' to see current question/answer. \n"
             + "To stop the current quiz, key 'cancel'.";
 
-    public static final String MESSAGE_FLASHCARD_SET_NONEXISTENT = "Flashcard set does not exist";
+    public static final String MESSAGE_FLASHCARD_SET_NONEXISTENT =
+            "Flashcard set does not exist\nPlease provide a valid index";
 
-    public static final String MESSAGE_FLASHCARD_SET_EMPTY = "Flashcard set is empty";
+    public static final String MESSAGE_FLASHCARD_SET_EMPTY =
+            "Flashcard set is empty\nPlease fill it with flashcards";
 
     private final int index;
 

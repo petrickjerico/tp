@@ -20,10 +20,9 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 - [**Quick start**](#quick-start)
 - [**Features**](#features)
   * [Add a flashcard set: `add flset`](#add-a-flashcard-set-add-flset)
-  * [List all existing flashcard sets: `list flset`](#list-all-existing-flashcard-sets-list-flset)
   * [Delete a flashcard set: `delete flset`](#delete-a-flashcard-set-delete-flset)
-  * [Add a flashcard into a flashcard set: `add fl`](#add-a-flashcard-into-a-flashcard-set-add-fl)
   * [List flashcards in a flashcard set: `list fl`](#list-flashcards-in-a-flashcard-set-list-fl)
+  * [Add a flashcard into a flashcard set: `add fl`](#add-a-flashcard-into-a-flashcard-set-add-fl)
   * [Delete a flashcard in a flashcard set: `delete fl`](#delete-a-flashcard-in-a-flashcard-set-delete-fl)
   * [Quiz of flashcard set: `quiz flset`](#quiz-of-flashcard-set-quiz-flset)
   * [View last quiz attempt: `quiz score flset`](#view-last-quiz-attempt-quiz-score-flset)
@@ -102,13 +101,6 @@ Examples:
 - `add flset name:Economics – Micro`
 <p>&nbsp;</p>
 
-### **List all existing flashcard sets**: `list flset`
-
-Shows all existing flashcard sets - index and name.
-
-Format: `list flset`
-<p>&nbsp;</p>
-
 ### **Delete a flashcard set**: `delete flset`
 
 Deletes an existing flashcard set and all flashcards that it contains.
@@ -120,22 +112,6 @@ Format: `delete flset <setindex>`
 Examples:
 - `delete flset 1`
 - `delete flset 2`
-<p>&nbsp;</p>
-
-### **Add a flashcard into a flashcard set**: `add fl`
-
-Adds a single flashcard with a question and an answer in a specified flashcard set.
-
-Format:` add fl flset:<setindex> q:<question> a:<answer>`
-
-- `<question>`, `<answer>` and `<setindex>` fields are compulsory.
-- `<question>` and `<answer>` can accept strings that are capitalized or separated with spaces.
-- `<setindex>` should be a positive integer.
-- `<setindex>` will throw an error if `setindex` does not exist.
-
-Examples:
-- `add fl flset:1 q:konnichiwa a:hello `
-- `add fl flset:2 q:When demand goes up, what happens to price? a:Price increases`
 <p>&nbsp;</p>
 
 ### **List flashcards in a flashcard set**: `list fl`
@@ -150,6 +126,24 @@ Format: `list fl <setindex>`
 Examples:
 - `list fl 1`
 - `list fl 2`
+
+Alternatively, you can double-click on the flashcard set.
+<p></p>
+
+### **Add a flashcard into a flashcard set**: `add fl`
+
+Adds a single flashcard with a question and an answer in a specified flashcard set.
+
+Format:` add fl flset:<setindex> q:<question> a:<answer>`
+
+- `<question>`, `<answer>` and `<setindex>` fields are compulsory.
+- `<question>` and `<answer>` can accept strings that are capitalized or separated with spaces.
+- `<setindex>` should be a positive integer.
+- `<setindex>` will throw an error if `setindex` does not exist.
+
+Examples:
+- `add fl flset:1 q:konnichiwa a:hello `
+- `add fl flset:2 q:Is earth flat? a:Maybe!`
 <p>&nbsp;</p>
 
 ### **Delete a flashcard in a flashcard set**: `delete fl`
@@ -515,14 +509,13 @@ Format: click on `Exit` button at the bottom left of the application.
 
 ### Flashcard commands
 
-| Action                                 | Format, Examples                                                                                                                         |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **Add flashcard set**                  | `add flset:<setname>` <br> e.g., `add flset:Japanese`                                                                                    |
-| **List all flashcard sets**            | `list flset` <br>                                                                                                                        |
-| **Delete flashcard set**               | `delete flset:<setindex>` <br>  e.g., `delete flset:1`                                                                                   |
-| **Add flashcard in a specified set**   | `add flset:<setindex> q:<question> a:<answer>` <br> e.g., `add flset:2 q:When demand goes up, what happens to price? a:Price increases.` |
-| **List flashcards in a specified set** | `list flset:<setindex>` <br> e.g., `list fl:1`                                                                                           |
-| **Delete flashcard in specified set**  | `delete flset:<setindex> fl:<index>` <br> e.g., `delete flset:1 fl:1`                                                                    |
+| Action                                 | Format, Examples                                                                                        |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Add flashcard set**                  | `add flset name:<setname>` <br> e.g., `add flset name:Japanese`                                         |
+| **Delete flashcard set**               | `delete flset <setindex>` <br>  e.g., `delete flset 1`                                                  |
+| **List flashcards in a specified set** | `list fl <setindex>` <br>  e.g., `list fl 1`                                                            |
+| **Add flashcard in a specified set**   | `add fl flset:<setindex> q:<question> a:<answer>` <br> e.g., `add fl flset:2 q:Is earth flat? a:Maybe!` |
+| **Delete flashcard in specified set**  | `delete fl flset:<setindex> fl:<index>` <br> e.g., `delete fl flset:1 fl:1`                             |
 
 <p>&nbsp;</p>
 

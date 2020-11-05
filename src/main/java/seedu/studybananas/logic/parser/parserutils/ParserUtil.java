@@ -22,7 +22,7 @@ import seedu.studybananas.model.task.Title;
  */
 public class ParserUtil {
 
-    public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    public static final String MESSAGE_INVALID_INDEX = "Invalid index, please provide valid index.";
 
     /**
      * Parses {@code numericString} and checks whether the string is numeric.

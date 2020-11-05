@@ -27,7 +27,6 @@ public class FlashcardSetNameTest {
         // invalid question
         assertFalse(FlashcardSetName.isValidName("")); // empty string
         assertFalse(FlashcardSetName.isValidName(" ")); // spaces only
-        assertFalse(FlashcardSetName.isValidName("Computer Science!")); // with non-alphanumeric character '!'
 
         // valid questions
         assertTrue(FlashcardSetName.isValidName("Physics"));

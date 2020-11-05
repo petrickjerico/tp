@@ -7,7 +7,6 @@ import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommand
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.DESCRIPTION_DESC_CS2103T;
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.DURATION;
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.INVALID_DATETIME_DESC;
-import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.INVALID_TITLE_DESC;
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.PREAMBLE_NON_EMPTY;
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.PREAMBLE_WHITESPACE;
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.TITLE_DESC_CS2101;
@@ -24,7 +23,6 @@ import org.junit.jupiter.api.Test;
 import seedu.studybananas.logic.commands.schedulecommands.ScheduleAddCommand;
 import seedu.studybananas.model.task.DateTime;
 import seedu.studybananas.model.task.Task;
-import seedu.studybananas.model.task.Title;
 import seedu.studybananas.testutil.TaskBuilder;
 
 public class ScheduleAddCommandParserTest {
@@ -86,18 +84,10 @@ public class ScheduleAddCommandParserTest {
 
     @Test
     public void parse_invalidValue_failure() {
-        // invalid title
-        assertParseFailure(parser, INVALID_TITLE_DESC + DESCRIPTION_DESC_CS2103T + DATETIME_DESC_CS2103T,
-                Title.MESSAGE_CONSTRAINTS);
 
         // invalid date time
         assertParseFailure(parser, TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2103T + INVALID_DATETIME_DESC,
                 DateTime.MESSAGE_CONSTRAINTS);
-
-
-        // two invalid values, only first invalid value reported
-        assertParseFailure(parser, INVALID_TITLE_DESC + DATETIME_DESC_CS2103T,
-                Title.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + TITLE_DESC_CS2103T + DESCRIPTION_DESC_CS2103T

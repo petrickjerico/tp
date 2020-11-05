@@ -41,9 +41,14 @@ public class Description {
         return this.description.toLowerCase().equals(other.description.toLowerCase());
     }
 
+    private String removePunctuation(String description) {
+        String punctuationRegex = "\\p{Punct}";
+        return description.replaceAll(punctuationRegex, " ");
+    }
+
     @Override
     public String toString() {
-        return description;
+        return removePunctuation(description);
     }
 
     @Override

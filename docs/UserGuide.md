@@ -504,15 +504,6 @@ Format: click on `Exit` button at the bottom left of the application.
 
 ## Command summary
 
-### General commands
-
-| Action               | Format, Examples |
-| -------------------- | ---------------- |
-| **Viewing Help**     | `help`           |
-| **Exit application** | `exit`           |
-
-<p>&nbsp;</p>
-
 ### Flashcard commands
 
 | Action                                 | Format, Examples                                                                                                                         |

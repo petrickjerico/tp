@@ -33,7 +33,7 @@
             </HBox>
          <HBox fx:id="descriptionPane" minHeight="-Infinity" prefWidth="200.0">
             <children>
-               <Label minHeight="-Infinity" text="Description:">
+               <Label minWidth="-Infinity" style="-fx-wrap-text: true;" text="Description:">
                   <padding>
                      <Insets right="10.0" />
                   </padding>

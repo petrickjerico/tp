@@ -5,6 +5,7 @@ import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_FLASHCARD;
 import static seedu.studybananas.logic.parser.CliSyntax.PREFIX_FLASHCARDSET;
 import static seedu.studybananas.logic.parser.parserutils.ParserUtil.arePrefixesPresent;
 
+import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.flashcardcommands.DeleteFlashcardCommand;
 import seedu.studybananas.logic.parser.ArgumentMultimap;
@@ -30,8 +31,22 @@ public class DeleteFlashcardCommandParser implements Parser<DeleteFlashcardComma
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteFlashcardCommand.MESSAGE_USAGE));
         }
 
-        Index flashcardSetIndex = ParserUtil.parseIndex(argMultimap.getValue(PREFIX_FLASHCARDSET).get());
-        Index flashcardIndex = ParserUtil.parseIndex(argMultimap.getValue(PREFIX_FLASHCARD).get());
+        Index flashcardSetIndex;
+        Index flashcardIndex;
+
+        try {
+            flashcardSetIndex = ParserUtil.parseIndex(argMultimap.getValue(PREFIX_FLASHCARDSET).get());
+        } catch (ParseException pe) {
+            throw new ParseException(
+                    String.format(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX), pe);
+        }
+
+        try {
+            flashcardIndex = ParserUtil.parseIndex(argMultimap.getValue(PREFIX_FLASHCARD).get());
+        } catch (ParseException pe) {
+            throw new ParseException(
+                    String.format(Messages.MESSAGE_INVALID_FLASHCARD_INDEX), pe);
+        }
 
         return new DeleteFlashcardCommand(flashcardSetIndex, flashcardIndex);
     }

@@ -6,11 +6,27 @@ import seedu.studybananas.ui.util.UiStateType;
 public class QuizCommandResult extends CommandResult {
     private final Quiz quiz;
 
-    public QuizCommandResultType getCommandType() {
-        return commandType;
+    private QuizCommandResultType commandType;
+
+    /**
+     * Initializes a {@code QuizCommandResult}.
+     * @param feedbackToUser Feedback displayed to the user.
+     */
+    public QuizCommandResult(String feedbackToUser) {
+        super(feedbackToUser);
+        this.quiz = null;
     }
 
-    private final QuizCommandResultType commandType;
+    /**
+     * Initializes a {@code QuizCommandResult}.
+     * @param feedbackToUser Feedback displayed to the user.
+     * @param showHelp Whether to show help.
+     * @param exit Whether to exit the app.
+     */
+    public QuizCommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
+        super(feedbackToUser, showHelp, exit);
+        this.quiz = null;
+    }
 
     /**
      * Initializes a {@code QuizCommandResult}.
@@ -65,6 +81,10 @@ public class QuizCommandResult extends CommandResult {
     }
     public Quiz getQuiz() {
         return this.quiz;
+    }
+
+    public QuizCommandResultType getCommandType() {
+        return commandType;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package seedu.studybananas.ui.quizui;
 
+import static seedu.studybananas.logic.commands.commandresults.QuizCommandResultType.REFRESH;
+
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
@@ -16,6 +18,8 @@ import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.ui.CommandBox;
 import seedu.studybananas.ui.FlashcardSetListPanel;
 import seedu.studybananas.ui.UiPart;
+import seedu.studybananas.ui.commons.PositiveResponse;
+import seedu.studybananas.ui.commons.ResponsePopUp;
 import seedu.studybananas.ui.listeners.CommandResultStateListener;
 import seedu.studybananas.ui.listeners.UiStateListener;
 import seedu.studybananas.ui.util.GlobalState;
@@ -49,6 +53,7 @@ public class QuizUi extends UiPart<Region> {
     private QuizScoreCard quizScoreDisplay;
     private UiStateListener uiStateListener;
     private CommandResultStateListener commandResultStateListener;
+    private ResponsePopUp responsePopUp;
 
     @FXML
     private StackPane flashcardSetListPanelPlaceholder;
@@ -66,9 +71,10 @@ public class QuizUi extends UiPart<Region> {
      * Constructs a QuizUi object.
      * @param logic provided
      */
-    public QuizUi(Logic logic) {
+    public QuizUi(Logic logic, ResponsePopUp responsePopUp) {
         super(FXML);
         this.logic = logic;
+        this.responsePopUp = responsePopUp;
 
         flashcardSetListPanel = new FlashcardSetListPanel(logic);
         flashcardSetListPanelPlaceholder.getChildren().add(flashcardSetListPanel.getRoot());
@@ -105,7 +111,6 @@ public class QuizUi extends UiPart<Region> {
             uiStateListener.updateState(commandResult.getCommandResultType());
             commandResultStateListener.updateState(commandResult);
             return commandResult;
-
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
             resultDisplay.setFeedbackToUser(e.getMessage());
@@ -119,7 +124,15 @@ public class QuizUi extends UiPart<Region> {
     }
 
     private void updateUi(QuizCommandResult commandResult) {
-        logger.info("Result: " + commandResult.getFeedbackToUser());
+        String feedback = commandResult.getFeedbackToUser();
+        logger.info("Result: " + feedback);
+
+        // handles the response of "refresh command"
+        // This structure can then be expanded to a switch.
+        if (commandResult.getCommandType() == REFRESH) {
+            responsePopUp.setContent(new PositiveResponse(feedback));
+            responsePopUp.open();
+        }
 
         // special case for view quiz score
         Quiz quiz = logic.getQuizRecordsToView();

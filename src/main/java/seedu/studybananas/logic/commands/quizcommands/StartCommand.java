@@ -1,6 +1,7 @@
 package seedu.studybananas.logic.commands.quizcommands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.studybananas.logic.commands.commandresults.QuizCommandResultType.START;
 
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
@@ -59,7 +60,7 @@ public class StartCommand extends Command<FlashcardQuizModel> {
             String feedback = QuizCommandUtil.MESSAGE_AVAIL_ON_QUESTION;
             QuizCommandUtil.updateCommandResult(feedback);
 
-            return new QuizCommandResult(feedback, quiz);
+            return new QuizCommandResult(feedback, quiz, START);
 
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException(MESSAGE_FLASHCARD_SET_NONEXISTENT);

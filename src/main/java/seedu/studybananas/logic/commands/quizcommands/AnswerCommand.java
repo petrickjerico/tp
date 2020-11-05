@@ -1,6 +1,7 @@
 package seedu.studybananas.logic.commands.quizcommands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.studybananas.logic.commands.commandresults.QuizCommandResultType.ANSWER;
 
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
@@ -46,6 +47,6 @@ public class AnswerCommand extends Command<QuizModel> {
                 + QuizCommandUtil.MESSAGE_AVAIL_ON_ANSWER;
         QuizCommandUtil.updateCommandResult(answerStringToShow);
 
-        return new QuizCommandResult(answerStringToShow, model.getQuiz());
+        return new QuizCommandResult(answerStringToShow, model.getQuiz(), ANSWER);
     }
 }

@@ -57,7 +57,7 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
         responsePopUp = new ResponsePopUp(primaryStage);
         scheduleUi = new ScheduleUi(logic, responsePopUp);
         flashcardUi = new FlashcardUi(logic);
-        quizUi = new QuizUi(logic);
+        quizUi = new QuizUi(logic, responsePopUp);
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());

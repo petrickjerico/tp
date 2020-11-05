@@ -1,10 +1,12 @@
 package seedu.studybananas.logic.commands.quizcommands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.studybananas.logic.commands.commandresults.QuizCommandResultType.CANCEL;
 
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.commandresults.QuizCommandResult;
+import seedu.studybananas.logic.commands.commandresults.QuizCommandResultType;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.QuizModel;
 import seedu.studybananas.ui.quizui.QuizCard;
@@ -28,9 +30,9 @@ public class CancelCommand extends Command<QuizModel> {
             QuizCard.setQuestion(null);
             QuizCommandUtil.updateCommandResult(QuizCommandUtil.MESSAGE_QUIZ_NEVER_STARTED);
 
-            return new QuizCommandResult(MESSAGE_SUCCESS);
+            return new QuizCommandResult(MESSAGE_SUCCESS, CANCEL);
         } catch (NullPointerException e) {
-            return new QuizCommandResult(MESSAGE_SUCCESS);
+            return new QuizCommandResult(MESSAGE_SUCCESS, CANCEL);
         }
     }
 }

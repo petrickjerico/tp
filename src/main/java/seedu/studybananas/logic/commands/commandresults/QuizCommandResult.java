@@ -79,7 +79,7 @@ public class QuizCommandResult extends CommandResult {
 
     @Override
     public String toString() {
-        return quiz.getQuizName();
+        return quiz != null ? quiz.getQuizName() : "empty quiz";
     }
 
 }

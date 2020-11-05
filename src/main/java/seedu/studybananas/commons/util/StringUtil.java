@@ -49,7 +49,7 @@ public class StringUtil {
     }
 
     public static String getStringNoPunctuation(String sentence) {
-        String punctuationRegex = "\\p{Punct}";
+        String punctuationRegex = "[\\p{Punct}&&[^-:]]+";
         String stringNoPunctuation = sentence.replaceAll(punctuationRegex, " ");
         return stringNoPunctuation;
     }

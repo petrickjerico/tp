@@ -36,7 +36,7 @@ public class InfoContainsKeywordsPredicate implements Predicate<Task> {
         Optional<DateTime> dateTime = task.getDateTime();
         return !isEmptyKeyword(keywords) && keywords.stream()
                 .allMatch(keyword -> dateTime.map(date ->
-                        StringUtil.containsWordIgnoreCase(date.toString(), StringUtil.getStringNoPunctuation(keyword))
+                        StringUtil.containsWordIgnoreCase(date.toString(), (keyword))
                         || StringUtil.containsWordIgnoreCase(
                                 date.getUiFormatDateNoPunctuation(),
                                 StringUtil.getStringNoPunctuation(keyword)))

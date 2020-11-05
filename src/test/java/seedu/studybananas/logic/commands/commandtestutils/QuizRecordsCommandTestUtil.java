@@ -1,7 +1,6 @@
 package seedu.studybananas.logic.commands.commandtestutils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.studybananas.logic.commands.commandresults.QuizCommandResultType.START;
 import static seedu.studybananas.testutil.Assert.assertThrows;
 
 import seedu.studybananas.logic.commands.Command;

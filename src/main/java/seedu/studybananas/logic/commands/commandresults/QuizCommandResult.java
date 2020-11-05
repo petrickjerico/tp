@@ -115,7 +115,7 @@ public class QuizCommandResult extends CommandResult {
         if (this.quiz == null) {
             return ((QuizCommandResult) o).quiz == null;
         }
-        
+
         return ((QuizCommandResult) o).quiz.equals(this.quiz);
     }
 

@@ -12,8 +12,6 @@ import seedu.studybananas.logic.commands.flashcardcommands.AddFlashcardCommand;
 import seedu.studybananas.logic.commands.flashcardcommands.AddFlashcardSetCommand;
 import seedu.studybananas.logic.commands.flashcardcommands.DeleteFlashcardCommand;
 import seedu.studybananas.logic.commands.flashcardcommands.DeleteFlashcardSetCommand;
-import seedu.studybananas.logic.commands.flashcardcommands.ListFlashcardCommand;
-import seedu.studybananas.logic.commands.flashcardcommands.ListFlashcardSetCommand;
 import seedu.studybananas.logic.parser.Parser;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.FlashcardModel;
@@ -47,10 +45,6 @@ public class FlashcardParser implements Parser<Command> {
             return new DeleteFlashcardCommandParser().parse(argument);
         case DeleteFlashcardSetCommand.COMMAND_WORD:
             return new DeleteFlashcardSetCommandParser().parse(argument);
-        case ListFlashcardCommand.COMMAND_WORD:
-            return new ListFlashcardCommandParser().parse(argument);
-        case ListFlashcardSetCommand.COMMAND_WORD:
-            return new ListFlashcardSetCommand();
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }

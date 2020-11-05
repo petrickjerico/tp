@@ -7,6 +7,8 @@ import static seedu.studybananas.testutil.TypicalFlashcardSets.getTypicalFlashca
 
 import org.junit.jupiter.api.Test;
 
+import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardQuizModel;
 import seedu.studybananas.model.FlashcardQuizModelManager;
@@ -36,6 +38,6 @@ public class RefreshCommandTest {
         model.start(quiz);
 
         FlashcardQuizModel expectedModel = new FlashcardQuizModelManager(getTypicalFlashcardBank(), new QuizRecords());
-        assertCommandSuccess(refreshCommand, model, QuizCommandUtil.getCurrentCommandResult(), expectedModel);
+        assertCommandSuccess(refreshCommand, model, RefreshCommand.MESSAGE_SUCCESS, expectedModel);
     }
 }

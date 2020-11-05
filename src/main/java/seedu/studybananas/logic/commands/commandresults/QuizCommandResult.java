@@ -112,11 +112,7 @@ public class QuizCommandResult extends CommandResult {
             return true;
         }
 
-        if (this.quiz == null) {
-            return ((QuizCommandResult) o).quiz == null;
-        }
-
-        return ((QuizCommandResult) o).quiz.equals(this.quiz);
+        return super.equals(o);
     }
 
 }

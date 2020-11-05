@@ -27,6 +27,7 @@ This user guide aims to equip you with all necessary understanding to use StudyB
   * [Quiz of flashcard set: `quiz flset`](#quiz-of-flashcard-set-quiz-flset)
   * [View last quiz attempt: `quiz score flset`](#view-last-quiz-attempt-quiz-score-flset)
   * [Add a task: `add task`](#add-a-task-add-task)
+  * [View the details of your task](#view-the-details-of-your-task)
   * [List tasks: `list task`](#list-tasks-list-task)
   * [Delete a task: `delete task`](#delete-a-task-delete-task)
   * [Search for a task: `search task`](#search-for-a-task-search-task)
@@ -180,6 +181,13 @@ contained in the description of the task as shown below
 
 ![TaskQuizLabel](images/TaskQuizLabel.png)
 
+<div markdown="block" class="alert alert-info">
+
+Note: When the quiz has started, you may only key in commands available in quiz mode at appropriate times.<br>
+Such commands are `flip`, `ans:<answer>`, `c`, `w`, `cancel` or `refresh`.
+
+</div>
+
 #### Step 1
 When the quiz starts, as seen below, the question 
 of the first flashcard within the selected flashcard set appears, 
@@ -309,16 +317,6 @@ end of the schedule.
 
 <div align="center">Figure __. Result of clicking on the `Quiz CS2040` box</div>  
 
-<p>&nbsp;</p>
-
-### **View the details of your task**: 
- 
-There are several panels in our user interface that provides the details of your task. 
-- Firstly, the time scale lists out all of your study sessions which are tasks with start time and duration, you can click on your study session on the time scale to view the detail on the top right panel.
-- Secondly, the list panel located at the bottom right corner of the schedule tab lists all of your tasks, you can scroll down to view the details of your task or takes advantage of our search feature (please refer to [search task section](#search-for-a-task)) to quickly a specific task.
-- In the following user guide, we would time scale to refer to the middle panel of schedule tab, and uses task lists to refer to the bottom right panel.
- 
-![TaskDetailPanels](images/TaskDetailPanels.png)
 <p>&nbsp;</p>
 
 ### **View the details of your task**: 
@@ -521,10 +519,10 @@ Format: click on `Exit` button at the bottom left of the application.
 
 ### Quiz commands
 
-| Action                           | Format, Examples                                                                                     |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Quiz flset**                   | `quiz <flset:setindex>` <br> e.g., `quiz flset:7`, `flip`, `ans:<answer>`, `c/w`, `cancel`, `refresh`|
-| **Quiz score flset**             | `quiz score <flset:setindex>` <br>  e.g., `quiz score flset:6`                                                  |
+| Action                           | Format, Examples                                                                                                                          |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Quiz flset**                   | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> Available only in quiz mode: `flip`, `ans:<answer>`, `c`, `w`, `cancel`, `refresh`   |
+| **Quiz score flset**             | `quiz score <flset:setindex>` <br>  e.g., `quiz score flset:6`                                                                            |
 
 <p>&nbsp;</p>
 

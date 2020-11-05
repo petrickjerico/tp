@@ -1,8 +1,10 @@
 package seedu.studybananas.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.studybananas.logic.commands.commandresults.GeneralCommandResult.GeneralCommandType.HELP;
 
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.GeneralCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.Model;
 
@@ -17,6 +19,6 @@ public class HelpCommand extends Command<Model> {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        return null;
+        return new GeneralCommandResult(MESSAGE_SUCCESS, HELP);
     }
 }

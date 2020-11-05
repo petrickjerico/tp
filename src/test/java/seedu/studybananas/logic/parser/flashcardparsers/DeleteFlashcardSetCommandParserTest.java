@@ -21,5 +21,6 @@ public class DeleteFlashcardSetCommandParserTest {
     @Test
     public void parse_invalidArgs_throwsParseException() {
         assertParseFailure(parser, "a", Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);
+        assertParseFailure(parser, "-1", Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);
     }
 }

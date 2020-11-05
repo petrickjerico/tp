@@ -33,6 +33,7 @@ public class ResponsePopUp {
      */
     public void open() {
         assert response != null : "should set the content before you open the pop up window.";
+        hide();
         this.popup.show(stage);
         response.play();
     }

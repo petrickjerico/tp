@@ -19,10 +19,10 @@
                 <Insets bottom="5" left="15" right="5" top="5" />
             </padding>
             <HBox alignment="CENTER_LEFT" prefHeight="20.0" spacing="5">
-                <Label fx:id="title" minHeight="-Infinity" style="-fx-font-family: Arial; -fx-font-weight: bold; -fx-font-size: 20px; -fx-wrap-text: true;" text="First">
+                <Label fx:id="title" maxWidth="280.0" minHeight="-Infinity" style="-fx-font-family: Arial; -fx-font-weight: bold; -fx-font-size: 20px; -fx-wrap-text: true;" text="First">
                 </Label>
                 <Region prefHeight="27.0" HBox.hgrow="ALWAYS" />
-                <Label fx:id="id" minWidth="20.0" prefHeight="20.0" style="-fx-background-color: white;                               -fx-background-radius: 8;                               -fx-text-fill: black;                               -fx-font-family: Arial;                               -fx-font-weight: bold;                               -fx-font-size: 20px;                               -fx-alignment:center;" styleClass="cellHeader">
+                <Label fx:id="id" minWidth="25.0" prefHeight="20.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-text-fill: black; -fx-font-family: Arial; -fx-font-weight: bold; -fx-font-size: 20px; -fx-alignment: center; -fx-wrap-text: true;" styleClass="cellHeader">
                <padding>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </padding>

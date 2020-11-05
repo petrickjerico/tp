@@ -45,12 +45,9 @@ public class HelpWindow extends UiPart<Stage> {
             new CommandInfo("edit task", "<index>\nT: <title>\nd: <description>\n"
                     + "t: <time>\ndur:<duration>", "edit task "),
             new CommandInfo("add flset", "name: <setname>", "create a new flashcard set"),
-            new CommandInfo("list flset", null, "list all the flashcards that you have"),
             new CommandInfo("delete flset", "<setIndex>", "delete flashcard set by index"),
             new CommandInfo("add fl", "flset: <setindex>\nq: <question>\na: <answer>",
                     "add a flashcard to the flashcard set"),
-            new CommandInfo("list fl", "<setindex>",
-                    "list all the flashcards from given flashcard set"),
             new CommandInfo("delete fl", "flset: <setindex>\nfl: <flIndex>",
                     "delete flashcard from a given flashcard set"),
             new CommandInfo("quiz flset:", "<setindex>",

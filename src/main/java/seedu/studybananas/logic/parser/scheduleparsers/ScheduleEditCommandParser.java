@@ -9,6 +9,7 @@ import static seedu.studybananas.logic.parser.parserutils.ParserUtil.arePrefixes
 
 import java.util.Optional;
 
+import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.schedulecommands.ScheduleEditCommand;
 import seedu.studybananas.logic.parser.ArgumentMultimap;
@@ -74,7 +75,14 @@ public class ScheduleEditCommandParser implements Parser<ScheduleEditCommand> {
 
         String indexString = getIndexFromInput(args);
         String editInfoString = getEditInfo(args);
-        Index index = ParserUtil.parseIndex(indexString);
+        Index index;
+
+        try {
+            index = ParserUtil.parseIndex(indexString);
+        } catch (ParseException pe) {
+            throw new ParseException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
+        }
+
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(
                         editInfoString, PREFIX_TITLE, PREFIX_DESCRIPTION, PREFIX_TIME, PREFIX_DURATION);

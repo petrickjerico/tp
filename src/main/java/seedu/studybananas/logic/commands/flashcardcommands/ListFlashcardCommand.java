@@ -3,6 +3,9 @@ package seedu.studybananas.logic.commands.flashcardcommands;
 import static java.util.Objects.requireNonNull;
 import static seedu.studybananas.model.Model.PREDICATE_SHOW_ALL_FLASHCARDS;
 
+import java.util.List;
+
+import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
@@ -10,6 +13,7 @@ import seedu.studybananas.logic.commands.commandresults.FlashcardCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardModel;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+
 
 
 /**
@@ -20,9 +24,9 @@ public class ListFlashcardCommand extends Command<FlashcardModel> {
 
     public static final String COMMAND_WORD = "list fl";
     public static final String MESSAGE_SUCCESS = "Listed all flashcard in the selected flashcard set";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Lists flashcards in a flashcard set."
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Lists flashcards in a flashcard set.\n"
             + "Parameters: "
-            + "<flashcardsetindex> "
+            + "<flashcardsetindex>\n"
             + "Example: " + COMMAND_WORD + " 1";
 
     private final Index flashcardSetIndex;
@@ -39,6 +43,12 @@ public class ListFlashcardCommand extends Command<FlashcardModel> {
     public CommandResult execute(FlashcardModel model) throws CommandException {
         requireNonNull(model);
         model.updateFilteredFlashcardSetList(PREDICATE_SHOW_ALL_FLASHCARDS);
+
+        List<FlashcardSet> flashcardSets = model.getFilteredFlashcardSetList();
+
+        if (flashcardSetIndex.getZeroBased() >= flashcardSets.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);
+        }
 
         model.setFlashcardSetToView(flashcardSetIndex);
         FlashcardSet flashcardSet = model.getFlashcardSet(flashcardSetIndex);

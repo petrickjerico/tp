@@ -13,7 +13,6 @@ import seedu.studybananas.logic.commands.flashcardcommands.AddFlashcardSetComman
 import seedu.studybananas.logic.commands.flashcardcommands.DeleteFlashcardCommand;
 import seedu.studybananas.logic.commands.flashcardcommands.DeleteFlashcardSetCommand;
 import seedu.studybananas.logic.commands.flashcardcommands.ListFlashcardCommand;
-import seedu.studybananas.logic.commands.flashcardcommands.ListFlashcardSetCommand;
 import seedu.studybananas.logic.parser.Parser;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.FlashcardModel;
@@ -36,7 +35,7 @@ public class FlashcardParser implements Parser<Command> {
 
         final String commandWord = matcher.group(1).toLowerCase();
 
-        final String argument = matcher.group(4);
+        final String argument = toTokenizableString(matcher.group(4));
 
         switch (commandWord) {
         case AddFlashcardCommand.COMMAND_WORD:
@@ -49,10 +48,12 @@ public class FlashcardParser implements Parser<Command> {
             return new DeleteFlashcardSetCommandParser().parse(argument);
         case ListFlashcardCommand.COMMAND_WORD:
             return new ListFlashcardCommandParser().parse(argument);
-        case ListFlashcardSetCommand.COMMAND_WORD:
-            return new ListFlashcardSetCommand();
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
+    }
+
+    private String toTokenizableString(String str) {
+        return str == null ? "" : str;
     }
 }

@@ -19,7 +19,7 @@ public class AddFlashcardSetCommand extends Command<FlashcardModel> {
     public static final String MESSAGE_SUCCESS = "New flashcard set added: %1$s";
     public static final String MESSAGE_DUPLICATE_FLASHCARD_SET =
             "This flashcard set already exists in the flashcard bank.";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a flashcard set to the flashcard bank. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a flashcard set to the flashcard bank.\n"
             + "Parameters: "
             + PREFIX_FLASHCARDSET_NAME + "<name>\n"
             + "Example: "

@@ -1,12 +1,12 @@
 package seedu.studybananas.logic.parser.flashcardparsers;
 
-import static seedu.studybananas.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.studybananas.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.studybananas.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.studybananas.testutil.TypicalIndexes.INDEX_FIRST;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.studybananas.commons.core.Messages;
 import seedu.studybananas.logic.commands.flashcardcommands.DeleteFlashcardSetCommand;
 
 
@@ -20,7 +20,6 @@ public class DeleteFlashcardSetCommandParserTest {
 
     @Test
     public void parse_invalidArgs_throwsParseException() {
-        assertParseFailure(parser, "a", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                DeleteFlashcardSetCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "a", Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);
     }
 }

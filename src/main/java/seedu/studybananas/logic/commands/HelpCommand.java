@@ -16,6 +16,7 @@ public class HelpCommand extends Command<Model> {
     public static final String MESSAGE_USAGE = "Type help in the command box to view all the available commands " +
             "or click the help button at the bottom of the sidebar";
 
+
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);

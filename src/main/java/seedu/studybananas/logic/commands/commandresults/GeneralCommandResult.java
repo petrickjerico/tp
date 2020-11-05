@@ -22,7 +22,7 @@ public class GeneralCommandResult extends CommandResult {
         return null;
     }
 
-    public GeneralCommandType getCommandType() {
+    public GeneralCommandType getGeneralCommandType() {
         return commandType;
     }
 }

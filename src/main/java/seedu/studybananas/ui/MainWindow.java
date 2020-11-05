@@ -13,6 +13,7 @@ import seedu.studybananas.logic.Logic;
 import seedu.studybananas.ui.commons.ResponsePopUp;
 import seedu.studybananas.ui.quizui.QuizUi;
 import seedu.studybananas.ui.sidebar.SideBar;
+import seedu.studybananas.ui.util.GlobalState;
 import seedu.studybananas.ui.util.Observable;
 import seedu.studybananas.ui.util.Observer;
 import seedu.studybananas.ui.util.SingletonUiState;
@@ -56,7 +57,7 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
         responsePopUp = new ResponsePopUp(primaryStage);
         scheduleUi = new ScheduleUi(logic, responsePopUp);
         flashcardUi = new FlashcardUi(logic);
-        quizUi = new QuizUi(logic);
+        quizUi = new QuizUi(logic, responsePopUp);
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
@@ -65,6 +66,9 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
         //subscribe to UiState
         uiState = SingletonUiState.getInstance();
         subscribe(uiState);
+
+        // set global state
+        GlobalState.getInstance().setPrimaryStage(primaryStage);
 
     }
 
@@ -103,18 +107,22 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
 
     private void handleStateChange(UiStateType state) {
         ScaleTransition animation = handleSwitchAnimation();
+        GlobalState globalState = GlobalState.getInstance();
         switch (state) {
         case SCHEDULE:
             mainWindow.setCenter(scheduleUi.getRoot());
             animation.setNode(scheduleUi.getRoot());
+            globalState.focusScheduleCommandBox();
             break;
         case FLASHCARD:
             animation.setNode(flashcardUi.getRoot());
             mainWindow.setCenter(flashcardUi.getRoot());
+            globalState.focusFlashcardCommandBox();
             break;
         case QUIZ:
             animation.setNode(quizUi.getRoot());
             mainWindow.setCenter(quizUi.getRoot());
+            globalState.focusQuizCommandBox();
             break;
         default:
             throw new IllegalArgumentException();
@@ -147,6 +155,7 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
         switchAnimation.setToY(1.0);
         return switchAnimation;
     }
+
 
 
 

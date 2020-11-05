@@ -114,5 +114,7 @@ public class AddFlashcardCommandParserTest {
         // invalid answer
         assertParseFailure(parser, FLSET_INDEX_DESC_ONE + QUESTION_DESC_SECOND_LAW + INVALID_ANSWER_DESC,
                 Answer.MESSAGE_CONSTRAINTS);
+
     }
+
 }

@@ -7,6 +7,7 @@ import seedu.studybananas.commons.core.GuiSettings;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.ui.HelpWindow;
 import seedu.studybananas.ui.UiPart;
+import seedu.studybananas.ui.util.GlobalState;
 
 public class SideBarHelpMenu extends UiPart<Region> {
     private static final String FXML = "SideBarHelpMenu.fxml";
@@ -24,6 +25,9 @@ public class SideBarHelpMenu extends UiPart<Region> {
         helpWindow = new HelpWindow();
         this.primaryStage = primaryStage;
         this.logic = logic;
+
+        // set global state
+        GlobalState.getInstance().setHelpWindow(helpWindow);
     }
 
     /**

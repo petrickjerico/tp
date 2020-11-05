@@ -44,8 +44,10 @@ public class TaskDetailSkin extends UiPart<Region> implements Observer<Task> {
         super(FXML);
         this.logic = logic;
 
-        title.setText("Untitled");
+        title.setText("");
         description.setText("Click on the task on the time scale to view its detail");
+        duration.setText("");
+        date.setText("Date: ");
         taskState = SingletonClickedTaskState.getInstance();
 
         // subscribe to the Task State

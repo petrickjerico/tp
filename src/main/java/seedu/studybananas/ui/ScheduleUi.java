@@ -23,4 +23,5 @@ public class ScheduleUi extends UiPart<Region> {
         taskDetailPanelPlaceholder.getChildren().add(new TaskDetailPanel(logic, responsePopUp).getRoot());
     }
 
+
 }

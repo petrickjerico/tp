@@ -29,6 +29,7 @@ public class TaskListPanel extends UiPart<Region> {
      */
     public TaskListPanel(ObservableList<Task> taskList, Logic logic) {
         super(FXML);
+        taskListView.setSelectionModel(null);
         taskListView.setItems(taskList);
         taskListView.setCellFactory(listView -> new TaskListViewCell());
         this.logic = logic;

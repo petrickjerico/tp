@@ -36,9 +36,6 @@ public class AddFlashcardSetCommandParserTest {
         assertParseSuccess(parser, NAME_DESC_ECONOMICS
                 + NAME_DESC_PHYSICS, new AddFlashcardSetCommand(expectedFlashcardSet));
 
-        // extra irrelevant parameters
-        assertParseSuccess(parser, QUESTION_DESC_SECOND_LAW + NAME_DESC_PHYSICS,
-                new AddFlashcardSetCommand(expectedFlashcardSet));
     }
 
     @Test
@@ -48,6 +45,13 @@ public class AddFlashcardSetCommandParserTest {
         // missing name prefix
         assertParseFailure(parser, VALID_FLSET_NAME_PHYSICS,
                 expectedMessage);
+
+    }
+
+    @Test
+    public void parse_irrelevantFields_failure() {
+        assertParseFailure(parser, QUESTION_DESC_SECOND_LAW + NAME_DESC_PHYSICS,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddFlashcardSetCommand.MESSAGE_USAGE));
     }
 
 }

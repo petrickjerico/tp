@@ -4,8 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.text.Font?>
 
-
-<Label fx:id="description" onMouseClicked="#handleMouseClicked" style="-fx-background-color: #33cccc#33cccc; -fx-background-radius: 5;" text="Label" textFill="#ffffff00" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Label fx:id="description" minHeight="-Infinity" onMouseClicked="#handleMouseClicked" style="-fx-background-color: #33cccc#33cccc; -fx-background-radius: 5; -fx-wrap-text: true;" text="Label" textFill="#ffffff00" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <font>
       <Font name="Arial Bold" size="13.0" />
    </font>

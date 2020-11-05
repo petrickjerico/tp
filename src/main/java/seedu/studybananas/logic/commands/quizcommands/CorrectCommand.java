@@ -1,6 +1,7 @@
 package seedu.studybananas.logic.commands.quizcommands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.studybananas.logic.commands.commandresults.QuizCommandResultType.CORRECT;
 
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
@@ -34,12 +35,12 @@ public class CorrectCommand extends Command<QuizModel> {
             String questionStringToShow = QuizCommandUtil.MESSAGE_AVAIL_ON_QUESTION;
             QuizCommandUtil.updateCommandResult(questionStringToShow);
 
-            return new QuizCommandResult(questionStringToShow, model.getQuiz());
+            return new QuizCommandResult(questionStringToShow, model.getQuiz(), CORRECT);
 
         } catch (NullPointerException | IndexOutOfBoundsException e) {
             QuizCommandUtil.updateCommandResult(null);
             model.setQuizRecordsToView(model.getQuiz().getFlsetName());
-            return new QuizCommandResult(model.stopQuiz());
+            return new QuizCommandResult(model.stopQuiz(), CORRECT);
         }
     }
 

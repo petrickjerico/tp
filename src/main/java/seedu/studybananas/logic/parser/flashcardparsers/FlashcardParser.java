@@ -34,7 +34,7 @@ public class FlashcardParser implements Parser<Command> {
 
         final String commandWord = matcher.group(1).toLowerCase();
 
-        final String argument = matcher.group(4);
+        final String argument = toTokenizableString(matcher.group(4));
 
         switch (commandWord) {
         case AddFlashcardCommand.COMMAND_WORD:
@@ -48,5 +48,9 @@ public class FlashcardParser implements Parser<Command> {
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
+    }
+
+    private String toTokenizableString(String str) {
+        return str == null ? "" : str;
     }
 }

@@ -106,7 +106,7 @@
     -fx-label-padding: 0 0 0 0;
     -fx-graphic-text-gap : 0;
     -fx-padding: 10 0 10 0;
-    -fx-opacity: 0.8;
+
 }
 
 .list-cell:filled:even {
@@ -199,7 +199,7 @@
 
 .status-bar .label {
     -fx-font-family: "Helvetica Neue";
-    -fx-text-fill: #555555;
+    -fx-text-fill: black ;
     -fx-padding: 4px;
     -fx-pref-height: 30px;
 }
@@ -229,23 +229,30 @@
 }
 
 .context-menu .label {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
+    -fx-font-family: Arial;
 }
 
+
 .menu-bar {
-    -fx-background-color: derive(#EDEB58, 20%);
+    -fx-background-color: black;
 }
 
 .menu-bar .label {
     -fx-font-size: 14pt;
     -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: #555555;
+    -fx-text-fill: black;
     -fx-opacity: 0.9;
 }
 
-.menu .left-container {
-    -fx-background-color: #EFE0C5;
+.menu-item .label {
+  -fx-text-fill: black;
 }
+
+.menu-item:focused .label {
+  -fx-text-fill: white;
+}
+
 
 /*
  * Metro style Push Button

@@ -102,4 +102,21 @@ public class QuizCommandResult extends CommandResult {
         return quiz != null ? quiz.getQuizName() : "empty quiz";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof QuizCommandResult)) {
+            return false;
+        }
+
+        if (o == this) {
+            return true;
+        }
+
+        if (this.quiz == null) {
+            return ((QuizCommandResult) o).quiz == null;
+        }
+        
+        return ((QuizCommandResult) o).quiz.equals(this.quiz);
+    }
+
 }

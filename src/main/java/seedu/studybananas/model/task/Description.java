@@ -1,5 +1,7 @@
 package seedu.studybananas.model.task;
 
+import seedu.studybananas.commons.util.StringUtil;
+
 import static java.util.Objects.requireNonNull;
 import static seedu.studybananas.commons.util.AppUtil.checkArgument;
 
@@ -41,11 +43,6 @@ public class Description {
         return this.description.toLowerCase().equals(other.description.toLowerCase());
     }
 
-    private String removePunctuation(String description) {
-        String punctuationRegex = "\\p{Punct}";
-        return description.replaceAll(punctuationRegex, " ");
-    }
-
     @Override
     public String toString() {
         return description;
@@ -57,7 +54,7 @@ public class Description {
      * @return Description string without punctuation.
      */
     public String toStringNoPunctuation() {
-        return removePunctuation(description);
+        return StringUtil.getStringNoPunctuation(description);
     }
 
     @Override

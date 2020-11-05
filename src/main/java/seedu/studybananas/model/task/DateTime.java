@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+import seedu.studybananas.commons.util.StringUtil;
 import seedu.studybananas.model.task.timeformat.TimeFormatChecker;
 
 /**
@@ -83,11 +84,14 @@ public class DateTime {
         return dateInString;
     }
 
+    /**
+     * Gets the date time in EEEE, MMM dd yyyy format without any punctuation.
+     *
+     * @return Date Time string without punctuation.
+     */
     public String getUiFormatDateNoPunctuation() {
         String dateInString = this.getUiFormatDate();
-        String punctuationRegex = "\\p{Punct}";
-        String dateInStringNoPunctuation = dateInString.replaceAll(punctuationRegex, " ");
-        return dateInStringNoPunctuation;
+        return StringUtil.getStringNoPunctuation(dateInString);
     }
 
     @Override

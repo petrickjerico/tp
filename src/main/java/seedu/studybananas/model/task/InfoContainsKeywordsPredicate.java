@@ -26,15 +26,21 @@ public class InfoContainsKeywordsPredicate implements Predicate<Task> {
         Optional<Description> description = task.getDescription();
         return !isEmptyKeyword(keywords) && keywords.stream()
                 .allMatch(keyword -> description.map(desc ->
-                        StringUtil.containsWordIgnoreCase(desc.toStringNoPunctuation(), keyword)).orElse(false));
+                        StringUtil.containsWordIgnoreCase(
+                                desc.toStringNoPunctuation(),
+                                StringUtil.getStringNoPunctuation(keyword)))
+                        .orElse(false));
     }
 
     private boolean doesDateTimeContainKeywords(Task task) {
         Optional<DateTime> dateTime = task.getDateTime();
         return !isEmptyKeyword(keywords) && keywords.stream()
                 .allMatch(keyword -> dateTime.map(date ->
-                        StringUtil.containsWordIgnoreCase(date.toString(), keyword)
-                        || StringUtil.containsWordIgnoreCase(date.getUiFormatDateNoPunctuation(), keyword))
+                        StringUtil.containsWordIgnoreCase(date.toString(), StringUtil.getStringNoPunctuation(keyword))
+                        || StringUtil.containsWordIgnoreCase(
+                                date.getUiFormatDateNoPunctuation(),
+                                StringUtil.getStringNoPunctuation(keyword))
+                )
                         .orElse(false));
     }
 

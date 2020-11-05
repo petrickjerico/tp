@@ -1,2 +1,4 @@
-package seedu.studybananas.model;public class FlashcardQuizModelManagerTest {
+package seedu.studybananas.model;
+
+public class FlashcardQuizModelManagerTest {
 }

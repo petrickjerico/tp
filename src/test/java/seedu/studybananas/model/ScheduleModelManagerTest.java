@@ -1,2 +1,4 @@
-package seedu.studybananas.model;public class ScheduleModelManagerTest {
+package seedu.studybananas.model;
+
+public class ScheduleModelManagerTest {
 }

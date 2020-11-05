@@ -513,6 +513,7 @@ Format: click on `Exit` button at the bottom left of the application.
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | **Add flashcard set**                  | `add flset name:<setname>` <br> e.g., `add flset name:Japanese`                                         |
 | **Delete flashcard set**               | `delete flset <setindex>` <br>  e.g., `delete flset 1`                                                  |
+| **List flashcards in a specified set** | `list fl <setindex>` <br>  e.g., `list fl 1`                                                            |
 | **Add flashcard in a specified set**   | `add fl flset:<setindex> q:<question> a:<answer>` <br> e.g., `add fl flset:2 q:Is earth flat? a:Maybe!` |
 | **Delete flashcard in specified set**  | `delete fl flset:<setindex> fl:<index>` <br> e.g., `delete fl flset:1 fl:1`                             |
 

@@ -83,6 +83,13 @@ public class DateTime {
         return dateInString;
     }
 
+    public String getUiFormatDateNoPunctuation() {
+        String dateInString = this.getUiFormatDate();
+        String punctuationRegex = "\\p{Punct}";
+        String dateInStringNoPunctuation = dateInString.replaceAll(punctuationRegex, " ");
+        return dateInStringNoPunctuation;
+    }
+
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object

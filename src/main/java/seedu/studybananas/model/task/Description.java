@@ -48,6 +48,15 @@ public class Description {
 
     @Override
     public String toString() {
+        return description;
+    }
+
+    /**
+     * Gets the description string without any punctuation.
+     *
+     * @return Description string without punctuation.
+     */
+    public String toStringNoPunctuation() {
         return removePunctuation(description);
     }
 

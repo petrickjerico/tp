@@ -8,6 +8,10 @@ import seedu.studybananas.logic.commands.commandresults.GeneralCommandResult;
 import seedu.studybananas.ui.HelpWindow;
 
 public class UiUtil {
+    /**
+     * Handles General Command.
+     * @param commandResult
+     */
     public static void handleGeneralCommand(GeneralCommandResult commandResult) {
         switch (commandResult.getGeneralCommandType()) {
         case HELP:
@@ -43,6 +47,9 @@ public class UiUtil {
         primaryStage.hide();
     }
 
+    /**
+     * Checks if {@Code commandResult} is a general command.
+     */
     public static boolean isGeneralCommand(CommandResult commandResult) {
         return commandResult.getCommandResultType() == UiStateType.GENERAL;
     }

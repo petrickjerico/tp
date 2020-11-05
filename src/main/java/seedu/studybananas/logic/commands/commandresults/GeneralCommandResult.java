@@ -16,7 +16,7 @@ public class GeneralCommandResult extends CommandResult {
      */
     public GeneralCommandResult(String feedbackToUser, GeneralCommandType commandType) {
         super(feedbackToUser);
-        this.commandType =commandType;
+        this.commandType = commandType;
     }
 
     @Override

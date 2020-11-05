@@ -1,7 +1,6 @@
 package seedu.studybananas.logic.parser;
 
 import static seedu.studybananas.commons.core.Messages.MESSAGE_QUIZ_HAS_STARTED;
-import static seedu.studybananas.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.parser.exceptions.ParseException;

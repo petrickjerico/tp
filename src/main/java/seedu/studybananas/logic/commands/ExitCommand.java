@@ -12,8 +12,8 @@ public class ExitCommand extends Command<Model> {
     public static final String COMMAND_WORD = "exit";
 
     public static final String MESSAGE_SUCCESS = "Exit";
-    public static final String MESSAGE_USAGE = "Type exit in the command box to exit study bananas " +
-            "or click the exit button at the bottom of the sidebar";
+    public static final String MESSAGE_USAGE = "Type exit in the command box to exit study bananas "
+            + "or click the exit button at the bottom of the sidebar";
 
 
     @Override

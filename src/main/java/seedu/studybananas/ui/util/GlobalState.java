@@ -3,11 +3,11 @@ package seedu.studybananas.ui.util;
 import seedu.studybananas.ui.CommandBox;
 
 public class GlobalState {
+    private static GlobalState instance;
     private CommandBox scheduleCommandBox;
     private CommandBox flashcardCommandBox;
     private CommandBox quizCommandBox;
 
-    private static GlobalState instance;
 
     private GlobalState() { }
 

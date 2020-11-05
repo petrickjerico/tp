@@ -14,6 +14,7 @@ import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.ui.listeners.CommandResultStateListener;
 import seedu.studybananas.ui.listeners.UiStateListener;
+import seedu.studybananas.ui.util.GlobalState;
 import seedu.studybananas.ui.util.UiStateType;
 
 public class FlashcardUi extends UiPart<Region> {
@@ -77,6 +78,8 @@ public class FlashcardUi extends UiPart<Region> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+        GlobalState globalState = GlobalState.getInstance();
+        globalState.setFlashcardCommandBox(commandBox);
 
         // set listeners
         uiStateListener = new UiStateListener();
@@ -110,5 +113,6 @@ public class FlashcardUi extends UiPart<Region> {
     private boolean shouldRender(CommandResult commandResult) {
         return commandResult instanceof FlashcardCommandResult;
     }
+
 
 }

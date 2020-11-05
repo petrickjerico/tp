@@ -1,5 +1,7 @@
 package seedu.studybananas.logic.commands.quizcommands;
 
+import static seedu.studybananas.logic.commands.commandresults.QuizCommandResultType.VIEW_SCORE;
+
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
@@ -48,7 +50,7 @@ public class ViewScoreCommand extends Command<FlashcardQuizModel> {
 
             QuizCommandUtil.updateCommandResult(score);
 
-            return new QuizCommandResult(score);
+            return new QuizCommandResult(score, VIEW_SCORE);
         } catch (NullPointerException | IndexOutOfBoundsException e) {
             throw new CommandException(MESSAGE_QUIZ_NONEXISTENT);
         }

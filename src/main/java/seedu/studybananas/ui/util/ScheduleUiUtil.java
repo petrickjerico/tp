@@ -103,7 +103,7 @@ public class ScheduleUiUtil {
      */
     public static QuizDescription constructQuizDescription(String description, Logic logic)
             throws ParseException, IndexOutOfBoundsException {
-        Command command = logic.parse(description);
+        Command command = logic.parse(description.trim());
         if (!(command instanceof StartCommand)) {
             throw new ParseException("Not a start command.");
         }

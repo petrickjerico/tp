@@ -91,7 +91,7 @@ This user guide aims to equip you with all necessary understanding to use StudyB
 
 ### **Add a flashcard set**: `add flset`
 
-Adds a new flashcard set.
+Creates a new flashcard set with your customary name, which can then serve as folder to store and categorize your flashcards.
 
 Format: `add flset name:<setname>​`
 - `<setname>` can accept names separated with spaces.
@@ -495,15 +495,6 @@ Format: click on `Exit` button at the bottom left of the application.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
-
-### General commands
-
-| Action               | Format, Examples |
-| -------------------- | ---------------- |
-| **Viewing Help**     | `help`           |
-| **Exit application** | `exit`           |
-
-<p>&nbsp;</p>
 
 ### Flashcard commands
 

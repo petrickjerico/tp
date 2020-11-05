@@ -28,6 +28,7 @@ public class FlashcardSetListPanel extends UiPart<Region> {
     public FlashcardSetListPanel(Logic logic) {
         super(FXML);
         this.logic = logic;
+        flashcardSetListView.setSelectionModel(null);
         flashcardSetListView.setItems(logic.getFilteredFlashcardSetList());
         flashcardSetListView.setCellFactory(listView -> new FlashcardSetListViewCell());
     }

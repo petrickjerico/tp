@@ -20,6 +20,7 @@ import seedu.studybananas.ui.commons.ResponsePopUp;
 import seedu.studybananas.ui.commons.WarningResponse;
 import seedu.studybananas.ui.listeners.CommandResultStateListener;
 import seedu.studybananas.ui.listeners.UiStateListener;
+import seedu.studybananas.ui.util.GlobalState;
 import seedu.studybananas.ui.util.UiStateType;
 
 public class TaskDetailPanel extends UiPart<Region> {
@@ -80,6 +81,8 @@ public class TaskDetailPanel extends UiPart<Region> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+        GlobalState globalState = GlobalState.getInstance();
+        globalState.setScheduleCommandBox(commandBox);
 
         // set up listener
         commandResultStateListener = new CommandResultStateListener();

@@ -50,7 +50,7 @@ You may reach us through the following email addresses:
 <img src="images/ducbinh2611.png" width="200px">
 
 [[github](http://github.com/ducbinh2611)]
-[[portfolio](team/ducbinh.md)]
+[[portfolio](team/ducbinh2611.md)]
 
 * Role: Developer
 * Responsibilities: Dev Ops + Threading

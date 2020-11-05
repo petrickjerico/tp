@@ -1,11 +1,11 @@
 package seedu.studybananas.logic.parser;
 
 import static seedu.studybananas.commons.core.Messages.MESSAGE_QUIZ_HAS_STARTED;
+import static seedu.studybananas.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.logic.parser.flashcardparsers.FlashcardParser;
-import seedu.studybananas.logic.parser.generalparsers.GeneralParser;
 import seedu.studybananas.logic.parser.parserutils.CommandTypeMatcher;
 import seedu.studybananas.logic.parser.quizparsers.QuizParser;
 import seedu.studybananas.logic.parser.scheduleparsers.ScheduleParser;
@@ -41,7 +41,7 @@ public class StudyBananasParser {
             return new ScheduleParser().parse(trimmedUserInput);
 
         default:
-            return new GeneralParser().parse(trimmedUserInput);
+            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 

@@ -4,10 +4,10 @@ import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.Model;
 
-public class HelpCommand extends Command<Model> {
-
-    public static final String MESSAGE_USAGE = "TODO: INSERT HELP DETAILS HERE";
-
+/**
+ * Example command for parser structure.
+ */
+public class ExampleCommand extends Command<Model> {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         return null;

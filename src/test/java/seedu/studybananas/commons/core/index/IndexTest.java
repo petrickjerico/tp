@@ -57,13 +57,4 @@ public class IndexTest {
         // different index -> returns false
         assertFalse(fifthPersonIndex.equals(Index.fromOneBased(1)));
     }
-
-    @Test
-    public void toString_test() {
-        // EP 0 ~
-        assertEquals(String.valueOf(0), Index.fromOneBased(1).toString());
-
-        // EP < 0
-        assertThrows(IndexOutOfBoundsException.class, () -> Index.fromOneBased(0));
-    }
 }

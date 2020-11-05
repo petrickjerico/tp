@@ -26,7 +26,7 @@ public class AddFlashcardCommand extends Command<FlashcardModel> {
     public static final String MESSAGE_DUPLICATE_FLASHCARD =
             "This flashcard already exists in the given flashcard set.";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a flashcard to a flashcard set. "
-            + "Parameters: "
+            + "\nParameters: "
             + PREFIX_FLASHCARDSET + "<flashcardsetindex> "
             + PREFIX_QUESTION + "<question> "
             + PREFIX_ANSWER + "<answer> "

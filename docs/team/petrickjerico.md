@@ -7,7 +7,7 @@ title: Petrick Jerico's Project Portfolio Page
 
 StudyBananas is a **desktop study companion app that helps students centralize all their study tasks and set up focused study sessions into one place, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
-Given below are my contributions to the project (to be updated).
+Given below are my contributions to the project.
 
 * **New Feature**:
 
@@ -22,3 +22,5 @@ Given below are my contributions to the project (to be updated).
 * **Community**:
 
 * **Tools**:
+  * JavaFX
+

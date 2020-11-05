@@ -6,6 +6,7 @@ import static seedu.studybananas.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.logic.parser.flashcardparsers.FlashcardParser;
+import seedu.studybananas.logic.parser.generalparsers.GeneralParser;
 import seedu.studybananas.logic.parser.parserutils.CommandTypeMatcher;
 import seedu.studybananas.logic.parser.quizparsers.QuizParser;
 import seedu.studybananas.logic.parser.scheduleparsers.ScheduleParser;
@@ -33,15 +34,12 @@ public class StudyBananasParser {
         switch (ctm.match(trimmedUserInput)) {
         case FLASHCARD:
             return new FlashcardParser().parse(trimmedUserInput);
-
         case QUIZ:
             return new QuizParser().parse(trimmedUserInput);
-
         case TASK:
             return new ScheduleParser().parse(trimmedUserInput);
-
         default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            return new GeneralParser().parse(trimmedUserInput);
         }
     }
 

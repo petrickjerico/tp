@@ -11,6 +11,7 @@ import javafx.util.Callback;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.GeneralCommandResult;
 import seedu.studybananas.logic.commands.commandresults.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
@@ -25,6 +26,7 @@ import seedu.studybananas.ui.listeners.CommandResultStateListener;
 import seedu.studybananas.ui.listeners.UiStateListener;
 import seedu.studybananas.ui.util.GlobalState;
 import seedu.studybananas.ui.util.UiStateType;
+import seedu.studybananas.ui.util.UiUtil;
 
 public class QuizUi extends UiPart<Region> {
 
@@ -70,11 +72,10 @@ public class QuizUi extends UiPart<Region> {
 
     /**
      * Constructs a QuizUi object.
-     * @param logic provided
      */
-    public QuizUi(Logic logic, ResponsePopUp responsePopUp) {
+    public QuizUi(ResponsePopUp responsePopUp) {
         super(FXML);
-        this.logic = logic;
+        this.logic = GlobalState.getInstance().getLogic();
         this.responsePopUp = responsePopUp;
 
         flashcardSetListPanel = new FlashcardSetListPanel(logic);
@@ -109,6 +110,11 @@ public class QuizUi extends UiPart<Region> {
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
             CommandResult commandResult = logic.execute(commandText);
+            if (UiUtil.isGeneralCommand(commandResult)) {
+                UiUtil.handleGeneralCommand((GeneralCommandResult) commandResult);
+                return commandResult;
+            }
+
             uiStateListener.updateState(commandResult.getCommandResultType());
             commandResultStateListener.updateState(commandResult);
             return commandResult;

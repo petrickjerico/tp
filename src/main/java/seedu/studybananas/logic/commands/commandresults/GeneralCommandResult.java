@@ -1,5 +1,7 @@
 package seedu.studybananas.logic.commands.commandresults;
 
+import static seedu.studybananas.ui.util.UiStateType.GENERAL;
+
 import seedu.studybananas.ui.util.UiStateType;
 
 public class GeneralCommandResult extends CommandResult {
@@ -19,7 +21,7 @@ public class GeneralCommandResult extends CommandResult {
 
     @Override
     public UiStateType getCommandResultType() {
-        return null;
+        return GENERAL;
     }
 
     public GeneralCommandType getGeneralCommandType() {

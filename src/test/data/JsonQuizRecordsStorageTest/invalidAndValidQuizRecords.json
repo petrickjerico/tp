@@ -1,0 +1,36 @@
+{
+  "quizzes" : {
+    "CS2040" : {
+      "totalScore" : 2,
+      "pointsScored" : 2,
+      "scoreboard" : [ true, true ],
+      "userAnswers" : [],
+      "flset" : {
+        "name" : "CS2040",
+        "flashcards" : [ {
+          "question" : "Time complexity of binary search?",
+          "answer" : "O(logn)"
+        }, {
+          "question" : "What are conditions for binary search?",
+          "answer" : "It has to be a sorted array"
+        } ]
+      }
+    },
+    "Physics" : {
+      "totalScore" : 2,
+      "pointsScored" : 1,
+      "scoreboard" : [ true, false ],
+      "userAnswers" : [ "F = ma", "hmm i forgot" ],
+      "flset" : {
+        "name" : "Physics",
+        "flashcards" : [ {
+          "question" : "Formula to show Newton's Second Law of Motion",
+          "answer" : "F = ma [where m = mass (in kg) and a = acceleration (in ms^-2)]"
+        }, {
+          "question" : "Formula for GPE",
+          "answer" : "GPE = mgh [where m = mass (in kg), g = 9.81ms^-2 and h = height (in m)]"
+        } ]
+      }
+    }
+  }
+}

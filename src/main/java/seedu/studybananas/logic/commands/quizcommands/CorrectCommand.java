@@ -42,4 +42,9 @@ public class CorrectCommand extends Command<QuizModel> {
             return new QuizCommandResult(model.stopQuiz());
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof CorrectCommand;
+    }
 }

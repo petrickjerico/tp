@@ -7,7 +7,8 @@ import java.util.List;
 import seedu.studybananas.model.task.exceptions.TimeFormatException;
 
 public class TimeFormatChecker {
-    private static final List<TimeFormat> VALID_FORMATS = Arrays.asList(new IsoDateTime(), new IsoDate());
+    private static final List<TimeFormat> VALID_FORMATS = Arrays.asList(new IsoDateTime(),
+            new IsoDate(), new WordDateTime());
 
     /**
      * Check if the time format is supported by StudyBananas)
@@ -35,7 +36,7 @@ public class TimeFormatChecker {
                 LocalDateTime ldt = format.check(time);
                 return ldt;
             } catch (TimeFormatException e) {
-                //Not a good practice, still need to refactor.
+                continue;
             }
         }
         throw new TimeFormatException();

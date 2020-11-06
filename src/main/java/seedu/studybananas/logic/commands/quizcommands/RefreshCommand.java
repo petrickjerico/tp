@@ -22,7 +22,7 @@ public class RefreshCommand extends Command<FlashcardQuizModel> {
             throw new CommandException(QuizCommandUtil.MESSAGE_QUIZ_NEVER_STARTED);
         }
 
-        return new QuizCommandResult(MESSAGE_SUCCESS, REFRESH);
+        return new QuizCommandResult(QuizCommandUtil.getCurrentCommandResult(), REFRESH);
     }
 
     @Override

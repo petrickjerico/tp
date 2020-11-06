@@ -59,6 +59,8 @@ public class WordDateTime implements TimeFormat {
     private String getTime(String dateInput) {
         if (hasTime(dateInput)) {
             // Time should be the second word in the date input
+            String[] splittedInput = dateInput.split(" ");
+            assert !(splittedInput.length < 2) : "Both day and time have to be present";
             return dateInput.split(" ")[1];
         } else {
             return DEFAULT_TIME;

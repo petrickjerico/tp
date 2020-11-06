@@ -122,6 +122,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean isTaskOverlapped(Task exceptionTask, Task task) {
+        return this.scheduleModelManager.isTaskOverlapped(exceptionTask, task);
+    }
+
+    @Override
     public void deleteTask(Task target) {
         this.scheduleModelManager.deleteTask(target);
     }

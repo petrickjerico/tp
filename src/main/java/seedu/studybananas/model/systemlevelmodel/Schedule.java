@@ -67,6 +67,13 @@ public class Schedule implements ReadOnlySchedule {
     }
 
     /**
+     *
+     */
+    public boolean isTaskOverlapped(Task exceptionTask, Task task) {
+        requireNonNull(task);
+        return tasks.isTaskOverlapped(exceptionTask, task);
+    }
+    /**
      * Adds a task to the schedule.
      * The task must not already exist in the schedule.
      */

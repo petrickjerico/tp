@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.studybananas.commons.core.Messages.MESSAGE_OVERLAP_TASK;
 import static seedu.studybananas.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -45,6 +46,24 @@ public class ScheduleAddCommandTest {
         ModelStubWithTask modelStub = new ModelStubWithTask(validTask);
 
         assertThrows(CommandException.class, ScheduleAddCommand.MESSAGE_DUPLICATE_TASK, (
+        ) -> addCommand.execute(modelStub));
+    }
+
+    @Test
+    public void execute_overlapTask_throwsCommandException() {
+        String validTitle = "ST2334";
+        String validDescription = "Quiz 3";
+        String validDateTimeOverlapped = "2020-10-10 12:00";
+        String validDurationOverlapped = "120";
+        Task validTask = new TaskBuilder().build();
+        Task overlappedTask = new TaskBuilder(validTask).withTitle(validTitle)
+                .withDescription(validDescription)
+                .withDateTime(validDateTimeOverlapped)
+                .withDuration(validDurationOverlapped).build();
+        ScheduleAddCommand addCommand = new ScheduleAddCommand(overlappedTask);
+        ModelStubWithTask modelStub = new ModelStubWithTask(validTask);
+
+        assertThrows(CommandException.class, MESSAGE_OVERLAP_TASK, (
         ) -> addCommand.execute(modelStub));
     }
 
@@ -91,6 +110,12 @@ public class ScheduleAddCommandTest {
             requireNonNull(task);
             return this.task.isSameTask(task);
         }
+
+        @Override
+        public boolean isTaskOverlapped(Task exceptionTask, Task task) {
+            requireNonNull(task);
+            return this.task.isDateTimeOverlapped(task);
+        }
     }
 
     /**
@@ -103,6 +128,14 @@ public class ScheduleAddCommandTest {
             requireNonNull(task);
             return tasksAdded.stream().anyMatch(task::isSameTask);
         }
+
+        @Override
+        public boolean isTaskOverlapped(Task exceptionTask, Task addedTask) {
+            requireNonNull(addedTask);
+            return tasksAdded.stream().anyMatch(task ->
+                    !exceptionTask.equals(addedTask) && task.isDateTimeOverlapped(addedTask));
+        }
+
         @Override
         public void addTask(Task task) {
             requireNonNull(task);
@@ -111,7 +144,6 @@ public class ScheduleAddCommandTest {
     }
 
     private class ScheduleModelStub implements ScheduleModel {
-
 
         @Override
         public void setSchedule(ReadOnlySchedule schedule) {
@@ -125,6 +157,11 @@ public class ScheduleAddCommandTest {
 
         @Override
         public boolean hasTask(Task task) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean isTaskOverlapped(Task exceptionTask, Task task) {
             throw new AssertionError("This method should not be called.");
         }
 

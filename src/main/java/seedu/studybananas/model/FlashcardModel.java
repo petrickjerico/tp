@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.model.flashcard.Flashcard;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.model.flashcard.FlashcardSetName;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlyFlashcardBank;
 
 public interface FlashcardModel {
@@ -75,6 +76,15 @@ public interface FlashcardModel {
      * @return the {@code FlashcardSet} in the high-level {@code FlashcardBank} with that {@code Index}
      */
     FlashcardSet getFlashcardSet(Index index);
+
+    /**
+     * Retrieves the {@code FlashcardSet} with the given {@code FlashcardSetName}.
+     * Used for {@code Quiz}.
+     *
+     * @param flsetName the reference {@code FlashcardSetName}
+     * @return the {@code FlashcardSet} in the high-level {@code FlashcardBank} with that {@code FlashcardSetName}
+     */
+    FlashcardSet getFlashcardSet(FlashcardSetName flsetName);
 
     /**
      * Replaces the target {@code FlashcardSet} in the {@code FlashcardBank}

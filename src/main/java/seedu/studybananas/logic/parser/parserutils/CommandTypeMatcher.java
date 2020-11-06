@@ -1,13 +1,10 @@
 package seedu.studybananas.logic.parser.parserutils;
 
-import static seedu.studybananas.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-
-import seedu.studybananas.logic.commands.HelpCommand;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 
 public class CommandTypeMatcher {
     public enum CommandType {
-        ADDRESSBOOK, FLASHCARD, QUIZ, TASK
+        FLASHCARD, QUIZ, TASK, GENERAL
     }
 
     /**
@@ -29,11 +26,7 @@ public class CommandTypeMatcher {
             return CommandType.QUIZ;
         }
 
-        if (isAddressBookCommand(command)) {
-            return CommandType.ADDRESSBOOK;
-        }
-
-        throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+        return CommandType.GENERAL;
     }
 
     private String getFirstWord(String userInput) {

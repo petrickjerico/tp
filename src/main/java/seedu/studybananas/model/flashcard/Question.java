@@ -41,13 +41,14 @@ public class Question {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || other instanceof seedu.studybananas.model.flashcard.Question // instanceof handles nulls
-                && question.equals(((seedu.studybananas.model.flashcard.Question) other).question); // state check
+                || other instanceof Question // instanceof handles nulls
+                && question.toLowerCase().equals((
+                        (Question) other).question.toLowerCase()); // state check
     }
 
     @Override
     public int hashCode() {
-        return question.hashCode();
+        return question.toLowerCase().hashCode();
     }
 }
 

@@ -21,6 +21,7 @@ import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardModel;
 import seedu.studybananas.model.flashcard.Flashcard;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.model.flashcard.FlashcardSetName;
 import seedu.studybananas.model.systemlevelmodel.FlashcardBank;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.studybananas.testutil.FlashcardBuilder;
@@ -208,6 +209,11 @@ public class AddFlashcardCommandTest {
 
         @Override
         public FlashcardSet getFlashcardSet(Index index) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public FlashcardSet getFlashcardSet(FlashcardSetName flsetName) {
             throw new AssertionError("This method should not be called.");
         }
 

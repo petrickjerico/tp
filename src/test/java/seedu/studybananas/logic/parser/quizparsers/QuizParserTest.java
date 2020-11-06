@@ -15,6 +15,7 @@ import seedu.studybananas.logic.commands.quizcommands.StartCommand;
 import seedu.studybananas.logic.commands.quizcommands.ViewScoreCommand;
 import seedu.studybananas.logic.commands.quizcommands.WrongCommand;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
+import seedu.studybananas.model.flashcard.FlashcardSetName;
 
 public class QuizParserTest {
 
@@ -54,12 +55,20 @@ public class QuizParserTest {
         StartCommand expectedCommand = new StartCommand(1);
         StartCommand startCommand = (StartCommand) parser.parse("quiz flset:1");
         assertEquals(expectedCommand, startCommand);
+
+        expectedCommand = new StartCommand(new FlashcardSetName("physics"));
+        startCommand = (StartCommand) parser.parse("quiz flset: physics");
+        assertEquals(expectedCommand, startCommand);
     }
 
     @Test
     public void parse_viewScoreCommand_returnsViewScoreCommand() throws ParseException {
         ViewScoreCommand expectedCommand = new ViewScoreCommand(1);
         ViewScoreCommand viewScoreCommand = (ViewScoreCommand) parser.parse("quiz score flset:1");
+        assertEquals(expectedCommand, viewScoreCommand);
+
+        expectedCommand = new ViewScoreCommand(new FlashcardSetName("economics"));
+        viewScoreCommand = (ViewScoreCommand) parser.parse("quiz score flset:   ecOnoMics");
         assertEquals(expectedCommand, viewScoreCommand);
     }
 

@@ -263,6 +263,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public FlashcardSet getFlashcardSet(FlashcardSetName flsetName) {
+        return flashcardQuizModelManager.getFlashcardSet(flsetName);
+    }
+
+    @Override
     public boolean hasFlashcardSet(FlashcardSet flashcardSet) {
         return flashcardQuizModelManager.hasFlashcardSet(flashcardSet);
     }

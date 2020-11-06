@@ -1,6 +1,7 @@
 package seedu.studybananas.logic.parser;
 
 import static seedu.studybananas.commons.core.Messages.MESSAGE_QUIZ_HAS_STARTED;
+import static seedu.studybananas.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
@@ -26,24 +27,34 @@ public class StudyBananasParser {
     public Command<? super Model> parseCommand(String userInput, boolean quizIsOngoing) throws ParseException {
         final CommandTypeMatcher ctm = new CommandTypeMatcher();
         String trimmedUserInput = userInput.trim();
-        if (quizIsOngoing && isQuizCommand(ctm, trimmedUserInput)) {
-            throw new ParseException(MESSAGE_QUIZ_HAS_STARTED);
-        }
+
 
         switch (ctm.match(trimmedUserInput)) {
         case FLASHCARD:
-            return new FlashcardParser().parse(trimmedUserInput);
+            return parseCommand(new FlashcardParser(), trimmedUserInput, false, quizIsOngoing);
         case QUIZ:
-            return new QuizParser().parse(trimmedUserInput);
+            return parseCommand(new QuizParser(), trimmedUserInput, true, quizIsOngoing);
         case TASK:
-            return new ScheduleParser().parse(trimmedUserInput);
+            return parseCommand(new ScheduleParser(), trimmedUserInput, false, quizIsOngoing);
+        case GENERAL:
+            return parseCommand(new GeneralParser(), trimmedUserInput, true, quizIsOngoing);
         default:
-            return new GeneralParser().parse(trimmedUserInput);
+            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 
-    private boolean isQuizCommand(CommandTypeMatcher ctm, String userInput) throws ParseException {
-        CommandTypeMatcher.CommandType quizCommand = CommandTypeMatcher.CommandType.QUIZ;
-        return !ctm.match(userInput).equals(quizCommand);
+
+    private Command parseCommand(Parser parser, String userInput, boolean immuneToQuiz, boolean quizIsOngoing)
+            throws ParseException {
+        if (immuneToQuiz) {
+            return parser.parse(userInput);
+        }
+
+        if (quizIsOngoing) {
+            throw new ParseException(MESSAGE_QUIZ_HAS_STARTED);
+        }
+
+        return parser.parse(userInput);
+
     }
 }

@@ -60,6 +60,11 @@ public class FlashcardQuizModelManager implements FlashcardQuizModel {
     }
 
     @Override
+    public FlashcardSet getFlashcardSet(FlashcardSetName name) {
+        return flashcardModelManager.getFlashcardSet(name);
+    }
+
+    @Override
     public void setFlashcardSet(FlashcardSet target, FlashcardSet editedFlashcardSet) {
         flashcardModelManager.setFlashcardSet(target, editedFlashcardSet);
     }

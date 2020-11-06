@@ -10,6 +10,7 @@ import seedu.studybananas.logic.commands.commandresults.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardQuizModel;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.model.flashcard.FlashcardSetName;
 import seedu.studybananas.model.flashcard.Question;
 import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.ui.quizui.QuizCard;
@@ -22,17 +23,33 @@ public class StartCommand extends Command<FlashcardQuizModel> {
             + "To stop the current quiz, key 'cancel'.";
 
     public static final String MESSAGE_FLASHCARD_SET_NONEXISTENT =
-            "Flashcard set does not exist\nPlease provide a valid index";
+            "Flashcard set does not exist\nPlease provide a valid index or set name";
 
     public static final String MESSAGE_FLASHCARD_SET_EMPTY =
             "Flashcard set is empty\nPlease fill it with flashcards";
 
     private final int index;
+    private final FlashcardSetName flashcardSetName;
+    private FlashcardSet flashcardSet;
 
     private FlashcardQuizModel model;
 
+    /**
+     * Constructs a StartCommand based on the index provided.
+     * @param index of the flashcard set
+     */
     public StartCommand(int index) {
         this.index = index;
+        this.flashcardSetName = null;
+    }
+
+    /**
+     * Constructs a StartCommand based on the name provided.
+     * @param name of the flashcard set
+     */
+    public StartCommand(FlashcardSetName name) {
+        this.index = 0;
+        this.flashcardSetName = name;
     }
 
     @Override
@@ -46,8 +63,16 @@ public class StartCommand extends Command<FlashcardQuizModel> {
         }
 
         try {
-            Index indexWrapper = Index.fromOneBased(index);
-            FlashcardSet flashcardSet = model.getFlashcardSet(indexWrapper);
+            if (index == 0) {
+                flashcardSet = model.getFlashcardSet(flashcardSetName);
+            } else {
+                Index indexWrapper = Index.fromOneBased(index);
+                flashcardSet = model.getFlashcardSet(indexWrapper);
+            }
+
+            if (flashcardSet == null) {
+                throw new CommandException(MESSAGE_FLASHCARD_SET_NONEXISTENT);
+            }
 
             if (flashcardSet.getSize() == 0) { // check for empty flashcard set
                 throw new CommandException(MESSAGE_FLASHCARD_SET_EMPTY);
@@ -80,5 +105,12 @@ public class StartCommand extends Command<FlashcardQuizModel> {
      */
     public Index getQuizIndex() {
         return Index.fromOneBased(index);
+    }
+
+    /**
+     * Get the {@Code FlashcardSetName} of the flashcardSet for the quiz.
+     */
+    public FlashcardSetName getFlashcardSetName() {
+        return flashcardSetName;
     }
 }

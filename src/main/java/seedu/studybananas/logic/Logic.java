@@ -12,6 +12,7 @@ import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.Model;
 import seedu.studybananas.model.flashcard.Flashcard;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.model.flashcard.FlashcardSetName;
 import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlySchedule;
@@ -50,6 +51,12 @@ public interface Logic {
      * @param idx index of the flashcardSet.
      */
     FlashcardSet getFlashcardSetFromIndex(Index idx);
+
+    /**
+     * Get {@Code FlashcardSet} by {@Code FlashcardSetName}.
+     * @param flsetName name of the flashcardSet.
+     */
+    FlashcardSet getFlashcardSetFromName(FlashcardSetName flsetName);
 
 
     /**

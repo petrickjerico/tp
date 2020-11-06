@@ -99,7 +99,7 @@ public class ScheduleUiUtil {
     /**
      * Constructs quiz description from description and {@Code Logic}.
      * @throws ParseException if the description is not valid command.
-     * @throws IndexOutOfBoundsException if the flashcardSet index is not valid;
+     * @throws IndexOutOfBoundsException if the flashcardSet index or name is not valid;
      */
     public static QuizDescription constructQuizDescription(String description, Logic logic)
             throws ParseException, IndexOutOfBoundsException {
@@ -109,10 +109,21 @@ public class ScheduleUiUtil {
         }
 
         StartCommand quizStartCommand = (StartCommand) command;
-        FlashcardSet flashcardSet = logic.getFlashcardSetFromIndex(quizStartCommand.getQuizIndex());
-        String text = "Quiz: " + flashcardSet.getFlashcardSetName();
-        return new QuizDescription(text, quizStartCommand, logic);
+        try {
+            FlashcardSet flashcardSet = logic.getFlashcardSetFromIndex(quizStartCommand.getQuizIndex());
+            String text = "Quiz: " + flashcardSet.getFlashcardSetName();
+            return new QuizDescription(text, quizStartCommand, logic);
 
+        } catch (IndexOutOfBoundsException e) { // handles case where quiz is stored by name
+            FlashcardSet flashcardSet = logic.getFlashcardSetFromName(quizStartCommand.getFlashcardSetName());
+
+            if (flashcardSet == null) { // if flashcard set name is invalid
+                throw new IndexOutOfBoundsException("Flashcard set is non-existent.");
+            }
+
+            String text = "Quiz: " + flashcardSet.getFlashcardSetName();
+            return new QuizDescription(text, quizStartCommand, logic);
+        }
     }
 
     /**

@@ -12,6 +12,7 @@ import seedu.studybananas.logic.commands.quizcommands.WrongCommand;
 import seedu.studybananas.logic.parser.Parser;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.Model;
+import seedu.studybananas.model.flashcard.FlashcardSetName;
 
 public class QuizParser implements Parser<Command> {
 
@@ -25,8 +26,7 @@ public class QuizParser implements Parser<Command> {
         lowerCaseUserInput = lowerCaseUserInput.trim();
         if (lowerCaseUserInput.startsWith(StartCommand.COMMAND_WORD)) {
             lowerCaseUserInput = lowerCaseUserInput.replace(StartCommand.COMMAND_WORD, EMPTY_SPACE);
-            int index = parseNumber(lowerCaseUserInput);
-            return new StartCommand(index);
+            return parseStartCommand(lowerCaseUserInput);
         } else if (lowerCaseUserInput.startsWith(ViewScoreCommand.COMMAND_WORD)) {
             lowerCaseUserInput = lowerCaseUserInput.replace(ViewScoreCommand.COMMAND_WORD, EMPTY_SPACE);
             int index = parseNumber(lowerCaseUserInput);
@@ -63,6 +63,16 @@ public class QuizParser implements Parser<Command> {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new ParseException("Invalid characters provided for flashcard set number");
+        }
+    }
+
+    private StartCommand parseStartCommand(String input) {
+        try {
+            int index = parseNumber(input);
+            return new StartCommand(index);
+        } catch (ParseException e) {
+            FlashcardSetName name = new FlashcardSetName(input);
+            return new StartCommand(name);
         }
     }
 }

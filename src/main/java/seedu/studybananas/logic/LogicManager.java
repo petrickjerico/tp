@@ -16,6 +16,7 @@ import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.Model;
 import seedu.studybananas.model.flashcard.Flashcard;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.model.flashcard.FlashcardSetName;
 import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlyFlashcardBank;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlySchedule;
@@ -84,6 +85,10 @@ public class LogicManager implements Logic {
         return model.getFlashcardSet(idx);
     }
 
+    @Override
+    public FlashcardSet getFlashcardSetFromName(FlashcardSetName name) {
+        return model.getFlashcardSet(name);
+    }
 
 
     @Override

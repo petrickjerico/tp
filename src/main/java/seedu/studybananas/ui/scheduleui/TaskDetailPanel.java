@@ -9,6 +9,7 @@ import javafx.util.Callback;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
+import seedu.studybananas.logic.commands.commandresults.GeneralCommandResult;
 import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
@@ -22,6 +23,7 @@ import seedu.studybananas.ui.listeners.CommandResultStateListener;
 import seedu.studybananas.ui.listeners.UiStateListener;
 import seedu.studybananas.ui.util.GlobalState;
 import seedu.studybananas.ui.util.UiStateType;
+import seedu.studybananas.ui.util.UiUtil;
 
 public class TaskDetailPanel extends UiPart<Region> {
     private static final String FXML = "TaskDetailPanel.fxml";
@@ -105,6 +107,10 @@ public class TaskDetailPanel extends UiPart<Region> {
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
             CommandResult commandResult = logic.execute(commandText);
+            if (UiUtil.isGeneralCommand(commandResult)) {
+                UiUtil.handleGeneralCommand((GeneralCommandResult) commandResult);
+                return commandResult;
+            }
             uiStateListener.updateState(commandResult.getCommandResultType());
             commandResultStateListener.updateState(commandResult);
             return commandResult;

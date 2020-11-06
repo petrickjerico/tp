@@ -28,10 +28,10 @@ public class SampleDataUtil {
 
     public static Task[] getSampleTasks() {
         return new Task[] {
+            new Task(new Title("CS2103T"), new Description("Week 8 topics quiz."),
+                        DateTime.getToday(11, 30), new Duration(60)),
             new Task(new Title("CS2103T"), new Description("quiz flset:1"),
                     DateTime.getYesterday(23, 0), new Duration(120)),
-            new Task(new Title("CS2103T"), new Description("Week 8 topics quiz."),
-                    DateTime.getToday(11, 30), new Duration(60)),
             new Task(new Title("CS2103T"), new Description("Week 9 topics quiz."),
                     new DateTime("2020-10-16 23:59"), new Duration(60)),
             new Task(new Title("CS2103T"), new Description("Popping dance lecture."),

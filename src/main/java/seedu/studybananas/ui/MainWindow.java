@@ -49,15 +49,20 @@ public class MainWindow extends UiPart<Stage> implements Observer<UiStateType> {
     public MainWindow(Stage primaryStage, Logic logic) {
         super(FXML, primaryStage);
 
+        // set global state
+        // must handle the first, Logic is used by UI components later.
+        GlobalState.getInstance().setPrimaryStage(primaryStage);
+        GlobalState.getInstance().setLogic(logic);
+
         // Set dependencies
         this.primaryStage = primaryStage;
         this.logic = logic;
 
         // Init the component.
         responsePopUp = new ResponsePopUp(primaryStage);
-        scheduleUi = new ScheduleUi(logic, responsePopUp);
-        flashcardUi = new FlashcardUi(logic);
-        quizUi = new QuizUi(logic, responsePopUp);
+        scheduleUi = new ScheduleUi(responsePopUp);
+        flashcardUi = new FlashcardUi();
+        quizUi = new QuizUi(responsePopUp);
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());

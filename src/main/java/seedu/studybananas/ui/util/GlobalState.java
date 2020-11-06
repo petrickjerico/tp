@@ -1,12 +1,19 @@
 package seedu.studybananas.ui.util;
 
+import javafx.stage.Stage;
+import seedu.studybananas.logic.Logic;
 import seedu.studybananas.ui.CommandBox;
+import seedu.studybananas.ui.HelpWindow;
 
 public class GlobalState {
     private static GlobalState instance;
     private CommandBox scheduleCommandBox;
     private CommandBox flashcardCommandBox;
     private CommandBox quizCommandBox;
+    private Stage primaryStage;
+    private HelpWindow helpWindow;
+
+    private Logic logic;
 
 
     private GlobalState() { }
@@ -39,5 +46,29 @@ public class GlobalState {
 
     public void focusQuizCommandBox() {
         quizCommandBox.setCommandBoxToFocus();
+    }
+
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
+    public HelpWindow getHelpWindow() {
+        return helpWindow;
+    }
+
+    public void setHelpWindow(HelpWindow helpWindow) {
+        this.helpWindow = helpWindow;
+    }
+
+    public Logic getLogic() {
+        return logic;
+    }
+
+    public void setLogic(Logic logic) {
+        this.logic = logic;
     }
 }

@@ -14,6 +14,7 @@ import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.commandresults.GeneralCommandResult;
 import seedu.studybananas.logic.commands.commandresults.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
+import seedu.studybananas.logic.commands.quizcommands.RefreshCommand;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.ui.CommandBox;
@@ -137,7 +138,7 @@ public class QuizUi extends UiPart<Region> {
         // handles the response of "refresh command" and "error
         switch (commandResult.getCommandType()) {
         case REFRESH:
-            responsePopUp.setContent(new PositiveResponse(feedback));
+            responsePopUp.setContent(new PositiveResponse(RefreshCommand.MESSAGE_SUCCESS));
             responsePopUp.open();
             break;
         case ERROR:

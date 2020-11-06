@@ -46,9 +46,14 @@ public class WordDateTime implements TimeFormat {
     }
 
     private String getDay(String dateInput) {
-        String[] dayAndTime = dateInput.split(" ");
-        // Day should be the first word in the date input
-        return dayAndTime[0];
+        try {
+            String[] dayAndTime = dateInput.split(" ");
+            // Day should be the first word in the date input
+            return dayAndTime[0];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            // Empty space case
+            throw new TimeFormatException();
+        }
     }
 
     private String getTime(String dateInput) {
@@ -79,7 +84,6 @@ public class WordDateTime implements TimeFormat {
                     .with(adjustDayDifference(dayOfWeek)))
                     .collect(Collectors.toList()).get(0);
         } catch (DateTimeParseException | NullPointerException | IndexOutOfBoundsException e) {
-            assert false : "day doesn't fit in any day in week";
             throw new TimeFormatException();
         }
     }

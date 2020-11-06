@@ -8,6 +8,7 @@ import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.commandresults.QuizCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardQuizModel;
+import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.model.flashcard.FlashcardSetName;
 
 public class ViewScoreCommand extends Command<FlashcardQuizModel> {
@@ -24,9 +25,24 @@ public class ViewScoreCommand extends Command<FlashcardQuizModel> {
                     + "since the last quiz. "
                     + "Do start a new quiz to update the score.";
     private final int index;
+    private final FlashcardSetName flashcardSetName;
 
+    /**
+     * Constructs a ViewScoreCommand based on the flashcard set index.
+     * @param index as provided
+     */
     public ViewScoreCommand(int index) {
         this.index = index;
+        this.flashcardSetName = null;
+    }
+
+    /**
+     * Constructs a ViewScoreCommand based on flashcard set name.
+     * @param flashcardSetName as specified
+     */
+    public ViewScoreCommand(FlashcardSetName flashcardSetName) {
+        this.index = 0;
+        this.flashcardSetName = flashcardSetName;
     }
 
     @Override
@@ -37,6 +53,27 @@ public class ViewScoreCommand extends Command<FlashcardQuizModel> {
         }
 
         try {
+            if (index == 0) { // case for getting flashcard set name directly
+
+                FlashcardSet flashcardSet = model.getFlashcardSet(flashcardSetName);
+
+                if (flashcardSet == null) {
+                    throw new CommandException(MESSAGE_QUIZ_NONEXISTENT);
+                }
+
+                model.setQuizRecordsToView(flashcardSetName);
+
+                String score = model.getQuizRecords(flashcardSetName);
+
+                if (score == null) {
+                    model.setQuizRecordsToView(null);
+                    throw new CommandException(MESSAGE_FLASHCARD_DELETED);
+                }
+
+                QuizCommandUtil.updateCommandResult(score);
+                return new QuizCommandResult(score, VIEW_SCORE);
+            }
+
             FlashcardSetName name = model.getFlashcardSet(Index.fromOneBased(index)).getFlashcardSetName();
 
             model.setQuizRecordsToView(name);

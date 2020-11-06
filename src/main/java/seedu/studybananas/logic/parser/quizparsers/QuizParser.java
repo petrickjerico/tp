@@ -12,6 +12,7 @@ import seedu.studybananas.logic.commands.quizcommands.WrongCommand;
 import seedu.studybananas.logic.parser.Parser;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.Model;
+import seedu.studybananas.model.flashcard.FlashcardSetName;
 
 public class QuizParser implements Parser<Command> {
 
@@ -25,12 +26,10 @@ public class QuizParser implements Parser<Command> {
         lowerCaseUserInput = lowerCaseUserInput.trim();
         if (lowerCaseUserInput.startsWith(StartCommand.COMMAND_WORD)) {
             lowerCaseUserInput = lowerCaseUserInput.replace(StartCommand.COMMAND_WORD, EMPTY_SPACE);
-            int index = parseNumber(lowerCaseUserInput);
-            return new StartCommand(index);
+            return parseStartCommand(lowerCaseUserInput);
         } else if (lowerCaseUserInput.startsWith(ViewScoreCommand.COMMAND_WORD)) {
             lowerCaseUserInput = lowerCaseUserInput.replace(ViewScoreCommand.COMMAND_WORD, EMPTY_SPACE);
-            int index = parseNumber(lowerCaseUserInput);
-            return new ViewScoreCommand(index);
+            return parseViewScoreCommand(lowerCaseUserInput);
         } else if (lowerCaseUserInput.startsWith(AnswerCommand.COMMAND_WORD)) {
             userInput = userInput.substring(AnswerCommand.STARTING_INDEX_OF_ANSWER);
             return new AnswerCommand(userInput);
@@ -63,6 +62,28 @@ public class QuizParser implements Parser<Command> {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new ParseException("Invalid characters provided for flashcard set number");
+        }
+    }
+
+    private StartCommand parseStartCommand(String input) {
+        input = input.trim();
+        try {
+            int index = parseNumber(input);
+            return new StartCommand(index);
+        } catch (ParseException e) {
+            FlashcardSetName name = new FlashcardSetName(input);
+            return new StartCommand(name);
+        }
+    }
+
+    private ViewScoreCommand parseViewScoreCommand(String input) {
+        input = input.trim();
+        try {
+            int index = parseNumber(input);
+            return new ViewScoreCommand(index);
+        } catch (ParseException e) {
+            FlashcardSetName name = new FlashcardSetName(input);
+            return new ViewScoreCommand(name);
         }
     }
 }

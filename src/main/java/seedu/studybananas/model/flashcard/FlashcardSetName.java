@@ -48,12 +48,13 @@ public class FlashcardSetName {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || other instanceof FlashcardSetName // instanceof handles nulls
-                && name.equals(((FlashcardSetName) other).name); // state check
+                && name.toLowerCase().equals((
+                        (FlashcardSetName) other).name.toLowerCase()); // state check
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        return name.toLowerCase().hashCode();
     }
 
 }

@@ -10,6 +10,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.model.flashcard.Flashcard;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.model.flashcard.FlashcardSetName;
 import seedu.studybananas.model.systemlevelmodel.FlashcardBank;
 import seedu.studybananas.model.systemlevelmodel.ReadOnlyFlashcardBank;
 
@@ -60,6 +61,16 @@ public class FlashcardModelManager implements FlashcardModel {
     @Override
     public FlashcardSet getFlashcardSet(Index index) {
         return filteredFlashcardSets.get(index.getZeroBased());
+    }
+
+    @Override
+    public FlashcardSet getFlashcardSet(FlashcardSetName flsetName) {
+        for (FlashcardSet flset : filteredFlashcardSets) {
+            if (flset.getName().equals(flsetName)) {
+                return flset;
+            }
+        }
+        return null;
     }
 
     @Override

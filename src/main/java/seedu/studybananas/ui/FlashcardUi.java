@@ -10,12 +10,14 @@ import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.commandresults.FlashcardCommandResult;
+import seedu.studybananas.logic.commands.commandresults.GeneralCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.ui.listeners.CommandResultStateListener;
 import seedu.studybananas.ui.listeners.UiStateListener;
 import seedu.studybananas.ui.util.GlobalState;
 import seedu.studybananas.ui.util.UiStateType;
+import seedu.studybananas.ui.util.UiUtil;
 
 public class FlashcardUi extends UiPart<Region> {
     private static final String FXML = "FlashcardUi.fxml";
@@ -61,11 +63,11 @@ public class FlashcardUi extends UiPart<Region> {
     /**
      * Constructor for ScheduleUi.
      */
-    public FlashcardUi(Logic logic) {
+    public FlashcardUi() {
         super(FXML);
 
         // Set dependencies
-        this.logic = logic;
+        this.logic = GlobalState.getInstance().getLogic();
 
         flashcardSetListPanel = new FlashcardSetListPanel(logic);
         flashcardSetListPanelPlaceholder.getChildren().add(flashcardSetListPanel.getRoot());
@@ -100,6 +102,10 @@ public class FlashcardUi extends UiPart<Region> {
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
             CommandResult commandResult = logic.execute(commandText);
+            if (UiUtil.isGeneralCommand(commandResult)) {
+                UiUtil.handleGeneralCommand((GeneralCommandResult) commandResult);
+                return commandResult;
+            }
             uiStateListener.updateState(commandResult.getCommandResultType());
             commandResultStateListener.updateState(commandResult);
             return commandResult;

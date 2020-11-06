@@ -35,7 +35,7 @@ public class InfoContainsKeywordsPredicateTest {
         // null -> returns false
         assertFalse(firstPredicate.equals(null));
 
-        // different person -> returns false
+        // different predicates -> returns false
         assertFalse(firstPredicate.equals(secondPredicate));
     }
 

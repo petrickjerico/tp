@@ -80,4 +80,9 @@ public class TaskTest {
         // Task without overlapped dateTime -> returns false
         assertFalse(CS2103T_WEEK8_QUIZ.isDateTimeOverlapped(CS2100_TUTORIAL_HOMEWORK));
     }
+
+    @Test
+    public void isLongerThanAnHour() {
+
+    }
 }

@@ -10,12 +10,12 @@ public class DurationTest {
 
     @Test
     public void constructor_nullCastToInteger_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new Duration((Integer)null));
+        assertThrows(NullPointerException.class, () -> new Duration((Integer) null));
     }
 
     @Test
     public void constructor_nullCastToString_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new Duration((String)null));
+        assertThrows(NullPointerException.class, () -> new Duration((String) null));
     }
 
     @Test

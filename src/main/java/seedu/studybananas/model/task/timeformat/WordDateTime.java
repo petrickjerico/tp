@@ -1,7 +1,5 @@
 package seedu.studybananas.model.task.timeformat;
 
-import seedu.studybananas.model.task.exceptions.TimeFormatException;
-
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,6 +10,8 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import seedu.studybananas.model.task.exceptions.TimeFormatException;
 
 public class WordDateTime implements TimeFormat {
     private static final List<String> DAYS = Arrays.asList("^MON(DAY)?$", "^TUE(SDAY)?$", "^WED(NESDAY)?$",
@@ -30,12 +30,12 @@ public class WordDateTime implements TimeFormat {
         String dayUpperCase = day.toUpperCase();
         String time = getTime(date);
         switch (dayUpperCase) {
-            case TODAY:
-                return getLocalDateTimeFromWord(0, time);
-            case TOMORROW:
-                return getLocalDateTimeFromWord(1, time);
-            default:
-                return getLocalDateTimeFromWeekDay(dayUpperCase, time);
+        case TODAY:
+            return getLocalDateTimeFromWord(0, time);
+        case TOMORROW:
+            return getLocalDateTimeFromWord(1, time);
+        default:
+            return getLocalDateTimeFromWeekDay(dayUpperCase, time);
         }
     }
 

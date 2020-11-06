@@ -13,8 +13,6 @@ import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.ScheduleModel;
 import seedu.studybananas.model.task.Task;
-import seedu.studybananas.model.task.exceptions.DuplicateTaskException;
-import seedu.studybananas.model.task.exceptions.OverlapTaskException;
 
 public class ScheduleAddCommand extends Command<ScheduleModel> {
     public static final String COMMAND_WORD = "add task";

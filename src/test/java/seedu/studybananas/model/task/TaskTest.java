@@ -6,11 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.studybananas.testutil.SampleTasks.CS2100_TUTORIAL_HOMEWORK;
 import static seedu.studybananas.testutil.SampleTasks.CS2103T_WEEK8_QUIZ;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 
 import seedu.studybananas.testutil.TaskBuilder;
-
-import java.time.LocalDate;
 
 public class TaskTest {
 

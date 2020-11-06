@@ -44,7 +44,7 @@ public class TaskHappensTodayPredicateTest {
      * Stub class for Task that only concerns with whether it happens today.
      */
     private class TaskStub extends Task {
-        boolean isToday;
+        private boolean isToday;
 
         TaskStub(boolean isToday) {
             super(CS2103T_WEEK8_QUIZ.getTitle(), CS2103T_WEEK8_QUIZ.getDescription().get(),
@@ -54,6 +54,10 @@ public class TaskHappensTodayPredicateTest {
 
         @Override
         public boolean happensToday() {
+            return isToday;
+        }
+
+        public boolean getIsToday() {
             return isToday;
         }
     }

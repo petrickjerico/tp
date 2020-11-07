@@ -2,7 +2,7 @@ package seedu.studybananas.ui.quizui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import seedu.studybananas.ui.ResultDisplay;
+import seedu.studybananas.ui.commons.ResultDisplay;
 
 public class QuizScoreCard extends ResultDisplay {
 

@@ -1,10 +1,11 @@
-package seedu.studybananas.ui;
+package seedu.studybananas.ui.commons;
 
 import static java.util.Objects.requireNonNull;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Region;
+import seedu.studybananas.ui.UiPart;
 
 /**
  * A ui for the result display box that is displayed below the user's command box.

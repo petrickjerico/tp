@@ -1,4 +1,4 @@
-package seedu.studybananas.ui;
+package seedu.studybananas.ui.flashcardui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -9,6 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.ui.UiPart;
 import seedu.studybananas.ui.util.SingletonClickedFlashcardSetState;
 
 public class FlashcardSetCard extends UiPart<Region> {

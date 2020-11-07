@@ -6,11 +6,11 @@ layout: page
 <h1 align="center">STUDYBANANAS USER GUIDE</h1>
 <p align="center" >
 <img src="images/studyBananas-logo.png" alt="Logo" width="100" />
-</P>
+</p>
 
 <br>
 
-<p align="center" >
+<p align="center">
 Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of contents below to <br>find answers, get step-by-step intructions and know us better.
 </p>
 

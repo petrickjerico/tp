@@ -301,14 +301,14 @@ After you add a new `TASK` to StudyBananas, the `TASK`'s information is saved in
 You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:index>` command in the `description` field. 
 
 | Format  | `add task <T:title> [d:description] [t:time] [dur: duration]`                                                     |
-|---------|-------------------------------------------------------------------------------------------------------------------|
+|---------|:-------------------------------------------------------------------------------------------------------------------|
 | Example | `add task T: CS2100 d: Pipeline tutorial dur: 45` <br> `add task T: CS2103T d: iP submission t: 2020-09-17 23:59` <br> `add task T: CS2105 d: quiz flset:2 t: Saturday, Oct 31 2020 13:00 dur: 120`|
 
 <br>
 
 | <!-- -->    | <!-- -->    |
 |-------------|-------------|
-| ![info_icon](images/UG/info_icon.png)| • `title` and `description` can accept strings that are capitalized or separated with spaces. <br>  • The hours and minutes in `time` are optional. If you do not specify it, the time will be set to 12:00 by default. <br> •  `time` should be written in the format `yyyy-MM-dd HH:mm` or `EEEE, MMM-dd-yyyy HH:mm`. <br> • `duration` has to be a positive integer in minute and its value has to be less than _1440_ (number of minutes in a day). <br>• You cannot add a `TASK` such that it results in a duplicated `TASK`, which are `TASK`s having the same title, description, time and duration. <br> • You cannot add a `TASK` such that its time range overlaps with the time range of existing `TASK`s in the `SCHEDULE`.       |
+| ![info_icon](images/UG/info_icon.png)| • `title` and `description` can accept strings that are capitalized or separated with spaces. <br>  • The hours and minutes in `time` are optional. If you do not specify it, StudyBananas will set the time to 12:00 by default. <br> •  `time` should be written in the format `yyyy-MM-dd HH:mm` or `EEEE, MMM-dd-yyyy HH:mm`. <br> • `duration` has to be a positive integer in minute and its value has to be less than _1440_ (number of minutes in a day). <br>• You cannot add a `TASK` such that it results in a duplicated `TASK`, which are `TASK`s having the same title, description, time and duration. <br> • You cannot add a `TASK` such that its time range overlaps with the time range of existing `TASK`s in the `SCHEDULE`.       |
 
 <br>
 
@@ -362,22 +362,23 @@ the `QUIZ` to your schedule.
 
 #### 3.3.2. List tasks: `list task`
 
-If you  would like to view your full `schedule`, this command displays the full `schedule` that you have in both time scale and the task list.  
+If you  would like to view your full `SCHEDULE`, this command displays the full `SCHEDULE` that you are having at the moment.  
  
-Format: `list task`
+| Format  | `list task`|
+|---------|:-----------|
+| Example | `list task`|
 
-Examples:
-- `list task`
+<br>
 
-Expected Outcome:  
+**Expected Outcome**:  
 
 1\. Enter the command `list task`.
 ![listTask1](images/listTask1.png)  
   
-<div align="center">Figure __. Using `list task` command on `Schedule` tab</div>    
+<div align="center">Figure __. Using `list task` command on `SCHEDULE` tab</div>    
 <br>
 
-2\. After using the `list task` command, you can see the full `schedule`.
+2\. After using the `list task` command, you can see the full `SCHEDULE`.
 ![listTask2](images/listTask2.png)  
 
 <div align="center">Figure __. Result of `list task` command</div>  
@@ -387,24 +388,26 @@ Expected Outcome:
 
 #### 3.3.3. **Delete a task**: `delete task`
 
-If you complete a task and would like to remove that task from your `schedule`, this command will remove the task
-at the specified `index`.  
+If you complete a `TASK` and would like to remove that specific `TASK` from your `SCHEDULE`, this command will help you remove the task at the specified `index`.  
 
-Upon deletion of the `task`, the saved information of the task will be deleted.  
+Upon deletion of the `TASK`, the saved information of the `TASK` in `schedule.json` file will be deleted as well.  
 
-Format: `delete task <index>`  
+| Format  | `delete task <index>`|
+|---------|:---------------------|
+| Example | `delete task 2`      |
 
-Example:
-- `delete task 2`  
+<br>
 
-Remarks:
-- The index refers to the index number shown in the fully displayed `schedule`.
-- The index must be a positive integer 1, 2, 3, …​ and within range of the task in your `schedule`.  
+| <!-- -->    | <!-- -->    |
+|-------------|-------------|
+| ![info_icon](images/UG/info_icon.png)| • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#332-list-tasks-list-task) <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`.|
+|![important_icon](images/UG/important_icon.png)    |   • This action is irreversible. Once you delete a specific `TASK`, the `TASK` and its respective information are removed from the storage file as well.      |
+<br>
 
-Expected Outcome:  
+**Expected Outcome**:   
 
-For example, you just finished the `task` at index 4, **CS2100 Lab** and you 
-would like to delete that `task` from your `schedule`.  
+For example, you just finished the `TASK` at `index` 4 in the `SCHEDULE`, _CS2100 Lab_ and you 
+would like to update your `SCHEDULE` by deleting that `TASK`.  
 
 1\. Enter the command `delete task 4`.  
 ![deleteTask1](images/deleteTask1.jpg)  
@@ -412,39 +415,42 @@ would like to delete that `task` from your `schedule`.
 <div align="center">Figure __. Using `delete task` command</div>  
 <br>
 
-2\. After using the `delete task` command, the specified task is removed from your `schedule`.  
+2\. After using the `delete task` command, the specified `TASK` is removed from your `SCHEDULE`.  
 ![deleteTask1](images/deleteTask2.png)  
 
 <div align="center">Figure __. Result of `delete task` command</div>  
 
+<br>
 
 #### 3.3.4. **Search for a task**: `search task`
 
-If you would like to search for a specific task using a certain **keyword(s)**, this command displays any `task` that its `title`
+If you have trouble finding certain specific `TASK`s, you can search for them using a certain **keyword(s)**, this command displays any `TASK` that its `title`
 contains *any* of the given **keyword(s)** or its `description` and `time` contains *all* of the given **keyword(s)**. 
 
-Format: `search task <keywords>`  
+| Format  | `search task <keywords>` |
+|---------|:---------------------|
+| Example | `search task CS2103T PE` <br>   `search task Normal distribution assignment` <br>  `search task 2020-11-10`  |
 
-Examples:  
-- `search task CS2103T`
-- `search task Assignment`
-- `search task 2020-10-30`
+<br>
 
-Remarks:
-- The search is case-insensitive. For instance, `homework` matches `Homework`.
+| <!-- -->    | <!-- -->    |
+|-------------|-------------|
+| ![info_icon](images/UG/info_icon.png)| • The search **keyword(s)** is case-insensitive. For instance, `homework` matches `HomeWork`. <br> • The search requires a complete match of the **keyword**. For instance, `CS2103` does not match `CS2103T` as they are not a complete match.|
 
-Expected Outcome:  
+<br>
 
-For example, you would like to search for a `task` in the `schedule` with the **keyword** *Lab 8*. StudyBananas 
-searches for all tasks containing *Lab 8* in their `title`, `description` and `time` and displays all matching tasks.
+**Expected Outcome**:  
 
-1\. Enter the command `search task Lab 8` to search for tasks with the **keyword** *Lab 8*.  
+For example, you would like to search for a `TASK` in the `SCHEDULE` with the **keyword** *Lab 8*. StudyBananas 
+searches for all `TASK`s containing *Lab 8* in their `title`, `description` and `time` and displays all matching tasks.
+
+1\. Enter the command `search task Lab 8` to search for `TASK`s with the **keyword** *Lab 8*.  
 ![searchTask1](images/searchTask1.png)  
 
 <div align="center">Figure __. Using `search task` command  </div>
 <br>
 
-2\. After using the `search task` command, StudyBananas displays all the tasks with the
+2\. After using the `search task` command, StudyBananas displays all the `TASK`s with the
 specified **keyword**  
 ![searchTask2](images/searchTask2.png)  
   
@@ -452,42 +458,40 @@ specified **keyword**
 
 <p>&nbsp;</p>
 
-#### 3.3.5 **Edit a task**: `edit task`
+#### 3.3.5 Edit a task: `edit task`
 
-If you would like to update some task details, this command allows you to edit the details of a trip at a specified `index` in the `schedule`.
+If you would like to update certain details of a specific `TASK`, this command allows you to edit the details of a `TASK` at a specified `index` in the `SCHEDULE`.
 
-You can edit a task's `title`, `description`, `time` and `duration`.  
-  
-Format: `edit task <index> [T:title] [d:description] [t:time] [dur:duration]`  
+You can edit a `TASK`'s `title`, `description`, `time` and `duration`.  
 
-Examples:
-- `edit task 1 T: Internship`
-- `edit task 2 d: Pipleline Tutorial homework dur: 60`
-- `edit task 5 6 T: CS2103T d: Post-lecture quiz t: 2020-10-31 13:00 dur: 60`
-- `edit task 2 d: Pipleline Tutorial homework dur: 60 d: Assignment Cache`  
+| Format  | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` |
+|---------|:---------------------|
+| Example | `edit task 1 T: Internship` <br> `edit task 2 d: Pipleline Tutorial homework dur: 60` <br>  `edit task 2 d: Pipleline Tutorial homework dur: 60`  |
 
-Remarks:
-- The index refers to the index number shown in the fully displayed `schedule`.
-- The index must be a positive integer 1, 2, 3, …​ and within range of the task in your `schedule`. 
-- You can key in multiple `<index>`, but only the task at the first `index` will be edited.
-- `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command.
-- `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format.  
-- You can key in multiple `[title]`, `[description]`, `[time]` and `[duration]`, but only the last information of each field is by the task.  
+<br>
 
-Expected Outcome:  
+| <!-- -->    | <!-- -->    |
+|-------------|-------------|
+| ![info_icon](images/UG/info_icon.png)| • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#332-list-tasks-list-task) <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. <br> • `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command. <br> • `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format. |
+|![important_icon](images/UG/important_icon.png)    |   • This action is irreversible. Once you edit a specific `TASK`, the `TASK`'s details are modified in the storage file as well.      |
 
-For example, you previously add a `task`: *CS2100 Lab 8 on Thursday, Oct 29 2020 10:00 with duration 60 minutes*, which has 
-the index of `7` in the `schedule`. Later on, you want to edit the time to 11:00 instead.
+<br>
 
-1\. Enter the command `edit task 7 t: Thursday, Oct 29 2020 11:00` to edit the task.  
+**Expected Outcome**:  
+
+For example, you previously added a `TASK`: *CS2100 Lab 8 on Thursday, Oct 29 2020 10:00 with duration 60 minutes*, which currently has 
+the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:00 instead.
+
+1\. Enter the command `edit task 7 t: Thursday, Oct 29 2020 11:00` to edit the `TASK`.  
 ![editTask1](images/editTask1.jpg)  
 
 <div align="center">Figure __. Using `edit task` command </div>
+<br>
 
-2\. After using the `edit task` command, the details of the `task` are updated accordingly.
+2\. After using the `edit task` command, the details of the `TASK` are updated accordingly.
 ![editTask2](images/editTask2.jpg)  
 
-<div align="center">Figure __. Result of `edit task` command, the task at index `7` is updated </div>
+<div align="center">Figure __. Result of `edit task` command, the `TASK` at `index` 7 is updated </div>
 
 
 <p>&nbsp;</p>
@@ -497,11 +501,11 @@ the index of `7` in the `schedule`. Later on, you want to edit the time to 11:00
 #### 3.4.1. **View all the available commands**: `help`
 If you are not sure of how a command works, you can open the help window with this command  
 
-*Usage*
+Usage
 |                 |           |
 |-----------------|-----------|
 |Syntax           | `help`    |
-|Example          | `example` |
+|Example          | `help` |
 |                 |           |
 
 Alternatively, you can click on the help button located at the bottom of the sidebar to open the help window.

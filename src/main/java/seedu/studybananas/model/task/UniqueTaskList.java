@@ -39,14 +39,28 @@ public class UniqueTaskList implements Iterable<Task> {
     }
 
     /**
+     * Checks whether {@code toCheck} task duration overlaps with any existing task in the task list.
+     *
+     * @param target The task to be replaced.
+     * @param toCheck Task to be checked.
+     * @return True if there is overlap, false otherwise.
+     */
+    public boolean isTaskOverlapped(Task target, Task toCheck) {
+        requireNonNull(toCheck);
+        return internalList.stream().anyMatch(currentTask ->
+                currentTask != (target) && currentTask.isDateTimeOverlapped(toCheck));
+    }
+
+    /**
      * Adds a task to the list.
-     * The task must not already exist in the list.
+     * The task must not already exist in the list or overlap with another existing task in the list.
      */
     public void add(Task toAdd) {
         requireNonNull(toAdd);
         if (contains(toAdd)) {
             throw new DuplicateTaskException();
         }
+        // When adding a new task, there's no task to be replaced so target is null
         if (isTaskOverlapped(null, toAdd)) {
             throw new OverlapTaskException();
         }
@@ -142,16 +156,5 @@ public class UniqueTaskList implements Iterable<Task> {
             }
         }
         return true;
-    }
-
-    /**
-     * Checks whether {@code toCheck} task duration overlaps with any existing task in the task list.
-     * @param toCheck Task to be checked.
-     * @return True if there is overlap, false otherwise.
-     */
-    private boolean isTaskOverlapped(Task target, Task toCheck) {
-        requireNonNull(toCheck);
-        return internalList.stream().anyMatch(currentTask ->
-                currentTask != (target) && currentTask.isDateTimeOverlapped(toCheck));
     }
 }

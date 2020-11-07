@@ -22,8 +22,6 @@ import seedu.studybananas.model.task.Description;
 import seedu.studybananas.model.task.Duration;
 import seedu.studybananas.model.task.Task;
 import seedu.studybananas.model.task.Title;
-import seedu.studybananas.model.task.exceptions.DuplicateTaskException;
-import seedu.studybananas.model.task.exceptions.OverlapTaskException;
 
 public class ScheduleEditCommand extends Command<ScheduleModel> {
     public static final String COMMAND_WORD = "edit task";
@@ -76,16 +74,17 @@ public class ScheduleEditCommand extends Command<ScheduleModel> {
             throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
 
-        try {
-            Task taskToEdit = lastShownList.get(targetIndex.getZeroBased());
-            Task editedTask = generateEditedTask(taskToEdit, title, description, dateTime, duration);
-            model.setTask(taskToEdit, editedTask);
-            return new ScheduleCommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
-        } catch (DuplicateTaskException e) {
+        //try {
+        Task taskToEdit = lastShownList.get(targetIndex.getZeroBased());
+        Task editedTask = generateEditedTask(taskToEdit, title, description, dateTime, duration);
+        if (taskToEdit.isSameTask(editedTask) || model.hasTask(editedTask)) {
             throw new CommandException(MESSAGE_DUPLICATED_TASK);
-        } catch (OverlapTaskException e) {
+        }
+        if (model.isTaskOverlapped(taskToEdit, editedTask)) {
             throw new CommandException(MESSAGE_OVERLAP_TASK);
         }
+        model.setTask(taskToEdit, editedTask);
+        return new ScheduleCommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, editedTask));
     }
 
     @Override

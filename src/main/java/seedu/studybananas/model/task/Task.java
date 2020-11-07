@@ -215,7 +215,6 @@ public class Task {
             return duration;
         } else {
             LocalDateTime today = LocalDate.now().atStartOfDay();
-            double minutes = MINUTES.between(today, dateTime.get().dateTime);
             return MINUTES.between(today, dateTime.get().dateTime.plusMinutes((long) duration));
         }
     }

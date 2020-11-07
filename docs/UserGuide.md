@@ -17,7 +17,7 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 
 </div>
 
-<div class="section">
+<div class="section" markdown="1">
   <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
   <h1>Manage your study plans</h1>
   <p>Manage all of your study tasks in StudyBanans. Then, start to plan yourself for the upcoming exams!</p>
@@ -28,7 +28,7 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 
 ---
 
-<div class="section">
+<div class="section" markdown="1">
   <h1>Create your own notes with flashcards</h1>
   <p>Take note with the flashcards, and organize notes using flashcard sets!</p>
   <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 30px;">
@@ -39,21 +39,21 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 
 ---
 
- <div class="section">
+<div class="section" markdown="1">
+  <img src="images/Flashcards.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
   <h1>Quiz yourself by flashcards</h1>
   <p>Prepare your exams by quizing yourself the flashcard notes that you have taken!</p>
-  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 30px;">
 
 [How to take a flashcard quiz in StudyBananas >](#32-quiz)
 
 </div>
 
-<details>
+<details markdown="1">
 <summary align="center"><h2>Table of Contents</h2></summary>
 
 - [1. Introduction](#1-introduction)
   - [1.1 Reading this User Guide](#11-reading-this-user-guide)
-    - [1.1.1 Icons and Meaning](#111-icons-and-meaning)
+    - [1.1.1 Icons and Meaning](#11-icons-and-meaning)
 - [2. Quick start](#2-quick-start)
 - [3. Features](#3-features)
   - [3.1. Flashcard](#31-flashcard)

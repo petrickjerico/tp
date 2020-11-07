@@ -1,3 +1,8 @@
+---
+layout: page
+title: User Guide
+---
+
 <div class="welcome-page">
 
   <h1 align="center">StudyBananas User Guide</h1>
@@ -58,31 +63,32 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
     - [1.1.1 Icons and Meaning](#11-icons-and-meaning)
 - [2. Quick start](#2-quick-start)
 - [3. Features](#3-features)
-  - [3.1. Flashcard](#31-flashcard)
-    - [3.1.1. **Add a flashcard set**: `add flset`](#311-add-a-flashcard-set-add-flset)
-    - [3.1.2. **Delete a flashcard set**: `delete flset`](312-delete-a-flashcard-set-delete-flset)
-    - [3.1.3. **List flashcards in a flashcard set**: `list fl`](#313-list-flashcards-in-a-flashcard-set-list-fl)
-    - [3.1.4. **Add a flashcard into a flashcard set**: `add fl`](#314-add-a-flashcard-into-a-flashcard-set-add-fl)
-    - [3.1.5. **Delete a flashcard in a flashcard set**: `delete fl`](#315-delete-a-flashcard-in-a-flashcard-set-delete-fl)
-  - [3.2. Commands for the `QUIZ` page (Bowei)](#32-commands-for-the-quiz-page-bowei)
-    - [3.2.1. **`QUIZ` of flashcard set**: `quiz flset`](#321-quiz-of-flashcard-set-quiz-flset)
-    - [3.2.2. **View last `QUIZ` attempt**: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset)
-  - [3.3. Schedule](#33-schedule)
-    - [**View the details of your task**:](#view-the-details-of-your-task)
-    - [3.3.1. **Add a task**: `add task`](#331-add-a-task-add-task)
-    - [3.3.2. **List tasks**: `list task`](#332-list-tasks-list-task)
-    - [3.3.3. **Delete a task**: `delete task`](#333-delete-a-task-delete-task)
-    - [3.3.4. **Search for a task**: `search task`](#334-search-for-a-task-search-task)
-    - [3.3.5 **Edit a task**: `edit task`](#335-edit-a-task-edit-task)
-  - [3.4. General Commands](#34-general-commands)
-    - [3.4.1. **View all the available commands**: `help`](#341-view-all-the-available-commands-help)
-    - [3.4.2. **Exit program**: `exit`](#342-exit-program-exit)
-  - [**Saving the data**](#saving-the-data)
+  * [3.1. Flashcard](#31-flashcard)
+    + [3.1.1. **Add a flashcard set**: `add flset`](#311-add-a-flashcard-set-add-flset)
+    + [3.1.2. **Delete a flashcard set**: `delete flset`](#312-delete-a-flashcard-set-delete-flset)
+    + [3.1.3. **List flashcards in a flashcard set**: `list fl`](#313-list-flashcards-in-a-flashcard-set-list-fl)
+    + [3.1.4. **Add a flashcard into a flashcard set**: `add fl`](#314-add-a-flashcard-into-a-flashcard-set-add-fl)
+    + [3.1.5. **Delete a flashcard in a flashcard set**: `delete fl`](#315-delete-a-flashcard-in-a-flashcard-set-delete-fl)
+  * [3.2. Commands for the `QUIZ` page (Bowei)](#32-commands-for-the-quiz-page-bowei)
+    + [3.2.1. **`QUIZ` of flashcard set**: `quiz flset`](#321-quiz-of-flashcard-set-quiz-flset)    
+    + [3.2.2. **View last `QUIZ` attempt**: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset)
+  * [3.3. Schedule](#33-schedule)
+    + [**View the details of your task**:](#view-the-details-of-your-task)
+    + [3.3.1. **Add a task**: `add task`](#331-add-a-task-add-task)
+    + [3.3.2. **List tasks**: `list task`](#332-list-tasks-list-task)
+    + [3.3.3. **Delete a task**: `delete task`](#333-delete-a-task-delete-task)
+    + [3.3.4. **Search for a task**: `search task`](#334-search-for-a-task-search-task)
+    + [3.3.5 **Edit a task**: `edit task`](#335-edit-a-task-edit-task)
+  * [3.4. General Commands](#34-general-commands)
+    + [3.4.1. **View all the available commands**: `help`](#341-view-all-the-available-commands-help)
+    + [3.4.2. **Exit program**: `exit`](#342-exit-program-exit)
+  * [**Saving the data**](#saving-the-data)
 - [FAQ](#faq)
 - [Command summary](#command-summary)
   - [Flashcard commands](#flashcard-commands)
   - [Quiz commands](#quiz-commands)
   - [Task list commands](#task-list-commands)
+  - [General commands](#general-commands)
 
  </details>
 
@@ -142,7 +148,7 @@ Table 1. Icons in this User Guide
 
    * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 task to the task list.
 
-6. Refer to the [Features](#features) below for details of each command.
+6. Refer to the [Features](#3-features) below for details of each command.
 
 ---
 
@@ -252,15 +258,15 @@ Examples:
 
 Are you ready to revise your concepts? This command helps you start a `QUIZ` with a `FLASHCARDSET` of your choice.
 
-| Format                      | Examples                                      |
-| --------------------------- | --------------------------------------------- |
-| **`quiz <flset:setindex>`** | `quiz flset:1` <br> `quiz flset:2`            |
-| **`quiz <flset:setname>`**  | `quiz flset:CS2040` <br> `quiz flset:cs2103T` |
+| Format                          | Examples                                       |
+| ------------------------------- | ---------------------------------------------- |
+| **`quiz <flset:setindex>`**     | `quiz flset:1` <br> `quiz flset:2`             |
+| **`quiz <flset:setname>`**      | `quiz flset:CS2040` <br> `quiz flset:CS2103T`  |
 
-Alternatively, if you have a `QUIZ` scheduled (see 3) of [Add a task: `add task`](#add-a-task-add-task)),
+Alternatively, if you have a `QUIZ` scheduled (see 3) of [Add a task: `add task`](#331-add-a-task-add-task)),
 you may click on the bright-colored `Quiz:<quizname>` label contained in the description of the `TASK` as shown below.
 
-<img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="200"/>
+<img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="400"/>
 
 <div markdown="block" class="alert alert-info">
 
@@ -321,7 +327,7 @@ Steps 1-2 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` are displaye
 
 Once the quiz stops, the score statistics will be displayed.
 This score can also be viewed when viewing the last attempt of the flashcard set.
-(see [View last quiz attempt: `quiz score flset`](#view-last-quiz-attempt-quiz-score-flset))
+(see [View last quiz attempt: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset))
 
 <p>&nbsp;</p>
 
@@ -337,10 +343,10 @@ It contains the following information:
 
 ![ViewScore](images/ViewScore.png)
 
-| Format                            | Examples                                            |
-| --------------------------------- | --------------------------------------------------- |
-| **`quiz score <flset:setindex>`** | `quiz score flset:1` <br> `quiz flset:2`            |
-| **`quiz score <flset:setname>`**  | `quiz score flset:CS2040` <br> `quiz flset:cs2103T` |
+| Format                                | Examples                                                    |
+| ------------------------------------- | ----------------------------------------------------------- |
+| **`quiz score <flset:setindex>`**     | `quiz score flset:13` <br> `quiz score flset:5`             |
+| **`quiz score <flset:setname>`**      | `quiz score flset:CS2103T` <br> `quiz score flset:Physics`  |
 
 <p>&nbsp;</p>
 
@@ -351,7 +357,7 @@ It contains the following information:
 There are several panels in our user interface that provides the details of your task.
 
 - Firstly, the time scale lists out all of your study sessions which are tasks with start time and duration, you can click on your study session on the time scale to view the detail on the top right panel.
-- Secondly, the list panel located at the bottom right corner of the schedule tab lists all of your tasks, you can scroll down to view the details of your task or takes advantage of our search feature (please refer to [search task section](#search-for-a-task)) to quickly a specific task.
+- Secondly, the list panel located at the bottom right corner of the schedule tab lists all of your tasks, you can scroll down to view the details of your task or takes advantage of our search feature (please refer to [search task section](#334-search-for-a-task-search-task)) to quickly a specific task.
 - In the following user guide, we would time scale to refer to the middle panel of schedule tab, and uses task lists to refer to the bottom right panel.
 
 ![TaskDetailPanels](images/TaskDetailPanels.png)
@@ -573,12 +579,9 @@ the index of `7` in the `schedule`. Later on, you want to edit the time to 11:00
 
 If you are not sure of how a command works, you can open the help window with this command
 
-_Usage_
-| | |
-|-----------------|-----------|
-|Syntax | `help` |
-|Example | `example` |
-| | |
+| Format         |
+| -------------- |
+| **`help`**     |
 
 Alternatively, you can click on the help button located at the bottom of the sidebar to open the help window.
 
@@ -597,12 +600,10 @@ The help window shows most of the available CLI commands.
 #### 3.4.2. **Exit program**: `exit`
 
 If you would like to close the application, this command helps you to quickly close StudyBanas.
-_Usage_
-| | |
-|-----------------|-----------|
-|Syntax | `exit` |
-|Example | `exit` |
-| | |
+
+| Format         |
+| -------------- |
+| **`exit`**     |
 
 Alternatively, you can click on the close button located at the bottom of the sidebar to close the application.
 
@@ -641,10 +642,10 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 
 ### Quiz commands
 
-| Action               | Format, Examples                                                                                                                      |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| **Quiz flset**       | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> Available only in quiz mode: `flip`, `ans:<answer>`, `c`, `w`, `cancel`, `refresh` |
-| **Quiz score flset** | `quiz score <flset:setindex>` <br> e.g., `quiz score flset:6`                                                                         |
+| Action               | Format, Examples                                                                                                                                                                              |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Quiz flset**       | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> `quiz <flset:setname>` eg., `quiz flset:Japanese`. <br> Available only in quiz mode: `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
+| **Quiz score flset** | `quiz score <flset:setindex>` e.g., `quiz score flset:6` <br> `quiz score <flset:setname>` e.g., `quiz score flset:Economics`                                                                 |
 
 <p>&nbsp;</p>
 
@@ -657,3 +658,12 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 | **Delete task**     | `delete task <index>` <br> e.g., `delete task 6`                                                                                                                            |
 | **Search for task** | `search task <keywords>` <br> e.g., `search task CS2103T`                                                                                                                   |
 | **Edit task**       | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g., `edit task 2 T: CS2103T`, `edit task 1 d: Debug remaining errors dur: 60`                  |
+
+<p>&nbsp;</p>
+
+### General commands
+
+| Action                                    | Format, Examples      |
+| ----------------------------------------- | --------------------- |
+| **View all the available commands**       | `help`                |
+| **Exit program**                          | `exit`                |

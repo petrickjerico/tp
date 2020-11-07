@@ -323,16 +323,6 @@ There are two ways to launch a `QUIZ` in StudyBananas. One is through entering c
 If you have a `QUIZ` scheduled (see [how to add a quiz to schedule](#331-add-a-task-add-task)),
 you may click on the highlighted `Quiz:<quizname>` label contained in the description of the `TASK` in your schedule tab. An example quiz label is provided in the picture below.
 
-<img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="400"/>
-<br>
-<br>
-When the `QUIZ` starts, as seen below, you will see the question
-of the first `FLASHCARD` within the selected `FLASHCARDSET`,
-as well as an instruction prompt to type in the next available commands,
-`flip`, `<ans:answer>`, `refresh` or `cancel`.
-
-![FirstQuestion](images/FirstQuestion.png)
-
 -------------------------------------------------------------------------------------------------------
 
 #### **After a quiz is launched**

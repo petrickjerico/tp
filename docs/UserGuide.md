@@ -295,97 +295,81 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 ### 3.2. Commands for the `QUIZ` page (Bowei)
 
-#### 3.2.1. **`QUIZ` of `FLASHCARDSET`** 
+#### 3.2.1. **`QUIZ` of flashcard set**: `quiz flset`
 
-There are two ways to launch a `QUIZ` in StudyBananas. One is through entering commands in the command box. The other one is through clicking a scheduled `QUIZ` at the `SCHEDULE` tab.
+Already have some `FLASHCARD`s and would like to start a recap session? 
+This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.
 
-#### **Launch a quiz through command line**
+| Format                      | Examples                                      | Remarks                                                                                                                                                                                                        |
+| --------------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`quiz <flset:setindex>`** | `quiz flset:1` <br> `quiz flset:2`            | Alternatively, if you have a `QUIZ` scheduled (see [Adding a `QUIZ` task](#3312-adding-a-quiz-task)), you may click on the highlighted `QUIZ` label contained in the description of the `TASK` as shown below. |
+| **`quiz <flset:setname>`**  | `quiz flset:CS2040` <br> `quiz flset:CS2103T` | <img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="300"/>
 
-| Command Format              | Examples                                      |
-| --------------------------- | --------------------------------------------- |
-| **`quiz <flset:setindex>`** | `quiz flset:1` <br> `quiz flset:2`            |
-| **`quiz <flset:setname>`**  | `quiz flset:CS2040` <br> `quiz flset:CS2103T` |
-
-Alternatively, if you have a `QUIZ` scheduled (see [Adding a `QUIZ` task](#3312-adding-a-quiz-task)),
-you may click on the highlighted `QUIZ` label contained in the description of the `TASK` as shown below.
-
-<img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="400">
-
-#### **Launch a quiz through clicking scheduled quiz label**
-
-If you have a `QUIZ` scheduled (see [how to add a quiz to schedule](#331-add-a-task-add-task)),
-you may click on the highlighted `Quiz:<quizname>` label contained in the description of the `TASK` in your schedule tab. An example quiz label is provided in the picture below.
-
+<div markdown="block" class="alert alert-info">
 
 **Note: When the `QUIZ` has started, the system is in quiz-mode. You are required to enter follow-up commands to continue with the `QUIZ`.**
 
-#### **After a quiz is launched**
+| ![info_icon](images/UG/info_icon.png)                  | Only general and quiz-mode commands are allowed at designated times, as stated below. |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| At all times in quiz-mode                              | `exit`, `help`, `cancel`, `refresh`                                                   |
+| Only the question is shown (Step 1)                    | `flip`, `<ans:answer>`                                                                |
+| Both the question and correct answer is shown (Step 2) | `c`, `w`                                                                              |
 
-When a `QUIZ` starts, you should see an interface similar to the picture below.
-The question of the first `FLASHCARD` within the selected `FLASHCARDSET`,
-as well as an instruction prompt to type in the next available commands will be shown in the flashcard card in the UI.
+You may find more information on the respective quiz-mode commands by referring to the steps and descriptions below.
+
+</div>
+
+| Format    | Usages of all-time-available quiz-mode commands                                                                                                                                         |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `refresh` | Shows the current state of the quiz - the question, current answer (if applicable) and prompt instruction, in case you wish to continue with the quiz after entering an invalid command |
+| `cancel`  | Stops the quiz. Your quiz records will not be stored upon quiz cancellation.                                                                                                            |
+
+##### Step 1 - Getting the question
+When the `QUIZ` launches, as seen below, you will see the question
+of the first `FLASHCARD` within the selected `FLASHCARDSET`,
+as well as an instruction prompt to type in the next available commands,
+`flip`, `<ans:answer>`, `refresh` or `cancel`.
 
 ![FirstQuestion](images/FirstQuestion.png)
 
-<br>
+<div align="center">Figure __. Result of `quiz flset:CS2103T` command</div>
 
-#### 3.2.2. Do a **`QUIZ`**
+##### Step 2 - Answering the question
+If you would like to see your answer directly, enter `flip`. 
+However, if you would like StudyBananas to store your answer for later reference,
+enter your answer with `<ans:answer>`.
 
-Version 1.4 StudyBananas supports short-answer `QUIZ` for your `FLASHCARD` notes.
-When a `QUIZ` is launched, StudyBananas is in quiz-mode. You are required to enter follow-up commands to continue with the `QUIZ`.
-
-
-1.  Please make sure a quiz is launch beforehand,
-    - if you don't know how to initiate a quiz, please refer to [how to launch a quiz](#321-launch-a-quiz).
-    - If the quiz is launched successfully, you will be able to see the question of the first flashcard. 
-2.  Enter `flip` if you want to see the answer directly or enter your answer with `ans:<answer>`, then press Return.
+| Format         | Remarks                                                                                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `flip`         | Does not store your answer. Displays the answer to the `FLASHCARD` question. <br> (You may opt to remember your answer for evaluation against the correct answer later) |
+| `<ans:answer>` | Stores your answer. Also, displays the answer to the `FLASHCARD` question.                                                                                              |
 
 If the command entered is `flip` or `<ans:answer>`,
 the correct answer will be displayed,
-and you will be prompted to enter the next available commands, `c`, `w`, `refresh` or `cancel`.
+and you will be prompted to enter the next available commands, `c`, `w`, `refresh` or `cancel`,
+as shown below.
 
-    -  After you flip the flashcard or answer the flashcard, the correct answer will be displayed,
-      and you will be prompted to enter the next available commands, `c`, `w`, `refresh` or `cancel`.
+![AnswerShown](images/AnswerShown.png)
 
-    - The image below shows the result when `ans:improves code quality and reduces bugs` is entered:
+<div align="center">Figure __. Result of `ans:improves code quality and reduces bugs` command</div>
 
-    ![AnswerShown](images/AnswerShown.png)
+##### Step 3 - Checking if your answer is correct
+Based on the correct answer, you may evaluate your own answer.
+Your response will be taken into account when tabulating the `QUIZ` score.
 
-3. Enter `c` if you think the question is answered correctly, otherwise enter  `w`.
-    - You may evaluate your own answer based on the correct answer shown.
-    - Your response will be taken into account when tabulating the `QUIZ` score.
-    - After you enter the correctness of the answer, the question of the next `FLASHCARD` will be displayed.
+| Format | Command usages                                                          |
+| ------ | ----------------------------------------------------------------------- |
+| `c`    | Indicates that the question of the `FLASHCARD` is answered _correctly_. |
+| `w`    | Indicates that the question of the `FLASHCARD` is answered _wrongly_.   |
 
-4. Repeat step 2-3 until all `FLASHCARD`s in the `FLASHCARDSET` are displayed and answered.
-    - Once the quiz stops, the score statistics will be displayed.
-    - This score can also be viewed when viewing the last attempt of the `FLASHCARDSET`.
-      (see [View last quiz attempt: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset))
-      
--------------------------------------------------------------------------------------------------------
-#### Command Table for **`QUIZ`**
-| Format         | Command usages                                                                                                                                                                             |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `c`            | Indicates that the question of the `FLASHCARD` is answered _correctly_.                                                                                                                    |
-| `w`            | Indicates that the question of the `FLASHCARD` is answered _wrongly_.                                                                                                                      |
-| `flip`         | Does not store your answer. Displays the answer to the `FLASHCARD` question. <br> (You may opt to remember your answer for evaluation against the correct answer later)                    |
-| `<ans:answer>` | Stores your answer. Also, displays the answer to the `FLASHCARD` question.                                                                                                                 |
-| `refresh`      | Shows the current state of the quiz - the question, current answer (if applicable) and prompt instruction, in case you wish to continue with the quiz after entering an invalid command    |
-| `cancel`       | Stops the quiz. Your quiz records will not be stored upon quiz cancellation.                                                                                                               |   
+The question of the next `FLASHCARD` will be displayed.
 
-<br>
-<div markdown="block" class="alert alert-info">
-<div>
-  <img src="images/UG/info_icon.png" alt="quiz-pic" width="30" style="float: left; margin: 8px 10px 0px 10px;">
-  Note: Some quiz-mode commands are only allowed at designated time, while some others are allowed at any time. Please refer to the comparison table below.
-</div>
+##### Step 4 - Continuing the `QUIZ` cycle
+Steps 1-3 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` are displayed and answered.
 
-<br>
-
-| Commands                            | Available timing                                  |
-| ----------------------------------- | ------------------------------------------------- |
-| `exit`, `help`, `cancel`, `refresh` | At all times in quiz-mode                         |
-| `flip`, `<ans:answer>`              | Only when the question is shown during quiz-mode  |
-| `c`, `w`                            | When the correct answer is shown during quiz-mode |
+Once the quiz stops, the score statistics will be displayed.
+This score can also be viewed when viewing the last attempt of the `FLASHCARDSET`.
+(see [View last quiz attempt: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset))
 
 <p>&nbsp;</p>
 

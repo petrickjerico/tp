@@ -1,3 +1,8 @@
+---
+layout: page
+title: Developer Guide
+---
+
 <div class="welcome-page">
 
   <h1 align="center">StudyBananas User Guide</h1>

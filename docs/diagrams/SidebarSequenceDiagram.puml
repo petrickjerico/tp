@@ -38,6 +38,8 @@ SidebarTab1 --> UiState
 UiState --> SidebarTab1
 deactivate UiState
 
+<--SidebarTab1
+
 deactivate SidebarTab1
 
 

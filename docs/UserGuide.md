@@ -83,7 +83,7 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
                     <ul>
                         <li><a href="#321-quiz-of-flashcard-set-quiz-flse">3.2.1. <b><div class="code">QUIZ</div> of flashcard set</b>: <div class="code">quiz
                                 flset</div></a></li>
-                        <li><a href="#322-view-last-quiz-attempt-quiz-score-flset">3.2.2. **View last `QUIZ` attempt**:
+                        <li><a href="#322-view-last-quiz-attempt-quiz-score-flset">3.2.2. <b>View last <div class="code">QUIZ</div> attempt</b>:
                                 <div class="code">quiz score flset</div></a></li>
                     </ul>
                 </li>

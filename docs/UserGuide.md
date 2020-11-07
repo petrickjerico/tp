@@ -36,26 +36,26 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
     - [1.2.1 Icons and Meaning](#121-icons-and-meaning)
 - [2. Quick start](#2-quick-start)
 - [3. Features](#3-features)
-  - [3.1. Flashcard](#31-flashcard)
-    - [3.1.1. **Add a flashcard set**: `add flset`](#311-add-a-flashcard-set-add-flset)
-    - [3.1.2. **Delete a flashcard set**: `delete flset`](312-delete-a-flashcard-set-delete-flset)
-    - [3.1.3. **List flashcards in a flashcard set**: `list fl`](#313-list-flashcards-in-a-flashcard-set-list-fl)
-    - [3.1.4. **Add a flashcard into a flashcard set**: `add fl`](#314-add-a-flashcard-into-a-flashcard-set-add-fl)
-    - [3.1.5. **Delete a flashcard in a flashcard set**: `delete fl`](#315-delete-a-flashcard-in-a-flashcard-set-delete-fl)
-  - [3.2. Quiz](#32-quiz)
-    - [3.2.1. **Quiz of flashcard set**: `quiz flset`](#321-quiz-of-flashcard-set-quiz-flset)
-    - [3.2.2. **View last quiz attempt**: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset)
-  - [3.3. Schedule](#33-schedule)
-    - [**View the details of your task**:](#view-the-details-of-your-task)
-    - [3.3.1. **Add a task**: `add task`](#331-add-a-task-add-task)
-    - [3.3.2. **List tasks**: `list task`](#332-list-tasks-list-task)
-    - [3.3.3. **Delete a task**: `delete task`](#333-delete-a-task-delete-task)
-    - [3.3.4. **Search for a task**: `search task`](#334-search-for-a-task-search-task)
-    - [3.3.5 **Edit a task**: `edit task`](#335-edit-a-task-edit-task)
-  - [3.4. General Commands](#34-general-commands)
-    - [3.4.1. **View all the available commands**: `help`](#341-view-all-the-available-commands-help)
-    - [3.4.2. **Exit program**: `exit`](#342-exit-program-exit)
-  - [**Saving the data**](#saving-the-data)
+  * [3.1. Flashcard](#31-flashcard)
+    + [3.1.1. **Add a flashcard set**: `add flset`](#311-add-a-flashcard-set-add-flset)
+    + [3.1.2. **Delete a flashcard set**: `delete flset`](312-delete-a-flashcard-set-delete-flset)
+    + [3.1.3. **List flashcards in a flashcard set**: `list fl`](#313-list-flashcards-in-a-flashcard-set-list-fl)
+    + [3.1.4. **Add a flashcard into a flashcard set**: `add fl`](#314-add-a-flashcard-into-a-flashcard-set-add-fl)
+    + [3.1.5. **Delete a flashcard in a flashcard set**: `delete fl`](#315-delete-a-flashcard-in-a-flashcard-set-delete-fl)
+  * [3.2. Commands for the `QUIZ` page (Bowei)](#32-commands-for-the-quiz-page-bowei)
+    + [3.2.1. **`QUIZ` of flashcard set**: `quiz flset`](#321-quiz-of-flashcard-set-quiz-flset)    
+    + [3.2.2. **View last `QUIZ` attempt**: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset)
+  * [3.3. Schedule](#33-schedule)
+    + [**View the details of your task**:](#view-the-details-of-your-task)
+    + [3.3.1. **Add a task**: `add task`](#331-add-a-task-add-task)
+    + [3.3.2. **List tasks**: `list task`](#332-list-tasks-list-task)
+    + [3.3.3. **Delete a task**: `delete task`](#333-delete-a-task-delete-task)
+    + [3.3.4. **Search for a task**: `search task`](#334-search-for-a-task-search-task)
+    + [3.3.5 **Edit a task**: `edit task`](#335-edit-a-task-edit-task)
+  * [3.4. General Commands](#34-general-commands)
+    + [3.4.1. **View all the available commands**: `help`](#341-view-all-the-available-commands-help)
+    + [3.4.2. **Exit program**: `exit`](#342-exit-program-exit)
+  * [**Saving the data**](#saving-the-data)
 - [FAQ](#faq)
 - [Command summary](#command-summary)
   - [Flashcard commands](#flashcard-commands)
@@ -112,7 +112,7 @@ Table 1. Icons in this User Guide
 5. Type the command in the command box and press `Enter` to execute it.
    Some example commands you can try:
 
-   - **`list`** `flset` : Lists all flashcard sets
+   * **`list`** `task` : Lists all tasks
 
    - **`add`** `flset name:Chemistry` : Add a new empty set with name `Chemistry`.
 
@@ -130,13 +130,13 @@ Table 1. Icons in this User Guide
 
 **Notes about the command format:**<br>
 
-- Words wrapped with angled brackets `<>` are compulsory parameters to be supplied by you.<br>
-  e.g. in `add <flset:setname>`, `setname` is a parameter which can be used as `add flset:Chemistry`.
+* Words wrapped with angled brackets `<>` contain compulsory parameters or prefix-parameter pairs to be supplied by you.<br>
+  e.g. in `add <flset:setname>`, `flset:` is a prefix and `setname` is a parameter, which can be used as `add flset:Chemistry`.
 
-- Words wrapped with square brackets `[]` are optional parameters to be supplied by you.<br>
-  e.g. in `add task <T:title> [d:description]` can be used as `add task T: CS2103T d: Post-lecture quiz` or as `add task T: CS2103T`.
+* Words wrapped with square brackets `[]` contain optional parameters or prefix-parameter pairs to be supplied by you.<br>
+  e.g. in `add task <T:title> [d:description]`, `d:` is a prefix with `description` as a parameter, and can be used as `add task T: CS2103T d: Post-lecture quiz` or as `add task T: CS2103T`. 
 
-- Parameters can be in any order.<br>
+* Prefix-parameter pairs can be in any order.<br>
   e.g. if the command specifies `<flset:setindex> <q:question> <a:answer>`, `<a:answer> <q:question> <flset:setindex>` is also acceptable.
 
 </div>
@@ -224,75 +224,73 @@ Examples:
 - `delete fl flset:1 fl:3`
 <p>&nbsp;</p>
 
-### 3.2. Quiz
+### 3.2. Commands for the `QUIZ` page (Bowei)
+#### 3.2.1. **`QUIZ` of flashcard set**: `quiz flset`
+Are you ready to revise your concepts? This command helps you start a `QUIZ` with a `FLASHCARDSET` of your choice.
 
-#### 3.2.1. **Quiz of flashcard set**: `quiz flset`
+| Format                          | Examples                                       |
+| ------------------------------- | ---------------------------------------------- |
+| **`quiz <flset:setindex>`**     | `quiz flset:1` <br> `quiz flset:2`             |
+| **`quiz <flset:setname>`**      | `quiz flset:CS2040` <br> `quiz flset:cs2103T`  |
 
-Shows the questions of the specific flashcard set.
-Depending on the command you enter, it stores the answers
-and whether they are correct for your reference.
+Alternatively, if you have a `QUIZ` scheduled (see 3) of [Add a task: `add task`](#add-a-task-add-task)),
+you may click on the bright-colored `Quiz:<quizname>` label contained in the description of the `TASK` as shown below.
 
-It is required for you to enter follow-up commands
-to continue with the quiz.
-
-Format: `quiz <flset:setindex>`
-
-Examples:
-`quiz flset:2`, `quiz flset:3`
-
-Alternatively, if you have a quiz task scheduled,
-you may double-click the bright-colored `Quiz:<quizname>` label
-contained in the description of the task as shown below
-(see 3) of [Add a task: `add task`](#add-a-task-add-task))
-
-![TaskQuizLabel](images/TaskQuizLabel.png)
+<img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="200"/>
 
 <div markdown="block" class="alert alert-info">
 
-Note: When the quiz has started, you may only key in commands available in quiz mode at appropriate times.<br>
-Such commands are `flip`, `ans:<answer>`, `c`, `w`, `cancel` or `refresh`.
+Note: When the `QUIZ` has started, the system is in quiz-mode. You are required to enter follow-up commands to continue with the `QUIZ`.
+
+| ![info_icon](images/UG/info_icon.png)                  | Only general and quiz-mode commands are allowed at designated times, as stated below. |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| At all times in quiz-mode                              | `exit`, `help`, `cancel`, `refresh`                                                   |
+| Only the question is shown (Step 1)                    | `flip`, `<ans:answer>`                                                                |
+| Both the question and correct answer is shown (Step 2) | `c`, `w`                                                                              |
+
+You will find more information on the respective quiz-mode commands in the steps below.
 
 </div>
 
-##### Step 1
+| Format    | Usages of all-time-available quiz-mode commands                                                                                                                                         |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `refresh` | Shows the current state of the quiz - the question, current answer (if applicable) and prompt instruction, in case you wish to continue with the quiz after entering an invalid command |
+| `cancel`  | Stops the quiz. Your quiz records will not be stored upon quiz cancellation.                                                                                                            |
 
-When the quiz starts, as seen below, the question
-of the first flashcard within the selected flashcard set appears,
-as well as an Instruction prompt to type in the next command, `flip`, `ans:<answer>`, `refresh` or `cancel`.
+##### Step 1
+When the `QUIZ` starts, as seen below, you will see the question 
+of the first `FLASHCARD` within the selected `FLASHCARDSET`, 
+as well as an instruction prompt to type in the next available commands, 
+`flip`, `<ans:answer>`, `refresh` or `cancel`.
 
 ![FirstQuestion](images/FirstQuestion.png)
 
-- `flip`: Does not store your answer. Displays the answer to the flashcard question.
-  (You may opt to remember your answer for evaluation against the correct answer later)
-- `ans:<answer>`: Stores your answer. Also, displays the answer to the flashcard question.
-- `refresh`: Shows the current state of the quiz - Question, Answer and Instruction
-  (the question, current answer if applicable and prompt instruction)
-- `cancel`: Stops the quiz
+| Format          | Command usages                                                                                                                                                           |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `flip`          | Does not store your answer. Displays the answer to the `FLASHCARD` question. <br> (You may opt to remember your answer for evaluation against the correct answer later)  |
+| `<ans:answer>`  | Stores your answer. Also, displays the answer to the `FLASHCARD` question.                                                                                               |
 
 ##### Step 2
-
-If the command entered is `flip` or `ans:<answer>`,
-the correct answer will be displayed,
-and there will be the Instruction prompt to enter the next command, `c`, `w`, `refresh` or `cancel`.
+If the command entered is `flip` or `ans:<answer>`, 
+the correct answer will be displayed, 
+and you will be prompted to enter the next available commands, `c`, `w`, `refresh` or `cancel`.
 
 The image below shows the result when `ans:improves code quality and reduces bugs` is entered:
 
 ![AnswerShown](images/AnswerShown.png)
 
-Based on the correct answer displayed, you may evaluate the answer provided.
-If you think the question is answered correctly, type `c`.
-Else, type `w`. Your response will be taken into account when tabulating the quiz score.
+Based on the correct answer, you may evaluate your own answer. 
+If you think the question is answered correctly, type `c`. 
+Else, type `w`. Your response will be taken into account when tabulating the `QUIZ` score.
 
-- `c`: Indicates that the question on the flashcard is answered correctly.
-- `w`: Indicates that the question is answered wrongly.
-- `refresh`: Shows the current state of the quiz - Question, Answer and Instruction
-  (the question, current answer if applicable and prompt instruction)
-- `cancel`: Stops the quiz
+| Format  | Command usages                                                           |
+| ------- | ------------------------------------------------------------------------ |
+| `c`     | Indicates that the question of the `FLASHCARD` is answered *correctly*.  |
+| `w`     | Indicates that the question of the `FLASHCARD` is answered *wrongly*.    |
 
 ##### Step 3
-
-The next question of the next flashcard will be displayed.
-Steps 1-2 are repeated until all flashcards in the set are displayed and answered.
+The question of the next `FLASHCARD` will be displayed. 
+Steps 1-2 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` are displayed and answered.
 
 Once the quiz stops, the score statistics will be displayed.
 This score can also be viewed when viewing the last attempt of the flashcard set.
@@ -300,9 +298,8 @@ This score can also be viewed when viewing the last attempt of the flashcard set
 
 <p>&nbsp;</p>
 
-#### 3.2.2. **View last quiz attempt**: `quiz score flset`
-
-Shows the last attempt of a specific flashcard set.
+#### 3.2.2. **View last `QUIZ` attempt**: `quiz score flset`
+Shows the last attempt of a `QUIZ` on a specified `FLASHCARDSET`.
 
 It contains the following information:
 
@@ -312,10 +309,10 @@ It contains the following information:
 
 ![ViewScore](images/ViewScore.png)
 
-Format: `quiz score <flset:setindex>`
-
-Examples:
-`quiz score flset:9`, `quiz score flset:16`
+| Format                                | Examples                                             |
+| ------------------------------------- | ---------------------------------------------------- |
+| **`quiz score <flset:setindex>`**     | `quiz score flset:1` <br> `quiz flset:2`             |
+| **`quiz score <flset:setname>`**      | `quiz score flset:CS2040` <br> `quiz flset:cs2103T`  |
 
 <p>&nbsp;</p>
 

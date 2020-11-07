@@ -1,4 +1,4 @@
-package seedu.studybananas.ui;
+package seedu.studybananas.ui.commons;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import seedu.studybananas.commons.core.LogsCenter;
-import seedu.studybananas.ui.commons.CommandHelpLabel;
+import seedu.studybananas.ui.UiPart;
 
 /**
  * Controller for a help page

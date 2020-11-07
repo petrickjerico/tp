@@ -1,7 +1,5 @@
 package seedu.studybananas.ui.quizui;
 
-import static seedu.studybananas.logic.commands.commandresults.QuizCommandResultType.REFRESH;
-
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
@@ -18,7 +16,7 @@ import seedu.studybananas.logic.commands.quizcommands.RefreshCommand;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.ui.CommandBox;
-import seedu.studybananas.ui.FlashcardSetListPanel;
+import seedu.studybananas.ui.flashcardui.FlashcardSetListPanel;
 import seedu.studybananas.ui.UiPart;
 import seedu.studybananas.ui.commons.PositiveResponse;
 import seedu.studybananas.ui.commons.ResponsePopUp;

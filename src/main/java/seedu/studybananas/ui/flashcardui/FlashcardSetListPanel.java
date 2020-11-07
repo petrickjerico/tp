@@ -1,4 +1,4 @@
-package seedu.studybananas.ui;
+package seedu.studybananas.ui.flashcardui;
 
 import java.util.logging.Logger;
 
@@ -9,6 +9,7 @@ import javafx.scene.layout.Region;
 import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.model.flashcard.FlashcardSet;
+import seedu.studybananas.ui.UiPart;
 
 /**
  * Panel containing the list of persons.

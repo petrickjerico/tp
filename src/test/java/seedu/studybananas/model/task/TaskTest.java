@@ -1,9 +1,12 @@
 package seedu.studybananas.model.task;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.studybananas.testutil.SampleTasks.CS2100_TUTORIAL_HOMEWORK;
 import static seedu.studybananas.testutil.SampleTasks.CS2103T_WEEK8_QUIZ;
+
+import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
@@ -82,7 +85,25 @@ public class TaskTest {
     }
 
     @Test
-    public void isLongerThanAnHour() {
+    public void isLongerThanAnHour_taskDurationIsLongerThanAnHour_returnsTrue() {
+        String todayDateString = LocalDate.now().toString();
+        Task cs2103Task = new TaskBuilder(CS2103T_WEEK8_QUIZ).withDateTime(todayDateString).withDuration("75").build();
+        assertTrue(cs2103Task.isLongerThanAnHour());
+    }
 
+    @Test
+    public void isLongerThanAnHour_taskDurationIsLessThanAnHour_returnsFalse() {
+        String todayDateString = LocalDate.now().toString();
+        Task cs2103Task = new TaskBuilder(CS2103T_WEEK8_QUIZ).withDateTime(todayDateString).withDuration("45").build();
+        assertFalse(cs2103Task.isLongerThanAnHour());
+    }
+
+    @Test
+    public void getNumberOfMinuteHappenToday() {
+        String todayDateString = LocalDate.now().toString();
+        Task cs2103Task = new TaskBuilder(CS2103T_WEEK8_QUIZ)
+                .withDateTime(todayDateString).withDuration("45").build();
+        double expectedTodayDuration = 45.0;
+        assertEquals(expectedTodayDuration, cs2103Task.getNumberOfMinuteHappenToday());
     }
 }

@@ -24,6 +24,12 @@ public interface ScheduleModel {
     boolean hasTask(Task task);
 
     /**
+     * Returns true if there is any task in the schedule overlapping in duration with {@code task}
+     * with the exception of {@code exceptionTask}.
+     */
+    boolean isTaskOverlapped(Task exceptionTask, Task task);
+
+    /**
      * Deletes the given task.
      * The task must exist in the schedule.
      */

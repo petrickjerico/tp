@@ -40,7 +40,6 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
   <a href="#31-flashcard">How to create manage flashcards with Studybananas ></a>
   </div>
   <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 30px;">v
-
 </div>
 
 ---
@@ -55,6 +54,7 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 
 <details markdown="1">
 <summary align="center"><h2>Table of Contents</h2></summary>
+
 
 <div id="toc_container">
 <ul class="toc_list">
@@ -117,19 +117,18 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
   </li>
 </ul>
 </div>
-
  </details>
 
 ## 1. Introduction
 
 Are you a student of secondary to tertiary education level,
-who is a fan of **using flashcards to understand concepts**,
+who is a fan of **using `FLASHCARD` to understand concepts**,
 use your laptop often,
 and would like to **schedule your study sessions efficiently**?
 If so, we have the product just for you!
 
 **StudyBananas** is a desktop study companion app that **helps you centralize your study tasks,
-and caters to your recap needs through flashcard-quizzes**.
+and caters to your recap needs through `FLASHCARD`-quizzes**.
 It is optimized for use via a Command Line Interface (CLI) while still
 having the benefits of a Graphical User Interface (GUI).
 
@@ -196,86 +195,86 @@ Table 1. Icons in this User Guide
 </div>
 <p>&nbsp;</p>
 
-### 3.1. Flashcard
+### 3.1. `FLASHCARD`
 
-#### 3.1.1. **Add a flashcard set**: `add flset`
+#### 3.1.1. **Add a `FLASHCARDSET`**: `add flset`
 
-Creates a new flashcard set with your customary name, which can then serve as folder to store and categorize your flashcards.
+If you would like to create a new `FLASHCARDSET`, this commands allows you create a new `FLASHCARDSET` with a custome name to store and categorize your `FLASHCARD`.
 
-Format: `add flset <name:setname>​`
-
-- `<setname>` can accept names separated with spaces.
-- if `<setname>` is already used, the app will request a new `<setname>`.
-
-Examples:
-
-- `add flset name:Japanese`
-- `add flset name:Economics – Micro`
-<p>&nbsp;</p>
-
-#### 3.1.2. **Delete a flashcard set**: `delete flset`
-
-Deletes an existing flashcard set and all flashcards that it contains.
-
-Format: `delete flset <setindex>`
-
-- `<setindex>` should be a positive integer.
-- `<setindex>` will throw an error if `setindex` does not exist.
-
-Examples:
-
-- `delete flset 1`
-- `delete flset 2`
-<p>&nbsp;</p>
-
-#### 3.1.3. **List flashcards in a flashcard set**: `list fl`
-
-Shows the list of flashcards with details: question, answer and index.
-
-Format: `list fl <setindex>`
-
-- `<setindex>` should be a positive integer.
-- `<setindex>` will throw an error if `setindex` does not exist.
-
-Examples:
-
-- `list fl 1`
-- `list fl 2`
-
-Alternatively, you can double-click on the flashcard set.
+| Format                         | Example                    | Remark                                           |
+|--------------------------------|----------------------------|--------------------------------------------------|
+| **`add flset <name:setname>`** | `add flset name:Japanese`  | `setname` must not be an existing `FLASHCARDSET` name|
 
 <p></p>
 
-#### 3.1.4. **Add a flashcard into a flashcard set**: `add fl`
+![New Flset Added](images/add-flset-1.png)
 
-Adds a single flashcard with a question and an answer in a specified flashcard set.
+<div align="center">Figure __. Result of <code>add flset name:Japanese</code> command</div>
 
-Format:` add fl <flset:setindex> <q:question> <a:answer>`
-
-- `<question>`, `<answer>` and `<setindex>` fields are compulsory.
-- `<question>` and `<answer>` can accept strings that are capitalized or separated with spaces.
-- `<setindex>` should be a positive integer.
-- `<setindex>` will throw an error if `setindex` does not exist.
-
-Examples:
-
-- `add fl flset:1 q:konnichiwa a:hello `
-- `add fl flset:2 q:Is earth flat? a:Maybe!`
 <p>&nbsp;</p>
 
-#### 3.1.5. **Delete a flashcard in a flashcard set**: `delete fl`
+#### 3.1.2. **Delete a `FLASHCARDSET`**: `delete flset`
 
-Deletes a single flashcard in a specified flashcard set.
+If you would like to delete an existing `FLASHCARDSET`, this commands allows you to delete using the index of the `FLASHCARDSET`.
 
-Format: `delete fl flset:<setindex> fl:<index>`
+| Format                        | Example          | Remark                                            |
+|-------------------------------|------------------|---------------------------------------------------|
+| **`delete flset <setindex>`** | `delete flset 3` | Deletes all the `FLASHCARD` in the `FLASHCARDSET` |
 
-- `<setindex>` and `<index>` fields are compulsory.
-- `<setindex>` and `<index>` should be a positive integer.
-- `<setindex>` and `<index>` will throw an error if either does not exist.
+<p></p>
 
-Examples:
+![Delete flset 3](images/delete-flset-1.png)
 
-- `delete fl flset:1 fl:3`
+<div align="center">Figure __. Result of <code>delete flset 3</code> command</div>
+
+<p>&nbsp;</p>
+
+#### 3.1.3. **List `FLASHCARD` in a `FLASHCARDSET`**: `list fl`
+
+This commands allows you to view the detailed list of `FLASHCARD` in a specified `FLASHCARDSET` using its index.
+
+| Format                   | Example     | Remark                                                    |
+|--------------------------|-------------|-----------------------------------------------------------|
+| **`list fl <setindex>`** | `list fl 1` | Alternatively, you can double-click on the `FLASHCARDSET` |
+
+<p></p>
+
+![Delete flset 3](images/list-fl-1.png)
+
+<div align="center">Figure __. Result of <code>list fl 1</code> command</div>
+
+<p>&nbsp;</p>
+
+#### 3.1.4. **Add a `FLASHCARD` into a `FLASHCARDSET`**: `add fl`
+
+This command allows you to add a single `FLASHCARD` consisting of a question and an answer in a specified `FLASHCARDSET` using its index.
+
+| Format                                                | Example                               |
+|-------------------------------------------------------|---------------------------------------|
+| **`add fl <flset:setindex> <q:question> <a:answer>`** | `add fl flset:3 q:Konnichiwa a:Hello` |
+
+<p></p>
+
+![Delete flset 3](images/add-fl-1.png)
+
+<div align="center">Figure __. Result of <code>add fl flset:3 q:Konnichiwa a:Hello</code> command</div>
+
+<p>&nbsp;</p>
+
+#### 3.1.5. **Delete a `FLASHCARD` in a `FLASHCARDSET`**: `delete fl`
+
+This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARDSET` using their indexes.
+
+| Format                                      | Example                  | Remark                                                |
+|---------------------------------------------|--------------------------|-------------------------------------------------------|
+| **`delete fl <flset:setindex> <fl:index>`** | `delete fl flset:3 fl:1` | Deletes the 1st `FLASHCARD` in the 3rd `FLASHCARDSET` |
+
+<p></p>
+
+![Delete flset 3](images/delete-fl-1.png)
+
+<div align="center">Figure __. Result of <code>delete fl flset:3 fl:1</code> command</div>
+
 <p>&nbsp;</p>
 
 ### 3.2. Commands for the `QUIZ` page (Bowei)
@@ -352,7 +351,7 @@ The question of the next `FLASHCARD` will be displayed.
 Steps 1-2 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` are displayed and answered.
 
 Once the quiz stops, the score statistics will be displayed.
-This score can also be viewed when viewing the last attempt of the flashcard set.
+This score can also be viewed when viewing the last attempt of the `FLASHCARDSET`.
 (see [View last quiz attempt: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset))
 
 <p>&nbsp;</p>
@@ -438,7 +437,7 @@ schedule.
 <br>
 &nbsp;
 
-Now, if you would like to add a `quiz` of flashcard set 1 as a `task` to your schedule.
+Now, if you would like to add a `quiz` of `FLASHCARDSET` 1 as a `task` to your schedule.
 
 Entering the command `add task T: CS2040S d: quiz flset:1 dur: 30` while on `Schedule` tab will ad the `task` containing
 the `quiz` to your schedule.
@@ -654,15 +653,15 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 
 ## Command summary
 
-### Flashcard commands
+### `FLASHCARD` commands
 
 | Action                                 | Format, Examples                                                                                        |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| **Add flashcard set**                  | `add flset <name:setname>` <br> e.g., `add flset name:Japanese`                                         |
-| **Delete flashcard set**               | `delete flset <setindex>` <br> e.g., `delete flset 1`                                                   |
-| **List flashcards in a specified set** | `list fl <setindex>` <br> e.g., `list fl 1`                                                             |
-| **Add flashcard in a specified set**   | `add fl <flset:setindex> <q:question> <a:answer>` <br> e.g., `add fl flset:2 q:Is earth flat? a:Maybe!` |
-| **Delete flashcard in specified set**  | `delete fl <flset:setindex> <fl:index>` <br> e.g., `delete fl flset:1 fl:1`                             |
+| **Add `FLASHCARDSET`**                  | `add flset <name:setname>` <br> e.g., `add flset name:Japanese`                                         |
+| **Delete `FLASHCARDSET`**               | `delete flset <setindex>` <br> e.g., `delete flset 1`                                                   |
+| **List `FLASHCARD` in a specified set** | `list fl <setindex>` <br> e.g., `list fl 1`                                                             |
+| **Add `FLASHCARD` in a specified set**   | `add fl <flset:setindex> <q:question> <a:answer>` <br> e.g., `add fl flset:2 q:Is earth flat? a:Maybe!` |
+| **Delete `FLASHCARD` in specified set**  | `delete fl <flset:setindex> <fl:index>` <br> e.g., `delete fl flset:1 fl:1`                             |
 
 <p>&nbsp;</p>
 

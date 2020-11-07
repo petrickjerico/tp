@@ -22,7 +22,7 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 
 </div>
 
-<div class="section">
+<div class="section" markdown="1">
   <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
   <h1>Manage your study plans</h1>
   <p>Manage all of your study tasks in StudyBanans. Then, start to plan yourself for the upcoming exams!</p>
@@ -33,10 +33,12 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 
 ---
 
-<div class="section">
-  <h1>Create your own notes with `FLASHCARD`</h1>
-  <p>Take note with the `FLASHCARD`, and organize notes using `FLASHCARD` sets!</p>
-  <img src="images/`FLASHCARD`.png" alt="`FLASHCARD`-pic" width="370" style="float: right; margin-left: 30px;">
+<div class="section" markdown="1">
+  <div width="370">
+  <h1>Create your own notes with flashcards</h1>
+  <p>Take note with the flashcards, and organize notes using flashcard sets!</p>
+  <div>
+  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 30px;">
 
 [How to manage `FLASHCARD` in StudyBananas >](31-`FLASHCARD`)
 
@@ -44,21 +46,21 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 
 ---
 
- <div class="section">
-  <h1>Quiz yourself by `FLASHCARD`</h1>
-  <p>Prepare your exams by quizing yourself the `FLASHCARD` notes that you have taken!</p>
-  <img src="images/`FLASHCARD`.png" alt="`FLASHCARD`-pic" width="370" style="float: right; margin-left: 30px;">
+<div class="section" markdown="1">
+  <img src="images/Flashcards.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
+  <h1>Quiz yourself by flashcards</h1>
+  <p>Prepare your exams by quizing yourself the flashcard notes that you have taken!</p>
 
 [How to take a `FLASHCARD` quiz in StudyBananas >](#32-quiz)
 
 </div>
 
-<details>
+<details markdown="1">
 <summary align="center"><h2>Table of Contents</h2></summary>
 
 - [1. Introduction](#1-introduction)
   - [1.1 Reading this User Guide](#11-reading-this-user-guide)
-    - [1.1.1 Icons and Meaning](#111-icons-and-meaning)
+    - [1.1.1 Icons and Meaning](#11-icons-and-meaning)
 - [2. Quick start](#2-quick-start)
 - [3. Features](#3-features)
   * [3.1. `FLASHCARD`](#31-`FLASHCARD`)
@@ -138,13 +140,13 @@ Table 1. Icons in this User Guide
 5. Type the command in the command box and press `Enter` to execute it.
    Some example commands you can try:
 
-   * **`list`** `task` : Lists all tasks
+   - **`list`** `task` : Lists all tasks
 
-   - **`add`** `flset name:Chemistry` : Add a new empty set with name `Chemistry`.
+   * **`add`** `flset name:Chemistry` : Add a new empty set with name `Chemistry`.
 
-   - **`delete`** `flset 3` : Deletes the 3rd `FLASHCARDSET` in the current list of `FLASHCARD` sets.
+   * **`delete`** `flset 3` : Deletes the 3rd flashcard set in the current list of flashcard sets.
 
-   - **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 task to the task list.
+   * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 task to the task list.
 
 6. Refer to the [Features](#3-features) below for details of each command.
 
@@ -156,13 +158,13 @@ Table 1. Icons in this User Guide
 
 **Notes about the command format:**<br>
 
-* Words wrapped with angled brackets `<>` contain compulsory parameters or prefix-parameter pairs to be supplied by you.<br>
+- Words wrapped with angled brackets `<>` contain compulsory parameters or prefix-parameter pairs to be supplied by you.<br>
   e.g. in `add <flset:setname>`, `flset:` is a prefix and `setname` is a parameter, which can be used as `add flset:Chemistry`.
 
-* Words wrapped with square brackets `[]` contain optional parameters or prefix-parameter pairs to be supplied by you.<br>
-  e.g. in `add task <T:title> [d:description]`, `d:` is a prefix with `description` as a parameter, and can be used as `add task T: CS2103T d: Post-lecture quiz` or as `add task T: CS2103T`. 
+- Words wrapped with square brackets `[]` contain optional parameters or prefix-parameter pairs to be supplied by you.<br>
+  e.g. in `add task <T:title> [d:description]`, `d:` is a prefix with `description` as a parameter, and can be used as `add task T: CS2103T d: Post-lecture quiz` or as `add task T: CS2103T`.
 
-* Prefix-parameter pairs can be in any order.<br>
+- Prefix-parameter pairs can be in any order.<br>
   e.g. if the command specifies `<flset:setindex> <q:question> <a:answer>`, `<a:answer> <q:question> <flset:setindex>` is also acceptable.
 
 </div>
@@ -251,7 +253,9 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 <p>&nbsp;</p>
 
 ### 3.2. Commands for the `QUIZ` page (Bowei)
-#### 3.2.1. **`QUIZ` of `FLASHCARDSET`**: `quiz flset`
+
+#### 3.2.1. **`QUIZ` of flashcard set**: `quiz flset`
+
 Are you ready to revise your concepts? This command helps you start a `QUIZ` with a `FLASHCARDSET` of your choice.
 
 | Format                          | Examples                                       |
@@ -284,39 +288,42 @@ You will find more information on the respective quiz-mode commands in the steps
 | `cancel`  | Stops the quiz. Your quiz records will not be stored upon quiz cancellation.                                                                                                            |
 
 ##### Step 1
-When the `QUIZ` starts, as seen below, you will see the question 
-of the first ``FLASHCARD`` within the selected `FLASHCARDSET`, 
-as well as an instruction prompt to type in the next available commands, 
+
+When the `QUIZ` starts, as seen below, you will see the question
+of the first `FLASHCARD` within the selected `FLASHCARDSET`,
+as well as an instruction prompt to type in the next available commands,
 `flip`, `<ans:answer>`, `refresh` or `cancel`.
 
 ![FirstQuestion](images/FirstQuestion.png)
 
-| Format          | Command usages                                                                                                                                                           |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `flip`          | Does not store your answer. Displays the answer to the ``FLASHCARD`` question. <br> (You may opt to remember your answer for evaluation against the correct answer later)  |
-| `<ans:answer>`  | Stores your answer. Also, displays the answer to the ``FLASHCARD`` question.                                                                                               |
+| Format         | Command usages                                                                                                                                                          |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `flip`         | Does not store your answer. Displays the answer to the `FLASHCARD` question. <br> (You may opt to remember your answer for evaluation against the correct answer later) |
+| `<ans:answer>` | Stores your answer. Also, displays the answer to the `FLASHCARD` question.                                                                                              |
 
 ##### Step 2
-If the command entered is `flip` or `ans:<answer>`, 
-the correct answer will be displayed, 
+
+If the command entered is `flip` or `ans:<answer>`,
+the correct answer will be displayed,
 and you will be prompted to enter the next available commands, `c`, `w`, `refresh` or `cancel`.
 
 The image below shows the result when `ans:improves code quality and reduces bugs` is entered:
 
 ![AnswerShown](images/AnswerShown.png)
 
-Based on the correct answer, you may evaluate your own answer. 
-If you think the question is answered correctly, type `c`. 
+Based on the correct answer, you may evaluate your own answer.
+If you think the question is answered correctly, type `c`.
 Else, type `w`. Your response will be taken into account when tabulating the `QUIZ` score.
 
-| Format  | Command usages                                                           |
-| ------- | ------------------------------------------------------------------------ |
-| `c`     | Indicates that the question of the ``FLASHCARD`` is answered *correctly*.  |
-| `w`     | Indicates that the question of the ``FLASHCARD`` is answered *wrongly*.    |
+| Format | Command usages                                                          |
+| ------ | ----------------------------------------------------------------------- |
+| `c`    | Indicates that the question of the `FLASHCARD` is answered _correctly_. |
+| `w`    | Indicates that the question of the `FLASHCARD` is answered _wrongly_.   |
 
 ##### Step 3
-The question of the next ``FLASHCARD`` will be displayed. 
-Steps 1-2 are repeated until all ``FLASHCARD``s in the `FLASHCARDSET` are displayed and answered.
+
+The question of the next `FLASHCARD` will be displayed.
+Steps 1-2 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` are displayed and answered.
 
 Once the quiz stops, the score statistics will be displayed.
 This score can also be viewed when viewing the last attempt of the `FLASHCARDSET`.
@@ -325,6 +332,7 @@ This score can also be viewed when viewing the last attempt of the `FLASHCARDSET
 <p>&nbsp;</p>
 
 #### 3.2.2. **View last `QUIZ` attempt**: `quiz score flset`
+
 Shows the last attempt of a `QUIZ` on a specified `FLASHCARDSET`.
 
 It contains the following information:

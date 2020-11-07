@@ -319,11 +319,11 @@ you may click on the highlighted `QUIZ` label contained in the description of th
 
 **Note: When the `QUIZ` has started, the system is in quiz-mode. You are required to enter follow-up commands to continue with the `QUIZ`.**
 
-| ![info_icon](images/UG/info_icon.png)                  | Only general and quiz-mode commands are allowed at designated times, as stated below. |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------------- |
-| At all times in quiz-mode                              | `exit`, `help`, `cancel`, `refresh`                                                   |
-| Only the question is shown (Step 1)                    | `flip`, `<ans:answer>`                                                                |
-| Both the question and correct answer is shown (Step 2) | `c`, `w`                                                                              |
+| ![info_icon](images/UG/info_icon.png)                          | Only general and quiz-mode commands are allowed at designated times, as stated below. |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| At all times in quiz-mode                                      | `exit`, `help`, `cancel`, `refresh`                                                   |
+| Only the question is shown (see **Step 2**)                    | `flip`, `<ans:answer>`                                                                |
+| Both the question and correct answer is shown (see **Step 3**) | `c`, `w`                                                                              |
 
 You may find more information on the respective quiz-mode commands by referring to the steps and descriptions below.
 

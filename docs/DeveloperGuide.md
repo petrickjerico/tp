@@ -457,21 +457,16 @@ The concrete implementation of these methods lies in the `MainWindow`, `SidebarT
 
 Given below is an example usage scenario and how the sidebar view mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `MainWindow` will initialize the `SingletonUiState` with the default state `Schedule` which represents the view of Schedule system, and then subscribe to it.
+:---------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+![SidebarStep1](images/SidebarStep1.png =150x100)  |  ![SidebarStep2](images/SidebarStep2.png =50x100)   | ![SidebarStep3](images/SidebarStep3.png =150x100)    | ![SidebarStep4](images/SidebarStep4.png =150x100)
+Step 1. The user launches the application | Step 2. When the `Sidebar` is initiated,    | Step 3. When a user click on any            | Step 4. After the `SingletonUiState` is 
+for the first time. The `MainWindow` will | the `SidebarTab`s contained will subscribe  | `SidebarTab`, `SidebarTab` would update the | updated, it will then go ahead to update 
+initialize the `SingletonUiState` with    |  to the changes of SingleUiState.           | `SingletonUiState`.                         | all the observers and change the view.
+the default state `Schedule` which        |
+represents the view of Schedule system,   |
+ and then subscribe to it.                |
 
-![SidebarStep1](images/SidebarStep1.png)
 
-Step 2. When the `Sidebar` is initiated, the `SidebarTab`s contained will subscribe to the changes of SingleUiState. 
-
-![SidebarStep2](images/SidebarStep2.png)
-
-Step 3. When a user click on any `SidebarTab`, `SidebarTab` would update the `SingletonUiState`.
-
-![SidebarStep3](images/SidebarStep3.png)
-
-Step 4. After the `SingletonUiState` is updated, it will then go ahead to update all the observers and change the view.
-
-![SidebarStep4](images/SidebarStep4.png)
 
 
 The following sequence diagram shows how the switching between tabs works, the example clicks the schedule tab:

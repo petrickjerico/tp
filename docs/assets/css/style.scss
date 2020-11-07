@@ -13,7 +13,7 @@
 .welcome-page {
   background-color: #f2f2f2;
   padding-top: 5px;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .section {
@@ -43,4 +43,14 @@
 #toc_container ul,
 #toc_container ul li {
   list-style: outside none none !important;
+}
+
+.code {
+  font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono",
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9375em;
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+  background-color: #eef;
+  display: inline;
 }

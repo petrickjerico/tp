@@ -26,7 +26,6 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
   <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
   <h1>Manage your study plans</h1>
   <p>Manage all of your study tasks in StudyBanans. Then, start to plan yourself for the upcoming exams!</p>
-  <br>
   <a href="#33-schedule">How to manage tasks in StudyBananas schedule ></a>
 </div>
 
@@ -36,10 +35,9 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
   <div class="sub-section">
   <h1>Create your own notes with flashcards</h1>
   <p>Take note with the flashcards, and organize notes using flashcard sets!</p>
-  <br>
   <a href="#31-flashcard">How to create manage flashcards with Studybananas ></a>
   </div>
-  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 30px;">v
+  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 0px;">
 
 </div>
 
@@ -49,7 +47,6 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
   <img src="images/Flashcards.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
   <h1>Quiz yourself by flashcards</h1>
   <p>Prepare your exams by quizing yourself the flashcard notes that you have taken!</p>
-  <br>
   <a href="#32-quiz">How to create manage flashcards with Studybananas ></a>
 </div>
 
@@ -57,65 +54,70 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 <summary align="center"><h2>Table of Contents</h2></summary>
 
 <div id="toc_container">
-<ul class="toc_list">
-  <li><a href="#1-introduction">1. Introduction</a>
-    <ul>
-      <li><a href="#11-reading-this-user-guide">1.1 Reading this User Guide</a>
-        <ul>
-          <li><a href="#111-icons-and-meaning)">1.1.1 Icons and Meaning</a></li>
-        </ul>
-      </li>
+    <ul class="toc_list">
+        <li><a href="#1-introduction">1. Introduction</a>
+            <ul>
+                <li><a href="#11-reading-this-user-guide">1.1 Reading this User Guide</a>
+                    <ul>
+                        <li><a href="#111-icons-and-meaning)">1.1.1 Icons and Meaning</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#2-quick-start">2. Quick start</a></li>
+        <li><a href="#3-features">3. Features</a>
+            <ul>
+                <li><a href="#31-flashcard">3.1. Flashcard</a>
+                    <ul>
+                        <li><a href="#311-add-a-flashcard-set-add-flset">3.1.1. Add a flashcard set: <div class="code">add flset</div></a></li>
+                        <li><a href="#312-delete-a-flashcard-set-delete-flset">3.1.2. <b>Delete a flashcard set</b>:<div
+                                    class="code"> delete flset</div></a></li>
+                        <li><a href="#313-list-flashcards-in-a-flashcard-set-list-fl">3.1.3. <b>List flashcards in a
+                                    flashcard set</b>: `list fl`</a></li>
+                        <li><a href="#314-add-a-flashcard-into-a-flashcard-set-add-fl">3.1.4. <b>Add a flashcard into a
+                                flashcard set</b>: <div class="code">add fl</div></a></li>
+                        <li><a href="#315-delete-a-flashcard-in-a-flashcard-set-delete-fl">3.1.5. <b>Delete a flashcard
+                                in a flashcard set</b>: <div class="code">delete fl</div></a></li>
+                    </ul>
+                </li>
+                <li><a href="#32-quiz">3.2. Commands for the <div class="code">QUIZ</div> page (Bowei)</a>
+                    <ul>
+                        <li><a href="#321-quiz-of-flashcard-set-quiz-flse">3.2.1. <b><div class="code">QUIZ</div> of flashcard set</b>: <div class="code">quiz
+                                flset</div></a></li>
+                        <li><a href="#322-view-last-quiz-attempt-quiz-score-flset">3.2.2. **View last `QUIZ` attempt**:
+                                <div class="code">quiz score flset</div></a></li>
+                    </ul>
+                </li>
+                <li><a href="#33-schedule">3.3. Schedule</a>
+                    <ul>
+                        <li><a href="#view-the-details-of-your-task"><b>View the details of your task</b>:</a></li>
+                        <li><a href="#331-add-a-task-add-task">3.3.1. <b>Add a task</b>: <div class="code">add task</div></a></li>
+                        <li><a href="#332-list-tasks-list-task">3.3.2. <b>List tasks</b>: <div class="code">list task</div></a></li>
+                        <li><a href="#333-delete-a-task-delete-task">3.3.3. <b>Delete a task</b>: <div>delete task</div></a></li>
+                        <li><a href="#334-search-for-a-task-search-task">3.3.4. <b>Search for a task</b>: <div class="code">search task</div></a>
+                        </li>
+                        <li><a href="#335-edit-a-task-edit-task">Edit a task: <div class="code">edit task</div></a></li>
+                    </ul>
+                </li>
+                <li><a href="#34-general-commands">3.4. General Commands</a>
+                    <ul>
+                        <li><a href="#341-view-all-the-available-commands-help">3.4.1. <b>View all the available
+                                commands</b>: <div class="code">help</div></a></li>
+                        <li><a href="#342-exit-program-exit">3.4.2. <b>Exit program</b>: <div class="code">exit</div></a></li>
+                    </ul>
+                </li>
+                <li><a href="#saving-the-data"><b>Saving the data</b></a></li>
+            </ul>
+        </li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="##command-summary">Command summary</a>
+            <ul>
+                <li><a href="#flashcard-commands">Flashcard commands</a></li>
+                <li><a href="#quiz-commands">Quiz commands</a></li>
+                <li><a href="#task-list-commands">Task list commands</a></li>
+            </ul>
+        </li>
     </ul>
-  </li>
-
-  <li><a href="#2-quick-start">2. Quick start</a></li>
-
-  <li><a href="#3-features">3. Features</a>
-    <ul>
-      <li><a href="#31-flashcard">3.1. Flashcard</a>
-        <ul>
-          <li><a href="#311-add-a-flashcard-set-add-flset">3.1.1. **Add a flashcard set**: `add flset`<a></li>
-          <li><a href="#312-delete-a-flashcard-set-delete-flset">3.1.2. **Delete a flashcard set**: `delete flset`<a></li>
-          <li><a href="#313-list-flashcards-in-a-flashcard-set-list-fl">3.1.3. **List flashcards in a flashcard set**: `list fl`<a></li>
-          <li><a href="#314-add-a-flashcard-into-a-flashcard-set-add-fl">3.1.4. **Add a flashcard into a flashcard set**: `add fl`<a></li>
-          <li><a href="#315-delete-a-flashcard-in-a-flashcard-set-delete-fl">3.1.5. **Delete a flashcard in a flashcard set**: `delete fl`<a></li>
-        </ul>
-      </li>
-     <li><a href="#32-quiz">3.2. Commands for the `QUIZ` page (Bowei)</a>
-        <ul>
-          <li><a href="#321-quiz-of-flashcard-set-quiz-flse">3.2.1. **`QUIZ` of flashcard set**: `quiz flset`<a></li>
-          <li><a href="#322-view-last-quiz-attempt-quiz-score-flset">3.2.2. **View last `QUIZ` attempt**: `quiz score flset`<a></li>
-        </ul>
-     </li>
-     <li><a href="#33-schedule">3.3. Schedule</a>
-        <ul>
-          <li><a href="#view-the-details-of-your-task">**View the details of your task**:<a></li>
-          <li><a href="#331-add-a-task-add-task">3.3.1. **Add a task**: `add task`<a></li>
-          <li><a href="#332-list-tasks-list-task">3.3.2. **List tasks**: `list task`<a></li>
-          <li><a href="#333-delete-a-task-delete-task">3.3.3. **Delete a task**: `delete task``<a></li>
-          <li><a href="#334-search-for-a-task-search-task">3.3.4. **Search for a task**: `search task`<a></li>
-          <li><a href="#335-edit-a-task-edit-task">Edit a task**: `edit task`<a></li>
-        </ul>
-     </li>
-     <li><a href="#34-general-commands">3.4. General Commands</a>
-        <ul>
-          <li><a href="#341-view-all-the-available-commands-help">3.4.1. **View all the available commands**: `help<a></li>
-          <li><a href="#342-exit-program-exit">3.4.2. **Exit program**: `exit`<a></li>
-        </ul>
-     </li>
-     <li><a href="#saving-the-data">**Saving the data*</a></li>
-    </ul>
-  </li>
-
-  <li><a href="#faq">FAQ</a></li>
-  <li><a href="##command-summary">Command summary</a>
-    <ul>
-        <li><a href="#flashcard-commands">Flashcard commands</a></li>
-        <li><a href="#quiz-commands">Quiz commands</a></li>
-        <li><a href="#task-list-commands">Task list commands</a></li>
-    </ul>
-  </li>
-</ul>
 </div>
 
  </details>

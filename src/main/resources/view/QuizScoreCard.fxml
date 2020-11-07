@@ -10,7 +10,7 @@
       style="-fx-background-radius: 20 20 20 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/11.0.1"
       xmlns:fx="http://javafx.com/fxml/1">
     <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="375.0" hmax="0.4"
-                style="-fx-background-color: #DADD6E;"
+                style="-fx-background-color: #FFFFE0;"
                 fitToWidth="true">
         <content>
             <Label fx:id="score" minHeight="400.0" minWidth="357.0"

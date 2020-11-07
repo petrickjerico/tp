@@ -113,7 +113,6 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
         </li>
     </ul>
 </div>
- </details>
 
 ## **1. Introduction** (Binh)
 

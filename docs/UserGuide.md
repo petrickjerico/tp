@@ -18,7 +18,7 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 </div>
 
 <div class="section">
-  <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
+  <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;"/>
   <h1>Manage your study plans</h1>
   <p>Manage all of your study tasks in StudyBanans. Then, start to plan yourself for the upcoming exams!</p>
   <a href="#33-schedule">How to manage tasks in StudyBananas schedule ></a>
@@ -27,12 +27,12 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 ---
 
 <div class="section">
+  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 0px;"/>
   <div class="sub-section">
   <h1>Create your own notes with flashcards</h1>
   <p>Take note with the flashcards, and organize notes using flashcard sets!</p>
-  <a href="#31-flashcard">How to create and manage flashcards with Studybananas ></a>
+  <a href="#31-flashcard">How to manage flashcards with Studybananas ></a>
   </div>
-  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 0px;">
 </div>
 
 ---

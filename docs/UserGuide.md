@@ -302,18 +302,18 @@ This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your ch
 
 There are two ways to launch a `QUIZ` in StudyBananas. 
 You may do so by either:
-* Entering commands into the command box:
+* **Entering commands into the command box:**
 
 | Format                      | Examples                                      |
 | --------------------------- | --------------------------------------------- |
 | **`quiz <flset:setindex>`** | `quiz flset:1` <br> `quiz flset:2`            |
 | **`quiz <flset:setname>`**  | `quiz flset:CS2040` <br> `quiz flset:CS2103T` |
 
-* Or, through clicking on a scheduled `QUIZ` in the `SCHEDULE`:<br>
+* **Or, through clicking on a scheduled `QUIZ` in the `SCHEDULE`:**<br>
 If you have a `QUIZ` scheduled (see [Adding a `QUIZ` task](#3312-adding-a-quiz-task)), 
 you may click on the highlighted `QUIZ` label contained in the description of the `TASK` as shown below.
 
-<img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="300"/>
+<img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="300" align="center"/>
 
 <div markdown="block" class="alert alert-info">
 

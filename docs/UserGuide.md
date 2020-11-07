@@ -43,7 +43,7 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
     + [3.1.4. **Add a flashcard into a flashcard set**: `add fl`](#314-add-a-flashcard-into-a-flashcard-set-add-fl)
     + [3.1.5. **Delete a flashcard in a flashcard set**: `delete fl`](#315-delete-a-flashcard-in-a-flashcard-set-delete-fl)
   * [3.2. Commands for the `QUIZ` page (Bowei)](#32-commands-for-the-quiz-page-bowei)
-    + [3.2.1. **Quiz of flashcard set**: `quiz flset`](#321-quiz-of-flashcard-set-quiz-flset)    
+    + [3.2.1. **`QUIZ` of flashcard set**: `quiz flset`](#321-quiz-of-flashcard-set-quiz-flset)    
     + [3.2.2. **View last quiz attempt**: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset)
   * [3.3. Schedule](#33-schedule)
     + [**View the details of your task**:](#view-the-details-of-your-task)

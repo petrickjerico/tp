@@ -5,8 +5,8 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import seedu.studybananas.commons.core.GuiSettings;
 import seedu.studybananas.logic.Logic;
-import seedu.studybananas.ui.commons.HelpWindow;
 import seedu.studybananas.ui.UiPart;
+import seedu.studybananas.ui.commons.HelpWindow;
 import seedu.studybananas.ui.util.GlobalState;
 
 public class SideBarHelpMenu extends UiPart<Region> {

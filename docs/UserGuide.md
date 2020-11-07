@@ -49,16 +49,17 @@ It is optimized for use via a Command Line Interface (CLI) while still
 having the benefits of a Graphical User Interface (GUI).
  
 This user guide aims to equip you with all necessary understanding to use StudyBananas effectively.  
+
 ### 1.1 Reading this User Guide
 Before you begin, here are some important notations that you should be aware of 
 when reading this user guide.
 
 #### 1.1.1 Icons and Meaning
-|Icon                                                    |Meaning
-|:------------------------------------------------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
-|![tip_icon](images/UG/tip_icon.png)                     | Tips are just for your information. They can help you use StudyBananas more efficiently.|
-|![info_icon](images/UG/info_icon.png)                   | A note informs you of specific conditions or behaviours of a feature.|
-|![important_icon](images/UG/important_icon.png)         | Warnings denote extremely important details to take note of. These include irreversible actions, and important instructions that when not followed, may cause StudyBananas to crash or corrupt its data files.|
+| Icon                                                    | Meaning
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![tip_icon](images/UG/tip_icon.png)                     | Tips are just for your information. They can help you use StudyBananas more efficiently.                                                                                                                       |
+| ![info_icon](images/UG/info_icon.png)                   | A note informs you of specific conditions or behaviours of a feature.                                                                                                                                          |
+| ![important_icon](images/UG/important_icon.png)         | Warnings denote extremely important details to take note of. These include irreversible actions, and important instructions that when not followed, may cause StudyBananas to crash or corrupt its data files. |
 Table 1. Icons in this User Guide
   
   
@@ -192,7 +193,7 @@ Are you ready to revise your concepts? This command helps you start a `QUIZ` wit
 | **`quiz <flset:setname>`**      | `quiz flset:CS2040` <br> `quiz flset:cs2103T`  |
 
 Alternatively, if you have a `QUIZ` scheduled (see 3) of [Add a task: `add task`](#add-a-task-add-task)),
-you may double-click the bright-colored `Quiz:<quizname>` label contained in the description of the `TASK` as shown below.
+you may click on the bright-colored `Quiz:<quizname>` label contained in the description of the `TASK` as shown below.
 
 <img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="200"/>
 

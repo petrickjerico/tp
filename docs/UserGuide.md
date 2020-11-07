@@ -130,12 +130,12 @@ having the benefits of a Graphical User Interface (GUI).
 
 This user guide aims to equip you with all necessary understanding to use StudyBananas effectively.
 
-### 1.2 Reading this User Guide
+### 1.1 Reading this User Guide
 
 Before you begin, here are some important notations that you should be aware of
 when reading this user guide.
 
-#### 1.2.1 Icons and Meaning
+#### 1.1.1 Icons and Meaning
 
 |                      Icon                       | Meaning                                                                                                                                                                                                        |
 | :---------------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

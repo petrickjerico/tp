@@ -1,39 +1,59 @@
----
-layout: page
----
-
 <div class="welcome-page">
-<h1 align="center">STUDYBANANAS USER GUIDE</h1>
-<p align="center" >
-<img src="images/studyBananas-logo.png" alt="Logo" width="100" />
-</p>
 
-<br>
+  <h1 align="center">StudyBananas User Guide</h1>
+  <p align="center" >
+    <img src="images/studyBananas-logo.png" alt="Logo" width="100" />
+  </p>
 
-<p align="center">
+  <br>
+
+  <p align="center">
 Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of contents below to <br>find answers, get step-by-step intructions and know us better.
-</p>
+  </p>
 
-<p align="center" >
+  <p align="center" >
 Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay2021s1-cs2103t-f12-2.github.io/tp/"><i>StudyBananas Project Profile Page</i></a> to find out more resources.
-</p>
+  </p>
+
 </div>
 
-<br><br>
+<div class="section">
+  <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
+  <h1>Manage your study plans</h1>
+  <p>Manage all of your study tasks in StudyBanans. Then, start to plan yourself for the upcoming exams!</p>
 
-<p>
-<img src="images/Schedule.png" alt="schedule-pic" width="200" style="float: left; margin-right: 10px;">
-<h1>Manage your study tasks</h1>
-<p>Manage all of your </p>
-</p>
+[How to manage tasks in StudyBananas schedule >](#33-schedule)
+
+</div>
+
+---
+
+<div class="section">
+  <h1>Create your own notes with flashcards</h1>
+  <p>Take note with the flashcards, and organize notes using flashcard sets!</p>
+  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 30px;">
+
+[How to manage flashcards in StudyBananas >](31-flashcard)
+
+</div>
+
+---
+
+ <div class="section">
+  <h1>Quiz yourself by flashcards</h1>
+  <p>Prepare your exams by quizing yourself the flashcard notes that you have taken!</p>
+  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 30px;">
+
+[How to take a flashcard quiz in StudyBananas >](#32-quiz)
+
+</div>
 
 <details>
-<summary align="center">Table of Contents</summary>
+<summary align="center"><h2>Table of Contents</h2></summary>
 
 - [1. Introduction](#1-introduction)
-  - [1.1 What is ]
-  - [1.2 Reading this User Guide](#12-reading-this-user-guide)
-    - [1.2.1 Icons and Meaning](#121-icons-and-meaning)
+  - [1.1 Reading this User Guide](#11-reading-this-user-guide)
+    - [1.1.1 Icons and Meaning](#111-icons-and-meaning)
 - [2. Quick start](#2-quick-start)
 - [3. Features](#3-features)
   * [3.1. Flashcard](#31-flashcard)

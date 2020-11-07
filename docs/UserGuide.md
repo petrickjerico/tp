@@ -67,7 +67,7 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
                         <li><a href="#312-delete-a-flashcard-set-delete-flset">3.1.2. <b>Delete a flashcard set</b>:<div
                                     class="code"> delete flset</div></a></li>
                         <li><a href="#313-list-flashcards-in-a-flashcard-set-list-fl">3.1.3. <b>List flashcards in a
-                                    flashcard set</b>: `list fl`</a></li>
+                                    flashcard set</b>: <div class="code">list fl</div></a></li>
                         <li><a href="#314-add-a-flashcard-into-a-flashcard-set-add-fl">3.1.4. <b>Add a flashcard into a
                                 flashcard set</b>: <div class="code">add fl</div></a></li>
                         <li><a href="#315-delete-a-flashcard-in-a-flashcard-set-delete-fl">3.1.5. <b>Delete a flashcard
@@ -682,11 +682,10 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 **Q: How do I transfer my data to another Computer?**<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous StudyBananas home folder.
 
-
-
 <p>&nbsp;</p>
 
 ---
+
 ## Command summary
 
 ### `FLASHCARD` commands

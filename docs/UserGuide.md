@@ -242,8 +242,8 @@ Based on the correct answer, you may evaluate your own answer.
 If you think the question is answered correctly, type `c`. 
 Else, type `w`. Your response will be taken into account when tabulating the `QUIZ` score.
 
-| Format  | Command usages                                                                                                                                                      |
-| ------- | ---------------------------------------------------------------------- |
+| Format  | Command usages                                                           |
+| ------- | ------------------------------------------------------------------------ |
 | `c`     | Indicates that the question of the `FLASHCARD` is answered *correctly*.  |
 | `w`     | Indicates that the question of the `FLASHCARD` is answered *wrongly*.    |
 

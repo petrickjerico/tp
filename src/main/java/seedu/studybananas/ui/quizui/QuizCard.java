@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import seedu.studybananas.model.flashcard.Question;
 import seedu.studybananas.model.quiz.Quiz;
-import seedu.studybananas.ui.ResultDisplay;
+import seedu.studybananas.ui.commons.ResultDisplay;
 
 public class QuizCard extends ResultDisplay {
     private static final String FXML = "QuizCard.fxml";

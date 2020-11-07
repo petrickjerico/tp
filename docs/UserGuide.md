@@ -200,20 +200,20 @@ you may double-click the bright-colored `Quiz:<quizname>` label contained in the
 
 Note: When the `QUIZ` has started, the system is in quiz-mode. You are required to enter follow-up commands to continue with the `QUIZ`.
 
-| ![info_icon](images/UG/info_icon.png)                  | **Only general and quiz-mode commands are allowed at designated times, as stated below.** |
-| ------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
-| At all times in quiz-mode                              | `exit`, `help`, `cancel`, `refresh`                                                       |
-| Only the question is shown (Step 1)                    | `flip`, `<ans:answer>`                                                                    |
-| Both the question and correct answer is shown (Step 2) | `c`, `w`                                                                                  |
+| ![info_icon](images/UG/info_icon.png)                  | Only general and quiz-mode commands are allowed at designated times, as stated below. |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| At all times in quiz-mode                              | `exit`, `help`, `cancel`, `refresh`                                                   |
+| Only the question is shown (Step 1)                    | `flip`, `<ans:answer>`                                                                |
+| Both the question and correct answer is shown (Step 2) | `c`, `w`                                                                              |
 
 You will find more information on the respective quiz-mode commands in the steps below.
 
 </div>
 
-| ![info_icon](images/UG/info_icon.png)  | **Usages of all-time-available quiz-mode commands**                                                                                                                                     |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `refresh`                              | Shows the current state of the quiz - the question, current answer (if applicable) and prompt instruction, in case you wish to continue with the quiz after entering an invalid command |
-| `cancel`                               | Stops the quiz. Your quiz records will not be stored upon quiz cancellation.                                                                                                            |
+| Format    | Usages of all-time-available quiz-mode commands                                                                                                                                         |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `refresh` | Shows the current state of the quiz - the question, current answer (if applicable) and prompt instruction, in case you wish to continue with the quiz after entering an invalid command |
+| `cancel`  | Stops the quiz. Your quiz records will not be stored upon quiz cancellation.                                                                                                            |
 
 ##### Step 1
 When the `QUIZ` starts, as seen below, you will see the question 
@@ -223,10 +223,10 @@ as well as an instruction prompt to type in the next available commands,
 
 ![FirstQuestion](images/FirstQuestion.png)
 
-| ![info_icon](images/UG/info_icon.png)  | **Command usages**                                                                                                                                                       |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `flip`                                 | Does not store your answer. Displays the answer to the `FLASHCARD` question. <br> (You may opt to remember your answer for evaluation against the correct answer later)  |
-| `<ans:answer>`                         | Stores your answer. Also, displays the answer to the `FLASHCARD` question.                                                                                               |
+| Format          | Command usages                                                                                                                                                           |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `flip`          | Does not store your answer. Displays the answer to the `FLASHCARD` question. <br> (You may opt to remember your answer for evaluation against the correct answer later)  |
+| `<ans:answer>`  | Stores your answer. Also, displays the answer to the `FLASHCARD` question.                                                                                               |
 
 ##### Step 2
 If the command entered is `flip` or `ans:<answer>`, 
@@ -241,10 +241,10 @@ Based on the correct answer, you may evaluate your own answer.
 If you think the question is answered correctly, type `c`. 
 Else, type `w`. Your response will be taken into account when tabulating the `QUIZ` score.
 
-| ![info_icon](images/UG/info_icon.png)  | **Command usages**                                                                                                                                                       |
-| -------------------------------------- | ---------------------------------------------------------------------- |
-| `c`                                    | Indicates that the question of the `FLASHCARD` is answered correctly.  |
-| `w`                                    | Indicates that the question of the `FLASHCARD` is answered wrongly.    |
+| Format  | Command usages                                                                                                                                                      |
+| ------- | ---------------------------------------------------------------------- |
+| `c`     | Indicates that the question of the `FLASHCARD` is answered *correctly*.  |
+| `w`     | Indicates that the question of the `FLASHCARD` is answered *wrongly*.    |
 
 ##### Step 3
 The question of the next `FLASHCARD` will be displayed. 
@@ -267,10 +267,10 @@ It contains the following information:
 
 ![ViewScore](images/ViewScore.png)
 
-Format: `quiz score <flset:setindex>`
-
-Examples: 
-`quiz score flset:9`, `quiz score flset:16`
+| Format                                | Examples                                             |
+| ------------------------------------- | ---------------------------------------------------- |
+| **`quiz score <flset:setindex>`**     | `quiz score flset:1` <br> `quiz flset:2`             |
+| **`quiz score <flset:setname>`**      | `quiz score flset:CS2040` <br> `quiz flset:cs2103T`  |
 <p>&nbsp;</p>
 
 ### 3.3. Schedule

@@ -22,26 +22,24 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 
 </div>
 
-<div class="section" markdown="1">
+<div class="section">
   <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
   <h1>Manage your study plans</h1>
   <p>Manage all of your study tasks in StudyBanans. Then, start to plan yourself for the upcoming exams!</p>
-
-[How to manage tasks in StudyBananas schedule >](#33-schedule)
-
+  <br>
+  <a href="#33-schedule">How to manage tasks in StudyBananas schedule ></a>
 </div>
 
 ---
 
-<div class="section" markdown="1">
-  <div width="370">
+<div class="section">
+  <div class="sub-section">
   <h1>Create your own notes with flashcards</h1>
   <p>Take note with the flashcards, and organize notes using flashcard sets!</p>
-  <div>
-  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 30px;">
-
-[How to manage `FLASHCARD` in StudyBananas >](31-`FLASHCARD`)
-
+  <br>
+  <a href="#31-flashcard">How to create manage flashcards with Studybananas ></a>
+  </div>
+  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 30px;">v
 </div>
 
 ---
@@ -50,49 +48,77 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
   <img src="images/Flashcards.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
   <h1>Quiz yourself by flashcards</h1>
   <p>Prepare your exams by quizing yourself the flashcard notes that you have taken!</p>
-
-[How to take a `FLASHCARD` quiz in StudyBananas >](#32-quiz)
-
+  <br>
+  <a href="#32-quiz">How to create manage flashcards with Studybananas ></a>
 </div>
 
 <details markdown="1">
 <summary align="center"><h2>Table of Contents</h2></summary>
 
-- [1. Introduction](#1-introduction)
-  - [1.1 Reading this User Guide](#11-reading-this-user-guide)
-    - [1.1.1 Icons and Meaning](#11-icons-and-meaning)
-- [2. Quick start](#2-quick-start)
-- [3. Features](#3-features)
-  * [3.1. `FLASHCARD`](#31-`FLASHCARD`)
-    + [3.1.1. **Add a `FLASHCARDSET`**: `add flset`](#311-add-a-`FLASHCARDSET`-add-flset)
-    + [3.1.2. **Delete a `FLASHCARDSET`**: `delete flset`](#312-delete-a-`FLASHCARDSET`-delete-flset)
-    + [3.1.3. **List `FLASHCARD` in a `FLASHCARDSET`**: `list fl`](#313-list-`FLASHCARD`-in-a-`FLASHCARDSET`-list-fl)
-    + [3.1.4. **Add a `FLASHCARD` into a `FLASHCARDSET`**: `add fl`](#314-add-a-`FLASHCARD`-into-a-`FLASHCARDSET`-add-fl)
-    + [3.1.5. **Delete a `FLASHCARD` in a `FLASHCARDSET`**: `delete fl`](#315-delete-a-`FLASHCARD`-in-a-`FLASHCARDSET`-delete-fl)
-  * [3.2. Commands for the `QUIZ` page (Bowei)](#32-commands-for-the-quiz-page-bowei)
-    + [3.2.1. **`QUIZ` of `FLASHCARDSET`**: `quiz flset`](#321-quiz-of-`FLASHCARDSET`-quiz-flset)    
-    + [3.2.2. **View last `QUIZ` attempt**: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset)
-  * [3.3. Schedule](#33-schedule)
-    + [**View the details of your task**:](#view-the-details-of-your-task)
-    + [3.3.1. **Add a task**: `add task`](#331-add-a-task-add-task)
-    + [3.3.2. **List tasks**: `list task`](#332-list-tasks-list-task)
-    + [3.3.3. **Delete a task**: `delete task`](#333-delete-a-task-delete-task)
-    + [3.3.4. **Search for a task**: `search task`](#334-search-for-a-task-search-task)
-    + [3.3.5 **Edit a task**: `edit task`](#335-edit-a-task-edit-task)
-  * [3.4. General Commands](#34-general-commands)
-    + [3.4.1. **View all the available commands**: `help`](#341-view-all-the-available-commands-help)
-    + [3.4.2. **Exit program**: `exit`](#342-exit-program-exit)
-  * [**Saving the data**](#saving-the-data)
-- [FAQ](#faq)
-- [Command summary](#command-summary)
-  - [`FLASHCARD` commands](#`FLASHCARD`-commands)
-  - [Quiz commands](#quiz-commands)
-  - [Task list commands](#task-list-commands)
-  - [General commands](#general-commands)
 
+<div id="toc_container">
+<ul class="toc_list">
+  <li><a href="#1-introduction">1. Introduction</a>
+    <ul>
+      <li><a href="#11-reading-this-user-guide">1.1 Reading this User Guide</a>
+        <ul>
+          <li><a href="#111-icons-and-meaning)">1.1.1 Icons and Meaning</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li><a href="#2-quick-start">2. Quick start</a></li>
+
+  <li><a href="#3-features">3. Features</a>
+    <ul>
+      <li><a href="#31-flashcard">3.1. Flashcard</a>
+        <ul>
+          <li><a href="#311-add-a-flashcard-set-add-flset">3.1.1. **Add a flashcard set**: `add flset`<a></li>
+          <li><a href="#312-delete-a-flashcard-set-delete-flset">3.1.2. **Delete a flashcard set**: `delete flset`<a></li>
+          <li><a href="#313-list-flashcards-in-a-flashcard-set-list-fl">3.1.3. **List flashcards in a flashcard set**: `list fl`<a></li>
+          <li><a href="#314-add-a-flashcard-into-a-flashcard-set-add-fl">3.1.4. **Add a flashcard into a flashcard set**: `add fl`<a></li>
+          <li><a href="#315-delete-a-flashcard-in-a-flashcard-set-delete-fl">3.1.5. **Delete a flashcard in a flashcard set**: `delete fl`<a></li>
+        </ul>
+      </li>
+     <li><a href="#32-quiz">3.2. Commands for the `QUIZ` page (Bowei)</a>
+        <ul>
+          <li><a href="#321-quiz-of-flashcard-set-quiz-flse">3.2.1. **`QUIZ` of flashcard set**: `quiz flset`<a></li>
+          <li><a href="#322-view-last-quiz-attempt-quiz-score-flset">3.2.2. **View last `QUIZ` attempt**: `quiz score flset`<a></li>
+        </ul>
+     </li>
+     <li><a href="#33-schedule">3.3. Schedule</a>
+        <ul>
+          <li><a href="#view-the-details-of-your-task">**View the details of your task**:<a></li>
+          <li><a href="#331-add-a-task-add-task">3.3.1. **Add a task**: `add task`<a></li>
+          <li><a href="#332-list-tasks-list-task">3.3.2. **List tasks**: `list task`<a></li>
+          <li><a href="#333-delete-a-task-delete-task">3.3.3. **Delete a task**: `delete task``<a></li>
+          <li><a href="#334-search-for-a-task-search-task">3.3.4. **Search for a task**: `search task`<a></li>
+          <li><a href="#335-edit-a-task-edit-task">Edit a task**: `edit task`<a></li>
+        </ul>
+     </li>
+     <li><a href="#34-general-commands">3.4. General Commands</a>
+        <ul>
+          <li><a href="#341-view-all-the-available-commands-help">3.4.1. **View all the available commands**: `help<a></li>
+          <li><a href="#342-exit-program-exit">3.4.2. **Exit program**: `exit`<a></li>
+        </ul>
+     </li>
+     <li><a href="#saving-the-data">**Saving the data*</a></li>
+    </ul>
+  </li>
+
+  <li><a href="#faq">FAQ</a></li>
+  <li><a href="##command-summary">Command summary</a>
+    <ul>
+        <li><a href="#flashcard-commands">Flashcard commands</a></li>
+        <li><a href="#quiz-commands">Quiz commands</a></li>
+        <li><a href="#task-list-commands">Task list commands</a></li>
+    </ul>
+  </li>
+</ul>
+</div>
  </details>
 
-<br><br><br><br><br>
 
     
 ## **1. Introduction** (Binh)
@@ -274,10 +300,10 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 Are you ready to revise your concepts? This command helps you start a `QUIZ` with a `FLASHCARDSET` of your choice.
 
-| Format                          | Examples                                       |
-| ------------------------------- | ---------------------------------------------- |
-| **`quiz <flset:setindex>`**     | `quiz flset:1` <br> `quiz flset:2`             |
-| **`quiz <flset:setname>`**      | `quiz flset:CS2040` <br> `quiz flset:CS2103T`  |
+| Format                      | Examples                                      |
+| --------------------------- | --------------------------------------------- |
+| **`quiz <flset:setindex>`** | `quiz flset:1` <br> `quiz flset:2`            |
+| **`quiz <flset:setname>`**  | `quiz flset:CS2040` <br> `quiz flset:CS2103T` |
 
 Alternatively, if you have a `QUIZ` scheduled (see 3) of [Add a task: `add task`](#331-add-a-task-add-task)),
 you may click on the highlighted `Quiz:<quizname>` label contained in the description of the `TASK` as shown below.
@@ -361,10 +387,10 @@ It contains the following information:
 
 ![ViewScore](images/ViewScore.png)
 
-| Format                                | Examples                                                    |
-| ------------------------------------- | ----------------------------------------------------------- |
-| **`quiz score <flset:setindex>`**     | `quiz score flset:13` <br> `quiz score flset:5`             |
-| **`quiz score <flset:setname>`**      | `quiz score flset:CS2103T` <br> `quiz score flset:Physics`  |
+| Format                            | Examples                                                   |
+| --------------------------------- | ---------------------------------------------------------- |
+| **`quiz score <flset:setindex>`** | `quiz score flset:13` <br> `quiz score flset:5`            |
+| **`quiz score <flset:setname>`**  | `quiz score flset:CS2103T` <br> `quiz score flset:Physics` |
 
 <p>&nbsp;</p>
 
@@ -621,9 +647,9 @@ The help window shows most of the available CLI commands.
 
 If you would like to close the application, this command helps you to quickly close StudyBanas.
 
-| Format         |
-| -------------- |
-| **`exit`**     |
+| Format     |
+| ---------- |
+| **`exit`** |
 
 Alternatively, you can click on the close button located at the bottom of the sidebar to close the application.
 
@@ -684,7 +710,7 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 
 ### General commands
 
-| Action                                    | Format, Examples      |
-| ----------------------------------------- | --------------------- |
-| **View all the available commands**       | `help`                |
-| **Exit program**                          | `exit`                |
+| Action                              | Format, Examples |
+| ----------------------------------- | ---------------- |
+| **View all the available commands** | `help`           |
+| **Exit program**                    | `exit`           |

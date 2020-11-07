@@ -164,13 +164,16 @@ Table 2. Markdown notations in this User Guide
 <br> 
 
 * Words wrapped with angled brackets `<>` contain compulsory parameters or prefix-parameter pairs to be supplied by you.<br>
-  e.g. in `add <flset:setname>`, `flset:` is a prefix and `setname` is a parameter, which can be used as `add flset:Chemistry`.
+  e.g. In `add <flset:setname>`, `flset:` is a prefix and `setname` is a parameter, which can be used as `add flset:Chemistry`.
 
 * Words wrapped with square brackets `[]` contain optional parameters or prefix-parameter pairs to be supplied by you.<br>
-  e.g. in `add task <T:title> [d:description]`, `d:` is a prefix with `description` as a parameter, and can be used as `add task T: CS2103T d: Post-lecture quiz` or as `add task T: CS2103T`. 
+  e.g. In `add task <T:title> [d:description]`, `d:` is a prefix with `description` as a parameter, and can be used as `add task T: CS2103T d: Post-lecture quiz` or as `add task T: CS2103T`. 
 
 * Prefix-parameter pairs can be in any order.<br>
-  e.g. if the command specifies `<flset:setindex> <q:question> <a:answer>`, `<a:answer> <q:question> <flset:setindex>` is also acceptable.
+  e.g. If the command specifies `<flset:setindex> <q:question> <a:answer>`, `<a:answer> <q:question> <flset:setindex>` is also acceptable.
+
+* The same prefix-parameter can be used in a same command, however only the value of the last pair is used. <br>
+e.g. In `add task T: CS2103T d: Tutorial Week 2 T: CS2100`, there are 2 parameters for `T:` but only the last one `CS2100` is taken as the input value. 
 
 </div>
 <p>&nbsp;</p>
@@ -351,7 +354,7 @@ It contains the following information:
 
 ### 3.3. Schedule (Binh)
 
-#### **View the details of your task**:
+#### **View the details of your task**: (Eddy)
 
 There are several panels in our user interface that provides the details of your task.
 
@@ -363,7 +366,7 @@ There are several panels in our user interface that provides the details of your
 
 <p>&nbsp;</p>
 
-#### 3.3.1. **Add a task**: `add task`
+#### 3.3.1. **Add a `TASK`**: `add task`
 
 If you would like to add a study `TASK` to your `SCHEDULE`, this command allows you to create a `TASK` and saves it to the 
 `SCHEDULE`, while specifying the `title`, `description`, `time` and `duration` of the task.  
@@ -380,7 +383,7 @@ You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:index>`
 
 | <!-- -->    | <!-- -->    |
 |-------------|-------------|
-| ![info_icon](images/UG/info_icon.png)| • `title` and `description` can accept strings that are capitalized or separated with spaces. <br>  • The hours and minutes in `time` are optional. If you do not specify it, StudyBananas will set the time to 12:00 by default. <br> •  `time` should be written in one of the following formats <div class="indent">  `yyyy-MM-dd [HH:mm]`</div> or `EEEE, [MMM-dd-yyyy] [HH:mm]` or . <br> • `duration` has to be a positive integer in minute and its value has to be less than _1440_ (number of minutes in a day). <br>• You cannot add a `TASK` such that it results in a duplicated `TASK`, which are `TASK`s having the same title, description, time and duration. <br> • You cannot add a `TASK` such that its time range overlaps with the time range of existing `TASK`s in the `SCHEDULE`.       |
+| ![info_icon](images/UG/info_icon.png)| • `title` and `description` can accept strings that are capitalized or separated with spaces. <br>  • The hours and minutes in `time` are optional. If you do not specify it, StudyBananas will set the time to 12:00 by default. <br> •  `time` should be written in one of the following formats: <p>&nbsp;&nbsp;&nbsp;&nbsp; • `yyyy-MM-dd [HH:mm]` (24-hour format, e.g. 23:00)</p>  <p>&nbsp;&nbsp;&nbsp;&nbsp; • `EEEE, [MMM-dd-yyyy] [HH:mm]` (24-hour format, e.g. 23:00)</p> • `duration` has to be a positive integer in minute and its value has to be less than _1440_ (number of minutes in a day). <br>• You cannot add a `TASK` such that it results in a duplicated `TASK`, which are `TASK`s having the same title, description, time and duration. <br> • You cannot add a `TASK` such that its time range overlaps with the time range of existing `TASK`s in the `SCHEDULE`.       |
 
 <br>
 
@@ -434,7 +437,7 @@ the `QUIZ` to your schedule.
 
 
 
-#### 3.3.2. List tasks: `list task`
+#### 3.3.2. List all your `TASK`s: `list task`
 
 If you  would like to view your full `SCHEDULE`, this command displays the full `SCHEDULE` that you are having at the moment.  
  
@@ -460,9 +463,9 @@ If you  would like to view your full `SCHEDULE`, this command displays the full 
 
 <p>&nbsp;</p>
 
-#### 3.3.3. **Delete a task**: `delete task`
+#### 3.3.3. **Delete a `TASK`**: `delete task`
 
-If you complete a `TASK` and would like to remove that specific `TASK` from your `SCHEDULE`, this command will help you remove the task at the specified `index`.  
+If you complete a `TASK` and would like to remove that specific `TASK` from your `SCHEDULE`, this command helps you remove the task at the specified `index`.  
 
 Upon deletion of the `TASK`, the saved information of the `TASK` in `schedule.json` file will be deleted as well.  
 
@@ -483,20 +486,22 @@ Upon deletion of the `TASK`, the saved information of the `TASK` in `schedule.js
 For example, you just finished the `TASK` at `index` 4 in the `SCHEDULE`, _CS2100 Lab_ and you 
 would like to update your `SCHEDULE` by deleting that `TASK`.  
 
-1\. Enter the command `delete task 4`.  
+1\. Find the `index` of the `TASK` to be deleted with the [list task](#332-list-tasks-list-task) command.
+
+2\. From the figure below, you can identify the `TASK` to be deleted has an `index` of 4, enter the command `delete task 4`.  
 ![deleteTask1](images/deleteTask1.jpg)
 
 <div align="center">Figure __. Using `delete task` command</div>  
 <br>
 
-2\. After using the `delete task` command, the specified `TASK` is removed from your `SCHEDULE`.  
+3\. After using the `delete task` command, the specified `TASK` is removed from your `SCHEDULE`.  
 ![deleteTask1](images/deleteTask2.png)  
 
 <div align="center">Figure __. Result of `delete task` command</div>  
 
 <br>
 
-#### 3.3.4. **Search for a task**: `search task`
+#### 3.3.4. **Search for a `TASK`**: `search task`
 
 If you have trouble finding certain specific `TASK`s, you can search for them using a certain **keyword(s)**, this command displays any `TASK` that its `title`
 contains *any* of the given **keyword(s)** or its `description` and `time` contains *all* of the given **keyword(s)**. 
@@ -532,7 +537,7 @@ specified **keyword**
 
 <p>&nbsp;</p>
 
-#### 3.3.5 Edit a task: `edit task`
+#### 3.3.5 Edit a `TASK`: `edit task`
 
 If you would like to update certain details of a specific `TASK`, this command allows you to edit the details of a `TASK` at a specified `index` in the `SCHEDULE`.
 
@@ -570,11 +575,11 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 
 <p>&nbsp;</p>
 
-### 3.4. General Commands
+### 3.4. General Commands (Binh)
 
 #### 3.4.1. **View all the available commands**: `help`
 
-If you are not sure of how a command works, you can open the help window with this command  
+If you are not sure of how a certain command works or what command would suit your needs, you can open the help window with this command to view all the available commands.  
 
 Usage
 |                 |           |
@@ -589,9 +594,8 @@ Alternatively, you can click on the help button located at the bottom of the sid
 
 The help window shows most of the available CLI commands.
 
-- The green part is the name of the command
+- The cyan part is the name of the command
 - The purple part lists all the arguments that can be adjust in a customary manner.
-- Please refer to the description below for more details in each command.
 
 ![HelpWindow](images/HelpWindow.png)
 
@@ -651,12 +655,12 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 
 <p>&nbsp;</p>
 
-### Task list commands
+### Task list commands (Binh)
 
 | Action              | Format, Examples                                                                                                                                                            |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Add task**        | `add task <T:titile> [d:description] [t:time] [dur:duration]` <br> e.g., `add task T:CS2100 d: Pipeline tutorial`, `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
+| **Add task**        | `add task <T:titile> [d:description] [t:time] [dur:duration]` <br> e.g. `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
 | **List tasks**      | `list task` <br>                                                                                                                                                            |
 | **Delete task**     | `delete task <index>` <br> e.g., `delete task 6`                                                                                                                            |
-| **Search for task** | `search task <keywords>` <br> e.g., `search task CS2103T`                                                                                                                   |
-| **Edit task**       | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g., `edit task 2 T: CS2103T`, `edit task 1 d: Debug remaining errors dur: 60`                  |
+| **Search for task** | `search task <keywords>` <br> e.g., `search task CS2103T deadlines`                                                                                                                   |
+| **Edit task**       | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g. `edit task 1 d: Debug remaining errors dur: 60`                  |

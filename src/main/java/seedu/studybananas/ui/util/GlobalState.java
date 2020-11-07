@@ -3,7 +3,7 @@ package seedu.studybananas.ui.util;
 import javafx.stage.Stage;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.ui.CommandBox;
-import seedu.studybananas.ui.HelpWindow;
+import seedu.studybananas.ui.commons.HelpWindow;
 
 public class GlobalState {
     private static GlobalState instance;

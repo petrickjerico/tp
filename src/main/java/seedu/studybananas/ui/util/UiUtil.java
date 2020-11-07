@@ -5,7 +5,7 @@ import seedu.studybananas.commons.core.GuiSettings;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.commandresults.GeneralCommandResult;
-import seedu.studybananas.ui.HelpWindow;
+import seedu.studybananas.ui.commons.HelpWindow;
 
 public class UiUtil {
     /**

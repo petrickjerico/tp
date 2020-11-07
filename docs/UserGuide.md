@@ -1,11 +1,39 @@
 ---
 layout: page
-title: User Guide
 ---
-## Table of Contents
+
+<div class="welcome-page">
+<h1 align="center">STUDYBANANAS USER GUIDE</h1>
+<p align="center" >
+<img src="images/studyBananas-logo.png" alt="Logo" width="100" />
+</p>
+
+<br>
+
+<p align="center">
+Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of contents below to <br>find answers, get step-by-step intructions and know us better.
+</p>
+
+<p align="center" >
+Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay2021s1-cs2103t-f12-2.github.io/tp/"><i>StudyBananas Project Profile Page</i></a> to find out more resources.
+</p>
+</div>
+
+<br><br>
+
+<p>
+<img src="images/Schedule.png" alt="schedule-pic" width="200" style="float: left; margin-right: 10px;">
+<h1>Manage your study tasks</h1>
+<p>Manage all of your </p>
+</p>
+
+<details>
+<summary align="center">Table of Contents</summary>
+
 - [1. Introduction](#1-introduction)
-  * [1.1 Reading this User Guide](#11-reading-this-user-guide)
-    + [1.1.1 Icons and Meaning](#111-icons-and-meaning)
+  - [1.1 What is ]
+  - [1.2 Reading this User Guide](#12-reading-this-user-guide)
+    - [1.2.1 Icons and Meaning](#121-icons-and-meaning)
 - [2. Quick start](#2-quick-start)
 - [3. Features](#3-features)
   * [3.1. Flashcard](#31-flashcard)
@@ -30,40 +58,45 @@ title: User Guide
   * [**Saving the data**](#saving-the-data)
 - [FAQ](#faq)
 - [Command summary](#command-summary)
-  * [Flashcard commands](#flashcard-commands)
-  * [Quiz commands](#quiz-commands)
-  * [Task list commands](#task-list-commands)
+  - [Flashcard commands](#flashcard-commands)
+  - [Quiz commands](#quiz-commands)
+  - [Task list commands](#task-list-commands)
 
-    
+ </details>
+
+<br><br><br><br><br>
+
 ## 1. Introduction
 
 Are you a student of secondary to tertiary education level,
-who is a fan of **using flashcards to understand concepts**, 
+who is a fan of **using flashcards to understand concepts**,
 use your laptop often,
 and would like to **schedule your study sessions efficiently**?
 If so, we have the product just for you!
- 
-**StudyBananas** is a desktop study companion app that **helps you centralize your study tasks, 
-and caters to your recap needs through flashcard-quizzes**.
-It is optimized for use via a Command Line Interface (CLI) while still 
-having the benefits of a Graphical User Interface (GUI).
- 
-This user guide aims to equip you with all necessary understanding to use StudyBananas effectively.  
 
-### 1.1 Reading this User Guide
-Before you begin, here are some important notations that you should be aware of 
+**StudyBananas** is a desktop study companion app that **helps you centralize your study tasks,
+and caters to your recap needs through flashcard-quizzes**.
+It is optimized for use via a Command Line Interface (CLI) while still
+having the benefits of a Graphical User Interface (GUI).
+
+This user guide aims to equip you with all necessary understanding to use StudyBananas effectively.
+
+### 1.2 Reading this User Guide
+
+Before you begin, here are some important notations that you should be aware of
 when reading this user guide.
 
-#### 1.1.1 Icons and Meaning
-| Icon                                                    | Meaning
-| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![tip_icon](images/UG/tip_icon.png)                     | Tips are just for your information. They can help you use StudyBananas more efficiently.                                                                                                                       |
-| ![info_icon](images/UG/info_icon.png)                   | A note informs you of specific conditions or behaviours of a feature.                                                                                                                                          |
-| ![important_icon](images/UG/important_icon.png)         | Warnings denote extremely important details to take note of. These include irreversible actions, and important instructions that when not followed, may cause StudyBananas to crash or corrupt its data files. |
+#### 1.2.1 Icons and Meaning
+
+|                      Icon                       | Meaning                                                                                                                                                                                                        |
+| :---------------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|       ![tip_icon](images/UG/tip_icon.png)       | Tips are just for your information. They can help you use StudyBananas more efficiently.                                                                                                                       |
+|      ![info_icon](images/UG/info_icon.png)      | A note informs you of specific conditions or behaviours of a feature.                                                                                                                                          |
+| ![important_icon](images/UG/important_icon.png) | Warnings denote extremely important details to take note of. These include irreversible actions, and important instructions that when not followed, may cause StudyBananas to crash or corrupt its data files. |
+
 Table 1. Icons in this User Guide
-  
-  
---------------------------------------------------------------------------------------------------------------------
+
+---
 
 ## 2. Quick start
 
@@ -81,16 +114,15 @@ Table 1. Icons in this User Guide
 
    * **`list`** `task` : Lists all tasks
 
-   * **`add`** `flset name:Chemistry` : Add a new empty set with name `Chemistry`.
+   - **`add`** `flset name:Chemistry` : Add a new empty set with name `Chemistry`.
 
-   * **`delete`** `flset 3` : Deletes the 3rd flashcard set in the current list of flashcard sets.
-   
-   * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 task to the task list.
+   - **`delete`** `flset 3` : Deletes the 3rd flashcard set in the current list of flashcard sets.
+
+   - **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 task to the task list.
 
 6. Refer to the [Features](#features) below for details of each command.
 
-
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## 3. Features
 
@@ -111,15 +143,18 @@ Table 1. Icons in this User Guide
 <p>&nbsp;</p>
 
 ### 3.1. Flashcard
+
 #### 3.1.1. **Add a flashcard set**: `add flset`
 
 Creates a new flashcard set with your customary name, which can then serve as folder to store and categorize your flashcards.
 
 Format: `add flset <name:setname>​`
+
 - `<setname>` can accept names separated with spaces.
 - if `<setname>` is already used, the app will request a new `<setname>`.
 
 Examples:
+
 - `add flset name:Japanese`
 - `add flset name:Economics – Micro`
 <p>&nbsp;</p>
@@ -129,10 +164,12 @@ Examples:
 Deletes an existing flashcard set and all flashcards that it contains.
 
 Format: `delete flset <setindex>`
+
 - `<setindex>` should be a positive integer.
 - `<setindex>` will throw an error if `setindex` does not exist.
 
 Examples:
+
 - `delete flset 1`
 - `delete flset 2`
 <p>&nbsp;</p>
@@ -147,10 +184,12 @@ Format: `list fl <setindex>`
 - `<setindex>` will throw an error if `setindex` does not exist.
 
 Examples:
+
 - `list fl 1`
 - `list fl 2`
 
 Alternatively, you can double-click on the flashcard set.
+
 <p></p>
 
 #### 3.1.4. **Add a flashcard into a flashcard set**: `add fl`
@@ -165,6 +204,7 @@ Format:` add fl <flset:setindex> <q:question> <a:answer>`
 - `<setindex>` will throw an error if `setindex` does not exist.
 
 Examples:
+
 - `add fl flset:1 q:konnichiwa a:hello `
 - `add fl flset:2 q:Is earth flat? a:Maybe!`
 <p>&nbsp;</p>
@@ -180,6 +220,7 @@ Format: `delete fl flset:<setindex> fl:<index>`
 - `<setindex>` and `<index>` will throw an error if either does not exist.
 
 Examples:
+
 - `delete fl flset:1 fl:3`
 <p>&nbsp;</p>
 
@@ -251,17 +292,17 @@ Else, type `w`. Your response will be taken into account when tabulating the `QU
 The question of the next `FLASHCARD` will be displayed. 
 Steps 1-2 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` are displayed and answered.
 
-Once the quiz stops, the score statistics will be displayed. 
+Once the quiz stops, the score statistics will be displayed.
 This score can also be viewed when viewing the last attempt of the flashcard set.
 (see [View last quiz attempt: `quiz score flset`](#view-last-quiz-attempt-quiz-score-flset))
+
 <p>&nbsp;</p>
 
-
-
 #### 3.2.2. **View last `QUIZ` attempt**: `quiz score flset`
-Shows the last attempt of a `QUIZ` on a specified `FLASHCARDSET` .
+Shows the last attempt of a `QUIZ` on a specified `FLASHCARDSET`.
 
 It contains the following information:
+
 - Score (percentage out of 100%), and
 - List of questions each followed by answers from the last attempt
 - Indicators of whether the question is answered correctly (shown as tick and cross)
@@ -272,61 +313,66 @@ It contains the following information:
 | ------------------------------------- | ---------------------------------------------------- |
 | **`quiz score <flset:setindex>`**     | `quiz score flset:1` <br> `quiz flset:2`             |
 | **`quiz score <flset:setname>`**      | `quiz score flset:CS2040` <br> `quiz flset:cs2103T`  |
+
 <p>&nbsp;</p>
 
 ### 3.3. Schedule
 
-#### **View the details of your task**: 
- 
-There are several panels in our user interface that provides the details of your task. 
+#### **View the details of your task**:
+
+There are several panels in our user interface that provides the details of your task.
+
 - Firstly, the time scale lists out all of your study sessions which are tasks with start time and duration, you can click on your study session on the time scale to view the detail on the top right panel.
 - Secondly, the list panel located at the bottom right corner of the schedule tab lists all of your tasks, you can scroll down to view the details of your task or takes advantage of our search feature (please refer to [search task section](#search-for-a-task)) to quickly a specific task.
 - In the following user guide, we would time scale to refer to the middle panel of schedule tab, and uses task lists to refer to the bottom right panel.
- 
+
 ![TaskDetailPanels](images/TaskDetailPanels.png)
+
 <p>&nbsp;</p>
 
 #### 3.3.1. **Add a task**: `add task`
 
-If you would like to add a study task to your schedule, this command allows you to create a task and saves it to the 
-schedule, while specifying the `title`, `description`, `time` and `duration` of the task.  
+If you would like to add a study task to your schedule, this command allows you to create a task and saves it to the
+schedule, while specifying the `title`, `description`, `time` and `duration` of the task.
 
 After you add a new task to `StudyBananas`, the task information is saved in the `schedule.json` file.
 
-You can also add a `quiz` as a valid `task` by entering the `quiz <flset:index>` command in the `description` field. 
-  
-Format: `add task <T:title> [d:description] [t:time] [dur: duration]`  
+You can also add a `quiz` as a valid `task` by entering the `quiz <flset:index>` command in the `description` field.
+
+Format: `add task <T:title> [d:description] [t:time] [dur: duration]`
 
 Examples:
+
 - `add task T: CS2100 d: Pipeline tutorial dur: 45`
 - `add task T: CS2103T d: iP submission t: 2020-09-17 23:59`
 - `add Task T: CS2105 d: quiz flset:2 t: Saturday, Oct 31 2020 13:00 dur: 120`
 
 Remarks:
+
 - `title` can accept strings that are capitalized or separated with spaces.
 - `time` should be written in the format `t: yyyy-MM-dd HH:mm` or `t: EEEE, MMM-dd-yyyy HH:mm`
 - The hours and minutes in `time` are optional. If you do not specify it, the time will be set to 12:00 by default.
-- You cannot add a task such that it results in duplicated tasks, which are tasks having the same title, description, time and 
-duration.
+- You cannot add a task such that it results in duplicated tasks, which are tasks having the same title, description, time and
+  duration.
 - You cannot add a task such that its time range overlaps with the time range of existing tasks in teh schedule.
 
 Expected Outcome:
 
-For example, you would like to add a `task` to your `schedule` with the title **CS2100**, description **Lab 8**, date time 
+For example, you would like to add a `task` to your `schedule` with the title **CS2100**, description **Lab 8**, date time
 **2020-10-29 10:00** and duration of **60** minutes.
 
-Entering the command `add task T: CS2100 d: Lab 8 t: 2020-10-29 10:00 dur: 60` while on `Schedule` tab will add the `task` 
+Entering the command `add task T: CS2100 d: Lab 8 t: 2020-10-29 10:00 dur: 60` while on `Schedule` tab will add the `task`
 to your schedule.
 
 1\. Enter the `add task` command, including the specific information of the `task`.
-![addTask1](images/addTask1.png)  
+![addTask1](images/addTask1.png)
 
 <div align="center"> Figure __. Using `add task` command</div>  
 <br>
 
-2\. After using the `add task` command, the new `task` will be added to your schedule and displayed at the end of the 
+2\. After using the `add task` command, the new `task` will be added to your schedule and displayed at the end of the
 schedule.
-![addTask2](images/addTask2.png)  
+![addTask2](images/addTask2.png)
 
 <div align="center">Figure __. Result of `add task` command</div>    
 <br>
@@ -338,115 +384,116 @@ Entering the command `add task T: CS2040S d: quiz flset:1 dur: 30` while on `Sch
 the `quiz` to your schedule.
 
 1\. Enter the `add task` command, including the specific information of the `task`.
-![addTaskWithQuiz1](images/addTaskWithQuiz1.png)  
+![addTaskWithQuiz1](images/addTaskWithQuiz1.png)
 
 <div align="center">Figure __. Using `add task` command integrate with `quiz`</div>  
 <br>
 
-2\. After using the `add task` command, the new `task` containing the `quiz` will be added to your schedule and displayed at the 
+2\. After using the `add task` command, the new `task` containing the `quiz` will be added to your schedule and displayed at the
 end of the schedule.
-![addTaskWithQuiz2](images/addTaskWithQuiz2.png)  
+![addTaskWithQuiz2](images/addTaskWithQuiz2.png)
 
 <div align="center">Figure __. Result of `add task` command integrating with `quiz`</div>    
 <br>
 
 3\. Click on the `Quiz CS2040` box in the `Description` of the task will redirect you to the `quiz` tab and start the `quiz` immediately for you.  
-![addTaskWithQuiz3](images/addTaskWithQuiz3.png)  
+![addTaskWithQuiz3](images/addTaskWithQuiz3.png)
 
-<div align="center">Figure __. Result of clicking on the `Quiz CS2040` box</div>  
+<div align="center">Figure __. Result of clicking on the `Quiz CS2040` box</div>
 
 <p>&nbsp;</p>
 
-
-
 #### 3.3.2. **List tasks**: `list task`
 
-If you  would like to view your full `schedule`, this command displays the full `schedule` that you have in both time scale and the task list.  
- 
+If you would like to view your full `schedule`, this command displays the full `schedule` that you have in both time scale and the task list.
+
 Format: `list task`
 
 Examples:
+
 - `list task`
 
-Expected Outcome:  
+Expected Outcome:
 
 1\. Enter the command `list task`.
-![listTask1](images/listTask1.png)  
-  
+![listTask1](images/listTask1.png)
+
 <div align="center">Figure __. Using `list task` command on `Schedule` tab</div>    
 <br>
 
 2\. After using the `list task` command, you can see the full `schedule`.
-![listTask2](images/listTask2.png)  
+![listTask2](images/listTask2.png)
 
-<div align="center">Figure __. Result of `list task` command</div>  
-
+<div align="center">Figure __. Result of `list task` command</div>
 
 <p>&nbsp;</p>
 
 #### 3.3.3. **Delete a task**: `delete task`
 
 If you complete a task and would like to remove that task from your `schedule`, this command will remove the task
-at the specified `index`.  
+at the specified `index`.
 
-Upon deletion of the `task`, the saved information of the task will be deleted.  
+Upon deletion of the `task`, the saved information of the task will be deleted.
 
-Format: `delete task <index>`  
+Format: `delete task <index>`
 
 Example:
-- `delete task 2`  
+
+- `delete task 2`
 
 Remarks:
+
 - The index refers to the index number shown in the fully displayed `schedule`.
-- The index must be a positive integer 1, 2, 3, …​ and within range of the task in your `schedule`.  
+- The index must be a positive integer 1, 2, 3, …​ and within range of the task in your `schedule`.
 
-Expected Outcome:  
+Expected Outcome:
 
-For example, you just finished the `task` at index 4, **CS2100 Lab** and you 
-would like to delete that `task` from your `schedule`.  
+For example, you just finished the `task` at index 4, **CS2100 Lab** and you
+would like to delete that `task` from your `schedule`.
 
 1\. Enter the command `delete task 4`.  
-![deleteTask1](images/deleteTask1.jpg)  
+![deleteTask1](images/deleteTask1.jpg)
 
 <div align="center">Figure __. Using `delete task` command</div>  
 <br>
 
 2\. After using the `delete task` command, the specified task is removed from your `schedule`.  
-![deleteTask1](images/deleteTask2.png)  
+![deleteTask1](images/deleteTask2.png)
 
-<div align="center">Figure __. Result of `delete task` command</div>  
-
+<div align="center">Figure __. Result of `delete task` command</div>
 
 #### 3.3.4. **Search for a task**: `search task`
 
 If you would like to search for a specific task using a certain **keyword(s)**, this command displays any `task` that its `title`
-contains *any* of the given **keyword(s)** or its `description` and `time` contains *all* of the given **keyword(s)**. 
+contains _any_ of the given **keyword(s)** or its `description` and `time` contains _all_ of the given **keyword(s)**.
 
-Format: `search task <keywords>`  
+Format: `search task <keywords>`
 
-Examples:  
+Examples:
+
 - `search task CS2103T`
 - `search task Assignment`
 - `search task 2020-10-30`
 
 Remarks:
+
 - The search is case-insensitive. For instance, `homework` matches `Homework`.
 
-Expected Outcome:  
+Expected Outcome:
 
-For example, you would like to search for a `task` in the `schedule` with the **keyword** *Lab 8*. StudyBananas 
-searches for all tasks containing *Lab 8* in their `title`, `description` and `time` and displays all matching tasks.
+For example, you would like to search for a `task` in the `schedule` with the **keyword** _Lab 8_. StudyBananas
+searches for all tasks containing _Lab 8_ in their `title`, `description` and `time` and displays all matching tasks.
 
-1\. Enter the command `search task Lab 8` to search for tasks with the **keyword** *Lab 8*.  
-![searchTask1](images/searchTask1.png)  
+1\. Enter the command `search task Lab 8` to search for tasks with the **keyword** _Lab 8_.  
+![searchTask1](images/searchTask1.png)
 
 <div align="center">Figure __. Using `search task` command  </div>
 <br>
 
 2\. After using the `search task` command, StudyBananas displays all the tasks with the
 specified **keyword**  
-![searchTask2](images/searchTask2.png)  
-  
+![searchTask2](images/searchTask2.png)
+
 <div align="center">Figure __. Result of `search task` command </div>
 
 <p>&nbsp;</p>
@@ -455,76 +502,81 @@ specified **keyword**
 
 If you would like to update some task details, this command allows you to edit the details of a trip at a specified `index` in the `schedule`.
 
-You can edit a task's `title`, `description`, `time` and `duration`.  
-  
-Format: `edit task <index> [T:title] [d:description] [t:time] [dur:duration]`  
+You can edit a task's `title`, `description`, `time` and `duration`.
+
+Format: `edit task <index> [T:title] [d:description] [t:time] [dur:duration]`
 
 Examples:
+
 - `edit task 1 T: Internship`
 - `edit task 2 d: Pipleline Tutorial homework dur: 60`
 - `edit task 5 6 T: CS2103T d: Post-lecture quiz t: 2020-10-31 13:00 dur: 60`
-- `edit task 2 d: Pipleline Tutorial homework dur: 60 d: Assignment Cache`  
+- `edit task 2 d: Pipleline Tutorial homework dur: 60 d: Assignment Cache`
 
 Remarks:
+
 - The index refers to the index number shown in the fully displayed `schedule`.
-- The index must be a positive integer 1, 2, 3, …​ and within range of the task in your `schedule`. 
+- The index must be a positive integer 1, 2, 3, …​ and within range of the task in your `schedule`.
 - You can key in multiple `<index>`, but only the task at the first `index` will be edited.
 - `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command.
-- `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format.  
-- You can key in multiple `[title]`, `[description]`, `[time]` and `[duration]`, but only the last information of each field is by the task.  
+- `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format.
+- You can key in multiple `[title]`, `[description]`, `[time]` and `[duration]`, but only the last information of each field is by the task.
 
-Expected Outcome:  
+Expected Outcome:
 
-For example, you previously add a `task`: *CS2100 Lab 8 on Thursday, Oct 29 2020 10:00 with duration 60 minutes*, which has 
+For example, you previously add a `task`: _CS2100 Lab 8 on Thursday, Oct 29 2020 10:00 with duration 60 minutes_, which has
 the index of `7` in the `schedule`. Later on, you want to edit the time to 11:00 instead.
 
 1\. Enter the command `edit task 7 t: Thursday, Oct 29 2020 11:00` to edit the task.  
-![editTask1](images/editTask1.jpg)  
+![editTask1](images/editTask1.jpg)
 
 <div align="center">Figure __. Using `edit task` command </div>
 
 2\. After using the `edit task` command, the details of the `task` are updated accordingly.
-![editTask2](images/editTask2.jpg)  
+![editTask2](images/editTask2.jpg)
 
 <div align="center">Figure __. Result of `edit task` command, the task at index `7` is updated </div>
-
 
 <p>&nbsp;</p>
 
 ### 3.4. General Commands
 
 #### 3.4.1. **View all the available commands**: `help`
-If you are not sure of how a command works, you can open the help window with this command  
 
-*Usage*
-|                 |           |
+If you are not sure of how a command works, you can open the help window with this command
+
+_Usage_
+| | |
 |-----------------|-----------|
-|Syntax           | `help`    |
-|Example          | `example` |
-|                 |           |
+|Syntax | `help` |
+|Example | `example` |
+| | |
 
 Alternatively, you can click on the help button located at the bottom of the sidebar to open the help window.
 
 ![HelpButton](images/HelpButton.png)
 
-The help window shows most of the available CLI commands. 
-- The green part is the name of the command 
-- The purple part lists all the arguments that can be adjust in a customary manner. 
+The help window shows most of the available CLI commands.
+
+- The green part is the name of the command
+- The purple part lists all the arguments that can be adjust in a customary manner.
 - Please refer to the description below for more details in each command.
 
 ![HelpWindow](images/HelpWindow.png)
+
 <p>&nbsp;</p>
 
 #### 3.4.2. **Exit program**: `exit`
-If you would like to close the application, this command helps you to quickly close StudyBanas.
-*Usage*
-|                 |           |
-|-----------------|-----------|
-|Syntax           | `exit`    |
-|Example          | `exit`    |
-|                 |           |
 
-Alternatively, you can click on the close button located at the bottom of the sidebar to close the application. 
+If you would like to close the application, this command helps you to quickly close StudyBanas.
+_Usage_
+| | |
+|-----------------|-----------|
+|Syntax | `exit` |
+|Example | `exit` |
+| | |
+
+Alternatively, you can click on the close button located at the bottom of the sidebar to close the application.
 
 ![ExitButton](images/UG/ExitButton.png)
 
@@ -533,16 +585,17 @@ Alternatively, you can click on the close button located at the bottom of the si
 ### **Saving the data**
 
 StudyBananas data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+
 <p>&nbsp;</p>
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous StudyBananas home folder.
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## Command summary
 
@@ -551,8 +604,8 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 | Action                                 | Format, Examples                                                                                        |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | **Add flashcard set**                  | `add flset <name:setname>` <br> e.g., `add flset name:Japanese`                                         |
-| **Delete flashcard set**               | `delete flset <setindex>` <br>  e.g., `delete flset 1`                                                  |
-| **List flashcards in a specified set** | `list fl <setindex>` <br>  e.g., `list fl 1`                                                            |
+| **Delete flashcard set**               | `delete flset <setindex>` <br> e.g., `delete flset 1`                                                   |
+| **List flashcards in a specified set** | `list fl <setindex>` <br> e.g., `list fl 1`                                                             |
 | **Add flashcard in a specified set**   | `add fl <flset:setindex> <q:question> <a:answer>` <br> e.g., `add fl flset:2 q:Is earth flat? a:Maybe!` |
 | **Delete flashcard in specified set**  | `delete fl <flset:setindex> <fl:index>` <br> e.g., `delete fl flset:1 fl:1`                             |
 
@@ -560,19 +613,19 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 
 ### Quiz commands
 
-| Action                           | Format, Examples                                                                                                                          |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Quiz flset**                   | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> Available only in quiz mode: `flip`, `ans:<answer>`, `c`, `w`, `cancel`, `refresh`   |
-| **Quiz score flset**             | `quiz score <flset:setindex>` <br>  e.g., `quiz score flset:6`                                                                            |
+| Action               | Format, Examples                                                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **Quiz flset**       | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> Available only in quiz mode: `flip`, `ans:<answer>`, `c`, `w`, `cancel`, `refresh` |
+| **Quiz score flset** | `quiz score <flset:setindex>` <br> e.g., `quiz score flset:6`                                                                         |
 
 <p>&nbsp;</p>
 
 ### Task list commands
 
-| Action              | Format, Examples                                                                                                                           |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Action              | Format, Examples                                                                                                                                                            |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Add task**        | `add task <T:titile> [d:description] [t:time] [dur:duration]` <br> e.g., `add task T:CS2100 d: Pipeline tutorial`, `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
-| **List tasks**      | `list task` <br>                                                                                                                           |
-| **Delete task**     | `delete task <index>` <br>  e.g., `delete task 6`                                                                                          |
-| **Search for task** | `search task <keywords>` <br> e.g., `search task CS2103T`                                     |
-| **Edit task**       | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g., `edit task 2 T: CS2103T`, `edit task 1 d: Debug remaining errors dur: 60` |
+| **List tasks**      | `list task` <br>                                                                                                                                                            |
+| **Delete task**     | `delete task <index>` <br> e.g., `delete task 6`                                                                                                                            |
+| **Search for task** | `search task <keywords>` <br> e.g., `search task CS2103T`                                                                                                                   |
+| **Edit task**       | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g., `edit task 2 T: CS2103T`, `edit task 1 d: Debug remaining errors dur: 60`                  |

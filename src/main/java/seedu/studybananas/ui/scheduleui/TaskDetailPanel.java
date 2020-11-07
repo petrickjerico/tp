@@ -14,7 +14,6 @@ import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.ui.CommandBox;
-import seedu.studybananas.ui.TaskListPanel;
 import seedu.studybananas.ui.UiPart;
 import seedu.studybananas.ui.commons.PositiveResponse;
 import seedu.studybananas.ui.commons.ResponsePopUp;

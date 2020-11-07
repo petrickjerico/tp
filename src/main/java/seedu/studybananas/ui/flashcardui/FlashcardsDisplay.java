@@ -1,4 +1,4 @@
-package seedu.studybananas.ui;
+package seedu.studybananas.ui.flashcardui;
 
 import java.util.Arrays;
 
@@ -16,6 +16,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import seedu.studybananas.model.flashcard.Flashcard;
+import seedu.studybananas.ui.UiPart;
 
 /**
  * A ui for the flashcards that is displayed next to the list of flashcard sets.

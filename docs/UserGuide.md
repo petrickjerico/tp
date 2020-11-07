@@ -299,58 +299,59 @@ If you would like to add a study `TASK` to your `SCHEDULE`, this command allows 
 After you add a new `TASK` to StudyBananas, the `TASK`'s information is saved in the `schedule.json` file.
 
 You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:index>` command in the `description` field. 
-  
-| Format  | `add task <T:title> [d:description] [t:time] [dur: duration]`|
-| Example | `add task T: CS2100 d: Pipeline tutorial dur: 45` <br> `add task T: CS2103T d: iP submission t: 2020-09-17 23:59` <br> `add Task T: CS2105 d: quiz flset:2 t: Saturday, Oct 31 2020 13:00 dur: 120`|
-Remarks:
-- `title` can accept strings that are capitalized or separated with spaces.
-- `time` should be written in the format `t: yyyy-MM-dd HH:mm` or `t: EEEE, MMM-dd-yyyy HH:mm`
-- The hours and minutes in `time` are optional. If you do not specify it, the time will be set to 12:00 by default.
-- You cannot add a task such that it results in duplicated tasks, which are tasks having the same title, description, time and 
-duration.
-- You cannot add a task such that its time range overlaps with the time range of existing tasks in teh schedule.
 
-Expected Outcome:
+| Format  | `add task <T:title> [d:description] [t:time] [dur: duration]`                                                     |
+|---------|-------------------------------------------------------------------------------------------------------------------|
+| Example | `add task T: CS2100 d: Pipeline tutorial dur: 45` <br> `add task T: CS2103T d: iP submission t: 2020-09-17 23:59` <br> `add task T: CS2105 d: quiz flset:2 t: Saturday, Oct 31 2020 13:00 dur: 120`|
 
-For example, you would like to add a `task` to your `schedule` with the title **CS2100**, description **Lab 8**, date time 
-**2020-10-29 10:00** and duration of **60** minutes.
+<br>
 
-Entering the command `add task T: CS2100 d: Lab 8 t: 2020-10-29 10:00 dur: 60` while on `Schedule` tab will add the `task` 
-to your schedule.
+| <!-- -->    | <!-- -->    |
+|-------------|-------------|
+| ![info_icon](images/UG/info_icon.png)| • `title` and `description` can accept strings that are capitalized or separated with spaces. <br>  • The hours and minutes in `time` are optional. If you do not specify it, the time will be set to 12:00 by default. <br> •  `time` should be written in the format `yyyy-MM-dd HH:mm` or `EEEE, MMM-dd-yyyy HH:mm`. <br> • `duration` has to be a positive integer in minute and its value has to be less than _1440_ (number of minutes in a day). <br>• You cannot add a `TASK` such that it results in a duplicated `TASK`, which are `TASK`s having the same title, description, time and duration. <br> • You cannot add a `TASK` such that its time range overlaps with the time range of existing `TASK`s in the `SCHEDULE`.       |
 
-1\. Enter the `add task` command, including the specific information of the `task`.
+<br>
+
+**Expected Outcome**:  
+##### 3.3.1.2. Adding a normal `TASK`
+For example, you would like to add a `TASK` to your `SCHEDULE` with the `title` _CS2100_, `description` _Lab 8_, `time` 
+_2020-10-29 10:00_ and `duration` of _60_ minutes.
+
+Entering the command `add task T: CS2100 d: Lab 8 t: 2020-10-29 10:00 dur: 60` while on `SCHEDULE` page will add the `TASK` 
+to your `SCHEDULE`.
+
+1\. Enter the `add task` command, including the specific information of the `TASK`.
 ![addTask1](images/addTask1.png)  
 
 <div align="center"> Figure __. Using `add task` command</div>  
 <br>
 
-2\. After using the `add task` command, the new `task` will be added to your schedule and displayed at the end of the 
-schedule.
+2\. After using the `add task` command, the new `TASK` will be added to the end of your `SCHEDULE` by default.
 ![addTask2](images/addTask2.png)  
 
 <div align="center">Figure __. Result of `add task` command</div>    
 <br>
 &nbsp;
 
-Now, if you would like to add a `quiz` of flashcard set 1 as a `task` to your schedule.
+##### 3.3.1.2. Adding a `QUIZ` `TASK`
+Now, if you would like to add a `QUIZ` of `FLASHCARDSET` 1 as a `TASK` to your `SCHEDULE`.
 
-Entering the command `add task T: CS2040S d: quiz flset:1 dur: 30` while on `Schedule` tab will ad the `task` containing
-the `quiz` to your schedule.
+Entering the command `add task T: CS2040S d: quiz flset:1 dur: 30` while on `SCHEDULE` tab will add the `TASK` containing
+the `QUIZ` to your schedule.
 
-1\. Enter the `add task` command, including the specific information of the `task`.
+1\. Enter the `add task` command, including the specific information of the `TASK`.
 ![addTaskWithQuiz1](images/addTaskWithQuiz1.png)  
 
 <div align="center">Figure __. Using `add task` command integrate with `quiz`</div>  
 <br>
 
-2\. After using the `add task` command, the new `task` containing the `quiz` will be added to your schedule and displayed at the 
-end of the schedule.
+2\. After using the `add task` command, the new `TASK` of doing the `QUIZ` will be added to the end of your `SCHEDULE`.
 ![addTaskWithQuiz2](images/addTaskWithQuiz2.png)  
 
 <div align="center">Figure __. Result of `add task` command integrating with `quiz`</div>    
 <br>
 
-3\. Click on the `Quiz CS2040` box in the `Description` of the task will redirect you to the `quiz` tab and start the `quiz` immediately for you.  
+3\. Click on the highlighted `Quiz CS2040` box in the `description` of the `TASK` will redirect you to the `QUIZ` tab and start the `QUIZ` immediately for you.  
 ![addTaskWithQuiz3](images/addTaskWithQuiz3.png)  
 
 <div align="center">Figure __. Result of clicking on the `Quiz CS2040` box</div>  
@@ -359,7 +360,7 @@ end of the schedule.
 
 
 
-#### 3.3.2. **List tasks**: `list task`
+#### 3.3.2. List tasks: `list task`
 
 If you  would like to view your full `schedule`, this command displays the full `schedule` that you have in both time scale and the task list.  
  

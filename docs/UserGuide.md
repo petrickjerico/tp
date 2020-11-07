@@ -667,11 +667,35 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 
 ## FAQ
 
-**Q**: How do I transfer my data to another Computer?<br>
+**Q: Is StudyBananas free?**<br>
+**A**: Yes, StudyBananas is absolutely free to use!
+
+**Q: I have studybananas.jar downloaded but cannot start the application. Is there anything I can do?**<br>
+**A**: Yes, open the command prompt on your computer, navigate to the directory in which you have stored studybananas.jar and type java -jar studybananas.jar.
+
+**Q: Is StudyBananas safe to use?**<br>
+**A**: Yes, StudyBananas is safe to use! We regularly review our code to ensure that hackers are unable to exploit the security structure of our software.
+
+**Q: Is my data secure?**<br>
+**A**: Yes, your data is stored only on your device. No data is sent to any online servers. There is also no need to register to start using StudyBananas.
+
+**Q: Do I need an Internet connection to use StudyBananas?**<br>
+**A**: No, you don’t! StudyBananas works 100% offline. This is especially useful when you want to focus on your studying and not get distracted by social media.
+
+**Q: Will StudyBananas be consistently be updated?**<br>
+**A**: Yes! We are a dedicated team of software developers who constantly collate feedback and run tests on the StudyBananas app. We are also looking forward to delivering more features for our users.
+
+**Q: Can I use StudyBananas on a mobile device?**<br>
+**A**: StudyBananas is designed to work best on a desktop/laptop.
+
+**Q: How do I transfer my data to another Computer?**<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous StudyBananas home folder.
 
----
 
+
+<p>&nbsp;</p>
+
+---
 ## Command summary
 
 ### `FLASHCARD` commands

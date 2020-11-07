@@ -52,9 +52,8 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 <summary align="center"><h2>Table of Contents</h2></summary>
 
 - [1. Introduction](#1-introduction)
-  - [1.1 What is ]
-  - [1.2 Reading this User Guide](#12-reading-this-user-guide)
-    - [1.2.1 Icons and Meaning](#121-icons-and-meaning)
+  - [1.1 Reading this User Guide](#11-reading-this-user-guide)
+    - [1.1.1 Icons and Meaning](#111-icons-and-meaning)
 - [2. Quick start](#2-quick-start)
 - [3. Features](#3-features)
   - [3.1. Flashcard](#31-flashcard)

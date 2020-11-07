@@ -1,5 +1,6 @@
 package seedu.studybananas.logic.commands.quizcommands;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.studybananas.logic.commands.commandtestutils.QuizRecordsCommandTestUtil.assertCommandSuccess;
 import static seedu.studybananas.logic.commands.quizcommands.QuizCommandUtil.MESSAGE_AVAIL_ON_QUESTION;
 import static seedu.studybananas.logic.commands.quizcommands.StartCommand.MESSAGE_FLASHCARD_SET_EMPTY;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.model.FlashcardQuizModel;
 import seedu.studybananas.model.FlashcardQuizModelManager;
@@ -93,5 +95,15 @@ public class StartCommandTest {
                 new FlashcardQuizModelManager(getTypicalFlashcardBank(), new QuizRecords());
 
         assertCommandSuccess(startCommandWithName, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void test_getQuizIndex() {
+        assertEquals(Index.fromOneBased(VALID_INDEX), startCommand.getQuizIndex());
+    }
+
+    @Test
+    public void test_getFlashcardSetName() {
+        assertEquals(VALID_NAME, startCommandWithName.getFlashcardSetName());
     }
 }

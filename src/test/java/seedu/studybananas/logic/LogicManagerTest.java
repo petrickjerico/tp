@@ -1,6 +1,7 @@
 package seedu.studybananas.logic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static seedu.studybananas.commons.core.Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX;
 import static seedu.studybananas.commons.core.Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX;
 import static seedu.studybananas.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
@@ -15,6 +16,7 @@ import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommand
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_DURATION;
 import static seedu.studybananas.logic.commands.commandtestutils.ScheduleCommandTestUtil.VALID_TITLE_CS2103T;
 import static seedu.studybananas.testutil.Assert.assertThrows;
+import static seedu.studybananas.testutil.TypicalFlashcardSets.PHYSICS;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -23,6 +25,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+import seedu.studybananas.commons.core.index.Index;
 import seedu.studybananas.logic.commands.Command;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
@@ -133,6 +136,16 @@ public class LogicManagerTest {
     @Test
     public void getQuizRecordsToView_equalsNull() {
         assertEquals(null, logic.getQuizRecordsToView());
+    }
+
+    @Test
+    public void getFlashcardSetFromIndex_throwsIndexOutOfBoundsException() {
+        assertThrows(IndexOutOfBoundsException.class, () -> logic.getFlashcardSetFromIndex(Index.fromZeroBased(0)));
+    }
+
+    @Test
+    public void getFlashcardSetFromNameTest_returnsNull() {
+        assertNull(logic.getFlashcardSetFromName(PHYSICS.getFlashcardSetName()));
     }
 
     @Test

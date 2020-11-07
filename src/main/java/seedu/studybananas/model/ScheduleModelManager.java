@@ -42,6 +42,12 @@ public class ScheduleModelManager implements ScheduleModel {
     }
 
     @Override
+    public boolean isTaskOverlapped(Task exceptionTask, Task task) {
+        requireNonNull(task);
+        return schedule.isTaskOverlapped(exceptionTask, task);
+    }
+
+    @Override
     public void deleteTask(Task target) {
         schedule.removeTask(target);
         updateTodaysTask(PREDICATE_SHOW_ALL_TASKS);

@@ -201,7 +201,10 @@ you may double-click the bright-colored `Quiz:<quizname>` label
 contained in the description of the task as shown below 
 (see 3) of [Add a task: `add task`](#add-a-task-add-task))
 
-![TaskQuizLabel](images/TaskQuizLabel.png)
+![TaskQuizLabel](images/TaskQuizLabel.png =100x20)
+
+
+<img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="100"/>
 
 <div markdown="block" class="alert alert-info">
 

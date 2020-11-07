@@ -1,4 +1,4 @@
-package seedu.studybananas.ui;
+package seedu.studybananas.ui.scheduleui;
 
 import static seedu.studybananas.ui.util.ScheduleUiUtil.constructQuizDescription;
 import static seedu.studybananas.ui.util.ScheduleUiUtil.replaceComponent;
@@ -11,7 +11,7 @@ import javafx.scene.layout.Region;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.task.Task;
-import seedu.studybananas.ui.scheduleui.QuizDescription;
+import seedu.studybananas.ui.UiPart;
 import seedu.studybananas.ui.util.SingletonCommandResultState;
 import seedu.studybananas.ui.util.SingletonUiState;
 

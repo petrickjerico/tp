@@ -6,6 +6,7 @@ title: User Guide
 - [1. Introduction](#1-introduction)
   * [1.1 Reading this User Guide](#11-reading-this-user-guide)
     + [1.1.1 Icons and Meaning](#111-icons-and-meaning)
+    + [1.1.2 Markdown notations](#112-markdown-notations)
 - [2. Quick start](#2-quick-start)
 - [3. Features](#3-features)
   * [3.1. Flashcard](#31-flashcard)
@@ -35,7 +36,7 @@ title: User Guide
   * [Task list commands](#task-list-commands)
 
     
-## 1. Introduction
+## **1. Introduction**
 
 Are you a student of secondary to tertiary education level,
 who is a fan of **using flashcards to understand concepts**, 
@@ -61,7 +62,15 @@ when reading this user guide.
 |![important_icon](images/UG/important_icon.png)         | Warnings denote extremely important details to take note of. These include irreversible actions, and important instructions that when not followed, may cause StudyBananas to crash or corrupt its data files.|
 Table 1. Icons in this User Guide
   
-  
+#### 1.1.2 Markdown notations
+|Markdown                                                    |Meaning
+|:------------------------------------------------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
+|`add flset <name:setname>​`       | Commands and terminology that can be used in StudyBananas command line.|
+|`index`, `name`, `title`, `time`                     | Various arguments that you can include in the command.|
+|`QUIZ`, `SCHEDULE`, `FLASHCARD`, `FLASHCARDSET`                   | Various features that StudyBananas offers.|
+
+Table 2. Markdown notations in this User Guide
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## 2. Quick start
@@ -284,20 +293,15 @@ There are several panels in our user interface that provides the details of your
 
 #### 3.3.1. **Add a task**: `add task`
 
-If you would like to add a study task to your schedule, this command allows you to create a task and saves it to the 
-schedule, while specifying the `title`, `description`, `time` and `duration` of the task.  
+If you would like to add a study `TASK` to your `SCHEDULE`, this command allows you to create a `TASK` and saves it to the 
+`SCHEDULE`, while specifying the `title`, `description`, `time` and `duration` of the task.  
 
-After you add a new task to `StudyBananas`, the task information is saved in the `schedule.json` file.
+After you add a new `TASK` to StudyBananas, the `TASK`'s information is saved in the `schedule.json` file.
 
-You can also add a `quiz` as a valid `task` by entering the `quiz <flset:index>` command in the `description` field. 
+You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:index>` command in the `description` field. 
   
-Format: `add task <T:title> [d:description] [t:time] [dur: duration]`  
-
-Examples:
-- `add task T: CS2100 d: Pipeline tutorial dur: 45`
-- `add task T: CS2103T d: iP submission t: 2020-09-17 23:59`
-- `add Task T: CS2105 d: quiz flset:2 t: Saturday, Oct 31 2020 13:00 dur: 120`
-
+| Format  | `add task <T:title> [d:description] [t:time] [dur: duration]`|
+| Example | `add task T: CS2100 d: Pipeline tutorial dur: 45` <br> `add task T: CS2103T d: iP submission t: 2020-09-17 23:59` <br> `add Task T: CS2105 d: quiz flset:2 t: Saturday, Oct 31 2020 13:00 dur: 120`|
 Remarks:
 - `title` can accept strings that are capitalized or separated with spaces.
 - `time` should be written in the format `t: yyyy-MM-dd HH:mm` or `t: EEEE, MMM-dd-yyyy HH:mm`

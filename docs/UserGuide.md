@@ -1,8 +1,3 @@
----
-layout: page
-title: User Guide
----
-
 <div class="welcome-page">
 
   <h1 align="center">StudyBananas User Guide</h1>
@@ -35,7 +30,7 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
   <div class="sub-section">
   <h1>Create your own notes with flashcards</h1>
   <p>Take note with the flashcards, and organize notes using flashcard sets!</p>
-  <a href="#31-flashcard">How to create manage flashcards with Studybananas ></a>
+  <a href="#31-flashcard">How to create and manage flashcards with Studybananas ></a>
   </div>
   <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 0px;">
 </div>
@@ -43,13 +38,13 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 ---
 
 <div class="section" markdown="1">
-  <img src="images/Flashcards.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
+  <img src="images/Quiz.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;">
   <h1>Quiz yourself by flashcards</h1>
   <p>Prepare your exams by quizing yourself the flashcard notes that you have taken!</p>
-  <a href="#32-quiz">How to create manage flashcards with Studybananas ></a>
+  <a href="#32-quiz">How to start a flashcard quiz ></a>
 </div>
 
-<details markdown="1">
+<details class="section">
 <summary align="center"><h2>Table of Contents</h2></summary>
 
 <div id="toc_container">

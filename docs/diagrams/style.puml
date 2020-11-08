@@ -34,10 +34,10 @@ skinparam Class {
 }
 
 skinparam Object {
-    FontColor #FFFFFF
+    FontColor #000000
     BorderThickness 1
     BorderColor #FFFFFF
-    StereotypeFontColor #FFFFFF
+    StereotypeFontColor #000000
     FontName Arial
 }
 

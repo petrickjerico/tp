@@ -177,7 +177,7 @@ Step2. Have the components that require the `static state` depend on the `Global
     1. This structure makes it easier for the developer to maintain the `Ui components` because there is no need to pass `static state` as arguments for the constructor anymore
     2. It avoids dummy arguments in some constructors. For example, given the following component structure A -> B -> C, if A and C both require a common `static state`, in the original implementation, the constructor in B would need to have one more argument for the `static state` which is not used in `Component B` except for constructing `Component C`. In this sense, the `static state` is dummy inside the constructor B.
   * Cons: 
-    1. Every components are able to get access and modify the `static state`, the modification done to a `static state` in one class by a developer can cause unexpected behavior when another developer is using the same `static state` in other components.
+    1. Every component is able to get access and modify the `static state`, the modification done to a `static state` in one class by a developer can cause unexpected behavior when another developer is using the same `static state` in other components.
     
 <div markdown="span" class="alert alert-info">:information_source: Note: the idea of <div class="code">GlobalState</div> is inspired by <a href="https://redux.js.org">Redux</a>. It has a much more complicated structure than what we have here.</div>
 
@@ -226,11 +226,11 @@ The following paragraphs provide the class diagrams of the three `Ui` pages.
 ![QuizUi](images/QuizUi.png)
 
 **API** :
-[`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+[`Ui.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/ui/Ui.java)
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
-The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/resources/view/MainWindow.fxml)
 
 The `UI` component,
 
@@ -248,7 +248,7 @@ The `UI` component,
 <p></p>
 
 **API** :
-[`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+[`Logic.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/logic/Logic.java)
 
 1. `Logic` uses the `StudyBananasParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
@@ -259,7 +259,7 @@ The `UI` component,
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete task 1` Command](images/DeleteSequenceDiagram.png)
-<div align="center">Figure __. Interactions inside the Logic Component for the `delete task 1` Command</div>
+<div align="center">Figure 3.3: Interactions inside the Logic Component for the `delete task 1` Command</div>
 
 <p></p>
 
@@ -271,7 +271,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/model/Model.java)
 
 The `Model`,
 
@@ -292,7 +292,7 @@ The `Model`,
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/storage/Storage.java)
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
@@ -889,6 +889,11 @@ Use case ends.
 * **Flashcard Set**: A set of flashcards relevant to a specific topic. 
 --------------------------------------------------------------------------------------------------------------------
 
+### Product survey
+
+
+--------------------------------------------------------------------------------------------------------------------
+
 ## **Appendix: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
@@ -904,7 +909,7 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Double-click the jar file Expected: Shows the GUI with a set of sample tasks, flashcards and quiz records. The window size is fixed.
 
 1. Saving window preferences
 

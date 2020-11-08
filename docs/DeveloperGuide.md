@@ -38,7 +38,7 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 ## **3. Design**
 
-### Architecture (Eddy)
+### Architecture
 
 <img src="images/ArchitectureDiagram.png" width="450" />
 
@@ -87,7 +87,7 @@ The sections below give more details of each component.
 
 #### Overall Structure
 
-StudyBananas is an integration of 3 systems, namely Schedule, Quiz, and Flashcard. As mentioned in  [Architecture](#architecture-eddy), we only have one API class (Model) for models from all three systems, this decision incurs strong couplings between three systems, resulting in many regression in the unit tests during the development. Therefore, to solve this problem, we introduce one more layer of abstraction for Model components to reduce the couplings. This section describes our implementation and analysis.
+StudyBananas is an integration of 3 systems, namely Schedule, Quiz, and Flashcard. As mentioned in  [Architecture](#architecture), we only have one API class (Model) for models from all three systems, this decision incurs strong couplings between three systems, resulting in many regression in the unit tests during the development. Therefore, to solve this problem, we introduce one more layer of abstraction for Model components to reduce the couplings. This section describes our implementation and analysis.
 
 #### Implementation
 

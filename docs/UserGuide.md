@@ -189,6 +189,7 @@ Table 2. Markdown notations in this User Guide
 3. Copy the file to the folder you want to use as the _home folder_ for your StudyBananas.
 
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+   
    ![Ui](images/Ui.png)
 
 5. Type the command in the command box and press `Enter` to execute it.

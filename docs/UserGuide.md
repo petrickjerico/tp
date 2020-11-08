@@ -136,9 +136,10 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
     </ul>
 </div>
 
+<<<<<<< HEAD
 The above part is managed by Eddy.
 
-# **1. Introduction** (Binh)
+## 1. Introduction (Binh)
 
 Are you a student of secondary to tertiary education level,
 who is a fan of **using flashcards to understand concepts**,
@@ -153,12 +154,12 @@ having the benefits of a Graphical User Interface (GUI).
 
 This user guide aims to equip you with all necessary understanding to use StudyBananas effectively.
 
-## 1.1 Reading this User Guide
+### 1.1 Reading this User Guide
 
 Before you begin, here are some important notations that you should be aware of
 when reading this user guide.
 
-### 1.1.1 Icons and Meaning
+#### 1.1.1 Icons and Meaning
 
 |                      Icon                       | Meaning                                                                                                                                                                                                        |
 | :---------------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -168,7 +169,7 @@ when reading this user guide.
 
 Table 1. Icons in this User Guide
 
-### 1.1.2 Markdown notations
+#### 1.1.2 Markdown notations
 
 |                    Markdown                             | Meaning                                                                 |
 | :-----------------------------------------------------: | ----------------------------------------------------------------------- |
@@ -180,7 +181,7 @@ Table 2. Markdown notations in this User Guide
 
 ---
 
-# 2. Quick start (Eddy)
+## 2. Quick start (Eddy)
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
@@ -208,7 +209,7 @@ Table 2. Markdown notations in this User Guide
 
 ---
 
-# 3. Features
+## 3. Features
 
 <div markdown="block" class="alert alert-info">
 
@@ -230,9 +231,9 @@ Table 2. Markdown notations in this User Guide
 </div>
 <p>&nbsp;</p>
 
-## 3.1. Commands for the `SCHEDULE` page (Binh)
+### 3.1. Commands for the `SCHEDULE` page (Binh)
 
-### 3.1.1. **View the details of your `TASK`**: (Eddy)
+#### 3.1.1. **View the details of your `TASK`**: (Eddy)
 
 There are several panels in our user interface that provides the details of your `TASK`.
 
@@ -247,7 +248,7 @@ There are several panels in our user interface that provides the details of your
 
 <p>&nbsp;</p>
 
-### 3.1.2. **Add a `TASK`**: `add task`
+#### 3.1.2. **Add a `TASK`**: `add task`
 
 If you would like to add a study `TASK` to your `SCHEDULE`, this command allows you to create a `TASK` and saves it to the
 `SCHEDULE`, while specifying the `title`, `description`, `time` and `duration` of the task.
@@ -263,7 +264,7 @@ You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:setinde
 
 <br>
 
-#### 3.1.2.1. Adding a normal `TASK`
+##### 3.1.2.1. Adding a normal `TASK`
 
 For example, you would like to add a `TASK` to your `SCHEDULE` with the `title` _CS2100_, `description` _Lab 8_, `time`
 _2020-10-29 10:00_ and `duration` of _60_ minutes.
@@ -286,7 +287,7 @@ to your `SCHEDULE`.
 <br>
 &nbsp;
 
-#### 3.1.2.2. Adding a `QUIZ` `TASK`
+##### 3.1.2.2. Adding a `QUIZ` `TASK`
 
 Now, if you would like to add a `QUIZ` of `FLASHCARDSET` 1 as a `TASK` to your `SCHEDULE`.
 
@@ -315,7 +316,7 @@ the `QUIZ` to your schedule.
 
 <p>&nbsp;</p>
 
-### 3.1.3. **List all your `TASK`s**: `list task`
+#### 3.1.3. **List all your `TASK`s**: `list task`
 
 If you would like to view your full `SCHEDULE`, this command displays the full `SCHEDULE` that you are having at the moment.
 
@@ -342,7 +343,7 @@ If you would like to view your full `SCHEDULE`, this command displays the full `
 
 <p>&nbsp;</p>
 
-### 3.1.4. **Delete a `TASK`**: `delete task`
+#### 3.1.4. **Delete a `TASK`**: `delete task`
 
 If you complete a `TASK` and would like to remove that specific `TASK` from your `SCHEDULE`, this command helps you remove the task at the specified `index`.
 
@@ -378,7 +379,7 @@ would like to update your `SCHEDULE` by deleting that `TASK`.
 
 <br>
 
-### 3.1.5. **Search for a `TASK`**: `search task`
+#### 3.1.5. **Search for a `TASK`**: `search task`
 
 If you have trouble finding certain specific `TASK`s, you can search for them using a certain **keyword(s)**, this command displays any `TASK` that its `title`
 contains _any_ of the given **keyword(s)** or its `description` and `time` contains _all_ of the given **keyword(s)**.
@@ -411,7 +412,7 @@ specified **keyword**.
 
 <p>&nbsp;</p>
 
-### 3.1.6. Edit a `TASK`: `edit task`
+#### 3.1.6. Edit a `TASK`: `edit task`
 
 If you would like to update certain details of a specific `TASK`, this command allows you to edit the details of a `TASK` at a specified `index` in the `SCHEDULE`.
 
@@ -445,9 +446,9 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 
 <p>&nbsp;</p>
 
-## 3.2. Commands for the `FLASHCARD` page (Teddy)
+### 3.2. Commands for the `FLASHCARD` page (Teddy)
 
-### 3.2.1. **Add a `FLASHCARDSET`**: `add flset`
+#### 3.2.1. **Add a `FLASHCARDSET`**: `add flset`
 
 If you would like to create a new `FLASHCARDSET`, this commands allows you to create a new `FLASHCARDSET` with a custom name to store and categorize your `FLASHCARD`s.
 
@@ -466,7 +467,7 @@ If you would like to create a new `FLASHCARDSET`, this commands allows you to cr
 
 <p>&nbsp;</p>
 
-### 3.2.2. **Delete a `FLASHCARDSET`**: `delete flset`
+#### 3.2.2. **Delete a `FLASHCARDSET`**: `delete flset`
 
 If you would like to delete an existing `FLASHCARDSET`, this commands allows you to delete using the index of the `FLASHCARDSET`.
 
@@ -486,7 +487,7 @@ If you would like to delete an existing `FLASHCARDSET`, this commands allows you
 
 <p>&nbsp;</p>
 
-### 3.2.3. **List `FLASHCARD`s in a `FLASHCARDSET`**: `list fl`
+#### 3.2.3. **List `FLASHCARD`s in a `FLASHCARDSET`**: `list fl`
 
 This command allows you to view the detailed list of `FLASHCARD` in a specified `FLASHCARDSET` using its index.
 
@@ -505,7 +506,7 @@ This command allows you to view the detailed list of `FLASHCARD` in a specified 
 
 <p>&nbsp;</p>
 
-### 3.2.4. **Add a `FLASHCARD` into a `FLASHCARDSET`**: `add fl`
+#### 3.2.4. **Add a `FLASHCARD` into a `FLASHCARDSET`**: `add fl`
 
 This command allows you to add a single `FLASHCARD` consisting of a question and an answer, in a specified `FLASHCARDSET` using its index.
 
@@ -523,7 +524,7 @@ This command allows you to add a single `FLASHCARD` consisting of a question and
 
 <p>&nbsp;</p>
 
-### 3.2.5. **Delete a `FLASHCARD` in a `FLASHCARDSET`**: `delete fl`
+#### 3.2.5. **Delete a `FLASHCARD` in a `FLASHCARDSET`**: `delete fl`
 
 This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARDSET` using their indexes.
 
@@ -543,9 +544,9 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 <p>&nbsp;</p>
 
-## 3.3. Commands for the `QUIZ` page (Bowei)
+### 3.3. Commands for the `QUIZ` page (Bowei)
 
-### 3.3.1. **`QUIZ` of a `FLASHCARDSET`**: `quiz flset`
+#### 3.3.1. **`QUIZ` of a `FLASHCARDSET`**: `quiz flset`
 
 Already have some `FLASHCARD`s and would like to start a recap session? 
 This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.
@@ -585,7 +586,7 @@ You may find more information on the respective quiz-mode commands by referring 
 
 <br>
 
-#### 3.3.1.1. **Getting the question**
+##### 3.3.1.1. **Getting the question**
 When the `QUIZ` launches, as seen below, you will see the question
 of the first `FLASHCARD` within the selected `FLASHCARDSET`,
 as well as an instruction prompt to type in the next available commands,
@@ -599,7 +600,7 @@ as well as an instruction prompt to type in the next available commands,
 
 <br>
 
-#### 3.3.1.2. **Answering the question**
+##### 3.3.1.2. **Answering the question**
 If you would like to see your answer directly, enter `flip`. 
 However, if you would like StudyBananas to store your answer for later reference,
 enter your answer with `<ans:answer>`.
@@ -622,7 +623,7 @@ as shown below.
 
 <br>
 
-#### 3.3.1.3. **Checking if your answer is correct**
+##### 3.3.1.3. **Checking if your answer is correct**
 Based on the correct answer, you may evaluate your own answer.
 Your response will be taken into account when tabulating the `QUIZ` score.
 
@@ -635,7 +636,7 @@ The question of the next `FLASHCARD` will be displayed.
 
 <br>
 
-#### 3.3.1.4. **Continuing the `QUIZ` cycle**
+##### 3.3.1.4. **Continuing the `QUIZ` cycle**
 Steps 1-3 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` are displayed and answered.
 
 Once the quiz stops, the score statistics will be displayed.
@@ -644,7 +645,7 @@ This score can also be viewed when viewing the last attempt of the `FLASHCARDSET
 
 <p>&nbsp;</p>
 
-### 3.2.2. **View last `QUIZ` attempt**: `quiz score flset`
+#### 3.2.2. **View last `QUIZ` attempt**: `quiz score flset`
 
 Shows the last attempt of a `QUIZ` on a specified `FLASHCARDSET`.
 
@@ -668,9 +669,9 @@ The last `QUIZ` attempt contains the following information:
 
 <p>&nbsp;</p>
 
-## 3.4. General Commands (Binh)
+### 3.4. General Commands (Binh)
 
-### 3.4.1. **View all the available commands**: `help`
+#### 3.4.1. **View all the available commands**: `help`
 
 If you are not sure of how a certain command works or what command would suit your needs, you can open the help window with this command to view all the available commands.
 
@@ -697,7 +698,7 @@ The `help` window shows most of the available CLI commands.
 
 <p>&nbsp;</p>
 
-### 3.4.2. **Exit program**: `exit`
+#### 3.4.2. **Exit program**: `exit`
 
 If you would like to close the application, this command helps you to quickly close StudyBananas.
 
@@ -711,7 +712,7 @@ If you would like to close the application, this command helps you to quickly cl
 
 <p>&nbsp;</p>
 
-## **Saving the data**
+### **Saving the data**
 
 StudyBananas saves data in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
@@ -719,7 +720,7 @@ StudyBananas saves data in the hard disk automatically after any command that ch
 
 ---
 
-# FAQ (Teddy)
+## FAQ (Teddy)
 
 **Q: Is StudyBananas free?**<br>
 **A**: Yes, StudyBananas is absolutely free to use!
@@ -748,13 +749,13 @@ StudyBananas saves data in the hard disk automatically after any command that ch
 <p>&nbsp;</p>
 
 ---
-# Trouble Shooting (Eddy)
+## Trouble Shooting (Eddy)
 
-## Cannot launch the application
+### Cannot launch the application
 
 - Check if you have Java `11` or above installed in your Computer. 
 
-### Windows
+#### Windows
 
 1.  Open command prompt and type java -version. 
 
@@ -765,7 +766,7 @@ StudyBananas saves data in the hard disk automatically after any command that ch
 
 3.  If none of the above work, try to search you file system for javac.exe. If there is no javac.exe, download JDK from <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">Oracle Website for JDK</a> and install.
 
-### Mac
+#### Mac
 
 1. Open terminal and type java -version.
 
@@ -773,19 +774,19 @@ StudyBananas saves data in the hard disk automatically after any command that ch
     
 2. Go to the <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the macOS version JDK and install.
  
-### Linux
+#### Linux
 
 1. Open up your terminal, and type `find / -name "java"`
 
 2. If the path for jdk is shown after the command, type` export JAVA_HOME=/path/to/java/jdk1.x`, otherwise Go to the <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the Lunix version JDK and install.
 
-## Cannot find my data locally
+### Cannot find my data locally
 
 Your schedule, flashcard, and quiz history data will be stored inside the folder named **data** which would reside in the folder where you put your StudyBananas.jar.
 
 If you still cannot find any default data, make sure you have enter at lease one command in the command box after your first launch, the default data would only be stored after the first command is executed.
 
-## My data is gone after I manipulate the data in the data folder directly
+### My data is gone after I manipulate the data in the data folder directly
 
 The data is stored in the format of JSON for StudyBananas. Our development team does not recommend modifying data from the data folder directly, but 
 if after your edit, the data is not shown in your application, it is likely that the format of JSON file is wrong. Please open your storage file in
@@ -800,9 +801,9 @@ be able to see the updated data.
 
 ---
 
-# Community and security (Eddy)
+## Community and security (Eddy)
 
-## User data
+### User data
 
 StudyBananas is designed to be a self-study tool and not an online study community.
 
@@ -812,7 +813,7 @@ development team. Therefore, the physical integrity of the your data is secured 
 StudyBananas. 
 
 
-## Study community
+### Study community
 
 Current version of StudyBananas - 1.4 does not support any functionality required 
 internet connection.
@@ -827,7 +828,7 @@ StudyBananas will still be optimized without internet connection.
 
 ---
 
-# Bug report (Eddy)
+## Bug report (Eddy)
 
 Version 1.4 StudyBananas is still under testing phase. Version 1.4 release would serve
 as the public beta testing for StudyBananas. We have done comprehensive amount of unit tests 
@@ -837,9 +838,9 @@ any bugs or have any suggestions on the application, please go to
 <a href="https://github.com/AY2021S1-CS2103T-F12-2/tp/issues">our github issue page</a> to 
 issue the bugs and the suggestions. Great appreciation from the development team of StudyBananas.
 
-# Command summary
+## Command summary
 
-## `SCHEDULE` commands (Binh)
+### `SCHEDULE` commands (Binh)
 
 | Action                  | Format, Examples                                                                                                                 |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -851,7 +852,7 @@ issue the bugs and the suggestions. Great appreciation from the development team
 
 <p>&nbsp;</p>
 
-## `FLASHCARD` commands (Teddy)
+### `FLASHCARD` commands (Teddy)
 
 | Action                                  | Format, Examples                                                                                        |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -863,7 +864,7 @@ issue the bugs and the suggestions. Great appreciation from the development team
 
 <p>&nbsp;</p>
 
-## `QUIZ` commands (Bowei)
+### `QUIZ` commands (Bowei)
 
 | Action                 | Format, Examples                                                                                                                                                                              |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -872,7 +873,7 @@ issue the bugs and the suggestions. Great appreciation from the development team
 
 <p>&nbsp;</p>
 
-## General commands
+### General commands
 
 | Action                          | Format, Examples |
 | ------------------------------- | ---------------- |

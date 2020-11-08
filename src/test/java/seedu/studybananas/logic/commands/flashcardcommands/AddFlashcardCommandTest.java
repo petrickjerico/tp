@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.studybananas.logic.commands.commandtestutils.FlashcardBankCommandTestUtil.VALID_FLSET_NAME_PHYSICS;
 import static seedu.studybananas.testutil.Assert.assertThrows;
 import static seedu.studybananas.testutil.TypicalIndexes.INDEX_FIRST;
 import static seedu.studybananas.testutil.TypicalIndexes.INDEX_SECOND;
@@ -42,8 +43,8 @@ public class AddFlashcardCommandTest {
 
         CommandResult result = new AddFlashcardCommand(validFlashcard, INDEX_FIRST).execute(modelStub);
 
-        assertEquals(String.format(AddFlashcardCommand.MESSAGE_SUCCESS, "Physics") + validFlashcard.toString(),
-                result.getFeedbackToUser());
+        assertEquals(String.format(AddFlashcardCommand.MESSAGE_SUCCESS, VALID_FLSET_NAME_PHYSICS)
+                + validFlashcard.toString(), result.getFeedbackToUser());
         assertEquals(validFlashcard, modelStub.flashcardBank.getFlashcardSetList()
                 .get(INDEX_FIRST.getZeroBased())
                 .getFlashcard(INDEX_FIRST.getZeroBased()));

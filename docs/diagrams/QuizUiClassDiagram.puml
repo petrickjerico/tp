@@ -1,0 +1,28 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor UI_COLOR_T4
+skinparam classBackgroundColor UI_COLOR
+
+package QuizUi <<Rectangle>>{
+Class QuizUi
+Class QuizCard
+Class QuizScoreCard
+Class Statistics
+Class FlashcardSetCard
+Class CommandBox
+Class FlashcardSetListPanel
+
+}
+
+QuizUi *-down-> FlashcardSetListPanel
+QuizUi *-down-> CommandBox
+QuizUi -down-> QuizCard
+QuizUi -down-> QuizScoreCard
+QuizUi -down-> Statistics
+
+
+FlashcardSetListPanel -down-> FlashcardSetCard
+
+
+@enduml

@@ -15,6 +15,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.ui.UiPart;
+import seedu.studybananas.ui.util.GlobalState;
 
 public class UpcomingSchedule extends UiPart<Region> {
     private static final String FXML = "UpcomingSchedule.fxml";
@@ -41,11 +42,10 @@ public class UpcomingSchedule extends UiPart<Region> {
 
     /**
      * Constructor for the UpcomingSchedulePanel, which is the left panel of the {@ScheduleUi}.
-     * @param logic
      */
-    public UpcomingSchedule(Logic logic) {
+    public UpcomingSchedule() {
         super(FXML);
-        this.logic = logic;
+        this.logic = GlobalState.getInstance().getLogic();
         fillInner();
     }
 

@@ -5,21 +5,40 @@
  '/
 
 
-'T1 is darker shade.
+'T1 through T4 are shades of the original color from lightest to darkest
 
 !define UI_COLOR #F8CECC
 !define UI_COLOR_T1 #DAA5A3
+!define UI_COLOR_T2 #3FC71B
+!define UI_COLOR_T3 #166800
+!define UI_COLOR_T4 #0E4100
+!define UI_LIGHT_COLOR #bfbfbf
 
 !define LOGIC_COLOR #DAE8FC
 !define LOGIC_COLOR_T1 #B2C4DD
+!define LOGIC_COLOR_T2 #6A6ADC
+!define LOGIC_COLOR_T3 #1616B0
+!define LOGIC_COLOR_T4 #101086
 
 !define MODEL_COLOR #D5E8D4
 !define MODEL_COLOR_T1 #BED7AF
+!define MODEL_COLOR_T2 #E41F36
+!define MODEL_COLOR_T3 #7B000E
+!define MODEL_COLOR_T4 #51000A
 
 !define STORAGE_COLOR #FFE6CC
 !define STORAGE_COLOR_T1 #EACB7A
+!define STORAGE_COLOR_T2 #EDC520
+!define STORAGE_COLOR_T3 #806600
+!define STORAGE_COLOR_T2 #544400
+
 
 !define USER_COLOR #000000
+
+!define ALARM_COLOR #b32d00
+!define UI_COMPONENT_COLOR #1a8cff
+!define CALLBACK_COLOR #ffa64d
+!define LISTENER_COLOR #70db70
 
 skinparam BackgroundColor #FFFFFFF
 

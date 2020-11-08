@@ -10,6 +10,7 @@ import seedu.studybananas.commons.core.LogsCenter;
 import seedu.studybananas.logic.Logic;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.ui.UiPart;
+import seedu.studybananas.ui.util.GlobalState;
 
 /**
  * Panel containing the list of persons.
@@ -26,9 +27,9 @@ public class FlashcardSetListPanel extends UiPart<Region> {
     /**
      * Creates a {@code TaskListPanel} with the given {@code ObservableList}.
      */
-    public FlashcardSetListPanel(Logic logic) {
+    public FlashcardSetListPanel() {
         super(FXML);
-        this.logic = logic;
+        this.logic = GlobalState.getInstance().getLogic();
         flashcardSetListView.setSelectionModel(null);
         flashcardSetListView.setItems(logic.getFilteredFlashcardSetList());
         flashcardSetListView.setCellFactory(listView -> new FlashcardSetListViewCell());
@@ -48,7 +49,7 @@ public class FlashcardSetListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new FlashcardSetCard(logic, flashcardSet, getIndex() + 1).getRoot());
+                setGraphic(new FlashcardSetCard(flashcardSet, getIndex() + 1).getRoot());
             }
         }
     }

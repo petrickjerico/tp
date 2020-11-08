@@ -122,14 +122,15 @@ Step4. Finally, create our **"one and only one"** Model component API class - `M
 #### Structure for individual `Model`
 
 #### ScheduleModel
-
+![ScheduleModelDiagram](images/ScheduleModelDiagram.png)
 #### FlashcardModel
 
 #### QuizModel
 
+
 ---------------------------------------------------------------------------------------------
 
-### UI component (Eddy)
+### UI component
 
 #### Overall Structure
 

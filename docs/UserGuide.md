@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Developer Guide
+title: User Guide
 ---
 
 <div class="welcome-page">
@@ -25,7 +25,7 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 <div class="section">
   <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;"/>
   <h1>Manage your study plans</h1>
-  <p>Manage all of your study tasks in StudyBanans. Then, start to plan yourself for the upcoming exams!</p>
+  <p>Manage all of your study tasks in StudyBananas. Then, start to plan yourself for the upcoming exams!</p>
   <a href="#33-schedule-binh">How to manage tasks in StudyBananas schedule ></a>
 </div>
 
@@ -122,13 +122,13 @@ Looking for <i>Developer Guide</i> instead? Go back to our <a href="https://ay20
 ## **1. Introduction** (Binh)
 
 Are you a student of secondary to tertiary education level,
-who is a fan of **using `FLASHCARD` to understand concepts**,
+who is a fan of **using flashcards to understand concepts**,
 use your laptop often,
 and would like to **schedule your study sessions efficiently**?
 If so, we have the product just for you!
 
 **StudyBananas** is a desktop study companion app that **helps you centralize your study tasks,
-and caters to your recap needs through `FLASHCARD`-quizzes**.
+and caters to your recap needs through flashcard-quizzes**.
 It is optimized for use via a Command Line Interface (CLI) while still
 having the benefits of a Graphical User Interface (GUI).
 
@@ -151,11 +151,11 @@ Table 1. Icons in this User Guide
 
 #### 1.1.2 Markdown notations
 
-|                    Markdown                     | Meaning                                                                 |
-| :---------------------------------------------: | ----------------------------------------------------------------------- |
-|           `add flset <name:setname>​`           | Commands and terminology that can be used in StudyBananas command line. |
-|        `index`, `name`, `title`, `time`         | Various arguments that you can include in the command.                  |
-| `QUIZ`, `SCHEDULE`, `FLASHCARD`, `FLASHCARDSET` | Various features that StudyBananas offers.                              |
+|                    Markdown                             | Meaning                                                                 |
+| :-----------------------------------------------------: | ----------------------------------------------------------------------- |
+|           `add flset <name:setname>​`                | Commands and terminology that can be used in StudyBananas command line. |
+|        `index`, `name`, `title`, `time`                 | Various arguments that you can include in the command.                  |
+| `QUIZ`, `SCHEDULE`, `FLASHCARD`, `FLASHCARDSET`, `TASK` | Various features that StudyBananas offers.                              |
 
 Table 2. Markdown notations in this User Guide
 
@@ -175,21 +175,15 @@ Table 2. Markdown notations in this User Guide
 5. Type the command in the command box and press `Enter` to execute it.
    Some example commands you can try:
 
-   - **`list`** `task` : Lists all tasks
+   - **`list`** `task` : Lists all `TASK`s
 
-   * **`add`** `flset name:Chemistry` : Add a new empty set with name `Chemistry`.
+   * **`add`** `flset name:Chemistry` : Add a new empty `FLASHCARDSET` with name `Chemistry`.
 
-   * **`add`** `fl flset:3 q:What is the chemical formula of water? a:H2O` : Add a flashcard to the newly-created flashcard set.
+   * **`delete`** `flset 3` : Deletes the 3rd `FLASHCARDSET` in the current list of `FLASHCARDSET`s.
 
-   * **`quiz`** `flset:3` : Launch the quiz session with the newly created flashcard set.
+   * **`add`** `fl flset:3 q:What is the chemical formula of water? a:H2O` : Add a flashcard to the 3rd `FLASHCARDSET`.
 
-   * **`flip`** : View the answer of the flashcard without answering it.
-
-   * **`w`**: Mark the answered flashcard as wrong.
-
-   * **`delete`** `flset 3` : Deletes the 3rd flashcard set in the current list of flashcard sets.
-
-   * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 task to the task list.
+   * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 `TASK` to the `SCHEDULE`.
 
 6. Refer to the [Features](#3-features) below for details of each command.
 
@@ -202,8 +196,8 @@ Table 2. Markdown notations in this User Guide
 **Notes about the command format:** (Binh)
 <br>
 
-- Words wrapped with angle brackets `<>` are compulsory parameters or prefix-parameter pairs to be supplied by you.<br>
-  e.g. In `add <flset:setname>`, `flset:` is a prefix and `setname` is a parameter, which can be used as `add flset:Chemistry`.
+- Words wrapped with angled brackets `<>` are compulsory parameters or prefix-parameter pairs to be supplied by you.<br>
+  e.g. In `add <flset:setname>`, `flset:` is the prefix and `setname` is the parameter, which can be used as `add flset:Chemistry`.
 
 - Words wrapped with square brackets `[]` are optional parameters or prefix-parameter pairs to be supplied by you.<br>
   e.g. In `add task <T:title> [d:description]`, `d:` is the prefix while `description` is the parameter. The command can be used as `add task T: CS2103T d: Post-lecture quiz` or as `add task T: CS2103T`.
@@ -211,17 +205,17 @@ Table 2. Markdown notations in this User Guide
 - Prefix-parameter pairs can be in any order.<br>
   e.g. If the command specifies `<flset:setindex> <q:question> <a:answer>`, `<a:answer> <q:question> <flset:setindex>` is also acceptable.
 
-- The same prefix-parameter can be used in a same command, however only the value of the last pair is used. <br>
-  e.g. In `add task T: CS2103T d: Tutorial Week 2 T: CS2100`, there are 2 parameters for `T:` but only the last one `CS2100` is taken as the input value.
+- The same prefix-parameter pair can be used in a same command, however only the value of the last pair is used. <br>
+  e.g. In `add task T: CS2103T d: Tutorial Week 2 T: CS2100`, there are 2 parameters with the prefix `T:` but only the last one `CS2100` is taken as the input value.
 
 </div>
 <p>&nbsp;</p>
 
-### 3.1. `FLASHCARD`
+### 3.1. Commands for the `FLASHCARD` page
 
 #### 3.1.1. **Add a `FLASHCARDSET`**: `add flset`
 
-If you would like to create a new `FLASHCARDSET`, this commands allows you create a new `FLASHCARDSET` with a custome name to store and categorize your `FLASHCARD`.
+If you would like to create a new `FLASHCARDSET`, this commands allows you to create a new `FLASHCARDSET` with a custom name to store and categorize your `FLASHCARD`s.
 
 | Format                         | Example                   | Remark                                                |
 | ------------------------------ | ------------------------- | ----------------------------------------------------- |
@@ -253,11 +247,11 @@ If you would like to delete an existing `FLASHCARDSET`, this commands allows you
 
 #### 3.1.3. **List `FLASHCARD` in a `FLASHCARDSET`**: `list fl`
 
-This commands allows you to view the detailed list of `FLASHCARD` in a specified `FLASHCARDSET` using its index.
+This command allows you to view the detailed list of `FLASHCARD` in a specified `FLASHCARDSET` using its index.
 
-| Format                   | Example     | Remark                                                    |
-| ------------------------ | ----------- | --------------------------------------------------------- |
-| **`list fl <setindex>`** | `list fl 1` | Alternatively, you can double-click on the `FLASHCARDSET` |
+| Format                   | Example     | Remark                                                                                 |
+| ------------------------ | ----------- | -------------------------------------------------------------------------------------- |
+| **`list fl <setindex>`** | `list fl 1` | Alternatively, you can click on the `FLASHCARDSET` in the GUI to view its `FLASHCARD`s |
 
 <p></p>
 
@@ -269,7 +263,7 @@ This commands allows you to view the detailed list of `FLASHCARD` in a specified
 
 #### 3.1.4. **Add a `FLASHCARD` into a `FLASHCARDSET`**: `add fl`
 
-This command allows you to add a single `FLASHCARD` consisting of a question and an answer in a specified `FLASHCARDSET` using its index.
+This command allows you to add a single `FLASHCARD` consisting of a question and an answer, in a specified `FLASHCARDSET` using its index.
 
 | Format                                                | Example                               |
 | ----------------------------------------------------- | ------------------------------------- |
@@ -299,103 +293,95 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 <p>&nbsp;</p>
 
-### 3.2. `QUIZ` (Bowei)
+### 3.2. Commands for the `QUIZ` page (Bowei)
 
-#### 3.2.1. Launch a **`QUIZ`**
+#### 3.2.1. **`QUIZ` of flashcard set**: `quiz flset`
 
-If you have created some `FLASHCARD` notes in the StudyBananas, you can launch a `QUIZ` with a `FLASHCARDSET` of your choice.
+Already have some `FLASHCARD`s and would like to start a recap session? 
+This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.
 
-There are two ways to launch a `QUIZ` in StudyBananas. One is through entering commands in the command box. The other one is through clicking a scheduled `QUIZ` at the `SCHEDULE` tab.
+There are two ways to launch a `QUIZ` in StudyBananas. 
+You may do so by either:
+* **Entering commands into the command box:**
 
--------------------------------------------------------------------------------------------------------
-
-#### **Launch a quiz through command line**
-
-| Command Format              | Examples                                      |
+| Format                      | Examples                                      |
 | --------------------------- | --------------------------------------------- |
 | **`quiz <flset:setindex>`** | `quiz flset:1` <br> `quiz flset:2`            |
 | **`quiz <flset:setname>`**  | `quiz flset:CS2040` <br> `quiz flset:CS2103T` |
 
--------------------------------------------------------------------------------------------------------
+* **Or, through clicking on a scheduled `QUIZ` in the `SCHEDULE`:**<br>
+If you have a `QUIZ` scheduled (see [Adding a `QUIZ` task](#3312-adding-a-quiz-task)), 
+you may click on the highlighted `QUIZ` label contained in the description of the `TASK` as shown below.
 
-#### **Launch a quiz through clicking scheduled quiz label**
+<img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="300" align="center"/>
 
-If you have a `QUIZ` scheduled (see [how to add a quiz to schedule](#331-add-a-task-add-task)),
-you may click on the highlighted `Quiz:<quizname>` label contained in the description of the `TASK` in your schedule tab. An example quiz label is provided in the picture below.
+<div markdown="block" class="alert alert-info">
 
--------------------------------------------------------------------------------------------------------
+**Note: When the `QUIZ` has started, the system is in quiz-mode. You are required to enter follow-up commands to continue with the `QUIZ`.**
 
-#### **After a quiz is launched**
+| ![info_icon](images/UG/info_icon.png)                          | Only general and quiz-mode commands are allowed at designated times, as stated below. |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| At all times in quiz-mode                                      | `exit`, `help`, `cancel`, `refresh`                                                   |
+| Only the question is shown (see **Step 2**)                    | `flip`, `<ans:answer>`                                                                |
+| Both the question and correct answer is shown (see **Step 3**) | `c`, `w`                                                                              |
 
-When a `QUIZ` starts, you should see an interface similar to the picture below.
-The question of the first `FLASHCARD` within the selected `FLASHCARDSET`,
-as well as an instruction prompt to type in the next available commands will be shown in the flashcard card in the UI.
+You may find more information on the respective quiz-mode commands by referring to the steps and descriptions below.
+
+</div>
+
+| Format    | Usages of all-time-available quiz-mode commands                                                                                                                                         |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `refresh` | Shows the current state of the quiz - the question, current answer (if applicable) and prompt instruction, in case you wish to continue with the quiz after entering an invalid command |
+| `cancel`  | Stops the quiz. Your quiz records will not be stored upon quiz cancellation.                                                                                                            |
+
+##### Step 1 - Getting the question
+When the `QUIZ` launches, as seen below, you will see the question
+of the first `FLASHCARD` within the selected `FLASHCARDSET`,
+as well as an instruction prompt to type in the next available commands,
+`flip`, `<ans:answer>`, `refresh` or `cancel`.
 
 ![FirstQuestion](images/FirstQuestion.png)
 
-<br>
+<div align="center">Figure __. Result of `quiz flset:CS2103T` command</div>
 
-#### 3.2.2. Do a **`QUIZ`**
+##### Step 2 - Answering the question
+If you would like to see your answer directly, enter `flip`. 
+However, if you would like StudyBananas to store your answer for later reference,
+enter your answer with `<ans:answer>`.
 
-Version 1.4 StudyBananas supports short-answer `QUIZ` for your `FLASHCARD` notes.
-When a `QUIZ` is launched, StudyBananas is in quiz-mode. You are required to enter follow-up commands to continue with the `QUIZ`.
+| Format         | Remarks                                                                                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `flip`         | Does not store your answer. Displays the answer to the `FLASHCARD` question. <br> (You may opt to remember your answer for evaluation against the correct answer later) |
+| `<ans:answer>` | Stores your answer. Also, displays the answer to the `FLASHCARD` question.                                                                                              |
 
+If the command entered is `flip` or `<ans:answer>`,
+the correct answer will be displayed,
+and you will be prompted to enter the next available commands, `c`, `w`, `refresh` or `cancel`,
+as shown below.
 
-1.  Please make sure a quiz is launch beforehand,
-    - if you don't know how to initiate a quiz, please refer to [how to launch a quiz](#321-launch-a-quiz).
-    - If the quiz is launched successfully, you will be able to see the question of the first flashcard. 
-2.  Enter `flip` if you want to see the answer directly or enter your answer with `ans:<answer>`, then press Return.
+![AnswerShown](images/AnswerShown.png)
 
-    -  After you flip the flashcard or answer the flashcard, the correct answer will be displayed,
-      and you will be prompted to enter the next available commands, `c`, `w`, `refresh` or `cancel`.
+<div align="center">Figure __. Result of `ans:improves code quality and reduces bugs` command</div>
 
-    - The image below shows the result when `ans:improves code quality and reduces bugs` is entered:
+##### Step 3 - Checking if your answer is correct
+Based on the correct answer, you may evaluate your own answer.
+Your response will be taken into account when tabulating the `QUIZ` score.
 
-        ![AnswerShown](images/AnswerShown.png)
-
-3. Enter `c` if you think the question is answered correctly, otherwise enter  `w`.
-    - You may evaluate your own answer based on the correct answer shown.
-    - Your response will be taken into account when tabulating the `QUIZ` score.
-    - After you enter the correctness of the answer, the question of the next `FLASHCARD` will be displayed.
-
-4. Repeat step 2-3 until all `FLASHCARD`s in the `FLASHCARDSET` are displayed and answered.
-    - Once the quiz stops, the score statistics will be displayed.
-    - This score can also be viewed when viewing the last attempt of the `FLASHCARDSET`.
-      (see [View last quiz attempt: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset))
-      
--------------------------------------------------------------------------------------------------------
-#### Command Table for **`QUIZ`**
 | Format | Command usages                                                          |
 | ------ | ----------------------------------------------------------------------- |
 | `c`    | Indicates that the question of the `FLASHCARD` is answered _correctly_. |
 | `w`    | Indicates that the question of the `FLASHCARD` is answered _wrongly_.   |
-| `flip`         | Does not store your answer. Displays the answer to the `FLASHCARD` question. <br> (You may opt to remember your answer for evaluation against the correct answer later) |
-| `<ans:answer>` | Stores your answer. Also, displays the answer to the `FLASHCARD` question.                                                                                              |
-| `refresh` | Shows the current state of the quiz - the question, current answer (if applicable) and prompt instruction, in case you wish to continue with the quiz after entering an invalid command |
-| `cancel`  | Stops the quiz. Your quiz records will not be stored upon quiz cancellation.                                                                                                            |
-       
 
-<br>
-<div markdown="block" class="alert alert-info">
-<div>
-  <img src="images/UG/info_icon.png" alt="quiz-pic" width="30" style="float: left; margin: 8px 10px 0px 10px;">
-  Note: Some quiz-mode commands are only allowed at designated time, while some others are allowed at any time. Please refer to the comparison table below.
-</div>
+The question of the next `FLASHCARD` will be displayed.
 
-<br>
+##### Step 4 - Continuing the `QUIZ` cycle
+Steps 1-3 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` are displayed and answered.
 
-| Commands                            | Available timing                                  |
-| ----------------------------------- | ------------------------------------------------- |
-| `exit`, `help`, `cancel`, `refresh` | At all times in quiz-mode                         |
-| `flip`, `<ans:answer>`              | Only when the question is shown during quiz-mode  |
-| `c`, `w`                            | When the correct answer is shown during quiz-mode |
+Once the quiz stops, the score statistics will be displayed.
+This score can also be viewed when viewing the last attempt of the `FLASHCARDSET`.
+(see [View last quiz attempt: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset))
 
-</div>
-
-<br>
-
-</div>
-
+<p>&nbsp;</p>
 
 #### 3.2.2. **View last `QUIZ` attempt**: `quiz score flset`
 
@@ -416,17 +402,15 @@ It contains the following information:
 
 <p>&nbsp;</p>
 
-### 3.3. Schedule (Binh)
+### 3.3. Commands for the `SCHEDULE` page (Binh)
 
-### 3.1. `FLASHCARD`
+#### **View the details of your `TASK`**: (Eddy)
 
-#### **View the details of your task**: (Eddy)
+There are several panels in our user interface that provides the details of your `TASK`.
 
-There are several panels in our user interface that provides the details of your task.
-
-- Firstly, the time scale lists out all of your study sessions which are tasks with start time and duration, you can click on your study session on the time scale to view the detail on the top right panel.
-- Secondly, the list panel located at the bottom right corner of the schedule tab lists all of your tasks, you can scroll down to view the details of your task or takes advantage of our search feature (please refer to [search task section](#334-search-for-a-task-search-task)) to quickly a specific task.
-- In the following user guide, we would time scale to refer to the middle panel of schedule tab, and uses task lists to refer to the bottom right panel.
+- Firstly, the time scale lists out all of your study sessions, which are `TASK`s, with start time and duration. You can click on your study session on the time scale to view the details on the top right panel.
+- Secondly, the list panel located in the bottom right corner of the `SCHEDULE` tab lists all of your tasks, you can scroll down to view the details of your `TASK`s, or take advantage of the search feature to quickly find a specific task (refer to [search task section](#334-search-for-a-task-search-task)).
+- In the following user guide, we use time scale to refer to the middle panel of `SCHEDULE` tab, and uses `TASK` lists to refer to the bottom right panel.
 
 ![TaskDetailPanels](images/TaskDetailPanels.png)
 
@@ -439,7 +423,7 @@ If you would like to add a study `TASK` to your `SCHEDULE`, this command allows 
 
 After you add a new `TASK` to StudyBananas, the `TASK`'s information is saved in the `schedule.json` file.
 
-You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:index>` command in the `description` field.
+You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:setindex>` command in the `description` field.
 
 | Format  | `add task <T:title> [d:description] [t:time] [dur: duration]`                                                                                                                                       |
 | ------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -502,7 +486,7 @@ the `QUIZ` to your schedule.
 
 <p>&nbsp;</p>
 
-#### 3.3.2. List all your `TASK`s: `list task`
+#### 3.3.2. **List all your `TASK`s**: `list task`
 
 If you would like to view your full `SCHEDULE`, this command displays the full `SCHEDULE` that you are having at the moment.
 
@@ -539,10 +523,10 @@ Upon deletion of the `TASK`, the saved information of the `TASK` in `schedule.js
 
 <br>
 
-| <!-- -->                                        | <!-- -->                                                                                                                                                                                                                                                        |
-| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#332-list-tasks-list-task) <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. |
-| ![important_icon](images/UG/important_icon.png) | • This action is irreversible. Once you delete a specific `TASK`, the `TASK` and its respective information are removed from the storage file as well.                                                                                                          |
+| <!-- -->                                        | <!-- -->                                                                                                                                                                                                                                                          |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#332-list-all-your-tasks) <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. |
+| ![important_icon](images/UG/important_icon.png) | • This action is irreversible. Once you delete a specific `TASK`, the `TASK` and its respective information are removed from the storage file as well.                                                                                                            |
 
 <br>
 
@@ -645,21 +629,16 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 
 If you are not sure of how a certain command works or what command would suit your needs, you can open the help window with this command to view all the available commands.
 
-Usage
-| | |
-|-----------------|-----------|
-|Format | `help` |
-|Example | `help` |
-| | |
-
-Alternatively, you can click on the help button located at the bottom of the sidebar to open the help window.
+| Format     | Remark                                                                                                        |
+| ---------- | ------------------------------------------------------------------------------------------------------------- |
+| **`help`** | Alternatively, you can click on the help button located at the bottom of the sidebar to open the help window. |
 
 ![HelpButton](images/HelpButton.png)
 
 The help window shows most of the available CLI commands.
 
-- The cyan part is the name of the command
-- The purple part lists all the arguments that can be adjust in a customary manner.
+- The cyan label is the name of the command
+- The purple label lists all the arguments that you may enter.
 
 ![HelpWindow](images/HelpWindow.png)
 
@@ -669,11 +648,9 @@ The help window shows most of the available CLI commands.
 
 If you would like to close the application, this command helps you to quickly close StudyBanas.
 
-| Format     |
-| ---------- |
-| **`exit`** |
-
-Alternatively, you can click on the close button located at the bottom of the sidebar to close the application.
+| Format     | Remark                                                                                                          |
+| ---------- | --------------------------------------------------------------------------------------------------------------- |
+| **`exit`** | Alternatively, you can click on the close button located at the bottom of the sidebar to close the application. |
 
 ![ExitButton](images/UG/ExitButton.png)
 
@@ -692,7 +669,7 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 **Q: Is StudyBananas free?**<br>
 **A**: Yes, StudyBananas is absolutely free to use!
 
-**Q: I have studybananas.jar downloaded but cannot start the application. Is there anything I can do?**<br>
+**Q: I have StudyBananas.jar downloaded but cannot start the application. Is there anything I can do?**<br>
 **A**: Yes, open the command prompt on your computer, navigate to the directory in which you have stored studybananas.jar and type java -jar studybananas.jar.
 
 **Q: Is StudyBananas safe to use?**<br>
@@ -731,30 +708,30 @@ StudyBananas data are saved in the hard disk automatically after any command tha
 
 <p>&nbsp;</p>
 
-### Quiz commands
+### `QUIZ` commands
 
-| Action               | Format, Examples                                                                                                                                                                              |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Quiz flset**       | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> `quiz <flset:setname>` eg., `quiz flset:Japanese`. <br> Available only in quiz mode: `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
-| **Quiz score flset** | `quiz score <flset:setindex>` e.g., `quiz score flset:6` <br> `quiz score <flset:setname>` e.g., `quiz score flset:Economics`                                                                 |
+| Action                 | Format, Examples                                                                                                                                                                              |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`QUIZ` flset**       | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> `quiz <flset:setname>` eg., `quiz flset:Japanese`. <br> Available only in quiz mode: `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
+| **`QUIZ` score flset** | `quiz score <flset:setindex>` e.g., `quiz score flset:6` <br> `quiz score <flset:setname>` e.g., `quiz score flset:Economics`                                                                 |
 
 <p>&nbsp;</p>
 
-### Task list commands (Binh)
+### `SCHEDULE` commands (Binh)
 
-| Action              | Format, Examples                                                                                                                 |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **Add task**        | `add task <T:titile> [d:description] [t:time] [dur:duration]` <br> e.g. `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
-| **List tasks**      | `list task` <br>                                                                                                                 |
-| **Delete task**     | `delete task <index>` <br> e.g., `delete task 6`                                                                                 |
-| **Search for task** | `search task <keywords>` <br> e.g., `search task CS2103T deadlines`                                                              |
-| **Edit task**       | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g. `edit task 1 d: Debug remaining errors dur: 60`  |
+| Action                  | Format, Examples                                                                                                                 |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Add `TASK`**          | `add task <T:titile> [d:description] [t:time] [dur:duration]` <br> e.g. `add task T:CS2103T d:iP submission t: 2020-09-17 23:59` |
+| **List `TASK`s**        | `list task` <br>                                                                                                                 |
+| **Delete `TASK`**       | `delete task <index>` <br> e.g., `delete task 6`                                                                                 |
+| **Search for `TASK`s**  | `search task <keywords>` <br> e.g., `search task CS2103T deadlines`                                                              |
+| **Edit `TASK`**         | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g. `edit task 1 d: Debug remaining errors dur: 60`  |
 
 <p>&nbsp;</p>
 
 ### General commands
 
-| Action                              | Format, Examples |
-| ----------------------------------- | ---------------- |
-| **View all the available commands** | `help`           |
-| **Exit program**                    | `exit`           |
+| Action                          | Format, Examples |
+| ------------------------------- | ---------------- |
+| **View all available commands** | `help`           |
+| **Exit program**                | `exit`           |

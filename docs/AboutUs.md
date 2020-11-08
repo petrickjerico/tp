@@ -7,11 +7,11 @@ We are a team based in the [School of Computing, National University of Singapor
 
 You may reach us through the following email addresses:
 
-* Joe Teddy Yosua Sanjaya: joe.teddy@u.nus.edu
-* Yu Bowei: e0425419@u.nus.edu
-* Eddy Chu: e0418218@u.nus.edu
-* Ngo Duc Binh: e0271216@u.nus.edu
-* Petrick Jerico Gustendi: e0425802@u.nus.edu
+* Joe Teddy Yosua Sanjaya: [joe.teddy@u.nus.edu](joe.teddy@u.nus.edu)
+* Yu Bowei: [boweiyu@u.nus.edu](boweiyu@u.nus.edu)
+* Eddy Chu: [e0418218@u.nus.edu](e0418218@u.nus.edu)
+* Ngo Duc Binh: [e0271216@u.nus.edu](e0271216@u.nus.edu)
+* Petrick Jerico Gustendi: [e0425802@u.nus.edu](e0425802@u.nus.edu)
 
 ## Project team
 

@@ -1,0 +1,22 @@
+@startuml
+
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+skinparam objectBackgroundColor MODEL_COLOR
+
+Title Initial Schedule
+
+Object ":UniqueTaskList" as UniqueTaskList
+Object "task1:Task" as task1
+Object "task2:Task" as task2
+Object "task3:Task" as task3
+
+
+UniqueTaskList --> task1
+UniqueTaskList --> task2
+UniqueTaskList --> task3
+
+
+@enduml

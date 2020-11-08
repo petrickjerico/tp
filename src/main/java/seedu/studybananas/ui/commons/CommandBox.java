@@ -1,4 +1,4 @@
-package seedu.studybananas.ui;
+package seedu.studybananas.ui.commons;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -7,6 +7,7 @@ import javafx.scene.layout.Region;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
+import seedu.studybananas.ui.UiPart;
 
 /**
  * The UI component that is responsible for receiving user command inputs.

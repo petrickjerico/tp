@@ -13,8 +13,8 @@ import seedu.studybananas.logic.commands.commandresults.GeneralCommandResult;
 import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
-import seedu.studybananas.ui.CommandBox;
 import seedu.studybananas.ui.UiPart;
+import seedu.studybananas.ui.commons.CommandBox;
 import seedu.studybananas.ui.commons.PositiveResponse;
 import seedu.studybananas.ui.commons.ResponsePopUp;
 import seedu.studybananas.ui.commons.WarningResponse;
@@ -67,12 +67,12 @@ public class TaskDetailPanel extends UiPart<Region> {
     /**
      * Constructor for ScheduleUi.
      */
-    public TaskDetailPanel(Logic logic, ResponsePopUp responsePopUp) {
+    public TaskDetailPanel() {
         super(FXML);
 
         // Set dependencies
-        this.logic = logic;
-        this.responsePopUp = responsePopUp;
+        this.logic = GlobalState.getInstance().getLogic();
+        this.responsePopUp = GlobalState.getInstance().getResponsePopUp();
 
         TaskDetailSkin taskDetailSkin = new TaskDetailSkin(logic);
         taskDetailCardPlaceholder.getChildren().add(taskDetailSkin.getRoot());

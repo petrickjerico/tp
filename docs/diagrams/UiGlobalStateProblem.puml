@@ -1,0 +1,77 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor UI_COLOR_T4
+skinparam classBackgroundColor UI_COLOR
+
+
+package UI <<Rectangle>>{
+Class UiManager
+Class MainWindow
+Class ScheduleUi
+Class FlashcardUi
+Class QuizUi
+Class UpcomingSchedule
+Class TaskDetailPanel
+Class CurrentTimePointer UI_LIGHT_COLOR
+Class TimeScale UI_LIGHT_COLOR
+Class TaskCell UI_LIGHT_COLOR
+Class TimeScaleCell UI_LIGHT_COLOR
+Class TaskDetailSkin
+Class TaskListPanel UI_LIGHT_COLOR
+Class TaskListCard UI_LIGHT_COLOR
+Class QuizCard UI_LIGHT_COLOR
+Class QuizScoreCard UI_LIGHT_COLOR
+Class Statistics UI_LIGHT_COLOR
+Class FlashcardSetCard UI_LIGHT_COLOR
+Class FlashcardSetListPanel
+Class FlashcardsDisplay UI_LIGHT_COLOR
+Class FlashcardSetCard UI_LIGHT_COLOR
+}
+
+package Logic <<Rectangle>> {
+Class HiddenLogic #FFFFFF
+}
+
+skinparam component {
+  FontSize 10
+  ArrowFontName Arial
+  ArrowFontColor black
+}
+
+UiManager -left-> Logic
+UiManager -right-> MainWindow
+
+MainWindow *-down-> QuizUi
+MainWindow *-down-> FlashcardUi
+MainWindow *-down[ALARM_COLOR]-> ScheduleUi : Logic
+
+
+QuizUi *-down-> FlashcardSetListPanel
+QuizUi -down[UI_LIGHT_COLOR]-> QuizCard
+QuizUi -down[UI_LIGHT_COLOR]-> QuizScoreCard
+QuizUi -down[UI_LIGHT_COLOR]-> Statistics
+
+FlashcardUi *-down-> FlashcardSetListPanel
+FlashcardUi *-down[UI_LIGHT_COLOR]-> FlashcardsDisplay
+
+FlashcardSetListPanel -down[UI_LIGHT_COLOR]-> FlashcardSetCard
+
+ScheduleUi *-down-> UpcomingSchedule
+ScheduleUi *-down[ALARM_COLOR]-> TaskDetailPanel : Logic
+
+UpcomingSchedule *-down[UI_LIGHT_COLOR]-> CurrentTimePointer
+UpcomingSchedule *-down[UI_LIGHT_COLOR]-> TimeScale
+
+TimeScale *-down[UI_LIGHT_COLOR]-> TaskCell
+TimeScale *-down[UI_LIGHT_COLOR]-> TimeScaleCell
+
+TaskDetailPanel *-down[ALARM_COLOR]-> TaskDetailSkin : Logic
+TaskDetailPanel *-down[UI_LIGHT_COLOR]-> TaskListPanel
+
+TaskListPanel -down[UI_LIGHT_COLOR]-> TaskListCard
+
+
+
+
+@enduml

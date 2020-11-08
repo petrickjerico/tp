@@ -4,9 +4,9 @@ skinparam linetype ortho
 skinparam ArrowFontColor red
 
 Package "Ui"<<Rectangle>>{
-    Class UiComponent #1a8cff
-    Class CallBack #ffa64d
-    Class Listener #70db70
+    Class UiComponent UI_COMPONENT_COLOR
+    Class CallBack CALLBACK_COLOR
+    Class Listener LISTENER_COLOR
     Class DynamicState MODEL_COLOR
 }
 

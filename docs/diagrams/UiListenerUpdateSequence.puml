@@ -1,38 +1,40 @@
 @startuml
 !include style.puml
 
-Actor User as user USER_COLOR
-Participant ":UI" as ui UI_COLOR
-Participant ":Logic" as logic LOGIC_COLOR
-Participant ":Model" as model MODEL_COLOR
-Participant ":Storage" as storage STORAGE_COLOR
+Actor Client as client USER_COLOR
+Participant ":DynamicState" as state MODEL_COLOR
+Participant ":Listener" as listener LISTENER_COLOR
+Participant ":CallBack" as callback CALLBACK_COLOR
+Participant ":UiComponent" as component UI_COMPONENT_COLOR
 
-user -[USER_COLOR]> ui : "delete 1"
-activate ui UI_COLOR
+skinparam sequence {
+ActorBorderColor DeepSkyBlue
+ParticipantBorderColor transparent
+}
 
-ui -[UI_COLOR]> logic : execute("delete 1")
-activate logic LOGIC_COLOR
 
-logic -[LOGIC_COLOR]> model : deletePerson(p)
-activate model MODEL_COLOR
+client -[USER_COLOR]> state : "updateState(NewState)"
+activate state MODEL_COLOR
 
-model -[MODEL_COLOR]-> logic
-deactivate model
+state -[MODEL_COLOR]> state : inform()
 
-logic -[LOGIC_COLOR]> storage : saveAddressBook(addressBook)
-activate storage STORAGE_COLOR
+state -[MODEL_COLOR]> listener : update(NewState)
+activate listener LISTENER_COLOR
 
-storage -[STORAGE_COLOR]> storage : Save to file
-activate storage STORAGE_COLOR_T1
-storage --[STORAGE_COLOR]> storage
-deactivate storage
+listener -[LISTENER_COLOR]> callback : call(NewState)
+activate callback CALLBACK_COLOR
 
-storage --[STORAGE_COLOR]> logic
-deactivate storage
+callback -[CALLBACK_COLOR]> component : {abstract}updateView
+activate component UI_COMPONENT_COLOR
 
-logic --[LOGIC_COLOR]> ui
-deactivate logic
+component -[UI_COMPONENT_COLOR]-> callback
+deactivate component
 
-ui--[UI_COLOR]> user
-deactivate ui
+callback -[CALLBACK_COLOR]-> listener
+deactivate callback
+
+listener -[LISTENER_COLOR]-> state
+deactivate listener
+
+state -[MODEL_COLOR]-> client
 @enduml

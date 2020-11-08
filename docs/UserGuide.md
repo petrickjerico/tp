@@ -105,6 +105,26 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
             </ul>
         </li>
         <li><a href="#faq-teddy">FAQ (Teddy)</a></li>
+        <li><a href="#trouble-shooting-eddy">Trouble Shooting</a>
+            <ul>
+                 <li><a href="#cannot-launch-the-application">Cannot launch the application</a>
+                    <ul>
+                         <li><a href="#windows">Windows</a></li>
+                         <li><a href="#mac">Mac</a></li>
+                         <li><a href="#linux">linux</a></li>
+                    </ul>
+                 </li>
+                 <li><a href="#cannot-find-my-data-locally">Cannot find my data locally</a></li>
+                  <li><a href="#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly">My data is gone after I manipulate the data in the data folder directly</a></li>
+             </ul>
+        </li>
+        <li><a href="#community-and-security">Community and Security</a>
+            <ul>
+                <li><a href="#user-data">User Data</a></li>
+                <li><a href="#study-community">Study Community</a></li>
+            </ul>
+        </li>
+         <li><a href="#bug-report">Bug report</a></li>
         <li><a href="#command-summary">Command summary</a>
             <ul>
                 <li><a href="#schedule-commands-binh">Task list commands (Binh)</a></li>
@@ -715,7 +735,92 @@ StudyBananas saves data in the hard disk automatically after any command that ch
 <p>&nbsp;</p>
 
 ---
+## Trouble Shooting (Eddy)
 
+### Cannot launch the application
+
+- Check if you have Java `11` or above installed in your Computer. 
+
+#### Windows
+
+1.  Open command prompt and type java -version. 
+
+    - If you get the version info, Java is installed correctly and PATH is also set correctly. You can skip the rest.
+    
+
+2. Go to start menu -> System -> Advanced -> Environment Variables. Set JAVA_HOME to the path of your JDK, and update the system path. For more details, please refer to this <a href="https://javatutorial.net/set-java-home-windows-10">website</a> 
+
+3.  If none of the above work, try to search you file system for javac.exe. If there is no javac.exe, download JDK from <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">Oracle Website for JDK</a> and install.
+
+#### Mac
+
+1. Open terminal and type java -version.
+
+    - If you get the version info and have made sure that the version 11 or above, your Java is installed correctly. You can skip the rest.
+    
+2. Go to the <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the macOS version JDK and install.
+ 
+#### Linux
+
+1. Open up your terminal, and type find / -name "java"
+
+2. If the path for jdk is shown after the command, type export JAVA_HOME=/path/to/java/jdk1.x, otherwise Go to the <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the Lunix version JDK and install.
+
+### Cannot find my data locally
+
+Your schedule, flashcard, and quiz history data will be stored inside the folder named data which would reside in the folder where you put your StudyBananas.jar.
+
+If you still cannot find any default data, make sure you have type in at lease one command in the command box after your first launch, the default data would only be stored after the first command is executed.
+
+### My data is gone after I manipulate the data in the data folder directly
+
+The data is stored in the format of JSON for StudyBananas. Our development team does not recommend modifying data from the data folder directly, but 
+if after your edit, the data is not shown in your application, it is likely that the format of JSON file is wrong. Feel free to bring it in
+any text editor e.g. Visual Studio, Intellij... and have them help check if your JSON format is correct. After that, place the correct file with 
+correct JSON format back to the data folder and make sure the file name is the same as it was. Then, relaunch StudyBananas, you should 
+be able to see the updated data.
+
+
+---
+
+## Community and security (Eddy)
+
+### User data
+
+StudyBananas is designed to be a self-study tool and not an online study community.
+
+We do not store your data through any cloud database. All your schedules and notes are 
+only collected and manipulated under your local folder which is named **data** by our 
+development team. Therefore, the physical integrity of the your data is secured within 
+StudyBananas. 
+
+
+### Study community
+
+Current version of StudyBananas - 1.4 does not support any functionality required 
+internet connection.
+
+Many feedbacks that we have received request for functionality of sharing data in 
+a user's study community. Therefore, our team decides to build a cloud community in 
+the version 2.0 release of StudyBananas, and plans to build the sharing functionality
+as well as other community related functionality afterwards. But take note that our 
+team still believes internet-connection can be a huge distraction for studying, the 
+upcoming cloud community will not support chat room or other social media like features.
+StudyBananas will still be optimized without internet connection.
+
+---
+
+## Bug report (Eddy)
+
+Version 1.4 StudyBananas is still under testing phase. Version 1.4 release would serve
+as the public beta testing for StudyBananas. We have done comprehensive amount of unit tests 
+and integration tests on the application, and have put StudyBananas under preliminary alpha 
+testing by some students in NUS SoC. There can still be some unnoticed bugs. If you have spot
+any bugs or have any suggestions on the application, please go to 
+<a href="https://github.com/AY2021S1-CS2103T-F12-2/tp/issues">our github issue page</a> to 
+issue the bugs. Great appreciation from the developer team of StudyBananas.
+
+--
 ## Command summary
 
 ### `SCHEDULE` commands (Binh)

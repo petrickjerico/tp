@@ -1,0 +1,42 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor UI_COLOR_T4
+skinparam classBackgroundColor UI_COLOR
+
+
+package UI <<Rectangle>>{
+Class UiManager
+Class MainWindow
+Class ScheduleUi
+Class FlashcardUi
+Class QuizUi
+
+package Commons <<Rectangle>>{
+Class GlobalState
+}
+
+}
+
+
+skinparam component {
+  FontSize 10
+  ArrowFontName Arial
+  ArrowFontColor black
+}
+
+
+UiManager --> GlobalState
+MainWindow --> GlobalState
+ScheduleUi --> GlobalState
+FlashcardUi --> GlobalState
+QuizUi --> GlobalState
+
+
+
+
+
+
+
+
+@enduml

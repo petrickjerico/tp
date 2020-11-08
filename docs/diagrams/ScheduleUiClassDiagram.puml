@@ -1,0 +1,36 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor UI_COLOR_T4
+skinparam classBackgroundColor UI_COLOR
+
+package ScheduleUi <<Rectangle>>{
+
+Class ScheduleUi
+Class UpcomingSchedule
+Class TaskDetailPanel
+Class CurrentTimePointer
+Class TimeScale
+Class TaskCell
+Class TimeScaleCell
+Class TaskDetailSkin
+Class CommandBox
+Class TaskListPanel
+Class TaskListCard
+}
+
+ScheduleUi *-down-> UpcomingSchedule
+ScheduleUi *-down-> TaskDetailPanel
+
+UpcomingSchedule *-down-> CurrentTimePointer
+UpcomingSchedule *-down-> TimeScale
+
+TimeScale *-down-> TaskCell
+TimeScale *-down-> TimeScaleCell
+
+TaskDetailPanel *-down-> TaskDetailSkin
+TaskDetailPanel *-down-> CommandBox
+TaskDetailPanel *-down-> TaskListPanel
+
+TaskListPanel -down-> TaskListCard
+@enduml

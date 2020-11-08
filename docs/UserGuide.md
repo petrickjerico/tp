@@ -256,13 +256,13 @@ to your `SCHEDULE`.
 1\. Enter the `add task` command, including the specific information of the `TASK`.
 ![addTask1](images/addTask1.png)
 
-<div align="center"> Figure __. Using `add task` command</div>  
+<div align="center"> Figure __. Using <code>add task</code> command</div>  
 <br>
 
 2\. After using the `add task` command, the new `TASK` will be added to the end of your `SCHEDULE` by default.
 ![addTask2](images/addTask2.png)
 
-<div align="center">Figure __. Result of `add task` command</div>    
+<div align="center">Figure __. Result of <code>add task</code> command</div>    
 <br>
 &nbsp;
 
@@ -276,13 +276,13 @@ the `QUIZ` to your schedule.
 1\. Enter the `add task` command, including the specific information of the `TASK`.
 ![addTaskWithQuiz1](images/addTaskWithQuiz1.png)
 
-<div align="center">Figure __. Using `add task` command integrate with `quiz`</div>  
+<div align="center">Figure __. Using <code>add task</code> command integrate with `quiz`</div>  
 <br>
 
 2\. After using the `add task` command, the new `TASK` of doing the `QUIZ` will be added to the end of your `SCHEDULE`.
 ![addTaskWithQuiz2](images/addTaskWithQuiz2.png)
 
-<div align="center">Figure __. Result of `add task` command integrating with `quiz`</div>    
+<div align="center">Figure __. Result of <code>add task</code> command integrating with `quiz`</div>    
 <br>
 
 3\. Click on the highlighted `Quiz CS2040` box in the `description` of the `TASK` will redirect you to the `QUIZ` tab and start the `QUIZ` immediately for you.  
@@ -307,13 +307,13 @@ If you would like to view your full `SCHEDULE`, this command displays the full `
 1\. Enter the command `list task`.
 ![listTask1](images/listTask1.png)
 
-<div align="center">Figure __. Using `list task` command on `SCHEDULE` tab</div>    
+<div align="center">Figure __. Using <code>list task</code> command on `SCHEDULE` tab</div>    
 <br>
 
 2\. After using the `list task` command, you can see the full `SCHEDULE`.
 ![listTask2](images/listTask2.png)
 
-<div align="center">Figure __. Result of `list task` command</div>
+<div align="center">Figure __. Result of <code>list task</code> command</div>
 
 <p>&nbsp;</p>
 
@@ -346,13 +346,13 @@ would like to update your `SCHEDULE` by deleting that `TASK`.
 2\. From the figure below, you can identify the `TASK` to be deleted has an `index` of 4, enter the command `delete task 4`.  
 ![deleteTask1](images/deleteTask1.jpg)
 
-<div align="center">Figure __. Using `delete task` command</div>  
+<div align="center">Figure __. Using <code>delete task</code> command</div>  
 <br>
 
 3\. After using the `delete task` command, the specified `TASK` is removed from your `SCHEDULE`.  
 ![deleteTask1](images/deleteTask2.png)
 
-<div align="center">Figure __. Result of `delete task` command</div>
+<div align="center">Figure __. Result of <code>delete task</code> command</div>
 
 <br>
 
@@ -381,14 +381,14 @@ searches for all `TASK`s containing _Lab 8_ in their `title`, `description` and 
 1\. Enter the command `search task Lab 8` to search for `TASK`s with the **keyword** _Lab 8_.  
 ![searchTask1](images/searchTask1.png)
 
-<div align="center">Figure __. Using `search task` command  </div>
+<div align="center">Figure __. Using <code>search task</code> command  </div>
 <br>
 
 2\. After using the `search task` command, StudyBananas displays all the `TASK`s with the
 specified **keyword**  
 ![searchTask2](images/searchTask2.png)
 
-<div align="center">Figure __. Result of `search task` command </div>
+<div align="center">Figure __. Result of <code>search task</code> command </div>
 
 <p>&nbsp;</p>
 
@@ -419,13 +419,13 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 1\. Enter the command `edit task 7 t: Thursday, Oct 29 2020 11:00` to edit the `TASK`.  
 ![editTask1](images/editTask1.jpg)
 
-<div align="center">Figure __. Using `edit task` command </div>
+<div align="center">Figure __. Using <code>edit task</code> command </div>
 <br>
 
 2\. After using the `edit task` command, the details of the `TASK` are updated accordingly.
 ![editTask2](images/editTask2.jpg)
 
-<div align="center">Figure __. Result of `edit task` command, the `TASK` at `index` 7 is updated </div>
+<div align="center">Figure __. Result of <code>edit task</code> command, the `TASK` at `index` 7 is updated </div>
 
 <p>&nbsp;</p>
 
@@ -560,7 +560,7 @@ as well as an instruction prompt to type in the next available commands,
 
 ![FirstQuestion](images/FirstQuestion.png)
 
-<div align="center">Figure __. Result of `quiz flset:CS2103T` command</div>
+<div align="center">Figure __. Result of <code> quiz flset:CS2103T</code> command</div>
 
 ##### 3.3.1.2. **Answering the question**
 If you would like to see your answer directly, enter `flip`. 
@@ -579,7 +579,7 @@ as shown below.
 
 ![AnswerShown](images/AnswerShown.png)
 
-<div align="center">Figure __. Result of `ans:improves code quality and reduces bugs` command</div>
+<div align="center">Figure __. Result of <code>ans:improves code quality and reduces bugs</code> command</div>
 
 ##### 3.3.1.3. **Checking if your answer is correct**
 Based on the correct answer, you may evaluate your own answer.
@@ -617,6 +617,8 @@ The last `QUIZ` attempt contains the following information:
 - Indicators of whether the question is answered correctly (shown as tick and cross)
 
 ![ViewScore](images/ViewScore.png)
+
+<div align="center">Figure __. Result of <code>quiz score flset:CS2103T</code> command</div>
 
 <p>&nbsp;</p>
 

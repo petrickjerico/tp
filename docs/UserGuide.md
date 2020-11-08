@@ -104,13 +104,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
                 <li><a href="#saving-the-data"><b>Saving the data</b></a></li>
             </ul>
         </li>
-<<<<<<< HEAD
-        <li><a href="#faq-teddy">4. FAQ (Teddy)</a></li>
-        <li><a href="#trouble-shooting-eddy">5. Trouble Shooting</a>
-=======
         <li><a href="#4-faq-teddy">4. FAQ (Teddy)</a></li>
-        <li><a href="#5- trouble-shooting-eddy">5. Trouble Shooting</a>
->>>>>>> c907a628ad25500af958678e551c6ee621d01a1e
             <ul>
                  <li><a href="#cannot-launch-the-application">5.1. Cannot launch the application</a>
                     <ul>
@@ -141,7 +135,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
     </ul>
 </div>
 
-<<<<<<< HEAD
+
 The above part is managed by Eddy.
 
 ## 1. Introduction (Binh)

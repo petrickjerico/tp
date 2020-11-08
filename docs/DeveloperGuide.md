@@ -307,7 +307,7 @@ Step 3. The user now knows what is the due date of the currently added task, and
 
 The following sequence diagram shows how the edit task operation works:
 
- ![EditTaskSeqDiagram](images/EditTaskSequenceDiagram.png)
+ ![EditTaskSeqDiagram](images/EditTaskSequenceDiagram2.png)
 
 #### Design consideration:
 

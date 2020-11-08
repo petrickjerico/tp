@@ -42,7 +42,8 @@ public class AddFlashcardCommandTest {
 
         CommandResult result = new AddFlashcardCommand(validFlashcard, INDEX_FIRST).execute(modelStub);
 
-        assertEquals(String.format(AddFlashcardCommand.MESSAGE_SUCCESS, validFlashcard), result.getFeedbackToUser());
+        assertEquals(String.format(AddFlashcardCommand.MESSAGE_SUCCESS, "Physics") + validFlashcard.toString(),
+                result.getFeedbackToUser());
         assertEquals(validFlashcard, modelStub.flashcardBank.getFlashcardSetList()
                 .get(INDEX_FIRST.getZeroBased())
                 .getFlashcard(INDEX_FIRST.getZeroBased()));

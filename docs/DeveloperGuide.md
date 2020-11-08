@@ -93,7 +93,7 @@ StudyBananas is an integration of 3 systems, namely Schedule, Quiz, and Flashcar
 
 The following is the step by step guide of how we structure Model component. We believe this structure reduces the coupling for models from different systems and preserves the benefit of **one component, one API**.
 
-Step1. Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still one API class for `Model` component.
+Step1. Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still the only one API class for `Model` component.
 
 ![ModelStructure-Step1](images/ModelStructure-Step1.png)
 
@@ -113,11 +113,11 @@ Step4. Finally, create our **"one and only one"** Model component API class - `M
 #### Analysis
 
   * Pros: 
-    1. It preserves the advantage of easier and faster cooperation for people working on different components because that there is only one API class required to work together.
+    1. It preserves the advantage of easy and fast cooperation for people working on different components because there is only one API class required to work together.
     2. It solves the problem that testers have to implement unrelated methods for `ModelStub` and avoids regression on unit tests of other `Model` when one `Model` is modified. Therefore, `Model` no longer breaks **Interface Segregation Principle**.
-    3. Although adding new systems still requires adding methods in the Model interface, it makes sure, there is no need to modify other `Model` and new `Model` can be included easily by having `Model API` extend it. Therefore, it meets the Open-Closed Principle.
+    3. Although adding new systems still requires adding methods in the Model interface, it makes sure that there is no need to modify other `Model` and new `Model` can be included easily by having `Model API` extend it. Therefore, it meets the **Open-Closed Principle**.
   * Cons: 
-    1. It still breaks the Single Responsibility Principle, for `Model`is no longer responsible for one model at a time, it holds accountable for models from 3 systems at the same time.
+    1. It still breaks the **Single Responsibility Principle**, for `Model`is no longer responsible for one model at a time, it holds accountable for models from 3 systems at the same time.
 
 #### Structure for individual `Model`
 
@@ -138,37 +138,35 @@ StudyBananas contains three pages for three different systems. A user can naviga
 
 Our team divides `UI state` into two categories and manage their changes in two different ways, the following table provides the definition of these two types of state.
 
-| Terminology         | Definition                                                                                                                                                                 |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Static State         | The objects that would be used in many `UI` components, but there wouldn't be any changes made to them or no components listen to their changes. |
-| Dynamic State | The objects related to any reactive UI behavior. In other words, multiple components listen to the changes of them and we would expect view updates from the components when the state is changed.|                                                                                              |
+| Terminology         | Definition                                                                                                                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Static State        | The objects that would be used in many `UI` components, but either there wouldn't be any changes made to them or they might be changed, but no components listen to their changes.                | 
+| Dynamic State       | The objects related to any reactive UI behavior. In other words, multiple components listen to the changes of them and we would expect view updates from the components when the state is changed.|                                                                                              |
  
-For the reason that these two states have intrinsic difference in their complexity (dynamic state is much more complicated than the static state), we handle them differently in `UI` component. The following paragraph explain our implementation on the two types of state.
+For the reason that these two states have intrinsic difference in their complexity (`dynamic state` is much more complicated than the `static state`), we handle them differently in `UI` component. The following paragraphs explain our implementation on them separately.
  
 #### **Static State**
 
 #### Reasoning
 
-When our team starts to improve the user experience of the graphical user interface, the first pain that came to our notice is that many components have the need for certain objects(static state), but due to the fact that `Ui Components` tend to nest each other, the developer might need to pass the object(static state) down in a deep nested component. 
+When our team starts to improve the user experience of the graphical user interface, the first pain that came to our notice is that many components have the need for certain objects(`static state`), but due to the fact that `Ui Components` tend to nest each other, the developer might need to pass the object(`static state`) down to a deep nested component. 
 For example, many components take advantage of `Logic` object to communicate with the persistence data in `Model` component to provide accurate view of data.
-The picture below is the simplified class diagram for `Ui Components`, and the `Components` with deep green color depend of the `Logic` object. The red path is the deepest path that `Logic` object would need to be passed. It shows the drawback of the original implementation.
+The picture below is the simplified class diagram for `Ui Components`, and the `Components` with dark green color depend on the `Logic` object. The red path is the deepest path that `Logic` object would need to be passed. You can observe the deep nested dependency in the graph.
 
 ![UiGlobalStateProblem](images/UiGlobalStateProblem.png)
 
 #### Implementation (Solution)
 
-The most intuitive solution is to make those `static state` globally accessible to everyone so that it does not need to be passed. Instead, we only need to create a dependency for the components that require the `static state`. 
+The most intuitive solution is to make those `static states` globally accessible to every `Component`. By doing this, the `static state`  does not need to be passed. Instead, only the `components` that require the `static state` need to depend on it. The following paragraph shows the step-by-step guide of the implementation. 
 
-Step1. Create a class named `GlobalState` and make it singleton, and set the `static state` as the attribute of `GlobalState`. Then, set the attribute in the component where the `static state` is first created to make sure that when other components require the `static state`, it has already been registered in the `GlobalState`.
-<div markdown="span" class="alert alert-info">:information_source: Note our static state can still be modified, (see the definition from <a href="#overall-structure">overall structure</a>) that is why <div class="code">GlobalState</div> has to be singleton.
-</div>
+Step1. Create a class named `GlobalState` and make it singleton, and set the `static states` as the attributes of `GlobalState`. Then, use the set method to set the attribute of the `GlobalState` in the component where the `static state` is first created so that we are certain that when other components try to get the `static state` from the `GlobalState`, the `static state` has already been registered in the `GlobalState`.
+<div markdown="span" class="alert alert-info">:information_source: Note: our static state can still be modified, (see the definition from <a href="#overall-structure">overall structure</a>) that is why <div class="code">GlobalState</div> has to be singleton.</div>
 
 ![UiGlobalStateProblem](images/UiGlobalStateSolution-1.png)
 
 Step2. Have the components that require the `static state` depend on the `GlobalState` to fetch and update the `static state` easily.
 
-<div markdown="span" class="alert alert-info">:information_source: Note from the picture, there is no need to pass the <div class="code"> static state</div> around anyone, the structure is thereby flatten.
-</div>
+<div markdown="span" class="alert alert-info">:information_source: Note: in the picture, there is no need to pass the <div class="code"> static state</div> around anyone, the structure is thereby flatten.</div>
 
 ![UiGlobalStateProblem](images/UiGlobalStateSolution-2.png)
 
@@ -177,40 +175,43 @@ Step2. Have the components that require the `static state` depend on the `Global
 
   * Pros: 
     1. This structure makes it easier for the developer to maintain the `Ui components` because there is no need to pass `static state` as arguments for the constructor anymore
-    2. It avoids dummy arguments in constructor. For example, given the following component structure A -> B -> C, if A and C both require a common `static state`, in the original implementation, the constructor in B would need to have one more argument for the `static state` which is not used in `Component B` except for constructing `Component C`. In this sense, the `static state` is dummy inside the constructor B.
+    2. It avoids dummy arguments in some constructors. For example, given the following component structure A -> B -> C, if A and C both require a common `static state`, in the original implementation, the constructor in B would need to have one more argument for the `static state` which is not used in `Component B` except for constructing `Component C`. In this sense, the `static state` is dummy inside the constructor B.
   * Cons: 
     1. Every components are able to get access and modify the `static state`, the modification done to a `static state` in one class by a developer can cause unexpected behavior when another developer is using the same `static state` in other components.
     
-<div markdown="span" class="alert alert-info">:information_source: Note the idea of <div class="code">GlobalState</div> is inspired by <a href="https://redux.js.org">Redux</a>. It has a much more complicated structure than what we have here.
-</div>
+<div markdown="span" class="alert alert-info">:information_source: Note: the idea of <div class="code">GlobalState</div> is inspired by <a href="https://redux.js.org">Redux</a>. It has a much more complicated structure than what we have here.</div>
 
 #### **Dynamic State**
 
 #### Reasoning
 
-In the UI design phase, our team decided to build a sidebar and expected it to allow user to navigate through different pages by clicking. It was the first time that we found out that there are multiple components listening to the changes of the `PageState` and there is a need for them to update their view based on the state.
-Therefore, an intuitive solution would be **observer pattern**. In which we have the components that subscribes to the changes of the state be the **Observer**, while the target **`dynamic state`** would be the **Observable** object.
-Nonetheless, as the complexity of the `UI` increased, the original structure is not enough to solve the reactive behavior as some components would have a need to subscribe to multiple `dynamic state`, while simple observer pattern only allows
-the `observer` to subscribe to one `observable` object because implementing Observer<T> and Observer<U/> are not allowed in java. 
-In the end, we end up creating mediator classes named `Listeners` which subscribe to **one** specific `dynamic state`, and have the `Component` which would originally need to subscribe to two `dynamic state` depend on two (or more) `Listeners`.
-However, the change of the `static state` should update the view for the `Component`, as we pass the responsibility of subscribing to the `Listeners`, the `Listeners` should be able to 
-update the view of `Component`. To quip `Listeners` with the ability to update the view, the `Component` created a `CallBack` and passed it as argument when creating the `Listeners`.
+In the UI design phase, our team decided to build a sidebar and expected it to allow user to navigate through different pages by clicking. It was the first time that we found out that there are multiple components listening to the changes of the `PageState` and there is a need for them to update their view based on the `PageState`.
+Therefore, an intuitive solution would be **observer pattern**. In which we have the components that subscribe to the changes of the `dynamic state` be the **Observer**, while the target **`dynamic state`** would be the **Observable** object.
+Nonetheless, as the complexity of the `UI` increased, the original structure is not enough to solve the reactive behavior as some components would have a need to subscribe to multiple `dynamic states`, while simple observer pattern only allows
+the `observer` to subscribe to one `observable` object because implementing Observer &lt;T&gt; and Observer &lt;U&gt; at the same time is not allowed in **java**. 
+In the end, we decided to create mediator classes named `Listeners` which subscribe to **one** specific `dynamic state`, and have the `Component` which originally need to subscribe to more than `dynamic states` depend on multiple `Listeners`.
+However, the change of the `static state` should update the view for the `Component`. Before introducing `Listeners`, the view update is specified in the `Component` itself, as now we pass the responsibility of subscribing to the `Listeners`, the `Listeners` would then be in charge of
+the update of the the `Component`'s view. To quip `Listeners` with the ability to update the view, the `Component` created a `CallBack` and passed it as argument when creating the `Listeners`.
 
 #### Implementation 
 
-Step1. Create `CallBack` object inside the `UiComponent`. Specify how the view of the `UiComponent` is supposed to changed on the update of the `dynamic state`. Then construct a `Listener` with the `CallBack` being the argument to finish the process of subscribing. The picture below shows the dependency between them.
+Step1. Create `CallBack` object inside the `UiComponent`. In the `CallBack`, we specify how the view of the `UiComponent` is supposed to changed on the update of the `dynamic state`. Then construct a `Listener` with the `CallBack` being the argument to finish the process of subscribing. The picture below shows the dependency between them.
 
 ![UiListenerSubscribe](images/UiListenerSubscribe.png)
 
-Step2. When the `dynamic state` is updated, it will then inform all the `Listeners`, and the `Listeners` would consequently change the view of the `UiComponent` accordingly. The following two diagrams show the flow.
+Step2. When the `dynamic state` is updated, it will then inform all the `Listeners`, and the `Listeners` would consequently change the view of the `UiComponent` by triggering the `CallBack`. The following two diagrams show the flow.
+
+#### Flow
 
 ![UiListenerUpdate](images/UiListenerUpdate.png)
+
+#### Sequential diagram
 
 ![UiListenerUpdateSequence](images/UiListenerUpdateSequence.png)
 
 #### Structure for individual `Ui` page
 
-The following paragraphs would briefly go through the class diagrams of three `Ui` pages.
+The following paragraphs provide the class diagrams of the three `Ui` pages.
 
 #### `ScheduleUi`
 

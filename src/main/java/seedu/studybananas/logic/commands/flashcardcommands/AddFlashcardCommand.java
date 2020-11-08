@@ -22,7 +22,7 @@ import seedu.studybananas.model.flashcard.FlashcardSet;
 public class AddFlashcardCommand extends Command<FlashcardModel> {
 
     public static final String COMMAND_WORD = "add fl";
-    public static final String MESSAGE_SUCCESS = "New flashcard added: %1$s";
+    public static final String MESSAGE_SUCCESS = "New flashcard added to %1$s:";
     public static final String MESSAGE_DUPLICATE_FLASHCARD =
             "This flashcard already exists in the given flashcard set.";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a flashcard to a flashcard set. \n"
@@ -61,7 +61,8 @@ public class AddFlashcardCommand extends Command<FlashcardModel> {
 
             model.addFlashcard(flashcardSet, toAdd);
             model.setFlashcardSetToView(flashcardSetIndex);
-            return new FlashcardCommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+            return new FlashcardCommandResult(
+                    String.format(MESSAGE_SUCCESS, flashcardSet.getName()) + toAdd.toString());
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException(Messages.MESSAGE_INVALID_FLASHCARDSET_DISPLAYED_INDEX);
         }

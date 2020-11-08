@@ -85,6 +85,16 @@ The sections below give more details of each component.
 
 ### Model
 
+**API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/model/Model.java)
+
+The `Model`,
+
+* stores the schedule, flashcard, and quiz history data.
+* depends on three `ModelManagers`
+* does not depend on any of the other three components.
+
+The following paragraphs explain the structure of `Model` component.
+
 #### Overall Structure
 
 StudyBananas is an integration of 3 systems, namely Schedule, Quiz, and Flashcard. As mentioned in  [Architecture](#architecture), we only have one API class (Model) for models from all three systems, this decision incurs strong couplings between three systems, resulting in many regression in the unit tests during the development. Therefore, to solve this problem, we introduce one more layer of abstraction for Model components to reduce the couplings. This section describes our implementation and analysis.
@@ -132,6 +142,20 @@ Step4. Finally, create our **"one and only one"** Model component API class - `M
 
 ### UI component
 
+**API** :
+[`Ui.java`](hhttps://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/ui/Ui.java)
+
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PTaskListPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+
+The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/resources/view/MainWindow.fxml)
+
+The `UI` component,
+
+* Executes user commands using the `Logic` component.
+* Listens for changes to `Model` data so that the UI can be updated with the modified data.
+
+The following paragraphs explain the structure of `UI` component in detail.
+
 #### Overall Structure
 
 StudyBananas contains three pages for three different systems. A user can navigate between different systems by entering commands or clicking on the tabs. Compared with **AddressBook3**, StudyBananas has a much higher complexity for **`UI`** component for the reason that StudyBananas supports navigation through clicking, which would require a **state management** structure to realize.
@@ -160,14 +184,21 @@ The picture below is the simplified class diagram for `Ui Components`, and the `
 The most intuitive solution is to make those `static states` globally accessible to every `Component`. By doing this, the `static state`  does not need to be passed. Instead, only the `components` that require the `static state` need to depend on it. The following paragraph shows the step-by-step guide of the implementation. 
 
 Step1. Create a class named `GlobalState` and make it singleton, and set the `static states` as the attributes of `GlobalState`. Then, use the set method to set the attribute of the `GlobalState` in the component where the `static state` is first created so that we are certain that when other components try to get the `static state` from the `GlobalState`, the `static state` has already been registered in the `GlobalState`.
-<div markdown="span" class="alert alert-info">:information_source: Note: our static state can still be modified, (see the definition from <a href="#overall-structure">overall structure</a>) that is why <div class="code">GlobalState</div> has to be singleton.</div>
+
+<div markdown="span" class="alert alert-info">:information_source: Note: our static state can still be modified, (see the definition from <a href="#overall-structure">overall structure</a>) that is why 
+    <div class="code">GlobalState</div> has to be singleton.
+    
+</div>
 
 ![UiGlobalStateProblem](images/UiGlobalStateSolution-1.png)
 
 Step2. Have the components that require the `static state` depend on the `GlobalState` to fetch and update the `static state` easily.
 
-<div markdown="span" class="alert alert-info">:information_source: Note: in the picture, there is no need to pass the <div class="code"> static state</div> around anyone, the structure is thereby flatten.</div>
-
+<div markdown="span" class="alert alert-info">:information_source: Note: in the picture, there is no need to pass the 
+    <div class="code"> static state</div> around anyone, the structure is thereby flatten.
+    
+</div>
+    
 ![UiGlobalStateProblem](images/UiGlobalStateSolution-2.png)
 
 
@@ -179,7 +210,11 @@ Step2. Have the components that require the `static state` depend on the `Global
   * Cons: 
     1. Every components are able to get access and modify the `static state`, the modification done to a `static state` in one class by a developer can cause unexpected behavior when another developer is using the same `static state` in other components.
     
-<div markdown="span" class="alert alert-info">:information_source: Note: the idea of <div class="code">GlobalState</div> is inspired by <a href="https://redux.js.org">Redux</a>. It has a much more complicated structure than what we have here.</div>
+<div markdown="span" class="alert alert-info">:information_source: Note: the idea of 
+    <div class="code">GlobalState</div> is inspired by 
+    <a href="https://redux.js.org">Redux</a>. It has a much more complicated structure than what we have here.
+    
+</div>
 
 #### **Dynamic State**
 
@@ -225,19 +260,6 @@ The following paragraphs provide the class diagrams of the three `Ui` pages.
 
 ![QuizUi](images/QuizUi.png)
 
-**API** :
-[`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
-
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
-
-The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
-
-The `UI` component,
-
-* Executes user commands using the `Logic` component.
-* Listens for changes to `Model` data so that the UI can be updated with the modified data.
-
-<p>&nbsp;</p>
 
 ### **3.3. Logic component**
 
@@ -267,28 +289,8 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 <p>&nbsp;</p>
 
-### **3.4. Model component**
 
-![Structure of the Model Component](images/ModelClassDiagram.png)
-
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
-
-The `Model`,
-
-* stores a `UserPref` object that represents the user’s preferences.
-* stores the address book data.
-* exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
-* does not depend on any of the other three components.
-
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `StudyBananas`, which `Person` references. This allows `StudyBananas` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
-![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
-
-</div>
-
-<p>&nbsp;</p>
-
-### **3.5. Storage component**
+### **3.6. Storage component**
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
@@ -300,7 +302,7 @@ The `Storage` component,
 
 <p>&nbsp;</p>
 
-### **3.6. Common classes**
+### **3.7. Common classes**
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 --------------------------------------------------------------------------------------------------------------------
@@ -316,86 +318,6 @@ This section describes some noteworthy details on how certain features are imple
 The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `FlashcardBank` contains a list of `FlashcardSet`. Each `FlashcardSet` contains a list of `Flashcard`.
 
 ![Flashcard Class Diagram](diagrams/FlashcardClassDiagram.png)
-
-### \[Proposed\] Undo/redo feature
-
-#### Proposed Implementation
-
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `StudyBananas` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
-
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
-
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
-
-![UndoRedoState0](images/UndoRedoState0.png)
-
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
-
-![UndoRedoState1](images/UndoRedoState1.png)
-
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
-</div>
-
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
-
-![UndoRedoState3](images/UndoRedoState3.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial StudyBananas state, then there are no previous StudyBananas states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
-
-The following sequence diagram shows how the undo operation works:
-
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone StudyBananas states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-![CommitActivityDiagram](images/CommitActivityDiagram.png)
-
-#### Design consideration:
-
-##### Aspect: How undo & redo executes
-
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
-
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
 
 ### Edit Task feature
 

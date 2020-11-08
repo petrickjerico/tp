@@ -65,7 +65,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
             <ul>
                 <li><a href="#31-commands-for-the-schedule-page-binh">3.1. Commands for the <div class="code">SCHEDULE</div> page (Binh)</a>
                      <ul>
-                        <li><a href="#311-view-the-details-of-your-task-eddy">3.1.1. <b>3.1.1. View the details of your task</b>:</a></li>
+                        <li><a href="#311-view-the-details-of-your-task-eddy">3.1.1. <b>View the details of your task</b>:</a></li>
                         <li><a href="#312-add-a-task-add-task">3.1.2. <b>Add a task</b>: <div class="code">add task</div></a></li>
                         <li><a href="#313-list-all-your-tasks-list-task">3.1.3. <b>List tasks all your tasks</b>: <div class="code">list task</div></a></li>
                         <li><a href="#314-delete-a-task-delete-task">3.1.4. <b>Delete a task</b>: <div class="code">delete task</div></a></li>
@@ -104,8 +104,13 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
                 <li><a href="#saving-the-data"><b>Saving the data</b></a></li>
             </ul>
         </li>
+<<<<<<< HEAD
         <li><a href="#faq-teddy">4. FAQ (Teddy)</a></li>
         <li><a href="#trouble-shooting-eddy">5. Trouble Shooting</a>
+=======
+        <li><a href="#4-faq-teddy">4. FAQ (Teddy)</a></li>
+        <li><a href="#5- trouble-shooting-eddy">5. Trouble Shooting</a>
+>>>>>>> c907a628ad25500af958678e551c6ee621d01a1e
             <ul>
                  <li><a href="#cannot-launch-the-application">5.1. Cannot launch the application</a>
                     <ul>
@@ -118,14 +123,14 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
                   <li><a href="#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly">5.3. My data is gone after I manipulate the data in the data folder directly</a></li>
              </ul>
         </li>
-        <li><a href="#community-and-security">6. Community and Security</a>
+        <li><a href="#6-community-and-security-eddy">6. Community and Security</a>
             <ul>
                 <li><a href="#user-data">6.1. User Data</a></li>
                 <li><a href="#study-community">6.2. Study Community</a></li>
             </ul>
         </li>
-         <li><a href="#bug-report">7. Bug report</a></li>
-        <li><a href="#command-summary">8. Command summary</a>
+         <li><a href="#7-bug-report-eddy">7. Bug report</a></li>
+        <li><a href="#8-command-summary">8. Command summary</a>
             <ul>
                 <li><a href="#schedule-commands-binh">8.1. Task list commands (Binh)</a></li>
                 <li><a href="#flashcard-commands-teddy">8.2. Flashcard commands (Teddy)</a></li>
@@ -143,7 +148,7 @@ The above part is managed by Eddy.
 
 Are you a student of secondary to tertiary education level,
 who is a fan of **using flashcards to understand concepts**,
-use your laptop often,
+use your laptop often, 
 and would like to **schedule your study sessions efficiently**?
 If so, we have the product just for you!
 
@@ -720,7 +725,7 @@ StudyBananas saves data in the hard disk automatically after any command that ch
 
 ---
 
-## FAQ (Teddy)
+## 4. FAQ (Teddy)
 
 **Q: Is StudyBananas free?**<br>
 **A**: Yes, StudyBananas is absolutely free to use!
@@ -749,7 +754,7 @@ StudyBananas saves data in the hard disk automatically after any command that ch
 <p>&nbsp;</p>
 
 ---
-## Trouble Shooting (Eddy)
+## 5. Trouble Shooting (Eddy)
 
 ### Cannot launch the application
 
@@ -801,7 +806,7 @@ be able to see the updated data.
 
 ---
 
-## Community and security (Eddy)
+## 6. Community and security (Eddy)
 
 ### User data
 
@@ -827,8 +832,7 @@ upcoming cloud community will not support chat room or other social media like f
 StudyBananas will still be optimized without internet connection.
 
 ---
-
-## Bug report (Eddy)
+## 7. Bug report (Eddy)
 
 Version 1.4 StudyBananas is still under testing phase. Version 1.4 release would serve
 as the public beta testing for StudyBananas. We have done comprehensive amount of unit tests 
@@ -838,7 +842,7 @@ any bugs or have any suggestions on the application, please go to
 <a href="https://github.com/AY2021S1-CS2103T-F12-2/tp/issues">our github issue page</a> to 
 issue the bugs and the suggestions. Great appreciation from the development team of StudyBananas.
 
-## Command summary
+## 8. Command summary
 
 ### `SCHEDULE` commands (Binh)
 

@@ -1,0 +1,27 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR_T1
+skinparam classBackgroundColor MODEL_COLOR
+skinparam classBorderColor MODEL_COLOR_T1
+
+Class Schedule
+
+Package Task {
+Class Task
+Class Title
+Class Description
+Class DateTime
+Class Duration
+Class UniqueTaskList
+}
+
+Schedule *-down-> "1" UniqueTaskList
+Schedule -[hidden]-> Title
+UniqueTaskList o-down-> "*" Task
+Task *-down-> "1" Title
+Task *-down-> "0..1" Description
+Task *-down-> "0..1" DateTime
+Task *-down-> "0..1" Duration
+
+@enduml

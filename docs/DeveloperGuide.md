@@ -2,20 +2,46 @@
 layout: page
 title: Developer Guide
 ---
+
+# StudyBananas - Developer Guide
+
+By: `AY2021S1-CS2103T-F12-2`
+
 * Table of Contents
 {:toc}
 
---------------------------------------------------------------------------------------------------------------------
+<p>&nbsp;</p>
 
-## **Setting up, getting started**
+## 1. Introduction
+---
+
+This document is a Developer Guide written for developers who wish to contribute to or extend our project. It is technical, and explains the inner workings of StudyBananas and how the different components of our application work together.
+
+**Reading this Developer Guide**
+
+| Icon | Remarks                                                                 |
+|:----:|-------------------------------------------------------------------------|
+|   💡  | This icon denotes useful tips to note of during development.            |
+|   ❗️  | This icon denotes important details to take note of during development. |
+
+<p></p>
+
+The diagrams in this Developer Guide are colour coded according to the different components.
+
+<p></p>
+
+![diagram-legend](images/dg-diagram-legend.png)
+
+<p>&nbsp;</p>
+
+## **2. Setting up and getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
---------------------------------------------------------------------------------------------------------------------
 
-## **Design**
+## **3. Design**
 
-### Architecture
+### **3.1. Architecture**
 
 <img src="images/ArchitectureDiagram.png" width="450" />
 

@@ -6,19 +6,38 @@ skinparam classBackgroundColor STORAGE_COLOR
 
 Interface Storage <<Interface>>
 Interface UserPrefsStorage <<Interface>>
-Interface AddressBookStorage <<Interface>>
+Interface ScheduleStorage <<Interface>>
+Interface FlashcardBankStorage <<Interface>>
+Interface QuizRecordsStorage <<Interface>>
+
 
 Class StorageManager
 Class JsonUserPrefsStorage
-Class JsonAddressBookStorage
+Class JsonScheduleStorage
+Class JsonFlashcardBankStorage
+Class JsonQuizRecordsStorage
 
 StorageManager .left.|> Storage
 StorageManager o-right-> UserPrefsStorage
-StorageManager o--> AddressBookStorage
+StorageManager o--> ScheduleStorage
+StorageManager o--> FlashcardBankStorage
+StorageManager o--> QuizRecordsStorage
+
 
 JsonUserPrefsStorage .left.|> UserPrefsStorage
-JsonAddressBookStorage .left.|> AddressBookStorage
-JsonAddressBookStorage .down.> JsonSerializableAddressBookStorage
-JsonSerializableAddressBookStorage .right.> JsonSerializablePerson
-JsonSerializablePerson .right.> JsonAdaptedTag
+JsonScheduleStorage .down.> JsonSerializableSchedule
+JsonScheduleStorage .up.|> ScheduleStorage
+JsonSerializableSchedule .down.> JsonAdaptedTask
+JsonAdaptedTask .down.> JsonAdaptedDateTime
+
+JsonFlashcardBankStorage .up.|> FlashcardBankStorage
+JsonFlashcardBankStorage .down.> JsonSerializableFlashcardBank
+JsonSerializableFlashcardBank o-down-> JsonAdaptedFlashcardSet
+JsonAdaptedFlashcardSet .down.> JsonAdaptedFlashcard
+
+JsonQuizRecordsStorage .up.|> QuizRecordsStorage
+JsonQuizRecordsStorage .down.> JsonSerializableQuizRecords
+JsonSerializableQuizRecords .down.> JsonAdaptedFlashcardSetName
+JsonSerializableQuizRecords .down.> JsonAdaptedQuiz
+JsonAdaptedQuiz o--> JsonAdaptedFlashcardSet
 @enduml

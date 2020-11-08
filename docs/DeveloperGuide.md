@@ -151,7 +151,7 @@ The `Model`,
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
-* can save the address book data in json format and read it back.
+* can save the `Schedule`, `FlashcardBank` and `QuizRecords` data in json format and read it back.
 
 <p>&nbsp;</p>
 

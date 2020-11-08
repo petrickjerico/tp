@@ -136,7 +136,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
     </ul>
 </div>
 
-## **1. Introduction** (Binh)
+## 1. Introduction (Binh)
 
 Are you a student of secondary to tertiary education level,
 who is a fan of **using flashcards to understand concepts**,

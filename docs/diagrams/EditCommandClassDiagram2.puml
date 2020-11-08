@@ -1,0 +1,34 @@
+@startuml
+
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+skinparam objectBackgroundColor MODEL_COLOR
+
+Title A new task is created
+
+Object ":UniqueTaskList" as UniqueTaskList
+Object "task1:Task" as task1
+Object "task2:Task" as task2
+Object "task3:Task" as task3
+Object "task4:Task" as task4
+Object "editedTask4:Task" as task5
+Object ":Title" as Title
+object "initialDesc:Description" as desc0
+desc0 : description = "test"
+object "editedDesc:Description" as desc1
+desc0 : description = "test"
+
+
+UniqueTaskList --> task1
+UniqueTaskList --> task2
+UniqueTaskList --> task3
+task4 *--> Title
+task4 *--> desc0
+UniqueTaskList --> task4
+task5 *--> Title
+task5 *--> desc1
+
+
+@enduml

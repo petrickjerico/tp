@@ -1,0 +1,19 @@
+@startuml
+
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+Class Task
+Class Title
+Class Description
+Class DateTime
+Class Duration
+
+Task *--> "1" Title
+Task *--> "0..1" Description
+Task *--> "0..1" DateTime
+Task *--> "0..1" Duration
+
+@enduml

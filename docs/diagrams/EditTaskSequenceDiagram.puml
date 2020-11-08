@@ -1,0 +1,97 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":StudyBananasParser" as StudyBananasParser LOGIC_COLOR
+participant ":ScheduleParser" as ScheduleParser LOGIC_COLOR
+participant ":ScheduleEditCommandParser" as ScheduleEditCommandParser LOGIC_COLOR
+participant "e:ScheduleEditCommand" as ScheduleEditCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "sm:ScheduleModel" as ScheduleModel MODEL_COLOR
+participant "s:Schedule" as Schedule MODEL_COLOR
+participant ":UniqueTaskList" as UniqueTaskList MODEL_COLOR
+end box
+
+[-> LogicManager : execute("edit task 1 T: Test")
+activate LogicManager
+
+LogicManager -> StudyBananasParser : parseCommand("edit task 1 T: Test")
+activate StudyBananasParser
+
+create ScheduleParser
+StudyBananasParser -> ScheduleParser
+activate ScheduleParser
+
+ScheduleParser --> StudyBananasParser : parser
+deactivate ScheduleParser
+
+StudyBananasParser -> ScheduleParser : parse("edit task 1 T: Test")
+activate ScheduleParser
+
+create ScheduleEditCommandParser
+ScheduleParser -> ScheduleEditCommandParser
+activate ScheduleEditCommandParser
+
+ScheduleEditCommandParser --> ScheduleParser
+deactivate
+
+ScheduleParser -> ScheduleEditCommandParser : parse()
+activate ScheduleEditCommandParser
+
+create ScheduleEditCommand
+ScheduleEditCommandParser -> ScheduleEditCommand
+activate ScheduleEditCommand
+
+ScheduleEditCommand -->ScheduleEditCommandParser : e
+deactivate
+
+ScheduleEditCommandParser --> ScheduleParser : e
+deactivate
+
+ScheduleParser --> StudyBananasParser : e
+deactivate
+
+StudyBananasParser --> LogicManager : e
+deactivate
+
+LogicManager -> ScheduleEditCommand : e.execute()
+activate ScheduleEditCommand
+
+ScheduleEditCommand -> ScheduleModel : sm.setTask()
+activate ScheduleModel
+
+ScheduleModel -> Schedule : s.setTask()
+activate Schedule
+
+Schedule -> UniqueTaskList : setTask()
+activate UniqueTaskList
+
+UniqueTaskList --> Schedule
+deactivate UniqueTaskList
+
+Schedule --> ScheduleModel
+deactivate Schedule
+
+ScheduleModel --> ScheduleEditCommand
+deactivate ScheduleModel
+
+create CommandResult
+ScheduleEditCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> ScheduleEditCommand
+deactivate
+
+ScheduleEditCommand --> LogicManager : result
+deactivate
+
+[<--LogicManager
+deactivate LogicManager
+
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+
+@enduml

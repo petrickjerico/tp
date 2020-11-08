@@ -1,8 +1,9 @@
 @startuml
 !include style.puml
 skinparam arrowThickness 1.1
-skinparam arrowColor STORAGE_COLOR
+skinparam arrowColor STORAGE_COLOR_T1
 skinparam classBackgroundColor STORAGE_COLOR
+skinparam classBorderColor STORAGE_COLOR_T1
 
 Interface Storage <<Interface>>
 Interface UserPrefsStorage <<Interface>>

@@ -1,23 +1,14 @@
 @startuml
-skinparam classAttributeIconSize 0
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR_T1
+skinparam classBackgroundColor MODEL_COLOR
 
-Class StartCommand {
- + execute()
-}
-
-class QuizModelManager {
-+getQuestion()
-}
-
-class Quiz {
--flashcardSet:FlashcardSet
--totalScore:int = flashcardSetSize
--pointsScored:int = 0
--currentIndex:int = 0
-+getQuestion()
-}
+Class StartCommand LOGIC_COLOR
+Class QuizModelManager
+Class Quiz
 
 QuizModelManager -> "0..1" Quiz
-StartCommand --> Quiz
-StartCommand .> QuizModelManager
+StartCommand --> Quiz LOGIC_COLOR
+StartCommand .> QuizModelManager LOGIC_COLOR
 @enduml

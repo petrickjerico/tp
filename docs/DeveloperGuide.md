@@ -136,6 +136,7 @@ Step4. Finally, create our **"one and only one"** Model component API class - `M
 #### FlashcardModel
 
 #### QuizModel
+![QuizModelDiagram](images/QuizModelDiagram.png)
 
 
 ---------------------------------------------------------------------------------------------
@@ -391,14 +392,9 @@ The following sequence diagram shows how the `edit task` functionality works:
   * Pros: Will use less memory as there is no new creation of `TASK` object.
   * Cons: May result in side-effects such as there are out-of-dated versions of `SCHEDULE` throughout the program.
 
-### \[Proposed\] Data archiving
+### Quiz with storage of answers feature
 
-_{Explain here how the data archiving feature will be implemented}_
-
-
-### \[Proposed\] Quiz with storage of answers feature
-
-#### Proposed Implementation
+#### Implementation
 
 The proposed quiz with storage of answers mechanism is facilitated by `Quiz` and `QuizModelManager`, which implements the `QuizModel` interface. 
 It makes use of an array of answer strings as an attribute, stored within a `Quiz` object as `userAnswers`.
@@ -439,7 +435,7 @@ The user launches the application and starts the quiz for a non-empty, valid fla
 As a result, it creates a `QuizModelManager` object and a `StartCommand` object.
 Assume the flashcard set contains only two flashcards for simplicity.
 
-The call to `StartCommand#execute()` will allow the `Quiz` to be initialized with the initial quiz state with default values for score, 
+The call to `StartCommand#execute()` from `Logic` will allow the `Quiz` to be initialized with the initial quiz state with default values for score, 
 the `currentIndex` pointing to the index of the first flashcard, 
 and the current command result being the first question through the call of `Quiz#getQuestion()`.
 
@@ -469,7 +465,7 @@ This increments the `pointsScored` attribute in quiz.
 
 The following sequence diagram shows how this step works:
 
-![UpdateScoreSequenceDiagram](images/UpdateScoreSequenceDiagram.png)
+![CorrectCommandSequenceDiagram](images/CorrectCommandSequenceDiagram.png)
 
 The object created will check if the `currentIndex` (updated in the previous step) 
 is within bounds to obtain the next flashcard.

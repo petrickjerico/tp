@@ -1,4 +1,10 @@
 @startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor USER_COLOR
+skinparam classBackgroundColor USER_COLOR
+skinparam classBorderColor USER_COLOR
+
 start
 :User executes start quiz command;
 

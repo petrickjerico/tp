@@ -1,22 +1,13 @@
 @startuml
-skinparam classAttributeIconSize 0
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR_T1
+skinparam classBackgroundColor MODEL_COLOR
 
-class AnswerCommand {
- - userAnswer:String
- + execute()
-}
+class AnswerCommand LOGIC_COLOR
+class QuizModelManager
+class Quiz
 
-class QuizModelManager {
-+saveAnswer()
-+getAnswer()
-}
-
-class Quiz {
--userAnswers:String[]
-+saveAnswer()
-+getAnswer()
-}
-
-AnswerCommand .> QuizModelManager
+AnswerCommand .> QuizModelManager LOGIC_COLOR
 QuizModelManager -> "0..1" Quiz
 @enduml

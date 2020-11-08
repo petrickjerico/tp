@@ -12,6 +12,7 @@ end box
 
 box QuizModel MODEL_COLOR_T1
 participant ":QuizModel" as QuizModel MODEL_COLOR
+participant ":Quiz" as Quiz MODEL_COLOR
 end box
 
 [-> LogicManager : execute("c")
@@ -55,6 +56,18 @@ activate CorrectCommand
 
 CorrectCommand -> QuizModel : tallyScore(true)
 activate QuizModel
+
+QuizModel -> Quiz : setPointsScored(true)
+activate Quiz
+
+Quiz --> QuizModel
+deactivate Quiz
+
+QuizModel -> Quiz : getQuestion()
+activate Quiz
+
+Quiz --> QuizModel : next question
+deactivate Quiz
 
 QuizModel --> CorrectCommand
 deactivate QuizModel

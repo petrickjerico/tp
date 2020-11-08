@@ -641,30 +641,40 @@ The last `QUIZ` attempt contains the following information:
 
 If you are not sure of how a certain command works or what command would suit your needs, you can open the help window with this command to view all the available commands.
 
-| Format     | Remark                                                                                                        |
-| ---------- | ------------------------------------------------------------------------------------------------------------- |
-| **`help`** | Alternatively, you can click on the help button located at the bottom of the sidebar to open the help window. |
+| Format                              | `help`                                                                                                          |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| ![tip-icon](images/UG/tip_icon.png) | Alternatively, you can click on the `help` button located at the bottom of the sidebar to open the help window. |
 
 ![HelpButton](images/HelpButton.png)
 
-The help window shows most of the available CLI commands.
+<div align="center">Figure 3.4.1a: <code>help</code> button as shown</div>
+
+<br>
+
+**Expected Outcome:**
+
+The `help` window shows most of the available CLI commands.
 
 - The cyan label is the name of the command
 - The purple label lists all the arguments that you may enter.
 
 ![HelpWindow](images/HelpWindow.png)
 
+<div align="center">Figure 3.4.1b: <code>help</code> window as shown</div>
+
 <p>&nbsp;</p>
 
 #### 3.4.2. **Exit program**: `exit`
 
-If you would like to close the application, this command helps you to quickly close StudyBanas.
+If you would like to close the application, this command helps you to quickly close StudyBananas.
 
-| Format     | Remark                                                                                                          |
-| ---------- | --------------------------------------------------------------------------------------------------------------- |
-| **`exit`** | Alternatively, you can click on the close button located at the bottom of the sidebar to close the application. |
+| Format                              | `exit`                                                                                                          |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| ![tip-icon](images/UG/tip_icon.png) | Alternatively, you can click on the `exit` button located at the bottom of the sidebar to open the help window. |
 
 ![ExitButton](images/UG/ExitButton.png)
+
+<div align="center">Figure 3.4.2: <code>exit</code> button as shown</div>
 
 <p>&nbsp;</p>
 

@@ -9,13 +9,12 @@ package Logic {
 
 package Parser {
 Interface Parser <<Interface>>
-Class AddressBookParser
+Class StudyBananasParser
+Class FlashcardParser
+Class QuizParser
+Class ScheduleParser
+Class GeneralParser
 Class XYZCommandParser
-Class CliSyntax
-Class ParserUtil
-Class ArgumentMultimap
-Class ArgumentTokenizer
-Class Prefix
 }
 
 package Command {
@@ -36,25 +35,27 @@ Class HiddenOutside #FFFFFF
 HiddenOutside ..> Logic
 
 LogicManager .up.|> Logic
-LogicManager -->"1" AddressBookParser
-AddressBookParser .left.> XYZCommandParser: creates >
-
+LogicManager -->"1" StudyBananasParser
+StudyBananasParser ..> FlashcardParser
+StudyBananasParser ..> ScheduleParser
+StudyBananasParser ..> QuizParser
+StudyBananasParser ..> GeneralParser
+FlashcardParser ..|> Parser
+ScheduleParser ..|> Parser
+QuizParser ..|> Parser
+GeneralParser ..|> Parser
+FlashcardParser ..> XYZCommandParser : creates >
+ScheduleParser ..> XYZCommandParser : creates >
+QuizParser ..> XYZCommandParser : creates >
+GeneralParser ..> XYZCommandParser : creates >
 XYZCommandParser ..> XYZCommand : creates >
 XYZCommandParser ..|> Parser
-XYZCommandParser ..> ArgumentMultimap
-XYZCommandParser ..> ArgumentTokenizer
-ArgumentTokenizer .left.> ArgumentMultimap
-XYZCommandParser ..> CliSyntax
-CliSyntax ..> Prefix
-XYZCommandParser ..> ParserUtil
-ParserUtil .down.> Prefix
-ArgumentTokenizer .down.> Prefix
 XYZCommand -up-|> Command
 LogicManager .left.> Command : executes >
 
 LogicManager --> Model
 Command .right.> Model
-note right of XYZCommand: XYZCommand = AddCommand, \nFindCommand, etc
+note right of XYZCommand LOGIC_COLOR: XYZCommand = AddTaskCommand, \nQuizCommand, etc
 
 Logic ..> CommandResult
 LogicManager .down.> CommandResult

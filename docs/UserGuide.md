@@ -75,7 +75,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
                 </li>
                 <li><a href="#32-commands-for-the-flashcard-page-teddy">3.2. Commands for the <div class="code">FLASHCARD</div> page (Teddy)</a>
                     <ul>
-                        <li><a href="#321-add-a-flashcardset-add-flset">3.2.1. Add a flashcard set: <div class="code">add flset</div></a></li>
+                        <li><a href="#321-add-a-flashcardset-add-flset">3.2.1. <b>Add a flashcard set</b>: <div class="code">add flset</div></a></li>
                         <li><a href="#322-delete-a-flashcardset-delete-flset">3.2.2. <b>Delete a flashcard set</b>: <div
                                     class="code"> delete flset</div></a></li>
                         <li><a href="#323-list-flashcard-in-a-flashcardset-list-fl">3.2.3. <b>List flashcards in a

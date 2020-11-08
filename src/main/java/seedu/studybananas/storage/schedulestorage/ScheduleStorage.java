@@ -31,7 +31,7 @@ public interface ScheduleStorage {
     Optional<ReadOnlySchedule> readSchedule(Path filePath) throws DataConversionException, IOException;
 
     /**
-     * Saves the given {@link ReadOnlyAddressBook} to the storage.
+     * Saves the given {@link ReadOnlySchedule} to the storage.
      * @param schedule cannot be null.
      * @throws IOException if there was any problem writing to the file.
      */

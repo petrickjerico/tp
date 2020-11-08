@@ -12,6 +12,7 @@
 !define UI_COLOR_T2 #3FC71B
 !define UI_COLOR_T3 #166800
 !define UI_COLOR_T4 #0E4100
+!define UI_LIGHT_COLOR #bfbfbf
 
 !define LOGIC_COLOR #3333C4
 !define LOGIC_COLOR_T1 #C8C8FA
@@ -32,6 +33,8 @@
 !define STORAGE_COLOR_T2 #544400
 
 !define USER_COLOR #000000
+
+!define ALARM_COLOR #b32d00
 
 skinparam BackgroundColor #FFFFFFF
 

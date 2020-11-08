@@ -15,7 +15,7 @@ import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.commands.quizcommands.RefreshCommand;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
 import seedu.studybananas.model.quiz.Quiz;
-import seedu.studybananas.ui.CommandBox;
+import seedu.studybananas.ui.commons.CommandBox;
 import seedu.studybananas.ui.UiPart;
 import seedu.studybananas.ui.commons.PositiveResponse;
 import seedu.studybananas.ui.commons.ResponsePopUp;
@@ -72,12 +72,12 @@ public class QuizUi extends UiPart<Region> {
     /**
      * Constructs a QuizUi object.
      */
-    public QuizUi(ResponsePopUp responsePopUp) {
+    public QuizUi() {
         super(FXML);
         this.logic = GlobalState.getInstance().getLogic();
-        this.responsePopUp = responsePopUp;
+        this.responsePopUp = GlobalState.getInstance().getResponsePopUp();
 
-        flashcardSetListPanel = new FlashcardSetListPanel(logic);
+        flashcardSetListPanel = new FlashcardSetListPanel();
         flashcardSetListPanelPlaceholder.getChildren().add(flashcardSetListPanel.getRoot());
 
         resultDisplay = new QuizCard();

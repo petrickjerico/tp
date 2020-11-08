@@ -13,6 +13,7 @@ import seedu.studybananas.logic.commands.commandresults.FlashcardCommandResult;
 import seedu.studybananas.logic.commands.commandresults.GeneralCommandResult;
 import seedu.studybananas.logic.commands.exceptions.CommandException;
 import seedu.studybananas.logic.parser.exceptions.ParseException;
+import seedu.studybananas.ui.commons.CommandBox;
 import seedu.studybananas.ui.commons.ResultDisplay;
 import seedu.studybananas.ui.flashcardui.FlashcardSetListPanel;
 import seedu.studybananas.ui.flashcardui.FlashcardsDisplay;
@@ -72,7 +73,7 @@ public class FlashcardUi extends UiPart<Region> {
         // Set dependencies
         this.logic = GlobalState.getInstance().getLogic();
 
-        flashcardSetListPanel = new FlashcardSetListPanel(logic);
+        flashcardSetListPanel = new FlashcardSetListPanel();
         flashcardSetListPanelPlaceholder.getChildren().add(flashcardSetListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();

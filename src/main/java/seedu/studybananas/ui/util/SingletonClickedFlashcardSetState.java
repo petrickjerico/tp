@@ -13,9 +13,9 @@ public class SingletonClickedFlashcardSetState implements Observable {
     private FlashcardSet clickedFlashcardSet;
     private Logic logic;
 
-    private SingletonClickedFlashcardSetState(Logic logic) {
+    private SingletonClickedFlashcardSetState() {
         clickedFlashcardSet = null;
-        this.logic = logic;
+        this.logic = GlobalState.getInstance().getLogic();
     }
 
     /**
@@ -23,9 +23,9 @@ public class SingletonClickedFlashcardSetState implements Observable {
      * @param logic
      * @return
      */
-    public static synchronized SingletonClickedFlashcardSetState getInstance(Logic logic) {
+    public static synchronized SingletonClickedFlashcardSetState getInstance() {
         if (instance == null) {
-            instance = new SingletonClickedFlashcardSetState(logic);
+            instance = new SingletonClickedFlashcardSetState();
         }
         return instance;
     }

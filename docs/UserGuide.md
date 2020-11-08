@@ -773,23 +773,27 @@ StudyBananas saves data in the hard disk automatically after any command that ch
  
 #### Linux
 
-1. Open up your terminal, and type find / -name "java"
+1. Open up your terminal, and type `find / -name "java"`
 
-2. If the path for jdk is shown after the command, type export JAVA_HOME=/path/to/java/jdk1.x, otherwise Go to the <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the Lunix version JDK and install.
+2. If the path for jdk is shown after the command, type` export JAVA_HOME=/path/to/java/jdk1.x`, otherwise Go to the <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the Lunix version JDK and install.
 
 ### Cannot find my data locally
 
-Your schedule, flashcard, and quiz history data will be stored inside the folder named data which would reside in the folder where you put your StudyBananas.jar.
+Your schedule, flashcard, and quiz history data will be stored inside the folder named **data** which would reside in the folder where you put your StudyBananas.jar.
 
-If you still cannot find any default data, make sure you have type in at lease one command in the command box after your first launch, the default data would only be stored after the first command is executed.
+If you still cannot find any default data, make sure you have enter at lease one command in the command box after your first launch, the default data would only be stored after the first command is executed.
 
 ### My data is gone after I manipulate the data in the data folder directly
 
 The data is stored in the format of JSON for StudyBananas. Our development team does not recommend modifying data from the data folder directly, but 
-if after your edit, the data is not shown in your application, it is likely that the format of JSON file is wrong. Feel free to bring it in
-any text editor e.g. Visual Studio, Intellij... and have them help check if your JSON format is correct. After that, place the correct file with 
-correct JSON format back to the data folder and make sure the file name is the same as it was. Then, relaunch StudyBananas, you should 
+if after your edit, the data is not shown in your application, it is likely that the format of JSON file is wrong. Please open your storage file in
+text editors that support JSON file static check e.g. Visual Studio, Intellij... and modify your file into valid JSON format with the help of the text editor. 
+After your edit, place the file with correct JSON format back to the **data** folder and make sure the file name is the same as it was. Then, relaunch StudyBananas, you should 
 be able to see the updated data.
+
+|                                      |                                                                                                                                                                                                                                                  |
+| ----------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![important_icon](images/UG/important_icon.png)                                         | Note that: our application reads the storage files by its **path**, please make sure the storage files are named as **flashcardbank.json**, **quizrecords.json** and **schedule.json**                                                                                                                                                                                                                                                         |
 
 
 ---
@@ -829,7 +833,7 @@ and integration tests on the application, and have put StudyBananas under prelim
 testing by some students in NUS SoC. There can still be some unnoticed bugs. If you have spot
 any bugs or have any suggestions on the application, please go to 
 <a href="https://github.com/AY2021S1-CS2103T-F12-2/tp/issues">our github issue page</a> to 
-issue the bugs. Great appreciation from the developer team of StudyBananas.
+issue the bugs and the suggestions. Great appreciation from the development team of StudyBananas.
 
 ## Command summary
 

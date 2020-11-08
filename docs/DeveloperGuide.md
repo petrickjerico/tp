@@ -2,20 +2,43 @@
 layout: page
 title: Developer Guide
 ---
-* Table of Contents
-{:toc}
 
---------------------------------------------------------------------------------------------------------------------
+# StudyBananas - Developer Guide
 
-## **Setting up, getting started**
+By: `AY2021S1-CS2103T-F12-2`
+
+<p>&nbsp;</p>
+
+## **1. Introduction**
+
+This document is a Developer Guide written for developers who wish to contribute to or extend our project. It is technical, and explains the inner workings of StudyBananas and how the different components of our application work together.
+
+**Reading this Developer Guide**
+
+| Icon | Remarks                                                                 |
+|:----:|-------------------------------------------------------------------------|
+|   💡  | This icon denotes useful tips to note of during development.            |
+|   ❗️  | This icon denotes important details to take note of during development. |
+
+<p></p>
+
+The diagrams in this Developer Guide are colour coded according to the different components.
+
+<p></p>
+
+![diagram-legend](images/dg-diagram-legend.png)
+
+<p>&nbsp;</p>
+
+## **2. Setting up and getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
---------------------------------------------------------------------------------------------------------------------
+<p>&nbsp;</p>
 
-## **Design**
+## **3. Design**
 
-### Architecture
+### **3.1. Architecture**
 
 <img src="images/ArchitectureDiagram.png" width="450" />
 
@@ -57,7 +80,9 @@ The *Sequence Diagram* below shows how the components interact with each other f
 
 The sections below give more details of each component.
 
-### UI component
+<p>&nbsp;</p>
+
+### **3.2. UI component**
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
@@ -73,27 +98,37 @@ The `UI` component,
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
-### Logic component
+<p>&nbsp;</p>
+
+### **3.3. Logic component**
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
+
+<div align="center">Figure __. Structure of the logic component</div>
+
+<p></p>
 
 **API** :
 [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
 
-1. `Logic` uses the `AddressBookParser` class to parse the user command.
+1. `Logic` uses the `StudyBananasParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
-1. The command execution can affect the `Model` (e.g. adding a person).
+1. The command execution can affect the `Model` (e.g. adding a task).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
 
-![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
+![Interactions Inside the Logic Component for the `delete task 1` Command](images/DeleteSequenceDiagram.png)
+<div align="center">Figure __. Interactions inside the Logic Component for the `delete task 1` Command</div>
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</div>
+<p></p>
 
-### Model component
+ ❗ **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+
+<p>&nbsp;</p>
+
+### **3.4. Model component**
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
@@ -107,13 +142,14 @@ The `Model`,
 * does not depend on any of the other three components.
 
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `StudyBananas`, which `Person` references. This allows `StudyBananas` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
 ![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
 
 </div>
 
+<p>&nbsp;</p>
 
-### Storage component
+### **3.5. Storage component**
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
@@ -123,7 +159,9 @@ The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
 * can save the `Schedule`, `FlashcardBank` and `QuizRecords` data in json format and read it back.
 
-### Common classes
+<p>&nbsp;</p>
+
+### **3.6. Common classes**
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
@@ -179,9 +217,9 @@ Step4. Finally, create our **"one and only one"** Model component API class - `M
     1. It still breaks the Single Responsibility Principle, for `Model`is no longer only responsible for the AB3, it holds accountable for 4 systems at the same time.
 
 
---------------------------------------------------------------------------------------------------------------------
+---
 
-## **Implementation**
+## **4. Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
 
@@ -197,7 +235,7 @@ The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `Flashc
 
 #### Proposed Implementation
 
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `StudyBananas` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
 * `VersionedAddressBook#commit()` — Saves the current address book state in its history.
 * `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
@@ -227,7 +265,7 @@ Step 4. The user now decides that adding the person was a mistake, and decides t
 
 ![UndoRedoState3](images/UndoRedoState3.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial StudyBananas state, then there are no previous StudyBananas states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
 than attempting to perform the undo.
 
 </div>
@@ -242,7 +280,7 @@ The following sequence diagram shows how the undo operation works:
 
 The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone StudyBananas states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 
 </div>
 

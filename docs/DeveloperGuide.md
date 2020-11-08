@@ -38,11 +38,12 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 ## **3. Design**
 
-### **3.1. Architecture**
+### Architecture (Eddy)
 
 <img src="images/ArchitectureDiagram.png" width="450" />
 
-The ***Architecture Diagram*** given above explains the high-level design of the App. Given below is a quick overview of each component.
+StudyBananas is a brown field project adapted and developed upon **AddressBook3**. Our team decides to reuse the overall architecture by maintaining the system with 6 components (listed in the picture above) but scale each component to cater the need of StudyBananas.
+The ***Architecture Diagram*** given above explains the high-level design of the **StudyBananas**, which is inherited from **AddressBook3**. Given below is an overview of each component, we will explain how each component works internally, and how do we scale the system, which can server as a guideline for the developers to expand StudyBananas.
 
 <div markdown="span" class="alert alert-primary">
 
@@ -50,7 +51,7 @@ The ***Architecture Diagram*** given above explains the high-level design of the
 
 </div>
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
+**`Main`** has two classes called [`Main`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/Main.java) and [`MainApp`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/MainApp.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
 * At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
@@ -80,11 +81,147 @@ The *Sequence Diagram* below shows how the components interact with each other f
 
 The sections below give more details of each component.
 
-<p>&nbsp;</p>
+---------------------------------------------------------------------------------------------
 
-### **3.2. UI component**
+### Model
 
-![Structure of the UI Component](images/UiClassDiagram.png)
+#### Overall Structure
+
+StudyBananas is an integration of 3 systems, namely Schedule, Quiz, and Flashcard. As mentioned in  [Architecture](#architecture-eddy), we only have one API class (Model) for models from all three systems, this decision incurs strong couplings between three systems, resulting in many regression in the unit tests during the development. Therefore, to solve this problem, we introduce one more layer of abstraction for Model components to reduce the couplings. This section describes our implementation and analysis.
+
+#### Implementation
+
+The following is the step by step guide of how we structure Model component. We believe this structure reduces the coupling for models from different systems and preserves the benefit of **one component, one API**.
+
+Step1. Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still one API class for `Model` component.
+
+![ModelStructure-Step1](images/ModelStructure-Step1.png)
+
+Step2. Create XYZModelManagers which implement the XYZModel and contain CRUD methods on the persistence data in StudyBananas.
+
+![ModelStructure-Step2](images/ModelStructure-Step2.png)
+
+Step3. Create system-level Models (Schedule, Flashcard, Quiz) which are models that perform CRUD on the data. Then, create a dependency between `XYZModelManagers` and `system-level Models` so that the CRUD methods in `XYZModelManager` can take advantage of them.
+
+![ModelStructure-Step3](images/ModelStructure-Step3.png)
+
+Step4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` contains all the CRUD methods from 4 individual `Models`. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the individual `ModelManagers`. Therefore, we are able to test the real implementation of one `Model` without the interference from other `Models`.
+
+![ModelStructure-Step4](images/ModelArchitectureDiagram.png)
+
+
+#### Analysis
+
+  * Pros: 
+    1. It preserves the advantage of easier and faster cooperation for people working on different components because that there is only one API class required to work together.
+    2. It solves the problem that testers have to implement unrelated methods for `ModelStub` and avoids regression on unit tests of other `Model` when one `Model` is modified. Therefore, `Model` no longer breaks **Interface Segregation Principle**.
+    3. Although adding new systems still requires adding methods in the Model interface, it makes sure, there is no need to modify other `Model` and new `Model` can be included easily by having `Model API` extend it. Therefore, it meets the Open-Closed Principle.
+  * Cons: 
+    1. It still breaks the Single Responsibility Principle, for `Model`is no longer responsible for one model at a time, it holds accountable for models from 3 systems at the same time.
+
+#### Structure for individual `Model`
+
+#### ScheduleModel
+
+#### FlashcardModel
+
+#### QuizModel
+
+---------------------------------------------------------------------------------------------
+
+### UI component (Eddy)
+
+#### Overall Structure
+
+StudyBananas contains three pages for three different systems. A user can navigate between different systems by entering commands or clicking on the tabs. Compared with **AddressBook3**, StudyBananas has a much higher complexity for **`UI`** component for the reason that StudyBananas supports navigation through clicking, which would require a **state management** structure to realize.
+
+Our team divides `UI state` into two categories and manage their changes in two different ways, the following table provides the definition of these two types of state.
+
+| Terminology         | Definition                                                                                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Static State         | The objects that would be used in many `UI` components, but there wouldn't be any changes made to them or no components listen to their changes. |
+| Dynamic State | The objects related to any reactive UI behavior. In other words, multiple components listen to the changes of them and we would expect view updates from the components when the state is changed.|                                                                                              |
+ 
+For the reason that these two states have intrinsic difference in their complexity (dynamic state is much more complicated than the static state), we handle them differently in `UI` component. The following paragraph explain our implementation on the two types of state.
+ 
+#### **Static State**
+
+#### Reasoning
+
+When our team starts to improve the user experience of the graphical user interface, the first pain that came to our notice is that many components have the need for certain objects(static state), but due to the fact that `Ui Components` tend to nest each other, the developer might need to pass the object(static state) down in a deep nested component. 
+For example, many components take advantage of `Logic` object to communicate with the persistence data in `Model` component to provide accurate view of data.
+The picture below is the simplified class diagram for `Ui Components`, and the `Components` with deep green color depend of the `Logic` object. The red path is the deepest path that `Logic` object would need to be passed. It shows the drawback of the original implementation.
+
+![UiGlobalStateProblem](images/UiGlobalStateProblem.png)
+
+#### Implementation (Solution)
+
+The most intuitive solution is to make those `static state` globally accessible to everyone so that it does not need to be passed. Instead, we only need to create a dependency for the components that require the `static state`. 
+
+Step1. Create a class named `GlobalState` and make it singleton, and set the `static state` as the attribute of `GlobalState`. Then, set the attribute in the component where the `static state` is first created to make sure that when other components require the `static state`, it has already been registered in the `GlobalState`.
+<div markdown="span" class="alert alert-info">:information_source: Note our static state can still be modified, (see the definition from <a href="#overall-structure">overall structure</a>) that is why <div class="code">GlobalState</div> has to be singleton.
+</div>
+
+![UiGlobalStateProblem](images/UiGlobalStateSolution-1.png)
+
+Step2. Have the components that require the `static state` depend on the `GlobalState` to fetch and update the `static state` easily.
+
+<div markdown="span" class="alert alert-info">:information_source: Note from the picture, there is no need to pass the <div class="code"> static state</div> around anyone, the structure is thereby flatten.
+</div>
+
+![UiGlobalStateProblem](images/UiGlobalStateSolution-2.png)
+
+
+#### Analysis
+
+  * Pros: 
+    1. This structure makes it easier for the developer to maintain the `Ui components` because there is no need to pass `static state` as arguments for the constructor anymore
+    2. It avoids dummy arguments in constructor. For example, given the following component structure A -> B -> C, if A and C both require a common `static state`, in the original implementation, the constructor in B would need to have one more argument for the `static state` which is not used in `Component B` except for constructing `Component C`. In this sense, the `static state` is dummy inside the constructor B.
+  * Cons: 
+    1. Every components are able to get access and modify the `static state`, the modification done to a `static state` in one class by a developer can cause unexpected behavior when another developer is using the same `static state` in other components.
+    
+<div markdown="span" class="alert alert-info">:information_source: Note the idea of <div class="code">GlobalState</div> is inspired by <a href="https://redux.js.org">Redux</a>. It has a much more complicated structure than what we have here.
+</div>
+
+#### **Dynamic State**
+
+#### Reasoning
+
+In the UI design phase, our team decided to build a sidebar and expected it to allow user to navigate through different pages by clicking. It was the first time that we found out that there are multiple components listening to the changes of the `PageState` and there is a need for them to update their view based on the state.
+Therefore, an intuitive solution would be **observer pattern**. In which we have the components that subscribes to the changes of the state be the **Observer**, while the target **`dynamic state`** would be the **Observable** object.
+Nonetheless, as the complexity of the `UI` increased, the original structure is not enough to solve the reactive behavior as some components would have a need to subscribe to multiple `dynamic state`, while simple observer pattern only allows
+the `observer` to subscribe to one `observable` object because implementing Observer<T> and Observer<U/> are not allowed in java. 
+In the end, we end up creating mediator classes named `Listeners` which subscribe to **one** specific `dynamic state`, and have the `Component` which would originally need to subscribe to two `dynamic state` depend on two (or more) `Listeners`.
+However, the change of the `static state` should update the view for the `Component`, as we pass the responsibility of subscribing to the `Listeners`, the `Listeners` should be able to 
+update the view of `Component`. To quip `Listeners` with the ability to update the view, the `Component` created a `CallBack` and passed it as argument when creating the `Listeners`.
+
+#### Implementation 
+
+Step1. Create `CallBack` object inside the `UiComponent`. Specify how the view of the `UiComponent` is supposed to changed on the update of the `dynamic state`. Then construct a `Listener` with the `CallBack` being the argument to finish the process of subscribing. The picture below shows the dependency between them.
+
+![UiListenerSubscribe](images/UiListenerSubscribe.png)
+
+Step2. When the `dynamic state` is updated, it will then inform all the `Listeners`, and the `Listeners` would consequently change the view of the `UiComponent` accordingly. The following two diagrams show the flow.
+
+![UiListenerUpdate](images/UiListenerUpdate.png)
+
+![UiListenerUpdateSequence](images/UiListenerUpdateSequence.png)
+
+#### Structure for individual `Ui` page
+
+The following paragraphs would briefly go through the class diagrams of three `Ui` pages.
+
+#### `ScheduleUi`
+
+![ScheduleUi](images/ScheduleUi.png)
+
+#### `FlashcardUi`
+
+![FlashcardUi](images/FlashcardUi.png)
+
+#### `QuizUi`
+
+![QuizUi](images/QuizUi.png)
 
 **API** :
 [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
@@ -164,60 +301,7 @@ The `Storage` component,
 ### **3.6. Common classes**
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
-
-
-
-## **StudyBananas Architecture**
-
-StudyBananas is an integration of 4 systems, namely AddressBook3(AB3), Schedule, Quiz, Flashcard. Structure-wise, our team decided to stick to the original architecture of the AB3 (see architecture diagram above). Nonetheless, this decision incurs strong couplings between systems in each components. Therefore, we introduce layers of abstraction for each components to reduce the couplings. This section describes how we implement each component.
-
-![architectureDiagram](images/ArchitectureDiagram.png)
-
-### Model
-
-#### Reasoning
-
-In the original implementation of AB3, `ModelManager` which implements `Model` interface serves as the API to interact with other components. We preserve the convention and leave `ModelManager` as our **"one and only"** API for Model component. This decision has brought about the following pros and cons.
-
-  * Pros: It simplifies the system, as `Model` contains every methods that other components need. It makes cooperation easier and vastly reduces the time that other developers need to spend on understanding multiple APIs and makes the code cleaner when working with other components.  
-  * Cons: 
-    1. It breaks Single Responsibility Principle, for `Model`is no longer only responsible for the AB3, it holds accountable for 4 systems at the same time.
-    2. It breaks Interface Segregation Principle when writing ModelStubs for the unit tests and incur tons of conflicts when 4 systems are developed at the same time. 
-    
-#### Implementation
-
-Hugely fond of the great advantage of single API Model system, our team built a structure which segregates the Model API into the 4 systems but at the same time integrates all Models with the **"one and only one"** API class ModelManager. The following is the step by step guide of how we create the structure and can be followed to integrate more systems to StudyBananas.
-
-Step1. Create XYZModel interfaces for each system which can be viewed as 4 APIs for 4 SystemModel, and have our API `Model` interface extends from all of them to make sure that `Model` still contains all the methods that other components require.
-
-![ModelStructure-Step1](images/ModelStructure-Step1.png)
-
-Step2. Create XYZModelManagers which implement the XYZModel and handles the real "operations" for XYZModels.
-
-![ModelStructure-Step2](images/ModelStructure-Step2.png)
-
-Step3. Create system-level Models (Addressbook, Schedule, Flashcard, Quiz) which are the "real" Models. (**Note:** XYZModelManagers are APIs for these system-level Models.) Then, have XYZModelManagers depend on these system-level Models. (**Note:** system-level models represents the persistence layer for each system and system-level is relative to lower level Models e.g. Address, Tag, Title...)
-
-
-![ModelStructure-Step3](images/ModelStructure-Step3.png)
-
-Step4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` still contains all the methods from 4 individual systems. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the ModelManagers. Therefore, during the unit tests, we create XYZModelStubs which contains only methods that are related to the SUT.
-
-
-![ModelStructure-Step4](images/ModelArchitectureDiagram.png)
-
-
-#### Analysis
-
-  * Pros: 
-    1. It preserves the advantage of easier and faster cooperation from the reasoning section.
-    2. It solves the second disadvantage in the reasoning section by one more layer of segregation.
-    3. Although adding new systems still requires adding methods in the Model interface, it makes sure, there is no need to modify the old codes or modify the test case implementation. Therefore, it meets the Open-Closed Principle.
-  * Cons: 
-    1. It still breaks the Single Responsibility Principle, for `Model`is no longer only responsible for the AB3, it holds accountable for 4 systems at the same time.
-
-
----
+--------------------------------------------------------------------------------------------------------------------
 
 ## **4. Implementation**
 

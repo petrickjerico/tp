@@ -2,8 +2,9 @@ package seedu.studybananas.ui.util;
 
 import javafx.stage.Stage;
 import seedu.studybananas.logic.Logic;
-import seedu.studybananas.ui.CommandBox;
+import seedu.studybananas.ui.commons.CommandBox;
 import seedu.studybananas.ui.commons.HelpWindow;
+import seedu.studybananas.ui.commons.ResponsePopUp;
 
 public class GlobalState {
     private static GlobalState instance;
@@ -12,6 +13,7 @@ public class GlobalState {
     private CommandBox quizCommandBox;
     private Stage primaryStage;
     private HelpWindow helpWindow;
+    private ResponsePopUp responsePopUp;
 
     private Logic logic;
 
@@ -70,5 +72,13 @@ public class GlobalState {
 
     public void setLogic(Logic logic) {
         this.logic = logic;
+    }
+
+    public ResponsePopUp getResponsePopUp() {
+        return responsePopUp;
+    }
+
+    public void setResponsePopUp(ResponsePopUp responsePopUp) {
+        this.responsePopUp = responsePopUp;
     }
 }

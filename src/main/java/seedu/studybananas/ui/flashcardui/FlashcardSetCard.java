@@ -7,7 +7,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
-import seedu.studybananas.logic.Logic;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.ui.UiPart;
 import seedu.studybananas.ui.util.SingletonClickedFlashcardSetState;
@@ -40,7 +39,6 @@ public class FlashcardSetCard extends UiPart<Region> {
         new StyleCombination("#7886ED", "#F5DBAB", yellowIntersect) //Secondary
     };
 
-    private final Logic logic;
     private SingletonClickedFlashcardSetState flashcardSetState;
 
     @FXML
@@ -57,10 +55,9 @@ public class FlashcardSetCard extends UiPart<Region> {
     /**
      * Creates a {@code TaskCode} with the given {@code Task} and index to display.
      */
-    public FlashcardSetCard(Logic logic, FlashcardSet flashcardSet, int displayedIndex) {
+    public FlashcardSetCard(FlashcardSet flashcardSet, int displayedIndex) {
         super(FXML);
         this.flashcardSet = flashcardSet;
-        this.logic = logic;
         StyleCombination style = this.styles[displayedIndex % 3];
         cardPane.setStyle("-fx-background-color: " + style.backgroundColor + "; "
                 + "-fx-background-radius: 10; -fx-border-radius: 10;");
@@ -74,7 +71,7 @@ public class FlashcardSetCard extends UiPart<Region> {
         intersect.setImage(style.intersectImage);
 
         // get access to the state without subscribing to it.
-        flashcardSetState = SingletonClickedFlashcardSetState.getInstance(logic);
+        flashcardSetState = SingletonClickedFlashcardSetState.getInstance();
     }
 
     @FXML

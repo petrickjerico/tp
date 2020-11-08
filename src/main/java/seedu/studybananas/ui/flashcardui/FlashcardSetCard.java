@@ -7,7 +7,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
-import seedu.studybananas.logic.Logic;
 import seedu.studybananas.model.flashcard.FlashcardSet;
 import seedu.studybananas.ui.UiPart;
 import seedu.studybananas.ui.util.SingletonClickedFlashcardSetState;

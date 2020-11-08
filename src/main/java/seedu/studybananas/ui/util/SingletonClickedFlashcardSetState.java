@@ -20,7 +20,6 @@ public class SingletonClickedFlashcardSetState implements Observable {
 
     /**
      * Special constructor, updateFlashcardSetState depends on the {@Code Logic} which updates the view.
-     * @param logic
      * @return
      */
     public static synchronized SingletonClickedFlashcardSetState getInstance() {

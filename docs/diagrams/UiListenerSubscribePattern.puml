@@ -1,0 +1,28 @@
+@startuml
+!include style.puml
+skinparam linetype ortho
+skinparam ArrowFontColor red
+
+Package "Ui"<<Rectangle>>{
+    Class UiComponent UI_COMPONENT_COLOR
+    Class CallBack CALLBACK_COLOR
+    Class Listener LISTENER_COLOR
+    Class DynamicState MODEL_COLOR
+}
+
+skinparam component {
+  FontSize 10
+  ArrowFontName Arial
+  ArrowColor black
+  ArrowFontColor red
+}
+
+
+UiComponent --> Listener
+Listener -left-> CallBack
+UiComponent -down-> CallBack
+
+Listener --> DynamicState : subscribe
+
+
+@enduml

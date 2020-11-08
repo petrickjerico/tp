@@ -461,7 +461,8 @@ This creates either a `CorrectCommand` or `WrongCommand` object.
 
 In the case of the `CorrectCommand` class below, the call to `CorrectCommand#execute()`
 calls the `Quiz:tallyScore()` method through the interaction with `QuizModel`.
-This increments the `pointsScored` attribute in quiz.
+This increments the `pointsScored` attribute in quiz. Also, the next question is fetched through
+the call to `Quiz:getQuestion()`.
 
 The following sequence diagram shows how this step works:
 
@@ -491,8 +492,6 @@ This stops the quiz by removing the `Quiz` object stored in the `quiz`
 attribute of `QuizModelManager`.
 
 This leads to also calling the `Quiz:toString()` operation to show the quiz score and statistics.
-
-
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
@@ -808,6 +807,14 @@ Use case ends.
 
 ### Product survey
 
+Pros
+* The product is attractive in helping students with their study plans, and recapping their concepts.
+* GUI is rather aesthetic looking, pleasing to the eyes.
+* The available commands are intuitive, and are easy to use and remember.
+
+Cons
+* A dark mode can be included. Some users prefer a GUI with dark mode.
+* More features can be integrated, eg undo/redo. These features can be included in version 2.0.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -828,28 +835,19 @@ testers are expected to do more *exploratory* testing.
 
    1. Double-click the jar file Expected: Shows the GUI with a set of sample tasks, flashcards and quiz records. The window size is fixed.
 
-1. Saving window preferences
+### Deleting a task
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+1. Deleting a task while all tasks are being shown
 
-   1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+   1. Prerequisites: List all tasks using the `list task` command. Multiple tasks in the list.
 
-1. _{ more test cases …​ }_
+   1. Test case: `delete task 1`<br>
+      Expected: First task is deleted from the list. Details of the deleted task shown in the status message. Timestamp in the status bar is updated.
 
-### Deleting a person
+   1. Test case: `delete task 0`<br>
+      Expected: No task is deleted. Error details shown in the status message. Status bar remains the same.
 
-1. Deleting a person while all persons are being shown
-
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
-
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
-
-   1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
-
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+   1. Other incorrect delete commands to try: `delete task`, `delete task x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
 1. _{ more test cases …​ }_

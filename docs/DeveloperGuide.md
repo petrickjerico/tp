@@ -242,6 +242,10 @@ Step2. When the `dynamic state` is updated, it will then inform all the `Listene
 
 ![UiListenerUpdateSequence](images/UiListenerUpdateSequence.png)
 
+<div markdown="span" class="alert alert-info">:information_source: Note: the listener structure is built to cater the need of subscribing to multiple `dynamic state`, in some `Component`, multiple subscription is not needed, we keep it as normal **observer pattern**. Refer to [sidebar implementation](#Sidebar View) for the example of subscribing to only one `dynamic state`.
+    
+</div>
+
 #### Structure for individual `Ui` page
 
 The following paragraphs provide the class diagrams of the three `Ui` pages.

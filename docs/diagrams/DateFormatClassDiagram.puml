@@ -1,26 +1,31 @@
 @startuml
+!include style.puml
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+skinparam arrowThickness 1.1
+skinparam arrowColor #black
+skinparam classBackgroundColor MODEL_COLOR
+skinparam classBorderColor MODEL_COLOR_T1
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
+Package "task"<<Rectangle>>{
+    Class DateTime MODEL_COLOR
 
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+    Package "timeformat"<<Rectangle>>{
+        Interface TimeFormat MODEL_COLOR
+        Class IsoDate
+        Class IsoDateTime
+        Class WordDateTime
+        Class TimeFormatChecker
+    }
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
+IsoDate .up.|> TimeFormat
+IsoDateTime .up.|> TimeFormat
+WordDateTime .up.|> TimeFormat
+
+TimeFormatChecker .up.> IsoDate
+TimeFormatChecker .up.> IsoDateTime
+TimeFormatChecker .up.> WordDateTime
+
+DateTime .right.> TimeFormatChecker
 
 @enduml

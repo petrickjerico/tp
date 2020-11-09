@@ -381,7 +381,7 @@ Step 4. `ScheduleModel#setTask()` is then called to replace `task4` with `edited
 
 The following sequence diagram shows how the `edit task` functionality works:
 
- ![EditTaskSeqDiagram](images/EditTaskSequenceDiagram2.png)
+ ![EditTaskSeqDiagram](images/EditTaskSequenceDiagram.png)
 
 #### Design consideration:
 

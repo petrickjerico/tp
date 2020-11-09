@@ -108,8 +108,8 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 
 Are you a student of secondary to tertiary education level,
 who is a fan of **using flashcards to study**,
-uses your laptop often, 
-and likes to **schedule your study sessions regularly**?
+uses laptop often, 
+and likes to **schedule study sessions regularly**?
 If so, we have the right product just for you!
 
 StudyBananas is a desktop study companion app that **helps you centralize all your study tasks,

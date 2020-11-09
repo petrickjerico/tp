@@ -18,6 +18,8 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 
 </div>
 
+<div style="page-break-after: always;"></div>
+
 <div class="section">
   <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;"/>
   <h1>Manage your study plans</h1>
@@ -46,6 +48,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 </div>
 
 ---
+<div style="page-break-after: always;"></div>
 
 <h1 align="center">Table of Contents</h1>
 <!-- TOC -->
@@ -56,6 +59,12 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
     - [1.1.2 Markdown notations](#112-markdown-notations)
 - [2. Quick start (Eddy)](#2-quick-start-eddy)
 - [3. Features (Petrick)](#3-features-petrick)
+  - [3.1. Task list in `SCHEDULE`](#31-task-list-in-schedule)
+  - [3.2. Time Scale in `SCHEDULE`](#32-time-scale-in-schedule)
+  - [3.3. `FLASHCARDS`](#33-flashcards)
+  - [3.4. `QUIZ`](#34-quiz)
+  - [3.5. CLI-GUI interactivity](#35-cli-gui-interactivity)
+  - [3.6. Auto-save](#36-auto-save)
 - [4. Usage of Command](#4-usage-of-command)
   - [4.1. Commands for the `SCHEDULE` page (Binh)](#41-commands-for-the-schedule-page-binh)
     - [4.1.1. **View the details of your `TASK`**: (Eddy)](#411-view-the-details-of-your-task-eddy)
@@ -96,13 +105,15 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 - [8. Bug report (Eddy)](#8-bug-report-eddy)
 - [9. Summary](#9-summary)
   - [9.1. Summary of Commands (Petrick)](#91-summary-of-commands-petrick)
-    - [`SCHEDULE` commands (Binh)](#schedule-commands-binh)
-    - [`FLASHCARD` commands (Teddy)](#flashcard-commands-teddy)
-    - [`QUIZ` commands (Bowei)](#quiz-commands-bowei)
-    - [General commands](#general-commands)
-  - [9.2. Graphical Summary of Navigation Commands](#92-graphical-summary-of-navigation-commands)
+  - [`SCHEDULE` commands (Binh)](#schedule-commands-binh)
+  - [`FLASHCARD` commands (Teddy)](#flashcard-commands-teddy)
+  - [`QUIZ` commands (Bowei)](#quiz-commands-bowei)
+  - [General commands](#general-commands)
+- [9.2. Graphical Summary of Navigation Commands (Petrick)](#92-graphical-summary-of-navigation-commands-petrick)
 
 <!-- /TOC -->
+
+<div style="page-break-after: always;"></div>
 
 ## 1. Introduction (Binh)
 
@@ -145,6 +156,7 @@ Table 1. Icons in this User Guide
 Table 2. Markdown notations in this User Guide
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## 2. Quick start (Eddy)
 
@@ -174,6 +186,8 @@ Table 2. Markdown notations in this User Guide
 7. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 ## 3. Features (Petrick)
 This section describes the various features available in StudyBananas. These include front-end features that you can interact with, such as the `SCHEDULE` page, as well as back-end features such as the auto-saving of data.
@@ -233,6 +247,7 @@ you to manually save the app's data!
 <br>
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## 4. Usage of Command
 
@@ -257,6 +272,7 @@ you to manually save the app's data!
 <p>&nbsp;</p>
 
 
+<div style="page-break-after: always;"></div>
 
 ### 4.1. Commands for the `SCHEDULE` page (Binh)
 
@@ -275,6 +291,8 @@ There are several panels in our user interface that provides the details of your
 
 <p>&nbsp;</p>
 
+<div style="page-break-after: always;"></div>
+
 #### 4.1.2. **Add a `TASK`**: `add task`
 
 If you would like to add a study `TASK` to your `SCHEDULE`, this command allows you to create a `TASK` and saves it to the
@@ -291,6 +309,8 @@ You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:setinde
 
 <br>
 
+<div style="page-break-after: always;"></div>
+
 ##### 4.1.2.1. Adding a normal `TASK`
 
 For example, you would like to add a `TASK` to your `SCHEDULE` with the `title` _CS2100_, `description` _Lab 8_, `time`
@@ -306,6 +326,8 @@ to your `SCHEDULE`.
 <div align="center">Figure 4.1.2.1a: Using <code>add task</code> command</div>  
 <br>
 
+<div style="page-break-after: always;"></div>
+
 2\. After using the `add task` command, the new `TASK` will be added to the end of your `SCHEDULE` by default.
 
 ![addTask2](images/addTask2.png)
@@ -313,6 +335,8 @@ to your `SCHEDULE`.
 <div align="center">Figure 4.1.2.1b: Result of <code>add task</code> command</div>    
 <br>
 &nbsp;
+
+<div style="page-break-after: always;"></div>
 
 ##### 4.1.2.2. Adding a `QUIZ` `TASK`
 
@@ -328,12 +352,16 @@ the `QUIZ` to your schedule.
 <div align="center">Figure 4.1.2.2a: Using <code>add task</code> command integrate with <code>QUIZ</code></div>  
 <br>
 
+<div style="page-break-after: always;"></div>
+
 2\. After using the `add task` command, the new `TASK` of doing the `QUIZ` will be added to the end of your `SCHEDULE`.
 
 ![addTaskWithQuiz2](images/addTaskWithQuiz2.png)
 
 <div align="center">Figure 4.1.2.2b: Result of <code>add task</code> command integrating with <code>QUIZ</code></div>    
 <br>
+
+<div style="page-break-after: always;"></div>
 
 3\. Click on the highlighted `Quiz CS2040` box in the `description` of the `TASK` will redirect you to the `QUIZ` tab and start the `QUIZ` immediately for you.  
 
@@ -342,6 +370,8 @@ the `QUIZ` to your schedule.
 <div align="center">Figure 4.1.2.2c: Result of clicking on the <code>Quiz CS2040</code> box</div>
 
 <p>&nbsp;</p>
+
+<div style="page-break-after: always;"></div>
 
 #### 4.1.3. **List all your `TASK`s**: `list task`
 
@@ -361,6 +391,8 @@ If you would like to view your full `SCHEDULE`, this command displays the full `
 
 <div align="center">Figure 4.1.3a: Using <code>list task</code> command on <code>SCHEDULE</code> tab</div>    
 <br>
+
+<div style="page-break-after: always;"></div>
 
 2\. After using the `list task` command, you can see the full `SCHEDULE`.
 
@@ -384,6 +416,8 @@ Upon deletion of the `TASK`, the saved information of the `TASK` in `schedule.js
 
 <br>
 
+<div style="page-break-after: always;"></div>
+
 **Expected Outcome**:
 
 For example, you just finished the `TASK` at `index` 4 in the `SCHEDULE`, _CS2100 Lab_ and you
@@ -397,6 +431,8 @@ would like to update your `SCHEDULE` by deleting that `TASK`.
 
 <div align="center">Figure 4.1.4a: Using <code>delete task</code> command</div>  
 <br>
+
+<div style="page-break-after: always;"></div>
 
 3\. After using the `delete task` command, the specified `TASK` is removed from your `SCHEDULE`.  
 
@@ -418,6 +454,8 @@ contains _any_ of the given **keyword(s)** or its `description` and `time` conta
 
 <br>
 
+<div style="page-break-after: always;"></div>
+
 **Expected Outcome**:
 
 For example, you would like to search for a `TASK` in the `SCHEDULE` with the **keyword** _Lab 8_. StudyBananas
@@ -430,6 +468,8 @@ searches for all `TASK`s containing _Lab 8_ in their `title`, `description` and 
 <div align="center">Figure 4.1.5a: Using <code>search task</code> command  </div>
 <br>
 
+<div style="page-break-after: always;"></div>
+
 2\. After using the `search task` command, StudyBananas displays all the `TASK`s with the
 specified **keyword**.  
 
@@ -438,6 +478,7 @@ specified **keyword**.
 <div align="center">Figure 4.1.5b: Result of <code>search task</code> command </div>
 
 <p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 #### 4.1.6. Edit a `TASK`: `edit task`
 

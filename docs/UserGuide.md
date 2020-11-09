@@ -66,7 +66,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
   - [3.5. CLI-GUI interactivity](#35-cli-gui-interactivity)
   - [3.6. Auto-save](#36-auto-save)
 - [4. Usage of Command](#4-usage-of-command)
-  - [4.1. Commands for the `SCHEDULE` page (Binh)](#41-commands-for-the-schedule-page-binh)
+  - [4.1. Commands for the `SCHEDULE` page (Binh except 4.1.1)](#41-commands-for-the-schedule-page-binh-except-411)
     - [4.1.1. **View the details of your `TASK`**: (Eddy)](#411-view-the-details-of-your-task-eddy)
     - [4.1.2. **Add a `TASK`**: `add task`](#412-add-a-task-add-task)
       - [4.1.2.1. Adding a normal `TASK`](#4121-adding-a-normal-task)
@@ -118,17 +118,17 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 ## 1. Introduction (Binh)
 
 Are you a student of secondary to tertiary education level,
-who is a fan of **using flashcards to understand concepts**,
-use your laptop often, 
-and would like to **schedule your study sessions efficiently**?
-If so, we have the product just for you!
+who is a fan of **using flashcards to study**,
+uses laptop often, 
+and likes to **schedule study sessions regularly**?
+If so, we have the right product just for you!
 
-**StudyBananas** is a desktop study companion app that **helps you centralize your study tasks,
-and caters to your recap needs through flashcard-quizzes**.
+StudyBananas is a desktop study companion app that **helps you centralize all your study tasks,
+and caters to your recap needs through a flashcard-quizzes system**.
 It is optimized for use via a Command Line Interface (CLI) while still
 having the benefits of a Graphical User Interface (GUI).
 
-This user guide aims to equip you with all necessary understanding to use StudyBananas effectively.
+This user guide aims to equip you with all the necessary understanding to use StudyBananas effectively.
 
 ### 1.1 Reading this User Guide
 
@@ -209,6 +209,10 @@ shows the timespan of different tasks in a daily timeline.
 It comes with a time pointer that helps you recognise the tasks that you need to do at a point in time, 
 so you can manage your time properly and complete tasks in an appropriate duration.
 
+Note: The `time scale` only shows the `TASK` in the current `task list`. If you 
+[search for `TASK`s](#415-search-for-a-task-search-task), which change the displayed `task list`, your 
+`time scale` only changes accordingly.
+
 ### 3.3. `FLASHCARDS`
 StudyBananas is about learning effectively, so it comes with a `FLASCHCARD` feature that helps you consolidate your 
 learning into one place, without ever needing to open multiple files for revision. 
@@ -274,14 +278,14 @@ you to manually save the app's data!
 
 <div style="page-break-after: always;"></div>
 
-### 4.1. Commands for the `SCHEDULE` page (Binh)
+### 4.1. Commands for the `SCHEDULE` page (Binh except 4.1.1)
 
 #### 4.1.1. **View the details of your `TASK`**: (Eddy)
 
 There are several panels in our user interface that provides the details of your `TASK`.
 
-- Firstly, the time scale lists out all of your study sessions, which are `TASK`s, with start time and duration. You can click on your study session on the time scale to view the details on the top right panel.
-- Secondly, the list panel located in the bottom right corner of the `SCHEDULE` tab lists all of your tasks, you can scroll down to view the details of your `TASK`s, or take advantage of the search feature to quickly find a specific task (refer to [search task section](#315-search-for-a-task-search-task)).
+- Firstly, the `today's time scale` lists out all of your study sessions, which are `TASK`s, with start time and duration. You can click on your study session on the time scale to view the details on the top right panel.
+- Secondly, the `list panel` located in the bottom right corner of the `SCHEDULE` tab lists all of your `TASK`s, you can scroll down to view the details of your `TASK`s, or take advantage of the search feature to quickly find a specific task (refer to [search task section](#415-search-for-a-task-search-task)).
 - In the following user guide, we use time scale to refer to the middle panel of `SCHEDULE` tab, and uses `TASK` lists to refer to the bottom right panel.
 
 ![TaskDetailPanels](images/TaskDetailPanels.png)
@@ -300,12 +304,12 @@ If you would like to add a study `TASK` to your `SCHEDULE`, this command allows 
 
 After you add a new `TASK` to StudyBananas, the `TASK`'s information is saved in the `schedule.json` file.
 
-You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:setindex>` command in the `description` field.
+You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:setindex>` command (refer to [`QUIZ` of a `FLASHCARDSET`](#431-quiz-of-a-flashcardset-quiz-flset)) in the `description` field.
 
 | Format                                | `add task <T:title> [d:description] [t:time] [dur: duration]`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Example                               | `add task T: CS2100 d: Pipeline tutorial dur: 45` <br> `add task T: CS2103T d: iP submission t: 2020-09-17 23:59` <br> `add task T: CS2105 d: quiz flset:2 t: Saturday, Oct 31 2020 13:00 dur: 120`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ![info_icon](images/UG/info_icon.png) | • `title` and `description` can accept strings that are capitalized or separated with spaces. <br> • The hours and minutes in `time` are optional. If you do not specify it, StudyBananas will set the time to 12:00 by default. <br> • `time` should be written in one of the following formats: <br> • `yyyy-MM-dd [HH:mm]` (24-hour format, e.g. 23:00)<br> • `EEEE, [MMM-dd-yyyy] [HH:mm]` (24-hour format, e.g. 23:00)<br> • `duration` has to be a positive integer in minute and its value has to be less than _1440_ (number of minutes in a day). <br>• You cannot add a `TASK` such that it results in a duplicated `TASK`, which are `TASK`s having the same title, description, time and duration. <br> • You cannot add a `TASK` such that its time range overlaps with the time range of existing `TASK`s in the `SCHEDULE`. |
+| ![info_icon](images/UG/info_icon.png) | • `title` and `description` can accept strings (no special character) that are capitalized or separated with spaces. <br> • The hours and minutes in `time` are optional. If you do not specify it, StudyBananas will set the time to 12:00 by default. <br> • `time` should be written in one of the following formats: <br> <p>&nbsp;&nbsp;&nbsp;&nbsp;• `yyyy-MM-dd [HH:mm]` (24-hour format, e.g. 23:00)</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;• `EEEE, [MMM-dd-yyyy] [HH:mm]` (24-hour format, e.g. 23:00) </p> <p>&nbsp;&nbsp;&nbsp;&nbsp;• `Today` or `Tomorrow [HH:mm]` (24-hour format, e.g. 23:00) </p> • `duration` has to be a positive integer in minute and its value has to be less than _1440_ (number of minutes in a day). <br>• You cannot add a `TASK` such that it results in a duplicated `TASK`, which are `TASK`s having the same title, description, time and duration. <br> • You cannot add a `TASK` such that its time range overlaps with the time range of existing `TASK`s in the `SCHEDULE`. |
 
 <br>
 
@@ -342,7 +346,7 @@ to your `SCHEDULE`.
 
 Now, if you would like to add a `QUIZ` of `FLASHCARDSET` 1 as a `TASK` to your `SCHEDULE`.
 
-Entering the command `add task T: CS2040S d: quiz flset:1 dur: 30` while on `SCHEDULE` tab will add the `TASK` containing
+Entering the command `add task T: CS2040S d: quiz flset:1 dur: 30` while on `SCHEDULE` tab adds the `TASK` containing
 the `QUIZ` to your schedule.
 
 1\. Enter the `add task` command, including the specific information of the `TASK`.
@@ -364,6 +368,7 @@ the `QUIZ` to your schedule.
 <div style="page-break-after: always;"></div>
 
 3\. Click on the highlighted `Quiz CS2040` box in the `description` of the `TASK` will redirect you to the `QUIZ` tab and start the `QUIZ` immediately for you.  
+
 
 ![addTaskWithQuiz3](images/addTaskWithQuiz3.png)
 
@@ -500,16 +505,17 @@ You can edit a `TASK`'s `title`, `description`, `time` and `duration`.
 For example, you previously added a `TASK`: _CS2100 Lab 8 on Thursday, Oct 29 2020 10:00 with duration 60 minutes_, which currently has
 the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:00 instead.
 
-1\. Enter the command `edit task 7 t: Thursday, Oct 29 2020 11:00` to edit the `TASK`.  
+1\. Find the `index` of the `TASK` to be edited with the [list task](#413-list-all-your-tasks-list-task) command.
+
+2\. Enter the command `edit task 7 t: Thursday, Oct 29 2020 11:00` to edit the `TASK`.  
 
 ![editTask1](images/editTask1.jpg)
 
 <div align="center">Figure 4.1.6a: Using <code>edit task</code> command </div>
 <br>
-
 <div style="page-break-after: always;"></div>
 
-2\. After using the `edit task` command, the details of the `TASK` are updated accordingly.
+3\. After using the `edit task` command, the details of the `TASK` are updated accordingly.
 
 ![editTask2](images/editTask2.jpg)
 
@@ -627,6 +633,8 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 ![QuizPage](images/QuizPage.png)
 
+<div align="center">Figure 3.3.1: Display of the quiz page </code> command</div>
+
 Already have some `FLASHCARD`s and would like to start a recap session? 
 This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.
 
@@ -642,7 +650,9 @@ You may do so by either:
 If you have a `QUIZ` scheduled (see [Adding a `QUIZ` task](#3122-adding-a-quiz-task)), 
 you may click on the highlighted `QUIZ` label contained in the description of the `TASK` as shown below.
 
+<p align="center" >
 <img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="300" class="center"/>
+</p>
 
 <div style="page-break-after: always;"></div>
 
@@ -700,6 +710,8 @@ as shown below.
 
 **Expected Outcome:**
 
+Take note that the question and answer panels are scrollable when they get too long!
+
 ![AnswerShown](images/AnswerShown.png)
 
 <div align="center">Figure 4.3.1.2: Result of <code>ans:improves code quality and reduces bugs</code> command</div>
@@ -728,6 +740,7 @@ This score can also be viewed when viewing the last attempt of the `FLASHCARDSET
 (see [View last quiz attempt: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset))
 
 <p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 #### 4.2.2. **View last `QUIZ` attempt**: `quiz score flset`
 
@@ -747,11 +760,14 @@ The last `QUIZ` attempt contains the following information:
 
 **Expected outcome**:
 
+Take note that the score panel is scrollable when it gets too long!
+
 ![ViewScore](images/ViewScore.png)
 
 <div align="center">Figure 4.2.2: Result of <code>quiz score flset:CS2103T</code> command</div>
 
 <p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 ### 4.4. General Commands (Binh)
 
@@ -763,11 +779,12 @@ If you are not sure of how a certain command works or what command would suit yo
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | ![tip-icon](images/UG/tip_icon.png) | Alternatively, you can click on the `help` button located at the bottom of the sidebar to open the help window. |
 
-<img src="images/HelpButton.png" alt="HelpButton" width="600" class="center"/>
+<img src="images/HelpButton.png" alt="HelpButton" width="300" class="center"/>
 
 <div align="center">Figure 4.4.1a: <code>help</code> button as shown</div>
 
 <br>
+<div style="page-break-after: always;"></div>
 
 **Expected Outcome:**
 
@@ -781,6 +798,7 @@ The `help` window shows most of the available CLI commands.
 <div align="center">Figure 4.4.1b: <code>help</code> window as shown</div>
 
 <p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 #### 4.4.2. **Exit program**: `exit`
 
@@ -790,13 +808,14 @@ If you would like to close the application, this command helps you to quickly cl
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | ![tip-icon](images/UG/tip_icon.png) | Alternatively, you can click on the `exit` button located at the bottom of the sidebar to open the help window. |
 
-<img src="images/UG/ExitButton.png" alt="ExitButton" width="600" class="center"/>
+<img src="images/UG/ExitButton.png" alt="ExitButton" width="300" class="center"/>
 
 <div align="center">Figure 4.4.2: <code>exit</code> button as shown</div>
 
 <p>&nbsp;</p>
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## 5. FAQ (Teddy)
 
@@ -826,7 +845,8 @@ If you would like to close the application, this command helps you to quickly cl
 
 <p>&nbsp;</p>
 
----
+<div style="page-break-after: always;"></div>
+
 ## 6. Trouble Shooting (Eddy)
 
 ### Cannot launch the application
@@ -877,7 +897,8 @@ be able to see the updated data.
 | ![important_icon](images/UG/important_icon.png)                                         | Note that: our application reads the storage files by its **path**, please make sure the storage files are named as **flashcardbank.json**, **quizrecords.json** and **schedule.json**                                                                                                                                                                                                                                                         |
 
 
----
+
+<div style="page-break-after: always;"></div>
 
 ## 7. Community and security (Eddy)
 
@@ -915,6 +936,8 @@ any bugs or have any suggestions on the application, please go to
 <a href="https://github.com/AY2021S1-CS2103T-F12-2/tp/issues">our github issue page</a> to 
 issue the bugs and the suggestions. Great appreciation from the development team of StudyBananas.
 
+<div style="page-break-after: always;"></div>
+
 ## 9. Summary
 This section summarises all available commands in StudyBananas. 
 
@@ -936,7 +959,7 @@ You may also find the table below helpful to check whether a command is availabl
 \** **QUIZ Mode** commands refer to:  
 `flip` , `<ans:answer>` , `c` , `w` , `cancel` , `refresh`
 
-<p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 ### `SCHEDULE` commands (Binh)
 
@@ -949,7 +972,7 @@ You may also find the table below helpful to check whether a command is availabl
 | **Search for `TASK`s**  | `search task <keywords>` <br> e.g., `search task CS2103T deadlines`                                                              |
 | **Edit `TASK`**         | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g. `edit task 1 d: Debug remaining errors dur: 60`  |
 
-<p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 ### `FLASHCARD` commands (Teddy)
 
@@ -961,7 +984,7 @@ You may also find the table below helpful to check whether a command is availabl
 | **Add `FLASHCARD` in a specified set**  | `add fl <flset:setindex> <q:question> <a:answer>` <br> e.g., `add fl flset:2 q:Is earth flat? a:Maybe!` |
 | **Delete `FLASHCARD` in specified set** | `delete fl <flset:setindex> <fl:index>` <br> e.g., `delete fl flset:1 fl:1`                             |
 
-<p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 ### `QUIZ` commands (Bowei)
 
@@ -979,7 +1002,7 @@ You may also find the table below helpful to check whether a command is availabl
 | **View all available commands** | `help`           |
 | **Exit program**                | `exit`           |
 
-<p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 ## 9.2. Graphical Summary of Navigation Commands (Petrick)
 

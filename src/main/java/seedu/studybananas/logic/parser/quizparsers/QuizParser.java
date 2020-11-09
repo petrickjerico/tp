@@ -65,8 +65,11 @@ public class QuizParser implements Parser<Command> {
         }
     }
 
-    private StartCommand parseStartCommand(String input) {
+    private StartCommand parseStartCommand(String input) throws ParseException {
         input = input.trim();
+        if (input.equals(EMPTY_SPACE)) {
+            throw new ParseException("Please enter a valid flashcard set or index to get quiz score.");
+        }
         try {
             int index = parseNumber(input);
             return new StartCommand(index);
@@ -76,8 +79,11 @@ public class QuizParser implements Parser<Command> {
         }
     }
 
-    private ViewScoreCommand parseViewScoreCommand(String input) {
+    private ViewScoreCommand parseViewScoreCommand(String input) throws ParseException {
         input = input.trim();
+        if (input.equals(EMPTY_SPACE)) {
+            throw new ParseException("Please enter a valid flashcard set or index to get quiz score.");
+        }
         try {
             int index = parseNumber(input);
             return new ViewScoreCommand(index);

@@ -65,16 +65,16 @@ Given below are my contributions to the project (to be updated).
     * Implemented the GUI for `QUIZ` (with Bowei, Petrick)
         * **What it does**:  
         We revamped the original GUI (`ListView` and `CommandBox`) of AddressBook3 to fit 
-        the purpose of a `QUIZ` page and the intended usage from the user, which primarily contains a `QuizCard` that displays the questions,
-        its respective answers and instruction of a flashcard.
+        the purpose of a `QUIZ` page and the intended usage from the user, which primarily contains a `QuizCard` that displays the `question`,
+        its respective `answer` of the flashcard and next command instruction.
         
         * **Highlights**:  
         Originally, each of us use a different way to integrate the styling to the page. Some of us used `css` file, some 
-        used the `style` property of each component in the `fxml` file while some set the style in the `java` file. Because of this 
+        used the `style` property of each component in the `fxml` files while some set the style itself in the `java` file. Because of this 
         difference, we were not aware of the subtle differences in the final style as some of the `style` overwrote 
         each other in a hierarchical order. It took us awhile to realise the problem, we then resolved this by agreeing to 
         use `fxml` style property on each component, coupling with the `css` styling for the part of the style that 
-        is not handled by the `fxml` style property. 
+        is not specified the `fxml` style property. 
             
     * Enhanced the `CommandResult` class to follow the `Logic` execution of `QUIZ` 
         * **What it does**:  
@@ -84,19 +84,19 @@ Given below are my contributions to the project (to be updated).
         are displayed to the user to enhance the user's experience.  
         
         * **Justification**:  
-        With the original implementation `CommandResult` which only shows the `feedbackToUser` string after
-        a specific command is executed, the question is only shown after the `StartQuizCommand` is executed, and it 
-        would disappear when user enters the answer to the question, thereby executing either `FlipCommand` or `AnswerCommand`
+        With the original implementation `CommandResult` only shows the `feedbackToUser` string after
+        a specific command is executed. Thus, the `question` of the `QUIZ` is only shown after the `StartQuizCommand` is executed, and it 
+        would disappear when user enters the answer to the question, by executing either `FlipCommand` or `AnswerCommand`
         (which only contains `answer` as the `feedbackToUser` string and there is no information 
-        about the current question). Our team found this would bring a bad 
+        about the current `question`). Our team found this would bring a bad 
         experience to the intended users as it would be intuitive to view the question, their input answer and 
-        the correct answer for revision.
+        the correct answer together for revision.
         
         * **Highlights**:  
         In order to overcome this problem, `QuizCard` (`Ui` components that displays the `QUIZ` object) needs to have the information 
-        of what is the current question to display to the user. I created a new class `QuizCommandResult` extending from
+        of what is the current `question` to be displayed to the user. I created a new class `QuizCommandResult` extending from
          `CommandResult`. `QuizCommandResult` has the current `QUIZ` model object as an attribute, which can be accessed 
-         and get the corresponding current `question` and set the question to `QuizCard` so that it can display the current `question`
+         and get the corresponding current `question` and set that `question` object to `QuizCard` so that it can display the current `question`
          to the user.   
         
            
@@ -112,7 +112,7 @@ Sections Written:
     * [Section 3.4. General Commands](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#34-general-commands-binh)
     * [Section 8. Command Summary for `SCHEDULE`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#schedule-commands-binh)
     
-* **Contributions to Developer Guide**:
+* **Contributions to Developer Guide**:  
 Sections Written:
     * [Section 3.6. Storage Component](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#36-storage-component)
     * [Edit Task feature](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#edit-task-feature)

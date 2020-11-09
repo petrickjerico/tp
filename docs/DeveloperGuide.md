@@ -3,6 +3,11 @@ layout: page
 title: Developer Guide
 ---
 
+* Table of Contents
+{:toc}
+
+---
+
 # StudyBananas - Developer Guide
 
 By: `AY2021S1-CS2103T-F12-2`

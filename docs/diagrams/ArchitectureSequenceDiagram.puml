@@ -2,45 +2,45 @@
 !include style.puml
 
 Actor User as user USER_COLOR
-skinparam ParticipantBorderColor #000000
 Participant ":UI" as ui UI_COLOR
 Participant ":Logic" as logic LOGIC_COLOR
 Participant ":Model" as model MODEL_COLOR
 Participant ":Storage" as storage STORAGE_COLOR
 
 skinparam sequence {
+ParticipantBorderColor #000000
 ArrowColor #000000
 ActorBorderColor #000000
 LifeLineBorderColor #000000
 LifeLineBackgroundColor #000000
 }
 
-user -[USER_COLOR]> ui : "delete task 1"
+user -> ui : "delete task 1"
 activate ui UI_COLOR
 
-ui -[UI_COLOR_T1]> logic : execute("delete task 1")
+ui -> logic : execute("delete task 1")
 activate logic LOGIC_COLOR
 
-logic -[LOGIC_COLOR_T1]> model : remove(t)
+logic -> model : remove(t)
 activate model MODEL_COLOR
 
-model -[MODEL_COLOR_T1]-> logic
+model --> logic
 deactivate model
 
-logic -[LOGIC_COLOR_T1]> storage : saveSchedule(schedule)
+logic -> storage : saveSchedule(schedule)
 activate storage STORAGE_COLOR
 
-storage -[STORAGE_COLOR_T1]> storage : Save to file
+storage -> storage : Save to file
 activate storage STORAGE_COLOR_T1
-storage --[STORAGE_COLOR_T1]> storage
+storage --> storage
 deactivate storage
 
-storage --[STORAGE_COLOR_T1]> logic
+storage --> logic
 deactivate storage
 
-logic --[LOGIC_COLOR_T1]> ui
+logic --> ui
 deactivate logic
 
-ui--[UI_COLOR_T1]> user
+ui--> user
 deactivate ui
 @enduml

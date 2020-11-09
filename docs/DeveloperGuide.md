@@ -132,11 +132,22 @@ Step 4. Finally, create our **"one and only one"** Model component API class - `
 #### Structure for individual `Model`
 
 #### ScheduleModel
-![ScheduleModelDiagram](images/ScheduleModelDiagram.png)
+
+<p align="center">
+  <img src="images/ScheduleModelDiagram.png" alt="ScheduleModelClassDiagram" height="425" />
+</p>
+
 #### FlashcardModel
-![FlashcardModelDiagram](images/FlashcardModelDiagram.png)
+
+<p align="center">
+  <img src="images/FlashcardModelDiagram.png" alt="FlashcardModelClassDiagram" height="425" />
+</p>
+
 #### QuizModel
-![QuizModelDiagram](images/QuizModelDiagram.png)
+
+<p align="center">
+  <img src="images/QuizModelDiagram.png" alt="QuizModelClassDiagram" height="425" />
+</p>
 
 
 ---------------------------------------------------------------------------------------------
@@ -230,13 +241,17 @@ the update of the the `Component`'s view. To quip `Listeners` with the ability t
 
 Step1. Create `CallBack` object inside the `UiComponent`. In the `CallBack`, we specify how the view of the `UiComponent` is supposed to changed on the update of the `dynamic state`. Then construct a `Listener` with the `CallBack` being the argument to finish the process of subscribing. The picture below shows the dependency between them.
 
-![UiListenerSubscribe](images/UiListenerSubscribe.png)
+<p align="center">
+  <img src="images/UiListenerSubscribe.png" alt="UiListenerSubscribe" height="500" />
+</p>
 
 Step2. When the `dynamic state` is updated, it will then inform all the `Listeners`, and the `Listeners` would consequently change the view of the `UiComponent` by triggering the `CallBack`. The following two diagrams show the flow.
 
 #### Flow
 
-![UiListenerUpdate](images/UiListenerUpdate.png)
+<p align="center">
+  <img src="images/UiListenerUpdate.png" alt="UiListenerUpdate" height="530" />
+</p>
 
 #### Sequential diagram
 
@@ -248,7 +263,7 @@ Step2. When the `dynamic state` is updated, it will then inform all the `Listene
 
 #### Structure for individual `Ui` page
 
-The following paragraphs provide the class diagrams of the three `Ui` pages.
+The following paragraphs provide the class diagrams of the three `Ui` pages. Developers can refer to these diagrams to scale the system.
 
 #### `ScheduleUi`
 
@@ -261,6 +276,8 @@ The following paragraphs provide the class diagrams of the three `Ui` pages.
 #### `QuizUi`
 
 ![QuizUi](images/QuizUi.png)
+
+--------------------------------------------------------------------------------------------
 
 ### **3.3. Logic component**
 
@@ -523,7 +540,10 @@ This leads to also calling the `Quiz:toString()` operation to show the quiz scor
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
-![CommitActivityDiagram](images/QuizStorageActivityDiagram.png)
+<p align="center">
+  <img src="images/QuizStorageActivityDiagram.png" alt="QuizStorageActivityDiagram" height="700" />
+</p>
+
 
 #### Design consideration:
 
@@ -539,7 +559,7 @@ _{more aspects and alternatives to be added}_
 
 #### Implementation
 
-The implementation of the Sidebar view is designed using the Singleton pattern and the Observer Pattern. Global Ui state which stores the UiState is designed to be singleton - `SingletonUiState`. The `SingletonUiState` is created when the application is launched, and `SingletonUiState` implements `Observable` interface, making it observable to other ui components. `MainWindow` and `SidebarTab` implements the `Observer` interface and subscribe to the change of `SingletonUiState` to achieve the sidebar effect.
+Sidebar view is implemented with the `dynamic state` structure (see [`Dynamic State`](#dynamic-state)) with `SingletonUiState` being the **Observable** object and `MainWindow` and `SidebarTab` being the **Observers**. As `MainWindow` and `SidebarTab` do not subscribe to other `dynamic states`. The `listener` is omitted here. The `SingletonUiState` is designed to be **singleton**, and default value `SCHEDULE` is assigned to it when the application is launched; Both `MainWindow` and `SidebarTab` implement the **Observer** interface and specify how their view should be changed in the `update` method. The list below describes how **Observer** pattern is adopted here.
 
 * `Observable#register(Observer o)` — Register a certain Observer to an Observable object, after registration, the observer object will be notified on any update of the Observable object.
 * `Observable#inform()` — When the observable object is modified, use this method to inform all the subscribed observers.

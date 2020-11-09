@@ -1,5 +1,7 @@
 package seedu.studybananas.model.task;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -17,30 +19,43 @@ public class InfoContainsKeywordsPredicate implements Predicate<Task> {
         return keywords.size() == 0;
     }
 
+    private boolean doesKeywordMatchesTitle(Task task, String keyword) {
+        return StringUtil.containsWordIgnoreCase(task.getTitle().title, keyword);
+    }
+
+    private boolean doesKeywordMatchesDescription(Optional<Description> description, String keyword) {
+        return description.map(desc -> StringUtil.containsWordIgnoreCase(
+                desc.toStringNoPunctuation(),
+                StringUtil.getStringNoPunctuation(keyword)
+        )).orElse(false);
+    }
+
+    private boolean doesKeywordMatchesDateTime(Optional<DateTime> dateTime, String keyword) {
+        return dateTime.map(date ->
+                StringUtil.containsWordIgnoreCase(date.toString(), (keyword)) || StringUtil.containsWordIgnoreCase(
+                        date.getUiFormatDateNoPunctuation(),
+                        StringUtil.getStringNoPunctuation(keyword)))
+                .orElse(false);
+    }
+
     private boolean doesTitleContainKeywords(Task task) {
+        requireNonNull(task);
         return keywords.stream()
-                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(task.getTitle().title, keyword));
+                .anyMatch(keyword -> doesKeywordMatchesTitle(task, keyword));
     }
 
     private boolean doesDescriptionContainKeywords(Task task) {
+        requireNonNull(task);
         Optional<Description> description = task.getDescription();
         return !isEmptyKeyword(keywords) && keywords.stream()
-                .allMatch(keyword -> description.map(desc ->
-                        StringUtil.containsWordIgnoreCase(
-                                desc.toStringNoPunctuation(),
-                                StringUtil.getStringNoPunctuation(keyword)))
-                        .orElse(false));
+                .allMatch(keyword -> doesKeywordMatchesDescription(description, keyword));
     }
 
     private boolean doesDateTimeContainKeywords(Task task) {
+        requireNonNull(task);
         Optional<DateTime> dateTime = task.getDateTime();
         return !isEmptyKeyword(keywords) && keywords.stream()
-                .allMatch(keyword -> dateTime.map(date ->
-                        StringUtil.containsWordIgnoreCase(date.toString(), (keyword))
-                        || StringUtil.containsWordIgnoreCase(
-                                date.getUiFormatDateNoPunctuation(),
-                                StringUtil.getStringNoPunctuation(keyword)))
-                        .orElse(false));
+                .allMatch(keyword -> doesKeywordMatchesDateTime(dateTime , keyword));
     }
 
     @Override

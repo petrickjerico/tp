@@ -1,0 +1,120 @@
+package seedu.studybananas.ui.util;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
+public class SingletonUiStateTest {
+    private static final UiStateType testUiStateType = UiStateType.FLASHCARD;
+
+    @Test
+    public void singletonTest() {
+        SingletonUiState uiState = SingletonUiState.getInstance();
+        SingletonUiState uiStateCopy = SingletonUiState.getInstance();
+
+        assertEquals(SingletonUiState.getInstance(), SingletonUiState.getInstance());
+        assertEquals(uiState, SingletonUiState.getInstance());
+        assertEquals(uiState, uiStateCopy);
+
+    }
+
+    @Test
+    public void registerTest() {
+        SingletonUiState uiState = SingletonUiState.getInstance();
+        ObserverStub observerStub = new ObserverStub();
+
+        uiState.register(observerStub);
+        // check if the observerStub is registered successfully.
+        uiState.inform();
+    }
+
+    @Test
+    public void unregisterTest() {
+        SingletonUiState uiState = SingletonUiState.getInstance();
+        ObserverUnregisterTestStub observerStub = new ObserverUnregisterTestStub();
+
+        uiState.register(observerStub);
+        uiState.unregister(observerStub);
+        // check if the observerStub is unregistered successfully.
+        uiState.inform();
+    }
+
+    @Test
+    public void updateStateTest() {
+        SingletonUiState UiState = SingletonUiState.getInstance();
+        ObserverUpdateStateDifferentTypeTestStub observerStubUpdate = new ObserverUpdateStateDifferentTypeTestStub();
+        ObserverUpdateStateSameTypeTestStub observerStubNoUpdate = new ObserverUpdateStateSameTypeTestStub();
+        UiState.register(observerStubNoUpdate);
+
+        // test default value;
+        assertEquals(UiState.getUiState(), UiStateType.SCHEDULE);
+
+        // EP1 same StateType
+        UiState.updateState(UiStateType.SCHEDULE);
+
+        UiState.register(observerStubUpdate);
+        UiState.unregister(observerStubNoUpdate);
+
+        // EP2 different StateType
+        UiState.updateState(testUiStateType);
+        assertEquals(UiState.getUiState(), testUiStateType);
+
+
+    }
+
+
+
+    class ObserverStub implements Observer<UiStateType> {
+
+        @Override
+        public void subscribe(Observable news) {
+            assert false : "should not use this method in this stub.";
+        }
+
+        @Override
+        public void update(UiStateType state) {
+            assertTrue(true, "the Observer has been registered correctly");
+        }
+    }
+
+    class ObserverUpdateStateSameTypeTestStub implements Observer<UiStateType> {
+
+        @Override
+        public void subscribe(Observable news) {
+            assert false : "should not use this method in this stub.";
+        }
+
+        @Override
+        public void update(UiStateType state) {
+            assertTrue(false, "Observer should not be informed when the state is not updated");
+        }
+    }
+
+    class ObserverUnregisterTestStub implements Observer<UiStateType> {
+
+        @Override
+        public void subscribe(Observable news) {
+            assert false : "should not use this method in this stub.";
+        }
+
+        @Override
+        public void update(UiStateType state) {
+            assertTrue(false, "Observer should not be informed cuz it has already been unregistered.");
+        }
+    }
+
+    class ObserverUpdateStateDifferentTypeTestStub implements Observer<UiStateType> {
+
+        @Override
+        public void subscribe(Observable news) {
+            assert false : "should not use this method in this stub.";
+        }
+
+        @Override
+        public void update(UiStateType state) {
+            assertTrue(true, "the Observer has been registered correctly");
+            assertEquals(state, testUiStateType);
+        }
+    }
+}

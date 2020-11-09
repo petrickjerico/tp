@@ -20,7 +20,7 @@ public class ScheduleUiUtil {
 
 
     /**
-     * Method used to check if the time format is hh:mm AM/PM
+     * Method used to check if the time format is hh:mm AM/PM (6 am, is 6:00 AM)
      * @return
      */
     public static boolean checkTimePattern(String time) {
@@ -38,8 +38,11 @@ public class ScheduleUiUtil {
     public static String toAmPmTime(String formattedTime) {
         String[] splitTime = formattedTime.split(":");
         int hour = Integer.parseInt(splitTime[0]);
+        assert hour >= 0 && hour < 24 : "time must be formatted before passed in this method";
         //make sure that minutes have a trailing 0.
         String minute = splitTime[1];
+        int minuteInt = Integer.valueOf(minute);
+        assert minuteInt >= 0 && minuteInt < 60 : "time must be formatted before passed in this method";
 
         if (hour > 12) {
             hour -= 12;

@@ -3,13 +3,11 @@ layout: page
 title: Yu Bowei's Project Portfolio Page
 ---
 
-## Overview
+#### Overview
 As part of CS2103T: Software Engineering, my team of 4 software engineering students and I were tasked with enhancing an existing project, [Address Book Level 3 (AB3)](https://github.com/nus-cs2103-AY1920S1/addressbook-level3), into a new product for our Software Engineering project. We chose to morph it into a study management application for students, called **StudyBananas**.
 
 **StudyBananas** is a desktop study companion app that helps students centralize all their study tasks and set up focused study sessions into one place, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
-
-## Summary of Contributions
-
+#### Summary of Contributions
 This section shows a summary of my contributions to the project.
 
 **Code contributed**: Please refer to this [page](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=bowei-yu&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&until=2020-11-09) to see a sample of my code.

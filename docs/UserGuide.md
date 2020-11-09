@@ -520,6 +520,8 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 #### 4.3.1. **`QUIZ` of a `FLASHCARDSET`**: `quiz flset`
 
+![QuizPage](images/QuizPage.png)
+
 Already have some `FLASHCARD`s and would like to start a recap session? 
 This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.
 

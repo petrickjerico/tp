@@ -1,11 +1,11 @@
 @startuml
 !include style.puml
-skinparam ArrowFontColor red
+skinparam ArrowFontColor #black
 
 Package "Ui"<<Rectangle>>{
-    Class UiComponent #1a8cff
-    Class CallBack #ffa64d
-    Class Listener #70db70
+    Class UiComponent UI_COMPONENT_COLOR
+    Class CallBack CALLBACK_COLOR
+    Class Listener LISTENER_COLOR
     Class DynamicState MODEL_COLOR
 }
 
@@ -13,7 +13,7 @@ skinparam component {
   FontSize 10
   ArrowFontName Arial
   ArrowColor black
-  ArrowFontColor red
+  ArrowFontColor black
 }
 
 

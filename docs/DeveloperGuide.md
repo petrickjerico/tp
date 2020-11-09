@@ -45,7 +45,9 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 ### Architecture
 
-<img src="images/ArchitectureDiagram.png" width="450" />
+<p align="center">
+  <img src="images/ArchitectureDiagram.png" width="450" />
+</p>
 
 StudyBananas is a brown field project adapted and developed upon **AddressBook3**. Our team decides to reuse the overall architecture by maintaining the system with 6 components (listed in the picture above) but scale each component to cater the need of StudyBananas.
 The ***Architecture Diagram*** given above explains the high-level design of the **StudyBananas**, which is inherited from **AddressBook3**. Given below is an overview of each component, we will explain how each component works internally, and how do we scale the system, which can server as a guideline for the developers to expand StudyBananas.
@@ -76,7 +78,9 @@ Each of the four components,
 
 For example, the `Logic` component (see the class diagram given below) defines its API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class which implements the `Logic` interface.
 
-![Class Diagram of the Logic Component](images/LogicClassDiagram.png)
+<p align="center">
+  <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" height="600" />
+</p>
 
 **How the architecture components interact with each other**
 
@@ -110,7 +114,9 @@ The following is the step by step guide of how we structure Model component. We 
 
 Step 1. Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still the only one API class for `Model` component.
 
-![ModelStructure-Step1](images/ModelStructure-Step1.png)
+<p align="center">
+  <img src="images/ModelStructure-Step1.png" alt="ModelStructure-Step1" />
+</p>
 
 Step 2. Create XYZModelManagers which implement the XYZModel and contain CRUD methods on the persistence data in StudyBananas.
 
@@ -118,11 +124,15 @@ Step 2. Create XYZModelManagers which implement the XYZModel and contain CRUD me
 
 Step 3. Create system-level Models (Schedule, Flashcard, Quiz) which are models that perform CRUD on the data. Then, create a dependency between `XYZModelManagers` and `system-level Models` so that the CRUD methods in `XYZModelManager` can take advantage of them.
 
-![ModelStructure-Step3](images/ModelStructure-Step3.png)
+<p align="center">
+  <img src="images/ModelStructure-Step3.png" alt="ModelStructure-Step3" height="400" />
+</p>
 
 Step 4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` contains all the CRUD methods from 4 individual `Models`. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the individual `ModelManagers`. Therefore, we are able to test the real implementation of one `Model` without the interference from other `Models`.
 
-![ModelStructure-Step4](images/ModelArchitectureDiagram.png)
+<p align="center">
+  <img src="images/ModelArchitectureDiagram.png" alt="ModelArchitectureDiagram" height="400" />
+</p>
 
 
 #### Analysis
@@ -206,7 +216,9 @@ Step1. Create a class named `GlobalState` and make it singleton, and set the `st
     
 </div>
 
-![UiGlobalStateProblem](images/UiGlobalStateSolution.png)
+<p align="center">
+  <img src="images/UiGlobalStateSolution.png" alt="UiGlobalStateSolution" height="550" />
+</p>
 
 Step2. Have the components that require the `static state` depend on the `GlobalState` to fetch and update the `static state` easily.
 
@@ -214,8 +226,9 @@ Step2. Have the components that require the `static state` depend on the `Global
     
 </div>
     
-![UiGlobalStateProblem](images/UiGlobalStateSolution2.png)
-
+<p align="center">
+  <img src="images/UiGlobalStateSolution2.png" alt="UiGlobalStateSolution2" />
+</p>
 
 #### Analysis
 
@@ -277,7 +290,9 @@ The following paragraphs provide the class diagrams of the three `Ui` pages. Dev
 
 #### `FlashcardUi`
 
-![FlashcardUi](images/FlashcardUiClassDiagram.png)
+<p align="center" >
+  <img src="images/FlashcardUiClassDiagram.png" alt="FlashcardUiClassDiagram"  />
+</p>
 
 #### `QuizUi`
 
@@ -287,13 +302,17 @@ The following paragraphs provide the class diagrams of the three `Ui` pages. Dev
 
 ### **3.3. Logic component**
 
-![Structure of the Logic Component](images/LogicClassDiagram.png)
+<p align="center" >
+  <img src="images/LogicClassDiagram.png" alt="Structure of the Logic Component" height="600" />
+</p>
 
 <div align="center">Figure __. Structure of the logic component</div>
 
 <p></p>
 
-![Details of the StudyBananasParser](images/StudyBananasParser.png)
+<p align="center" >
+  <img src="images/StudyBananasParse.png" alt="Details of the StudyBananasParser" />
+</p>
 
 <div align="center">Figure __. Structure of the StudyBananasParser</div>
 
@@ -380,7 +399,7 @@ to find out all the time formats that StudyBananas supports). As the number of s
 a scalable structure is then proposed. The picture below describes the overall structure.
 
 <p align="center" >
-  <img src="images/DateTimeFormatStructure.png" alt="DateTimeFormatStructure" />
+  <img src="images/DateTimeFormatStructure.png" alt="DateTimeFormatStructure" height="450" />
 </p>
 
 Each `Format` implements `check` method from `DateFormat` interface. The `check` method checks if the input string
@@ -394,13 +413,13 @@ Step1. Create a `Format` class for the desired date format, and have it implemen
 Then, specify the check logic in the `check` method.
 
 <p align="center" >
-  <img src="images/NewDateTimeFormat-Step1.png" alt="NewDateTimeFormat-Step1" />
+  <img src="images/NewDateFormat-Step1.png" alt="NewDateTimeFormat-Step1" />
 </p>
 
 Step2. Add the new `DateFormat` into the check list residing in the `TimeFormatChecker` class.
 
 <p align="center" >
-  <img src="images/NewDateTimeFormat-Step2.png" alt="NewDateTimeFormat-Step2" />
+  <img src="images/NewDateFormat-Step2.png" alt="NewDateTimeFormat-Step2" />
 </p>
 
 #### Design consideration:

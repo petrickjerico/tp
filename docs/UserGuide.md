@@ -931,4 +931,5 @@ You may also find the table below helpful to check whether a command is availabl
 Below is a useful "cheat sheet" to show you how different commands affect the tabs displayed.
 
 ![UICheatSheet](images/UICheatSheet.png)
+<div align="center">Figure 9.1: Navigation "cheat sheet"</div>
 

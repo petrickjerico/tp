@@ -493,6 +493,7 @@ You can edit a `TASK`'s `title`, `description`, `time` and `duration`.
 | ![important_icon](images/UG/important_icon.png) | • This action is irreversible. Once you edit a specific `TASK`, the `TASK`'s details are modified in the storage file as well.                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 <br>
+<div style="page-break-after: always;"></div>
 
 **Expected Outcome**:
 
@@ -506,6 +507,8 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 <div align="center">Figure 4.1.6a: Using <code>edit task</code> command </div>
 <br>
 
+<div style="page-break-after: always;"></div>
+
 2\. After using the `edit task` command, the details of the `TASK` are updated accordingly.
 
 ![editTask2](images/editTask2.jpg)
@@ -513,6 +516,7 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 <div align="center">Figure 4.1.6b: Result of <code>edit task</code> command, the `TASK` at `index` 7 is updated </div>
 
 <p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 ### 4.2. Commands for the `FLASHCARD` page (Teddy)
 
@@ -534,6 +538,7 @@ If you would like to create a new `FLASHCARDSET`, this commands allows you to cr
 <div align="center">Figure 4.2.1: Result of <code>add flset name:Japanese</code> command</div>
 
 <p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 #### 4.2.2. **Delete a `FLASHCARDSET`**: `delete flset`
 
@@ -554,6 +559,7 @@ If you would like to delete an existing `FLASHCARDSET`, this commands allows you
 <div align="center">Figure 4.2.2: Result of <code>delete flset 3</code> command</div>
 
 <p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 #### 4.2.3. **List `FLASHCARD`s in a `FLASHCARDSET`**: `list fl`
 
@@ -573,6 +579,7 @@ This command allows you to view the detailed list of `FLASHCARD` in a specified 
 <div align="center">Figure 4.2.3: Result of <code>list fl 1</code> command</div>
 
 <p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 #### 4.2.4. **Add a `FLASHCARD` into a `FLASHCARDSET`**: `add fl`
 
@@ -591,6 +598,7 @@ This command allows you to add a single `FLASHCARD` consisting of a question and
 <div align="center">Figure 4.2.4: Result of <code>add fl flset:3 q:Konnichiwa a:Hello</code> command</div>
 
 <p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 #### 4.2.5. **Delete a `FLASHCARD` in a `FLASHCARDSET`**: `delete fl`
 
@@ -611,6 +619,7 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 <div align="center">Figure 4.2.5: Result of <code>delete fl flset:3 fl:1</code> command</div>
 
 <p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
 
 ### 4.3. Commands for the `QUIZ` page (Bowei)
 
@@ -635,6 +644,8 @@ you may click on the highlighted `QUIZ` label contained in the description of th
 
 <img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="300" class="center"/>
 
+<div style="page-break-after: always;"></div>
+
 <div markdown="block" class="alert alert-info">
 
 **Note: When the `QUIZ` has started, the system is in quiz-mode. You are required to enter follow-up commands to continue with the `QUIZ`.**
@@ -655,6 +666,7 @@ You may find more information on the respective quiz-mode commands by referring 
 | `cancel`  | Stops the quiz. Your quiz records will not be stored upon quiz cancellation.                                                                                                            |
 
 <br>
+<div style="page-break-after: always;"></div>
 
 ##### 4.3.1.1. **Getting the question**
 When the `QUIZ` launches, as seen below, you will see the question
@@ -669,6 +681,7 @@ as well as an instruction prompt to type in the next available commands,
 <div align="center">Figure 4.3.1.1: Result of <code> quiz flset:CS2103T</code> command</div>
 
 <br>
+<div style="page-break-after: always;"></div>
 
 ##### 4.3.1.2. **Answering the question**
 If you would like to see your answer directly, enter `flip`. 
@@ -692,6 +705,7 @@ as shown below.
 <div align="center">Figure 4.3.1.2: Result of <code>ans:improves code quality and reduces bugs</code> command</div>
 
 <br>
+<div style="page-break-after: always;"></div>
 
 ##### 4.3.1.3. **Checking if your answer is correct**
 Based on the correct answer, you may evaluate your own answer.

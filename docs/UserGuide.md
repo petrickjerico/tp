@@ -195,6 +195,10 @@ shows the timespan of different tasks in a daily timeline.
 It comes with a time pointer that helps you recognise the tasks that you need to do at a point in time, 
 so you can manage your time properly and complete tasks in an appropriate duration.
 
+Note: The `time scale` only shows the `TASK` in the current `task list`. If you 
+[search for `TASK`s](#415-search-for-a-task-search-task), which change the displayed `task list`, your 
+`time scale` only changes accordingly.
+
 ### 3.3. `FLASHCARDS`
 StudyBananas is about learning effectively, so it comes with a `FLASCHCARD` feature that helps you consolidate your 
 learning into one place, without ever needing to open multiple files for revision. 

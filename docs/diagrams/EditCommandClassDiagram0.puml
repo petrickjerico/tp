@@ -8,11 +8,10 @@ skinparam objectBackgroundColor MODEL_COLOR
 
 Title Initial Schedule
 
-Object ":UniqueTaskList" as UniqueTaskList
-Object "task1:Task" as task1
-task1 : member = ""
-Object "task2:Task" as task2
-Object "task3:Task" as task3
+Class "__:UniqueTaskList__" as UniqueTaskList
+Class "__task1:Task__" as task1
+Class "__task2:Task__" as task2
+Class "__task3:Task__" as task3
 
 hide task1:member
 UniqueTaskList --> task1

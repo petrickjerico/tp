@@ -2,7 +2,7 @@
 !include style.puml
 
 Actor Client as client USER_COLOR
-Participant ":DynamicState" as state MODEL_COLOR
+Participant ":DynamicState" as state MODEL_COLOR_T2
 Participant ":Listener" as listener LISTENER_COLOR
 Participant ":CallBack" as callback CALLBACK_COLOR
 Participant ":UiComponent" as component UI_COMPONENT_COLOR

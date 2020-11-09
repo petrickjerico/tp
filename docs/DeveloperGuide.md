@@ -85,6 +85,16 @@ The sections below give more details of each component.
 
 ### Model
 
+**API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/model/Model.java)
+
+The `Model`,
+
+* stores the schedule, flashcard, and quiz history data.
+* depends on three `ModelManagers`
+* does not depend on any of the other three components.
+
+The following paragraphs explain the structure of `Model` component.
+
 #### Overall Structure
 
 StudyBananas is an integration of 3 systems, namely Schedule, Quiz, and Flashcard. As mentioned in  [Architecture](#architecture), we only have one API class (Model) for models from all three systems, this decision incurs strong couplings between three systems, resulting in many regression in the unit tests during the development. Therefore, to solve this problem, we introduce one more layer of abstraction for Model components to reduce the couplings. This section describes our implementation and analysis.
@@ -126,11 +136,26 @@ Step4. Finally, create our **"one and only one"** Model component API class - `M
 #### FlashcardModel
 
 #### QuizModel
+![QuizModelDiagram](images/QuizModelDiagram.png)
 
 
 ---------------------------------------------------------------------------------------------
 
 ### UI component
+
+**API** :
+[`Ui.java`](hhttps://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/ui/Ui.java)
+
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PTaskListPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+
+The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/resources/view/MainWindow.fxml)
+
+The `UI` component,
+
+* Executes user commands using the `Logic` component.
+* Listens for changes to `Model` data so that the UI can be updated with the modified data.
+
+The following paragraphs explain the structure of `UI` component in detail.
 
 #### Overall Structure
 
@@ -160,14 +185,21 @@ The picture below is the simplified class diagram for `Ui Components`, and the `
 The most intuitive solution is to make those `static states` globally accessible to every `Component`. By doing this, the `static state`  does not need to be passed. Instead, only the `components` that require the `static state` need to depend on it. The following paragraph shows the step-by-step guide of the implementation. 
 
 Step1. Create a class named `GlobalState` and make it singleton, and set the `static states` as the attributes of `GlobalState`. Then, use the set method to set the attribute of the `GlobalState` in the component where the `static state` is first created so that we are certain that when other components try to get the `static state` from the `GlobalState`, the `static state` has already been registered in the `GlobalState`.
-<div markdown="span" class="alert alert-info">:information_source: Note: our static state can still be modified, (see the definition from <a href="#overall-structure">overall structure</a>) that is why <div class="code">GlobalState</div> has to be singleton.</div>
+
+<div markdown="span" class="alert alert-info">:information_source: Note: our static state can still be modified, (see the definition from <a href="#overall-structure">overall structure</a>) that is why 
+    <div class="code">GlobalState</div> has to be singleton.
+    
+</div>
 
 ![UiGlobalStateProblem](images/UiGlobalStateSolution-1.png)
 
 Step2. Have the components that require the `static state` depend on the `GlobalState` to fetch and update the `static state` easily.
 
-<div markdown="span" class="alert alert-info">:information_source: Note: in the picture, there is no need to pass the <div class="code"> static state</div> around anyone, the structure is thereby flatten.</div>
-
+<div markdown="span" class="alert alert-info">:information_source: Note: in the picture, there is no need to pass the 
+    <div class="code"> static state</div> around anyone, the structure is thereby flatten.
+    
+</div>
+    
 ![UiGlobalStateProblem](images/UiGlobalStateSolution-2.png)
 
 
@@ -177,9 +209,13 @@ Step2. Have the components that require the `static state` depend on the `Global
     1. This structure makes it easier for the developer to maintain the `Ui components` because there is no need to pass `static state` as arguments for the constructor anymore
     2. It avoids dummy arguments in some constructors. For example, given the following component structure A -> B -> C, if A and C both require a common `static state`, in the original implementation, the constructor in B would need to have one more argument for the `static state` which is not used in `Component B` except for constructing `Component C`. In this sense, the `static state` is dummy inside the constructor B.
   * Cons: 
-    1. Every components are able to get access and modify the `static state`, the modification done to a `static state` in one class by a developer can cause unexpected behavior when another developer is using the same `static state` in other components.
+    1. Every component is able to get access and modify the `static state`, the modification done to a `static state` in one class by a developer can cause unexpected behavior when another developer is using the same `static state` in other components.
     
-<div markdown="span" class="alert alert-info">:information_source: Note: the idea of <div class="code">GlobalState</div> is inspired by <a href="https://redux.js.org">Redux</a>. It has a much more complicated structure than what we have here.</div>
+<div markdown="span" class="alert alert-info">:information_source: Note: the idea of 
+    <div class="code">GlobalState</div> is inspired by 
+    <a href="https://redux.js.org">Redux</a>. It has a much more complicated structure than what we have here.
+    
+</div>
 
 #### **Dynamic State**
 
@@ -225,20 +261,6 @@ The following paragraphs provide the class diagrams of the three `Ui` pages.
 
 ![QuizUi](images/QuizUi.png)
 
-**API** :
-[`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
-
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
-
-The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
-
-The `UI` component,
-
-* Executes user commands using the `Logic` component.
-* Listens for changes to `Model` data so that the UI can be updated with the modified data.
-
-<p>&nbsp;</p>
-
 ### **3.3. Logic component**
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
@@ -247,8 +269,14 @@ The `UI` component,
 
 <p></p>
 
+![Details of the StudyBananasParser](images/StudyBananasParser.png)
+
+<div align="center">Figure __. Structure of the StudyBananasParser</div>
+
+<p></p>
+
 **API** :
-[`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+[`Logic.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/logic/Logic.java)
 
 1. `Logic` uses the `StudyBananasParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
@@ -259,7 +287,7 @@ The `UI` component,
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete task 1` Command](images/DeleteSequenceDiagram.png)
-<div align="center">Figure __. Interactions inside the Logic Component for the `delete task 1` Command</div>
+<div align="center">Figure 3.3: Interactions inside the Logic Component for the `delete task 1` Command</div>
 
 <p></p>
 
@@ -267,32 +295,11 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 <p>&nbsp;</p>
 
-### **3.4. Model component**
-
-![Structure of the Model Component](images/ModelClassDiagram.png)
-
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
-
-The `Model`,
-
-* stores a `UserPref` object that represents the user’s preferences.
-* stores the address book data.
-* exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
-* does not depend on any of the other three components.
-
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `StudyBananas`, which `Person` references. This allows `StudyBananas` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
-![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
-
-</div>
-
-<p>&nbsp;</p>
-
-### **3.5. Storage component**
+### **3.6. Storage component**
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/storage/Storage.java)
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
@@ -300,9 +307,10 @@ The `Storage` component,
 
 <p>&nbsp;</p>
 
-### **3.6. Common classes**
+### **3.7. Common classes**
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **4. Implementation**
@@ -316,86 +324,6 @@ This section describes some noteworthy details on how certain features are imple
 The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `FlashcardBank` contains a list of `FlashcardSet`. Each `FlashcardSet` contains a list of `Flashcard`.
 
 ![Flashcard Class Diagram](diagrams/FlashcardClassDiagram.png)
-
-### \[Proposed\] Undo/redo feature
-
-#### Proposed Implementation
-
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `StudyBananas` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
-
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
-
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
-
-![UndoRedoState0](images/UndoRedoState0.png)
-
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
-
-![UndoRedoState1](images/UndoRedoState1.png)
-
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
-</div>
-
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
-
-![UndoRedoState3](images/UndoRedoState3.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial StudyBananas state, then there are no previous StudyBananas states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
-
-The following sequence diagram shows how the undo operation works:
-
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone StudyBananas states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-![CommitActivityDiagram](images/CommitActivityDiagram.png)
-
-#### Design consideration:
-
-##### Aspect: How undo & redo executes
-
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
-
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
 
 ### Edit Task feature
 
@@ -453,7 +381,7 @@ Step 4. `ScheduleModel#setTask()` is then called to replace `task4` with `edited
 
 The following sequence diagram shows how the `edit task` functionality works:
 
- ![EditTaskSeqDiagram](images/EditTaskSequenceDiagram2.png)
+ ![EditTaskSeqDiagram](images/EditTaskSequenceDiagram.png)
 
 #### Design consideration:
 
@@ -470,14 +398,9 @@ The following sequence diagram shows how the `edit task` functionality works:
   * Pros: Will use less memory as there is no new creation of `TASK` object.
   * Cons: May result in side-effects such as there are out-of-dated versions of `SCHEDULE` throughout the program.
 
-### \[Proposed\] Data archiving
+### Quiz with storage of answers feature
 
-_{Explain here how the data archiving feature will be implemented}_
-
-
-### \[Proposed\] Quiz with storage of answers feature
-
-#### Proposed Implementation
+#### Implementation
 
 The proposed quiz with storage of answers mechanism is facilitated by `Quiz` and `QuizModelManager`, which implements the `QuizModel` interface. 
 It makes use of an array of answer strings as an attribute, stored within a `Quiz` object as `userAnswers`.
@@ -518,7 +441,7 @@ The user launches the application and starts the quiz for a non-empty, valid fla
 As a result, it creates a `QuizModelManager` object and a `StartCommand` object.
 Assume the flashcard set contains only two flashcards for simplicity.
 
-The call to `StartCommand#execute()` will allow the `Quiz` to be initialized with the initial quiz state with default values for score, 
+The call to `StartCommand#execute()` from `Logic` will allow the `Quiz` to be initialized with the initial quiz state with default values for score, 
 the `currentIndex` pointing to the index of the first flashcard, 
 and the current command result being the first question through the call of `Quiz#getQuestion()`.
 
@@ -544,11 +467,12 @@ This creates either a `CorrectCommand` or `WrongCommand` object.
 
 In the case of the `CorrectCommand` class below, the call to `CorrectCommand#execute()`
 calls the `Quiz:tallyScore()` method through the interaction with `QuizModel`.
-This increments the `pointsScored` attribute in quiz.
+This increments the `pointsScored` attribute in quiz. Also, the next question is fetched through
+the call to `Quiz:getQuestion()`.
 
 The following sequence diagram shows how this step works:
 
-![UpdateScoreSequenceDiagram](images/UpdateScoreSequenceDiagram.png)
+![CorrectCommandSequenceDiagram](images/CorrectCommandSequenceDiagram.png)
 
 The object created will check if the `currentIndex` (updated in the previous step) 
 is within bounds to obtain the next flashcard.
@@ -574,8 +498,6 @@ This stops the quiz by removing the `Quiz` object stored in the `quiz`
 attribute of `QuizModelManager`.
 
 This leads to also calling the `Quiz:toString()` operation to show the quiz score and statistics.
-
-
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
@@ -889,6 +811,19 @@ Use case ends.
 * **Flashcard Set**: A set of flashcards relevant to a specific topic. 
 --------------------------------------------------------------------------------------------------------------------
 
+### Product survey
+
+Pros
+* The product is attractive in helping students with their study plans, and recapping their concepts.
+* GUI is rather aesthetic looking, pleasing to the eyes.
+* The available commands are intuitive, and are easy to use and remember.
+
+Cons
+* A dark mode can be included. Some users prefer a GUI with dark mode.
+* More features can be integrated, eg undo/redo. These features can be included in version 2.0.
+
+--------------------------------------------------------------------------------------------------------------------
+
 ## **Appendix: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
@@ -904,30 +839,21 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Double-click the jar file Expected: Shows the GUI with a set of sample tasks, flashcards and quiz records. The window size is fixed.
 
-1. Saving window preferences
+### Deleting a task
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+1. Deleting a task while all tasks are being shown
 
-   1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+   1. Prerequisites: List all tasks using the `list task` command. Multiple tasks in the list.
 
-1. _{ more test cases …​ }_
+   1. Test case: `delete task 1`<br>
+      Expected: First task is deleted from the list. Details of the deleted task shown in the status message. Timestamp in the status bar is updated.
 
-### Deleting a person
+   1. Test case: `delete task 0`<br>
+      Expected: No task is deleted. Error details shown in the status message. Status bar remains the same.
 
-1. Deleting a person while all persons are being shown
-
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
-
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
-
-   1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
-
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+   1. Other incorrect delete commands to try: `delete task`, `delete task x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
 1. _{ more test cases …​ }_

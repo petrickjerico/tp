@@ -1,15 +1,20 @@
 @startuml
 !include style.puml
-skinparam ClassFontColor #000000
-skinparam ClassBorderColor #000000
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR_T1
+skinparam classBackgroundColor MODEL_COLOR
+skinparam classBorderColor MODEL_COLOR_T1
 
 title Quiz
-
-package FlashcardSet {
-    class State1 as "__flashcard1:Flashcard__"
-    class State2 as "__flashcard2:Flashcard__"
-}
-State1 -[hidden]right-> State2
+package {
+class FlashcardSet as "__flashcardSet:FlashcardSet__"
+class Flashcard1 as "__flashcard1:Flashcard__"
+class Flashcard2 as "__flashcard2:Flashcard__"
 class Pointer as "Current Index" #FFFFF
-Pointer -up-> State1
+}
+
+Flashcard1 -[hidden]right-> Flashcard2
+FlashcardSet -down-> Flashcard1
+FlashcardSet -down-> Flashcard2
+Pointer -up-> Flashcard1
 @end

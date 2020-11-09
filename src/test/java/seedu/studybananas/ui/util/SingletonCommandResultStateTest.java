@@ -74,24 +74,6 @@ public class SingletonCommandResultStateTest {
         commandResultState.unregister(observerStubUpdate);
 
     }
-    @Test
-    @Order(5)
-    public synchronized void updateStateTest_updateWithSameState_noUpdateFiled() {
-        // set up
-        SingletonCommandResultState commandResultState = SingletonCommandResultState.getInstance();
-        ObserverUpdateStateSameTypeTestStub observerStubNoUpdate = new ObserverUpdateStateSameTypeTestStub();
-        commandResultState.updateCommandResult(testCommandResult);
-
-        // EP2 same StateType
-        commandResultState.register(observerStubNoUpdate);
-        commandResultState.updateCommandResult(testCommandResult);
-
-        //clean up
-        commandResultState.unregister(observerStubNoUpdate);
-
-    }
-
-
 
 
 
@@ -109,18 +91,6 @@ public class SingletonCommandResultStateTest {
         }
     }
 
-    class ObserverUpdateStateSameTypeTestStub implements Observer<CommandResult> {
-
-        @Override
-        public void subscribe(Observable news) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void update(CommandResult state) {
-            assertTrue(false, "Observer should not be informed when the state is not updated");
-        }
-    }
 
     class ObserverUnregisterTestStub implements Observer<CommandResult> {
 

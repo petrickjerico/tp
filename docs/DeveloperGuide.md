@@ -3,6 +3,11 @@ layout: page
 title: Developer Guide
 ---
 
+* Table of Contents
+{:toc}
+
+---
+
 # StudyBananas - Developer Guide
 
 By: `AY2021S1-CS2103T-F12-2`
@@ -187,7 +192,7 @@ For the reason that these two states have intrinsic difference in their complexi
 
 When our team starts to improve the user experience of the graphical user interface, the first pain that came to our notice is that many components have the need for certain objects(`static state`), but due to the fact that `Ui Components` tend to nest each other, the developer might need to pass the object(`static state`) down to a deep nested component. 
 For example, many components take advantage of `Logic` object to communicate with the persistence data in `Model` component to provide accurate view of data.
-The picture below is the simplified class diagram for `Ui Components`, and the `Components` with dark green color depend on the `Logic` object. The red path is the deepest path that `Logic` object would need to be passed. You can observe the deep nested dependency in the graph.
+The picture below is the simplified class diagram for `Ui Components`, and the `Components` with pink color depend on the `Logic` object. The red path is the deepest path that `Logic` object would need to be passed. You can observe the deep nested dependency in the graph.
 
 ![UiGlobalStateProblem](images/UiGlobalStateProblem.png)
 
@@ -241,25 +246,18 @@ the update of the the `Component`'s view. To quip `Listeners` with the ability t
 
 Step1. Create `CallBack` object inside the `UiComponent`. In the `CallBack`, we specify how the view of the `UiComponent` is supposed to changed on the update of the `dynamic state`. Then construct a `Listener` with the `CallBack` being the argument to finish the process of subscribing. The picture below shows the dependency between them.
 
-<<<<<<< HEAD
 <p align="center">
   <img src="images/UiListenerSubscribe.png" alt="UiListenerSubscribe" height="500" />
 </p>
-=======
-![UiListenerSubscribe](images/UiListenerSubscribePattern.png)
->>>>>>> 5c13de9142e8f0b425c31c59df02b51cf9428741
+
 
 Step2. When the `dynamic state` is updated, it will then inform all the `Listeners`, and the `Listeners` would consequently change the view of the `UiComponent` by triggering the `CallBack`. The following two diagrams show the flow.
 
 #### Flow
 
-<<<<<<< HEAD
 <p align="center">
   <img src="images/UiListenerUpdate.png" alt="UiListenerUpdate" height="530" />
 </p>
-=======
-![UiListenerUpdate](images/UiListenerUpdatePattern.png)
->>>>>>> 5c13de9142e8f0b425c31c59df02b51cf9428741
 
 #### Sequential diagram
 
@@ -397,14 +395,18 @@ Step 1. The user launches the application. The `SCHEDULE` contains `UniqueTaskLi
  `TASK`s in the JSON file `schedule.json` locally (see [Storage component](#storage-component))
 For example, the user already has 3 `TASK`s saved in the initial `SCHEDULE` as seen below.
 
-![EditCommandClassDiagram0](images/EditCommandClassDiagram0.png) 
+<p align="center" >
+  <img src="images/EditCommandClassDiagram0.png" alt="EditCommandClassDiagram0" />
+</p>
 
 <br>
 
 Step 2. The user adds a new `TASK` into the schedule using the `add task` command. 
 This `TASK` is assigned the index 4 in the `SCHEDULE`
 
-![EditCommandClassDiagram1](images/EditCommandClassDiagram1.png) 
+<p align="center" >
+  <img src="images/EditCommandClassDiagram1.png" alt="EditCommandClassDiagram1" />
+</p>
 
 <br>
 
@@ -413,7 +415,9 @@ The `edit task` command will be parsed by the `Parser` and create a `ScheduleEdi
 creates a new `TASK` object, containing the updated information fields. For the fields that is not specified in the `edit task` command, such as `title` in the example, the new `TASK` 
 takes the existing fields of the to-be-replaced `TASK` (note how the same `title` object is shared between `task4` and `editedTask4` as seen below). 
 
-![EditCommandClassDiagram2](images/EditCommandClassDiagram2.png) 
+<p align="center" >
+  <img src="images/EditCommandClassDiagram2.png" alt="EditCommandClassDiagram2" />
+</p>
 
 <br>
 
@@ -494,9 +498,13 @@ and the current command result being the first question through the call of `Qui
 
 The `Quiz` is saved into the `QuizModelManager`object as an attribute named `quiz`.
 
-![StartQuizClassDiagram](images/StartQuizClassDiagram.png)
+<p align="center" style="margin-bottom: 10px">
+  <img src="images/StartQuizClassDiagram.png" alt="StartQuizClassDiagram" />
+</p>
 
-![StartQuiz](images/StartQuiz.png)
+<p align="center">
+  <img src="images/StartQuiz.png" alt="StartQuiz" />
+</p>
 
 ##### Step 2
 The user executes `ans:<answer>` command to submit their answer to the question. 
@@ -506,7 +514,9 @@ for the question before moving on to the correct answer through the call of `Qui
 
 The `currentIndex` attribute is incremented at this stage to point to the next flashcard.
 
-![StoreAnswerClassDiagram](images/StoreAnswerClassDiagram.png)
+<p align="center">
+  <img src="images/StoreAnswerClassDiagram.png" alt="StoreAnswerClassDiagram" />
+</p>
 
 ##### Step 3
 After viewing the answer, the user executes either `c` or `w` to indicate whether the question is answered correctly. 
@@ -532,12 +542,16 @@ In the current scenario, the question of the next flashcard is fetched and displ
 by calling the `Quiz:getQuestion()` method,
 through `QuizModelManager`, during the execution of `CorrectCommand:execute()`.
 
-![NextQuestion](images/NextQuestion.png)
+<p align="center">
+  <img src="images/NextQuestion.png" alt="NextQuestion" />
+</p>
 
 ##### Step 4
 Assume that the user has reached the end of the flashcards as shown below:
 
-![OutOfIndex](images/OutOfIndex.png)
+<p align="center">
+  <img src="images/OutOfIndex.png" alt="OutOfIndex" />
+</p>
 
 From the `CorrectCommand:execute()` / `WrongCommand:execute()` operation, 
 the `QuizModelManager:stopQuiz()` operation will be called.
@@ -583,8 +597,8 @@ Given below is an example usage scenario and how the sidebar view mechanism beha
 
 #### Design consideration:
 
-* Multiple Ui components rely on the Global UiState, therefore, Singleton makes sense here.
-* Many components would be affected by the change of UiState, it makes sense to build it using Observer pattern.
+* Multiple Ui components rely on the unique `UiState`. This is the intuition for **Singleton**.
+* Many components should be updated according to the  changes of `UiState`, it makes sense to build it using Observer pattern.
 
 
 

@@ -36,9 +36,9 @@
 !define USER_COLOR #000000
 
 !define ALARM_COLOR #b32d00
-!define UI_COMPONENT_COLOR #1a8cff
-!define CALLBACK_COLOR #ffa64d
-!define LISTENER_COLOR #70db70
+!define UI_COMPONENT_COLOR #lightskyblue
+!define CALLBACK_COLOR #bisque
+!define LISTENER_COLOR #lavender
 
 skinparam BackgroundColor #FFFFFFF
 

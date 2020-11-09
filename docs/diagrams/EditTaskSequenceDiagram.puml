@@ -1,7 +1,19 @@
 @startuml
 !include style.puml
 
-box Logic LOGIC_COLOR_T1
+skinparam sequence {
+participantBorderColor #000000
+ArrowColor #000000
+ActorBorderColor #000000
+LifeLineBorderColor #000000
+LifeLineBackgroundColor #000000
+}
+
+skinparam sequenceBoxBorderColor #black
+
+Actor User as user USER_COLOR
+
+box Logic #FFFFFF
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":StudyBananasParser" as StudyBananasParser LOGIC_COLOR
 participant ":ScheduleParser" as ScheduleParser LOGIC_COLOR
@@ -10,41 +22,41 @@ participant "e:ScheduleEditCommand" as ScheduleEditCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
-box Model MODEL_COLOR_T1
+box Model #FFFFFF
 participant "sm:ScheduleModel" as ScheduleModel MODEL_COLOR
 participant "s:Schedule" as Schedule MODEL_COLOR
 participant ":UniqueTaskList" as UniqueTaskList MODEL_COLOR
 end box
 
-[-> LogicManager : execute("edit task 1 T: Test")
-activate LogicManager
+user -> LogicManager : execute("edit task 1 T: Test")
+activate LogicManager LOGIC_COLOR
 
 LogicManager -> StudyBananasParser : parseCommand("edit task 1 T: Test")
-activate StudyBananasParser
+activate StudyBananasParser LOGIC_COLOR
 
 create ScheduleParser
 StudyBananasParser -> ScheduleParser
-activate ScheduleParser
+activate ScheduleParser LOGIC_COLOR
 
 ScheduleParser --> StudyBananasParser : parser
 deactivate ScheduleParser
 
 StudyBananasParser -> ScheduleParser : parse("edit task 1 T: Test")
-activate ScheduleParser
+activate ScheduleParser LOGIC_COLOR
 
 create ScheduleEditCommandParser
 ScheduleParser -> ScheduleEditCommandParser
-activate ScheduleEditCommandParser
+activate ScheduleEditCommandParser LOGIC_COLOR
 
 ScheduleEditCommandParser --> ScheduleParser
 deactivate
 
 ScheduleParser -> ScheduleEditCommandParser : parse()
-activate ScheduleEditCommandParser
+activate ScheduleEditCommandParser LOGIC_COLOR
 
 create ScheduleEditCommand
 ScheduleEditCommandParser -> ScheduleEditCommand
-activate ScheduleEditCommand
+activate ScheduleEditCommand LOGIC_COLOR
 
 ScheduleEditCommand -->ScheduleEditCommandParser : e
 deactivate
@@ -59,16 +71,16 @@ StudyBananasParser --> LogicManager : e
 deactivate
 
 LogicManager -> ScheduleEditCommand : e.execute()
-activate ScheduleEditCommand
+activate ScheduleEditCommand LOGIC_COLOR
 
 ScheduleEditCommand -> ScheduleModel : sm.setTask()
-activate ScheduleModel
+activate ScheduleModel MODEL_COLOR
 
-ScheduleModel -> Schedule : s.setTask()
-activate Schedule
+ScheduleModel ]-> Schedule : s.setTask()
+activate Schedule MODEL_COLOR
 
 Schedule -> UniqueTaskList : setTask()
-activate UniqueTaskList
+activate UniqueTaskList MODEL_COLOR
 
 UniqueTaskList --> Schedule
 deactivate UniqueTaskList
@@ -81,7 +93,7 @@ deactivate ScheduleModel
 
 create CommandResult
 ScheduleEditCommand -> CommandResult
-activate CommandResult
+activate CommandResult LOGIC_COLOR
 
 CommandResult --> ScheduleEditCommand
 deactivate
@@ -89,7 +101,7 @@ deactivate
 ScheduleEditCommand --> LogicManager : result
 deactivate
 
-[<--LogicManager
+user <--LogicManager
 deactivate LogicManager
 
 'Hidden arrow to position the destroy marker below the end of the activation bar.

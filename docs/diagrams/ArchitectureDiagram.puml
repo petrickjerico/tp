@@ -9,23 +9,23 @@ Package " "<<Rectangle>>{
     Class Logic LOGIC_COLOR
     Class Storage STORAGE_COLOR
     Class Model MODEL_COLOR
-    Class Main #grey
-    Class Commons LOGIC_COLOR_T2
+    Class Main #gainsboro
+    Class Commons #gainsboro
 }
 
-Class "<$user>" as User MODEL_COLOR_T2
-Class "<$documents>" as File UI_COLOR_T1
+Class "<$user>" as User #white
+Class "<$documents>" as File #white
 
 
-UI -[#DAA5A3]> Logic
-UI -right[#DAA5A3]-> Model
-Logic -[#B2C4DD]-> Storage
-Logic -down[#B2C4DD]-> Model
-Main -[#grey]-> UI
-Main -[#grey]-> Logic
-Main -[#grey]-> Storage
-Main -up[#grey]-> Model
+UI -[UI_COLOR_T1]> Logic
+UI -right[UI_COLOR_T1]-> Model
+Logic -[LOGIC_COLOR_T1]-> Storage
+Logic -down[LOGIC_COLOR_T1]-> Model
+Main -[#gray]-> UI
+Main -[#gray]-> Logic
+Main -[#gray]-> Storage
+Main -up[#gray]-> Model
 
-Storage .right[STORAGE_COLOR].>File
-User ..> UI
+Storage .right[STORAGE_COLOR_T1].>File
+User ..[#black]> UI
 @enduml

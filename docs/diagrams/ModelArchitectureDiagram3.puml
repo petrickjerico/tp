@@ -1,0 +1,32 @@
+@startuml
+
+!include style.puml
+
+skinparam arrowThickness 1.1
+skinparam classBackgroundColor MODEL_COLOR
+skinparam classBorderColor MODEL_COLOR_T1
+
+Interface Model <<Interface>> MODEL_COLOR
+Interface ScheduleModel <<Interface>> MODEL_COLOR
+class ScheduleModelManager MODEL_COLOR
+Interface FlashcardModel <<Interface>> MODEL_COLOR
+class FlashcardModelManager MODEL_COLOR
+Interface QuizModel <<Interface>> MODEL_COLOR
+class QuizModelManager MODEL_COLOR
+class Schedule MODEL_COLOR
+class FlashcardBank MODEL_COLOR
+class Quiz MODEL_COLOR
+
+Model -[#black]-|> ScheduleModel
+Model -[#black]-|> FlashcardModel
+Model -[#black]-|> QuizModel
+
+ScheduleModel <|.[#black]. ScheduleModelManager
+FlashcardModel <|.[#black]. FlashcardModelManager
+QuizModel <|.[#black]. QuizModelManager
+
+ScheduleModelManager .[#black].> Schedule
+FlashcardModelManager .[#black].> FlashcardBank
+QuizModelManager .[#black].> Quiz
+
+@enduml

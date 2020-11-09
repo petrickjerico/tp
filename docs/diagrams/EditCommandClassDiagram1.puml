@@ -2,19 +2,19 @@
 
 !include style.puml
 skinparam arrowThickness 1.1
-skinparam arrowColor MODEL_COLOR
+skinparam arrowColor #black
 skinparam classBackgroundColor MODEL_COLOR
 skinparam objectBackgroundColor MODEL_COLOR
 
 Title After adding a new task
 
-Object ":UniqueTaskList" as UniqueTaskList
-Object "task1:Task" as task1
-Object "task2:Task" as task2
-Object "task3:Task" as task3
-Object "task4:Task" as task4
-Object ":Title" as Title
-object "initialDesc:Description" as desc0
+Class "__:UniqueTaskList__" as UniqueTaskList
+Class "__task1:Task__" as task1
+Class "__task2:Task__" as task2
+Class "__task3:Task__" as task3
+Class "__task4:Task__" as task4
+Class "__:Title__" as Title
+Class "__initialDesc:Description__" as desc0
 desc0 : description = "test"
 
 

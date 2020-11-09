@@ -1,7 +1,19 @@
 @startuml
 !include style.puml
 
-box Logic LOGIC_COLOR_T1
+skinparam sequence {
+participantBorderColor #000000
+ArrowColor #000000
+ActorBorderColor #000000
+LifeLineBorderColor #000000
+LifeLineBackgroundColor #000000
+}
+
+skinparam sequenceBoxBorderColor #black
+
+Actor User as user USER_COLOR
+
+box Logic #FFFFFF
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":StudyBananasParser" as StudyBananasParser LOGIC_COLOR
 participant ":QuizParser" as QuizParser LOGIC_COLOR
@@ -10,33 +22,33 @@ participant "c:CorrectCommand" as CorrectCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
-box QuizModel MODEL_COLOR_T1
+box QuizModel #FFFFFF
 participant ":QuizModel" as QuizModel MODEL_COLOR
 participant ":Quiz" as Quiz MODEL_COLOR
 end box
 
-[-> LogicManager : execute("c")
-activate LogicManager
+user -> LogicManager : execute("c")
+activate LogicManager LOGIC_COLOR
 
 LogicManager -> StudyBananasParser : parseCommand("c")
-activate StudyBananasParser
+activate StudyBananasParser LOGIC_COLOR
 
 StudyBananasParser -> QuizParser : parseCommand("c")
-activate QuizParser
+activate QuizParser LOGIC_COLOR
 
 create CorrectCommandParser
 QuizParser -> CorrectCommandParser
-activate CorrectCommandParser
+activate CorrectCommandParser LOGIC_COLOR
 
 CorrectCommandParser --> QuizParser
-deactivate CorrectCommandParser
+deactivate CorrectCommandParser LOGIC_COLOR
 
 QuizParser -> CorrectCommandParser : parse("c")
-activate CorrectCommandParser
+activate CorrectCommandParser LOGIC_COLOR
 
 create CorrectCommand
 CorrectCommandParser -> CorrectCommand
-activate CorrectCommand
+activate CorrectCommand LOGIC_COLOR
 
 CorrectCommand --> CorrectCommandParser : c
 deactivate CorrectCommand
@@ -52,19 +64,19 @@ StudyBananasParser --> LogicManager : c
 deactivate StudyBananasParser
 
 LogicManager -> CorrectCommand : execute()
-activate CorrectCommand
+activate CorrectCommand LOGIC_COLOR
 
 CorrectCommand -> QuizModel : tallyScore(true)
-activate QuizModel
+activate QuizModel MODEL_COLOR
 
 QuizModel -> Quiz : setPointsScored(true)
-activate Quiz
+activate Quiz MODEL_COLOR
 
 Quiz --> QuizModel
 deactivate Quiz
 
 QuizModel -> Quiz : getQuestion()
-activate Quiz
+activate Quiz MODEL_COLOR
 
 Quiz --> QuizModel : next question
 deactivate Quiz
@@ -82,6 +94,6 @@ deactivate CommandResult
 CorrectCommand --> LogicManager : result
 deactivate CorrectCommand
 
-[<--LogicManager
+user <--LogicManager
 deactivate LogicManager
 @enduml

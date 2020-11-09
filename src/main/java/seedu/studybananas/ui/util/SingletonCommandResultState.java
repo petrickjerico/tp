@@ -44,6 +44,11 @@ public class SingletonCommandResultState implements Observable {
      * update the state.
      */
     public void updateCommandResult(CommandResult commandResult) {
+
+        if (this.commandResult != null && this.commandResult.equals(commandResult)) {
+            return;
+        }
+
         this.commandResult = commandResult;
         inform();
     }

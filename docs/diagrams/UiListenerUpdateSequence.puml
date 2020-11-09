@@ -2,39 +2,43 @@
 !include style.puml
 
 Actor Client as client USER_COLOR
-Participant ":DynamicState" as state MODEL_COLOR_T2
+Participant ":DynamicState" as state MODEL_COLOR
 Participant ":Listener" as listener LISTENER_COLOR
 Participant ":CallBack" as callback CALLBACK_COLOR
 Participant ":UiComponent" as component UI_COMPONENT_COLOR
 
 skinparam sequence {
-ActorBorderColor DeepSkyBlue
-ParticipantBorderColor transparent
+participantBorderColor #000000
+ArrowColor #000000
+ActorBorderColor #000000
+LifeLineBorderColor #000000
+LifeLineBackgroundColor #000000
 }
 
+skinparam sequenceBoxBorderColor #black
 
-client -[USER_COLOR]> state : "updateState(NewState)"
+client -> state : "updateState(NewState)"
 activate state MODEL_COLOR
 
-state -[MODEL_COLOR]> state : inform()
+state -> state : inform()
 
-state -[MODEL_COLOR]> listener : update(NewState)
+state -> listener : update(NewState)
 activate listener LISTENER_COLOR
 
-listener -[LISTENER_COLOR]> callback : call(NewState)
+listener -> callback : call(NewState)
 activate callback CALLBACK_COLOR
 
-callback -[CALLBACK_COLOR]> component : {abstract}updateView
+callback -> component : {abstract}updateView
 activate component UI_COMPONENT_COLOR
 
-component -[UI_COMPONENT_COLOR]-> callback
+component --> callback
 deactivate component
 
-callback -[CALLBACK_COLOR]-> listener
+callback --> listener
 deactivate callback
 
-listener -[LISTENER_COLOR]-> state
+listener --> state
 deactivate listener
 
-state -[MODEL_COLOR]-> client
+state --> client
 @enduml

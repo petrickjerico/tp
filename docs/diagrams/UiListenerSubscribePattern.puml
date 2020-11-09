@@ -1,7 +1,6 @@
 @startuml
 !include style.puml
 skinparam linetype ortho
-skinparam ArrowFontColor red
 
 Package "Ui"<<Rectangle>>{
     Class UiComponent UI_COMPONENT_COLOR
@@ -14,7 +13,7 @@ skinparam component {
   FontSize 10
   ArrowFontName Arial
   ArrowColor black
-  ArrowFontColor red
+  ArrowFontColor black
 }
 
 

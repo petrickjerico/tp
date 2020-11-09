@@ -311,7 +311,7 @@ The following paragraphs provide the class diagrams of the three `Ui` pages. Dev
 <p></p>
 
 <p align="center" >
-  <img src="images/StudyBananasParse.png" alt="Details of the StudyBananasParser" />
+  <img src="images/StudyBananasParser.png" alt="Details of the StudyBananasParser" />
 </p>
 
 <div align="center">Figure __. Structure of the StudyBananasParser</div>

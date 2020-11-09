@@ -115,8 +115,8 @@ Sections Written:
 * **Contributions to Developer Guide**:  
 Sections Written:
     * [Section 3.5. Storage Component](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#35-storage-component)
-    * [Edit Task feature](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#edit-task-feature)
-    * [Non-Functional Requirements](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#non-functional-requirements)  
+    * [Edit Task feature](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#42-edit-task-feature)
+    * [Non-Functional Requirements](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#64-non-functional-requirements)  
     
     Diagram:
     * [Schedule Model Class Diagram](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/images/ScheduleModelDiagram.png)

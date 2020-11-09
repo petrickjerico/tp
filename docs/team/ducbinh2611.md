@@ -108,13 +108,13 @@ Given below are my contributions to the project (to be updated).
 * **Contributions to User Guide**:  
 Sections Written:
     * [Section 1. Introduction](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#1-introduction-binh)
-    * [Section 3.1. Commands for the `SCHEDULE` page](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#31-commands-for-the-schedule-page-binh)
-    * [Section 3.4. General Commands](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#34-general-commands-binh)
-    * [Section 8. Command Summary for `SCHEDULE`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#schedule-commands-binh)
+    * [Section 4.1.1. Commands for the `SCHEDULE` page](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#41-commands-for-the-schedule-page-binh-except-411)
+    * [Section 4.4. General Commands](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#44-general-commands-binh)
+    * [Section 9.1. Command Summary for `SCHEDULE`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#schedule-commands-binh)
     
 * **Contributions to Developer Guide**:  
 Sections Written:
-    * [Section 3.6. Storage Component](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#36-storage-component)
+    * [Section 3.5. Storage Component](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#35-storage-component)
     * [Edit Task feature](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#edit-task-feature)
     * [Non-Functional Requirements](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#non-functional-requirements)  
     

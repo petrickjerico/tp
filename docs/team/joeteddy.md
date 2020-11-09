@@ -45,7 +45,7 @@ You can view my code contributions to this project on [RepoSense](https://nus-cs
 
 * [4.2. Commands for the `FLASHCARD` page](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#32-commands-for-the-flashcard-page-teddy)
 * [5. FAQ](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#4-faq-teddy)
-* [8. Summary of `FLASHCARD` commands](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#flashcard-commands-teddy)
+* [9. Summary of `FLASHCARD` commands](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#flashcard-commands-teddy)
 
 ## Contribution to Developer Guide
 

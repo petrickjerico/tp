@@ -297,7 +297,7 @@ The following paragraphs provide the class diagrams of the three `Ui` pages. Dev
 
 ![ScheduleUi](images/ScheduleUiClassDiagram.png)
 
-#####`FlashcardUi`
+##### `FlashcardUi`
 
 <p align="center" >
   <img src="images/FlashcardUiClassDiagram.png" alt="FlashcardUiClassDiagram"  />

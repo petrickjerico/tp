@@ -120,7 +120,7 @@ Step 1. Create XYZModel interfaces for each system. They work similar as APIs fo
 
 Step 2. Create XYZModelManagers which implement the XYZModel and contain CRUD methods on the persistence data in StudyBananas.
 
-![ModelStructure-Step2](images/ModelStructure-Step2.png)
+![ModelStructure-Step2](images/ModelArchitectureDiagram2.png)
 
 Step 3. Create system-level Models (Schedule, Flashcard, Quiz) which are models that perform CRUD on the data. Then, create a dependency between `XYZModelManagers` and `system-level Models` so that the CRUD methods in `XYZModelManager` can take advantage of them.
 

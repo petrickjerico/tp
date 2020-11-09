@@ -13,7 +13,7 @@ title: User Guide
   <br>
 
   <p align="center">
-Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of contents below to <br>find answers, get step-by-step instructions and know us better.
+Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or scroll down to the table of contents further below to <br>find answers, get step-by-step instructions and know us better.
   </p>
 
 </div>
@@ -767,7 +767,7 @@ If you would like to close the application, this command helps you to quickly cl
 **A**: StudyBananas is designed to work best on a desktop/laptop.
 
 **Q: How do I transfer my data to another Computer?**<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous StudyBananas home folder.
+**A**: Install the app in the other computer. Overwrite the empty data folder with the data folder in your previous StudyBananas home folder.
 
 <p>&nbsp;</p>
 

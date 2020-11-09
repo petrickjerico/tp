@@ -2,16 +2,22 @@
 layout: page
 title: Yu Bowei's Project Portfolio Page
 ---
-#### Overview
+
+## Project: StudyBananas
+
+### Overview
+
 As part of CS2103T: Software Engineering, my team of 4 software engineering students and I were tasked with enhancing an existing project, [Address Book Level 3 (AB3)](https://github.com/nus-cs2103-AY1920S1/addressbook-level3), into a new product for our Software Engineering project. We chose to morph it into a study management application for students, called **StudyBananas**.
 
 **StudyBananas** is a desktop study companion app that helps students centralize all their study tasks and set up focused study sessions into one place, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
-#### Summary of Contributions
+
+### Summary of Contributions
+
 This section shows a summary of my contributions to the project.
 
 **Code contributed**: Please refer to this [page](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=bowei-yu&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&until=2020-11-09) to see a sample of my code.
 
-**Major enhancement**: 'Quiz' feature
+**Major enhancement**: 'Quiz' feature [#124](https://github.com/AY2021S1-CS2103T-F12-2/tp/pull/124), [#265](https://github.com/AY2021S1-CS2103T-F12-2/tp/pull/265)
 
 * What it does: The 'Quiz' feature comes with a set of commands that allows users to start, stop, or go through with the quiz scheduled, with a specified flashcard set. 
 It stores the user's answers and whether each question is answered correctly for them to refer to it later.
@@ -28,7 +34,7 @@ students can view their last quiz attempt scores.
 * Highlights: This enhancement required an understanding of the flashcards feature. 
 I am responsible for the back-end logic, storage, unit testing and part of the front-end of this feature.
 
-**Major enhancement**: Parts of 'Flashcards' feature testing - I am responsible for the unit testing of commands, storage and model for the flashcards.
+**Major enhancement**: Parts of 'Flashcards' feature testing - I am responsible for the unit testing of commands, storage and model for the flashcards. []
 
 **Minor enhancement**: I modified the Graphical User Interface (GUI) for the 'Quiz' feature for displaying quiz records.
  
@@ -43,4 +49,9 @@ I am responsible for the back-end logic, storage, unit testing and part of the f
  
 **Contributions to team-based tasks**:
 - Maintaining the issue tracker
-- Release management
+- Release management: released v1.2, v1.2.1, v1.3 and v1.4
+- Ensure that all deadlines for tp are followed
+
+**Quality assurance**
+- Helped with testing project manually in search for bugs
+

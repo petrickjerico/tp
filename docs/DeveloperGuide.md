@@ -134,7 +134,7 @@ Step 4. Finally, create our **"one and only one"** Model component API class - `
 #### ScheduleModel
 ![ScheduleModelDiagram](images/ScheduleModelDiagram.png)
 #### FlashcardModel
-
+![FlashcardModelDiagram](images/FlashcardModelDiagram.png)
 #### QuizModel
 ![QuizModelDiagram](images/QuizModelDiagram.png)
 

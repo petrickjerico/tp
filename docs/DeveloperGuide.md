@@ -329,7 +329,7 @@ to other components such as `Logic` to modify the stored data.
 
 ### **3.7. Common classes**
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `seedu.studybananas.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 

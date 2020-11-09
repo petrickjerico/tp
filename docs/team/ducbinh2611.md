@@ -77,8 +77,9 @@ Given below are my contributions to the project (to be updated).
         each other in a hierarchical order. It took us awhile to realise the problem, we then resolved this by agreeing to 
         use `fxml` style property on each component, coupling with the `css` styling for the part of the style that 
         is not specified the `fxml` style property. 
-            
-<br>
+        
+    <div style="page-break-after: always;"></div>
+   
     * Enhanced the `CommandResult` class to follow the `Logic` execution of `QUIZ` 
         * **What it does**:  
         The question, answer and instruction provided to the user by StudyBananas are actually 

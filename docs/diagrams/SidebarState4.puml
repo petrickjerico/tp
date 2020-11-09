@@ -1,6 +1,7 @@
 @startuml
 
 !include style.puml
+
 skinparam ClassFontColor #000000
 skinparam ClassBorderColor #000000
 skinparam arrowThickness 1.1
@@ -8,16 +9,14 @@ skinparam arrowColor #black
 skinparam classBackgroundColor UI_COLOR
 skinparam classBorderColor UI_COLOR_T1
 
-class SingleUiState
-class MainWindow
-class SidebarTab
 
-SingleUiState --> MainWindow : inform
-SingleUiState --> SidebarTab : inform
 
-class SingleUiState {
-NewState
-}
+class SingleUiState UI_COLOR
+class MainWindow UI_COLOR
+class SidebarTab UI_COLOR
+
+SingleUiState -[UI_COLOR_T1]-> MainWindow : inform
+SingleUiState -[UI_COLOR_T1]-> SidebarTab : inform
 
 
 

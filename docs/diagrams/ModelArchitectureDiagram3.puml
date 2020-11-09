@@ -12,7 +12,6 @@ class QuizModelManager MODEL_COLOR
 class Schedule MODEL_COLOR
 class FlashcardBank MODEL_COLOR
 class Quiz MODEL_COLOR
-class ModelManager MODEL_COLOR
 
 
 Model -[MODEL_COLOR_T1]-|> ScheduleModel
@@ -27,10 +26,7 @@ ScheduleModelManager .[MODEL_COLOR_T1].> Schedule
 FlashcardModelManager .[MODEL_COLOR_T1].> FlashcardBank
 QuizModelManager .[MODEL_COLOR_T1].> Quiz
 
-ModelManager ..> ScheduleModelManager
-ModelManager ..> FlashcardModelManager
-ModelManager ..> QuizModelManager
-Model <|-- ModelManager
+
 
 
 

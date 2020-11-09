@@ -9,10 +9,7 @@ interface FlashcardModel MODEL_COLOR
 class FlashcardModelManager MODEL_COLOR
 interface QuizModel MODEL_COLOR
 class QuizModelManager MODEL_COLOR
-class Schedule MODEL_COLOR
-class FlashcardBank MODEL_COLOR
-class Quiz MODEL_COLOR
-class ModelManager MODEL_COLOR
+
 
 
 Model -[MODEL_COLOR_T1]-|> ScheduleModel
@@ -23,14 +20,8 @@ ScheduleModel <|.[MODEL_COLOR_T1]. ScheduleModelManager
 FlashcardModel <|.[MODEL_COLOR_T1]. FlashcardModelManager
 QuizModel <|.[MODEL_COLOR_T1]. QuizModelManager
 
-ScheduleModelManager .[MODEL_COLOR_T1].> Schedule
-FlashcardModelManager .[MODEL_COLOR_T1].> FlashcardBank
-QuizModelManager .[MODEL_COLOR_T1].> Quiz
 
-ModelManager ..> ScheduleModelManager
-ModelManager ..> FlashcardModelManager
-ModelManager ..> QuizModelManager
-Model <|-- ModelManager
+
 
 
 

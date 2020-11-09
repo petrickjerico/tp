@@ -270,6 +270,12 @@ The following paragraphs provide the class diagrams of the three `Ui` pages.
 
 <p></p>
 
+![Details of the StudyBananasParser](images/StudyBananasParser.png)
+
+<div align="center">Figure __. Structure of the StudyBananasParser</div>
+
+<p></p>
+
 **API** :
 [`Logic.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/logic/Logic.java)
 

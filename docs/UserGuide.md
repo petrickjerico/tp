@@ -845,72 +845,12 @@ You can use the following list of command formats as a quick and convenient refe
 
 You may also find the table below helpful to check whether a command is available under certain conditions:
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-d78e{background-color:#9aff99;text-align:center;vertical-align:top}
-.tg .tg-cmwg{background-color:#ffccc9;text-align:center;vertical-align:top}
-.tg .tg-baqh{text-align:center;vertical-align:top}
-.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-.tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
-.tg .tg-4m7p{background-color:#9aff99;border-color:inherit;text-align:center;vertical-align:top}
-</style>
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-0pky" colspan="2" rowspan="2"></th>
-    <th class="tg-7btt" colspan="5">Can I use commands from...</th>
-  </tr>
-  <tr>
-    <td class="tg-7btt">SCHEDULE</td>
-    <td class="tg-7btt">FLASHCARD</td>
-    <td class="tg-baqh"><span style="font-weight:bold">QUIZ*</span></td>
-    <td class="tg-0lax"><span style="font-weight:bold">QUIZ</span> Mode**</td>
-    <td class="tg-amwm">General</td>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-7btt" rowspan="4">If I am in...</td>
-    <td class="tg-c3ow"><span style="font-weight:bold">SCHEDULE</span> Tab<br>(but NO ongoing <span style="font-weight:bold">QUIZ</span>)</td>
-    <td class="tg-4m7p">✅</td>
-    <td class="tg-4m7p">✅</td>
-    <td class="tg-d78e">✅</td>
-    <td class="tg-cmwg">❌</td>
-    <td class="tg-d78e">✅</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow"><span style="font-weight:bold">FLASHCARD</span> Tab<br><span style="font-weight:400;font-style:normal">(but NO ongoing </span><span style="font-weight:bold">QUIZ</span>)</td>
-    <td class="tg-4m7p">✅</td>
-    <td class="tg-4m7p">✅</td>
-    <td class="tg-d78e">✅</td>
-    <td class="tg-cmwg">❌</td>
-    <td class="tg-d78e">✅</td>
-  </tr>
-  <tr>
-    <td class="tg-baqh"><span style="font-weight:bold">QUIZ</span> Tab<br><span style="font-weight:400;font-style:normal">(but NO ongoing </span><span style="font-weight:bold">QUIZ</span>)</td>
-    <td class="tg-d78e">✅</td>
-    <td class="tg-d78e">✅</td>
-    <td class="tg-d78e">✅</td>
-    <td class="tg-cmwg">❌</td>
-    <td class="tg-d78e">✅</td>
-  </tr>
-  <tr>
-    <td class="tg-baqh"><span style="font-weight:bold">ANY</span><span style="font-weight:normal"> Tab</span><br>(but WITH ongoing <span style="font-weight:bold">QUIZ</span><span style="font-weight:normal">)</span></td>
-    <td class="tg-cmwg">❌</td>
-    <td class="tg-cmwg">❌</td>
-    <td class="tg-cmwg">❌</td>
-    <td class="tg-d78e">✅</td>
-    <td class="tg-d78e">✅</td>
-  </tr>
-</tbody>
-</table>
+|                                              | SCHEDULE commands... | FLASHCARD commands... | QUIZ* commands... | QUIZ Mode** commands... | General commands... |
+|----------------------------------------------|:--------------------:|:---------------------:|:-----------------:|-------------------------|:-------------------:|
+|  ...in SCHEDULE Tab<br>(but NO ongoing QUIZ) |           ✅          |           ✅           |         ✅         |            ❌            |          ✅          |
+| ...in FLASHCARD Tab<br>(but NO ongoing QUIZ) |           ✅          |           ✅           |         ✅         |            ❌            |          ✅          |
+|    ...in QUIZ Tab<br>(but NO ongoing QUIZ)   |           ✅          |           ✅           |         ✅         |            ❌            |          ✅          |
+|   ...in ANY Tab<br>(but WITH ongoing QUIZ)   |           ❌          |           ❌           |         ❌         |            ✅            |          ✅          |
 
 \* **QUIZ** commands refer to:  
 `quiz <flset:setindex>` , `quiz <flset:setname>` , `quiz score <flset:setindex>` , `quiz score <flset:setname>`
@@ -963,8 +903,9 @@ You may also find the table below helpful to check whether a command is availabl
 
 <p>&nbsp;</p>
 
-## 8.2. Graphical Sumarry of Navigation Commands
+## 8.2. Graphical Summary of Navigation Commands
 
 Below is a useful "cheat sheet" to show you how different commands affect the tabs displayed.
 
-(Image to be added soon.)
+![UICheatSheet](images/UICHeatSheet.png)
+

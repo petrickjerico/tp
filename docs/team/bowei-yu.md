@@ -25,6 +25,8 @@ To prevent the user from accidentally creating two quizzes, this feature checks 
 Additionally, commands to modify parts of the other features, schedule and flashcards, are not allowed during a quiz run,
 due to the interloped connection between scheduled quizzes as well as flashcard sets. At the end of a quiz, 
 students can view their last quiz attempt scores.
+
+<div style="page-break-after: always;"></div>
   
 * Justification: One goal of StudyBananas is to provide an all-in-one application for students so that they
  can schedule their study session and recap their concepts without needing a separate application. 

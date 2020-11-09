@@ -35,7 +35,7 @@ I am responsible for the back-end logic, storage, unit testing and part of the f
 
 **Minor enhancement**: I modified the Graphical User Interface (GUI) for the 'Quiz' feature for displaying quiz records.
  
- **Contributions to documentation**:
+**Contributions to documentation**:
  - User guide:
      - Wrote the section for `Commands for the QUIZ` page: [#273](https://github.com/AY2021S1-CS2103T-F12-2/tp/pull/273)
      - Help to standardize formatting between group members: [#286](https://github.com/AY2021S1-CS2103T-F12-2/tp/pull/286)
@@ -43,3 +43,7 @@ I am responsible for the back-end logic, storage, unit testing and part of the f
      - Wrote the sections for the implementation of the 'Quiz' feature in the developer guide: [#130](https://github.com/AY2021S1-CS2103T-F12-2/tp/pull/130)
      - Added use cases, non-functional requirements to the developer guide: [#63](https://github.com/AY2021S1-CS2103T-F12-2/tp/pull/63)
      - Added product survey and test cases to developer guide: [#315](https://github.com/AY2021S1-CS2103T-F12-2/tp/pull/315)
+ 
+**Contributions to team-based tasks**:
+- Maintaining the issue tracker
+- Release management

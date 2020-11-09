@@ -334,7 +334,6 @@ The following paragraphs provide the class diagrams of the three `Ui` pages. Dev
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete task 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete task 1` Command](images/DeleteSequenceDiagram.png)
-<div align="center">Figure 3.3: Interactions inside the Logic Component for the `delete task 1` Command</div>
 
 <p></p>
 

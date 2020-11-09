@@ -104,38 +104,38 @@ The `Model`,
 
 The following paragraphs explain the structure of `Model` component.
 
-#### Overall Structure
+#### 3.2.1. Overall Structure
 
 StudyBananas is an integration of 3 systems, namely Schedule, Quiz, and Flashcard. As mentioned in  [Architecture](#architecture), we only have one API class (Model) for models from all three systems, this decision incurs strong couplings between three systems, resulting in many regression in the unit tests during the development. Therefore, to solve this problem, we introduce one more layer of abstraction for `Model` components to reduce the couplings. This section describes our implementation and analysis.
 
-#### Implementation
+#### 3.2.2. Implementation
 
 The following is the step by step guide of how we structure Model component. We believe this structure reduces the coupling for models from different systems and preserves the benefit of **one component, one API**.
 
-Step 1. Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still the only one API class for `Model` component.
+**Step 1.** Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still the only one API class for `Model` component.
 
 <p align="center">
   <img src="images/ModelArchitectureDiagram1.png" alt="ModelStructure-Step1" />
 </p>
 
-Step 2. Create XYZModelManagers which implement the XYZModel and contain CRUD methods on the persistence data in StudyBananas.
+**Step 2.** Create XYZModelManagers which implement the XYZModel and contain CRUD methods on the persistence data in StudyBananas.
 
 ![ModelStructure-Step2](images/ModelArchitectureDiagram2.png)
 
-Step 3. Create system-level Models (Schedule, Flashcard, Quiz) which are models that perform CRUD on the data. Then, create a dependency between `XYZModelManagers` and `system-level Models` so that the CRUD methods in `XYZModelManager` can take advantage of them.
+**Step 3.** Create system-level Models (Schedule, Flashcard, Quiz) which are models that perform CRUD on the data. Then, create a dependency between `XYZModelManagers` and `system-level Models` so that the CRUD methods in `XYZModelManager` can take advantage of them.
 
 <p align="center">
   <img src="images/ModelArchitectureDiagram3.png" alt="ModelStructure-Step3" height="400" />
 </p>
 
-Step 4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` contains all the CRUD methods from 4 individual `Models`. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the individual `ModelManagers`. Therefore, we are able to test the real implementation of one `Model` without the interference from other `Models`.
+**Step 4.** Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` contains all the CRUD methods from 4 individual `Models`. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the individual `ModelManagers`. Therefore, we are able to test the real implementation of one `Model` without the interference from other `Models`.
 
 <p align="center">
   <img src="images/ModelArchitectureDiagram.png" alt="ModelArchitectureDiagram" height="400" />
 </p>
 
 
-#### Analysis
+#### 3.2.3. Analysis
 
   * Pros: 
     1. It preserves the advantage of easy and fast cooperation for people working on different components because there is only one API class required to work together.
@@ -144,7 +144,7 @@ Step 4. Finally, create our **"one and only one"** Model component API class - `
   * Cons: 
     1. It still breaks the **Single Responsibility Principle**, for `Model`is no longer responsible for one model at a time, it holds accountable for models from 3 systems at the same time.
 
-#### Structure for individual `Model`
+#### 3.2.4. Structure for individual `Model`
 
 #### `ScheduleModel`
 
@@ -183,7 +183,7 @@ The `UI` component,
 
 The following paragraphs explain the structure of `UI` component in detail.
 
-#### Overall Structure
+#### 3.3.1. Overall Structure
 
 StudyBananas contains three pages for three different systems. A user can navigate between different systems by entering commands or clicking on the tabs. Compared with **AddressBook3**, StudyBananas has a much higher complexity for **`UI`** component for the reason that StudyBananas supports navigation through clicking, which would require a **state management** structure to realize.
 
@@ -196,10 +196,10 @@ Our team divides `UI state` into two categories and manage their changes in two 
  
 For the reason that these two states have intrinsic difference in their complexity (`dynamic state` is much more 
 complicated than the `static state`), we handle them differently in `UI` component. The following paragraphs explain our implementation on them separately.
- 
-#### **Static State**
 
-#### Reasoning
+#### 3.3.2. Static State
+
+##### 3.3.2.1. Reasoning
 
 When our team starts to improve the user experience of the graphical user interface, the first pain that came to our notice is that many components have the need for certain objects(`static state`), but due to the fact that `Ui Components` tend to nest each other, the developer might need to pass the object(`static state`) down to a deep nested component. 
 For example, many components take advantage of `Logic` object to communicate with the persistence data in `Model` component to provide accurate view of data.
@@ -207,7 +207,7 @@ The picture below is the simplified class diagram for `Ui Components`, and the `
 
 ![UiGlobalStateProblem](images/UiGlobalStateProblem.png)
 
-#### Implementation (Solution)
+##### 3.3.2.2. Implementation (Solution)
 
 The most intuitive solution is to make those `static states` globally accessible to every `Component`. By doing this, the `static state`  does not need to be passed. Instead, only the `components` that require the `static state` need to depend on it. The following paragraph shows the step-by-step guide of the implementation. 
 
@@ -231,8 +231,7 @@ Step 2. Have the components that require the `static state` depend on the `Globa
   <img src="images/UiGlobalStateSolution2.png" alt="UiGlobalStateSolution2" />
 </p>
 
-#### Analysis
-
+##### 3.3.2.3. Analysis
   * Pros: 
     1. This structure makes it easier for the developer to maintain the `Ui components` because there is no need to pass `static state` as arguments for the constructor anymore
     2. It avoids dummy arguments in some constructors. For example, given the following component structure A -> B -> C, if A and C both require a common `static state`, in the original implementation, the constructor in B would need to have one more argument for the `static state` which is not used in `Component B` except for constructing `Component C`. In this sense, the `static state` is dummy inside the constructor B.
@@ -244,9 +243,9 @@ Step 2. Have the components that require the `static state` depend on the `Globa
     
 </div>
 
-#### **Dynamic State**
+#### 3.3.3. **Dynamic State**
 
-#### Reasoning
+##### 3.3.3.1. Reasoning
 
 In the UI design phase, our team decided to build a sidebar and expected it to allow user to navigate through different pages by clicking. It was the first time that we found out that there are multiple components listening to the changes of the `PageState` and there is a need for them to update their view based on the `PageState`.  
 
@@ -261,7 +260,7 @@ However, the change of the `static state` should update the view for the `Compon
 Before introducing `Listeners`, the view update is specified in the `Component` itself, as now we pass the responsibility of subscribing to the `Listeners`, the `Listeners` would then be in charge of
 the update of the the `Component`'s view. To equip `Listeners` with the ability to update the view, the `Component` created a `CallBack` and passed it as argument when creating the `Listeners`.
 
-#### Implementation 
+##### 3.3.3.2. Implementation 
 
 Step 1. Create `CallBack` object inside the `UiComponent`. In the `CallBack`, we specify how the view of the `UiComponent` is supposed to change on the update of the `dynamic state`. Then construct a `Listener` with the `CallBack` being the argument to finish the process of subscribing. The picture below shows the dependency between them.
 
@@ -272,13 +271,13 @@ Step 1. Create `CallBack` object inside the `UiComponent`. In the `CallBack`, we
 
 Step 2. When the `dynamic state` is updated, it will then inform all the `Listeners`, and the `Listeners` would consequently change the view of the `UiComponent` by triggering the `CallBack`. The following two diagrams show the flow.
 
-#### Flow
+##### **Flow**
 
 <p align="center">
   <img src="images/UiListenerUpdate.png" alt="UiListenerUpdate" height="530" />
 </p>
 
-#### Sequential diagram
+##### **Sequential diagram**
 
 ![UiListenerUpdateSequence](images/UiListenerUpdateSequence.png)
 
@@ -286,21 +285,21 @@ Step 2. When the `dynamic state` is updated, it will then inform all the `Listen
     
 </div>
 
-#### Structure for individual `Ui` page
+#### 3.3.3.4. Structure for individual `Ui` page
 
 The following paragraphs provide the class diagrams of the three `Ui` pages. Developers can refer to these diagrams to scale the system.
 
-#### `ScheduleUi`
+##### `ScheduleUi`
 
 ![ScheduleUi](images/ScheduleUiClassDiagram.png)
 
-#### `FlashcardUi`
+#####`FlashcardUi`
 
 <p align="center" >
   <img src="images/FlashcardUiClassDiagram.png" alt="FlashcardUiClassDiagram"  />
 </p>
 
-#### `QuizUi`
+##### `QuizUi`
 
 ![QuizUi](images/QuizUiClassDiagram.png)
 
@@ -350,7 +349,7 @@ The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
 * can save the `Schedule`, `FlashcardBank` and `QuizRecords` data in json format and read it back.
 
-#### Overall Structure
+#### 3.5.1. Overall Structure
 StudyBananas supports 3 different systems, namely `Schedule`, `FlashcardBank` and `Quiz`. Each of these
 systems needs to store their own type of data. Compared to the original `AddressBook3` where `AddressBookStorage` is the
 interface that exposes the functionality to save and read the data from the storage file, StudyBananas storage
@@ -365,7 +364,7 @@ to other components such as `Logic` to modify the stored data.
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
-#### Analysis
+#### 3.5.2. Analysis
 * Pros: 
     1. It allows StudyBananas to have one high-level `Storage` components that interacts with other high-level components in the [architecture](#3.1.architecture) level.
     2. **Interface Segregation Principle** is preserved as each system storage only needs to deal with the reading and saving data of its own system.
@@ -386,9 +385,9 @@ Classes used by multiple components are in the `seedu.studybananas.commons` pack
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Support multiple DateTime format feature
+### 4.1. Support multiple DateTime format feature
 
-#### Implementation
+#### 4.1.1. Implementation
 
 StudyBananas is optimized for command line users, and supports multiple formats of input date 
 time (see [add-a-task]("https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#312-add-a-task-add-task") 
@@ -421,9 +420,9 @@ Step 2. Add the new `DateFormat` into the check list residing in the `TimeFormat
   <img src="images/NewDateFormat-Step2.png" alt="NewDateTimeFormat-Step2" />
 </p>
 
-#### Design consideration:
+#### 4.1.2. Design consideration:
 
-##### Aspect: How is multiple time format implemented
+##### 4.1.3. Aspect: How is multiple time format implemented
 
 * **Current choice**:
   * Pros: It segregates the check logic from the `DateTime` format. In a sense, this is a good practice of 
@@ -437,9 +436,9 @@ Step 2. Add the new `DateFormat` into the check list residing in the `TimeFormat
 
 
 
-### Edit Task feature
+### 4.2. Edit Task feature
 
-#### Implementation
+#### 4.2.1. Implementation
 
 The edit mechanism is facilitated by `Schedule`, which contains a `UniqueTaskList` such that each `TASK`'s information can be modified 
 after its creation and addition into the `UniqueTaskList`. It implements this following feature:  
@@ -461,7 +460,7 @@ functionality. Given below is the class diagram of `TASK` model for a better und
   
 <br>
 
-Step 1. The user launches the application. The `SCHEDULE` contains `UniqueTaskList`, which is initialized from the saved 
+**Step 1.** The user launches the application. The `SCHEDULE` contains `UniqueTaskList`, which is initialized from the saved 
  `TASK`s in the JSON file `schedule.json` locally (see [Storage component](#35-storage-component))
 For example, the user already has 3 `TASK`s saved in the initial `SCHEDULE` as seen below.
 
@@ -471,7 +470,7 @@ For example, the user already has 3 `TASK`s saved in the initial `SCHEDULE` as s
 
 <br>
 
-Step 2. The user adds a new `TASK` into the schedule using the `add task` command. 
+**Step 2.** The user adds a new `TASK` into the schedule using the `add task` command. 
 This `TASK` is assigned the index 4 in the `SCHEDULE`
 
 <p align="center" >
@@ -480,7 +479,7 @@ This `TASK` is assigned the index 4 in the `SCHEDULE`
 
 <br>
 
-Step 3. The user now wants to change the description of the currently added `TASK`, and decides to edit the description of the `TASK` by entering the command `edit task 4 d: Quiz 3 about Boolean Algebra`. 
+**Step 3.** The user now wants to change the description of the currently added `TASK`, and decides to edit the description of the `TASK` by entering the command `edit task 4 d: Quiz 3 about Boolean Algebra`. 
 The `edit task` command will be parsed by the `Parser` and create a `ScheduleEditCommand` object.  
 `ScheduleEditCommand#execute()` creates a new `TASK` object, containing the updated information fields. For the fields that is not specified in the `edit task` command, such as `title` in the example, the new `TASK` 
 takes the existing fields of the to-be-replaced `TASK` (note how the same `title` object is shared between `task4` and `editedTask4` as seen below). 
@@ -491,7 +490,7 @@ takes the existing fields of the to-be-replaced `TASK` (note how the same `title
 
 <br>
 
-Step 4. `ScheduleModel#setTask()` is then called to replace `task4` with `editedTask4` in `Schedule`.
+**Step 4.** `ScheduleModel#setTask()` is then called to replace `task4` with `editedTask4` in `Schedule`.
 
 ![EditCommandClassDiagram3](images/EditCommandClassDiagram3.png) 
 
@@ -507,9 +506,9 @@ The following sequence diagram shows how the `edit task` functionality works:
 </p>
 
 
-#### Design consideration:
+#### 4.2.2. Design consideration:
 
-##### Aspect: How edit task executes
+**Aspect: How edit task executes**
 
 * **Alternative 1 (current choice):** Creates the new edited task object to replace the to-be-replaced task object.
   * Pros: Update the `SCHEDULE` by modifying `UniqueTaskList` consistently throughout the program so that side-effects, such as the existence of 2 different
@@ -522,9 +521,9 @@ The following sequence diagram shows how the `edit task` functionality works:
   * Pros: Will use less memory as there is no new creation of `TASK` object.
   * Cons: May result in side-effects such as there are out-of-dated versions of `SCHEDULE` throughout the program.
 
-### Quiz with storage of answers feature
+### 4.3. Quiz with storage of answers feature
 
-#### Implementation
+#### 4.3.1. Implementation
 
 The proposed quiz with storage of answers mechanism is facilitated by `Quiz` and `QuizModelManager`, which implements the `QuizModel` interface. 
 It makes use of an array of answer strings as an attribute, stored within a `Quiz` object as `userAnswers`.
@@ -557,11 +556,10 @@ The score includes:
 
 These operations are as exactly written in the `QuizModel` and `Model` interface.
 
-#### Usage Scenario
+#### 4.3.2. Usage Scenario
 Given below is an example usage scenario and how the quiz with storage of answers mechanism behaves at each step.
 
-##### Step 1
-The user launches the application and starts the quiz for a non-empty, valid flashcard set. 
+**Step 1.** The user launches the application and starts the quiz for a non-empty, valid flashcard set. 
 As a result, it creates a `QuizModelManager` object and a `StartCommand` object.
 Assume the flashcard set contains only two flashcards for simplicity.
 
@@ -579,8 +577,7 @@ The `Quiz` is saved into the `QuizModelManager`object as an attribute named `qui
   <img src="images/StartQuiz.png" alt="StartQuiz" />
 </p>
 
-##### Step 2
-The user executes `ans:<answer>` command to submit their answer to the question. 
+**Step 2.** The user executes `ans:<answer>` command to submit their answer to the question. 
 The `AnswerCommand` object created calls `Quiz#saveAnswer()`, 
 storing their answer into the `userAnswers` array attribute in Quiz 
 for the question before moving on to the correct answer through the call of `Quiz#getAnswer()`.
@@ -591,8 +588,7 @@ The `currentIndex` attribute is incremented at this stage to point to the next f
   <img src="images/StoreAnswerClassDiagram.png" alt="StoreAnswerClassDiagram" />
 </p>
 
-##### Step 3
-After viewing the answer, the user executes either `c` or `w` to indicate whether the question is answered correctly. 
+**Step 3.** After viewing the answer, the user executes either `c` or `w` to indicate whether the question is answered correctly. 
 This creates either a `CorrectCommand` or `WrongCommand` object. 
 
 In the case of the `CorrectCommand` class below, the call to `CorrectCommand#execute()`
@@ -619,8 +615,7 @@ through `QuizModelManager`, during the execution of `CorrectCommand:execute()`.
   <img src="images/NextQuestion.png" alt="NextQuestion" />
 </p>
 
-##### Step 4
-Assume that the user has reached the end of the flashcards as shown below:
+**Step 4.** Assume that the user has reached the end of the flashcards as shown below:
 
 <p align="center">
   <img src="images/OutOfIndex.png" alt="OutOfIndex" />
@@ -640,9 +635,9 @@ The following activity diagram summarizes what happens when a user executes a ne
 </p>
 
 
-#### Design consideration:
+#### 4.3.3. Design consideration:
 
-##### Aspect: How quiz with storage of answers executes
+**Aspect: How quiz with storage of answers executes**
 
 * **Current choice** .
   * Pros: Easy to implement.
@@ -650,9 +645,9 @@ The following activity diagram summarizes what happens when a user executes a ne
 _{more aspects and alternatives to be added}_
 
 
-### Sidebar view
+### 4.4. Sidebar view
 
-#### Implementation
+#### 4.4.1. Implementation
 
 Sidebar view is implemented with the `dynamic state` structure (see [`Dynamic State`](#dynamic-state)) with `SingletonUiState` being the **Observable** object and `MainWindow` and `SidebarTab` being the **Observers**. As `MainWindow` and `SidebarTab` do not subscribe to other `dynamic states`. The `listener` is omitted here. The `SingletonUiState` is designed to be **singleton**, and default value `SCHEDULE` is assigned to it when the application is launched; Both `MainWindow` and `SidebarTab` implement the **Observer** interface and specify how their view should be changed in the `update` method. The list below describes how **Observer** pattern is adopted here.
 
@@ -668,7 +663,7 @@ Given below is an example usage scenario and how the sidebar view mechanism beha
 ![SidebarTabWorkFlow](images/SidebarTabWorkFlow.png)
 
 
-#### Design consideration:
+#### 4.4.2. Design consideration:
 
 * Multiple Ui components rely on the unique `UiState`. This is the intuition for **Singleton**.
 * Many components should be updated according to the  changes of `UiState`, it makes sense to build it using Observer pattern.
@@ -679,7 +674,7 @@ Given below is an example usage scenario and how the sidebar view mechanism beha
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Documentation, logging, testing, configuration, dev-ops**
+## 5. **Documentation, logging, testing, configuration, dev-ops**
 
 * [Documentation guide](Documentation.md)
 * [Testing guide](Testing.md)
@@ -689,9 +684,9 @@ Given below is an example usage scenario and how the sidebar view mechanism beha
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
+## 6. **Appendix: Requirements**
 
-### Product scope
+### 6.1. Product scope
 
 **Target user profile**:
 
@@ -707,7 +702,7 @@ Given below is an example usage scenario and how the sidebar view mechanism beha
 * centralize all study tasks and set up focused study sessions in one place
 
 
-### User stories
+### 6.2. User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -732,7 +727,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | Super busy student                                             | have AI to schedule my todo lists based on my past studying statistics automatically for me | rely on the AI to make the best use of my time.                                    |
 
 
-### Use cases
+### 6.3. Use cases
 
 (For all use cases below, the **System** is the `StudyBananas` and the **Actor** is the `user`, unless specified otherwise)  
 
@@ -911,7 +906,7 @@ Use case ends.
    * a1. StudyBananas shows an error to indicate that flashcard set has not been quizzed  
    Use case ends.
 
-### Non-Functional Requirements
+### 6.4. Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should work without requiring an installer.
@@ -924,29 +919,30 @@ Use case ends.
 9.  The data should be stored locally.
 
 
-### Glossary
+### 6.5. Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **CLI**: Command Line Interface
 * **GUI**: Graphical User Interface
 * **Flashcard**: An object containing a question and the corresponding answer.
 * **Flashcard Set**: A set of flashcards relevant to a specific topic. 
---------------------------------------------------------------------------------------------------------------------
 
-### Product survey
+### 6.6. Product survey
 
-Pros
+We have done up a product survey to find out accurately whether our project has met its non/functional requirements. Below are the summarised result:
+
+**Liked features**
 * The product is attractive in helping students with their study plans, and recapping their concepts.
 * GUI is rather aesthetic looking, pleasing to the eyes.
 * The available commands are intuitive, and are easy to use and remember.
 
-Cons
+**Room for Improvement**
 * A dark mode can be included. Some users prefer a GUI with dark mode.
 * More features can be integrated, eg undo/redo. These features can be included in version 2.0.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Instructions for manual testing**
+## 7. **Appendix: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -955,7 +951,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### Launch and shutdown
+### 7.1. Launch and shutdown
 
 1. Initial launch
 
@@ -963,11 +959,11 @@ testers are expected to do more *exploratory* testing.
 
    1. Double-click the jar file Expected: Shows the GUI with a set of sample tasks, flashcards and quiz records. The window size is fixed.
 
-### Commands for manual testing
+### 7.2. Commands for manual testing
 
 Note: For all commands except for general ones, only quiz mode commands are allowed when a quiz has started.
 
-#### `SCHEDULE` commands
+#### 7.2.1. `SCHEDULE` commands
 
 | Action                  | Format, Examples                                                                                                                 |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -1056,7 +1052,7 @@ Note: For all commands except for general ones, only quiz mode commands are allo
 
 <p>&nbsp;</p>
 
-#### `FLASHCARD` commands
+#### 7.2.2. `FLASHCARD` commands
 
 | Action                                  | Format, Examples                                                                                        |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -1136,7 +1132,7 @@ Note: For all commands except for general ones, only quiz mode commands are allo
 
 <p>&nbsp;</p>
 
-#### `QUIZ` commands
+#### 7.2.3. `QUIZ` commands
 
 | Action                 | Format, Examples                                                                                                                                                                              |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1203,7 +1199,7 @@ Note: For all commands except for general ones, only quiz mode commands are allo
     1. Test case: `exit`
        Expected: The application closes.
 
-### Saving data
+### 7.3. Saving data
 
 1. Dealing with missing/corrupted data files
 

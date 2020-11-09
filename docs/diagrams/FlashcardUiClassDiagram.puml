@@ -1,8 +1,9 @@
 @startuml
 !include style.puml
 skinparam arrowThickness 1.1
-skinparam arrowColor UI_COLOR_T1
+skinparam arrowColor #black
 skinparam classBackgroundColor UI_COLOR
+skinparam classBorderColor UI_COLOR_T1
 
 package FlashcardUi <<Rectangle>>{
 Class FlashcardUi

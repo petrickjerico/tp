@@ -3,6 +3,11 @@ layout: page
 title: Developer Guide
 ---
 
+* Table of Contents
+{:toc}
+
+---
+
 # StudyBananas - Developer Guide
 
 By: `AY2021S1-CS2103T-F12-2`
@@ -62,7 +67,7 @@ The rest of the App consists of four components.
 * [**`UI`**](#ui-component): The UI of the App.
 * [**`Logic`**](#logic-component): The command executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
-* [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
+* [**`Storage`**](#3.5.-storage-component): Reads data from, and writes data to, the hard disk.
 
 Each of the four components,
 
@@ -75,7 +80,7 @@ For example, the `Logic` component (see the class diagram given below) defines i
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete task 1`.
 
 <img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
@@ -103,19 +108,19 @@ StudyBananas is an integration of 3 systems, namely Schedule, Quiz, and Flashcar
 
 The following is the step by step guide of how we structure Model component. We believe this structure reduces the coupling for models from different systems and preserves the benefit of **one component, one API**.
 
-Step1. Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still the only one API class for `Model` component.
+Step 1. Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still the only one API class for `Model` component.
 
 ![ModelStructure-Step1](images/ModelStructure-Step1.png)
 
-Step2. Create XYZModelManagers which implement the XYZModel and contain CRUD methods on the persistence data in StudyBananas.
+Step 2. Create XYZModelManagers which implement the XYZModel and contain CRUD methods on the persistence data in StudyBananas.
 
 ![ModelStructure-Step2](images/ModelStructure-Step2.png)
 
-Step3. Create system-level Models (Schedule, Flashcard, Quiz) which are models that perform CRUD on the data. Then, create a dependency between `XYZModelManagers` and `system-level Models` so that the CRUD methods in `XYZModelManager` can take advantage of them.
+Step 3. Create system-level Models (Schedule, Flashcard, Quiz) which are models that perform CRUD on the data. Then, create a dependency between `XYZModelManagers` and `system-level Models` so that the CRUD methods in `XYZModelManager` can take advantage of them.
 
 ![ModelStructure-Step3](images/ModelStructure-Step3.png)
 
-Step4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` contains all the CRUD methods from 4 individual `Models`. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the individual `ModelManagers`. Therefore, we are able to test the real implementation of one `Model` without the interference from other `Models`.
+Step 4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` contains all the CRUD methods from 4 individual `Models`. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the individual `ModelManagers`. Therefore, we are able to test the real implementation of one `Model` without the interference from other `Models`.
 
 ![ModelStructure-Step4](images/ModelArchitectureDiagram.png)
 
@@ -132,11 +137,22 @@ Step4. Finally, create our **"one and only one"** Model component API class - `M
 #### Structure for individual `Model`
 
 #### ScheduleModel
-![ScheduleModelDiagram](images/ScheduleModelDiagram.png)
+
+<p align="center">
+  <img src="images/ScheduleModelDiagram.png" alt="ScheduleModelClassDiagram" height="425" />
+</p>
+
 #### FlashcardModel
 
+<p align="center">
+  <img src="images/FlashcardModelDiagram.png" alt="FlashcardModelClassDiagram" height="425" />
+</p>
+
 #### QuizModel
-![QuizModelDiagram](images/QuizModelDiagram.png)
+
+<p align="center">
+  <img src="images/QuizModelDiagram.png" alt="QuizModelClassDiagram" height="425" />
+</p>
 
 
 ---------------------------------------------------------------------------------------------
@@ -176,7 +192,7 @@ For the reason that these two states have intrinsic difference in their complexi
 
 When our team starts to improve the user experience of the graphical user interface, the first pain that came to our notice is that many components have the need for certain objects(`static state`), but due to the fact that `Ui Components` tend to nest each other, the developer might need to pass the object(`static state`) down to a deep nested component. 
 For example, many components take advantage of `Logic` object to communicate with the persistence data in `Model` component to provide accurate view of data.
-The picture below is the simplified class diagram for `Ui Components`, and the `Components` with dark green color depend on the `Logic` object. The red path is the deepest path that `Logic` object would need to be passed. You can observe the deep nested dependency in the graph.
+The picture below is the simplified class diagram for `Ui Components`, and the `Components` with pink color depend on the `Logic` object. The red path is the deepest path that `Logic` object would need to be passed. You can observe the deep nested dependency in the graph.
 
 ![UiGlobalStateProblem](images/UiGlobalStateProblem.png)
 
@@ -186,21 +202,19 @@ The most intuitive solution is to make those `static states` globally accessible
 
 Step1. Create a class named `GlobalState` and make it singleton, and set the `static states` as the attributes of `GlobalState`. Then, use the set method to set the attribute of the `GlobalState` in the component where the `static state` is first created so that we are certain that when other components try to get the `static state` from the `GlobalState`, the `static state` has already been registered in the `GlobalState`.
 
-<div markdown="span" class="alert alert-info">:information_source: Note: our static state can still be modified, (see the definition from <a href="#overall-structure">overall structure</a>) that is why 
-    <div class="code">GlobalState</div> has to be singleton.
+<div markdown="span" class="alert alert-info">:information_source: Note: our static state can still be modified, (see the definition from [overall structure](#overall-structure)) that is why `GlobalState` has to be singleton.
     
 </div>
 
-![UiGlobalStateProblem](images/UiGlobalStateSolution-1.png)
+![UiGlobalStateProblem](images/UiGlobalStateSolution.png)
 
 Step2. Have the components that require the `static state` depend on the `GlobalState` to fetch and update the `static state` easily.
 
-<div markdown="span" class="alert alert-info">:information_source: Note: in the picture, there is no need to pass the 
-    <div class="code"> static state</div> around anyone, the structure is thereby flatten.
+<div markdown="span" class="alert alert-info">:information_source: Note: in the picture, there is no need to pass the `static state` around anyone, the structure is thereby flatten.
     
 </div>
     
-![UiGlobalStateProblem](images/UiGlobalStateSolution-2.png)
+![UiGlobalStateProblem](images/UiGlobalStateSolution2.png)
 
 
 #### Analysis
@@ -211,9 +225,8 @@ Step2. Have the components that require the `static state` depend on the `Global
   * Cons: 
     1. Every component is able to get access and modify the `static state`, the modification done to a `static state` in one class by a developer can cause unexpected behavior when another developer is using the same `static state` in other components.
     
-<div markdown="span" class="alert alert-info">:information_source: Note: the idea of 
-    <div class="code">GlobalState</div> is inspired by 
-    <a href="https://redux.js.org">Redux</a>. It has a much more complicated structure than what we have here.
+<div markdown="span" class="alert alert-info">:information_source: Note: the idea of `GlobalState` is inspired by 
+    [Redux](https://redux.js.org). It has a much more complicated structure than what we have here.
     
 </div>
 
@@ -233,39 +246,56 @@ the update of the the `Component`'s view. To quip `Listeners` with the ability t
 
 Step1. Create `CallBack` object inside the `UiComponent`. In the `CallBack`, we specify how the view of the `UiComponent` is supposed to changed on the update of the `dynamic state`. Then construct a `Listener` with the `CallBack` being the argument to finish the process of subscribing. The picture below shows the dependency between them.
 
-![UiListenerSubscribe](images/UiListenerSubscribe.png)
+<p align="center">
+  <img src="images/UiListenerSubscribe.png" alt="UiListenerSubscribe" height="500" />
+</p>
+
 
 Step2. When the `dynamic state` is updated, it will then inform all the `Listeners`, and the `Listeners` would consequently change the view of the `UiComponent` by triggering the `CallBack`. The following two diagrams show the flow.
 
 #### Flow
 
-![UiListenerUpdate](images/UiListenerUpdate.png)
+<p align="center">
+  <img src="images/UiListenerUpdate.png" alt="UiListenerUpdate" height="530" />
+</p>
 
 #### Sequential diagram
 
 ![UiListenerUpdateSequence](images/UiListenerUpdateSequence.png)
 
+<div markdown="span" class="alert alert-info">:information_source: Note: the listener structure is built to cater the need of subscribing to multiple `dynamic state`, in some `Component`, multiple subscription is not needed, we keep it as normal **observer pattern**. Refer to [sidebar implementation](#Sidebar View) for the example of subscribing to only one `dynamic state`.
+    
+</div>
+
 #### Structure for individual `Ui` page
 
-The following paragraphs provide the class diagrams of the three `Ui` pages.
+The following paragraphs provide the class diagrams of the three `Ui` pages. Developers can refer to these diagrams to scale the system.
 
 #### `ScheduleUi`
 
-![ScheduleUi](images/ScheduleUi.png)
+![ScheduleUi](images/ScheduleUiClassDiagram.png)
 
 #### `FlashcardUi`
 
-![FlashcardUi](images/FlashcardUi.png)
+![FlashcardUi](images/FlashcardUiClassDiagram.png)
 
 #### `QuizUi`
 
-![QuizUi](images/QuizUi.png)
+![QuizUi](images/QuizUiClassDiagram.png)
+
+--------------------------------------------------------------------------------------------
 
 ### **3.3. Logic component**
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
 <div align="center">Figure __. Structure of the logic component</div>
+
+<p></p>
+
+![Details of the StudyBananasParser](images/StudyBananasParser.png)
+
+<div align="center">Figure __. Structure of the StudyBananasParser</div>
 
 <p></p>
 
@@ -278,7 +308,7 @@ The following paragraphs provide the class diagrams of the three `Ui` pages.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete task 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete task 1` Command](images/DeleteSequenceDiagram.png)
 <div align="center">Figure 3.3: Interactions inside the Logic Component for the `delete task 1` Command</div>
@@ -291,7 +321,6 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ### **3.6. Storage component**
 
-![Structure of the Storage Component](images/StorageClassDiagram.png)
 
 **API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/storage/Storage.java)
 
@@ -299,11 +328,33 @@ The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
 * can save the `Schedule`, `FlashcardBank` and `QuizRecords` data in json format and read it back.
 
+#### Overall Structure
+StudyBananas supports 3 different systems, namely `Schedule`, `FlashcardBank` and `Quiz`. Each of these
+systems needs to store their own type of data. Compared to the original `AddressBook3` where `AddressBookStorage` is the
+interface that exposes the functionality to save and read the data from the storage file, StudyBananas storage
+is more complicated with the existence of these 3 distinct systems. Therefore, our team decides to split the 
+storage such that each system has their own storage interface, including `ScheduleStorage`, `FlashcardBankStorage` and
+`QuizRecordsStorage`, that is in charge of saving and reading their own data from their respective storage file as seen from the figure below
+. The `Storage` 
+component then contains these 3 storage systems as well as the `UserPrefs` storage and exposes the storage functionality 
+to other components such as `Logic` to modify the stored data.
+
+![Structure of the Storage Component](images/StorageClassDiagram.png)
+
+#### Analysis
+* Pros: 
+    1. It allows to have one high-level `Storage` components that interacts with other high-level components in the architecture level.
+    2. **Interface Segregation Principle** is preserved as each system storage only needs to deal with the reading and saving data of its own system.
+    3. **Open-Closed Principle** is preserved for `Storage` component. If more components are added, developers only need to extend by creating `XYZStorage` and add a new attribute and methods to `Storage` component instead of modifying existing `XYZStorage`.
+ * Cons: 
+    1. If there is a common data that is shared between different systems and it is modified, `Logic` needs to have multiple calls of save to each 
+    systems have to update the data in different systems.
+    
 <p>&nbsp;</p>
 
 ### **3.7. Common classes**
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `seedu.studybananas.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -319,11 +370,60 @@ The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `Flashc
 
 ![Flashcard Class Diagram](diagrams/FlashcardClassDiagram.png)
 
+### Support multiple DateTime format feature
+
+#### Implementation
+
+StudyBananas is optimized for command line users, and supports multiple formats of input date 
+time (see [add-a-task]("https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#312-add-a-task-add-task") 
+to find out all the time formats that StudyBananas supports). As the number of supported date time format increases,
+a scalable structure is then proposed. The picture below describes the overall structure.
+
+<p align="center" >
+  <img src="images/DateTimeFormatStructure.png" alt="DateTimeFormatStructure" />
+</p>
+
+Each `Format` implements `check` method from `DateFormat` interface. The `check` method checks if the input string
+matches the pattern of the `Format` class. If the format matches, it would transform input string into `LocalDateTime` object; 
+otherwise it throws `TimeFormatException`. The `TimeFormatChecker` is the API that communicates with `DateTime` class.
+It contains all the available `Formats`, and helps `DateTime` `check` if the input string matches anyone of the `Format`.
+If the input string matches one of the `Formats`, it takes advantage the `DateFormat#check` to map the string into `LocalDateTime` 
+for `DateTime` object. The following paragraph provides the step-by-step guide to support one more time format for StudyBananas.
+
+Step1. Create a `Format` class for the desired date format, and have it implement the `DateFormat` interface. 
+Then, specify the check logic in the `check` method.
+
+<p align="center" >
+  <img src="images/NewDateTimeFormat-Step1.png" alt="NewDateTimeFormat-Step1" />
+</p>
+
+Step2. Add the new `DateFormat` into the check list residing in the `TimeFormatChecker` class.
+
+<p align="center" >
+  <img src="images/NewDateTimeFormat-Step2.png" alt="NewDateTimeFormat-Step2" />
+</p>
+
+#### Design consideration:
+
+##### Aspect: How is multiple time format implemented
+
+* **Current choice** .
+  * Pros: It segregates the check logic from the `DateTime` format. In a sense, this is a good practice of 
+  **Single responsibility principle** as the check process is divided into three classes. Each is only in charge of one task.
+  * Cons: As the supported format increases, a lot more classes and tests will need to be maintained. The efforts required
+  to put into the maintenance is the major overhead.
+  
+* **Alternative choice** : Have a almighty checker class which checks all the available formats in one class instead of creating multiple classes for multiple supported `Format`
+  * Pros: It reduces the number of classes and tests to maintain, and if the logic inside the `Checker` class is written neatly, it would be easy to test as all format should go through similar happy paths.
+  * Cons: Harder to debug and would have a much fatter class compared with the current implementation.
+
+
+
 ### Edit Task feature
 
 #### Implementation
 
-The edit mechanism is facilitated by `Schedule`, which contains a `UniqueTaskList` such that each task's information can be modified 
+The edit mechanism is facilitated by `Schedule`, which contains a `UniqueTaskList` such that each `TASK`'s information can be modified 
 after its creation and addition into the `UniqueTaskList`. It implements this following feature:  
 
 * `Schedule#setTask()` — Replaces an existing task in the `Schedule` with a new task.
@@ -333,8 +433,8 @@ This operation is exposed in the `ScheduleModel` interface as `ScheduleModel#set
 Given below is the example usage scenario and how the edit task mechanism behaves at each step.
 
 
-Note: The attributes of the `Task`s in this examples are omitted if they are not changed due to the `edit task` 
-functionality. Given below is the class diagram of `Task` model for a better understanding of this example.
+Note: The attributes of the `TASK`s in this examples are omitted if they are not changed due to the `edit task` 
+functionality. Given below is the class diagram of `TASK` model for a better understanding of this example.
 
 ![TaskClassDiagram](images/TaskClassDiagram.png)  
   
@@ -342,25 +442,31 @@ functionality. Given below is the class diagram of `Task` model for a better und
 
 Step 1. The user launches the application. The `SCHEDULE` contains `UniqueTaskList`, which is initialized from the saved 
  `TASK`s in the JSON file `schedule.json` locally (see [Storage component](#storage-component))
-For example, the user already has 3 `TASK`s saved in the initial `SCHEDULE`.
+For example, the user already has 3 `TASK`s saved in the initial `SCHEDULE` as seen below.
 
-![EditCommandClassDiagram0](images/EditCommandClassDiagram0.png) 
+<p align="center" >
+  <img src="images/EditCommandClassDiagram0.png" alt="EditCommandClassDiagram0" />
+</p>
 
 <br>
 
 Step 2. The user adds a new `TASK` into the schedule using the `add task` command. 
 This `TASK` is assigned the index 4 in the `SCHEDULE`
 
-![EditCommandClassDiagram1](images/EditCommandClassDiagram1.png) 
+<p align="center" >
+  <img src="images/EditCommandClassDiagram1.png" alt="EditCommandClassDiagram1" />
+</p>
 
 <br>
 
 Step 3. The user now wants to change the description of the currently added `TASK`, and decides to edit the description of the `TASK` by entering the command `edit task 4 d: Quiz 3 about Boolean Algebra`. 
 The `edit task` command will be parsed by the `Parser` and create a `ScheduleEditCommand` object. `ScheduleEditCommand#execute()` 
 creates a new `TASK` object, containing the updated information fields. For the fields that is not specified in the `edit task` command, such as `title` in the example, the new `TASK` 
-takes the existing fields of the to-be-replaced `TASK`. 
+takes the existing fields of the to-be-replaced `TASK` (note how the same `title` object is shared between `task4` and `editedTask4` as seen below). 
 
-![EditCommandClassDiagram2](images/EditCommandClassDiagram2.png) 
+<p align="center" >
+  <img src="images/EditCommandClassDiagram2.png" alt="EditCommandClassDiagram2" />
+</p>
 
 <br>
 
@@ -441,9 +547,13 @@ and the current command result being the first question through the call of `Qui
 
 The `Quiz` is saved into the `QuizModelManager`object as an attribute named `quiz`.
 
-![StartQuizClassDiagram](images/StartQuizClassDiagram.png)
+<p align="center" style="margin-bottom: 10px">
+  <img src="images/StartQuizClassDiagram.png" alt="StartQuizClassDiagram" />
+</p>
 
-![StartQuiz](images/StartQuiz.png)
+<p align="center">
+  <img src="images/StartQuiz.png" alt="StartQuiz" />
+</p>
 
 ##### Step 2
 The user executes `ans:<answer>` command to submit their answer to the question. 
@@ -453,7 +563,9 @@ for the question before moving on to the correct answer through the call of `Qui
 
 The `currentIndex` attribute is incremented at this stage to point to the next flashcard.
 
-![StoreAnswerClassDiagram](images/StoreAnswerClassDiagram.png)
+<p align="center">
+  <img src="images/StoreAnswerClassDiagram.png" alt="StoreAnswerClassDiagram" />
+</p>
 
 ##### Step 3
 After viewing the answer, the user executes either `c` or `w` to indicate whether the question is answered correctly. 
@@ -479,12 +591,16 @@ In the current scenario, the question of the next flashcard is fetched and displ
 by calling the `Quiz:getQuestion()` method,
 through `QuizModelManager`, during the execution of `CorrectCommand:execute()`.
 
-![NextQuestion](images/NextQuestion.png)
+<p align="center">
+  <img src="images/NextQuestion.png" alt="NextQuestion" />
+</p>
 
 ##### Step 4
 Assume that the user has reached the end of the flashcards as shown below:
 
-![OutOfIndex](images/OutOfIndex.png)
+<p align="center">
+  <img src="images/OutOfIndex.png" alt="OutOfIndex" />
+</p>
 
 From the `CorrectCommand:execute()` / `WrongCommand:execute()` operation, 
 the `QuizModelManager:stopQuiz()` operation will be called.
@@ -495,7 +611,10 @@ This leads to also calling the `Quiz:toString()` operation to show the quiz scor
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
-![CommitActivityDiagram](images/QuizStorageActivityDiagram.png)
+<p align="center">
+  <img src="images/QuizStorageActivityDiagram.png" alt="QuizStorageActivityDiagram" height="700" />
+</p>
+
 
 #### Design consideration:
 
@@ -511,7 +630,7 @@ _{more aspects and alternatives to be added}_
 
 #### Implementation
 
-The implementation of the Sidebar view is designed using the Singleton pattern and the Observer Pattern. Global Ui state which stores the UiState is designed to be singleton - `SingletonUiState`. The `SingletonUiState` is created when the application is launched, and `SingletonUiState` implements `Observable` interface, making it observable to other ui components. `MainWindow` and `SidebarTab` implements the `Observer` interface and subscribe to the change of `SingletonUiState` to achieve the sidebar effect.
+Sidebar view is implemented with the `dynamic state` structure (see [`Dynamic State`](#dynamic-state)) with `SingletonUiState` being the **Observable** object and `MainWindow` and `SidebarTab` being the **Observers**. As `MainWindow` and `SidebarTab` do not subscribe to other `dynamic states`. The `listener` is omitted here. The `SingletonUiState` is designed to be **singleton**, and default value `SCHEDULE` is assigned to it when the application is launched; Both `MainWindow` and `SidebarTab` implement the **Observer** interface and specify how their view should be changed in the `update` method. The list below describes how **Observer** pattern is adopted here.
 
 * `Observable#register(Observer o)` — Register a certain Observer to an Observable object, after registration, the observer object will be notified on any update of the Observable object.
 * `Observable#inform()` — When the observable object is modified, use this method to inform all the subscribed observers.
@@ -527,8 +646,8 @@ Given below is an example usage scenario and how the sidebar view mechanism beha
 
 #### Design consideration:
 
-* Multiple Ui components rely on the Global UiState, therefore, Singleton makes sense here.
-* Many components would be affected by the change of UiState, it makes sense to build it using Observer pattern.
+* Multiple Ui components rely on the unique `UiState`. This is the intuition for **Singleton**.
+* Many components should be updated according to the  changes of `UiState`, it makes sense to build it using Observer pattern.
 
 
 

@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import seedu.studybananas.logic.commands.quizcommands.QuizCommandUtil;
 import seedu.studybananas.model.flashcard.Question;
 import seedu.studybananas.model.quiz.Quiz;
 import seedu.studybananas.ui.commons.ResultDisplay;
@@ -23,10 +24,6 @@ public class QuizCard extends ResultDisplay {
 
     public QuizCard() {
         super(FXML);
-    }
-
-    public QuizCard(Quiz quiz) {
-        this.quiz = quiz;
     }
 
     public void setQuiz(Quiz quiz) {
@@ -59,7 +56,7 @@ public class QuizCard extends ResultDisplay {
     }
 
     private String[] parsingAnswer(String feedbackToUser) {
-        String[] splittedFeedback = feedbackToUser.split("STUDYBANANAS");
+        String[] splittedFeedback = feedbackToUser.split(QuizCommandUtil.SPECIAL_LITERAL);
         return splittedFeedback;
     }
 

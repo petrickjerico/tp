@@ -1,17 +1,20 @@
 @startuml
 
 !include style.puml
+
+class SingleUiState UI_COLOR
+class SidebarTab UI_COLOR
+
 skinparam ClassFontColor #000000
 skinparam ClassBorderColor #000000
+skinparam arrowThickness 1.1
+skinparam arrowColor #black
+skinparam classBackgroundColor UI_COLOR
+skinparam classBorderColor UI_COLOR_T1
 
-class SingleUiState
-class SidebarTab
 
-SingleUiState <-- SidebarTab : update
+SingleUiState <-[UI_COLOR_T1]- SidebarTab : update
 
-class SingleUiState {
-NewState
-}
 
 
 

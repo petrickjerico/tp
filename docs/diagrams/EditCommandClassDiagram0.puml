@@ -2,7 +2,7 @@
 
 !include style.puml
 skinparam arrowThickness 1.1
-skinparam arrowColor MODEL_COLOR
+skinparam arrowColor #black
 skinparam classBackgroundColor MODEL_COLOR
 skinparam objectBackgroundColor MODEL_COLOR
 
@@ -13,7 +13,7 @@ Class "__task1:Task__" as task1
 Class "__task2:Task__" as task2
 Class "__task3:Task__" as task3
 
-
+hide task1:member
 UniqueTaskList --> task1
 UniqueTaskList --> task2
 UniqueTaskList --> task3

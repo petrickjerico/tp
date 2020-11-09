@@ -1,14 +1,17 @@
 @startuml
 !include style.puml
 
-skinparam participantBorderColor LOGIC_COLOR_T1
 skinparam sequence {
+participantBorderColor #000000
 ArrowColor #000000
-ActorBorderColor LOGIC_COLOR_T1
-LifeLineBorderColor LOGIC_COLOR_T1
-LifeLineBackgroundColor LOGIC_COLOR
+ActorBorderColor #000000
+LifeLineBorderColor #000000
+LifeLineBackgroundColor #000000
 }
+
 skinparam sequenceBoxBorderColor #black
+
+Actor User as user USER_COLOR
 
 box Logic #FFFFFF
 participant ":LogicManager" as LogicManager LOGIC_COLOR
@@ -18,29 +21,29 @@ participant "d:DeleteCommand" as DeleteCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
-box Model MODEL_COLOR_T1
+box Model #FFFFFF
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("delete task 1")
-activate LogicManager
+user -> LogicManager : execute("delete task 1")
+activate LogicManager LOGIC_COLOR
 
 LogicManager -> StudyBananasParser : parseCommand("delete task 1")
-activate StudyBananasParser
+activate StudyBananasParser LOGIC_COLOR
 
 create DeleteTaskCommandParser
 StudyBananasParser -> DeleteTaskCommandParser
-activate DeleteTaskCommandParser
+activate DeleteTaskCommandParser LOGIC_COLOR
 
 DeleteTaskCommandParser --> StudyBananasParser
 deactivate DeleteTaskCommandParser
 
 StudyBananasParser -> DeleteTaskCommandParser : parse("1")
-activate DeleteTaskCommandParser
+activate DeleteTaskCommandParser LOGIC_COLOR
 
 create DeleteCommand
 DeleteTaskCommandParser -> DeleteCommand
-activate DeleteCommand
+activate DeleteCommand LOGIC_COLOR
 
 DeleteCommand --> DeleteTaskCommandParser : d
 deactivate DeleteCommand
@@ -55,17 +58,17 @@ StudyBananasParser --> LogicManager : d
 deactivate StudyBananasParser
 
 LogicManager -> DeleteCommand : execute()
-activate DeleteCommand
+activate DeleteCommand LOGIC_COLOR
 
 DeleteCommand -> Model : deleteTask(1)
-activate Model
+activate Model MODEL_COLOR
 
 Model --> DeleteCommand
 deactivate Model
 
 create CommandResult
 DeleteCommand -> CommandResult
-activate CommandResult
+activate CommandResult LOGIC_COLOR
 
 CommandResult --> DeleteCommand
 deactivate CommandResult
@@ -73,6 +76,6 @@ deactivate CommandResult
 DeleteCommand --> LogicManager : result
 deactivate DeleteCommand
 
-[<--LogicManager
+user <--LogicManager
 deactivate LogicManager
 @enduml

@@ -1,36 +1,32 @@
 @startuml
 
 !include style.puml
-skinparam ClassFontColor #000000
-skinparam ClassBorderColor #000000
 
-interface Model
-interface AddressBookModel
-class AddressBookModelManager
-interface ScheduleModel
-class ScheduleModelManager
-interface FlashcardModel
-class FlashcardModelManager
-interface QuizModel
-class QuizModelManager
+interface Model MODEL_COLOR
+interface ScheduleModel MODEL_COLOR
+class ScheduleModelManager MODEL_COLOR
+interface FlashcardModel MODEL_COLOR
+class FlashcardModelManager MODEL_COLOR
+interface QuizModel MODEL_COLOR
+class QuizModelManager MODEL_COLOR
+class Schedule MODEL_COLOR
+class FlashcardBank MODEL_COLOR
+class Quiz MODEL_COLOR
+class ModelManager MODEL_COLOR
 
 
-Model --|> AddressBookModel
-Model --|> ScheduleModel
-Model --|> FlashcardModel
-Model --|> QuizModel
+Model -[MODEL_COLOR_T1]-|> ScheduleModel
+Model -[MODEL_COLOR_T1]-|> FlashcardModel
+Model -[MODEL_COLOR_T1]-|> QuizModel
 
-AddressBookModel <|.. AddressBookModelManager
-ScheduleModel <|.. ScheduleModelManager
-FlashcardModel <|.. FlashcardModelManager
-QuizModel <|.. QuizModelManager
+ScheduleModel <|.[MODEL_COLOR_T1]. ScheduleModelManager
+FlashcardModel <|.[MODEL_COLOR_T1]. FlashcardModelManager
+QuizModel <|.[MODEL_COLOR_T1]. QuizModelManager
 
-AddressBookModelManager ..> AddressBook
-ScheduleModelManager ..> Schedule
-FlashcardModelManager ..> FlashcardBank
-QuizModelManager ..> Quiz
+ScheduleModelManager .[MODEL_COLOR_T1].> Schedule
+FlashcardModelManager .[MODEL_COLOR_T1].> FlashcardBank
+QuizModelManager .[MODEL_COLOR_T1].> Quiz
 
-ModelManager ..> AddressBookModelManager
 ModelManager ..> ScheduleModelManager
 ModelManager ..> FlashcardModelManager
 ModelManager ..> QuizModelManager

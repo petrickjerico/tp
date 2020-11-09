@@ -2,7 +2,7 @@
 
 !include style.puml
 skinparam arrowThickness 1.1
-skinparam arrowColor MODEL_COLOR
+skinparam arrowColor #black
 skinparam classBackgroundColor MODEL_COLOR
 skinparam objectBackgroundColor MODEL_COLOR
 

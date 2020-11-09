@@ -1,0 +1,29 @@
+@startuml
+
+!include style.puml
+
+interface Model MODEL_COLOR
+interface ScheduleModel MODEL_COLOR
+class ScheduleModelManager MODEL_COLOR
+interface FlashcardModel MODEL_COLOR
+class FlashcardModelManager MODEL_COLOR
+interface QuizModel MODEL_COLOR
+class QuizModelManager MODEL_COLOR
+
+
+
+Model -[MODEL_COLOR_T1]-|> ScheduleModel
+Model -[MODEL_COLOR_T1]-|> FlashcardModel
+Model -[MODEL_COLOR_T1]-|> QuizModel
+
+ScheduleModel <|.[MODEL_COLOR_T1]. ScheduleModelManager
+FlashcardModel <|.[MODEL_COLOR_T1]. FlashcardModelManager
+QuizModel <|.[MODEL_COLOR_T1]. QuizModelManager
+
+
+
+
+
+
+
+@enduml

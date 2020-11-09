@@ -1,0 +1,26 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor #black
+skinparam classBackgroundColor MODEL_COLOR
+skinparam classBorderColor MODEL_COLOR_T1
+
+Class FlashcardBank
+
+package FlashcardSet {
+Class UniqueFlashcardSetList
+Class FlashcardSet
+Class Flashcard
+Class FlashcardSetName
+Class Question
+Class Answer
+}
+
+FlashcardBank *-right-> "1" UniqueFlashcardSetList
+UniqueFlashcardSetList o-down-> "*" FlashcardSet
+FlashcardSet *-> "1" FlashcardSetName
+FlashcardSet o-down-> "*" Flashcard
+Flashcard *-down-> "1" Question
+Flashcard *-down-> "1" Answer
+
+@enduml

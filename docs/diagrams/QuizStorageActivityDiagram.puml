@@ -4,6 +4,10 @@ skinparam arrowThickness 1.1
 skinparam arrowColor USER_COLOR
 skinparam classBackgroundColor USER_COLOR
 skinparam classBorderColor USER_COLOR
+skinparam activity {
+BorderColor #gold
+DiamondBorderColor #gold
+}
 
 start
 :User executes start quiz command;

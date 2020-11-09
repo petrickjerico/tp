@@ -370,6 +370,55 @@ The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `Flashc
 
 ![Flashcard Class Diagram](diagrams/FlashcardClassDiagram.png)
 
+### Support multiple DateTime format feature
+
+#### Implementation
+
+StudyBananas is optimized for command line users, and supports multiple formats of input date 
+time (see [add-a-task]("https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#312-add-a-task-add-task") 
+to find out all the time formats that StudyBananas supports). As the number of supported date time format increases,
+a scalable structure is then proposed. The picture below describes the overall structure.
+
+<p align="center" >
+  <img src="images/DateTimeFormatStructure.png" alt="DateTimeFormatStructure" />
+</p>
+
+Each `Format` implements `check` method from `DateFormat` interface. The `check` method checks if the input string
+matches the pattern of the `Format` class. If the format matches, it would transform input string into `LocalDateTime` object; 
+otherwise it throws `TimeFormatException`. The `TimeFormatChecker` is the API that communicates with `DateTime` class.
+It contains all the available `Formats`, and helps `DateTime` `check` if the input string matches anyone of the `Format`.
+If the input string matches one of the `Formats`, it takes advantage the `DateFormat#check` to map the string into `LocalDateTime` 
+for `DateTime` object. The following paragraph provides the step-by-step guide to support one more time format for StudyBananas.
+
+Step1. Create a `Format` class for the desired date format, and have it implement the `DateFormat` interface. 
+Then, specify the check logic in the `check` method.
+
+<p align="center" >
+  <img src="images/NewDateTimeFormat-Step1.png" alt="NewDateTimeFormat-Step1" />
+</p>
+
+Step2. Add the new `DateFormat` into the check list residing in the `TimeFormatChecker` class.
+
+<p align="center" >
+  <img src="images/NewDateTimeFormat-Step2.png" alt="NewDateTimeFormat-Step2" />
+</p>
+
+#### Design consideration:
+
+##### Aspect: How is multiple time format implemented
+
+* **Current choice** .
+  * Pros: It segregates the check logic from the `DateTime` format. In a sense, this is a good practice of 
+  **Single responsibility principle** as the check process is divided into three classes. Each is only in charge of one task.
+  * Cons: As the supported format increases, a lot more classes and tests will need to be maintained. The efforts required
+  to put into the maintenance is the major overhead.
+  
+* **Alternative choice** : Have a almighty checker class which checks all the available formats in one class instead of creating multiple classes for multiple supported `Format`
+  * Pros: It reduces the number of classes and tests to maintain, and if the logic inside the `Checker` class is written neatly, it would be easy to test as all format should go through similar happy paths.
+  * Cons: Harder to debug and would have a much fatter class compared with the current implementation.
+
+
+
 ### Edit Task feature
 
 #### Implementation

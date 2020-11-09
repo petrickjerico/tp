@@ -13,7 +13,7 @@ title: User Guide
   <br>
 
   <p align="center">
-Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of contents below to <br>find answers, get step-by-step instructions and know us better.
+Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or scroll to the table of contents below to <br>find answers, get step-by-step instructions and know us better.
   </p>
 
 </div>
@@ -136,7 +136,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
 </div>
 
 
-The above part is managed by Eddy.
+The part above is maintained by Eddy.
 
 ## 1. Introduction (Binh)
 

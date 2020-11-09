@@ -42,23 +42,23 @@ public class SingletonUiStateTest {
 
     @Test
     public void updateStateTest() {
-        SingletonUiState UiState = SingletonUiState.getInstance();
+        SingletonUiState uiState = SingletonUiState.getInstance();
         ObserverUpdateStateDifferentTypeTestStub observerStubUpdate = new ObserverUpdateStateDifferentTypeTestStub();
         ObserverUpdateStateSameTypeTestStub observerStubNoUpdate = new ObserverUpdateStateSameTypeTestStub();
-        UiState.register(observerStubNoUpdate);
+        uiState.register(observerStubNoUpdate);
 
         // test default value;
-        assertEquals(UiState.getUiState(), UiStateType.SCHEDULE);
+        assertEquals(uiState.getUiState(), UiStateType.SCHEDULE);
 
         // EP1 same StateType
-        UiState.updateState(UiStateType.SCHEDULE);
+        uiState.updateState(UiStateType.SCHEDULE);
 
-        UiState.register(observerStubUpdate);
-        UiState.unregister(observerStubNoUpdate);
+        uiState.register(observerStubUpdate);
+        uiState.unregister(observerStubNoUpdate);
 
         // EP2 different StateType
-        UiState.updateState(testUiStateType);
-        assertEquals(UiState.getUiState(), testUiStateType);
+        uiState.updateState(testUiStateType);
+        assertEquals(uiState.getUiState(), testUiStateType);
 
 
     }

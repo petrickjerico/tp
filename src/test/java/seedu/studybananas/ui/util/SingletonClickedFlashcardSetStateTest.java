@@ -58,7 +58,8 @@ public class SingletonClickedFlashcardSetStateTest {
         globalState.setLogic(new LogicStub(null, null));
 
         SingletonClickedFlashcardSetState clickedFlashcardSetState = SingletonClickedFlashcardSetState.getInstance();
-        SingletonClickedFlashcardSetState clickedFlashcardSetStateCopy = SingletonClickedFlashcardSetState.getInstance();
+        SingletonClickedFlashcardSetState clickedFlashcardSetStateCopy =
+                SingletonClickedFlashcardSetState.getInstance();
 
         assertEquals(SingletonClickedFlashcardSetState.getInstance(), SingletonClickedFlashcardSetState.getInstance());
         assertEquals(clickedFlashcardSetState, SingletonClickedFlashcardSetState.getInstance());

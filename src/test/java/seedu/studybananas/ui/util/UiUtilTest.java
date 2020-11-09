@@ -1,11 +1,11 @@
 package seedu.studybananas.ui.util;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.studybananas.logic.commands.commandresults.GeneralCommandResult.GeneralCommandType.EXIT;
 import static seedu.studybananas.logic.commands.commandresults.GeneralCommandResult.GeneralCommandType.HELP;
+
+import org.junit.jupiter.api.Test;
 
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.commandresults.GeneralCommandResult;

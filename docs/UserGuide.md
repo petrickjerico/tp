@@ -50,51 +50,51 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 <h1 align="center">Table of Contents</h1>
 <!-- TOC -->
 
-- [1. Introduction (Binh)](#1-introduction-binh)
+- [**1. Introduction (Binh)**](#1-introduction-binh)
   - [1.1 Reading this User Guide](#11-reading-this-user-guide)
     - [1.1.1 Icons and Meaning](#111-icons-and-meaning)
     - [1.1.2 Markdown notations](#112-markdown-notations)
-- [2. Quick start (Eddy)](#2-quick-start-eddy)
-- [3. Features (Petrick)](#3-features-petrick)
-- [4. Usage of Command](#4-usage-of-command)
-  - [4.1. Commands for the `SCHEDULE` page (Binh)](#41-commands-for-the-schedule-page-binh)
-    - [4.1.1. **View the details of your `TASK`**: (Eddy)](#411-view-the-details-of-your-task-eddy)
-    - [4.1.2. **Add a `TASK`**: `add task`](#412-add-a-task-add-task)
+- [**2. Quick start (Eddy)**](#2-quick-start-eddy)
+- [**3. Features (Petrick)**](#3-features-petrick)
+- [**4. Usage of Command**](#4-usage-of-command)
+  - [4.1. Commands for the `SCHEDULE` page (Binh except 4.1.1)](#41-commands-for-the-schedule-page-binh-except-411)
+    - [4.1.1. View the details of your `TASK`: (Eddy)](#411-view-the-details-of-your-task-eddy)
+    - [4.1.2. Add a `TASK`: `add task`](#412-add-a-task-add-task)
       - [4.1.2.1. Adding a normal `TASK`](#4121-adding-a-normal-task)
       - [4.1.2.2. Adding a `QUIZ` `TASK`](#4122-adding-a-quiz-task)
-    - [4.1.3. **List all your `TASK`s**: `list task`](#413-list-all-your-tasks-list-task)
-    - [4.1.4. **Delete a `TASK`**: `delete task`](#414-delete-a-task-delete-task)
-    - [4.1.5. **Search for a `TASK`**: `search task`](#415-search-for-a-task-search-task)
+    - [4.1.3. List all your `TASK`s: `list task`](#413-list-all-your-tasks-list-task)
+    - [4.1.4. Delete a `TASK`: `delete task`](#414-delete-a-task-delete-task)
+    - [4.1.5. Search for a `TASK`: `search task`](#415-search-for-a-task-search-task)
     - [4.1.6. Edit a `TASK`: `edit task`](#416-edit-a-task-edit-task)
   - [4.2. Commands for the `FLASHCARD` page (Teddy)](#42-commands-for-the-flashcard-page-teddy)
-    - [4.2.1. **Add a `FLASHCARDSET`**: `add flset`](#421-add-a-flashcardset-add-flset)
-    - [4.2.2. **Delete a `FLASHCARDSET`**: `delete flset`](#422-delete-a-flashcardset-delete-flset)
-    - [4.2.3. **List `FLASHCARD`s in a `FLASHCARDSET`**: `list fl`](#423-list-flashcards-in-a-flashcardset-list-fl)
-    - [4.2.4. **Add a `FLASHCARD` into a `FLASHCARDSET`**: `add fl`](#424-add-a-flashcard-into-a-flashcardset-add-fl)
-    - [4.2.5. **Delete a `FLASHCARD` in a `FLASHCARDSET`**: `delete fl`](#425-delete-a-flashcard-in-a-flashcardset-delete-fl)
+    - [4.2.1. Add a `FLASHCARDSET`: `add flset`](#421-add-a-flashcardset-add-flset)
+    - [4.2.2. Delete a `FLASHCARDSET`: `delete flset`](#422-delete-a-flashcardset-delete-flset)
+    - [4.2.3. List `FLASHCARD`s in a `FLASHCARDSET`: `list fl`](#423-list-flashcards-in-a-flashcardset-list-fl)
+    - [4.2.4. Add a `FLASHCARD` into a `FLASHCARDSET`: `add fl`](#424-add-a-flashcard-into-a-flashcardset-add-fl)
+    - [4.2.5. Delete a `FLASHCARD` in a `FLASHCARDSET`: `delete fl`](#425-delete-a-flashcard-in-a-flashcardset-delete-fl)
   - [4.3. Commands for the `QUIZ` page (Bowei)](#43-commands-for-the-quiz-page-bowei)
-    - [4.3.1. **`QUIZ` of a `FLASHCARDSET`**: `quiz flset`](#431-quiz-of-a-flashcardset-quiz-flset)
-      - [4.3.1.1. **Getting the question**](#4311-getting-the-question)
-      - [4.3.1.2. **Answering the question**](#4312-answering-the-question)
-      - [4.3.1.3. **Checking if your answer is correct**](#4313-checking-if-your-answer-is-correct)
-      - [4.3.1.4. **Continuing the `QUIZ` cycle**](#4314-continuing-the-quiz-cycle)
-    - [4.2.2. **View last `QUIZ` attempt**: `quiz score flset`](#422-view-last-quiz-attempt-quiz-score-flset)
+    - [4.3.1. `QUIZ` of a `FLASHCARDSET`: `quiz flset`](#431-quiz-of-a-flashcardset-quiz-flset)
+      - [4.3.1.1. Getting the question](#4311-getting-the-question)
+      - [4.3.1.2. Answering the question](#4312-answering-the-question)
+      - [4.3.1.3. Checking if your answer is correct](#4313-checking-if-your-answer-is-correct)
+      - [4.3.1.4. Continuing the `QUIZ` cycle](#4314-continuing-the-quiz-cycle)
+    - [4.2.2. View last `QUIZ` attempt: `quiz score flset`](#422-view-last-quiz-attempt-quiz-score-flset)
   - [4.4. General Commands (Binh)](#44-general-commands-binh)
-    - [4.4.1. **View all the available commands**: `help`](#441-view-all-the-available-commands-help)
-    - [4.4.2. **Exit program**: `exit`](#442-exit-program-exit)
-- [5. FAQ (Teddy)](#5-faq-teddy)
-- [6. Trouble Shooting (Eddy)](#6-trouble-shooting-eddy)
+    - [4.4.1. View all the available commands: `help`](#441-view-all-the-available-commands-help)
+    - [4.4.2. Exit program: `exit`](#442-exit-program-exit)
+- [**5. FAQ (Teddy)**](#5-faq-teddy)
+- [**6. Trouble Shooting (Eddy)**](#6-trouble-shooting-eddy)
   - [Cannot launch the application](#cannot-launch-the-application)
     - [Windows](#windows)
     - [Mac](#mac)
     - [Linux](#linux)
   - [Cannot find my data locally](#cannot-find-my-data-locally)
   - [My data is gone after I manipulate the data in the data folder directly](#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly)
-- [7. Community and security (Eddy)](#7-community-and-security-eddy)
+- [**7. Community and security (Eddy)**](#7-community-and-security-eddy)
   - [User data](#user-data)
   - [Study community](#study-community)
-- [8. Bug report (Eddy)](#8-bug-report-eddy)
-- [9. Summary](#9-summary)
+- [**8. Bug report (Eddy)**](#8-bug-report-eddy)
+- [**9. Summary**](#9-summary)
   - [9.1. Summary of Commands (Petrick)](#91-summary-of-commands-petrick)
   - [`SCHEDULE` commands (Binh)](#schedule-commands-binh)
   - [`FLASHCARD` commands (Teddy)](#flashcard-commands-teddy)
@@ -107,17 +107,17 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 ## 1. Introduction (Binh)
 
 Are you a student of secondary to tertiary education level,
-who is a fan of **using flashcards to understand concepts**,
-use your laptop often, 
-and would like to **schedule your study sessions efficiently**?
-If so, we have the product just for you!
+who is a fan of **using flashcards to study**,
+uses your laptop often, 
+and likes to **schedule your study sessions regularly**?
+If so, we have the right product just for you!
 
-**StudyBananas** is a desktop study companion app that **helps you centralize your study tasks,
-and caters to your recap needs through flashcard-quizzes**.
+StudyBananas is a desktop study companion app that **helps you centralize all your study tasks,
+and caters to your recap needs through a flashcard-quizzes system**.
 It is optimized for use via a Command Line Interface (CLI) while still
 having the benefits of a Graphical User Interface (GUI).
 
-This user guide aims to equip you with all necessary understanding to use StudyBananas effectively.
+This user guide aims to equip you with all the necessary understanding to use StudyBananas effectively.
 
 ### 1.1 Reading this User Guide
 
@@ -171,7 +171,7 @@ Table 2. Markdown notations in this User Guide
 
    * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 `TASK` to the `SCHEDULE`.
 
-7. Refer to the [Features](#3-features) below for details of each command.
+6. Refer to the [Features](#3-features) below for details of each command.
 
 ---
 
@@ -203,14 +203,14 @@ Table 2. Markdown notations in this User Guide
 
 
 
-### 4.1. Commands for the `SCHEDULE` page (Binh)
+### 4.1. Commands for the `SCHEDULE` page (Binh except 4.1.1)
 
 #### 4.1.1. **View the details of your `TASK`**: (Eddy)
 
 There are several panels in our user interface that provides the details of your `TASK`.
 
-- Firstly, the time scale lists out all of your study sessions, which are `TASK`s, with start time and duration. You can click on your study session on the time scale to view the details on the top right panel.
-- Secondly, the list panel located in the bottom right corner of the `SCHEDULE` tab lists all of your tasks, you can scroll down to view the details of your `TASK`s, or take advantage of the search feature to quickly find a specific task (refer to [search task section](#315-search-for-a-task-search-task)).
+- Firstly, the `today's time scale` lists out all of your study sessions, which are `TASK`s, with start time and duration. You can click on your study session on the time scale to view the details on the top right panel.
+- Secondly, the `list panel` located in the bottom right corner of the `SCHEDULE` tab lists all of your `TASK`s, you can scroll down to view the details of your `TASK`s, or take advantage of the search feature to quickly find a specific task (refer to [search task section](#415-search-for-a-task-search-task)).
 - In the following user guide, we use time scale to refer to the middle panel of `SCHEDULE` tab, and uses `TASK` lists to refer to the bottom right panel.
 
 ![TaskDetailPanels](images/TaskDetailPanels.png)
@@ -227,12 +227,12 @@ If you would like to add a study `TASK` to your `SCHEDULE`, this command allows 
 
 After you add a new `TASK` to StudyBananas, the `TASK`'s information is saved in the `schedule.json` file.
 
-You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:setindex>` command in the `description` field.
+You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:setindex>` command (refer to [`QUIZ` of a `FLASHCARDSET`](#431-quiz-of-a-flashcardset-quiz-flset)) in the `description` field.
 
 | Format                                | `add task <T:title> [d:description] [t:time] [dur: duration]`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Example                               | `add task T: CS2100 d: Pipeline tutorial dur: 45` <br> `add task T: CS2103T d: iP submission t: 2020-09-17 23:59` <br> `add task T: CS2105 d: quiz flset:2 t: Saturday, Oct 31 2020 13:00 dur: 120`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ![info_icon](images/UG/info_icon.png) | • `title` and `description` can accept strings that are capitalized or separated with spaces. <br> • The hours and minutes in `time` are optional. If you do not specify it, StudyBananas will set the time to 12:00 by default. <br> • `time` should be written in one of the following formats: <br> • `yyyy-MM-dd [HH:mm]` (24-hour format, e.g. 23:00)<br> • `EEEE, [MMM-dd-yyyy] [HH:mm]` (24-hour format, e.g. 23:00)<br> • `duration` has to be a positive integer in minute and its value has to be less than _1440_ (number of minutes in a day). <br>• You cannot add a `TASK` such that it results in a duplicated `TASK`, which are `TASK`s having the same title, description, time and duration. <br> • You cannot add a `TASK` such that its time range overlaps with the time range of existing `TASK`s in the `SCHEDULE`. |
+| ![info_icon](images/UG/info_icon.png) | • `title` and `description` can accept strings (no special character) that are capitalized or separated with spaces. <br> • The hours and minutes in `time` are optional. If you do not specify it, StudyBananas will set the time to 12:00 by default. <br> • `time` should be written in one of the following formats: <br> <p>&nbsp;&nbsp;&nbsp;&nbsp;• `yyyy-MM-dd [HH:mm]` (24-hour format, e.g. 23:00)</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;• `EEEE, [MMM-dd-yyyy] [HH:mm]` (24-hour format, e.g. 23:00) </p> <p>&nbsp;&nbsp;&nbsp;&nbsp;• `Today` or `Tomorrow [HH:mm]` (24-hour format, e.g. 23:00) </p> • `duration` has to be a positive integer in minute and its value has to be less than _1440_ (number of minutes in a day). <br>• You cannot add a `TASK` such that it results in a duplicated `TASK`, which are `TASK`s having the same title, description, time and duration. <br> • You cannot add a `TASK` such that its time range overlaps with the time range of existing `TASK`s in the `SCHEDULE`. |
 
 <br>
 
@@ -263,7 +263,7 @@ to your `SCHEDULE`.
 
 Now, if you would like to add a `QUIZ` of `FLASHCARDSET` 1 as a `TASK` to your `SCHEDULE`.
 
-Entering the command `add task T: CS2040S d: quiz flset:1 dur: 30` while on `SCHEDULE` tab will add the `TASK` containing
+Entering the command `add task T: CS2040S d: quiz flset:1 dur: 30` while on `SCHEDULE` tab adds the `TASK` containing
 the `QUIZ` to your schedule.
 
 1\. Enter the `add task` command, including the specific information of the `TASK`.
@@ -280,7 +280,7 @@ the `QUIZ` to your schedule.
 <div align="center">Figure 4.1.2.2b: Result of <code>add task</code> command integrating with <code>QUIZ</code></div>    
 <br>
 
-3\. Click on the highlighted `Quiz CS2040` box in the `description` of the `TASK` will redirect you to the `QUIZ` tab and start the `QUIZ` immediately for you.  
+3\. Click on the highlighted `Quiz CS2040` box in the `description` of the `TASK`, StudyBananas redirects you to the `QUIZ` tab and starts the `QUIZ` immediately for you.  
 
 ![addTaskWithQuiz3](images/addTaskWithQuiz3.png)
 
@@ -403,14 +403,16 @@ You can edit a `TASK`'s `title`, `description`, `time` and `duration`.
 For example, you previously added a `TASK`: _CS2100 Lab 8 on Thursday, Oct 29 2020 10:00 with duration 60 minutes_, which currently has
 the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:00 instead.
 
-1\. Enter the command `edit task 7 t: Thursday, Oct 29 2020 11:00` to edit the `TASK`.  
+1\. Find the `index` of the `TASK` to be edited with the [list task](#413-list-all-your-tasks-list-task) command.
+
+2\. Enter the command `edit task 7 t: Thursday, Oct 29 2020 11:00` to edit the `TASK`.  
 
 ![editTask1](images/editTask1.jpg)
 
 <div align="center">Figure 4.1.6a: Using <code>edit task</code> command </div>
 <br>
 
-2\. After using the `edit task` command, the details of the `TASK` are updated accordingly.
+3\. After using the `edit task` command, the details of the `TASK` are updated accordingly.
 
 ![editTask2](images/editTask2.jpg)
 
@@ -875,5 +877,5 @@ You may also find the table below helpful to check whether a command is availabl
 
 Below is a useful "cheat sheet" to show you how different commands affect the tabs displayed.
 
-![UICheatSheet](images/UICHeatSheet.png)
+![UICheatSheet](images/UICheatSheet.png)
 

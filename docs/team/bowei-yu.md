@@ -42,4 +42,4 @@ I am responsible for the back-end logic, storage, unit testing and part of the f
  - Developer guide: 
      - Wrote the sections for the implementation of the 'Quiz' feature in the developer guide: [#130](https://github.com/AY2021S1-CS2103T-F12-2/tp/pull/130)
      - Added use cases, non-functional requirements to the developer guide: [#63](https://github.com/AY2021S1-CS2103T-F12-2/tp/pull/63)
-     - Added product survey and test cases to developer guide: [#289](https://github.com/AY2021S1-CS2103T-F12-2/tp/pull/286)
+     - Added product survey and test cases to developer guide: [#315](https://github.com/AY2021S1-CS2103T-F12-2/tp/pull/315)

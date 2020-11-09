@@ -24,7 +24,7 @@ public class SingletonCommandResultStateTest {
     }
 
     @Test
-    public void unregisterTest() {
+    public synchronized void unregisterTest() {
         // set up
         SingletonCommandResultState commandResultState = SingletonCommandResultState.getInstance();
         ObserverUnregisterTestStub observerStub = new ObserverUnregisterTestStub();
@@ -38,7 +38,7 @@ public class SingletonCommandResultStateTest {
     }
 
     @Test
-    public void registerTest() {
+    public synchronized void registerTest() {
         // set up
         SingletonCommandResultState commandResultState = SingletonCommandResultState.getInstance();
         ObserverStub observerStub = new ObserverStub();
@@ -55,7 +55,7 @@ public class SingletonCommandResultStateTest {
 
 
     @Test
-    public void updateStateTest() {
+    public synchronized void updateStateTest() {
         // set up
         SingletonCommandResultState commandResultState = SingletonCommandResultState.getInstance();
         ObserverUpdateStateDifferentTypeTestStub observerStubUpdate = new ObserverUpdateStateDifferentTypeTestStub();

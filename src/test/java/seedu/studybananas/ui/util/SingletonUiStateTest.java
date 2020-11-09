@@ -20,7 +20,7 @@ public class SingletonUiStateTest {
     }
 
     @Test
-    public void registerTest() {
+    public synchronized void registerTest() {
         SingletonUiState uiState = SingletonUiState.getInstance();
         ObserverStub observerStub = new ObserverStub();
 
@@ -30,7 +30,7 @@ public class SingletonUiStateTest {
     }
 
     @Test
-    public void unregisterTest() {
+    public synchronized void unregisterTest() {
         SingletonUiState uiState = SingletonUiState.getInstance();
         ObserverUnregisterTestStub observerStub = new ObserverUnregisterTestStub();
 
@@ -41,7 +41,7 @@ public class SingletonUiStateTest {
     }
 
     @Test
-    public void updateStateTest() {
+    public synchronized void updateStateTest() {
         SingletonUiState uiState = SingletonUiState.getInstance();
         ObserverUpdateStateDifferentTypeTestStub observerStubUpdate = new ObserverUpdateStateDifferentTypeTestStub();
         ObserverUpdateStateSameTypeTestStub observerStubNoUpdate = new ObserverUpdateStateSameTypeTestStub();
@@ -58,7 +58,7 @@ public class SingletonUiStateTest {
 
         // EP2 different StateType
         uiState.updateState(testUiStateType);
-        assertEquals(uiState.getUiState(), testUiStateType);
+        assertEquals(testUiStateType, uiState.getUiState());
 
 
     }

@@ -10,10 +10,11 @@ Title Initial Schedule
 
 Object ":UniqueTaskList" as UniqueTaskList
 Object "task1:Task" as task1
+task1 : member = ""
 Object "task2:Task" as task2
 Object "task3:Task" as task3
 
-
+hide task1:member
 UniqueTaskList --> task1
 UniqueTaskList --> task2
 UniqueTaskList --> task3

@@ -115,7 +115,7 @@ The following is the step by step guide of how we structure Model component. We 
 Step 1. Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still the only one API class for `Model` component.
 
 <p align="center">
-  <img src="images/ModelStructure-Step1.png" alt="ModelStructure-Step1" />
+  <img src="images/ModelArchitectureDiagram1.png" alt="ModelStructure-Step1" />
 </p>
 
 Step 2. Create XYZModelManagers which implement the XYZModel and contain CRUD methods on the persistence data in StudyBananas.
@@ -125,7 +125,7 @@ Step 2. Create XYZModelManagers which implement the XYZModel and contain CRUD me
 Step 3. Create system-level Models (Schedule, Flashcard, Quiz) which are models that perform CRUD on the data. Then, create a dependency between `XYZModelManagers` and `system-level Models` so that the CRUD methods in `XYZModelManager` can take advantage of them.
 
 <p align="center">
-  <img src="images/ModelStructure-Step3.png" alt="ModelStructure-Step3" height="400" />
+  <img src="images/ModelArchitectureDiagram3.png" alt="ModelStructure-Step3" height="400" />
 </p>
 
 Step 4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` contains all the CRUD methods from 4 individual `Models`. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the individual `ModelManagers`. Therefore, we are able to test the real implementation of one `Model` without the interference from other `Models`.
@@ -311,7 +311,7 @@ The following paragraphs provide the class diagrams of the three `Ui` pages. Dev
 <p></p>
 
 <p align="center" >
-  <img src="images/StudyBananasParse.png" alt="Details of the StudyBananasParser" />
+  <img src="images/StudyBananasParser.png" alt="Details of the StudyBananasParser" />
 </p>
 
 <div align="center">Figure __. Structure of the StudyBananasParser</div>
@@ -380,14 +380,6 @@ Classes used by multiple components are in the `seedu.studybananas.commons` pack
 ## **4. Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
-
-### [Proposed] Flashcard
-
-#### Proposed Implementation
-
-The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `FlashcardBank` contains a list of `FlashcardSet`. Each `FlashcardSet` contains a list of `Flashcard`.
-
-![Flashcard Class Diagram](diagrams/FlashcardClassDiagram.png)
 
 ### Support multiple DateTime format feature
 

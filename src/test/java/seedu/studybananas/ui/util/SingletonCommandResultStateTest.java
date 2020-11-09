@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
 import seedu.studybananas.logic.commands.commandresults.ScheduleCommandResult;
 
-public class SingleCommandResultStateTest {
+public class SingletonCommandResultStateTest {
     private static final String feedbackPlackholder = "";
     private static final CommandResult testCommandResult = new ScheduleCommandResult(feedbackPlackholder);
 

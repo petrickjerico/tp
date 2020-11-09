@@ -2,6 +2,19 @@
 
 !include style.puml
 
+skinparam ClassFontColor #000000
+skinparam ClassBorderColor #000000
+skinparam arrowThickness 1.1
+skinparam arrowColor #black
+skinparam classBackgroundColor UI_COLOR
+skinparam classBorderColor UI_COLOR_T1
+
+Interface Observer <<Interface>>
+Interface Observable <<Interface>>
+
+class SingleUiState
+class MainWindow
+
 
 interface Observer UI_COLOR
 interface Observable UI_COLOR
@@ -11,7 +24,9 @@ class MainWindow UI_COLOR
 Observable <|-[UI_COLOR_T1]- SingleUiState
 Observer <|-[UI_COLOR_T1]- MainWindow
 
+
 MainWindow .[UI_COLOR_T1].> SingleUiState : subscribe
+
 
 
 

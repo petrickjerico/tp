@@ -1,23 +1,35 @@
 @startuml
 !include style.puml
 
-box Ui LOGIC_COLOR_T1
-participant "Schedule:SidebarTab" as SidebarTab1 LOGIC_COLOR
-participant ":SingletoUiState" as UiState LOGIC_COLOR
-participant ":MainWindow" as MainWindow LOGIC_COLOR
-participant "View" as View LOGIC_COLOR
+skinparam sequence {
+participantBorderColor #000000
+ArrowColor #000000
+ActorBorderColor #000000
+LifeLineBorderColor #000000
+LifeLineBackgroundColor #000000
+}
+
+skinparam sequenceBoxBorderColor #black
+
+Actor User as user USER_COLOR
+
+box Ui #white
+participant "Schedule:SidebarTab" as SidebarTab1 UI_COLOR
+participant ":SingletoUiState" as UiState UI_COLOR
+participant ":MainWindow" as MainWindow UI_COLOR
+participant "View" as View UI_COLOR
 end box
 
-[-> SidebarTab1 : handleTabPressed()
-activate SidebarTab1
+user -> SidebarTab1 : handleTabPressed()
+activate SidebarTab1 UI_COLOR
 
 SidebarTab1 -> UiState : updateState(SCHEDULE)
-activate UiState
+activate UiState UI_COLOR
 
 UiState -> UiState : inform()
 
 UiState -> MainWindow : update(SCHEDULE)
-activate MainWindow
+activate MainWindow UI_COLOR
 
 MainWindow -> MainWindow : handleStateChanged(SCHEDULE)
 
@@ -38,7 +50,7 @@ SidebarTab1 --> UiState
 UiState --> SidebarTab1
 deactivate UiState
 
-<--SidebarTab1
+user <--SidebarTab1
 
 deactivate SidebarTab1
 

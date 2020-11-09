@@ -1,13 +1,13 @@
 @startuml
 !include style.puml
 skinparam arrowThickness 1.1
-skinparam arrowColor MODEL_COLOR_T1
+skinparam arrowColor #black
 skinparam classBackgroundColor MODEL_COLOR
 
 class AnswerCommand LOGIC_COLOR
 class QuizModelManager
 class Quiz
 
-AnswerCommand .> QuizModelManager LOGIC_COLOR
+AnswerCommand .> QuizModelManager
 QuizModelManager -> "0..1" Quiz
 @enduml

@@ -201,7 +201,7 @@ Step1. Create a class named `GlobalState` and make it singleton, and set the `st
     
 </div>
 
-![UiGlobalStateProblem](images/UiGlobalStateSolution-1.png)
+![UiGlobalStateProblem](images/UiGlobalStateSolution.png)
 
 Step2. Have the components that require the `static state` depend on the `GlobalState` to fetch and update the `static state` easily.
 
@@ -209,7 +209,7 @@ Step2. Have the components that require the `static state` depend on the `Global
     
 </div>
     
-![UiGlobalStateProblem](images/UiGlobalStateSolution-2.png)
+![UiGlobalStateProblem](images/UiGlobalStateSolution2.png)
 
 
 #### Analysis
@@ -241,17 +241,25 @@ the update of the the `Component`'s view. To quip `Listeners` with the ability t
 
 Step1. Create `CallBack` object inside the `UiComponent`. In the `CallBack`, we specify how the view of the `UiComponent` is supposed to changed on the update of the `dynamic state`. Then construct a `Listener` with the `CallBack` being the argument to finish the process of subscribing. The picture below shows the dependency between them.
 
+<<<<<<< HEAD
 <p align="center">
   <img src="images/UiListenerSubscribe.png" alt="UiListenerSubscribe" height="500" />
 </p>
+=======
+![UiListenerSubscribe](images/UiListenerSubscribePattern.png)
+>>>>>>> 5c13de9142e8f0b425c31c59df02b51cf9428741
 
 Step2. When the `dynamic state` is updated, it will then inform all the `Listeners`, and the `Listeners` would consequently change the view of the `UiComponent` by triggering the `CallBack`. The following two diagrams show the flow.
 
 #### Flow
 
+<<<<<<< HEAD
 <p align="center">
   <img src="images/UiListenerUpdate.png" alt="UiListenerUpdate" height="530" />
 </p>
+=======
+![UiListenerUpdate](images/UiListenerUpdatePattern.png)
+>>>>>>> 5c13de9142e8f0b425c31c59df02b51cf9428741
 
 #### Sequential diagram
 
@@ -267,15 +275,15 @@ The following paragraphs provide the class diagrams of the three `Ui` pages. Dev
 
 #### `ScheduleUi`
 
-![ScheduleUi](images/ScheduleUi.png)
+![ScheduleUi](images/ScheduleUiClassDiagram.png)
 
 #### `FlashcardUi`
 
-![FlashcardUi](images/FlashcardUi.png)
+![FlashcardUi](images/FlashcardUiClassDiagram.png)
 
 #### `QuizUi`
 
-![QuizUi](images/QuizUi.png)
+![QuizUi](images/QuizUiClassDiagram.png)
 
 --------------------------------------------------------------------------------------------
 

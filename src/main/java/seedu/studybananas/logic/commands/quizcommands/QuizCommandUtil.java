@@ -1,7 +1,7 @@
 package seedu.studybananas.logic.commands.quizcommands;
 
 public abstract class QuizCommandUtil {
-    public static final String SPECIAL_LITERAL = "STUDYBANANAS";
+    public static final String SPECIAL_LITERAL = "STuDYBaNANAS";
     public static final String MESSAGE_QUIZ_NEVER_STARTED = "There are currently no ongoing quizzes";
     public static final String MESSAGE_UNAVAIL_ON_ANSWER =
             "This command is not available now. Type 'c', 'w', 'refresh' or 'cancel' to continue";

@@ -22,7 +22,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
   <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;"/>
   <h1>Manage your study plans</h1>
   <p>Manage all of your study tasks in StudyBananas. Then, start to prepare yourself for the upcoming exams!</p>
-  <a href="#31-commands-for-the-schedule-page-binh">How to manage tasks in StudyBananas schedule ></a>
+  <a href="#41-commands-for-the-schedule-page-binh">How to manage tasks in StudyBananas schedule ></a>
 </div>
 
 ---
@@ -32,7 +32,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
   <div class="sub-section">
   <h1>Create your own notes with flashcards</h1>
   <p>Take note with the flashcards, and organize notes using flashcard sets!</p>
-  <a href="#32-commands-for-the-flashcard-page-teddy">How to manage flashcards with StudyBananas ></a>
+  <a href="#42-commands-for-the-flashcard-page-teddy">How to manage flashcards with StudyBananas ></a>
   </div>
 </div>
 
@@ -42,108 +42,67 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
   <img src="images/Quiz.png" alt="quiz-pic" width="370" style="float: left; margin-right: 30px;">
   <h1>Quiz yourself by flashcards</h1>
   <p>Prepare your exams by quizzing yourself the flashcard notes that you have taken!</p>
-  <a href="#33-commands-for-the-quiz-page-bowei">How to start a flashcard quiz ></a>
+  <a href="#43-commands-for-the-quiz-page-bowei">How to start a flashcard quiz ></a>
 </div>
 
 ---
 
-<h1 class="toc_title">Table of Contents</h1>
-<div id="toc_container">
-    <ul class="toc_list">
-        <li><a href="#1-introduction-binh">1. Introduction (Binh)</a>
-            <ul>
-                <li><a href="#11-reading-this-user-guide">1.1 Reading this User Guide</a>
-                    <ul>
-                        <li><a href="#111-icons-and-meaning">1.1.1 Icons and Meaning</a></li>
-                        <li><a href="#112-markdown-notations">1.1.2 Markdown Notations</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li><a href="#2-quick-start-eddy">2. Quick start (Eddy)</a></li>
-        <li><a href="#3-features-petrick">3. Features (Petrick)</a>
-        <li><a href="#4-usage-of-command">4. Usage of Command</a>
-            <ul>
-                <li><a href="#41-commands-for-the-schedule-page-binh">4.1. Commands for the <div class="code">SCHEDULE</div> page (Binh)</a>
-                     <ul>
-                        <li><a href="#411-view-the-details-of-your-task-eddy">4.1.1. <b>View the details of your task</b>:</a></li>
-                        <li><a href="#412-add-a-task-add-task">4.1.2. <b>Add a task</b>: <div class="code">add task</div></a></li>
-                        <li><a href="#413-list-all-your-tasks-list-task">4.1.3. <b>List tasks all your tasks</b>: <div class="code">list task</div></a></li>
-                        <li><a href="#414-delete-a-task-delete-task">4.1.4. <b>Delete a task</b>: <div class="code">delete task</div></a></li>
-                        <li><a href="#415-search-for-a-task-search-task">4.1.5. <b>Search for a task</b>: <div class="code">search task</div></a></li>
-                        <li><a href="#416-edit-a-task-edit-task">4.1.6 <b>Edit a task</b>: <div class="code">edit task</div></a></li>
-                    </ul>
-                </li>
-                <li><a href="#42-commands-for-the-flashcard-page-teddy">4.2. Commands for the <div class="code">FLASHCARD</div> page (Teddy)</a>
-                    <ul>
-                        <li><a href="#421-add-a-flashcardset-add-flset">4.2.1. <b>Add a flashcard set</b>: <div class="code">add flset</div></a></li>
-                        <li><a href="#422-delete-a-flashcardset-delete-flset">4.2.2. <b>Delete a flashcard set</b>: <div
-                                    class="code"> delete flset</div></a></li>
-                        <li><a href="#423-list-flashcards-in-a-flashcardset-list-fl">4.2.3. <b>List flashcards in a
-                                    flashcard set</b>: <div class="code">list fl</div></a></li>
-                        <li><a href="#424-add-a-flashcard-into-a-flashcardset-add-fl">4.2.4. <b>Add a flashcard into a
-                                flashcard set</b>: <div class="code">add fl</div></a></li>
-                        <li><a href="#425-delete-a-flashcard-in-a-flashcardset-delete-fl">4.2.5. <b>Delete a flashcard
-                                in a flashcard set</b>: <div class="code">delete fl</div></a></li>
-                    </ul>
-                </li>
-                <li><a href="#43-commands-for-the-quiz-page-bowei">4.3. Commands for the <div class="code">QUIZ</div> page (Bowei)</a>
-                    <ul>
-                        <li><a href="#431-quiz-of-a-flashcardset-quiz-flset">4.3.1. <b><div class="code">QUIZ</div> of flashcard set</b>: <div class="code">quiz
-                                flset</div></a></li>
-                        <li><a href="#432-view-last-quiz-attempt-quiz-score-flset">4.3.2. <b>View last <div class="code">QUIZ</div> attempt</b>:
-                                <div class="code">quiz score flset</div></a></li>
-                    </ul>
-                </li>
-                <li><a href="#44-general-commands-binh">4.4. General Commands (Binh)</a>
-                    <ul>
-                        <li><a href="#441-view-all-the-available-commands-help">4.4.1. <b>View all the available
-                                commands</b>: <div class="code">help</div></a></li>
-                        <li><a href="#442-exit-program-exit">4.4.2. <b>Exit program</b>: <div class="code">exit</div></a></li>
-                    </ul>
-                </li>
-                <li><a href="#45-saving-the-data-automatic"><b>4.5. Saving the data (automatic)</b></a></li>
-            </ul>
-        </li>
-        <li><a href="#5-faq-teddy">5. FAQ (Teddy)</a></li>
-        <li><a href="#6-trouble-shooting-eddy">6. Trouble Shooting (Eddy)</a>
-             <ul>
-                 <li><a href="#cannot-launch-the-application">6.1. Cannot launch the application</a>
-                    <ul>
-                         <li><a href="#windows">6.1.1. Windows</a></li>
-                         <li><a href="#mac">6.1.2. Mac</a></li>
-                         <li><a href="#linux">6.1.3. linux</a></li>
-                    </ul>
-                 </li>
-                 <li><a href="#cannot-find-my-data-locally">6.2. Cannot find my data locally</a></li>
-                 <li><a href="#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly">6.3. My data is gone after I manipulate the data in the data folder directly</a></li>
-             </ul>
-        </li>
-        <li><a href="#7-community-and-security-eddy">7. Community and Security (Eddy)</a>
-            <ul>
-                <li><a href="#user-data">7.1. User Data</a></li>
-                <li><a href="#study-community">7.2. Study Community</a></li>
-            </ul>
-        </li>
-         <li><a href="#8-bug-report-eddy">8. Bug report (Eddy)</a></li>
-        <li><a href="#9-summary">9. Summary</a>
-            <ul>
-                <li><a href="#91-summary-of-commands-petrick">9.1. Summary of Commands (Petrick)</a>
-                    <ul>
-                        <li><a href="#schedule-commands-binh">Schedule commands (Binh)</a></li>
-                        <li><a href="#flashcard-commands-teddy">Flashcard commands (Teddy)</a></li>
-                        <li><a href="#quiz-commands-bowei">Quiz commands (Bowei)</a></li>
-                        <li><a href="#general-commands">General commands</a></li>
-                    </ul>
-                </li>
-                <li><a href="#92-graphical-summary-of-navigation-commands-petrick">9.2. Graphical Summary of Navigation Commands (Petrick)</a>
-            </ul>
-        </li>
-    </ul>
-</div>
+<h1 align="center">Table of Contents</h1>
+<!-- TOC -->
 
+- [1. Introduction (Binh)](#1-introduction-binh)
+  - [1.1 Reading this User Guide](#11-reading-this-user-guide)
+    - [1.1.1 Icons and Meaning](#111-icons-and-meaning)
+    - [1.1.2 Markdown notations](#112-markdown-notations)
+- [2. Quick start (Eddy)](#2-quick-start-eddy)
+- [3. Features (Petrick)](#3-features-petrick)
+- [4. Usage of Command](#4-usage-of-command)
+  - [4.1. Commands for the `SCHEDULE` page (Binh)](#41-commands-for-the-schedule-page-binh)
+    - [4.1.1. **View the details of your `TASK`**: (Eddy)](#411-view-the-details-of-your-task-eddy)
+    - [4.1.2. **Add a `TASK`**: `add task`](#412-add-a-task-add-task)
+      - [4.1.2.1. Adding a normal `TASK`](#4121-adding-a-normal-task)
+      - [4.1.2.2. Adding a `QUIZ` `TASK`](#4122-adding-a-quiz-task)
+    - [4.1.3. **List all your `TASK`s**: `list task`](#413-list-all-your-tasks-list-task)
+    - [4.1.4. **Delete a `TASK`**: `delete task`](#414-delete-a-task-delete-task)
+    - [4.1.5. **Search for a `TASK`**: `search task`](#415-search-for-a-task-search-task)
+    - [4.1.6. Edit a `TASK`: `edit task`](#416-edit-a-task-edit-task)
+  - [4.2. Commands for the `FLASHCARD` page (Teddy)](#42-commands-for-the-flashcard-page-teddy)
+    - [4.2.1. **Add a `FLASHCARDSET`**: `add flset`](#421-add-a-flashcardset-add-flset)
+    - [4.2.2. **Delete a `FLASHCARDSET`**: `delete flset`](#422-delete-a-flashcardset-delete-flset)
+    - [4.2.3. **List `FLASHCARD`s in a `FLASHCARDSET`**: `list fl`](#423-list-flashcards-in-a-flashcardset-list-fl)
+    - [4.2.4. **Add a `FLASHCARD` into a `FLASHCARDSET`**: `add fl`](#424-add-a-flashcard-into-a-flashcardset-add-fl)
+    - [4.2.5. **Delete a `FLASHCARD` in a `FLASHCARDSET`**: `delete fl`](#425-delete-a-flashcard-in-a-flashcardset-delete-fl)
+  - [4.3. Commands for the `QUIZ` page (Bowei)](#43-commands-for-the-quiz-page-bowei)
+    - [4.3.1. **`QUIZ` of a `FLASHCARDSET`**: `quiz flset`](#431-quiz-of-a-flashcardset-quiz-flset)
+      - [4.3.1.1. **Getting the question**](#4311-getting-the-question)
+      - [4.3.1.2. **Answering the question**](#4312-answering-the-question)
+      - [4.3.1.3. **Checking if your answer is correct**](#4313-checking-if-your-answer-is-correct)
+      - [4.3.1.4. **Continuing the `QUIZ` cycle**](#4314-continuing-the-quiz-cycle)
+    - [4.2.2. **View last `QUIZ` attempt**: `quiz score flset`](#422-view-last-quiz-attempt-quiz-score-flset)
+  - [4.4. General Commands (Binh)](#44-general-commands-binh)
+    - [4.4.1. **View all the available commands**: `help`](#441-view-all-the-available-commands-help)
+    - [4.4.2. **Exit program**: `exit`](#442-exit-program-exit)
+- [5. FAQ (Teddy)](#5-faq-teddy)
+- [6. Trouble Shooting (Eddy)](#6-trouble-shooting-eddy)
+  - [Cannot launch the application](#cannot-launch-the-application)
+    - [Windows](#windows)
+    - [Mac](#mac)
+    - [Linux](#linux)
+  - [Cannot find my data locally](#cannot-find-my-data-locally)
+  - [My data is gone after I manipulate the data in the data folder directly](#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly)
+- [7. Community and security (Eddy)](#7-community-and-security-eddy)
+  - [User data](#user-data)
+  - [Study community](#study-community)
+- [8. Bug report (Eddy)](#8-bug-report-eddy)
+- [9. Summary](#9-summary)
+  - [9.1. Summary of Commands (Petrick)](#91-summary-of-commands-petrick)
+    - [`SCHEDULE` commands (Binh)](#schedule-commands-binh)
+    - [`FLASHCARD` commands (Teddy)](#flashcard-commands-teddy)
+    - [`QUIZ` commands (Bowei)](#quiz-commands-bowei)
+    - [General commands](#general-commands)
+  - [9.2. Graphical Summary of Navigation Commands](#92-graphical-summary-of-navigation-commands)
 
-The above part is managed by Eddy.
+<!-- /TOC -->
 
 ## 1. Introduction (Binh)
 
@@ -616,6 +575,8 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 #### 4.3.1. **`QUIZ` of a `FLASHCARDSET`**: `quiz flset`
 
+![QuizPage](images/QuizPage.png)
+
 Already have some `FLASHCARD`s and would like to start a recap session? 
 This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.
 
@@ -777,12 +738,6 @@ If you would like to close the application, this command helps you to quickly cl
 <img src="images/UG/ExitButton.png" alt="ExitButton" width="600" class="center"/>
 
 <div align="center">Figure 4.4.2: <code>exit</code> button as shown</div>
-
-<p>&nbsp;</p>
-
-### **4.5 Saving the data (automatic)**
-
-StudyBananas saves data in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 <p>&nbsp;</p>
 

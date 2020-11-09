@@ -297,7 +297,6 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ### **3.6. Storage component**
 
-![Structure of the Storage Component](images/StorageClassDiagram.png)
 
 **API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/storage/Storage.java)
 
@@ -305,6 +304,27 @@ The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
 * can save the `Schedule`, `FlashcardBank` and `QuizRecords` data in json format and read it back.
 
+#### Overall Structure
+StudyBananas supports 3 different systems, namely `Schedule`, `FlashcardBank` and `Quiz`. Each of these
+systems needs to store their own type of data. Compared to the original `AddressBook3` where `AddressBookStorage` is the
+interface that exposes the functionality to save and read the data from the storage file, StudyBananas storage
+is more complicated with the existence of these 3 distinct systems. Therefore, our team decides to split the 
+storage such that each system has their own storage interface, including `ScheduleStorage`, `FlashcardBankStorage` and
+`QuizRecordsStorage`, that is in charge of saving and reading their own data from their respective storage file. The `Storage` 
+component then contains these 3 storage systems as well as the `UserPrefs` storage and exposes the storage functionality 
+to other components such as `Logic` to modify the stored data.
+
+![Structure of the Storage Component](images/StorageClassDiagram.png)
+
+#### Analysis
+* Pros: 
+    1. It allows to have one high-level `Storage` components that interacts with other high-level components in the architecture level.
+    2. **Interface Segregation Principle** is preserved as each system storage only needs to deal with the reading and saving data of its own system.
+    3. **Open-Closed Principle** is preserved for `Storage` component. If more components are added, developers only need to extend by creating `XYZStorage` and add a new attribute and methods to `Storage` component instead of modifying existing `XYZStorage`.
+ * Cons: 
+    1. If there is a common data that is shared between different systems and it is modified, `Logic` needs to have multiple calls of save to each 
+    systems have to update the data in different systems.
+    
 <p>&nbsp;</p>
 
 ### **3.7. Common classes**

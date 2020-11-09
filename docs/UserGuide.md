@@ -837,9 +837,91 @@ any bugs or have any suggestions on the application, please go to
 <a href="https://github.com/AY2021S1-CS2103T-F12-2/tp/issues">our github issue page</a> to 
 issue the bugs and the suggestions. Great appreciation from the development team of StudyBananas.
 
-## 8. Command summary
+## 8. Summary
+This section summarises all available commands in StudyBananas. 
+
+### 8.1. Summary of Commands (Petrick)
+You can use the following list of command formats as a quick and convenient reference. 
+
+You may also find the table below helpful to check whether a command is available under certain conditions:
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-d78e{background-color:#9aff99;text-align:center;vertical-align:top}
+.tg .tg-cmwg{background-color:#ffccc9;text-align:center;vertical-align:top}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-4m7p{background-color:#9aff99;border-color:inherit;text-align:center;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky" colspan="2" rowspan="2"></th>
+    <th class="tg-7btt" colspan="5">Can I use commands from...</th>
+  </tr>
+  <tr>
+    <td class="tg-7btt">SCHEDULE</td>
+    <td class="tg-7btt">FLASHCARD</td>
+    <td class="tg-baqh"><span style="font-weight:bold">QUIZ*</span></td>
+    <td class="tg-0lax"><span style="font-weight:bold">QUIZ</span> Mode**</td>
+    <td class="tg-amwm">General</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-7btt" rowspan="4">If I am in...</td>
+    <td class="tg-c3ow"><span style="font-weight:bold">SCHEDULE</span> Tab<br>(but NO ongoing <span style="font-weight:bold">QUIZ</span>)</td>
+    <td class="tg-4m7p">✅</td>
+    <td class="tg-4m7p">✅</td>
+    <td class="tg-d78e">✅</td>
+    <td class="tg-cmwg">❌</td>
+    <td class="tg-d78e">✅</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow"><span style="font-weight:bold">FLASHCARD</span> Tab<br><span style="font-weight:400;font-style:normal">(but NO ongoing </span><span style="font-weight:bold">QUIZ</span>)</td>
+    <td class="tg-4m7p">✅</td>
+    <td class="tg-4m7p">✅</td>
+    <td class="tg-d78e">✅</td>
+    <td class="tg-cmwg">❌</td>
+    <td class="tg-d78e">✅</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh"><span style="font-weight:bold">QUIZ</span> Tab<br><span style="font-weight:400;font-style:normal">(but NO ongoing </span><span style="font-weight:bold">QUIZ</span>)</td>
+    <td class="tg-d78e">✅</td>
+    <td class="tg-d78e">✅</td>
+    <td class="tg-d78e">✅</td>
+    <td class="tg-cmwg">❌</td>
+    <td class="tg-d78e">✅</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh"><span style="font-weight:bold">ANY</span><span style="font-weight:normal"> Tab</span><br>(but WITH ongoing <span style="font-weight:bold">QUIZ</span><span style="font-weight:normal">)</span></td>
+    <td class="tg-cmwg">❌</td>
+    <td class="tg-cmwg">❌</td>
+    <td class="tg-cmwg">❌</td>
+    <td class="tg-d78e">✅</td>
+    <td class="tg-d78e">✅</td>
+  </tr>
+</tbody>
+</table>
+
+\* **QUIZ** commands refer to:  
+`quiz <flset:setindex>` , `quiz <flset:setname>` , `quiz score <flset:setindex>` , `quiz score <flset:setname>`
+
+\** **QUIZ Mode** commands refer to:  
+`flip` , `<ans:answer>` , `c` , `w` , `cancel` , `refresh`
+
+<p>&nbsp;</p>
 
 ### `SCHEDULE` commands (Binh)
+
 
 | Action                  | Format, Examples                                                                                                                 |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -867,7 +949,7 @@ issue the bugs and the suggestions. Great appreciation from the development team
 
 | Action                 | Format, Examples                                                                                                                                                                              |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`QUIZ` flset**       | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> `quiz <flset:setname>` eg., `quiz flset:Japanese`. <br> Available only in quiz mode: `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
+| **`QUIZ` flset**       | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> `quiz <flset:setname>` eg., `quiz flset:Japanese`. <br> Available only in **QUIZ Mode**: `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
 | **`QUIZ` score flset** | `quiz score <flset:setindex>` e.g., `quiz score flset:6` <br> `quiz score <flset:setname>` e.g., `quiz score flset:Economics`                                                                 |
 
 <p>&nbsp;</p>
@@ -878,3 +960,11 @@ issue the bugs and the suggestions. Great appreciation from the development team
 | ------------------------------- | ---------------- |
 | **View all available commands** | `help`           |
 | **Exit program**                | `exit`           |
+
+<p>&nbsp;</p>
+
+## 8.2. Graphical Sumarry of Navigation Commands
+
+Below is a useful "cheat sheet" to show you how different commands affect the tabs displayed.
+
+(Image to be added soon.)

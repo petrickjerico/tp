@@ -13,11 +13,13 @@ from [AddressBook3](https://github.com/nus-cs2103-AY2021S1/tp), and was expanded
 
 Given below are my contributions to the project.
 
-###**Code contributed**
+### **Code contributed**
 
 My code contribution can be viewed from [here](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=chuyiting).
 
-###**Enhancements implemented**
+<div style="page-break-after: always;"></div>
+
+### **Enhancements implemented**
 
 StudyBananas is composed of three main features, namely Schedule, Flashcards, and Quiz. Three features are designed individually first 
 and start to integrate with each other in the later phase of the project. I was in charge of the Schedule feature along with my teammate
@@ -37,16 +39,16 @@ implemented by me.
     written by me.
     
     * Highlights:
-        - Analyze structure using software engineering principles with discrete.
-        - Solve frequent test regression for development.
-        - Increase testability and scalability of code
+        * Analyze structure using software engineering principles with discrete.
+        * Solve frequent test regression for development.
+        * Increase testability and scalability of code
 
 * Model for Schedule feature (Co-work with [Binh](https://github.com/ducbinh2611))
     * Description:
     Model classes for Schedule persistence data. Design a simple scalable structure to support multiple date time format.
     
     * Highlights:
-        - Adopt defensive style of programming by asserting valid format of input for constructors.    
+        * Adopt defensive style of programming by asserting valid format of input for constructors.    
 
 * Implement the Logic for Schedule
     * Description:
@@ -55,7 +57,7 @@ implemented by me.
     Classes to handle the logic of schedule-related commands input by the user.
     
     * Highlights:   
-        - Adopt defensive style of programming by asserting valid format of input for constructors. 
+        * Adopt defensive style of programming by asserting valid format of input for constructors. 
      
 * Design local storage (hard drive) for Schedule
     * Description:
@@ -63,8 +65,8 @@ implemented by me.
     of remote server, the data is stored as JSON file in the folder located at the local disk.   
 
     * Highlights:  
-        - Adopt Jackson library.
-        - Reuse the structure from [AddressBook3](https://github.com/nus-cs2103-AY2021S1/tp) which is implemented 
+        * Adopt Jackson library.
+        * Reuse the structure from [AddressBook3](https://github.com/nus-cs2103-AY2021S1/tp) which is implemented 
         similar to an **Object Relational Model** by transferring data into corresponding Java Object immediately 
         after it is fetched from the local storage file.
     
@@ -78,9 +80,9 @@ implemented by me.
         written by me.
         
     * Highlights: 
-        - Build a structure that supports reactive GUI
-        - Solve deep nested state passing
-        - Increase code maintainability    
+        * Build a structure that supports reactive GUI
+        * Solve deep nested state passing
+        * Increase code maintainability    
     
 * Write GUI for Schedule
     * Description:
@@ -89,38 +91,27 @@ implemented by me.
     [User Guide](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html) to see how it look like.
     
     * Highlights: 
-        - Design with Adobe XD beforehand
-        - Quickly pick up JavaFX framework    
-
-* Write unit tests for Schedule command parsers
+        * Design with Adobe XD beforehand
+        * Quickly pick up JavaFX framework    
+ 
+* Write unit tests for Schedule commands, Schedule command parsers, UI utils
     * Description:
-    I was in charge of the unit testing for Schedule command parsers in the Logic component (Controller in MVC).
-    
-    * Highlights: 
-        - Test coverage for Schedule command parser package: Class coverage: 100%; Method coverage: 100%; Line coverage: 92%.
-    
-* Write unit tests for Schedule commands
-    * Description:
-    I wrote the unit tests for Schedule commands classes located in the Logic component (Controller in MVC). As 
+    I wrote the unit tests for Schedule commands and Schedule command parsers classes located in the Logic component (Controller in MVC). As 
     command classes depend on the Model component, two ways of testing were adopted. Unit testing with Stub and 
     then performing integration test is one way (see [ScheduleAddCommandTest](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/test/java/seedu/studybananas/logic/commands/schedulecommands/ScheduleAddCommandTest.java)
     and [ScheduleAddCommandIntegrationTest](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/test/java/seedu/studybananas/logic/commands/schedulecommands/ScheduleAddCommandIntegrationTest.java)). 
     A hybrid of integration test and unit test is another way (see [ScheduleDeleteCommandTest](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/test/java/seedu/studybananas/logic/commands/schedulecommands/ScheduleDeleteCommandTest.java)).
-    
-    * Highlights: 
-        - Testing with stubs
-        - Test coverage for Schedule command package: Class coverage: 100%; Method coverage: 100%; Line coverage: 98%.    
-
-* Write unit tests for UI utils
-    * Description:
     Writing tests for UI is not an easy task. Due to the time constraint, I only had time testing the uiutils package 
     during module period.
     
-    * Highlights:   
-          - Adopt testing heuristics, boundary value analysis and equivalence partitions.
-          - Test coverage for util package in UI component: Class coverage: 88%; Method coverage: 65%; Line coverage: 64%.    
+    * Highlights: 
+        * Testing with stubs
+        * Adopt testing heuristics, boundary value analysis and equivalence partitions.
+        * Test coverage for util package in UI component: Class coverage: 88%; Method coverage: 65%; Line coverage: 64%.   
+        * Test coverage for Schedule command parser package: Class coverage: 100%; Method coverage: 100%; Line coverage: 92%. 
+        * Test coverage for util package in UI component: Class coverage: 88%; Method coverage: 65%; Line coverage: 64%.    
 
-###**Contributions to documentationt**
+### **Contributions to documentationt**
 
 * User Guide:
     - Opening page, list of services
@@ -129,7 +120,7 @@ implemented by me.
     - [Community and Security](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#7-community-and-security-eddy)
     - [Bug Report](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#8-bug-report-eddy)
 
-###**Contributions to DG**
+### **Contributions to DG**
 
 * Developer Guide:
     - [Overall architecture](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#31-architecture)
@@ -163,7 +154,7 @@ implemented by me.
     
 
 
-###**Contributions to team-based tasks**
+### **Contributions to team-based tasks**
 
 * Set up the GitHub team org/repo
 * Set up Gradle

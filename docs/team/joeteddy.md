@@ -3,8 +3,6 @@ layout: page
 title: Joe Teddy Yosua Sanjaya's Project Portfolio Page
 ---
 
-# Joe Teddy Yosua Sanjaya - Project Portfolio
-
 ## Introduction
 Hi, my name is Teddy. At the time of this project (AY20/21 Semester 1), I was a Year 2 Computer Science undergraduate in NUS.
 

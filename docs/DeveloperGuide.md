@@ -136,6 +136,7 @@ Step4. Finally, create our **"one and only one"** Model component API class - `M
 #### FlashcardModel
 
 #### QuizModel
+![QuizModelDiagram](images/QuizModelDiagram.png)
 
 
 ---------------------------------------------------------------------------------------------
@@ -208,7 +209,7 @@ Step2. Have the components that require the `static state` depend on the `Global
     1. This structure makes it easier for the developer to maintain the `Ui components` because there is no need to pass `static state` as arguments for the constructor anymore
     2. It avoids dummy arguments in some constructors. For example, given the following component structure A -> B -> C, if A and C both require a common `static state`, in the original implementation, the constructor in B would need to have one more argument for the `static state` which is not used in `Component B` except for constructing `Component C`. In this sense, the `static state` is dummy inside the constructor B.
   * Cons: 
-    1. Every components are able to get access and modify the `static state`, the modification done to a `static state` in one class by a developer can cause unexpected behavior when another developer is using the same `static state` in other components.
+    1. Every component is able to get access and modify the `static state`, the modification done to a `static state` in one class by a developer can cause unexpected behavior when another developer is using the same `static state` in other components.
     
 <div markdown="span" class="alert alert-info">:information_source: Note: the idea of 
     <div class="code">GlobalState</div> is inspired by 
@@ -260,7 +261,6 @@ The following paragraphs provide the class diagrams of the three `Ui` pages.
 
 ![QuizUi](images/QuizUi.png)
 
-
 ### **3.3. Logic component**
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
@@ -270,7 +270,7 @@ The following paragraphs provide the class diagrams of the three `Ui` pages.
 <p></p>
 
 **API** :
-[`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+[`Logic.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/logic/Logic.java)
 
 1. `Logic` uses the `StudyBananasParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
@@ -281,7 +281,7 @@ The following paragraphs provide the class diagrams of the three `Ui` pages.
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete task 1` Command](images/DeleteSequenceDiagram.png)
-<div align="center">Figure __. Interactions inside the Logic Component for the `delete task 1` Command</div>
+<div align="center">Figure 3.3: Interactions inside the Logic Component for the `delete task 1` Command</div>
 
 <p></p>
 
@@ -289,12 +289,11 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 <p>&nbsp;</p>
 
-
 ### **3.6. Storage component**
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/storage/Storage.java)
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
@@ -305,6 +304,7 @@ The `Storage` component,
 ### **3.7. Common classes**
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **4. Implementation**
@@ -392,14 +392,9 @@ The following sequence diagram shows how the `edit task` functionality works:
   * Pros: Will use less memory as there is no new creation of `TASK` object.
   * Cons: May result in side-effects such as there are out-of-dated versions of `SCHEDULE` throughout the program.
 
-### \[Proposed\] Data archiving
+### Quiz with storage of answers feature
 
-_{Explain here how the data archiving feature will be implemented}_
-
-
-### \[Proposed\] Quiz with storage of answers feature
-
-#### Proposed Implementation
+#### Implementation
 
 The proposed quiz with storage of answers mechanism is facilitated by `Quiz` and `QuizModelManager`, which implements the `QuizModel` interface. 
 It makes use of an array of answer strings as an attribute, stored within a `Quiz` object as `userAnswers`.
@@ -440,7 +435,7 @@ The user launches the application and starts the quiz for a non-empty, valid fla
 As a result, it creates a `QuizModelManager` object and a `StartCommand` object.
 Assume the flashcard set contains only two flashcards for simplicity.
 
-The call to `StartCommand#execute()` will allow the `Quiz` to be initialized with the initial quiz state with default values for score, 
+The call to `StartCommand#execute()` from `Logic` will allow the `Quiz` to be initialized with the initial quiz state with default values for score, 
 the `currentIndex` pointing to the index of the first flashcard, 
 and the current command result being the first question through the call of `Quiz#getQuestion()`.
 
@@ -466,11 +461,12 @@ This creates either a `CorrectCommand` or `WrongCommand` object.
 
 In the case of the `CorrectCommand` class below, the call to `CorrectCommand#execute()`
 calls the `Quiz:tallyScore()` method through the interaction with `QuizModel`.
-This increments the `pointsScored` attribute in quiz.
+This increments the `pointsScored` attribute in quiz. Also, the next question is fetched through
+the call to `Quiz:getQuestion()`.
 
 The following sequence diagram shows how this step works:
 
-![UpdateScoreSequenceDiagram](images/UpdateScoreSequenceDiagram.png)
+![CorrectCommandSequenceDiagram](images/CorrectCommandSequenceDiagram.png)
 
 The object created will check if the `currentIndex` (updated in the previous step) 
 is within bounds to obtain the next flashcard.
@@ -496,8 +492,6 @@ This stops the quiz by removing the `Quiz` object stored in the `quiz`
 attribute of `QuizModelManager`.
 
 This leads to also calling the `Quiz:toString()` operation to show the quiz score and statistics.
-
-
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
@@ -811,6 +805,19 @@ Use case ends.
 * **Flashcard Set**: A set of flashcards relevant to a specific topic. 
 --------------------------------------------------------------------------------------------------------------------
 
+### Product survey
+
+Pros
+* The product is attractive in helping students with their study plans, and recapping their concepts.
+* GUI is rather aesthetic looking, pleasing to the eyes.
+* The available commands are intuitive, and are easy to use and remember.
+
+Cons
+* A dark mode can be included. Some users prefer a GUI with dark mode.
+* More features can be integrated, eg undo/redo. These features can be included in version 2.0.
+
+--------------------------------------------------------------------------------------------------------------------
+
 ## **Appendix: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
@@ -826,30 +833,21 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Double-click the jar file Expected: Shows the GUI with a set of sample tasks, flashcards and quiz records. The window size is fixed.
 
-1. Saving window preferences
+### Deleting a task
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+1. Deleting a task while all tasks are being shown
 
-   1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+   1. Prerequisites: List all tasks using the `list task` command. Multiple tasks in the list.
 
-1. _{ more test cases …​ }_
+   1. Test case: `delete task 1`<br>
+      Expected: First task is deleted from the list. Details of the deleted task shown in the status message. Timestamp in the status bar is updated.
 
-### Deleting a person
+   1. Test case: `delete task 0`<br>
+      Expected: No task is deleted. Error details shown in the status message. Status bar remains the same.
 
-1. Deleting a person while all persons are being shown
-
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
-
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
-
-   1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
-
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+   1. Other incorrect delete commands to try: `delete task`, `delete task x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
 1. _{ more test cases …​ }_

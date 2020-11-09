@@ -744,7 +744,7 @@ StudyBananas saves data in the hard disk automatically after any command that ch
 **A**: StudyBananas is designed to work best on a desktop/laptop.
 
 **Q: How do I transfer my data to another Computer?**<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous StudyBananas home folder.
+**A**: Install the app in the other computer. Overwrite the empty data folder with the data folder in your previous StudyBananas home folder.
 
 <p>&nbsp;</p>
 

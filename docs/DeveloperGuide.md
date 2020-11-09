@@ -381,14 +381,6 @@ Classes used by multiple components are in the `seedu.studybananas.commons` pack
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### [Proposed] Flashcard
-
-#### Proposed Implementation
-
-The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `FlashcardBank` contains a list of `FlashcardSet`. Each `FlashcardSet` contains a list of `Flashcard`.
-
-![Flashcard Class Diagram](diagrams/FlashcardClassDiagram.png)
-
 ### Support multiple DateTime format feature
 
 #### Implementation

@@ -10,6 +10,7 @@ public class QuizCommandResult extends CommandResult {
 
     /**
      * Initializes a {@code QuizCommandResult}.
+     *
      * @param feedbackToUser Feedback displayed to the user.
      */
     public QuizCommandResult(String feedbackToUser) {
@@ -19,6 +20,7 @@ public class QuizCommandResult extends CommandResult {
 
     /**
      * Initializes a {@code QuizCommandResult}.
+     *
      * @param feedbackToUser Feedback displayed to the user.
      * @param showHelp Whether to show help.
      * @param exit Whether to exit the app.
@@ -30,6 +32,7 @@ public class QuizCommandResult extends CommandResult {
 
     /**
      * Initializes a {@code QuizCommandResult}.
+     *
      * @param feedbackToUser Feedback displayed to the user.
      * @param commandType Command Type of the command that this result is generated from.
      */
@@ -41,6 +44,7 @@ public class QuizCommandResult extends CommandResult {
 
     /**
      * Initializes a {@code QuizCommandResult}.
+     *
      * @param feedbackToUser Feedback displayed to the user.
      * @param showHelp Whether to show help.
      * @param exit Whether to exit the app.
@@ -54,6 +58,7 @@ public class QuizCommandResult extends CommandResult {
 
     /**
      * Initializes a {@code QuizCommandResult}.
+     *
      * @param feedbackToUser Feedback displayed to the user.
      * @param showHelp Whether to show help.
      * @param exit Whether to exit the app.
@@ -70,6 +75,7 @@ public class QuizCommandResult extends CommandResult {
 
     /**
      * Initializes a {@code QuizCommandResult}.
+     *
      * @param feedbackToUser Feedback displayed to the user.
      * @param quiz Quiz object to be stored in the CommandResult.
      * @param commandType Command Type of the command that this result is generated from.

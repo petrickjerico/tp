@@ -78,7 +78,7 @@ Given below are my contributions to the project (to be updated).
         use `fxml` style property on each component, coupling with the `css` styling for the part of the style that 
         is not specified the `fxml` style property. 
             
-<div style="page-break-after: always;"></div>     
+<br>
     * Enhanced the `CommandResult` class to follow the `Logic` execution of `QUIZ` 
         * **What it does**:  
         The question, answer and instruction provided to the user by StudyBananas are actually 

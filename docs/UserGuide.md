@@ -13,7 +13,7 @@ title: User Guide
   <br>
 
   <p align="center">
-Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or scroll to the table of contents below to <br>find answers, get step-by-step instructions and know us better.
+Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of contents below to <br>find answers, get step-by-step instructions and know us better.
   </p>
 
 </div>
@@ -102,7 +102,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
                         <li><a href="#442-exit-program-exit">4.4.2. <b>Exit program</b>: <div class="code">exit</div></a></li>
                     </ul>
                 </li>
-                <li><a href="#saving-the-data"><b>Saving the data</b></a></li>
+                <li><a href="#45-saving-the-data-automatic"><b>4.5. Saving the data (automatic)</b></a></li>
             </ul>
         </li>
         <li><a href="#5-faq-teddy">5. FAQ (Teddy)</a></li>
@@ -119,26 +119,31 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
                  <li><a href="#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly">6.3. My data is gone after I manipulate the data in the data folder directly</a></li>
              </ul>
         </li>
-        <li><a href="#7-community-and-security-eddy">7. Community and Security</a>
+        <li><a href="#7-community-and-security-eddy">7. Community and Security (Eddy)</a>
             <ul>
                 <li><a href="#user-data">7.1. User Data</a></li>
                 <li><a href="#study-community">7.2. Study Community</a></li>
             </ul>
         </li>
-         <li><a href="#8-bug-report-eddy">8. Bug report</a></li>
-        <li><a href="#9-command-summary">9. Command summary</a>
+         <li><a href="#8-bug-report-eddy">8. Bug report (Eddy)</a></li>
+        <li><a href="#9-summary">9. Summary</a>
             <ul>
-                <li><a href="#schedule-commands-binh">9.1. Task list commands (Binh)</a></li>
-                <li><a href="#flashcard-commands-teddy">9.2. Flashcard commands (Teddy)</a></li>
-                <li><a href="#quiz-commands-bowei">9.3. Quiz commands (Bowei)</a></li>
-                <li><a href="#general-commands">9.4. General commands</a></li>
+                <li><a href="#91-summary-of-commands-petrick">9.1. Summary of Commands (Petrick)</a>
+                    <ul>
+                        <li><a href="#schedule-commands-binh">Schedule commands (Binh)</a></li>
+                        <li><a href="#flashcard-commands-teddy">Flashcard commands (Teddy)</a></li>
+                        <li><a href="#quiz-commands-bowei">Quiz commands (Bowei)</a></li>
+                        <li><a href="#general-commands">General commands</a></li>
+                    </ul>
+                </li>
+                <li><a href="#92-graphical-summary-of-navigation-commands-petrick">9.2. Graphical Summary of Navigation Commands (Petrick)</a>
             </ul>
         </li>
     </ul>
 </div>
 
 
-The part above is maintained by Eddy.
+The above part is managed by Eddy.
 
 ## 1. Introduction (Binh)
 
@@ -207,11 +212,24 @@ Table 2. Markdown notations in this User Guide
 
    * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 `TASK` to the `SCHEDULE`.
 
-7. Refer to the [Features](#3-features) below for details of each command.
+7. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
 
 ---
 
 ## 3. Features (Petrick)
+This section describes the various features available in StudyBananas. These include front-end features that you can interact with, such as the `SCHEDULE` page, as well as back-end features such as the auto-saving of data.
+
+### 3.1. Task list in `SCHEDULE`
+You can set the tasks you want to do at a particular day to help you declutter your tasks and organise them strategically into daily tasks.
+
+For every task, you can add titles, short descriptions, starting time and duration to complete, so tha 
+By time-blocking,  
+
+### 3.2. Time Scale in `SCHEDULE`
+### 3.3. `FLASHCARDS`
+### 3.4. `QUIZ`
+### 3.5. CLI-GUI interactivity
+### 3.6. Auto-save
 
 ---
 
@@ -720,7 +738,7 @@ If you would like to close the application, this command helps you to quickly cl
 
 <p>&nbsp;</p>
 
-### **Saving the data**
+### **4.5 Saving the data (automatic)**
 
 StudyBananas saves data in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
@@ -752,7 +770,7 @@ StudyBananas saves data in the hard disk automatically after any command that ch
 **A**: StudyBananas is designed to work best on a desktop/laptop.
 
 **Q: How do I transfer my data to another Computer?**<br>
-**A**: Install the app in the other computer. Overwrite the empty data folder with the data folder in your previous StudyBananas home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous StudyBananas home folder.
 
 <p>&nbsp;</p>
 
@@ -911,7 +929,7 @@ You may also find the table below helpful to check whether a command is availabl
 
 <p>&nbsp;</p>
 
-## 9.2. Graphical Summary of Navigation Commands
+## 9.2. Graphical Summary of Navigation Commands (Petrick)
 
 Below is a useful "cheat sheet" to show you how different commands affect the tabs displayed.
 

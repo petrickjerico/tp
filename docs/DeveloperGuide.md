@@ -110,15 +110,15 @@ The following is the step by step guide of how we structure Model component. We 
 
 Step 1. Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still the only one API class for `Model` component.
 
-![ModelStructure-Step1](images/ModelStructure-Step1.png)
+![ModelStructure-Step1](images/ModelArchitectureDiagram1.png)
 
 Step 2. Create XYZModelManagers which implement the XYZModel and contain CRUD methods on the persistence data in StudyBananas.
 
-![ModelStructure-Step2](images/ModelStructure-Step2.png)
+![ModelStructure-Step2](images/ModelArchitectureDiagram2.png)
 
 Step 3. Create system-level Models (Schedule, Flashcard, Quiz) which are models that perform CRUD on the data. Then, create a dependency between `XYZModelManagers` and `system-level Models` so that the CRUD methods in `XYZModelManager` can take advantage of them.
 
-![ModelStructure-Step3](images/ModelStructure-Step3.png)
+![ModelStructure-Step3](images/ModelArchitectureDiagram3.png)
 
 Step 4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` contains all the CRUD methods from 4 individual `Models`. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the individual `ModelManagers`. Therefore, we are able to test the real implementation of one `Model` without the interference from other `Models`.
 

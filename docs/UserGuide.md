@@ -13,7 +13,7 @@ title: User Guide
   <br>
 
   <p align="center">
-Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or scroll to the table of contents below to <br>find answers, get step-by-step instructions and know us better.
+Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or scroll down to the table of contents further below to <br>find answers, get step-by-step instructions and know us better.
   </p>
 
 </div>
@@ -22,7 +22,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
   <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;"/>
   <h1>Manage your study plans</h1>
   <p>Manage all of your study tasks in StudyBananas. Then, start to prepare yourself for the upcoming exams!</p>
-  <a href="#31-commands-for-the-schedule-page-binh">How to manage tasks in StudyBananas schedule ></a>
+  <a href="#41-commands-for-the-schedule-page-binh">How to manage tasks in StudyBananas schedule ></a>
 </div>
 
 ---
@@ -32,7 +32,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
   <div class="sub-section">
   <h1>Create your own notes with flashcards</h1>
   <p>Take note with the flashcards, and organize notes using flashcard sets!</p>
-  <a href="#32-commands-for-the-flashcard-page-teddy">How to manage flashcards with StudyBananas ></a>
+  <a href="#42-commands-for-the-flashcard-page-teddy">How to manage flashcards with StudyBananas ></a>
   </div>
 </div>
 
@@ -42,104 +42,67 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
   <img src="images/Quiz.png" alt="quiz-pic" width="370" style="float: left; margin-right: 30px;">
   <h1>Quiz yourself by flashcards</h1>
   <p>Prepare your exams by quizzing yourself the flashcard notes that you have taken!</p>
-  <a href="#33-commands-for-the-quiz-page-bowei">How to start a flashcard quiz ></a>
+  <a href="#43-commands-for-the-quiz-page-bowei">How to start a flashcard quiz ></a>
 </div>
 
 ---
 
-<h1 class="toc_title">Table of Contents</h1>
-<div id="toc_container">
-    <ul class="toc_list">
-        <li><a href="#1-introduction-binh">1. Introduction (Binh)</a>
-            <ul>
-                <li><a href="#11-reading-this-user-guide">1.1 Reading this User Guide</a>
-                    <ul>
-                        <li><a href="#111-icons-and-meaning">1.1.1 Icons and Meaning</a></li>
-                        <li><a href="#112-markdown-notations">1.1.2 Markdown Notations</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li><a href="#2-quick-start-eddy">2. Quick start (Eddy)</a></li>
-        <li><a href="#3-features-petrick">3. Features (Petrick)</a>
-        <li><a href="#4-usage-of-command">4. Usage of Command</a>
-            <ul>
-                <li><a href="#41-commands-for-the-schedule-page-binh">4.1. Commands for the <div class="code">SCHEDULE</div> page (Binh)</a>
-                     <ul>
-                        <li><a href="#411-view-the-details-of-your-task-eddy">4.1.1. <b>View the details of your task</b>:</a></li>
-                        <li><a href="#412-add-a-task-add-task">4.1.2. <b>Add a task</b>: <div class="code">add task</div></a></li>
-                        <li><a href="#413-list-all-your-tasks-list-task">4.1.3. <b>List tasks all your tasks</b>: <div class="code">list task</div></a></li>
-                        <li><a href="#414-delete-a-task-delete-task">4.1.4. <b>Delete a task</b>: <div class="code">delete task</div></a></li>
-                        <li><a href="#415-search-for-a-task-search-task">4.1.5. <b>Search for a task</b>: <div class="code">search task</div></a></li>
-                        <li><a href="#416-edit-a-task-edit-task">4.1.6 <b>Edit a task</b>: <div class="code">edit task</div></a></li>
-                    </ul>
-                </li>
-                <li><a href="#42-commands-for-the-flashcard-page-teddy">4.2. Commands for the <div class="code">FLASHCARD</div> page (Teddy)</a>
-                    <ul>
-                        <li><a href="#421-add-a-flashcardset-add-flset">4.2.1. <b>Add a flashcard set</b>: <div class="code">add flset</div></a></li>
-                        <li><a href="#422-delete-a-flashcardset-delete-flset">4.2.2. <b>Delete a flashcard set</b>: <div
-                                    class="code"> delete flset</div></a></li>
-                        <li><a href="#423-list-flashcards-in-a-flashcardset-list-fl">4.2.3. <b>List flashcards in a
-                                    flashcard set</b>: <div class="code">list fl</div></a></li>
-                        <li><a href="#424-add-a-flashcard-into-a-flashcardset-add-fl">4.2.4. <b>Add a flashcard into a
-                                flashcard set</b>: <div class="code">add fl</div></a></li>
-                        <li><a href="#425-delete-a-flashcard-in-a-flashcardset-delete-fl">4.2.5. <b>Delete a flashcard
-                                in a flashcard set</b>: <div class="code">delete fl</div></a></li>
-                    </ul>
-                </li>
-                <li><a href="#43-commands-for-the-quiz-page-bowei">4.3. Commands for the <div class="code">QUIZ</div> page (Bowei)</a>
-                    <ul>
-                        <li><a href="#431-quiz-of-a-flashcardset-quiz-flset">4.3.1. <b><div class="code">QUIZ</div> of flashcard set</b>: <div class="code">quiz
-                                flset</div></a></li>
-                        <li><a href="#432-view-last-quiz-attempt-quiz-score-flset">4.3.2. <b>View last <div class="code">QUIZ</div> attempt</b>:
-                                <div class="code">quiz score flset</div></a></li>
-                    </ul>
-                </li>
-                <li><a href="#44-general-commands-binh">4.4. General Commands (Binh)</a>
-                    <ul>
-                        <li><a href="#441-view-all-the-available-commands-help">4.4.1. <b>View all the available
-                                commands</b>: <div class="code">help</div></a></li>
-                        <li><a href="#442-exit-program-exit">4.4.2. <b>Exit program</b>: <div class="code">exit</div></a></li>
-                    </ul>
-                </li>
-                <li><a href="#saving-the-data"><b>Saving the data</b></a></li>
-            </ul>
-        </li>
-        <li><a href="#5-faq-teddy">5. FAQ (Teddy)</a></li>
-        <li><a href="#6-trouble-shooting-eddy">6. Trouble Shooting (Eddy)</a>
-             <ul>
-                 <li><a href="#cannot-launch-the-application">6.1. Cannot launch the application</a>
-                    <ul>
-                         <li><a href="#windows">6.1.1. Windows</a></li>
-                         <li><a href="#mac">6.1.2. Mac</a></li>
-                         <li><a href="#linux">6.1.3. linux</a></li>
-                    </ul>
-                 </li>
-                 <li><a href="#cannot-find-my-data-locally">6.2. Cannot find my data locally</a></li>
-                 <li><a href="#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly">6.3. My data is gone after I manipulate the data in the data folder directly</a></li>
-             </ul>
+<h1 align="center">Table of Contents</h1>
+<!-- TOC -->
 
-        </li>
-        <li><a href="#7-community-and-security-eddy">7. Community and Security</a>
-            <ul>
-                <li><a href="#user-data">7.1. User Data</a></li>
-                <li><a href="#study-community">7.2. Study Community</a></li>
-            </ul>
-        </li>
-         <li><a href="#8-bug-report-eddy">8. Bug report</a></li>
-        <li><a href="#9-command-summary">9. Command summary</a>
-            <ul>
-                <li><a href="#schedule-commands-binh">9.1. Task list commands (Binh)</a></li>
-                <li><a href="#flashcard-commands-teddy">9.2. Flashcard commands (Teddy)</a></li>
-                <li><a href="#quiz-commands-bowei">9.3. Quiz commands (Bowei)</a></li>
-                <li><a href="#general-commands">9.4. General commands</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
+- [1. Introduction (Binh)](#1-introduction-binh)
+  - [1.1 Reading this User Guide](#11-reading-this-user-guide)
+    - [1.1.1 Icons and Meaning](#111-icons-and-meaning)
+    - [1.1.2 Markdown notations](#112-markdown-notations)
+- [2. Quick start (Eddy)](#2-quick-start-eddy)
+- [3. Features (Petrick)](#3-features-petrick)
+- [4. Usage of Command](#4-usage-of-command)
+  - [4.1. Commands for the `SCHEDULE` page (Binh)](#41-commands-for-the-schedule-page-binh)
+    - [4.1.1. **View the details of your `TASK`**: (Eddy)](#411-view-the-details-of-your-task-eddy)
+    - [4.1.2. **Add a `TASK`**: `add task`](#412-add-a-task-add-task)
+      - [4.1.2.1. Adding a normal `TASK`](#4121-adding-a-normal-task)
+      - [4.1.2.2. Adding a `QUIZ` `TASK`](#4122-adding-a-quiz-task)
+    - [4.1.3. **List all your `TASK`s**: `list task`](#413-list-all-your-tasks-list-task)
+    - [4.1.4. **Delete a `TASK`**: `delete task`](#414-delete-a-task-delete-task)
+    - [4.1.5. **Search for a `TASK`**: `search task`](#415-search-for-a-task-search-task)
+    - [4.1.6. Edit a `TASK`: `edit task`](#416-edit-a-task-edit-task)
+  - [4.2. Commands for the `FLASHCARD` page (Teddy)](#42-commands-for-the-flashcard-page-teddy)
+    - [4.2.1. **Add a `FLASHCARDSET`**: `add flset`](#421-add-a-flashcardset-add-flset)
+    - [4.2.2. **Delete a `FLASHCARDSET`**: `delete flset`](#422-delete-a-flashcardset-delete-flset)
+    - [4.2.3. **List `FLASHCARD`s in a `FLASHCARDSET`**: `list fl`](#423-list-flashcards-in-a-flashcardset-list-fl)
+    - [4.2.4. **Add a `FLASHCARD` into a `FLASHCARDSET`**: `add fl`](#424-add-a-flashcard-into-a-flashcardset-add-fl)
+    - [4.2.5. **Delete a `FLASHCARD` in a `FLASHCARDSET`**: `delete fl`](#425-delete-a-flashcard-in-a-flashcardset-delete-fl)
+  - [4.3. Commands for the `QUIZ` page (Bowei)](#43-commands-for-the-quiz-page-bowei)
+    - [4.3.1. **`QUIZ` of a `FLASHCARDSET`**: `quiz flset`](#431-quiz-of-a-flashcardset-quiz-flset)
+      - [4.3.1.1. **Getting the question**](#4311-getting-the-question)
+      - [4.3.1.2. **Answering the question**](#4312-answering-the-question)
+      - [4.3.1.3. **Checking if your answer is correct**](#4313-checking-if-your-answer-is-correct)
+      - [4.3.1.4. **Continuing the `QUIZ` cycle**](#4314-continuing-the-quiz-cycle)
+    - [4.2.2. **View last `QUIZ` attempt**: `quiz score flset`](#422-view-last-quiz-attempt-quiz-score-flset)
+  - [4.4. General Commands (Binh)](#44-general-commands-binh)
+    - [4.4.1. **View all the available commands**: `help`](#441-view-all-the-available-commands-help)
+    - [4.4.2. **Exit program**: `exit`](#442-exit-program-exit)
+- [5. FAQ (Teddy)](#5-faq-teddy)
+- [6. Trouble Shooting (Eddy)](#6-trouble-shooting-eddy)
+  - [Cannot launch the application](#cannot-launch-the-application)
+    - [Windows](#windows)
+    - [Mac](#mac)
+    - [Linux](#linux)
+  - [Cannot find my data locally](#cannot-find-my-data-locally)
+  - [My data is gone after I manipulate the data in the data folder directly](#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly)
+- [7. Community and security (Eddy)](#7-community-and-security-eddy)
+  - [User data](#user-data)
+  - [Study community](#study-community)
+- [8. Bug report (Eddy)](#8-bug-report-eddy)
+- [9. Summary](#9-summary)
+  - [9.1. Summary of Commands (Petrick)](#91-summary-of-commands-petrick)
+    - [`SCHEDULE` commands (Binh)](#schedule-commands-binh)
+    - [`FLASHCARD` commands (Teddy)](#flashcard-commands-teddy)
+    - [`QUIZ` commands (Bowei)](#quiz-commands-bowei)
+    - [General commands](#general-commands)
+  - [9.2. Graphical Summary of Navigation Commands](#92-graphical-summary-of-navigation-commands)
 
-
-The part above is maintained by Eddy.
+<!-- /TOC -->
 
 ## 1. Introduction (Binh)
 
@@ -208,11 +171,66 @@ Table 2. Markdown notations in this User Guide
 
    * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 `TASK` to the `SCHEDULE`.
 
-7. Refer to the [Features](#3-features) below for details of each command.
+7. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
 
 ---
 
 ## 3. Features (Petrick)
+This section describes the various features available in StudyBananas. These include front-end features that you can interact with, such as the `SCHEDULE` page, as well as back-end features such as the auto-saving of data.
+
+### 3.1. Task list in `SCHEDULE`
+You can set the tasks you want to do at a particular day to help you de-clutter your tasks and organise them 
+strategically into daily tasks.
+
+To help define tasks, you can add titles, short descriptions, starting time and duration. You can also search for tasks 
+using a keyword, making it easier for you to group tasks.
+
+There are no limits to how many tasks you can add in StudyBananas:
+No matter how busy you are with tasks, StudyBananas can adapt to your needs and still function normally! 
+
+### 3.2. Time Scale in `SCHEDULE`
+StudyBananas helps you visualise your day and manage your time efficiently by creating a time scale that
+shows the timespan of different tasks in a daily timeline.
+
+It comes with a time pointer that helps you recognise the tasks that you need to do at a point in time, 
+so you can manage your time properly and complete tasks in an appropriate duration.
+
+### 3.3. `FLASHCARDS`
+StudyBananas is about learning effectively, so it comes with a `FLASCHCARD` feature that helps you consolidate your 
+learning into one place, without ever needing to open multiple files for revision. 
+
+There are also no limit to how much `FLASHCARD` sets you can make, and same goes to the amount of `FLASHCARD`s in a set. 
+(Just like how there is no limit to learning!)
+
+### 3.4. `QUIZ`
+Learning is not effective if you only read materials, but never exercise your memory for it. The `QUIZ` feature helps 
+you to practice active recalling that will solidify all your learning points.
+
+The feature also comes with a statistics panel that displays your performance over time, 
+along with indicators to show the questions you got right (or wrong), so you can be aware of your 
+study development and revise strategically.
+
+You can also set `QUIZ` as a task in your `SCHEDULE`. Click [here](#4122-adding-a-quiz-task) to find out how!
+
+### 3.5. CLI-GUI interactivity
+You can operate StudyBananas in two ways: using the Command Line Interface (CLI) and typing out commands using the keyboard, 
+or using the Graphical User Interface (GUI) if you feel using the mouse is faster for you!
+
+Either you're a fast typist or someone who is faster using the mouse cursor, we ensure that StudyBananas will work efficiently according to your preferences, so time is spent just on studying.
+See how you can navigate yourself using either keyboard or mouse clicks [here](#92-graphical-summary-of-navigation-commands-petrick).
+
+### 3.6. Auto-save
+In StudyBananas, all `TASK`s, `FLASHCARD`s and `QUIZ` attempts you created will generate a JSON file named after the respective feature. These files can be found in the data folder, under the directory that you have previously stored the StudyBanans JAR file in. This folder stores all your study-related data created using StudyBananas.
+The data folder also contains a data file that stores your trip list and their respective details.
+
+![StorageJSON](images/StorageJSON.png)
+<div align="center">Figure 3.1: Location of StudyBananas JSON files</div>
+<br>
+
+All `TASK`s, `FLASHCARD`s and `QUIZ` attempts created will be automatically saved, so there is no need for 
+you to manually save the app's data!
+
+<br>
 
 ---
 
@@ -731,12 +749,6 @@ If you would like to close the application, this command helps you to quickly cl
 
 <p>&nbsp;</p>
 
-### **Saving the data**
-
-StudyBananas saves data in the hard disk automatically after any command that changes the data. There is no need to save manually.
-
-<p>&nbsp;</p>
-
 ---
 
 ## 5. FAQ (Teddy)
@@ -922,9 +934,10 @@ You may also find the table below helpful to check whether a command is availabl
 
 <p>&nbsp;</p>
 
-## 9.2. Graphical Summary of Navigation Commands
+## 9.2. Graphical Summary of Navigation Commands (Petrick)
 
 Below is a useful "cheat sheet" to show you how different commands affect the tabs displayed.
 
-![UICheatSheet](images/UICHeatSheet.png)
+![UICheatSheet](images/UICheatSheet.png)
+<div align="center">Figure 9.1: Navigation "cheat sheet"</div>
 

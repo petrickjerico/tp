@@ -241,25 +241,18 @@ the update of the the `Component`'s view. To quip `Listeners` with the ability t
 
 Step1. Create `CallBack` object inside the `UiComponent`. In the `CallBack`, we specify how the view of the `UiComponent` is supposed to changed on the update of the `dynamic state`. Then construct a `Listener` with the `CallBack` being the argument to finish the process of subscribing. The picture below shows the dependency between them.
 
-<<<<<<< HEAD
 <p align="center">
   <img src="images/UiListenerSubscribe.png" alt="UiListenerSubscribe" height="500" />
 </p>
-=======
-![UiListenerSubscribe](images/UiListenerSubscribePattern.png)
->>>>>>> 5c13de9142e8f0b425c31c59df02b51cf9428741
+
 
 Step2. When the `dynamic state` is updated, it will then inform all the `Listeners`, and the `Listeners` would consequently change the view of the `UiComponent` by triggering the `CallBack`. The following two diagrams show the flow.
 
 #### Flow
 
-<<<<<<< HEAD
 <p align="center">
   <img src="images/UiListenerUpdate.png" alt="UiListenerUpdate" height="530" />
 </p>
-=======
-![UiListenerUpdate](images/UiListenerUpdatePattern.png)
->>>>>>> 5c13de9142e8f0b425c31c59df02b51cf9428741
 
 #### Sequential diagram
 
@@ -583,8 +576,8 @@ Given below is an example usage scenario and how the sidebar view mechanism beha
 
 #### Design consideration:
 
-* Multiple Ui components rely on the Global UiState, therefore, Singleton makes sense here.
-* Many components would be affected by the change of UiState, it makes sense to build it using Observer pattern.
+* Multiple Ui components rely on the unique `UiState`. This is the intuition for **Singleton**.
+* Many components should be updated according to the  changes of `UiState`, it makes sense to build it using Observer pattern.
 
 
 

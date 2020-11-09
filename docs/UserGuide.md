@@ -24,7 +24,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
   <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;"/>
   <h1>Manage your study plans</h1>
   <p>Manage all of your study tasks in StudyBananas. Then, start to prepare yourself for the upcoming exams!</p>
-  <a href="#41-commands-for-the-schedule-page-binh">How to manage tasks in StudyBananas schedule ></a>
+  <a href="#41-commands-for-the-schedule-page-binh">How to manage tasks in StudyBananas schedule</a>
 </div>
 
 ---
@@ -34,7 +34,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
   <div class="sub-section">
   <h1>Create your own notes with flashcards</h1>
   <p>Take note with the flashcards, and organize notes using flashcard sets!</p>
-  <a href="#42-commands-for-the-flashcard-page-teddy">How to manage flashcards with StudyBananas ></a>
+  <a href="#42-commands-for-the-flashcard-page-teddy">How to manage flashcards with StudyBananas</a>
   </div>
 </div>
 
@@ -44,7 +44,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
   <img src="images/Quiz.png" alt="quiz-pic" width="370" style="float: left; margin-right: 30px;">
   <h1>Quiz yourself by flashcards</h1>
   <p>Prepare your exams by quizzing yourself the flashcard notes that you have taken!</p>
-  <a href="#43-commands-for-the-quiz-page-bowei">How to start a flashcard quiz ></a>
+  <a href="#43-commands-for-the-quiz-page-bowei">How to start a flashcard quiz</a>
 </div>
 
 ---
@@ -104,7 +104,6 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
   - [Study community](#study-community)
 - [8. Bug report (Eddy)](#8-bug-report-eddy)
 - [9. Summary](#9-summary)
-  - [9.1. Summary of Commands (Petrick)](#91-summary-of-commands-petrick)
   - [`SCHEDULE` commands (Binh)](#schedule-commands-binh)
   - [`FLASHCARD` commands (Teddy)](#flashcard-commands-teddy)
   - [`QUIZ` commands (Bowei)](#quiz-commands-bowei)
@@ -938,26 +937,6 @@ issue the bugs and the suggestions. Great appreciation from the development team
 ## 9. Summary
 This section summarises all available commands in StudyBananas. 
 
-### 9.1. Summary of Commands (Petrick)
-You can use the following list of command formats as a quick and convenient reference. 
-
-You may also find the table below helpful to check whether a command is available under certain conditions:
-
-|                                              | SCHEDULE commands... | FLASHCARD commands... | QUIZ* commands... | QUIZ Mode** commands... | General commands... |
-|----------------------------------------------|:--------------------:|:---------------------:|:-----------------:|-------------------------|:-------------------:|
-|  ...in SCHEDULE Tab<br>(but NO ongoing QUIZ) |           ✅          |           ✅           |         ✅         |            ❌            |          ✅          |
-| ...in FLASHCARD Tab<br>(but NO ongoing QUIZ) |           ✅          |           ✅           |         ✅         |            ❌            |          ✅          |
-|    ...in QUIZ Tab<br>(but NO ongoing QUIZ)   |           ✅          |           ✅           |         ✅         |            ❌            |          ✅          |
-|   ...in ANY Tab<br>(but WITH ongoing QUIZ)   |           ❌          |           ❌           |         ❌         |            ✅            |          ✅          |
-
-\* **QUIZ** commands refer to:  
-`quiz <flset:setindex>` , `quiz <flset:setname>` , `quiz score <flset:setindex>` , `quiz score <flset:setname>`
-
-\** **QUIZ Mode** commands refer to:  
-`flip` , `<ans:answer>` , `c` , `w` , `cancel` , `refresh`
-
-<div style="page-break-after: always;"></div>
-
 ### `SCHEDULE` commands (Binh)
 
 
@@ -968,8 +947,6 @@ You may also find the table below helpful to check whether a command is availabl
 | **Delete `TASK`**       | `delete task <index>` <br> e.g., `delete task 6`                                                                                 |
 | **Search for `TASK`s**  | `search task <keywords>` <br> e.g., `search task CS2103T deadlines`                                                              |
 | **Edit `TASK`**         | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g. `edit task 1 d: Debug remaining errors dur: 60`  |
-
-<div style="page-break-after: always;"></div>
 
 ### `FLASHCARD` commands (Teddy)
 

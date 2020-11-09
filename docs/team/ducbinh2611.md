@@ -77,8 +77,9 @@ Given below are my contributions to the project (to be updated).
         each other in a hierarchical order. It took us awhile to realise the problem, we then resolved this by agreeing to 
         use `fxml` style property on each component, coupling with the `css` styling for the part of the style that 
         is not specified the `fxml` style property. 
-            
-<div style="page-break-after: always;"></div>     
+        
+    <div style="page-break-after: always;"></div>
+   
     * Enhanced the `CommandResult` class to follow the `Logic` execution of `QUIZ` 
         * **What it does**:  
         The question, answer and instruction provided to the user by StudyBananas are actually 
@@ -119,7 +120,7 @@ Sections Written:
 Sections Written:
     * [Section 3.5. Storage Component](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#35-storage-component)
     * [Edit Task feature](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#42-edit-task-feature)
-    * [Non-Functional Requirements](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#64-non-functional-requirements)  
+    * [Non-Functional Requirements](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#64-non-functional-requirements)   
     
     Diagram:
     * [Schedule Model Class Diagram](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/images/ScheduleModelDiagram.png)

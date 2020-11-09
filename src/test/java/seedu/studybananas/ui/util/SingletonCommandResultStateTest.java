@@ -3,6 +3,7 @@ package seedu.studybananas.ui.util;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import seedu.studybananas.logic.commands.commandresults.CommandResult;
@@ -13,6 +14,7 @@ public class SingletonCommandResultStateTest {
     private static final CommandResult testCommandResult = new ScheduleCommandResult(feedbackPlackholder);
 
     @Test
+    @Order(1)
     public void singletonTest() {
         SingletonCommandResultState commandResultState = SingletonCommandResultState.getInstance();
         SingletonCommandResultState commandResultStateCopy = SingletonCommandResultState.getInstance();
@@ -24,6 +26,7 @@ public class SingletonCommandResultStateTest {
     }
 
     @Test
+    @Order(2)
     public synchronized void unregisterTest() {
         // set up
         SingletonCommandResultState commandResultState = SingletonCommandResultState.getInstance();
@@ -38,6 +41,7 @@ public class SingletonCommandResultStateTest {
     }
 
     @Test
+    @Order(3)
     public synchronized void registerTest() {
         // set up
         SingletonCommandResultState commandResultState = SingletonCommandResultState.getInstance();
@@ -55,6 +59,7 @@ public class SingletonCommandResultStateTest {
 
 
     @Test
+    @Order(4)
     public synchronized void updateStateTest() {
         // set up
         SingletonCommandResultState commandResultState = SingletonCommandResultState.getInstance();

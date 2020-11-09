@@ -3,12 +3,14 @@ package seedu.studybananas.ui.util;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 public class SingletonUiStateTest {
     private static final UiStateType testUiStateType = UiStateType.FLASHCARD;
 
     @Test
+    @Order(1)
     public void singletonTest() {
         SingletonUiState uiState = SingletonUiState.getInstance();
         SingletonUiState uiStateCopy = SingletonUiState.getInstance();
@@ -20,6 +22,7 @@ public class SingletonUiStateTest {
     }
 
     @Test
+    @Order(2)
     public synchronized void registerTest() {
         SingletonUiState uiState = SingletonUiState.getInstance();
         ObserverStub observerStub = new ObserverStub();
@@ -30,6 +33,7 @@ public class SingletonUiStateTest {
     }
 
     @Test
+    @Order(3)
     public synchronized void unregisterTest() {
         SingletonUiState uiState = SingletonUiState.getInstance();
         ObserverUnregisterTestStub observerStub = new ObserverUnregisterTestStub();
@@ -41,6 +45,7 @@ public class SingletonUiStateTest {
     }
 
     @Test
+    @Order(4)
     public synchronized void updateStateTest() {
         SingletonUiState uiState = SingletonUiState.getInstance();
         ObserverUpdateStateDifferentTypeTestStub observerStubUpdate = new ObserverUpdateStateDifferentTypeTestStub();

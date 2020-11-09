@@ -62,7 +62,7 @@ The rest of the App consists of four components.
 * [**`UI`**](#ui-component): The UI of the App.
 * [**`Logic`**](#logic-component): The command executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
-* [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
+* [**`Storage`**](#3.5.-storage-component): Reads data from, and writes data to, the hard disk.
 
 Each of the four components,
 
@@ -75,7 +75,7 @@ For example, the `Logic` component (see the class diagram given below) defines i
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete task 1`.
 
 <img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
@@ -103,19 +103,19 @@ StudyBananas is an integration of 3 systems, namely Schedule, Quiz, and Flashcar
 
 The following is the step by step guide of how we structure Model component. We believe this structure reduces the coupling for models from different systems and preserves the benefit of **one component, one API**.
 
-Step1. Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still the only one API class for `Model` component.
+Step 1. Create XYZModel interfaces for each system. They work similar as APIs for individual systems, but other components in **StudyBananas** would not access them directly. Instead, we have our API `Model` interface extends from all of them to make sure there is still the only one API class for `Model` component.
 
 ![ModelStructure-Step1](images/ModelStructure-Step1.png)
 
-Step2. Create XYZModelManagers which implement the XYZModel and contain CRUD methods on the persistence data in StudyBananas.
+Step 2. Create XYZModelManagers which implement the XYZModel and contain CRUD methods on the persistence data in StudyBananas.
 
 ![ModelStructure-Step2](images/ModelStructure-Step2.png)
 
-Step3. Create system-level Models (Schedule, Flashcard, Quiz) which are models that perform CRUD on the data. Then, create a dependency between `XYZModelManagers` and `system-level Models` so that the CRUD methods in `XYZModelManager` can take advantage of them.
+Step 3. Create system-level Models (Schedule, Flashcard, Quiz) which are models that perform CRUD on the data. Then, create a dependency between `XYZModelManagers` and `system-level Models` so that the CRUD methods in `XYZModelManager` can take advantage of them.
 
 ![ModelStructure-Step3](images/ModelStructure-Step3.png)
 
-Step4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` contains all the CRUD methods from 4 individual `Models`. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the individual `ModelManagers`. Therefore, we are able to test the real implementation of one `Model` without the interference from other `Models`.
+Step 4. Finally, create our **"one and only one"** Model component API class - `ModelManager` which implements the `Model` interface and contains all the ModelManagers. In this way, although the `ModelManager` contains all the CRUD methods from 4 individual `Models`. It can be viewed as a dummy class which does not contain any implementation. All implementations are in the individual `ModelManagers`. Therefore, we are able to test the real implementation of one `Model` without the interference from other `Models`.
 
 ![ModelStructure-Step4](images/ModelArchitectureDiagram.png)
 
@@ -284,7 +284,7 @@ The following paragraphs provide the class diagrams of the three `Ui` pages.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete task 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete task 1` Command](images/DeleteSequenceDiagram.png)
 <div align="center">Figure 3.3: Interactions inside the Logic Component for the `delete task 1` Command</div>
@@ -297,7 +297,6 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ### **3.6. Storage component**
 
-![Structure of the Storage Component](images/StorageClassDiagram.png)
 
 **API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/storage/Storage.java)
 
@@ -305,11 +304,33 @@ The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
 * can save the `Schedule`, `FlashcardBank` and `QuizRecords` data in json format and read it back.
 
+#### Overall Structure
+StudyBananas supports 3 different systems, namely `Schedule`, `FlashcardBank` and `Quiz`. Each of these
+systems needs to store their own type of data. Compared to the original `AddressBook3` where `AddressBookStorage` is the
+interface that exposes the functionality to save and read the data from the storage file, StudyBananas storage
+is more complicated with the existence of these 3 distinct systems. Therefore, our team decides to split the 
+storage such that each system has their own storage interface, including `ScheduleStorage`, `FlashcardBankStorage` and
+`QuizRecordsStorage`, that is in charge of saving and reading their own data from their respective storage file as seen from the figure below
+. The `Storage` 
+component then contains these 3 storage systems as well as the `UserPrefs` storage and exposes the storage functionality 
+to other components such as `Logic` to modify the stored data.
+
+![Structure of the Storage Component](images/StorageClassDiagram.png)
+
+#### Analysis
+* Pros: 
+    1. It allows to have one high-level `Storage` components that interacts with other high-level components in the architecture level.
+    2. **Interface Segregation Principle** is preserved as each system storage only needs to deal with the reading and saving data of its own system.
+    3. **Open-Closed Principle** is preserved for `Storage` component. If more components are added, developers only need to extend by creating `XYZStorage` and add a new attribute and methods to `Storage` component instead of modifying existing `XYZStorage`.
+ * Cons: 
+    1. If there is a common data that is shared between different systems and it is modified, `Logic` needs to have multiple calls of save to each 
+    systems have to update the data in different systems.
+    
 <p>&nbsp;</p>
 
 ### **3.7. Common classes**
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `seedu.studybananas.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -329,7 +350,7 @@ The proposed mechanisms to manage is facilitated by `FlashcardBank`. The `Flashc
 
 #### Implementation
 
-The edit mechanism is facilitated by `Schedule`, which contains a `UniqueTaskList` such that each task's information can be modified 
+The edit mechanism is facilitated by `Schedule`, which contains a `UniqueTaskList` such that each `TASK`'s information can be modified 
 after its creation and addition into the `UniqueTaskList`. It implements this following feature:  
 
 * `Schedule#setTask()` — Replaces an existing task in the `Schedule` with a new task.
@@ -339,8 +360,8 @@ This operation is exposed in the `ScheduleModel` interface as `ScheduleModel#set
 Given below is the example usage scenario and how the edit task mechanism behaves at each step.
 
 
-Note: The attributes of the `Task`s in this examples are omitted if they are not changed due to the `edit task` 
-functionality. Given below is the class diagram of `Task` model for a better understanding of this example.
+Note: The attributes of the `TASK`s in this examples are omitted if they are not changed due to the `edit task` 
+functionality. Given below is the class diagram of `TASK` model for a better understanding of this example.
 
 ![TaskClassDiagram](images/TaskClassDiagram.png)  
   
@@ -348,7 +369,7 @@ functionality. Given below is the class diagram of `Task` model for a better und
 
 Step 1. The user launches the application. The `SCHEDULE` contains `UniqueTaskList`, which is initialized from the saved 
  `TASK`s in the JSON file `schedule.json` locally (see [Storage component](#storage-component))
-For example, the user already has 3 `TASK`s saved in the initial `SCHEDULE`.
+For example, the user already has 3 `TASK`s saved in the initial `SCHEDULE` as seen below.
 
 ![EditCommandClassDiagram0](images/EditCommandClassDiagram0.png) 
 
@@ -364,7 +385,7 @@ This `TASK` is assigned the index 4 in the `SCHEDULE`
 Step 3. The user now wants to change the description of the currently added `TASK`, and decides to edit the description of the `TASK` by entering the command `edit task 4 d: Quiz 3 about Boolean Algebra`. 
 The `edit task` command will be parsed by the `Parser` and create a `ScheduleEditCommand` object. `ScheduleEditCommand#execute()` 
 creates a new `TASK` object, containing the updated information fields. For the fields that is not specified in the `edit task` command, such as `title` in the example, the new `TASK` 
-takes the existing fields of the to-be-replaced `TASK`. 
+takes the existing fields of the to-be-replaced `TASK` (note how the same `title` object is shared between `task4` and `editedTask4` as seen below). 
 
 ![EditCommandClassDiagram2](images/EditCommandClassDiagram2.png) 
 

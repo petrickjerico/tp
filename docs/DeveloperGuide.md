@@ -269,6 +269,12 @@ The following paragraphs provide the class diagrams of the three `Ui` pages.
 
 <p></p>
 
+![Details of the StudyBananasParser](images/StudyBananasParser.png)
+
+<div align="center">Figure __. Structure of the StudyBananasParser</div>
+
+<p></p>
+
 **API** :
 [`Logic.java`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/src/main/java/seedu/studybananas/logic/Logic.java)
 
@@ -375,7 +381,7 @@ Step 4. `ScheduleModel#setTask()` is then called to replace `task4` with `edited
 
 The following sequence diagram shows how the `edit task` functionality works:
 
- ![EditTaskSeqDiagram](images/EditTaskSequenceDiagram2.png)
+ ![EditTaskSeqDiagram](images/EditTaskSequenceDiagram.png)
 
 #### Design consideration:
 

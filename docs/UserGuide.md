@@ -625,6 +625,8 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 ![QuizPage](images/QuizPage.png)
 
+<div align="center">Figure 3.3.1: Display of the quiz page </code> command</div>
+
 Already have some `FLASHCARD`s and would like to start a recap session? 
 This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.
 
@@ -640,7 +642,9 @@ You may do so by either:
 If you have a `QUIZ` scheduled (see [Adding a `QUIZ` task](#3122-adding-a-quiz-task)), 
 you may click on the highlighted `QUIZ` label contained in the description of the `TASK` as shown below.
 
+<p align="center" >
 <img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="300" class="center"/>
+</p>
 
 <div markdown="block" class="alert alert-info">
 
@@ -694,6 +698,8 @@ as shown below.
 
 **Expected Outcome:**
 
+Take note that the question and answer panels are scrollable when they get too long!
+
 ![AnswerShown](images/AnswerShown.png)
 
 <div align="center">Figure 4.3.1.2: Result of <code>ans:improves code quality and reduces bugs</code> command</div>
@@ -739,6 +745,8 @@ The last `QUIZ` attempt contains the following information:
 <br>
 
 **Expected outcome**:
+
+Take note that the score panel is scrollable when it gets too long!
 
 ![ViewScore](images/ViewScore.png)
 

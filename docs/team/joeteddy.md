@@ -21,7 +21,7 @@ You can view my code contributions to this project on [RepoSense](https://nus-cs
 
 ## Enhancements Implemented
 
-* **Major Enchancement**: `FLASHCARD` feature (backend)
+* **Major Enchancement**: `FLASHCARD` feature and testing (backend)
 
   * **What it does**   
     
@@ -37,7 +37,16 @@ You can view my code contributions to this project on [RepoSense](https://nus-cs
 
     Implements duplication detection for possible future `FILTER` function.
 
-* **Major Enhancement**: 
+* **Major Enhancement**: Quality Assurance
+
+  * **Justification**
+
+    I was the 'QA' guy in the team.
+
+  * **Highlights**
+
+    Continuously testing and managing bug reporting.
+
 
 ## Contribution to User Guide
 
@@ -51,4 +60,23 @@ You can view my code contributions to this project on [RepoSense](https://nus-cs
 
 **Sections Written**
 
-* 
+* [1. Introduction](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#1-introduction)
+* [3.4. Logic Component](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#34-logic-component)
+
+**Diagrams**
+
+* [FlashcardModel Class Diagram](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#flashcardmodel)
+* [Logic Class Diagram](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#34-logic-component)
+* [StudyBananasParser Class Diagram](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#34-logic-component)
+* [Logic Sequence Diagram](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#34-logic-component)
+
+## Contribution to team-based tasks
+
+* Project Management
+  
+  * Led team meetings
+  * Managed and reviwed PRs by team members before merging to team repo.
+
+* Team Website
+  
+  * Handle the layouting of StudyBananas User Guide

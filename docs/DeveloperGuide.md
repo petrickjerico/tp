@@ -8,6 +8,8 @@ title: Developer Guide
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 # StudyBananas - Developer Guide
 
 By: `AY2021S1-CS2103T-F12-2`
@@ -40,6 +42,8 @@ The diagrams in this Developer Guide are colour coded according to the different
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 <p>&nbsp;</p>
+
+<div style="page-break-after: always;"></div>
 
 ## **3. Design**
 
@@ -293,7 +297,7 @@ The following paragraphs provide the class diagrams of the three `Ui` pages. Dev
 
 ![ScheduleUi](images/ScheduleUiClassDiagram.png)
 
-#####`FlashcardUi`
+##### `FlashcardUi`
 
 <p align="center" >
   <img src="images/FlashcardUiClassDiagram.png" alt="FlashcardUiClassDiagram"  />

@@ -13,7 +13,7 @@ title: User Guide
   <br>
 
   <p align="center">
-Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or scroll to the table of contents below to <br>find answers, get step-by-step instructions and know us better.
+Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or scroll down to the table of contents further below to <br>find answers, get step-by-step instructions and know us better.
   </p>
 
 </div>
@@ -96,11 +96,11 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 - [8. Bug report (Eddy)](#8-bug-report-eddy)
 - [9. Summary](#9-summary)
   - [9.1. Summary of Commands (Petrick)](#91-summary-of-commands-petrick)
-  - [`SCHEDULE` commands (Binh)](#schedule-commands-binh)
-  - [`FLASHCARD` commands (Teddy)](#flashcard-commands-teddy)
-  - [`QUIZ` commands (Bowei)](#quiz-commands-bowei)
-  - [General commands](#general-commands)
-- [9.2. Graphical Summary of Navigation Commands](#92-graphical-summary-of-navigation-commands)
+    - [`SCHEDULE` commands (Binh)](#schedule-commands-binh)
+    - [`FLASHCARD` commands (Teddy)](#flashcard-commands-teddy)
+    - [`QUIZ` commands (Bowei)](#quiz-commands-bowei)
+    - [General commands](#general-commands)
+  - [9.2. Graphical Summary of Navigation Commands](#92-graphical-summary-of-navigation-commands)
 
 <!-- /TOC -->
 
@@ -171,11 +171,66 @@ Table 2. Markdown notations in this User Guide
 
    * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 `TASK` to the `SCHEDULE`.
 
-7. Refer to the [Features](#3-features) below for details of each command.
+7. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
 
 ---
 
 ## 3. Features (Petrick)
+This section describes the various features available in StudyBananas. These include front-end features that you can interact with, such as the `SCHEDULE` page, as well as back-end features such as the auto-saving of data.
+
+### 3.1. Task list in `SCHEDULE`
+You can set the tasks you want to do at a particular day to help you de-clutter your tasks and organise them 
+strategically into daily tasks.
+
+To help define tasks, you can add titles, short descriptions, starting time and duration. You can also search for tasks 
+using a keyword, making it easier for you to group tasks.
+
+There are no limits to how many tasks you can add in StudyBananas:
+No matter how busy you are with tasks, StudyBananas can adapt to your needs and still function normally! 
+
+### 3.2. Time Scale in `SCHEDULE`
+StudyBananas helps you visualise your day and manage your time efficiently by creating a time scale that
+shows the timespan of different tasks in a daily timeline.
+
+It comes with a time pointer that helps you recognise the tasks that you need to do at a point in time, 
+so you can manage your time properly and complete tasks in an appropriate duration.
+
+### 3.3. `FLASHCARDS`
+StudyBananas is about learning effectively, so it comes with a `FLASCHCARD` feature that helps you consolidate your 
+learning into one place, without ever needing to open multiple files for revision. 
+
+There are also no limit to how much `FLASHCARD` sets you can make, and same goes to the amount of `FLASHCARD`s in a set. 
+(Just like how there is no limit to learning!)
+
+### 3.4. `QUIZ`
+Learning is not effective if you only read materials, but never exercise your memory for it. The `QUIZ` feature helps 
+you to practice active recalling that will solidify all your learning points.
+
+The feature also comes with a statistics panel that displays your performance over time, 
+along with indicators to show the questions you got right (or wrong), so you can be aware of your 
+study development and revise strategically.
+
+You can also set `QUIZ` as a task in your `SCHEDULE`. Click [here](#4122-adding-a-quiz-task) to find out how!
+
+### 3.5. CLI-GUI interactivity
+You can operate StudyBananas in two ways: using the Command Line Interface (CLI) and typing out commands using the keyboard, 
+or using the Graphical User Interface (GUI) if you feel using the mouse is faster for you!
+
+Either you're a fast typist or someone who is faster using the mouse cursor, we ensure that StudyBananas will work efficiently according to your preferences, so time is spent just on studying.
+See how you can navigate yourself using either keyboard or mouse clicks [here](#92-graphical-summary-of-navigation-commands-petrick).
+
+### 3.6. Auto-save
+In StudyBananas, all `TASK`s, `FLASHCARD`s and `QUIZ` attempts you created will generate a JSON file named after the respective feature. These files can be found in the data folder, under the directory that you have previously stored the StudyBanans JAR file in. This folder stores all your study-related data created using StudyBananas.
+The data folder also contains a data file that stores your trip list and their respective details.
+
+![StorageJSON](images/StorageJSON.png)
+<div align="center">Figure 3.1: Location of StudyBananas JSON files</div>
+<br>
+
+All `TASK`s, `FLASHCARD`s and `QUIZ` attempts created will be automatically saved, so there is no need for 
+you to manually save the app's data!
+
+<br>
 
 ---
 
@@ -871,9 +926,10 @@ You may also find the table below helpful to check whether a command is availabl
 
 <p>&nbsp;</p>
 
-## 9.2. Graphical Summary of Navigation Commands
+## 9.2. Graphical Summary of Navigation Commands (Petrick)
 
 Below is a useful "cheat sheet" to show you how different commands affect the tabs displayed.
 
-![UICheatSheet](images/UICHeatSheet.png)
+![UICheatSheet](images/UICheatSheet.png)
+<div align="center">Figure 9.1: Navigation "cheat sheet"</div>
 

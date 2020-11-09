@@ -118,6 +118,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
                  <li><a href="#cannot-find-my-data-locally">6.2. Cannot find my data locally</a></li>
                  <li><a href="#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly">6.3. My data is gone after I manipulate the data in the data folder directly</a></li>
              </ul>
+
         </li>
         <li><a href="#7-community-and-security-eddy">7. Community and Security</a>
             <ul>
@@ -555,6 +556,8 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 ### 4.3. Commands for the `QUIZ` page (Bowei)
 
 #### 4.3.1. **`QUIZ` of a `FLASHCARDSET`**: `quiz flset`
+
+![QuizPage](images/QuizPage.png)
 
 Already have some `FLASHCARD`s and would like to start a recap session? 
 This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.

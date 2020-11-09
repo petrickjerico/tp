@@ -60,15 +60,26 @@ public class SingletonCommandResultStateTest {
 
     @Test
     @Order(4)
-    public synchronized void updateStateTest() {
+    public synchronized void updateStateTest_updateWithDifferentState_fileUpdate() {
         // set up
         SingletonCommandResultState commandResultState = SingletonCommandResultState.getInstance();
         ObserverUpdateStateDifferentTypeTestStub observerStubUpdate = new ObserverUpdateStateDifferentTypeTestStub();
-        ObserverUpdateStateSameTypeTestStub observerStubNoUpdate = new ObserverUpdateStateSameTypeTestStub();
 
         commandResultState.register(observerStubUpdate);
 
         // EP1 different StateType
+        commandResultState.updateCommandResult(testCommandResult);
+
+        //clean up
+        commandResultState.unregister(observerStubUpdate);
+
+    }
+    @Test
+    @Order(5)
+    public synchronized void updateStateTest_updateWithSameState_noUpdateFiled() {
+        // set up
+        SingletonCommandResultState commandResultState = SingletonCommandResultState.getInstance();
+        ObserverUpdateStateSameTypeTestStub observerStubNoUpdate = new ObserverUpdateStateSameTypeTestStub();
         commandResultState.updateCommandResult(testCommandResult);
 
         // EP2 same StateType
@@ -77,9 +88,10 @@ public class SingletonCommandResultStateTest {
 
         //clean up
         commandResultState.unregister(observerStubNoUpdate);
-        commandResultState.unregister(observerStubUpdate);
 
     }
+
+
 
 
 

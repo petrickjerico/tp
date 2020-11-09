@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class SingletonUiStateTest {
     private static final UiStateType testUiStateType = UiStateType.FLASHCARD;
+    private static final UiStateType defaultUiStateType = UiStateType.SCHEDULE;
 
     @Test
     @Order(1)
@@ -46,25 +47,30 @@ public class SingletonUiStateTest {
 
     @Test
     @Order(4)
-    public synchronized void updateStateTest() {
+    public void updateStateTest_sameState_noUpdateFiled() {
         SingletonUiState uiState = SingletonUiState.getInstance();
-        ObserverUpdateStateDifferentTypeTestStub observerStubUpdate = new ObserverUpdateStateDifferentTypeTestStub();
         ObserverUpdateStateSameTypeTestStub observerStubNoUpdate = new ObserverUpdateStateSameTypeTestStub();
+        uiState.updateState(testUiStateType);
         uiState.register(observerStubNoUpdate);
 
-        // test default value;
-        assertEquals(uiState.getUiState(), UiStateType.SCHEDULE);
-
         // EP1 same StateType
-        uiState.updateState(UiStateType.SCHEDULE);
+        uiState.updateState(testUiStateType);
 
-        uiState.register(observerStubUpdate);
         uiState.unregister(observerStubNoUpdate);
+
+    }
+
+    @Test
+    @Order(5)
+    public void updateStateTest() {
+        SingletonUiState uiState = SingletonUiState.getInstance();
+        ObserverUpdateStateDifferentTypeTestStub observerStubUpdate = new ObserverUpdateStateDifferentTypeTestStub();
+        uiState.updateState(defaultUiStateType);
+        uiState.register(observerStubUpdate);
 
         // EP2 different StateType
         uiState.updateState(testUiStateType);
         assertEquals(testUiStateType, uiState.getUiState());
-
 
     }
 

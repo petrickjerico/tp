@@ -145,6 +145,8 @@ when reading this user guide.
 
 Table 1. Icons in this User Guide
 
+<div style="page-break-after: always;"></div>
+
 #### 1.1.2 Markdown notations
 
 |                    Markdown                             | Meaning                                                                 |
@@ -219,6 +221,8 @@ learning into one place, without ever needing to open multiple files for revisio
 
 There are also no limit to how much `FLASHCARD` sets you can make, and same goes to the amount of `FLASHCARD`s in a set. 
 (Just like how there is no limit to learning!)
+
+<div style="page-break-after: always;"></div>
 
 ### 3.4. `QUIZ`
 Learning is not effective if you only read materials, but never exercise your memory for it. The `QUIZ` feature helps 
@@ -497,7 +501,6 @@ You can edit a `TASK`'s `title`, `description`, `time` and `duration`.
 | ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#313-list-all-your-tasks-list-task) <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. <br> • `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command. <br> • `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format. |
 | ![important_icon](images/UG/important_icon.png) | • This action is irreversible. Once you edit a specific `TASK`, the `TASK`'s details are modified in the storage file as well.                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-<br>
 <div style="page-break-after: always;"></div>
 
 **Expected Outcome**:
@@ -512,7 +515,7 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 ![editTask1](images/editTask1.jpg)
 
 <div align="center">Figure 4.1.6a: Using <code>edit task</code> command </div>
-<br>
+
 <div style="page-break-after: always;"></div>
 
 3\. After using the `edit task` command, the details of the `TASK` are updated accordingly.
@@ -521,7 +524,6 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 
 <div align="center">Figure 4.1.6b: Result of <code>edit task</code> command, the `TASK` at `index` 7 is updated </div>
 
-<p>&nbsp;</p>
 <div style="page-break-after: always;"></div>
 
 ### 4.2. Commands for the `FLASHCARD` page (Teddy)
@@ -543,7 +545,6 @@ If you would like to create a new `FLASHCARDSET`, this commands allows you to cr
 
 <div align="center">Figure 4.2.1: Result of <code>add flset name:Japanese</code> command</div>
 
-<p>&nbsp;</p>
 <div style="page-break-after: always;"></div>
 
 #### 4.2.2. **Delete a `FLASHCARDSET`**: `delete flset`
@@ -564,7 +565,6 @@ If you would like to delete an existing `FLASHCARDSET`, this commands allows you
 
 <div align="center">Figure 4.2.2: Result of <code>delete flset 3</code> command</div>
 
-<p>&nbsp;</p>
 <div style="page-break-after: always;"></div>
 
 #### 4.2.3. **List `FLASHCARD`s in a `FLASHCARDSET`**: `list fl`
@@ -584,7 +584,6 @@ This command allows you to view the detailed list of `FLASHCARD` in a specified 
 
 <div align="center">Figure 4.2.3: Result of <code>list fl 1</code> command</div>
 
-<p>&nbsp;</p>
 <div style="page-break-after: always;"></div>
 
 #### 4.2.4. **Add a `FLASHCARD` into a `FLASHCARDSET`**: `add fl`
@@ -603,7 +602,6 @@ This command allows you to add a single `FLASHCARD` consisting of a question and
 
 <div align="center">Figure 4.2.4: Result of <code>add fl flset:3 q:Konnichiwa a:Hello</code> command</div>
 
-<p>&nbsp;</p>
 <div style="page-break-after: always;"></div>
 
 #### 4.2.5. **Delete a `FLASHCARD` in a `FLASHCARDSET`**: `delete fl`
@@ -624,7 +622,6 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 <div align="center">Figure 4.2.5: Result of <code>delete fl flset:3 fl:1</code> command</div>
 
-<p>&nbsp;</p>
 <div style="page-break-after: always;"></div>
 
 ### 4.3. Commands for the `QUIZ` page (Bowei)

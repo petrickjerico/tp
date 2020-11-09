@@ -730,7 +730,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | Student who organises the schedule carefully                   | leave feedback for each of my study session                                                 | know my learning efficiency during each session and make my new plans based on it. |
 | `*`      | Super busy student                                             | have AI to schedule my todo lists based on my past studying statistics automatically for me | rely on the AI to make the best use of my time.                                    |
 
-*{More to be added}*
 
 ### 6.3. Use cases
 
@@ -770,6 +769,7 @@ Use case ends.
 **MSS:**
 1. User <ins> UC03 see all existing flashcard sets. </ins>
 2. User enters the index to delete the set.  
+3. StudyBananas deletes the specified flashcard set.  
 Use case ends.
  
 **Extensions**:
@@ -795,6 +795,7 @@ Use case ends.
 **MSS**:
 1. User <ins> UC05 see all flashcards in a set. </ins>
 2. User enter the index of the set and the individual flashcard to delete it.  
+3. StudyBananas deletes the specified flashcard.  
 Use case ends.
 
 **Extensions**:
@@ -855,54 +856,38 @@ Use case ends.
     * *a2. User confirms the cancellation.  
     Use case ends.
 
-#### Use case: UC09 Add a task to the task list
+#### Use case: UC09 Add a task to the schedule
 **MSS**
-1.  User requests to add a new task to the list.
-2.  StudyBananas asks for confirmation.
-3.  User confirms it.
-4.  StudyBananas adds the task to the task list.  
+1.  User requests to add a new task to the schedule.
+2.  StudyBananas adds the task to the task schedule.  
     Use case ends.
 
 **Extensions**
-* 2a. User disconfirms the request.
-   * a1. StudyBananas stops the process.  
+* 1a. User inputs missing parameter.
+   * a1. StudyBananas displays an error message specifying missing paramater.  
     Use case ends.
-* *a. Cancellation
-   * a1. User asks for cancellation of current command.  
-    Use case ends.
+* 1b. User inputs wrong format of parameter.  
+   * b1. StudyBananas displays an error message specifying the wrong format of the respective parameter.  
+   Use case ends.
     
 #### Use case: UC10 Delete a task
 **MSS**
-1. The user requests to delete a certain task.
-2. The system asks for confirmation.
-3. The user confirms it.
-4. The system deletes the task.  
+1. The user <ins> UC12 view all tasks. </ins>
+2. The user deletes a task at a specified index.
+3. StudyBananas deletes the task.  
    Use case ends.
 
 **Extensions**
-* 2a. Disconfirmation
-    * 2a1. User disconfirms it.
-    * 2a2. System stops implementation.  
-   Use case ends.
-* 3a. Invalid task specified
-    * 3a1. System signals to the user that the task is invalid.  
+* 2a. Invalid task's index specified
+    * 2a1. System signals to the user that the task's index is invalid.  
     Use case ends.
-* *a. Cancellation
-   * a1. User asks for cancellation of current command.  
-    Use case ends.
+
 
 #### Use case: UC11 Search for tasks
 **MSS**
-1. The user requests to search for tasks.
-2. The system asks for query key.
-3. The user types in the query key.
-4. The system replies with all the tasks that matched the query key.  
+1. The user search for a task with keywords.
+2. StudyBananas shows the filtered list with the matching keywords.  
    Use case ends.
-
-**Extensions**
-* *a. Cancellation
-   * *a1. User asks for cancellation of current command.  
-    Use case ends.
 
 #### Use case: UC12 View all tasks
 **MSS**:
@@ -934,8 +919,8 @@ Use case ends.
 5.  The system should response to user input in less than 1 second.
 6.  The product should be for a single user.
 7.  The product should be usable by a student who has little to much experience in using computer.
-8.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-9.  The data should be stored locally and should be in a human editable text file. 
+8.  An user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+9.  The data should be stored locally.
 
 
 ### 6.5. Glossary

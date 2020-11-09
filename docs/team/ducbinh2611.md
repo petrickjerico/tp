@@ -32,6 +32,8 @@ Given below are my contributions to the project (to be updated).
 
 * **Code contributed**:  
  You can view my code contributions to this projects [on RepoSense.](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=ducbinh2611&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&until=2020-11-09&tabOpen=true&tabType=authorship&tabAuthor=ducbinh2611&tabRepo=AY2021S1-CS2103T-F12-2%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other)
+ 
+<div style="page-break-after: always;"></div>
 
 * **Enhancements implemented**:  
     * Implemented the Model component for `SCHEDULE`
@@ -76,13 +78,13 @@ Given below are my contributions to the project (to be updated).
         use `fxml` style property on each component, coupling with the `css` styling for the part of the style that 
         is not specified the `fxml` style property. 
             
+<div style="page-break-after: always;"></div>     
     * Enhanced the `CommandResult` class to follow the `Logic` execution of `QUIZ` 
         * **What it does**:  
         The question, answer and instruction provided to the user by StudyBananas are actually 
         `feedbackToUser` in the original AddressBook3. With the enhanced `CommandResult`, the 
         question, corresponding saved answer in the flashcard and the correct next command instruction 
         are displayed to the user to enhance the user's experience.  
-        
         * **Justification**:  
         With the original implementation `CommandResult` only shows the `feedbackToUser` string after
         a specific command is executed. Thus, the `question` of the `QUIZ` is only shown after the `StartQuizCommand` is executed, and it 
@@ -91,7 +93,6 @@ Given below are my contributions to the project (to be updated).
         about the current `question`). Our team found this would bring a bad 
         experience to the intended users as it would be intuitive to view the question, their input answer and 
         the correct answer together for revision.
-        
         * **Highlights**:  
         In order to overcome this problem, `QuizCard` (`Ui` components that displays the `QUIZ` object) needs to have the information 
         of what is the current `question` to be displayed to the user. I created a new class `QuizCommandResult` extending from
@@ -105,18 +106,20 @@ Given below are my contributions to the project (to be updated).
     * Managed and reviewed PRs by team members before merging to the team repo.
     * Update the overview introduction and target audience of the User Guide. 
       
+      
 * **Contributions to User Guide**:  
 Sections Written:
     * [Section 1. Introduction](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#1-introduction-binh)
-    * [Section 3.1. Commands for the `SCHEDULE` page](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#31-commands-for-the-schedule-page-binh)
-    * [Section 3.4. General Commands](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#34-general-commands-binh)
-    * [Section 8. Command Summary for `SCHEDULE`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#schedule-commands-binh)
+    * [Section 4.1.1. Commands for the `SCHEDULE` page](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#41-commands-for-the-schedule-page-binh-except-411)
+    * [Section 4.4. General Commands](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#44-general-commands-binh)
+    * [Section 9.1. Command Summary for `SCHEDULE`](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/UserGuide.md#schedule-commands-binh)
+    
     
 * **Contributions to Developer Guide**:  
 Sections Written:
-    * [Section 3.6. Storage Component](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#36-storage-component)
-    * [Edit Task feature](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#edit-task-feature)
-    * [Non-Functional Requirements](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#non-functional-requirements)  
+    * [Section 3.5. Storage Component](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#35-storage-component)
+    * [Edit Task feature](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#42-edit-task-feature)
+    * [Non-Functional Requirements](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/DeveloperGuide.md#64-non-functional-requirements)  
     
     Diagram:
     * [Schedule Model Class Diagram](https://github.com/AY2021S1-CS2103T-F12-2/tp/blob/master/docs/images/ScheduleModelDiagram.png)

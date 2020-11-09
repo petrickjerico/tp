@@ -61,51 +61,53 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
             </ul>
         </li>
         <li><a href="#2-quick-start-eddy">2. Quick start (Eddy)</a></li>
-        <li><a href="#3-features">4. Features</a>
+        <li><a href="#3-features-petrick">3. Features (Petrick)</a>
+        <li><a href="#4-usage-of-command">4. Usage of Command</a>
             <ul>
-                <li><a href="#31-commands-for-the-schedule-page-binh">4.1. Commands for the <div class="code">SCHEDULE</div> page (Binh)</a>
+                <li><a href="#41-commands-for-the-schedule-page-binh">4.1. Commands for the <div class="code">SCHEDULE</div> page (Binh)</a>
                      <ul>
-                        <li><a href="#311-view-the-details-of-your-task-eddy">4.1.1. <b>View the details of your task</b>:</a></li>
-                        <li><a href="#312-add-a-task-add-task">4.1.2. <b>Add a task</b>: <div class="code">add task</div></a></li>
-                        <li><a href="#313-list-all-your-tasks-list-task">4.1.3. <b>List tasks all your tasks</b>: <div class="code">list task</div></a></li>
-                        <li><a href="#314-delete-a-task-delete-task">4.1.4. <b>Delete a task</b>: <div class="code">delete task</div></a></li>
-                        <li><a href="#315-search-for-a-task-search-task">4.1.5. <b>Search for a task</b>: <div class="code">search task</div></a></li>
-                        <li><a href="#316-edit-a-task-edit-task">4.1.6 <b>Edit a task</b>: <div class="code">edit task</div></a></li>
+                        <li><a href="#411-view-the-details-of-your-task-eddy">4.1.1. <b>View the details of your task</b>:</a></li>
+                        <li><a href="#412-add-a-task-add-task">4.1.2. <b>Add a task</b>: <div class="code">add task</div></a></li>
+                        <li><a href="#413-list-all-your-tasks-list-task">4.1.3. <b>List tasks all your tasks</b>: <div class="code">list task</div></a></li>
+                        <li><a href="#414-delete-a-task-delete-task">4.1.4. <b>Delete a task</b>: <div class="code">delete task</div></a></li>
+                        <li><a href="#415-search-for-a-task-search-task">4.1.5. <b>Search for a task</b>: <div class="code">search task</div></a></li>
+                        <li><a href="#416-edit-a-task-edit-task">4.1.6 <b>Edit a task</b>: <div class="code">edit task</div></a></li>
                     </ul>
                 </li>
-                <li><a href="#32-commands-for-the-flashcard-page-teddy">4.2. Commands for the <div class="code">FLASHCARD</div> page (Teddy)</a>
+                <li><a href="#42-commands-for-the-flashcard-page-teddy">4.2. Commands for the <div class="code">FLASHCARD</div> page (Teddy)</a>
                     <ul>
-                        <li><a href="#321-add-a-flashcardset-add-flset">4.2.1. <b>Add a flashcard set</b>: <div class="code">add flset</div></a></li>
-                        <li><a href="#322-delete-a-flashcardset-delete-flset">4.2.2. <b>Delete a flashcard set</b>: <div
+                        <li><a href="#421-add-a-flashcardset-add-flset">4.2.1. <b>Add a flashcard set</b>: <div class="code">add flset</div></a></li>
+                        <li><a href="#422-delete-a-flashcardset-delete-flset">4.2.2. <b>Delete a flashcard set</b>: <div
                                     class="code"> delete flset</div></a></li>
-                        <li><a href="#323-list-flashcards-in-a-flashcardset-list-fl">4.2.3. <b>List flashcards in a
+                        <li><a href="#423-list-flashcards-in-a-flashcardset-list-fl">4.2.3. <b>List flashcards in a
                                     flashcard set</b>: <div class="code">list fl</div></a></li>
-                        <li><a href="#324-add-a-flashcard-into-a-flashcardset-add-fl">4.2.4. <b>Add a flashcard into a
+                        <li><a href="#424-add-a-flashcard-into-a-flashcardset-add-fl">4.2.4. <b>Add a flashcard into a
                                 flashcard set</b>: <div class="code">add fl</div></a></li>
-                        <li><a href="#325-delete-a-flashcard-in-a-flashcardset-delete-fl">4.2.5. <b>Delete a flashcard
+                        <li><a href="#425-delete-a-flashcard-in-a-flashcardset-delete-fl">4.2.5. <b>Delete a flashcard
                                 in a flashcard set</b>: <div class="code">delete fl</div></a></li>
                     </ul>
                 </li>
-                <li><a href="#33-commands-for-the-quiz-page-bowei">4.3. Commands for the <div class="code">QUIZ</div> page (Bowei)</a>
+                <li><a href="#43-commands-for-the-quiz-page-bowei">4.3. Commands for the <div class="code">QUIZ</div> page (Bowei)</a>
                     <ul>
-                        <li><a href="#331-quiz-of-a-flashcardset-quiz-flset">4.3.1. <b><div class="code">QUIZ</div> of flashcard set</b>: <div class="code">quiz
+                        <li><a href="#431-quiz-of-a-flashcardset-quiz-flset">4.3.1. <b><div class="code">QUIZ</div> of flashcard set</b>: <div class="code">quiz
                                 flset</div></a></li>
-                        <li><a href="#322-view-last-quiz-attempt-quiz-score-flset">4.3.2. <b>View last <div class="code">QUIZ</div> attempt</b>:
+                        <li><a href="#432-view-last-quiz-attempt-quiz-score-flset">4.3.2. <b>View last <div class="code">QUIZ</div> attempt</b>:
                                 <div class="code">quiz score flset</div></a></li>
                     </ul>
                 </li>
-                <li><a href="#34-general-commands-binh">4.4. General Commands (Binh)</a>
+                <li><a href="#44-general-commands-binh">4.4. General Commands (Binh)</a>
                     <ul>
-                        <li><a href="#341-view-all-the-available-commands-help">4.4.1. <b>View all the available
+                        <li><a href="#441-view-all-the-available-commands-help">4.4.1. <b>View all the available
                                 commands</b>: <div class="code">help</div></a></li>
-                        <li><a href="#342-exit-program-exit">4.4.2. <b>Exit program</b>: <div class="code">exit</div></a></li>
+                        <li><a href="#442-exit-program-exit">4.4.2. <b>Exit program</b>: <div class="code">exit</div></a></li>
                     </ul>
                 </li>
                 <li><a href="#saving-the-data"><b>Saving the data</b></a></li>
             </ul>
         </li>
-        <li><a href="#4-faq-teddy">5. FAQ (Teddy)</a></li>
-            <ul>
+        <li><a href="#5-faq-teddy">5. FAQ (Teddy)</a></li>
+        <li><a href="#6-trouble-shooting-eddy">6. Trouble Shooting (Eddy)</a>
+             <ul>
                  <li><a href="#cannot-launch-the-application">6.1. Cannot launch the application</a>
                     <ul>
                          <li><a href="#windows">6.1.1. Windows</a></li>
@@ -114,17 +116,17 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the table of cont
                     </ul>
                  </li>
                  <li><a href="#cannot-find-my-data-locally">6.2. Cannot find my data locally</a></li>
-                  <li><a href="#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly">6.3. My data is gone after I manipulate the data in the data folder directly</a></li>
+                 <li><a href="#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly">6.3. My data is gone after I manipulate the data in the data folder directly</a></li>
              </ul>
         </li>
-        <li><a href="#6-community-and-security-eddy">7. Community and Security</a>
+        <li><a href="#7-community-and-security-eddy">7. Community and Security</a>
             <ul>
                 <li><a href="#user-data">7.1. User Data</a></li>
                 <li><a href="#study-community">7.2. Study Community</a></li>
             </ul>
         </li>
-         <li><a href="#7-bug-report-eddy">8. Bug report</a></li>
-        <li><a href="#8-command-summary">9. Command summary</a>
+         <li><a href="#8-bug-report-eddy">8. Bug report</a></li>
+        <li><a href="#9-command-summary">9. Command summary</a>
             <ul>
                 <li><a href="#schedule-commands-binh">9.1. Task list commands (Binh)</a></li>
                 <li><a href="#flashcard-commands-teddy">9.2. Flashcard commands (Teddy)</a></li>
@@ -209,7 +211,11 @@ Table 2. Markdown notations in this User Guide
 
 ---
 
-## 4. Features
+## 3. Features (Petrick)
+
+---
+
+## 4. Usage of Command
 
 <div markdown="block" class="alert alert-info">
 

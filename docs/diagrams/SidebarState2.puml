@@ -1,19 +1,13 @@
 @startuml
 
 !include style.puml
-skinparam ClassFontColor #000000
-skinparam ClassBorderColor #000000
 
-class SingleUiState
-class MainWindow
-class SidebarTab
+class SingleUiState UI_COLOR
+class MainWindow UI_COLOR
+class SidebarTab UI_COLOR
 
-SingleUiState <.. MainWindow : subscribe
-SingleUiState <.. SidebarTab : subscribe
-
-class SingleUiState {
-Schedule (the default state)
-}
+SingleUiState <.[UI_COLOR_T1]. MainWindow : subscribe
+SingleUiState <.[UI_COLOR_T1]. SidebarTab : subscribe
 
 
 

@@ -1,35 +1,17 @@
 @startuml
 
 !include style.puml
-skinparam ClassFontColor #000000
-skinparam ClassBorderColor #000000
-
-interface Observer
-interface Observable
-class SingleUiState
-class MainWindow
-
-Observable <|-- SingleUiState
-Observer <|-- MainWindow
-
-MainWindow ..> SingleUiState : subscribe
 
 
+interface Observer UI_COLOR
+interface Observable UI_COLOR
+class SingleUiState UI_COLOR
+class MainWindow UI_COLOR
 
+Observable <|-[UI_COLOR_T1]- SingleUiState
+Observer <|-[UI_COLOR_T1]- MainWindow
 
-interface Observer {
-subscribe(Observable o)
-update(UiStateType state)
-}
-
-interface Observable {
-register(Observer o)
-inform()
-}
-
-class SingleUiState {
-Schedule (the default state)
-}
+MainWindow .[UI_COLOR_T1].> SingleUiState : subscribe
 
 
 

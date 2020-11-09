@@ -186,8 +186,7 @@ The most intuitive solution is to make those `static states` globally accessible
 
 Step1. Create a class named `GlobalState` and make it singleton, and set the `static states` as the attributes of `GlobalState`. Then, use the set method to set the attribute of the `GlobalState` in the component where the `static state` is first created so that we are certain that when other components try to get the `static state` from the `GlobalState`, the `static state` has already been registered in the `GlobalState`.
 
-<div markdown="span" class="alert alert-info">:information_source: Note: our static state can still be modified, (see the definition from <a href="#overall-structure">overall structure</a>) that is why 
-    <div class="code">GlobalState</div> has to be singleton.
+<div markdown="span" class="alert alert-info">:information_source: Note: our static state can still be modified, (see the definition from [overall structure](#overall-structure)) that is why `GlobalState` has to be singleton.
     
 </div>
 
@@ -195,8 +194,7 @@ Step1. Create a class named `GlobalState` and make it singleton, and set the `st
 
 Step2. Have the components that require the `static state` depend on the `GlobalState` to fetch and update the `static state` easily.
 
-<div markdown="span" class="alert alert-info">:information_source: Note: in the picture, there is no need to pass the 
-    <div class="code"> static state</div> around anyone, the structure is thereby flatten.
+<div markdown="span" class="alert alert-info">:information_source: Note: in the picture, there is no need to pass the `static state` around anyone, the structure is thereby flatten.
     
 </div>
     
@@ -211,9 +209,8 @@ Step2. Have the components that require the `static state` depend on the `Global
   * Cons: 
     1. Every component is able to get access and modify the `static state`, the modification done to a `static state` in one class by a developer can cause unexpected behavior when another developer is using the same `static state` in other components.
     
-<div markdown="span" class="alert alert-info">:information_source: Note: the idea of 
-    <div class="code">GlobalState</div> is inspired by 
-    <a href="https://redux.js.org">Redux</a>. It has a much more complicated structure than what we have here.
+<div markdown="span" class="alert alert-info">:information_source: Note: the idea of `GlobalState` is inspired by 
+    [Redux](https://redux.js.org). It has a much more complicated structure than what we have here.
     
 </div>
 
@@ -244,6 +241,10 @@ Step2. When the `dynamic state` is updated, it will then inform all the `Listene
 #### Sequential diagram
 
 ![UiListenerUpdateSequence](images/UiListenerUpdateSequence.png)
+
+<div markdown="span" class="alert alert-info">:information_source: Note: the listener structure is built to cater the need of subscribing to multiple `dynamic state`, in some `Component`, multiple subscription is not needed, we keep it as normal **observer pattern**. Refer to [sidebar implementation](#Sidebar View) for the example of subscribing to only one `dynamic state`.
+    
+</div>
 
 #### Structure for individual `Ui` page
 

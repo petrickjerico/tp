@@ -35,7 +35,7 @@ implemented by me.
     writing stubs for testing, which breaks the **Interface Segregation Principle**. Therefore, I proposed the a structure that segregates
     the Models for each feature and at the same time preserves the MVC structure for the project with only one API for model component.
     
-    For more details, please refer to [model overall architecture](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#overall-structure)
+    For more details, please refer to overall architecture for Model section in the [Developer Guide](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html)
     written by me.
     
     * Highlights:
@@ -76,8 +76,8 @@ implemented by me.
     create those features. As JavaFX does not have state management structure to reuse, I took advantage of Observer
     pattern to create "state" and adopted mediator class "listeners" to support subscription to multiple "states".
     
-     For more details, please refer to [dynamic state management](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#dynamic-state)
-        written by me.
+    For more details, please refer to dynamic state section in the Developer Guide(https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html)
+    written by me.
         
     * Highlights: 
         * Build a structure that supports reactive GUI
@@ -115,19 +115,19 @@ implemented by me.
 
 * User Guide:
     - Opening page, list of services
-    - [View Task Detail](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#411-view-the-details-of-your-task-eddy)
-    - [Trouble Shooting](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#6-trouble-shooting-eddy)
-    - [Community and Security](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#7-community-and-security-eddy)
-    - [Bug Report](https://ay2021s1-cs2103t-f12-2.github.io/tp/UserGuide.html#8-bug-report-eddy)
+    - View Task Detail
+    - Trouble Shooting
+    - Community and Security
+    - Bug Report
 
 ### **Contributions to DG**
 
 * Developer Guide:
-    - [Overall architecture](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#31-architecture)
-    - [Overall Structure of Model component](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#32-model-component) (Including [Implementation](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#implementation), [Analysis](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#analysis))
-    - [Ui component section](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#33-ui-component) 
-    - Feature: [support multiple date time format](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#support-multiple-datetime-format-feature)
-    - Feature: [sidebar view](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html#sidebar-view)
+    - Overall architecture
+    - Overall Structure of Model component including Implementation and Analysis
+    - Ui component section
+    - Feature: support multiple date time format
+    - Feature: sidebar view
     - Some use cases, and user stories.
     
 * UML diagram:

@@ -83,7 +83,7 @@ public class SingletonCommandResultStateTest {
 
         @Override
         public void subscribe(Observable news) {
-            assert false : "should not use this method in this stub.";
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override
@@ -96,7 +96,7 @@ public class SingletonCommandResultStateTest {
 
         @Override
         public void subscribe(Observable news) {
-            assert false : "should not use this method in this stub.";
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override
@@ -109,7 +109,7 @@ public class SingletonCommandResultStateTest {
 
         @Override
         public void subscribe(Observable news) {
-            assert false : "should not use this method in this stub.";
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override
@@ -122,7 +122,7 @@ public class SingletonCommandResultStateTest {
 
         @Override
         public void subscribe(Observable news) {
-            assert false : "should not use this method in this stub.";
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override

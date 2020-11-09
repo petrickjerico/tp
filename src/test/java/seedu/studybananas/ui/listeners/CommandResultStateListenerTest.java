@@ -32,7 +32,6 @@ public class CommandResultStateListenerTest {
         public void unregister(Observer<?> reader) {
 
         }
-
         @Override
         public void inform() {
 
@@ -41,6 +40,7 @@ public class CommandResultStateListenerTest {
 
     @Test
     public void subscribeTest() {
+        listener.onChange(callback);
         listener.subscribe(new ObservableStub());
     }
 

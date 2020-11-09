@@ -40,6 +40,7 @@ public class UiStateListenerTest {
 
     @Test
     public void subscribeTest() {
+        listener.onChange(callback);
         listener.subscribe(new ObservableStub());
     }
 

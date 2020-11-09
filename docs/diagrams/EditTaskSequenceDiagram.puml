@@ -19,7 +19,7 @@ participant "e:ScheduleEditCommand" as ScheduleEditCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
-box Model MODEL_COLOR_T1
+box Model #FFFFFF
 participant "sm:ScheduleModel" as ScheduleModel MODEL_COLOR
 participant "s:Schedule" as Schedule MODEL_COLOR
 participant ":UniqueTaskList" as UniqueTaskList MODEL_COLOR
@@ -73,8 +73,8 @@ activate ScheduleEditCommand
 ScheduleEditCommand -> ScheduleModel : sm.setTask()
 activate ScheduleModel
 
-ScheduleModel -> Schedule : s.setTask()
-activate Schedule
+ScheduleModel ]-> Schedule : s.setTask()
+activate Schedule MODEL_COLOR
 
 Schedule -> UniqueTaskList : setTask()
 activate UniqueTaskList

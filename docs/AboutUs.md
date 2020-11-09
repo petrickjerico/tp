@@ -40,7 +40,7 @@ You may reach us through the following email addresses:
 <img src="images/chuyiting.png" width="200px">
 
 [[github](http://github.com/chuyiting)] 
-[[portfolio](team/eddychu.md)]
+[[portfolio](team/chuyiting.md)]
 
 * Role: Developer
 * Responsibilities: Data

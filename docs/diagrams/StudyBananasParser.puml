@@ -1,7 +1,7 @@
 @startuml
 !include style.puml
 skinparam arrowThickness 1.1
-skinparam arrowColor LOGIC_COLOR_T1
+skinparam arrowColor #black
 skinparam classBackgroundColor LOGIC_COLOR
 skinparam classBorderColor LOGIC_COLOR_T1
 

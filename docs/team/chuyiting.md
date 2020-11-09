@@ -44,20 +44,8 @@ implemented by me.
         * Increase testability and scalability of code
 
 * Model for Schedule feature (Co-work with [Binh](https://github.com/ducbinh2611))
-    * Description:
-    Model classes for Schedule persistence data. Design a simple scalable structure to support multiple date time format.
-    
-    * Highlights:
-        * Adopt defensive style of programming by asserting valid format of input for constructors.    
 
 * Implement the Logic for Schedule
-    * Description:
-    The Logic (Controller for MVC) component for [AddressBook3](https://github.com/nus-cs2103-AY2021S1/tp) is designed 
-    in **Command Pattern**. I reused the structure, wrote multiple Schedule Command Classes and multiple Command Parser
-    Classes to handle the logic of schedule-related commands input by the user.
-    
-    * Highlights:   
-        * Adopt defensive style of programming by asserting valid format of input for constructors. 
      
 * Design local storage (hard drive) for Schedule
     * Description:
@@ -76,7 +64,7 @@ implemented by me.
     create those features. As JavaFX does not have state management structure to reuse, I took advantage of Observer
     pattern to create "state" and adopted mediator class "listeners" to support subscription to multiple "states".
     
-    For more details, please refer to dynamic state section in the Developer Guide(https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html)
+    For more details, please refer to dynamic state section in the [Developer Guide](https://ay2021s1-cs2103t-f12-2.github.io/tp/DeveloperGuide.html)
     written by me.
         
     * Highlights: 
@@ -106,10 +94,7 @@ implemented by me.
     
     * Highlights: 
         * Testing with stubs
-        * Adopt testing heuristics, boundary value analysis and equivalence partitions.
-        * Test coverage for util package in UI component: Class coverage: 88%; Method coverage: 65%; Line coverage: 64%.   
-        * Test coverage for Schedule command parser package: Class coverage: 100%; Method coverage: 100%; Line coverage: 92%. 
-        * Test coverage for util package in UI component: Class coverage: 88%; Method coverage: 65%; Line coverage: 64%.    
+        * Adopt testing heuristics, boundary value analysis and equivalence partitions.  
 
 ### **Contributions to documentationt**
 

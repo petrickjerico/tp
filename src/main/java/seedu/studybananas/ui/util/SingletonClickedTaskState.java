@@ -45,6 +45,10 @@ public class SingletonClickedTaskState implements Observable {
      * update the state.
      */
     public void updateState(Task task) {
+        if (task != null && task.equals(this.clickedTask)) {
+            return;
+        }
+
         this.clickedTask = task;
         inform();
     }

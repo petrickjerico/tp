@@ -57,48 +57,37 @@ This part above is contributed by Eddy.
 
 - [**1. Introduction (Binh)**](#1-introduction-binh)
   - [1.1 Reading this User Guide](#11-reading-this-user-guide)
-    - [1.1.1 Icons and Meaning](#111-icons-and-meaning)
-    - [1.1.2 Markdown notations](#112-markdown-notations)
 - [**2. Quick start (Eddy)**](#2-quick-start-eddy)
 - [**3. Features (Petrick)**](#3-features-petrick)
-  - [3.1. Task list in `SCHEDULE`](#31-task-list-in-schedule)
-  - [3.2. Time Scale in `SCHEDULE`](#32-time-scale-in-schedule)
-  - [3.3. `FLASHCARDS`](#33-flashcards)
-  - [3.4. `QUIZ`](#34-quiz)
+  - [3.1. Task list in schedule](#31-task-list-in-schedule)
+  - [3.2. Time Scale in schedule](#32-time-scale-in-schedule)
+  - [3.3. Flashcards](#33-flashcards)
+  - [3.4. Quiz](#34-quiz)
   - [3.5. CLI-GUI interactivity](#35-cli-gui-interactivity)
   - [3.6. Auto-save](#36-auto-save)
 - [**4. Usage of Command**](#4-usage-of-command)
-  - [4.1. Commands for the `SCHEDULE` page (Binh except 4.1.1)](#41-commands-for-the-schedule-page-binh-except-411)
-    - [4.1.1. View the details of your `TASK`: (Eddy)](#411-view-the-details-of-your-task-eddy)
-    - [4.1.2. Add a `TASK`: `add task`](#412-add-a-task-add-task)
-      - [4.1.2.1. Adding a normal `TASK`](#4121-adding-a-normal-task)
-      - [4.1.2.2. Adding a `QUIZ` `TASK`](#4122-adding-a-quiz-task)
-    - [4.1.3. List all your `TASK`s: `list task`](#413-list-all-your-tasks-list-task)
-    - [4.1.4. Delete a `TASK`: `delete task`](#414-delete-a-task-delete-task)
-    - [4.1.5. Search for a `TASK`: `search task`](#415-search-for-a-task-search-task)
-    - [4.1.6. Edit a `TASK`: `edit task`](#416-edit-a-task-edit-task)
-  - [4.2. Commands for the `FLASHCARD` page (Teddy)](#42-commands-for-the-flashcard-page-teddy)
-    - [4.2.1. Add a `FLASHCARDSET`: `add flset`](#421-add-a-flashcardset-add-flset)
-    - [4.2.2. Delete a `FLASHCARDSET`: `delete flset`](#422-delete-a-flashcardset-delete-flset)
-    - [4.2.3. List `FLASHCARD`s in a `FLASHCARDSET`: `list fl`](#423-list-flashcards-in-a-flashcardset-list-fl)
-    - [4.2.4. Add a `FLASHCARD` into a `FLASHCARDSET`: `add fl`](#424-add-a-flashcard-into-a-flashcardset-add-fl)
-    - [4.2.5. Delete a `FLASHCARD` in a `FLASHCARDSET`: `delete fl`](#425-delete-a-flashcard-in-a-flashcardset-delete-fl)
-  - [4.3. Commands for the `QUIZ` page (Bowei)](#43-commands-for-the-quiz-page-bowei)
-    - [4.3.1. `QUIZ` of a `FLASHCARDSET`: `quiz flset`](#431-quiz-of-a-flashcardset-quiz-flset)
-      - [4.3.1.1. Getting the question](#4311-getting-the-question)
-      - [4.3.1.2. Answering the question](#4312-answering-the-question)
-      - [4.3.1.3. Checking if your answer is correct](#4313-checking-if-your-answer-is-correct)
-      - [4.3.1.4. Continuing the `QUIZ` cycle](#4314-continuing-the-quiz-cycle)
-    - [4.3.2. View last `QUIZ` attempt: `quiz score flset`](#432-view-last-quiz-attempt-quiz-score-flset)
+  - [4.1. Commands for the schedule page (Binh except 4.1.1)](#41-commands-for-the-schedule-page-binh-except-411)
+    - [4.1.1. View the details of your task: (Eddy)](#411-view-the-details-of-your-task-eddy)
+    - [4.1.2. Add a task](#412-add-a-task-add-task)
+    - [4.1.3. List all your tasks](#413-list-all-your-tasks-list-task)
+    - [4.1.4. Delete a task](#414-delete-a-task-delete-task)
+    - [4.1.5. Search for a task](#415-search-for-a-task-search-task)
+    - [4.1.6. Edit a task](#416-edit-a-task-edit-task)
+  - [4.2. Commands for the flashcard page (Teddy)](#42-commands-for-the-flashcard-page-teddy)
+    - [4.2.1. Add a flashcardset](#421-add-a-flashcardset-add-flset)
+    - [4.2.2. Delete a flashcardset](#422-delete-a-flashcardset-delete-flset)
+    - [4.2.3. List flashcards in a flashcardset](#423-list-flashcards-in-a-flashcardset-list-fl)
+    - [4.2.4. Add a flashcard into a flashcardset](#424-add-a-flashcard-into-a-flashcardset-add-fl)
+    - [4.2.5. Delete a flashcard in a flashcardset](#425-delete-a-flashcard-in-a-flashcardset-delete-fl)
+  - [4.3. Commands for the quiz page (Bowei)](#43-commands-for-the-quiz-page-bowei)
+    - [4.3.1. Quiz of a flashcardset](#431-quiz-of-a-flashcardset-quiz-flset)
+    - [4.2.2. View last quiz attempt](#422-view-last-quiz-attempt-quiz-score-flset)
   - [4.4. General Commands (Binh)](#44-general-commands-binh)
-    - [4.4.1. View all the available commands: `help`](#441-view-all-the-available-commands-help)
-    - [4.4.2. Exit program: `exit`](#442-exit-program-exit)
+    - [4.4.1. View all the available commands](#441-view-all-the-available-commands-help)
+    - [4.4.2. Exit program](#442-exit-program-exit)
 - [**5. FAQ (Teddy)**](#5-faq-teddy)
 - [**6. Trouble Shooting (Eddy)**](#6-trouble-shooting-eddy)
   - [Cannot launch the application](#cannot-launch-the-application)
-    - [Windows](#windows)
-    - [Mac](#mac)
-    - [Linux](#linux)
   - [Cannot find my data locally](#cannot-find-my-data-locally)
   - [My data is gone after I manipulate the data in the data folder directly](#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly)
 - [**7. Community and security (Eddy)**](#7-community-and-security-eddy)
@@ -106,9 +95,9 @@ This part above is contributed by Eddy.
   - [Study community](#study-community)
 - [**8. Bug report (Eddy)**](#8-bug-report-eddy)
 - [**9. Summary**](#9-summary)
-  - [`SCHEDULE` commands (Binh)](#schedule-commands-binh)
-  - [`FLASHCARD` commands (Teddy)](#flashcard-commands-teddy)
-  - [`QUIZ` commands (Bowei)](#quiz-commands-bowei)
+  - [Schedule commands (Binh)](#schedule-commands-binh)
+  - [Flashcard commands (Teddy)](#flashcard-commands-teddy)
+  - [Quiz commands (Bowei)](#quiz-commands-bowei)
   - [General commands](#general-commands)
 - [**10. Graphical Summary of Navigation Commands (Petrick)**](#10-graphical-summary-of-navigation-commands-petrick)
 
@@ -185,8 +174,10 @@ Table 2. Markdown notations in this User Guide
    * **`add`** `fl flset:3 q:What is the chemical formula of water? a:H2O` : Add a flashcard to the 3rd `FLASHCARDSET`.
 
    * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 `TASK` to the `SCHEDULE`.
+   
+<div style="height:30px;"></div>
 
-7. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
+6. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
 
 ---
 
@@ -854,7 +845,7 @@ If you would like to close the application, this command helps you to quickly cl
 
 ## 6. Trouble Shooting (Eddy)
 
-### Cannot launch the application
+### **Cannot launch the application**
 
 - Check if you have Java `11` or above installed in your Computer. 
 
@@ -883,13 +874,15 @@ If you would like to close the application, this command helps you to quickly cl
 
 2. If the path for `JDK` is shown after the command, type` export JAVA_HOME=/path/to/java/jdk1.x`, otherwise go to <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the `JDK` version of Linux and install.
 
-### Cannot find my data locally
+<p style="page-break-before: always"></p>
+
+### **Cannot find my data locally**
 
 Your `SCHEDULE`, `FLASHCARD`, and `QUIZ` records data are stored inside the folder named **data** which would reside in the folder where you put your `StudyBananas.jar`.
 
 If you still cannot find any default data, make sure you have **enter at least one command** in the command box after your first launch, the default data is only stored after the first command is executed.
 
-### My data is gone after I manipulate the data in the data folder directly
+### **My data is gone after I manipulate the data in the data folder directly**
 
 The data is stored in the format of JSON for StudyBananas. Our development team does not recommend modifying data from the data folder directly, but 
 if after you edit and the data is not shown in your application, it is likely that the format of JSON file is wrong.  
@@ -910,7 +903,7 @@ be able to see the updated data.
 
 ## 7. Community and security (Eddy)
 
-### User data
+### **User data**
 
 StudyBananas is designed to be a self-study tool and not an online study community.
 
@@ -920,7 +913,7 @@ development team. Therefore, the physical integrity of the your data is secured 
 StudyBananas. 
 
 
-### Study community
+### **Study community**
 
 Current version of StudyBananas - 1.4 does not support any functionality required 
 internet connection.

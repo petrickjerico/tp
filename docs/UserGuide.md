@@ -24,7 +24,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
   <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;"/>
   <h1>Manage your study plans</h1>
   <p>Manage all of your study tasks in StudyBananas. Then, start to prepare yourself for the upcoming exams!</p>
-  <a href="#41-commands-for-the-schedule-page-binh">How to manage tasks in StudyBananas schedule</a>
+  <a href="#41-commands-for-the-schedule-page-binh-except-411">How to manage tasks in StudyBananas schedule</a>
 </div>
 
 ---
@@ -108,7 +108,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
   - [`FLASHCARD` commands (Teddy)](#flashcard-commands-teddy)
   - [`QUIZ` commands (Bowei)](#quiz-commands-bowei)
   - [General commands](#general-commands)
-- [10. Graphical Summary of Navigation Commands (Petrick)](#10-graphical-summary-of-navigation-commands-petrick)
+- [**10. Graphical Summary of Navigation Commands (Petrick)**](#10-graphical-summary-of-navigation-commands-petrick)
 
 <!-- /TOC -->
 
@@ -246,7 +246,7 @@ In StudyBananas, all `TASK`s, `FLASHCARD`s and `QUIZ` attempts you create will 
 <p align="center" >
   <img src="images/StorageJSON.png" alt="StorageJSON" />
 </p>
-<div align="center">Figure 3.1: Location of StudyBananas JSON files</div>
+<div align="center">Figure 3.6: Location of StudyBananas JSON files</div>
 <br>
 
 All `TASK`s, `FLASHCARD`s and `QUIZ` attempts created will be automatically saved, so there is no need for 
@@ -296,8 +296,6 @@ There are several panels in our user interface that provides the details of your
 
 <div align="center">Figure 4.1.1: Annotated view of the Task Detail Panel</div>    
 <br>
-
-<p>&nbsp;</p>
 
 <div style="page-break-after: always;"></div>
 
@@ -632,8 +630,9 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 <div align="center">Figure 4.3.1a: Display of the quiz page </code> command</div>
 <br>
+
 Already have some `FLASHCARD`s and would like to start a recap session? 
-This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.
+This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.  
 
 There are two ways to launch a `QUIZ` in StudyBananas. 
 You may do so by either:
@@ -811,8 +810,9 @@ If you would like to close the application, this command helps you to quickly cl
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | ![tip-icon](images/UG/tip_icon.png) | Alternatively, you can click on the `exit` button located at the bottom of the sidebar to open the help window. |
 
-<img src="images/UG/ExitButton.png" alt="ExitButton" width="300" class="center"/>
-
+<p align="center" >
+  <img src="images/ExitButton.png" alt="ExitButton" width="300" />
+</p>
 <div align="center">Figure 4.4.2: <code>exit</code> button as shown</div>
 
 <p>&nbsp;</p>
@@ -865,7 +865,7 @@ If you would like to close the application, this command helps you to quickly cl
 
 2. Go to `start menu` -> `System` -> `Advanced` -> `Environment Variables`. Set `JAVA_HOME` to the path of your `JDK`, and update the system path. For more details, please refer to this <a href="https://javatutorial.net/set-java-home-windows-10">website</a> 
 
-3.  If none of the above work, try to search your file system for `javac.exe`. If there is no `javac.exe`, download `JDK` from <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">Oracle Website for JDK</a> and install.
+3.  If none of the above work, try to search your file system for `javac.exe`. If there is no `javac.exe`, download `JDK` from <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and install.
 
 #### Mac
 
@@ -941,7 +941,7 @@ testing by some students in NUS SoC.
 
 However, there can still be some unnoticed bugs. If you spot
 any bugs or have any suggestions on the application, please go to 
-<a href="https://github.com/AY2021S1-CS2103T-F12-2/tp/issues">our github issue page</a> to 
+<a href="https://github.com/AY2021S1-CS2103T-F12-2/tp/issues">our GitHub issue page</a> to 
 issue the bugs and the suggestions. Great appreciation from the development team of StudyBananas.
 
 <div style="page-break-after: always;"></div>
@@ -978,8 +978,6 @@ This section summarises all available commands in StudyBananas.
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`QUIZ` flset**       | `quiz <flset:setindex>`<br> e.g., `quiz flset:7` <br> `quiz <flset:setname>` <br> eg., `quiz flset:Japanese` <br> Available only in **QUIZ Mode**: `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
 | **`QUIZ` score flset** | `quiz score <flset:setindex>` <br> e.g., `quiz score flset:6` <br> `quiz score <flset:setname>` <br> e.g., `quiz score flset:Economics`                                                                 |
-
-<p>&nbsp;</p>
 
 ### General commands
 

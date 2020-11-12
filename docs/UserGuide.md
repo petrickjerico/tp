@@ -957,7 +957,7 @@ This section summarises all available commands in StudyBananas.
 
 ### `FLASHCARD` commands (Teddy)
 
-| Action                                  | Format, Examples                                                                                        |
+| Action                                  | Format & Examples                                                                                        |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | **Add `FLASHCARDSET`**                  | `add flset <name:setname>` <br> e.g., `add flset name:Japanese`                                         |
 | **Delete `FLASHCARDSET`**               | `delete flset <setindex>` <br> e.g., `delete flset 1`                                                   |
@@ -969,14 +969,14 @@ This section summarises all available commands in StudyBananas.
 
 ### `QUIZ` commands (Bowei)
 
-| Action                 | Format, Examples                                                                                                                                                                              |
+| Action                 | Format & Examples                                                                                                                                                                              |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`QUIZ` flset**       | `quiz <flset:setindex>`<br> e.g., `quiz flset:7` <br> `quiz <flset:setname>` <br> eg., `quiz flset:Japanese` <br> Available only in **QUIZ Mode**: `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
+| **`QUIZ` flset**       | `quiz <flset:setindex>`<br> e.g., `quiz flset:7` <br> `quiz <flset:setname>` <br> eg., `quiz flset:Japanese` <br> <br> Available only in **QUIZ Mode**: <br> `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
 | **`QUIZ` score flset** | `quiz score <flset:setindex>` <br> e.g., `quiz score flset:6` <br> `quiz score <flset:setname>` <br> e.g., `quiz score flset:Economics`                                                                 |
 
 ### General commands
 
-| Action                          | Format, Examples |
+| Action                          | Format & Examples |
 | ------------------------------- | ---------------- |
 | **View all available commands** | `help`           |
 | **Exit program**                | `exit`           |

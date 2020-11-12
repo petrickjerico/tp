@@ -6,7 +6,7 @@ title: Joe Teddy Yosua Sanjaya's Project Portfolio Page
 ## Introduction
 Hi, my name is Teddy. At the time of this project (AY20/21 Semester 1), I was a Year 2 Computer Science undergraduate in NUS.
 
-I am a software developer in Team Volant. That’s the team that is working on this wonderful travel companion app! We’re really passionate about this project, so we hope that you enjoy the product as much as we enjoy the process.
+I am a software developer in Team StudyBananas. That’s the team that is working on this wonderful study companion app! We’re really passionate about this project, so we hope that you enjoy the product as much as we enjoy the process.
 
 You can find out more about me via [LinkedIn](https://www.linkedin.com/in/joeteddyyosuasanjaya/) or [GitHub](https://github.com/cupofjoee)
 
@@ -30,6 +30,8 @@ You can view my code contributions to this project on [RepoSense](https://nus-cs
     Integrated with the `QUIZ` feature, this allows students to recap their concepts using the flashcard study technique.
 
   * **Highlights**
+
+    Designed the different Classes that make up the `FLASHCARD` feature - storage, models and logic.
     
     The nesting of lists of lists have to be handled carefully when recording them to json files.
 
@@ -43,8 +45,7 @@ You can view my code contributions to this project on [RepoSense](https://nus-cs
 
   * **Highlights**
 
-    Continuously testing and managing bug reporting.
-
+    Continuously testing and managing bug reporting. Caught and recorded more than 40 bugs before the PE dry run.
 
 ## Contribution to User Guide
 

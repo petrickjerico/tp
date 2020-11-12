@@ -133,6 +133,7 @@ Table 1. Icons in this User Guide
 Table 2. Markdown notations in this User Guide
 
 ---
+<p style="page-break-before: always"></p>
 
 ## 2. Quick start (Eddy)
 

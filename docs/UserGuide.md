@@ -723,7 +723,7 @@ Steps 4.3.1.1-4.3.1.3 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` 
 
 Once the quiz stops, the score statistics will be displayed.
 You can also view this score by viewing the last attempt of the `FLASHCARDSET`.
-(see [View last quiz attempt: `quiz score flset`](#422-view-last-quiz-attempt-quiz-score-flset))
+(see [View last quiz attempt: `quiz score flset`](#432-view-last-quiz-attempt-quiz-score-flset))
 
 <p>&nbsp;</p>
 <p style="page-break-before: always"></p>

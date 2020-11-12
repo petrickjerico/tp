@@ -67,9 +67,24 @@ This part above is contributed by Eddy.
   - [3.6. Auto-save](#36-auto-save)
 - [**4. Usage of Command**](#4-usage-of-command)
   - [4.1. Commands for the schedule page (Binh except 4.1.1)](#41-commands-for-the-schedule-page-binh-except-411)
+    - [4.1.1. View the details of your task: (Eddy)](#411-view-the-details-of-your-task-eddy)
+    - [4.1.2. Add a task](#412-add-a-task-add-task)
+    - [4.1.3. List all your tasks](#413-list-all-your-tasks-list-task)
+    - [4.1.4. Delete a task](#414-delete-a-task-delete-task)
+    - [4.1.5. Search for a task](#415-search-for-a-task-search-task)
+    - [4.1.6. Edit a task](#416-edit-a-task-edit-task)
   - [4.2. Commands for the flashcard page (Teddy)](#42-commands-for-the-flashcard-page-teddy)
+    - [4.2.1. Add a flashcardset](#421-add-a-flashcardset-add-flset)
+    - [4.2.2. Delete a flashcardset](#422-delete-a-flashcardset-delete-flset)
+    - [4.2.3. List flashcards in a flashcardset](#423-list-flashcards-in-a-flashcardset-list-fl)
+    - [4.2.4. Add a flashcard into a flashcardset](#424-add-a-flashcard-into-a-flashcardset-add-fl)
+    - [4.2.5. Delete a flashcard in a flashcardset](#425-delete-a-flashcard-in-a-flashcardset-delete-fl)
   - [4.3. Commands for the quiz page (Bowei)](#43-commands-for-the-quiz-page-bowei)
+    - [4.3.1. Quiz of a flashcardset](#431-quiz-of-a-flashcardset-quiz-flset)
+    - [4.2.2. View last quiz attempt](#422-view-last-quiz-attempt-quiz-score-flset)
   - [4.4. General Commands (Binh)](#44-general-commands-binh)
+    - [4.4.1. View all the available commands](#441-view-all-the-available-commands-help)
+    - [4.4.2. Exit program](#442-exit-program-exit)
 - [**5. FAQ (Teddy)**](#5-faq-teddy)
 - [**6. Trouble Shooting (Eddy)**](#6-trouble-shooting-eddy)
   - [Cannot launch the application](#cannot-launch-the-application)
@@ -160,9 +175,9 @@ Table 2. Markdown notations in this User Guide
 
    * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 `TASK` to the `SCHEDULE`.
    
-<div style="height:60px;"></div>
+<div style="height:30px;"></div>
 
-<div> 6. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.</div>
+6. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
 
 ---
 
@@ -171,7 +186,7 @@ Table 2. Markdown notations in this User Guide
 ## 3. Features (Petrick)
 This section describes the various features available in StudyBananas. These include front-end features that you can interact with, such as the `SCHEDULE` page, as well as back-end features such as the auto-saving of data.
 
-### 3.1. List your tasks in the schedule
+### 3.1. Task list in `SCHEDULE`
 You can set the `TASK`s you want to do at a particular day to help you de-clutter your `TASK`s and organise them 
 strategically into daily `TASK`s.
 
@@ -181,7 +196,7 @@ using a keyword, making it easier for you to group `TASK`s.
 There are no limits to how many `TASK`s you can add in StudyBananas:
 No matter how busy you are, StudyBananas can adapt to your needs and still function normally! 
 
-### 3.2. View the upcoming task in the time scale
+### 3.2. Time Scale in `SCHEDULE`
 StudyBananas helps you visualise your day and manage your time efficiently by creating a time scale that
 shows the timespan of different `TASK`s in a daily timeline.
 
@@ -192,7 +207,7 @@ Note: The time scale only shows the `TASK` happening today in the current displa
 [search for `TASK`s](#415-search-for-a-task-search-task), which changes the displayed `task list`, your 
 `time scale` changes accordingly.
 
-### 3.3. Create your flashcard notes
+### 3.3. `FLASHCARDS`
 StudyBananas is about learning effectively, so it comes with a `FLASCHCARD` feature that helps you consolidate your 
 learning into one place, without ever needing to open multiple files for revision. 
 
@@ -201,7 +216,7 @@ There are also no limit to how much `FLASHCARD` sets you can make, and same goes
 
 <p style="page-break-before: always"></p>
 
-### 3.4. Create a quiz with your flashcards
+### 3.4. `QUIZ`
 Learning is not effective if you only read materials, but never exercise your memory for it. The `QUIZ` feature helps 
 you to practice active recalling that will solidify all your learning points.
 
@@ -266,9 +281,9 @@ you to manually save the app's data!
 
 There are several panels in our user interface that provides the details of your `TASK`.
 
-- Firstly, the time scale on the page lists out all of your study sessions happening today. You can click on your study session on the time scale to view the details on the top right panel.
-- Secondly, the schedule list panel located in the bottom right corner of the schedule tab lists all of your tasks including your study sessions, you can view the details of your task in the card, and scroll down to view more tasks of yours. Useful command to filter the list: [search task](#415-search-for-a-task-search-task)).
-- In the following user guide, we use "time scale" to refer to the middle panel of the schedule tab, and uses "task list" to refer to the bottom right panel.
+- Firstly, the `today's time scale` lists out all of your study sessions happening today, which are `TASK`s, with start time and duration. You can click on your study session on the time scale to view the details on the top right panel.
+- Secondly, the `list panel` located in the bottom right corner of the `SCHEDULE` tab lists all of your `TASK`s, you can scroll down to view the details of your `TASK`s, or take advantage of the search feature to quickly find a specific task (refer to [search task section](#415-search-for-a-task-search-task)).
+- In the following user guide, we use `time scale` to refer to the middle panel of `SCHEDULE` tab, and uses `TASK` lists to refer to the bottom right panel.
 
 ![TaskDetailPanels](images/TaskDetailPanels.png)
 

@@ -88,7 +88,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
       - [4.3.1.2. Answering the question](#4312-answering-the-question)
       - [4.3.1.3. Checking if your answer is correct](#4313-checking-if-your-answer-is-correct)
       - [4.3.1.4. Continuing the `QUIZ` cycle](#4314-continuing-the-quiz-cycle)
-    - [4.2.2. View last `QUIZ` attempt: `quiz score flset`](#422-view-last-quiz-attempt-quiz-score-flset)
+    - [4.3.2. View last `QUIZ` attempt: `quiz score flset`](#432-view-last-quiz-attempt-quiz-score-flset)
   - [4.4. General Commands (Binh)](#44-general-commands-binh)
     - [4.4.1. View all the available commands: `help`](#441-view-all-the-available-commands-help)
     - [4.4.2. Exit program: `exit`](#442-exit-program-exit)
@@ -743,7 +743,7 @@ You can also view this score by viewing the last attempt of the `FLASHCARDSET`.
 <p>&nbsp;</p>
 <div style="page-break-after: always;"></div>
 
-#### 4.2.2. **View last `QUIZ` attempt**: `quiz score flset`
+#### 4.3.2. **View last `QUIZ` attempt**: `quiz score flset`
 
 Shows the last attempt of a `QUIZ` on a specified `FLASHCARDSET`.
 

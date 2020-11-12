@@ -158,7 +158,6 @@ Table 1. Icons in this User Guide
 Table 2. Markdown notations in this User Guide
 
 ---
-<div style="page-break-after: always;"></div>
 
 ## 2. Quick start (Eddy)
 
@@ -171,6 +170,8 @@ Table 2. Markdown notations in this User Guide
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    
    ![Ui](images/Ui.png)
+
+<div style="page-break-after: always;"></div>
 
 5. Type the command in the command box and press `Enter` to execute it.
    Some example commands you can try:
@@ -410,6 +411,8 @@ If you would like to view your full `SCHEDULE`, this command displays the full `
 
 <p>&nbsp;</p>
 
+<div style="page-break-after: always;"></div>
+
 #### 4.1.4. **Delete a `TASK`**: `delete task`
 
 If you complete a `TASK` and would like to remove that specific `TASK` from your `SCHEDULE`, this command helps you remove the task at the specified `index`.
@@ -635,6 +638,8 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 Already have some `FLASHCARD`s and would like to start a recap session? 
 This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.  
 
+<div style="page-break-after: always;"></div>
+
 There are two ways to launch a `QUIZ` in StudyBananas. 
 You may do so by either:
 * **Entering commands into the command box:**
@@ -708,6 +713,8 @@ If the command entered is `flip` or `<ans:answer>`,
 the correct answer will be displayed,
 and you will be prompted to enter the next available commands, `c`, `w`, `refresh` or `cancel`,
 as shown below.
+
+<div style="page-break-after: always;"></div>
 
 **Expected Outcome:**
 
@@ -960,6 +967,8 @@ This section summarises all available commands in StudyBananas.
 | **Delete `TASK`**       | `delete task <index>` <br> e.g., `delete task 6`                                                                                 |
 | **Search for `TASK`s**  | `search task <keywords>` <br> e.g., `search task CS2103T deadlines`                                                              |
 | **Edit `TASK`**         | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g. `edit task 1 d: Debug remaining errors dur: 60`  |
+
+<div style="page-break-after: always;"></div>
 
 ### `FLASHCARD` commands (Teddy)
 

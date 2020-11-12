@@ -160,9 +160,9 @@ Table 2. Markdown notations in this User Guide
 
    * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 `TASK` to the `SCHEDULE`.
    
-<div style="height:30px;"></div>
+<div style="height:60px;"></div>
 
-6. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
+<div> 6. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.</div>
 
 ---
 

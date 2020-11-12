@@ -174,8 +174,10 @@ Table 2. Markdown notations in this User Guide
    * **`add`** `fl flset:3 q:What is the chemical formula of water? a:H2O` : Add a flashcard to the 3rd `FLASHCARDSET`.
 
    * **`add`** `task T:CS2100 d: Pipeline tutorial t:2020-10-10 11:00` : Adds Doing CS2100 `TASK` to the `SCHEDULE`.
+   
+<div style="height:30px;"></div>
 
-7. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
+6. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
 
 ---
 
@@ -733,7 +735,7 @@ You can also view this score by viewing the last attempt of the `FLASHCARDSET`.
 <p>&nbsp;</p>
 <p style="page-break-before: always"></p>
 
-#### 4.2.2. **View last `QUIZ` attempt**: `quiz score flset`
+#### 4.3.2. **View last `QUIZ` attempt**: `quiz score flset`
 
 Shows the last attempt of a `QUIZ` on a specified `FLASHCARDSET`.
 
@@ -843,7 +845,7 @@ If you would like to close the application, this command helps you to quickly cl
 
 ## 6. Trouble Shooting (Eddy)
 
-### Cannot launch the application
+### **Cannot launch the application**
 
 - Check if you have Java `11` or above installed in your Computer. 
 
@@ -872,13 +874,15 @@ If you would like to close the application, this command helps you to quickly cl
 
 2. If the path for `JDK` is shown after the command, type` export JAVA_HOME=/path/to/java/jdk1.x`, otherwise go to <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the `JDK` version of Linux and install.
 
-### Cannot find my data locally
+<p style="page-break-before: always"></p>
+
+### **Cannot find my data locally**
 
 Your `SCHEDULE`, `FLASHCARD`, and `QUIZ` records data are stored inside the folder named **data** which would reside in the folder where you put your `StudyBananas.jar`.
 
 If you still cannot find any default data, make sure you have **enter at least one command** in the command box after your first launch, the default data is only stored after the first command is executed.
 
-### My data is gone after I manipulate the data in the data folder directly
+### **My data is gone after I manipulate the data in the data folder directly**
 
 The data is stored in the format of JSON for StudyBananas. Our development team does not recommend modifying data from the data folder directly, but 
 if after you edit and the data is not shown in your application, it is likely that the format of JSON file is wrong.  
@@ -899,7 +903,7 @@ be able to see the updated data.
 
 ## 7. Community and security (Eddy)
 
-### User data
+### **User data**
 
 StudyBananas is designed to be a self-study tool and not an online study community.
 
@@ -909,7 +913,7 @@ development team. Therefore, the physical integrity of the your data is secured 
 StudyBananas. 
 
 
-### Study community
+### **Study community**
 
 Current version of StudyBananas - 1.4 does not support any functionality required 
 internet connection.

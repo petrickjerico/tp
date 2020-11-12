@@ -108,7 +108,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
   - [`FLASHCARD` commands (Teddy)](#flashcard-commands-teddy)
   - [`QUIZ` commands (Bowei)](#quiz-commands-bowei)
   - [General commands](#general-commands)
-- [9.2. Graphical Summary of Navigation Commands (Petrick)](#92-graphical-summary-of-navigation-commands-petrick)
+- [10. Graphical Summary of Navigation Commands (Petrick)](#10-graphical-summary-of-navigation-commands-petrick)
 
 <!-- /TOC -->
 
@@ -194,31 +194,31 @@ Table 2. Markdown notations in this User Guide
 This section describes the various features available in StudyBananas. These include front-end features that you can interact with, such as the `SCHEDULE` page, as well as back-end features such as the auto-saving of data.
 
 ### 3.1. Task list in `SCHEDULE`
-You can set the tasks you want to do at a particular day to help you de-clutter your tasks and organise them 
-strategically into daily tasks.
+You can set the `TASK`s you want to do at a particular day to help you de-clutter your `TASK`s and organise them 
+strategically into daily `TASK`s.
 
-To help define tasks, you can add titles, short descriptions, starting time and duration. You can also search for tasks 
-using a keyword, making it easier for you to group tasks.
+To help define `TASK`s, you can add `title`, short `description`, starting `time` and `duration`. You can also search for `TASK`s 
+using a keyword, making it easier for you to group `TASK`s.
 
-There are no limits to how many tasks you can add in StudyBananas:
-No matter how busy you are with tasks, StudyBananas can adapt to your needs and still function normally! 
+There are no limits to how many `TASK`s you can add in StudyBananas:
+No matter how busy you are, StudyBananas can adapt to your needs and still function normally! 
 
 ### 3.2. Time Scale in `SCHEDULE`
 StudyBananas helps you visualise your day and manage your time efficiently by creating a time scale that
-shows the timespan of different tasks in a daily timeline.
+shows the timespan of different `TASK`s in a daily timeline.
 
-It comes with a time pointer that helps you recognise the tasks that you need to do at a point in time, 
-so you can manage your time properly and complete tasks in an appropriate duration.
+It comes with a time pointer that helps you recognise the `TASK`s that you need to do at certain specific point in time during the day, 
+so you can manage your time properly and complete `TASK`s in an appropriate duration.
 
-Note: The `time scale` only shows the `TASK` in the current `task list`. If you 
-[search for `TASK`s](#415-search-for-a-task-search-task), which change the displayed `task list`, your 
-`time scale` only changes accordingly.
+Note: The time scale only shows the `TASK` happening today in the current displayed `task list`. If you 
+[search for `TASK`s](#415-search-for-a-task-search-task), which changes the displayed `task list`, your 
+`time scale` changes accordingly.
 
 ### 3.3. `FLASHCARDS`
 StudyBananas is about learning effectively, so it comes with a `FLASCHCARD` feature that helps you consolidate your 
 learning into one place, without ever needing to open multiple files for revision. 
 
-There are also no limit to how much `FLASHCARD` sets you can make, and same goes to the amount of `FLASHCARD`s in a set. 
+There are also no limit to how much `FLASHCARD` sets you can make, and same goes to the amount of `FLASHCARD`s in a `FLASHCARDSET`. 
 (Just like how there is no limit to learning!)
 
 <div style="page-break-after: always;"></div>
@@ -237,14 +237,15 @@ You can also set `QUIZ` as a task in your `SCHEDULE`. Click [here](#4122-adding-
 You can operate StudyBananas in two ways: using the Command Line Interface (CLI) and typing out commands using the keyboard, 
 or using the Graphical User Interface (GUI) if you feel using the mouse is faster for you!
 
-Either you're a fast typist or someone who is faster using the mouse cursor, we ensure that StudyBananas will work efficiently according to your preferences, so time is spent just on studying.
-See how you can navigate yourself using either keyboard or mouse clicks [here](#92-graphical-summary-of-navigation-commands-petrick).
+Either you are a fast typist or someone who is faster using the mouse cursor, we ensure that StudyBananas work efficiently according to your preferences, so time is spent just on studying.
+See how you can navigate yourself using either keyboard or mouse by clicking [here](#92-graphical-summary-of-navigation-commands-petrick).
 
 ### 3.6. Auto-save
-In StudyBananas, all `TASK`s, `FLASHCARD`s and `QUIZ` attempts you created will generate a JSON file named after the respective feature. These files can be found in the data folder, under the directory that you have previously stored the StudyBanans JAR file in. This folder stores all your study-related data created using StudyBananas.
-The data folder also contains a data file that stores your trip list and their respective details.
+In StudyBananas, all `TASK`s, `FLASHCARD`s and `QUIZ` attempts you create will generate a JSON file named after the respective feature. These files can be found in the data folder, under the directory that you have previously stored the StudyBananas JAR file in. This folder stores all your study-related data created using StudyBananas.
 
-![StorageJSON](images/StorageJSON.png)
+<p align="center" >
+  <img src="images/StorageJSON.png" alt="StorageJSON" />
+</p>
 <div align="center">Figure 3.1: Location of StudyBananas JSON files</div>
 <br>
 
@@ -273,7 +274,7 @@ you to manually save the app's data!
   e.g. If the command specifies `<flset:setindex> <q:question> <a:answer>`, `<a:answer> <q:question> <flset:setindex>` is also acceptable.
 
 - The same prefix-parameter pair can be used in a same command, however only the value of the last pair is used. <br>
-  e.g. In `add task T: CS2103T d: Tutorial Week 2 T: CS2100`, there are 2 parameters with the prefix `T:` but only the last one `CS2100` is taken as the input value.
+  e.g. In `add task T: CS2103T d: Tutorial Week 2 T: CS2100`, there are 2 parameters with the prefix `T:` but only the latter `CS2100` is taken as the input value for `T:`.
 
 </div>
 <p>&nbsp;</p>
@@ -287,9 +288,9 @@ you to manually save the app's data!
 
 There are several panels in our user interface that provides the details of your `TASK`.
 
-- Firstly, the `today's time scale` lists out all of your study sessions, which are `TASK`s, with start time and duration. You can click on your study session on the time scale to view the details on the top right panel.
+- Firstly, the `today's time scale` lists out all of your study sessions happening today, which are `TASK`s, with start time and duration. You can click on your study session on the time scale to view the details on the top right panel.
 - Secondly, the `list panel` located in the bottom right corner of the `SCHEDULE` tab lists all of your `TASK`s, you can scroll down to view the details of your `TASK`s, or take advantage of the search feature to quickly find a specific task (refer to [search task section](#415-search-for-a-task-search-task)).
-- In the following user guide, we use time scale to refer to the middle panel of `SCHEDULE` tab, and uses `TASK` lists to refer to the bottom right panel.
+- In the following user guide, we use `time scale` to refer to the middle panel of `SCHEDULE` tab, and uses `TASK` lists to refer to the bottom right panel.
 
 ![TaskDetailPanels](images/TaskDetailPanels.png)
 
@@ -370,7 +371,7 @@ the `QUIZ` to your schedule.
 
 <div style="page-break-after: always;"></div>
 
-3\. Click on the highlighted `Quiz CS2040` box in the `description` of the `TASK` will redirect you to the `QUIZ` tab and start the `QUIZ` immediately for you.  
+3\. Click on the highlighted `Quiz:  CS2040` box in the `description` of the `TASK` will redirect you to the `QUIZ` tab and start the `QUIZ` immediately for you.  
 
 
 ![addTaskWithQuiz3](images/addTaskWithQuiz3.png)
@@ -419,7 +420,7 @@ Upon deletion of the `TASK`, the saved information of the `TASK` in `schedule.js
 | Format                                          | `delete task <index>`                                                                                                                                                                                                                                                       |
 | ----------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Example                                         | `delete task 2`                                                                                                                                                                                                                                                             |
-| ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#313-list-all-your-tasks-list-task) <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. |
+| ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#413-list-all-your-tasks-list-task). <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. |
 | ![important_icon](images/UG/important_icon.png) | • This action is irreversible. Once you delete a specific `TASK`, the `TASK` and its respective information are removed from the storage file as well.                                                                                                                      |
 
 <br>
@@ -431,7 +432,7 @@ Upon deletion of the `TASK`, the saved information of the `TASK` in `schedule.js
 For example, you just finished the `TASK` at `index` 4 in the `SCHEDULE`, _CS2100 Lab_ and you
 would like to update your `SCHEDULE` by deleting that `TASK`.
 
-1\. Find the `index` of the `TASK` to be deleted with the [list task](#313-list-all-your-tasks-list-task) command.
+1\. Find the `index` of the `TASK` to be deleted with the [list task](#413-list-all-your-tasks-list-task) command.
 
 2\. From the figure below, you can identify the `TASK` to be deleted has an `index` of 4, enter the command `delete task 4`.  
 
@@ -496,8 +497,8 @@ You can edit a `TASK`'s `title`, `description`, `time` and `duration`.
 
 | Format                                          | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]`                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Example                                         | `edit task 1 T: Internship` <br> `edit task 2 d: Pipleline Tutorial homework dur: 60` <br> `edit task 2 d: Pipleline Tutorial homework dur: 60`                                                                                                                                                                                                                                                                                                                                                                                          |
-| ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#313-list-all-your-tasks-list-task) <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. <br> • `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command. <br> • `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format. |
+| Example                                         | `edit task 1 T: Internship` <br> `edit task 2 d: Pipleline Tutorial homework dur: 60`                                                                                                                                                                                                                                                                                                                                                                                           |
+| ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#413-list-all-your-tasks-list-task) <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. <br> • `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command. <br> • `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format. |
 | ![important_icon](images/UG/important_icon.png) | • This action is irreversible. Once you edit a specific `TASK`, the `TASK`'s details are modified in the storage file as well.                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 <div style="page-break-after: always;"></div>
@@ -514,7 +515,7 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 ![editTask1](images/editTask1.jpg)
 
 <div align="center">Figure 4.1.6a: Using <code>edit task</code> command </div>
-
+<br>
 <div style="page-break-after: always;"></div>
 
 3\. After using the `edit task` command, the details of the `TASK` are updated accordingly.
@@ -522,7 +523,7 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 ![editTask2](images/editTask2.jpg)
 
 <div align="center">Figure 4.1.6b: Result of <code>edit task</code> command, the `TASK` at `index` 7 is updated </div>
-
+<br>
 <div style="page-break-after: always;"></div>
 
 ### 4.2. Commands for the `FLASHCARD` page (Teddy)
@@ -629,8 +630,8 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 ![QuizPage](images/QuizPage.png)
 
-<div align="center">Figure 3.3.1: Display of the quiz page </code> command</div>
-
+<div align="center">Figure 4.3.1a: Display of the quiz page </code> command</div>
+<br>
 Already have some `FLASHCARD`s and would like to start a recap session? 
 This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.
 
@@ -643,12 +644,16 @@ You may do so by either:
 | Examples                    | `quiz flset:1`               | `quiz flset:CS2103T`        |
 
 * **Or, through clicking on a scheduled `QUIZ` in the `SCHEDULE`:**<br>
-If you have a `QUIZ` scheduled (see [Adding a `QUIZ` task](#3122-adding-a-quiz-task)), 
+If you have a `QUIZ` scheduled (see [Adding a `QUIZ` task](#4122-adding-a-quiz-task)), 
 you may click on the highlighted `QUIZ` label contained in the description of the `TASK` as shown below.
 
 <p align="center" >
 <img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="300" class="center"/>
 </p>
+
+<div align="center">Figure 4.3.1b: <code>QUIZ</code> scheduled in <code>SCHEDULE</code></div>
+
+<br>
 
 <div style="page-break-after: always;"></div>
 
@@ -659,8 +664,8 @@ you may click on the highlighted `QUIZ` label contained in the description of th
 | ![info_icon](images/UG/info_icon.png)                            | Only general and quiz-mode commands are allowed at designated times, as stated below. |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | At all times in quiz-mode                                        | `exit`, `help`, `cancel`, `refresh`                                                   |
-| Only the question is shown (see **4.2.1.2.**)                    | `flip`, `<ans:answer>`                                                                |
-| Both the question and correct answer is shown (see **4.3.1.3.**) | `c`, `w`                                                                              |
+| Only the question is shown (see [Answering the question](#4312-answering-the-question))                    | `flip`, `<ans:answer>`                                                                |
+| Both the question and correct answer is shown (see [Checking if your answer is correct](#4313-checking-if-your-answer-is-correct)) | `c`, `w`                                                                              |
 
 You may find more information on the respective quiz-mode commands by referring to the steps and descriptions below.
 
@@ -668,8 +673,8 @@ You may find more information on the respective quiz-mode commands by referring 
 
 | Format    | Usages of all-time-available quiz-mode commands                                                                                                                                         |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `refresh` | Shows the current state of the quiz - the question, current answer (if applicable) and prompt instruction, in case you wish to continue with the quiz after entering an invalid command |
-| `cancel`  | Stops the quiz. Your quiz records will not be stored upon quiz cancellation.                                                                                                            |
+| `refresh` | Shows the current state of the quiz - the question, current answer (if applicable) and prompt instruction, in case you wish to continue with the quiz after entering an invalid command.|
+| `cancel`  | Stops the quiz. Your quiz records is not stored upon quiz cancellation.                                                                                                            |
 
 <br>
 <div style="page-break-after: always;"></div>
@@ -729,11 +734,11 @@ The question of the next `FLASHCARD` will be displayed.
 <br>
 
 ##### 4.3.1.4. **Continuing the `QUIZ` cycle**
-Steps 1-3 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` are displayed and answered.
+Steps 4.3.1.1-4.3.1.3 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` are displayed and answered.
 
 Once the quiz stops, the score statistics will be displayed.
-This score can also be viewed when viewing the last attempt of the `FLASHCARDSET`.
-(see [View last quiz attempt: `quiz score flset`](#322-view-last-quiz-attempt-quiz-score-flset))
+You can also view this score by viewing the last attempt of the `FLASHCARDSET`.
+(see [View last quiz attempt: `quiz score flset`](#422-view-last-quiz-attempt-quiz-score-flset))
 
 <p>&nbsp;</p>
 <div style="page-break-after: always;"></div>
@@ -775,8 +780,9 @@ If you are not sure of how a certain command works or what command would suit yo
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | ![tip-icon](images/UG/tip_icon.png) | Alternatively, you can click on the `help` button located at the bottom of the sidebar to open the help window. |
 
-<img src="images/HelpButton.png" alt="HelpButton" width="300" class="center"/>
-
+<p align="center" >
+  <img src="images/HelpButton.png" alt="HelpButton" widtd="300" />
+</p>
 <div align="center">Figure 4.4.1a: <code>help</code> button as shown</div>
 
 <br>
@@ -786,11 +792,12 @@ If you are not sure of how a certain command works or what command would suit yo
 
 The `help` window shows most of the available CLI commands.
 
-- The cyan label is the name of the command
+- The cyan label is the name of the command.
 - The purple label lists all the arguments that you may enter.
 
-<img src="images/HelpWindow.png" alt="HelpWindow" width="600" class="center"/>
-
+<p align="center" >
+  <img src="images/HelpWindow.png" alt="HelpWindow" width="600" />
+</p>
 <div align="center">Figure 4.4.1b: <code>help</code> window as shown</div>
 
 <p>&nbsp;</p>
@@ -819,7 +826,7 @@ If you would like to close the application, this command helps you to quickly cl
 **A**: Yes, StudyBananas is absolutely free to use!
 
 **Q: I have StudyBananas.jar downloaded but cannot start the application. Is there anything I can do?**<br>
-**A**: Yes, open the command prompt on your computer, navigate to the directory in which you have stored studybananas.jar and type java -jar studybananas.jar.
+**A**: Yes, open the command prompt on your computer, navigate to the directory in which you have stored `StudyBananas.jar` and type `java -jar StudyBananas.jar`.
 
 **Q: Is StudyBananas safe to use?**<br>
 **A**: Yes, StudyBananas is safe to use! We regularly review our code to ensure that hackers are unable to exploit the security structure of our software.
@@ -851,46 +858,49 @@ If you would like to close the application, this command helps you to quickly cl
 
 #### Windows
 
-1.  Open command prompt and type java -version. 
+1.  Open command prompt and type `java -version`. 
 
     - If you get the version info, Java is installed correctly and PATH is also set correctly. You can skip the rest.
     
 
-2. Go to start menu -> System -> Advanced -> Environment Variables. Set JAVA_HOME to the path of your JDK, and update the system path. For more details, please refer to this <a href="https://javatutorial.net/set-java-home-windows-10">website</a> 
+2. Go to `start menu` -> `System` -> `Advanced` -> `Environment Variables`. Set `JAVA_HOME` to the path of your `JDK`, and update the system path. For more details, please refer to this <a href="https://javatutorial.net/set-java-home-windows-10">website</a> 
 
-3.  If none of the above work, try to search you file system for javac.exe. If there is no javac.exe, download JDK from <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">Oracle Website for JDK</a> and install.
+3.  If none of the above work, try to search your file system for `javac.exe`. If there is no `javac.exe`, download `JDK` from <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">Oracle Website for JDK</a> and install.
 
 #### Mac
 
-1. Open terminal and type java -version.
+1. Open terminal and type `java -version`.
 
-    - If you get the version info and have made sure that the version 11 or above, your Java is installed correctly. You can skip the rest.
+    - If you get the version info and have made sure that the version is `11` or above, your `Java` is installed correctly. You can skip the rest.
     
-2. Go to the <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the macOS version JDK and install.
+2. Go to <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the macOS version `JDK` and install.
  
 #### Linux
 
 1. Open up your terminal, and type `find / -name "java"`
 
-2. If the path for jdk is shown after the command, type` export JAVA_HOME=/path/to/java/jdk1.x`, otherwise Go to the <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the Lunix version JDK and install.
+2. If the path for `JDK` is shown after the command, type` export JAVA_HOME=/path/to/java/jdk1.x`, otherwise go to <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">the Oracle Website for JDK</a> and download the `JDK` version of Linux and install.
 
 ### Cannot find my data locally
 
-Your schedule, flashcard, and quiz history data will be stored inside the folder named **data** which would reside in the folder where you put your StudyBananas.jar.
+Your `SCHEDULE`, `FLASHCARD`, and `QUIZ` records data are stored inside the folder named **data** which would reside in the folder where you put your `StudyBananas.jar`.
 
-If you still cannot find any default data, make sure you have enter at lease one command in the command box after your first launch, the default data would only be stored after the first command is executed.
+If you still cannot find any default data, make sure you have **enter at least one command** in the command box after your first launch, the default data is only stored after the first command is executed.
 
 ### My data is gone after I manipulate the data in the data folder directly
 
 The data is stored in the format of JSON for StudyBananas. Our development team does not recommend modifying data from the data folder directly, but 
-if after your edit, the data is not shown in your application, it is likely that the format of JSON file is wrong. Please open your storage file in
-text editors that support JSON file static check e.g. Visual Studio, Intellij... and modify your file into valid JSON format with the help of the text editor. 
-After your edit, place the file with correct JSON format back to the **data** folder and make sure the file name is the same as it was. Then, relaunch StudyBananas, you should 
+if after you edit and the data is not shown in your application, it is likely that the format of JSON file is wrong.  
+  
+Please open your storage file in
+text editors that support JSON file static check e.g. `Visual Studio Code`, `IntelliJ` and modify your file into valid JSON format with the help of the text editor.  
+ 
+After editing, place the file with correct JSON format back to the **data** folder and make sure the file name is the same as it was. Then, relaunch StudyBananas, you should 
 be able to see the updated data.
 
 |                                      |                                                                                                                                                                                                                                                  |
 | ----------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![important_icon](images/UG/important_icon.png)                                         | Note that: our application reads the storage files by its **path**, please make sure the storage files are named as **flashcardbank.json**, **quizrecords.json** and **schedule.json**                                                                                                                                                                                                                                                         |
+| ![important_icon](images/UG/important_icon.png)                                         | Our application reads the storage files by its **path**, please make sure the storage files are named as **flashcardbank.json**, **quizrecords.json** and **schedule.json**                                                                                                                                                                                                                                                         |
 
 
 
@@ -913,7 +923,7 @@ StudyBananas.
 Current version of StudyBananas - 1.4 does not support any functionality required 
 internet connection.
 
-Many feedbacks that we have received request for functionality of sharing data in 
+Many feedback that we have received request for the functionality of sharing data in 
 a user's study community. Therefore, our team decides to build a cloud community in 
 the version 2.0 release of StudyBananas, and plans to build the sharing functionality
 as well as other community related functionality afterwards. But take note that our 
@@ -927,7 +937,9 @@ StudyBananas will still be optimized without internet connection.
 Version 1.4 StudyBananas is still under testing phase. Version 1.4 release would serve
 as the public beta testing for StudyBananas. We have done comprehensive amount of unit tests 
 and integration tests on the application, and have put StudyBananas under preliminary alpha 
-testing by some students in NUS SoC. There can still be some unnoticed bugs. If you have spot
+testing by some students in NUS SoC.  
+
+However, there can still be some unnoticed bugs. If you spot
 any bugs or have any suggestions on the application, please go to 
 <a href="https://github.com/AY2021S1-CS2103T-F12-2/tp/issues">our github issue page</a> to 
 issue the bugs and the suggestions. Great appreciation from the development team of StudyBananas.
@@ -964,8 +976,8 @@ This section summarises all available commands in StudyBananas.
 
 | Action                 | Format, Examples                                                                                                                                                                              |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`QUIZ` flset**       | `quiz <flset:setindex>` e.g., `quiz flset:7`. <br> `quiz <flset:setname>` eg., `quiz flset:Japanese`. <br> Available only in **QUIZ Mode**: `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
-| **`QUIZ` score flset** | `quiz score <flset:setindex>` e.g., `quiz score flset:6` <br> `quiz score <flset:setname>` e.g., `quiz score flset:Economics`                                                                 |
+| **`QUIZ` flset**       | `quiz <flset:setindex>`<br> e.g., `quiz flset:7` <br> `quiz <flset:setname>` <br> eg., `quiz flset:Japanese` <br> Available only in **QUIZ Mode**: `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
+| **`QUIZ` score flset** | `quiz score <flset:setindex>` <br> e.g., `quiz score flset:6` <br> `quiz score <flset:setname>` <br> e.g., `quiz score flset:Economics`                                                                 |
 
 <p>&nbsp;</p>
 
@@ -978,10 +990,10 @@ This section summarises all available commands in StudyBananas.
 
 <div style="page-break-after: always;"></div>
 
-## 9.2. Graphical Summary of Navigation Commands (Petrick)
+## 10. Graphical Summary of Navigation Commands (Petrick)
 
 Below is a useful "cheat sheet" to show you how different commands affect the tabs displayed.
 
 ![UICheatSheet](images/UICheatSheet.png)
-<div align="center">Figure 9.1: Navigation "cheat sheet"</div>
+<div align="center">Figure 10: Navigation "cheat sheet"</div>
 

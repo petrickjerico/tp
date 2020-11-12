@@ -118,7 +118,7 @@ when reading this user guide.
 |      ![info_icon](images/UG/info_icon.png)      | A note informs you of specific conditions or behaviours of a feature.                                                                                                                                          |
 | ![important_icon](images/UG/important_icon.png) | Warnings denote extremely important details to take note of. These include irreversible actions, and important instructions that when not followed, may cause StudyBananas to crash or corrupt its data files. |
 
-Table 1. Icons in this User Guide
+<div align="center">Table 1. Icons in this User Guide</div>
 
 <p style="page-break-before: always"></p>
 
@@ -130,7 +130,7 @@ Table 1. Icons in this User Guide
 |        `index`, `name`, `title`, `time`                 | Various arguments that you can include in the command.                  |
 | `QUIZ`, `SCHEDULE`, `FLASHCARD`, `FLASHCARDSET`, `TASK` | Various features that StudyBananas offers.                              |
 
-Table 2. Markdown notations in this User Guide
+<div align="center">Table 2. Markdown notations in this User Guide</div>
 
 ---
 <p style="page-break-before: always"></p>

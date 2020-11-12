@@ -893,9 +893,10 @@ text editors that support JSON file static check e.g. `Visual Studio Code`, `Int
 After editing, place the file with correct JSON format back to the **data** folder and make sure the file name is the same as it was. Then, relaunch StudyBananas, you should 
 be able to see the updated data.
 
-|                                      |                                                                                                                                                                                                                                                  |
-| ----------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![important_icon](images/UG/important_icon.png)                                         | Our application reads the storage files by its **path**, please make sure the storage files are named as **flashcardbank.json**, **quizrecords.json** and **schedule.json**                                                                                                                                                                                                                                                         |
+
+| | | |
+|-|-|-|
+| ![important_icon](images/UG/important_icon.png)  | Our application reads the storage files by its **path**, please make sure the storage files are named as **flashcardbank.json**, **quizrecords.json** and **schedule.json** |
 
 
 

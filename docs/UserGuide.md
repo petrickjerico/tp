@@ -133,7 +133,7 @@ when reading this user guide.
 |      ![info_icon](images/UG/info_icon.png)      | A note informs you of specific conditions or behaviours of a feature.                                                                                                                                          |
 | ![important_icon](images/UG/important_icon.png) | Warnings denote extremely important details to take note of. These include irreversible actions, and important instructions that when not followed, may cause StudyBananas to crash or corrupt its data files. |
 
-Table 1. Icons in this User Guide
+<div align="center">Table 1. Icons in this User Guide</div>
 
 <p style="page-break-before: always"></p>
 
@@ -145,7 +145,7 @@ Table 1. Icons in this User Guide
 |        `index`, `name`, `title`, `time`                 | Various arguments that you can include in the command.                  |
 | `QUIZ`, `SCHEDULE`, `FLASHCARD`, `FLASHCARDSET`, `TASK` | Various features that StudyBananas offers.                              |
 
-Table 2. Markdown notations in this User Guide
+<div align="center">Table 2. Markdown notations in this User Guide</div>
 
 ---
 <p style="page-break-before: always"></p>
@@ -161,6 +161,8 @@ Table 2. Markdown notations in this User Guide
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    
    ![Ui](images/Ui.png)
+
+<div style="page-break-after: always;"></div>
 
 5. Type the command in the command box and press `Enter` to execute it.
    Some example commands you can try:
@@ -304,7 +306,7 @@ You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:setinde
 | Format                                | `add task <T:title> [d:description] [t:time] [dur: duration]`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Example                               | `add task T: CS2100 d: Pipeline tutorial dur: 45` <br> `add task T: CS2103T d: iP submission t: 2020-09-17 23:59` <br> `add task T: CS2105 d: quiz flset:2 t: Saturday, Oct 31 2020 13:00 dur: 120`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ![info_icon](images/UG/info_icon.png) | • `title` and `description` can accept strings (no special character) that are capitalized or separated with spaces. <br> • The hours and minutes in `time` are optional. If you do not specify it, StudyBananas will set the time to 12:00 by default. <br> • `time` should be written in one of the following formats: <br> <p>&nbsp;&nbsp;&nbsp;&nbsp;• `yyyy-MM-dd [HH:mm]` (24-hour format, e.g. 23:00)</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;• `EEEE, [MMM-dd-yyyy] [HH:mm]` (24-hour format, e.g. 23:00) </p> <p>&nbsp;&nbsp;&nbsp;&nbsp;• `Today` or `Tomorrow [HH:mm]` (24-hour format, e.g. 23:00) </p> • `duration` has to be a positive integer in minute and its value has to be less than _1440_ (number of minutes in a day). <br>• You cannot add a `TASK` such that it results in a duplicated `TASK`, which are `TASK`s having the same title, description, time and duration. <br> • You cannot add a `TASK` such that its time range overlaps with the time range of existing `TASK`s in the `SCHEDULE`. |
+| ![info_icon](images/UG/info_icon.png) | • `title` and `description` can accept strings (no special character) that are capitalized or separated with spaces. <br> • The hours and minutes in `time` are optional. If you do not specify it, StudyBananas will set the time to 12:00 by default. <br> • `time` should be written in one of the following formats: <br> &nbsp;&nbsp;&nbsp;&nbsp;• `yyyy-MM-dd [HH:mm]` (24-hour format, e.g. 23:00) <br> &nbsp;&nbsp;&nbsp;&nbsp;• `EEEE, [MMM-dd-yyyy] [HH:mm]` (24-hour format, e.g. 23:00) <br> &nbsp;&nbsp;&nbsp;&nbsp;• `Today` or `Tomorrow [HH:mm]` (24-hour format, e.g. 23:00) <br> • `duration` has to be a positive integer in minute and its value has to be less than _1440_ (number of minutes in a day). <br>• You cannot add a `TASK` such that it results in a duplicated `TASK`, which are `TASK`s having the same title, description, time and duration. <br> • You cannot add a `TASK` such that its time range overlaps with the time range of existing `TASK`s in the `SCHEDULE`. |
 
 <br>
 
@@ -401,6 +403,8 @@ If you would like to view your full `SCHEDULE`, this command displays the full `
 <div align="center">Figure 4.1.3b: Result of <code>list task</code> command</div>
 
 <p>&nbsp;</p>
+
+<div style="page-break-after: always;"></div>
 
 #### 4.1.4. **Delete a `TASK`**: `delete task`
 
@@ -627,6 +631,8 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 Already have some `FLASHCARD`s and would like to start a recap session? 
 This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your choice.  
 
+<div style="page-break-after: always;"></div>
+
 There are two ways to launch a `QUIZ` in StudyBananas. 
 You may do so by either:
 * **Entering commands into the command box:**
@@ -701,6 +707,8 @@ the correct answer will be displayed,
 and you will be prompted to enter the next available commands, `c`, `w`, `refresh` or `cancel`,
 as shown below.
 
+<div style="page-break-after: always;"></div>
+
 **Expected Outcome:**
 
 Take note that the question and answer panels are scrollable when they get too long!
@@ -730,7 +738,7 @@ Steps 4.3.1.1-4.3.1.3 are repeated until all `FLASHCARD`s in the `FLASHCARDSET` 
 
 Once the quiz stops, the score statistics will be displayed.
 You can also view this score by viewing the last attempt of the `FLASHCARDSET`.
-(see [View last quiz attempt: `quiz score flset`](#422-view-last-quiz-attempt-quiz-score-flset))
+(see [View last quiz attempt: `quiz score flset`](#432-view-last-quiz-attempt-quiz-score-flset))
 
 <p>&nbsp;</p>
 <p style="page-break-before: always"></p>
@@ -955,6 +963,8 @@ This section summarises all available commands in StudyBananas.
 | **Delete `TASK`**       | `delete task <index>` <br> e.g., `delete task 6`                                                                                 |
 | **Search for `TASK`s**  | `search task <keywords>` <br> e.g., `search task CS2103T deadlines`                                                              |
 | **Edit `TASK`**         | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]` <br> e.g. `edit task 1 d: Debug remaining errors dur: 60`  |
+
+<div style="page-break-after: always;"></div>
 
 ### `FLASHCARD` commands (Teddy)
 

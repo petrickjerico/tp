@@ -21,7 +21,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 <div style="page-break-after: always;"></div>
 
 <div class="section">
-  <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px;"/>
+  <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px; margin-top: 20px;"/>
   <h1>Manage your study plans</h1>
   <p>Manage all of your study tasks in StudyBananas. Then, start to prepare yourself for the upcoming exams!</p>
   <a href="#41-commands-for-the-schedule-page-binh-except-411">How to manage tasks in StudyBananas schedule</a>
@@ -30,7 +30,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 ---
 
 <div class="section">
-  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 0px;"/>
+  <img src="images/Flashcards.png" alt="flashcard-pic" width="370" style="float: right; margin-left: 0px; margin-top: 20px;"/>
   <div class="sub-section">
   <h1>Create your own notes with flashcards</h1>
   <p>Take note with the flashcards, and organize notes using flashcard sets!</p>
@@ -39,9 +39,10 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 </div>
 
 ---
+<div style="page-break-after: always;"></div>
 
-<div class="section" markdown="1">
-  <img src="images/Quiz.png" alt="quiz-pic" width="370" style="float: left; margin-right: 30px;">
+<div class="section">
+  <img src="images/Quiz.png" alt="quiz-pic" width="370" style="float: left; margin-right: 30px; margin-top: 20px;">
   <h1>Quiz yourself by flashcards</h1>
   <p>Prepare your exams by quizzing yourself the flashcard notes that you have taken!</p>
   <a href="#43-commands-for-the-quiz-page-bowei">How to start a flashcard quiz</a>

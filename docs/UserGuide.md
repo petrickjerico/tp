@@ -610,7 +610,7 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 ![QuizPage](images/QuizPage.png)
 
-<div align="center">Figure 4.3.1a: Display of the quiz page </code> command</div>
+<div align="center">Figure 4.3.1a: Display of the <code>QUIZ</code> page</div>
 <br>
 
 Already have some `FLASHCARD`s and would like to start a recap session? 

@@ -18,7 +18,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 <div class="section">
   <img src="images/Schedule.png" alt="schedule-pic" width="370" style="float: left; margin-right: 30px; margin-top: 20px;"/>
@@ -39,7 +39,6 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 </div>
 
 ---
-<div style="page-break-after: always;"></div>
 
 <div class="section">
   <img src="images/Quiz.png" alt="quiz-pic" width="370" style="float: left; margin-right: 30px; margin-top: 20px;">
@@ -49,7 +48,9 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 </div>
 
 ---
-<div style="page-break-after: always;"></div>
+This part above is contributed by Eddy.
+
+<p style="page-break-before: always"></p>
 
 <h1 align="center">Table of Contents</h1>
 <!-- TOC -->
@@ -113,7 +114,7 @@ Welcome to <i>StudyBananas User Guide</i>! Choose a topic from the list below or
 
 <!-- /TOC -->
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ## 1. Introduction (Binh)
 
@@ -145,7 +146,7 @@ when reading this user guide.
 
 Table 1. Icons in this User Guide
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 #### 1.1.2 Markdown notations
 
@@ -158,7 +159,7 @@ Table 1. Icons in this User Guide
 Table 2. Markdown notations in this User Guide
 
 ---
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ## 2. Quick start (Eddy)
 
@@ -189,7 +190,7 @@ Table 2. Markdown notations in this User Guide
 
 ---
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ## 3. Features (Petrick)
 This section describes the various features available in StudyBananas. These include front-end features that you can interact with, such as the `SCHEDULE` page, as well as back-end features such as the auto-saving of data.
@@ -222,7 +223,7 @@ learning into one place, without ever needing to open multiple files for revisio
 There are also no limit to how much `FLASHCARD` sets you can make, and same goes to the amount of `FLASHCARD`s in a `FLASHCARDSET`. 
 (Just like how there is no limit to learning!)
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ### 3.4. `QUIZ`
 Learning is not effective if you only read materials, but never exercise your memory for it. The `QUIZ` feature helps 
@@ -256,7 +257,7 @@ you to manually save the app's data!
 <br>
 
 ---
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ## 4. Usage of Command
 
@@ -281,7 +282,7 @@ you to manually save the app's data!
 <p>&nbsp;</p>
 
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ### 4.1. Commands for the `SCHEDULE` page (Binh except 4.1.1)
 
@@ -298,7 +299,7 @@ There are several panels in our user interface that provides the details of your
 <div align="center">Figure 4.1.1: Annotated view of the Task Detail Panel</div>    
 <br>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 #### 4.1.2. **Add a `TASK`**: `add task`
 
@@ -316,7 +317,7 @@ You can also add a `QUIZ` as a valid `TASK` by entering the `quiz <flset:setinde
 
 <br>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ##### 4.1.2.1. Adding a normal `TASK`
 
@@ -333,7 +334,7 @@ to your `SCHEDULE`.
 <div align="center">Figure 4.1.2.1a: Using <code>add task</code> command</div>  
 <br>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 2\. After using the `add task` command, the new `TASK` will be added to the end of your `SCHEDULE` by default.
 
@@ -343,7 +344,7 @@ to your `SCHEDULE`.
 <br>
 &nbsp;
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ##### 4.1.2.2. Adding a `QUIZ` `TASK`
 
@@ -359,7 +360,7 @@ the `QUIZ` to your schedule.
 <div align="center">Figure 4.1.2.2a: Using <code>add task</code> command integrate with <code>QUIZ</code></div>  
 <br>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 2\. After using the `add task` command, the new `TASK` of doing the `QUIZ` will be added to the end of your `SCHEDULE`.
 
@@ -368,7 +369,7 @@ the `QUIZ` to your schedule.
 <div align="center">Figure 4.1.2.2b: Result of <code>add task</code> command integrating with <code>QUIZ</code></div>    
 <br>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 3\. Click on the highlighted `Quiz:  CS2040` box in the `description` of the `TASK` will redirect you to the `QUIZ` tab and start the `QUIZ` immediately for you.  
 
@@ -379,7 +380,7 @@ the `QUIZ` to your schedule.
 
 <p>&nbsp;</p>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 #### 4.1.3. **List all your `TASK`s**: `list task`
 
@@ -400,7 +401,7 @@ If you would like to view your full `SCHEDULE`, this command displays the full `
 <div align="center">Figure 4.1.3a: Using <code>list task</code> command on <code>SCHEDULE</code> tab</div>    
 <br>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 2\. After using the `list task` command, you can see the full `SCHEDULE`.
 
@@ -424,7 +425,7 @@ Upon deletion of the `TASK`, the saved information of the `TASK` in `schedule.js
 
 <br>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 **Expected Outcome**:
 
@@ -440,7 +441,7 @@ would like to update your `SCHEDULE` by deleting that `TASK`.
 <div align="center">Figure 4.1.4a: Using <code>delete task</code> command</div>  
 <br>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 3\. After using the `delete task` command, the specified `TASK` is removed from your `SCHEDULE`.  
 
@@ -462,7 +463,7 @@ contains _any_ of the given **keyword(s)** or its `description` and `time` conta
 
 <br>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 **Expected Outcome**:
 
@@ -476,7 +477,7 @@ searches for all `TASK`s containing _Lab 8_ in their `title`, `description` and 
 <div align="center">Figure 4.1.5a: Using <code>search task</code> command  </div>
 <br>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 2\. After using the `search task` command, StudyBananas displays all the `TASK`s with the
 specified **keyword**.  
@@ -486,7 +487,7 @@ specified **keyword**.
 <div align="center">Figure 4.1.5b: Result of <code>search task</code> command </div>
 
 <p>&nbsp;</p>
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 #### 4.1.6. Edit a `TASK`: `edit task`
 
@@ -500,7 +501,7 @@ You can edit a `TASK`'s `title`, `description`, `time` and `duration`.
 | ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#413-list-all-your-tasks-list-task) <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. <br> • `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command. <br> • `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format. |
 | ![important_icon](images/UG/important_icon.png) | • This action is irreversible. Once you edit a specific `TASK`, the `TASK`'s details are modified in the storage file as well.                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 **Expected Outcome**:
 
@@ -515,7 +516,7 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 
 <div align="center">Figure 4.1.6a: Using <code>edit task</code> command </div>
 <br>
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 3\. After using the `edit task` command, the details of the `TASK` are updated accordingly.
 
@@ -523,7 +524,7 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 
 <div align="center">Figure 4.1.6b: Result of <code>edit task</code> command, the `TASK` at `index` 7 is updated </div>
 <br>
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ### 4.2. Commands for the `FLASHCARD` page (Teddy)
 
@@ -544,7 +545,7 @@ If you would like to create a new `FLASHCARDSET`, this commands allows you to cr
 
 <div align="center">Figure 4.2.1: Result of <code>add flset name:Japanese</code> command</div>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 #### 4.2.2. **Delete a `FLASHCARDSET`**: `delete flset`
 
@@ -564,7 +565,7 @@ If you would like to delete an existing `FLASHCARDSET`, this commands allows you
 
 <div align="center">Figure 4.2.2: Result of <code>delete flset 3</code> command</div>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 #### 4.2.3. **List `FLASHCARD`s in a `FLASHCARDSET`**: `list fl`
 
@@ -583,7 +584,7 @@ This command allows you to view the detailed list of `FLASHCARD` in a specified 
 
 <div align="center">Figure 4.2.3: Result of <code>list fl 1</code> command</div>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 #### 4.2.4. **Add a `FLASHCARD` into a `FLASHCARDSET`**: `add fl`
 
@@ -601,7 +602,7 @@ This command allows you to add a single `FLASHCARD` consisting of a question and
 
 <div align="center">Figure 4.2.4: Result of <code>add fl flset:3 q:Konnichiwa a:Hello</code> command</div>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 #### 4.2.5. **Delete a `FLASHCARD` in a `FLASHCARDSET`**: `delete fl`
 
@@ -621,7 +622,7 @@ This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARD
 
 <div align="center">Figure 4.2.5: Result of <code>delete fl flset:3 fl:1</code> command</div>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ### 4.3. Commands for the `QUIZ` page (Bowei)
 
@@ -655,7 +656,7 @@ you may click on the highlighted `QUIZ` label contained in the description of th
 
 <br>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 <div markdown="block" class="alert alert-info">
 
@@ -677,7 +678,7 @@ You may find more information on the respective quiz-mode commands by referring 
 | `cancel`  | Stops the quiz. Your quiz records is not stored upon quiz cancellation.                                                                                                            |
 
 <br>
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ##### 4.3.1.1. **Getting the question**
 When the `QUIZ` launches, as seen below, you will see the question
@@ -692,7 +693,7 @@ as well as an instruction prompt to type in the next available commands,
 <div align="center">Figure 4.3.1.1: Result of <code> quiz flset:CS2103T</code> command</div>
 
 <br>
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ##### 4.3.1.2. **Answering the question**
 If you would like to see your answer directly, enter `flip`. 
@@ -718,7 +719,7 @@ Take note that the question and answer panels are scrollable when they get too l
 <div align="center">Figure 4.3.1.2: Result of <code>ans:improves code quality and reduces bugs</code> command</div>
 
 <br>
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ##### 4.3.1.3. **Checking if your answer is correct**
 Based on the correct answer, you may evaluate your own answer.
@@ -741,7 +742,7 @@ You can also view this score by viewing the last attempt of the `FLASHCARDSET`.
 (see [View last quiz attempt: `quiz score flset`](#422-view-last-quiz-attempt-quiz-score-flset))
 
 <p>&nbsp;</p>
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 #### 4.3.2. **View last `QUIZ` attempt**: `quiz score flset`
 
@@ -768,7 +769,7 @@ Take note that the score panel is scrollable when it gets too long!
 <div align="center">Figure 4.2.2: Result of <code>quiz score flset:CS2103T</code> command</div>
 
 <p>&nbsp;</p>
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ### 4.4. General Commands (Binh)
 
@@ -786,7 +787,7 @@ If you are not sure of how a certain command works or what command would suit yo
 <div align="center">Figure 4.4.1a: <code>help</code> button as shown</div>
 
 <br>
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 **Expected Outcome:**
 
@@ -801,7 +802,7 @@ The `help` window shows most of the available CLI commands.
 <div align="center">Figure 4.4.1b: <code>help</code> window as shown</div>
 
 <p>&nbsp;</p>
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 #### 4.4.2. **Exit program**: `exit`
 
@@ -819,7 +820,7 @@ If you would like to close the application, this command helps you to quickly cl
 <p>&nbsp;</p>
 
 ---
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ## 5. FAQ (Teddy)
 
@@ -849,7 +850,7 @@ If you would like to close the application, this command helps you to quickly cl
 
 <p>&nbsp;</p>
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ## 6. Trouble Shooting (Eddy)
 
@@ -905,7 +906,7 @@ be able to see the updated data.
 
 
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ## 7. Community and security (Eddy)
 
@@ -945,7 +946,7 @@ any bugs or have any suggestions on the application, please go to
 <a href="https://github.com/AY2021S1-CS2103T-F12-2/tp/issues">our GitHub issue page</a> to 
 issue the bugs and the suggestions. Great appreciation from the development team of StudyBananas.
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ## 9. Summary
 This section summarises all available commands in StudyBananas. 
@@ -971,7 +972,7 @@ This section summarises all available commands in StudyBananas.
 | **Add `FLASHCARD` in a specified set**  | `add fl <flset:setindex> <q:question> <a:answer>` <br> e.g., `add fl flset:2 q:Is earth flat? a:Maybe!` |
 | **Delete `FLASHCARD` in specified set** | `delete fl <flset:setindex> <fl:index>` <br> e.g., `delete fl flset:1 fl:1`                             |
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ### `QUIZ` commands (Bowei)
 
@@ -987,7 +988,7 @@ This section summarises all available commands in StudyBananas.
 | **View all available commands** | `help`           |
 | **Exit program**                | `exit`           |
 
-<div style="page-break-after: always;"></div>
+<p style="page-break-before: always"></p>
 
 ## 10. Graphical Summary of Navigation Commands (Petrick)
 

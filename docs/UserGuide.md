@@ -149,7 +149,7 @@ when reading this user guide.
 
 <div style="page-break-after: always;"></div>
 
-5. Type the command in the command box and press `Enter` to execute it.
+5\. Type the command in the command box and press `Enter` to execute it.
    Some example commands you can try:
 
    - `list task` : Lists all `TASK`
@@ -164,7 +164,7 @@ when reading this user guide.
    
 <div style="height:30px;"></div>
 
-6. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
+6\. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
 
 ---
 <p style="page-break-before: always"></p>

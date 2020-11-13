@@ -195,8 +195,8 @@ Note: The time scale only shows the **TASK** happening today in the current disp
 [search for **TASK**](#415-search-for-a-task-search-task), which changes the displayed `task list`, your 
 `time scale` changes accordingly.
 
-### 3.3. **FLASHCARD**
-StudyBananas is about learning effectively, so it comes with a `FLASCHCARD` feature that helps you consolidate your 
+### 3.3. FLASHCARD
+StudyBananas is about learning effectively, so it comes with a **FLASCHCARD** feature that helps you consolidate your 
 learning into one place, without ever needing to open multiple files for revision. 
 
 There are also no limit to how much **FLASHCARD** sets you can make, and same goes to the amount of **FLASHCARD** in a **FLASHCARDSET**. 
@@ -204,7 +204,7 @@ There are also no limit to how much **FLASHCARD** sets you can make, and same go
 
 <p style="page-break-before: always"></p>
 
-### 3.4. **QUIZ**
+### 3.4. QUIZ
 Learning is not effective if you only read materials, but never exercise your memory for it. The **QUIZ** feature helps 
 you to practice active recalling that will solidify all your learning points.
 
@@ -222,7 +222,7 @@ Either you are a fast typist or someone who is faster using the mouse cursor, we
 See how you can navigate yourself using either keyboard or mouse by clicking [here](#10-graphical-summary-of-navigation-commands-petrick).
 
 ### 3.6. Auto-save
-In StudyBananas, all **TASK**, **FLASHCARD** and QUIZ attempts you create will generate a JSON file named after the respective feature. These files can be found in the data folder, under the directory that you have previously stored the StudyBananas JAR file in. This folder stores all your study-related data created using StudyBananas.
+In StudyBananas, all **TASK**, **FLASHCARD** and **QUIZ** attempts you create will generate a JSON file named after the respective feature. These files can be found in the data folder, under the directory that you have previously stored the StudyBananas JAR file in. This folder stores all your study-related data created using StudyBananas.
 
 <p align="center" >
   <img src="images/StorageJSON.png" alt="StorageJSON" />
@@ -230,7 +230,7 @@ In StudyBananas, all **TASK**, **FLASHCARD** and QUIZ attempts you create will 
 <div align="center">Figure 3.6: Location of StudyBananas JSON files</div>
 <br>
 
-All **TASK**, **FLASHCARD** and QUIZ attempts created will be automatically saved, so there is no need for 
+All **TASK**, **FLASHCARD** and **QUIZ** attempts created will be automatically saved, so there is no need for 
 you to manually save the app's data!
 
 <br>
@@ -343,7 +343,7 @@ the **QUIZ** to your **SCHEDULE**.
 
 ![addTaskWithQuiz1](images/addTaskWithQuiz1.png)
 
-<div align="center">Figure 4.1.2.2a: Using <code>add task</code> command integrating with <code>**QUIZ**</code></div>  
+<div align="center">Figure 4.1.2.2a: Using <code>add task</code> command integrating with <b>QUIZ</b></div>  
 <br>
 
 <p style="page-break-before: always"></p>
@@ -352,7 +352,7 @@ the **QUIZ** to your **SCHEDULE**.
 
 ![addTaskWithQuiz2](images/addTaskWithQuiz2.png)
 
-<div align="center">Figure 4.1.2.2b: Result of <code>add task</code> command integrating with <code>**QUIZ**</code></div>    
+<div align="center">Figure 4.1.2.2b: Result of <code>add task</code> command integrating with <b>QUIZ</b></div>    
 <br>
 
 <p style="page-break-before: always"></p>
@@ -384,7 +384,7 @@ If you would like to view your full **SCHEDULE**, this command displays the full
 
 ![listTask1](images/listTask1.png)
 
-<div align="center">Figure 4.1.3a: Using <code>list task</code> command on <code>**SCHEDULE**</code> tab</div>    
+<div align="center">Figure 4.1.3a: Using <code>list task</code> command on <b>SCHEDULE</b> tab</div>    
 <br>
 
 <p style="page-break-before: always"></p>
@@ -510,7 +510,7 @@ the index of `7` in the **SCHEDULE**. Later on, you want to edit the `time` to 1
 
 ![editTask2](images/editTask2.jpg)
 
-<div align="center">Figure 4.1.6b: Result of <code>edit task</code> command, the <code>**TASK**</code> at <code>index</code> 7 is updated </div>
+<div align="center">Figure 4.1.6b: Result of <code>edit task</code> command, the <b>TASK</b> at <code>index</code> 7 is updated </div>
 <br>
 <p style="page-break-before: always"></p>
 
@@ -627,7 +627,7 @@ This command allows you to delete a single **FLASHCARD** in a specified **FLASHC
 
 ![QuizPage](images/QuizPage.png)
 
-<div align="center">Figure 4.3.1a: Display of the <code>**QUIZ**</code> page</div>
+<div align="center">Figure 4.3.1a: Display of the <b>QUIZ</b> page</div>
 <br>
 
 Already have some **FLASHCARD** and would like to start a recap session? 
@@ -651,7 +651,7 @@ you may click on the highlighted **QUIZ** label contained in the description of 
 <img src="images/TaskQuizLabel.png" alt="TaskQuizLabel" width="300" class="center"/>
 </p>
 
-<div align="center">Figure 4.3.1b: <code>**QUIZ**</code> scheduled in <code>**SCHEDULE**</code></div>
+<div align="center">Figure 4.3.1b: <b>QUIZ</b> scheduled in <b>SCHEDULE</b></div>
 
 <br>
 

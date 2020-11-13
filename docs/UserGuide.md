@@ -75,6 +75,7 @@ This part above is contributed by Eddy.
   - [Cannot launch the application](#cannot-launch-the-application)
   - [Cannot find my data locally](#cannot-find-my-data-locally)
   - [My data is gone after I manipulate the data in the data folder directly](#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly)
+<p style="page-break-before: always"></p>
 - [**7. Community and security (Eddy)**](#7-community-and-security-eddy)
   - [User data](#user-data)
   - [Study community](#study-community)

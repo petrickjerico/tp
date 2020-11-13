@@ -1001,7 +1001,7 @@ This section summarises all available commands in StudyBananas.
 Below is a useful "cheat sheet" to show you how different commands affect the tabs displayed.
 
 <p align="center" >
-  <img src="images/UICheatSheet.png" alt="UICheatSheet" width="1000" class="center"/>
+  <img src="images/UiCheatSheet.png" alt="UiCheatSheet" width="1000" class="center"/>
 </p>
 <div align="center">Figure 10: Navigation "cheat sheet"</div>
 

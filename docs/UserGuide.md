@@ -75,7 +75,6 @@ This part above is contributed by Eddy.
   - [Cannot launch the application](#cannot-launch-the-application)
   - [Cannot find my data locally](#cannot-find-my-data-locally)
   - [My data is gone after I manipulate the data in the data folder directly](#my-data-is-gone-after-i-manipulate-the-data-in-the-data-folder-directly)
-<p style="page-break-before: always"></p>
 - [**7. Community and security (Eddy)**](#7-community-and-security-eddy)
   - [User data](#user-data)
   - [Study community](#study-community)
@@ -521,6 +520,8 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 [4.2.3. List flashcard in a flashcardset](#423-list-flashcard-in-a-flashcardset-list-fl) <br>
 [4.2.4. Add a flashcard into a flashcardset](#424-add-a-flashcard-into-a-flashcardset-add-fl) <br>
 [4.2.5. Delete a flashcard in a flashcardset](#425-delete-a-flashcard-in-a-flashcardset-delete-fl) <br>
+
+<p style="page-break-before: always"></p>
 
 #### 4.2.1. Add a `FLASHCARDSET`: `add flset`
 

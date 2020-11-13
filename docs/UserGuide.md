@@ -986,10 +986,10 @@ This section summarises all available commands in StudyBananas.
 
 ### `QUIZ` commands (Bowei)
 
-| Action                 | Format & Examples                                                                                                                                                                              |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`QUIZ` flset**       | `quiz <flset:setindex>`<br> e.g., `quiz flset:7` <br> `quiz <flset:setname>` <br> eg., `quiz flset:Japanese` <br> <br> Available only in **`QUIZ` Mode**: <br> `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
-| **`QUIZ` score flset** | `quiz score <flset:setindex>` <br> e.g., `quiz score flset:6` <br> `quiz score <flset:setname>` <br> e.g., `quiz score flset:Economics`                                                                 |
+| Action                               | Format & Examples                                                                                                                                                                                                    |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`QUIZ` of a `FLASHCARDSET`**       | `quiz <flset:setindex>`<br> e.g., `quiz flset:7` <br> `quiz <flset:setname>` <br> eg., `quiz flset:Japanese` <br> <br> Available only in **`QUIZ` Mode**: <br> `flip`, `<ans:answer>`, `c`, `w`, `cancel`, `refresh` |
+| **View last `QUIZ` attempt**         | `quiz score <flset:setindex>` <br> e.g., `quiz score flset:6` <br> `quiz score <flset:setname>` <br> e.g., `quiz score flset:Economics`                                                                              |
 
 ### General commands
 

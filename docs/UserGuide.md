@@ -521,6 +521,8 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 [4.2.4. Add a flashcard into a flashcardset](#424-add-a-flashcard-into-a-flashcardset-add-fl) <br>
 [4.2.5. Delete a flashcard in a flashcardset](#425-delete-a-flashcard-in-a-flashcardset-delete-fl) <br>
 
+<p style="page-break-before: always"></p>
+
 #### 4.2.1. Add a `FLASHCARDSET`: `add flset`
 
 If you would like to create a new `FLASHCARDSET`, this commands allows you to create a new `FLASHCARDSET` with a custom name to store and categorize your `FLASHCARD`.

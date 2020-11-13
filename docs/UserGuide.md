@@ -635,14 +635,14 @@ This command helps you start a `QUIZ` with a non-empty `FLASHCARDSET` of your ch
 <div style="page-break-after: always;"></div>
 
 There are two ways to launch a `QUIZ` in StudyBananas. 
-You may do so by either:
-* **Entering commands into the command box:**
+You may do so by:
+* **Either: Entering commands into the command box:**
 
 | Accepted Formats            | **`quiz <flset:setindex>`**  | **`quiz <flset:setname>`**  |
 | --------------------------- | ---------------------------- | --------------------------- |
 | Examples                    | `quiz flset:1`               | `quiz flset:CS2103T`        |
 
-* **Or, through clicking on a scheduled `QUIZ` in the `SCHEDULE`:**<br>
+* **Or: Through clicking on a scheduled `QUIZ` in the `SCHEDULE`:**<br>
 If you have a `QUIZ` scheduled (see [Adding a `QUIZ` task](#4122-adding-a-quiz-task)), 
 you may click on the highlighted `QUIZ` label contained in the description of the `TASK` as shown below.
 

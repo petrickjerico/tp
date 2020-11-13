@@ -167,7 +167,6 @@ when reading this user guide.
 6\. Refer to the [Usage of Command](#4-usage-of-command) below for details of each command.
 
 ---
-
 <p style="page-break-before: always"></p>
 
 ## 3. Features (Petrick)
@@ -787,7 +786,7 @@ If you are not sure of how a certain command works or what command would suit yo
 | ![tip-icon](images/UG/tip_icon.png) | Alternatively, you can click on the `help` button located at the bottom of the sidebar to open the help window. |
 
 <p align="center" >
-  <img src="images/HelpButton.png" alt="HelpButton" height="400" width="300" />
+  <img src="images/HelpButton.png" alt="HelpButton" width="300" />
 </p>
 <div align="center">Figure 4.4.1a: <code>help</code> button as shown</div>
 
@@ -818,7 +817,7 @@ If you would like to close the application, this command helps you to quickly cl
 | ![tip-icon](images/UG/tip_icon.png) | Alternatively, you can click on the `exit` button located at the bottom of the sidebar to open the help window. |
 
 <p align="center" >
-  <img src="images/UG/ExitButton.png" alt="ExitButton" height="400" width="300" />
+  <img src="images/UG/ExitButton.png" alt="ExitButton" width="300" />
 </p>
 <div align="center">Figure 4.4.2: <code>exit</code> button as shown</div>
 

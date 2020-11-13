@@ -767,7 +767,7 @@ Take note that the score panel is scrollable when it gets too long!
 
 ![ViewScore](images/ViewScore.png)
 
-<div align="center">Figure 4.2.2: Result of <code>quiz score flset:CS2103T</code> command</div>
+<div align="center">Figure 4.3.2: Result of <code>quiz score flset:CS2103T</code> command</div>
 
 <p>&nbsp;</p>
 <p style="page-break-before: always"></p>

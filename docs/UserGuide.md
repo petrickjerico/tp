@@ -233,7 +233,7 @@ You can operate StudyBananas in two ways: using the Command Line Interface (CLI)
 or using the Graphical User Interface (GUI) if you feel using the mouse is faster for you!
 
 Either you are a fast typist or someone who is faster using the mouse cursor, we ensure that StudyBananas work efficiently according to your preferences, so time is spent just on studying.
-See how you can navigate yourself using either keyboard or mouse by clicking [here](#92-graphical-summary-of-navigation-commands-petrick).
+See how you can navigate yourself using either keyboard or mouse by clicking [here](#10-graphical-summary-of-navigation-commands-petrick).
 
 ### 3.6. Auto-save
 In StudyBananas, all `TASK`s, `FLASHCARD`s and `QUIZ` attempts you create will generate a JSON file named after the respective feature. These files can be found in the data folder, under the directory that you have previously stored the StudyBananas JAR file in. This folder stores all your study-related data created using StudyBananas.

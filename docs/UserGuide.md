@@ -57,6 +57,8 @@ This part above is contributed by Eddy.
 
 - [**1. Introduction (Binh)**](#1-introduction-binh)
   - [1.1 Reading this User Guide](#11-reading-this-user-guide)
+    - [1.1.1. Icons and Meaning](#111-icons-and-meaning)
+    - [1.1.2. Markdown notations](#112-markdown-notations)
 - [**2. Quick start (Eddy)**](#2-quick-start-eddy)
 - [**3. Features (Petrick)**](#3-features-petrick)
   - [3.1. Task list in schedule](#31-task-list-in-schedule)
@@ -81,7 +83,7 @@ This part above is contributed by Eddy.
     - [4.2.5. Delete a flashcard in a flashcardset](#425-delete-a-flashcard-in-a-flashcardset-delete-fl)
   - [4.3. Commands for the quiz page (Bowei)](#43-commands-for-the-quiz-page-bowei)
     - [4.3.1. Quiz of a flashcardset](#431-quiz-of-a-flashcardset-quiz-flset)
-    - [4.2.2. View last quiz attempt](#422-view-last-quiz-attempt-quiz-score-flset)
+    - [4.3.2. View last quiz attempt](#432-view-last-quiz-attempt-quiz-score-flset)
   - [4.4. General Commands (Binh)](#44-general-commands-binh)
     - [4.4.1. View all the available commands](#441-view-all-the-available-commands-help)
     - [4.4.2. Exit program](#442-exit-program-exit)
@@ -209,7 +211,7 @@ Note: The time scale only shows the `TASK` happening today in the current displa
 [search for `TASK`s](#415-search-for-a-task-search-task), which changes the displayed `task list`, your 
 `time scale` changes accordingly.
 
-### 3.3. `FLASHCARDS`
+### 3.3. `FLASHCARD`
 StudyBananas is about learning effectively, so it comes with a `FLASCHCARD` feature that helps you consolidate your 
 learning into one place, without ever needing to open multiple files for revision. 
 
@@ -269,7 +271,7 @@ you to manually save the app's data!
   e.g. If the command specifies `<flset:setindex> <q:question> <a:answer>`, `<a:answer> <q:question> <flset:setindex>` is also acceptable.
 
 - The same prefix-parameter pair can be used in a same command, however only the value of the last pair is used. <br>
-  e.g. In `add task T: CS2103T d: Tutorial Week 2 T: CS2100`, there are 2 parameters with the prefix `T:` but only the latter `CS2100` is taken as the input value for `T:`.
+  e.g. In `add task T: CS2103T d: Tutorial Week 2 T: CS2100`, there are 2 parameters with the prefix `T:` but only the latter, `CS2100`, is taken as the input value for `T:`.
 
 </div>
 <p>&nbsp;</p>
@@ -517,7 +519,7 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 
 ![editTask2](images/editTask2.jpg)
 
-<div align="center">Figure 4.1.6b: Result of <code>edit task</code> command, the `TASK` at `index` 7 is updated </div>
+<div align="center">Figure 4.1.6b: Result of <code>edit task</code> command, the <code>TASK</code> at <code>index</code> 7 is updated </div>
 <br>
 <p style="page-break-before: always"></p>
 
@@ -528,7 +530,7 @@ the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:
 If you would like to create a new `FLASHCARDSET`, this commands allows you to create a new `FLASHCARDSET` with a custom name to store and categorize your `FLASHCARD`s.
 
 | Format                                | **`add flset <name:setname>`**                                         |
-| ------------------------------------- | ---------------------------------------------------------------------- |
+| ------------------------------------- | :----------------------------------------------------------------------|
 | Example                               | `add flset name:Japanese`                                              |
 | ![info_icon](images/UG/info_icon.png) | The parameter `setname` must not be an existing `FLASHCARDSET` name.   |
 
@@ -547,7 +549,7 @@ If you would like to create a new `FLASHCARDSET`, this commands allows you to cr
 If you would like to delete an existing `FLASHCARDSET`, this commands allows you to delete using the index of the `FLASHCARDSET`.
 
 | Format                                           | **`delete flset <setindex>`**                                                                                                                               |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------ | :-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Example                                          | `delete flset 3`                                                                                                                                            |
 | ![info_icon](images/UG/info_icon.png)            | This deletes all the `FLASHCARD`s in the `FLASHCARDSET`, including its last `QUIZ` attempt.                                                                 |
 | ![important_icon](images/UG/important_icon.png)  | This action is irreversible. Once you delete a `FLASHCARDSET`, the `FLASHCARDSET` and its respective information are removed from the storage file as well. |
@@ -567,7 +569,7 @@ If you would like to delete an existing `FLASHCARDSET`, this commands allows you
 This command allows you to view the detailed list of `FLASHCARD` in a specified `FLASHCARDSET` using its index.
 
 | Format                                | **`list fl <setindex>`**                                                                |
-| ------------------------------------- | --------------------------------------------------------------------------------------- |
+| ------------------------------------- | :---------------------------------------------------------------------------------------|
 | Example                               | `list fl 1`                                                                             |
 | ![tip_icon](images/UG/tip_icon.png)   | Alternatively, you can click on the `FLASHCARDSET` in the GUI to view its `FLASHCARD`s. |
 
@@ -586,7 +588,7 @@ This command allows you to view the detailed list of `FLASHCARD` in a specified 
 This command allows you to add a single `FLASHCARD` consisting of a question and an answer, in a specified `FLASHCARDSET` using its index.
 
 | Format         | **`add fl <flset:setindex> <q:question> <a:answer>`** |
-| -------------- | ----------------------------------------------------- |
+| -------------- | :----------------------------------------------------- |
 | Example        | `add fl flset:3 q:Konnichiwa a:Hello`                 |
 
 <br>
@@ -604,7 +606,7 @@ This command allows you to add a single `FLASHCARD` consisting of a question and
 This command allows you to delete a single `FLASHCARD` in a specified `FLASHCARDSET` using their indexes.
 
 | Format                                           | **`delete fl <flset:setindex> <fl:index>`**                                                                                                                                                                         |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Example                                          | `delete fl flset:3 fl:1`                                                                                                                              |
 | Remark on Example                                | Deletes the 1st `FLASHCARD` in the 3rd `FLASHCARDSET`                                                                                                 |
 | ![important_icon](images/UG/important_icon.png)  | This action is irreversible. Once you delete a `FLASHCARD`, the `FLASHCARD` and its respective information are removed from the storage file as well. |

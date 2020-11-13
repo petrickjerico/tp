@@ -406,7 +406,7 @@ Upon deletion of the `TASK`, the saved information of the `TASK` in `schedule.js
 | Format                                          | `delete task <index>`                                                                                                                                                                                                                                                       |
 | ----------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Example                                         | `delete task 2`                                                                                                                                                                                                                                                             |
-| ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#413-list-all-your-tasks-list-task). <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. |
+| ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#413-list-all-your-task-list-task). <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. |
 | ![important_icon](images/UG/important_icon.png) | • This action is irreversible. Once you delete a specific `TASK`, the `TASK` and its respective information are removed from the storage file as well.                                                                                                                      |
 
 <br>
@@ -418,7 +418,7 @@ Upon deletion of the `TASK`, the saved information of the `TASK` in `schedule.js
 For example, you just finished the `TASK` at `index` 4 in the `SCHEDULE`, _CS2100 Lab_ and you
 would like to update your `SCHEDULE` by deleting that `TASK`.
 
-1\. Find the `index` of the `TASK` to be deleted with the [list task](#413-list-all-your-tasks-list-task) command.
+1\. Find the `index` of the `TASK` to be deleted with the [list task](#413-list-all-your-task-list-task) command.
 
 2\. From the figure below, you can identify the `TASK` to be deleted has an `index` of 4, enter the command `delete task 4`.  
 
@@ -484,7 +484,7 @@ You can edit a `TASK`'s `title`, `description`, `time` and `duration`.
 | Format                                          | `edit task <index> [T:title] [d:description] [t:time] [dur:duration]`                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Example                                         | `edit task 1 T: Internship` <br> `edit task 2 d: Pipleline Tutorial homework dur: 60`                                                                                                                                                                                                                                                                                                                                                                                           |
-| ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#413-list-all-your-tasks-list-task) <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. <br> • `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command. <br> • `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format. |
+| ![info_icon](images/UG/info_icon.png)           | • The `index` refers to the index number shown in the fully displayed `SCHEDULE` after you [list task](#413-list-all-your-task-list-task) <br> • The index must be a positive integer 1, 2, 3, …​ and within range of the number of `TASK` you have in your `SCHEDULE`. <br> • `[title]`, `[description]`, `[time]` and `[duration]` are optional but you need to include at least one of them in the command. <br> • `[title]`, `[description]`, `[time]` and `[duration]` still need to conform to its respective expected format. |
 | ![important_icon](images/UG/important_icon.png) | • This action is irreversible. Once you edit a specific `TASK`, the `TASK`'s details are modified in the storage file as well.                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 <p style="page-break-before: always"></p>
@@ -494,7 +494,7 @@ You can edit a `TASK`'s `title`, `description`, `time` and `duration`.
 For example, you previously added a `TASK`: _CS2100 Lab 8 on Thursday, Oct 29 2020 10:00 with duration 60 minutes_, which currently has
 the index of `7` in the `SCHEDULE`. Later on, you want to edit the `time` to 11:00 instead.
 
-1\. Find the `index` of the `TASK` to be edited with the [list task](#413-list-all-your-tasks-list-task) command.
+1\. Find the `index` of the `TASK` to be edited with the [list task](#413-list-all-your-task-list-task) command.
 
 2\. Enter the command `edit task 7 t: Thursday, Oct 29 2020 11:00` to edit the `TASK`.  
 

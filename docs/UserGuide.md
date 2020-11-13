@@ -907,7 +907,7 @@ After editing, place the file with correct JSON format back to the **data** fold
 be able to see the updated data.
 
 
-| ![important_icon](images/UG/important_icon.png) | Our application reads the storage files by its</span> **path**, <span style="font-weight:normal">please make sure the storage files are named as</span> **flashcardbank.json**<span style="font-weight:normal">,</span> **quizrecords.json** <span style="font-weight:normal">and</span> **schedule.json** |
+| ![important_icon](images/UG/important_icon.png) | <span style="font-weight:normal">Our application reads the storage files by its</span> **path**, <span style="font-weight:normal">please make sure the storage files are named as</span> **flashcardbank.json**<span style="font-weight:normal">,</span> **quizrecords.json** <span style="font-weight:normal">and</span> **schedule.json** |
 |---|---|
 
 

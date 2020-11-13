@@ -174,7 +174,7 @@ when reading this user guide.
 ## 3. Features (Petrick)
 This section describes the various features available in StudyBananas. These include front-end features that you can interact with, such as the **SCHEDULE** page, as well as back-end features such as the auto-saving of data.
 
-### 3.1. Task list in **SCHEDULE**
+### 3.1. Task list in SCHEDULE
 You can set the **TASK** you want to do at a particular day to help you de-clutter your **TASK** and organise them 
 strategically into daily **TASK**.
 
@@ -184,7 +184,7 @@ using a keyword, making it easier for you to group **TASK**.
 There are no limits to how many **TASK** you can add in StudyBananas:
 No matter how busy you are, StudyBananas can adapt to your needs and still function normally! 
 
-### 3.2. Time Scale in **SCHEDULE**
+### 3.2. Time Scale in SCHEDULE
 StudyBananas helps you visualise your day and manage your time efficiently by creating a time scale that
 shows the timespan of different **TASK** in a daily timeline.
 
@@ -263,7 +263,7 @@ you to manually save the app's data!
 
 <p style="page-break-before: always"></p>
 
-### 4.1. Commands for the **SCHEDULE** page (Binh except 4.1.1)
+### 4.1. Commands for the SCHEDULE page (Binh except 4.1.1)
 
 [4.1.1. View the details of your task: (Eddy)](#411-view-the-details-of-your-task-eddy) <br>
 [4.1.2. Add a task](#412-add-a-task-add-task) <br>
@@ -272,7 +272,7 @@ you to manually save the app's data!
 [4.1.5. Search for a task](#415-search-for-a-task-search-task) <br>
 [4.1.6. Edit a task](#416-edit-a-task-edit-task) <br>
 
-#### 4.1.1. View the details of your **TASK** (Eddy)
+#### 4.1.1. View the details of your TASK (Eddy)
 
 There are several panels in our user interface that provides the details of your **TASK**.
 
@@ -287,7 +287,7 @@ There are several panels in our user interface that provides the details of your
 
 <p style="page-break-before: always"></p>
 
-#### 4.1.2. Add a **TASK**: `add task`
+#### 4.1.2. Add a TASK: `add task`
 
 If you would like to add a study **TASK** to your **SCHEDULE**, this command allows you to create a **TASK** and saves it to the
 **SCHEDULE**, while specifying the `title`, `description`, `time` and `duration` of the task.
@@ -305,7 +305,7 @@ You can also add a **QUIZ** as a valid **TASK** by entering the `quiz <flset:set
 
 <p style="page-break-before: always"></p>
 
-##### 4.1.2.1. Adding a normal **TASK**
+##### 4.1.2.1. Adding a normal TASK
 
 For example, you would like to add a **TASK** to your **SCHEDULE** with the `title` _CS2100_, `description` _Lab 8_, `time`
 _2020-10-29 10:00_ and `duration` of _60_ minutes.
@@ -332,7 +332,7 @@ to your **SCHEDULE**.
 
 <p style="page-break-before: always"></p>
 
-##### 4.1.2.2. Adding a **QUIZ** **TASK**
+##### 4.1.2.2. Adding a QUIZ TASK
 
 Now, if you would like to add a **QUIZ** of **FLASHCARDSET** 1 as a **TASK** to your **SCHEDULE**.
 
@@ -368,7 +368,7 @@ the **QUIZ** to your **SCHEDULE**.
 
 <p style="page-break-before: always"></p>
 
-#### 4.1.3. List all your **TASK**: `list task`
+#### 4.1.3. List all your TASK: `list task`
 
 If you would like to view your full **SCHEDULE**, this command displays the full **SCHEDULE** that you are having at the moment.
 
@@ -399,7 +399,7 @@ If you would like to view your full **SCHEDULE**, this command displays the full
 
 <div style="page-break-after: always;"></div>
 
-#### 4.1.4. Delete a **TASK**: `delete task`
+#### 4.1.4. Delete a TASK: `delete task`
 
 If you complete a **TASK** and would like to remove that specific **TASK** from your **SCHEDULE**, this command helps you remove the task at the specified `index`.
 
@@ -439,7 +439,7 @@ would like to update your **SCHEDULE** by deleting that **TASK**.
 
 <br>
 
-#### 4.1.5. Search for a **TASK**: `search task`
+#### 4.1.5. Search for a TASK: `search task`
 
 If you have trouble finding certain specific **TASK**, you can search for them using a certain **keyword(s)**. This command displays any **TASK** that its `title`
 contains _any_ of the given **keyword(s)** or its `description` and `time` contains _all_ of the given **keyword(s)**.
@@ -477,7 +477,7 @@ specified **keyword**.
 <p>&nbsp;</p>
 <p style="page-break-before: always"></p>
 
-#### 4.1.6. Edit a **TASK**: `edit task`
+#### 4.1.6. Edit a TASK: `edit task`
 
 If you would like to update certain details of a specific **TASK**, this command allows you to edit the details of a **TASK** at a specified `index` in the **SCHEDULE**.
 
@@ -514,7 +514,7 @@ the index of `7` in the **SCHEDULE**. Later on, you want to edit the `time` to 1
 <br>
 <p style="page-break-before: always"></p>
 
-### 4.2. Commands for the **FLASHCARD** page (Teddy)
+### 4.2. Commands for the FLASHCARD page (Teddy)
 
 [4.2.1. Add a flashcardset](#421-add-a-flashcardset-add-flset) <br>
 [4.2.2. Delete a flashcardset](#422-delete-a-flashcardset-delete-flset) <br>
@@ -522,7 +522,7 @@ the index of `7` in the **SCHEDULE**. Later on, you want to edit the `time` to 1
 [4.2.4. Add a flashcard into a flashcardset](#424-add-a-flashcard-into-a-flashcardset-add-fl) <br>
 [4.2.5. Delete a flashcard in a flashcardset](#425-delete-a-flashcard-in-a-flashcardset-delete-fl) <br>
 
-#### 4.2.1. Add a **FLASHCARDSET**: `add flset`
+#### 4.2.1. Add a FLASHCARDSET: `add flset`
 
 If you would like to create a new **FLASHCARDSET**, this commands allows you to create a new **FLASHCARDSET** with a custom name to store and categorize your **FLASHCARD**.
 
@@ -541,7 +541,7 @@ If you would like to create a new **FLASHCARDSET**, this commands allows you to 
 
 <p style="page-break-before: always"></p>
 
-#### 4.2.2. Delete a **FLASHCARDSET**: `delete flset`
+#### 4.2.2. Delete a FLASHCARDSET: `delete flset`
 
 If you would like to delete an existing **FLASHCARDSET**, this commands allows you to delete using the index of the **FLASHCARDSET**.
 
@@ -561,7 +561,7 @@ If you would like to delete an existing **FLASHCARDSET**, this commands allows y
 
 <p style="page-break-before: always"></p>
 
-#### 4.2.3. List **FLASHCARD** in a **FLASHCARDSET**: `list fl`
+#### 4.2.3. List FLASHCARD in a FLASHCARDSET: `list fl`
 
 This command allows you to view the detailed list of **FLASHCARD** in a specified **FLASHCARDSET** using its index.
 
@@ -580,7 +580,7 @@ This command allows you to view the detailed list of **FLASHCARD** in a specifie
 
 <p style="page-break-before: always"></p>
 
-#### 4.2.4. Add a **FLASHCARD** into a **FLASHCARDSET**: `add fl`
+#### 4.2.4. Add a FLASHCARD into a FLASHCARDSET: `add fl`
 
 This command allows you to add a single **FLASHCARD** consisting of a question and an answer, in a specified **FLASHCARDSET** using its index.
 
@@ -598,7 +598,7 @@ This command allows you to add a single **FLASHCARD** consisting of a question a
 
 <p style="page-break-before: always"></p>
 
-#### 4.2.5. Delete a **FLASHCARD** in a **FLASHCARDSET**: `delete fl`
+#### 4.2.5. Delete a FLASHCARD in a FLASHCARDSET: `delete fl`
 
 This command allows you to delete a single **FLASHCARD** in a specified **FLASHCARDSET** using their indexes.
 
@@ -618,12 +618,12 @@ This command allows you to delete a single **FLASHCARD** in a specified **FLASHC
 
 <p style="page-break-before: always"></p>
 
-### 4.3. Commands for the **QUIZ** page (Bowei)
+### 4.3. Commands for the QUIZ page (Bowei)
 
 [4.3.1. Quiz of a flashcardset](#431-quiz-of-a-flashcardset-quiz-flset) <br>
 [4.3.2. View last quiz attempt](#432-view-last-quiz-attempt-quiz-score-flset) <br>
     
-#### 4.3.1. **QUIZ** of a **FLASHCARDSET**: `quiz flset`
+#### 4.3.1. QUIZ of a FLASHCARDSET: `quiz flset`
 
 ![QuizPage](images/QuizPage.png)
 
@@ -735,7 +735,7 @@ The question of the next **FLASHCARD** will be displayed.
 
 <br>
 
-##### 4.3.1.4. Continuing the **QUIZ** cycle
+##### 4.3.1.4. Continuing the QUIZ cycle
 Steps 4.3.1.1-4.3.1.3 are repeated until all **FLASHCARD** in the **FLASHCARDSET** are displayed and answered.
 
 Once the quiz stops, the score statistics will be displayed.
@@ -745,7 +745,7 @@ You can also view this score by viewing the last attempt of the **FLASHCARDSET**
 <p>&nbsp;</p>
 <p style="page-break-before: always"></p>
 
-#### 4.3.2. View last **QUIZ** attempt: `quiz score flset`
+#### 4.3.2. View last QUIZ attempt: `quiz score flset`
 
 Shows the last attempt of a **QUIZ** on a specified **FLASHCARDSET**.
 
